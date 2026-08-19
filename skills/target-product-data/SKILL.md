@@ -155,7 +155,7 @@ Every response uses the envelope `{ data, response_time, credits_used, credits_r
 - **`/reviews` returns 8 review bodies maximum**, regardless of what `review_count` on the product says. `limit` only trims that set further. There is no `page` and no `offset` parameter. Never tell the user they can page through all reviews, and never present 8 bodies as the complete review corpus. The rating breakdown does cover all reviews.
 - A null `seller_id` / `seller_name` means the item is sold by Target itself. Do not report it as missing or unknown data.
 - `count` is capped at 28. Target rejects anything higher outright.
-- Concurrency, not credits, is the real ceiling. On Hobby you get 10 concurrent requests shared across Target, eBay, Walmart, Amazon and Google, and a single Target call can hold a slot for 40 seconds. Do not fan out dozens of Target calls in parallel.
+- Concurrency, not credits, is the real ceiling. Simultaneous requests are capped per plan and shared across Target, eBay, Walmart, Amazon and Google -- 1 on free and pay-as-you-go, up to 50 on Growth -- and a single Target call can hold a slot for 40 seconds. Do not fan out dozens of Target calls in parallel.
 - Prices and availability are store-dependent. If the user cares about a specific store, pass `store_id`; if you did not pass one, say the numbers are for the default store.
 - Always include the product URL so the user can verify.
 

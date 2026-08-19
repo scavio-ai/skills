@@ -199,7 +199,7 @@ A 402 or 429 means stop, not retry harder. Report the condition to the user rath
 
 Every successful response carries `credits_used` and `credits_remaining` next to `data`. Read `credits_remaining` as you go. To check the balance without spending anything, call `GET /api/v1/usage` (0 credits, no body).
 
-Concurrency is capped per plan -- 1 simultaneous request on free and pay-as-you-go, up to 10 on Growth. Exceeding it returns 429 immediately. Do not fan out parallel Instagram calls unless you know the plan allows it.
+Concurrency is capped per plan -- 1 simultaneous request on free and pay-as-you-go, up to 50 on Growth. Exceeding it returns 429 immediately. Do not fan out parallel Instagram calls unless you know the plan allows it.
 
 Before any multi-call workflow, state the credit cost to the user. "Scanning this account's 500 followers is 10 credits per page of up to 100, so about 50 credits" is the kind of thing to say **before** starting, not after.
 
