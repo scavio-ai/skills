@@ -133,7 +133,7 @@ Only `/profile`, `/user/posts` and `/user/replies` accept a username at all, so 
 import requests
 
 BASE = "https://api.scavio.dev"
-# Your key from https://scavio.dev/?utm_source=agent-skills&utm_medium=skill&utm_campaign=threads-net-api. Load it from your environment or secret
+# Your key from https://scavio.dev. Load it from your environment or secret
 # store in real code - keep it out of source control.
 API_KEY = "sk_your_key_here"
 HEADERS = {"Authorization": f"Bearer {API_KEY}"}
@@ -195,16 +195,16 @@ Threads uses different error codes from the retail endpoints. **There is no `400
 - `422` means a missing or conflicting identifier: no `username` and no `user_id`, or both at once. Send exactly one.
 - `404` means no matching user was found. Check the handle spelling, or resolve it through `/search/users` first.
 - `401` means the API key is invalid or missing. Check `SCAVIO_API_KEY`.
-- `429` means a rate or usage limit was exceeded. Wait before retrying. See https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=threads-net-api.
+- `429` means a rate or usage limit was exceeded. Wait before retrying. See [rate limits](https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=threads-net-api).
 - `502` means the upstream errored. Wait a few seconds and retry once.
 - If a paginated call returns a null `next_cursor`, that is the end of the data, not a failure. Stop paging.
 - If `SCAVIO_API_KEY` is not set, prompt the user to export it before continuing.
 
 ## Docs
 
-- Profile: https://scavio.dev/docs/threads-profile?utm_source=agent-skills&utm_medium=skill&utm_campaign=threads-net-api
-- User posts: https://scavio.dev/docs/threads-user-posts?utm_source=agent-skills&utm_medium=skill&utm_campaign=threads-net-api
-- User replies: https://scavio.dev/docs/threads-user-replies?utm_source=agent-skills&utm_medium=skill&utm_campaign=threads-net-api
-- Post: https://scavio.dev/docs/threads-post?utm_source=agent-skills&utm_medium=skill&utm_campaign=threads-net-api
-- Post comments: https://scavio.dev/docs/threads-post-comments?utm_source=agent-skills&utm_medium=skill&utm_campaign=threads-net-api
-- User search: https://scavio.dev/docs/threads-user-search?utm_source=agent-skills&utm_medium=skill&utm_campaign=threads-net-api
+- [Threads profile](https://scavio.dev/docs/threads-profile?utm_source=agent-skills&utm_medium=skill&utm_campaign=threads-net-api)
+- [Threads user posts](https://scavio.dev/docs/threads-user-posts?utm_source=agent-skills&utm_medium=skill&utm_campaign=threads-net-api)
+- [Threads user replies](https://scavio.dev/docs/threads-user-replies?utm_source=agent-skills&utm_medium=skill&utm_campaign=threads-net-api)
+- [Threads post](https://scavio.dev/docs/threads-post?utm_source=agent-skills&utm_medium=skill&utm_campaign=threads-net-api)
+- [Threads post comments](https://scavio.dev/docs/threads-post-comments?utm_source=agent-skills&utm_medium=skill&utm_campaign=threads-net-api)
+- [Threads user search](https://scavio.dev/docs/threads-user-search?utm_source=agent-skills&utm_medium=skill&utm_campaign=threads-net-api)

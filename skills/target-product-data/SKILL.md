@@ -113,7 +113,7 @@ A child TCIN is answered by its variation parent, with the child present in `var
 import requests
 
 BASE = "https://api.scavio.dev"
-# Your key from https://scavio.dev/?utm_source=agent-skills&utm_medium=skill&utm_campaign=target-product-data. Load it from your environment or secret
+# Your key from https://scavio.dev. Load it from your environment or secret
 # store in real code - keep it out of source control.
 API_KEY = "sk_your_key_here"
 HEADERS = {"Authorization": f"Bearer {API_KEY}"}
@@ -164,14 +164,14 @@ Every response uses the envelope `{ data, response_time, credits_used, credits_r
 - `400` means an invalid or missing parameter, e.g. a `count` above 28. Fix and retry.
 - `401` means the API key is invalid or missing. Check `SCAVIO_API_KEY`.
 - `404` means the TCIN or category id was not found. Check that `category_id` is the segment after `N-` in the `/c/` URL, not the whole path.
-- `429` means a rate or usage limit was exceeded. Wait before retrying. See https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=target-product-data.
+- `429` means a rate or usage limit was exceeded. Wait before retrying. See [rate limits](https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=target-product-data).
 - `502` / `503` mean the upstream is temporarily unavailable. Retry once after a few seconds; a 502-then-retry has been seen to complete at 105 seconds total, so do not abandon the request too early.
 - A client-side timeout is far more likely than an API error here. Raise the timeout before assuming the endpoint is broken.
 - If `SCAVIO_API_KEY` is not set, prompt the user to export it before continuing.
 
 ## Docs
 
-- Search: https://scavio.dev/docs/target-search?utm_source=agent-skills&utm_medium=skill&utm_campaign=target-product-data
-- Category: https://scavio.dev/docs/target-category?utm_source=agent-skills&utm_medium=skill&utm_campaign=target-product-data
-- Product: https://scavio.dev/docs/target-product?utm_source=agent-skills&utm_medium=skill&utm_campaign=target-product-data
-- Reviews: https://scavio.dev/docs/target-reviews?utm_source=agent-skills&utm_medium=skill&utm_campaign=target-product-data
+- [Target search](https://scavio.dev/docs/target-search?utm_source=agent-skills&utm_medium=skill&utm_campaign=target-product-data)
+- [Target category](https://scavio.dev/docs/target-category?utm_source=agent-skills&utm_medium=skill&utm_campaign=target-product-data)
+- [Target product](https://scavio.dev/docs/target-product?utm_source=agent-skills&utm_medium=skill&utm_campaign=target-product-data)
+- [Target reviews](https://scavio.dev/docs/target-reviews?utm_source=agent-skills&utm_medium=skill&utm_campaign=target-product-data)

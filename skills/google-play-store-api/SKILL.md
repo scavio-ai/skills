@@ -109,7 +109,7 @@ At `hl=pt-BR` the title, the description, the install formatting **and the conte
 import requests
 
 BASE = "https://api.scavio.dev"
-# Your key from https://scavio.dev/?utm_source=agent-skills&utm_medium=skill&utm_campaign=google-play-store-api. Load it from your environment or secret
+# Your key from https://scavio.dev. Load it from your environment or secret
 # store in real code - keep it out of source control.
 API_KEY = "sk_your_key_here"
 HEADERS = {"Authorization": f"Bearer {API_KEY}"}
@@ -176,7 +176,7 @@ Every response uses the envelope `{ data, response_time, credits_used, credits_r
 - `401` means the API key is invalid or missing. Check `SCAVIO_API_KEY`.
 - `404` on `/reviews` while paging means the cursor ran past the last review. Stop; this is normal.
 - A reviews call that answers **200 with an empty payload is a billed 404** - premium price paid to learn the package has no reviews or does not exist. Confirm the package with `/app` before crawling reviews for it.
-- `429` means rate or usage limit exceeded. Wait before retrying. See https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=google-play-store-api.
+- `429` means rate or usage limit exceeded. Wait before retrying. See [rate limits](https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=google-play-store-api).
 - `502` / `503` mean upstream is temporarily unavailable - wait a few seconds and retry.
 - If `SCAVIO_API_KEY` is not set, prompt the user to export it before continuing.
 

@@ -155,7 +155,7 @@ No parameters.
 import requests
 
 BASE = "https://api.scavio.dev"
-# Your key from https://scavio.dev/?utm_source=agent-skills&utm_medium=skill&utm_campaign=reddit-search-api. Load it from your environment or secret
+# Your key from https://scavio.dev. Load it from your environment or secret
 # store in real code - keep it out of source control.
 API_KEY = "sk_your_key_here"
 HEADERS = {"Authorization": f"Bearer {API_KEY}"}
@@ -237,7 +237,7 @@ Every response uses the envelope `{ data, response_time, credits_used, credits_r
 
 - `400` means an invalid or missing parameter (e.g. no `post_id`/`url`) — fix and retry.
 - `401` means the API key is invalid or missing. Check `SCAVIO_API_KEY`.
-- `429` means rate or usage limit exceeded. Wait before retrying. See https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=reddit-search-api.
+- `429` means rate or usage limit exceeded. Wait before retrying. See [rate limits](https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=reddit-search-api).
 - `502` / `503` mean upstream is temporarily unavailable. Wait a few seconds before retrying.
 - If search returns no results, suggest different keywords.
 - If `SCAVIO_API_KEY` is not set, prompt the user to export it before continuing.

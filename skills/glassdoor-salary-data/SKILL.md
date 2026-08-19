@@ -118,7 +118,7 @@ Base URL: `https://api.scavio.dev`. Every Glassdoor endpoint costs **1 credit**.
 import requests
 
 BASE = "https://api.scavio.dev"
-# Your key from https://scavio.dev/?utm_source=agent-skills&utm_medium=skill&utm_campaign=glassdoor-salary-data. Load it from your environment or secret
+# Your key from https://scavio.dev. Load it from your environment or secret
 # store in real code - keep it out of source control.
 API_KEY = "sk_your_key_here"
 HEADERS = {"Authorization": f"Bearer {API_KEY}"}
@@ -208,7 +208,7 @@ Every response uses the envelope `{ data, response_time, credits_used, credits_r
 - `400` means an invalid or missing parameter - neither `employer_id` nor `url`, a numeric `employer_id`, a non-glassdoor.com `url`, or a `category` / `employment_status` outside its set. Fix and retry.
 - `401` means the API key is invalid or missing. Check `SCAVIO_API_KEY`.
 - `404` means the employer id or URL does not resolve. Re-run `/companies` rather than guessing another id.
-- `429` means rate or usage limit exceeded. Wait before retrying. See https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=glassdoor-salary-data.
+- `429` means rate or usage limit exceeded. Wait before retrying. See [rate limits](https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=glassdoor-salary-data).
 - `502` / `503` mean upstream is temporarily unavailable. **This is the common failure here** - Glassdoor sits behind a render-only, degraded pool. A failing call can take ~170 seconds before it reports. Retry once or twice with a short pause; do not hammer it, and do not shorten the client timeout to "fail faster" - you will abandon calls that were about to succeed.
 - If `/companies` returns nothing useful, try the legal entity name or a shorter form of the brand.
 - If `SCAVIO_API_KEY` is not set, prompt the user to export it before continuing.

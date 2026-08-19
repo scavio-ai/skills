@@ -142,7 +142,7 @@ Only `/search` and `/category` accept `domain`, so only those two can ever cost 
 import requests
 
 BASE = "https://api.scavio.dev"
-# Your key from https://scavio.dev/?utm_source=agent-skills&utm_medium=skill&utm_campaign=walmart-product-data. Load it from your environment or secret
+# Your key from https://scavio.dev. Load it from your environment or secret
 # store in real code - keep it out of source control.
 API_KEY = "sk_your_key_here"
 HEADERS = {"Authorization": f"Bearer {API_KEY}"}
@@ -220,7 +220,7 @@ New since 2.x: `/reviews`, `/category`, `/offers`, `/seller` and `/seller-produc
 - `400` means an invalid or missing parameter. Fix and retry.
 - `401` means the API key is invalid or missing. Check `SCAVIO_API_KEY`.
 - `404` on `/seller` or `/seller-products` almost always means a GUID was sent instead of the numeric `seller_catalog_id`.
-- `429` means a rate or usage limit was exceeded. Wait before retrying. See https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=walmart-product-data.
+- `429` means a rate or usage limit was exceeded. Wait before retrying. See [rate limits](https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=walmart-product-data).
 - `502` / `503` mean the upstream is temporarily unavailable. Transient 502s happen on Walmart; wait a few seconds and retry once before reporting failure.
 - If a response carries `warnings[]`, surface it to the user. It means part of their request was ignored.
 - If search returns nothing, relax the filters (drop `fulfillment_speed`, widen `min_price`/`max_price`) and retry.
@@ -228,10 +228,10 @@ New since 2.x: `/reviews`, `/category`, `/offers`, `/seller` and `/seller-produc
 
 ## Docs
 
-- Search: https://scavio.dev/docs/walmart-api?utm_source=agent-skills&utm_medium=skill&utm_campaign=walmart-product-data
-- Product: https://scavio.dev/docs/walmart-product?utm_source=agent-skills&utm_medium=skill&utm_campaign=walmart-product-data
-- Reviews: https://scavio.dev/docs/walmart-reviews?utm_source=agent-skills&utm_medium=skill&utm_campaign=walmart-product-data
-- Category: https://scavio.dev/docs/walmart-category?utm_source=agent-skills&utm_medium=skill&utm_campaign=walmart-product-data
-- Offers: https://scavio.dev/docs/walmart-offers?utm_source=agent-skills&utm_medium=skill&utm_campaign=walmart-product-data
-- Seller: https://scavio.dev/docs/walmart-seller?utm_source=agent-skills&utm_medium=skill&utm_campaign=walmart-product-data
-- Seller products: https://scavio.dev/docs/walmart-seller-products?utm_source=agent-skills&utm_medium=skill&utm_campaign=walmart-product-data
+- [Walmart search](https://scavio.dev/docs/walmart-api?utm_source=agent-skills&utm_medium=skill&utm_campaign=walmart-product-data)
+- [Walmart product](https://scavio.dev/docs/walmart-product?utm_source=agent-skills&utm_medium=skill&utm_campaign=walmart-product-data)
+- [Walmart reviews](https://scavio.dev/docs/walmart-reviews?utm_source=agent-skills&utm_medium=skill&utm_campaign=walmart-product-data)
+- [Walmart category](https://scavio.dev/docs/walmart-category?utm_source=agent-skills&utm_medium=skill&utm_campaign=walmart-product-data)
+- [Walmart offers](https://scavio.dev/docs/walmart-offers?utm_source=agent-skills&utm_medium=skill&utm_campaign=walmart-product-data)
+- [Walmart seller](https://scavio.dev/docs/walmart-seller?utm_source=agent-skills&utm_medium=skill&utm_campaign=walmart-product-data)
+- [Walmart seller products](https://scavio.dev/docs/walmart-seller-products?utm_source=agent-skills&utm_medium=skill&utm_campaign=walmart-product-data)

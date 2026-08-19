@@ -175,7 +175,7 @@ Not paginated at all: `profile`, `user/live`, `user/resolve`, `video`, `videos/b
 import requests
 
 BASE = "https://api.scavio.dev"
-# Your key from https://scavio.dev/?utm_source=agent-skills&utm_medium=skill&utm_campaign=kuaishou-scraper-api. Load it from your environment or secret
+# Your key from https://scavio.dev. Load it from your environment or secret
 # store in real code - keep it out of source control.
 API_KEY = "sk_your_key_here"
 HEADERS = {"Authorization": f"Bearer {API_KEY}"}
@@ -249,7 +249,7 @@ Kuaishou uses a narrow set of error codes. **There is no `400`, no `404` and no 
 
 - `422` means a missing identifier, e.g. no `photo_id` and no `url` on `/video`. Send one.
 - `401` means the API key is invalid or missing. Check `SCAVIO_API_KEY`.
-- `429` means a rate or usage limit was exceeded. Wait before retrying. See https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=kuaishou-scraper-api.
+- `429` means a rate or usage limit was exceeded. Wait before retrying. See [rate limits](https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=kuaishou-scraper-api).
 - `502` is the one to understand. **Kuaishou hides its errors inside HTTP 200 responses**, returning a success status with a failure code in the body. Those are detected and surfaced to you as a `502`. So a 502 here does not necessarily mean the upstream is down; it often means the id, link or keyword was rejected. Re-check the identifier before retrying blindly, and do not retry more than once or twice.
 - An empty result set from a kwai.com id is expected, not a bug. See Guardrails.
 - If a paginated call returns a null `next_cursor`, that is the end of the data. Stop paging, especially on the 10-credit search endpoints.
@@ -257,17 +257,17 @@ Kuaishou uses a narrow set of error codes. **There is no `400`, no `404` and no 
 
 ## Docs
 
-- Profile: https://scavio.dev/docs/kuaishou-profile?utm_source=agent-skills&utm_medium=skill&utm_campaign=kuaishou-scraper-api
-- User posts: https://scavio.dev/docs/kuaishou-user-posts?utm_source=agent-skills&utm_medium=skill&utm_campaign=kuaishou-scraper-api
-- User live: https://scavio.dev/docs/kuaishou-user-live?utm_source=agent-skills&utm_medium=skill&utm_campaign=kuaishou-scraper-api
-- User resolve: https://scavio.dev/docs/kuaishou-user-resolve?utm_source=agent-skills&utm_medium=skill&utm_campaign=kuaishou-scraper-api
-- Video: https://scavio.dev/docs/kuaishou-video?utm_source=agent-skills&utm_medium=skill&utm_campaign=kuaishou-scraper-api
-- Video comments: https://scavio.dev/docs/kuaishou-video-comments?utm_source=agent-skills&utm_medium=skill&utm_campaign=kuaishou-scraper-api
-- Comment replies: https://scavio.dev/docs/kuaishou-comment-replies?utm_source=agent-skills&utm_medium=skill&utm_campaign=kuaishou-scraper-api
-- Videos batch: https://scavio.dev/docs/kuaishou-videos-batch?utm_source=agent-skills&utm_medium=skill&utm_campaign=kuaishou-scraper-api
-- Search: https://scavio.dev/docs/kuaishou-search?utm_source=agent-skills&utm_medium=skill&utm_campaign=kuaishou-scraper-api
-- Video search: https://scavio.dev/docs/kuaishou-video-search?utm_source=agent-skills&utm_medium=skill&utm_campaign=kuaishou-scraper-api
-- User search: https://scavio.dev/docs/kuaishou-user-search?utm_source=agent-skills&utm_medium=skill&utm_campaign=kuaishou-scraper-api
-- Live search: https://scavio.dev/docs/kuaishou-live-search?utm_source=agent-skills&utm_medium=skill&utm_campaign=kuaishou-scraper-api
-- Tag feed: https://scavio.dev/docs/kuaishou-tag-feed?utm_source=agent-skills&utm_medium=skill&utm_campaign=kuaishou-scraper-api
-- Trending: https://scavio.dev/docs/kuaishou-trending?utm_source=agent-skills&utm_medium=skill&utm_campaign=kuaishou-scraper-api
+- [Kuaishou profile](https://scavio.dev/docs/kuaishou-profile?utm_source=agent-skills&utm_medium=skill&utm_campaign=kuaishou-scraper-api)
+- [Kuaishou user posts](https://scavio.dev/docs/kuaishou-user-posts?utm_source=agent-skills&utm_medium=skill&utm_campaign=kuaishou-scraper-api)
+- [Kuaishou user live](https://scavio.dev/docs/kuaishou-user-live?utm_source=agent-skills&utm_medium=skill&utm_campaign=kuaishou-scraper-api)
+- [Kuaishou user resolve](https://scavio.dev/docs/kuaishou-user-resolve?utm_source=agent-skills&utm_medium=skill&utm_campaign=kuaishou-scraper-api)
+- [Kuaishou video](https://scavio.dev/docs/kuaishou-video?utm_source=agent-skills&utm_medium=skill&utm_campaign=kuaishou-scraper-api)
+- [Kuaishou video comments](https://scavio.dev/docs/kuaishou-video-comments?utm_source=agent-skills&utm_medium=skill&utm_campaign=kuaishou-scraper-api)
+- [Kuaishou comment replies](https://scavio.dev/docs/kuaishou-comment-replies?utm_source=agent-skills&utm_medium=skill&utm_campaign=kuaishou-scraper-api)
+- [Kuaishou videos batch](https://scavio.dev/docs/kuaishou-videos-batch?utm_source=agent-skills&utm_medium=skill&utm_campaign=kuaishou-scraper-api)
+- [Kuaishou search](https://scavio.dev/docs/kuaishou-search?utm_source=agent-skills&utm_medium=skill&utm_campaign=kuaishou-scraper-api)
+- [Kuaishou video search](https://scavio.dev/docs/kuaishou-video-search?utm_source=agent-skills&utm_medium=skill&utm_campaign=kuaishou-scraper-api)
+- [Kuaishou user search](https://scavio.dev/docs/kuaishou-user-search?utm_source=agent-skills&utm_medium=skill&utm_campaign=kuaishou-scraper-api)
+- [Kuaishou live search](https://scavio.dev/docs/kuaishou-live-search?utm_source=agent-skills&utm_medium=skill&utm_campaign=kuaishou-scraper-api)
+- [Kuaishou tag feed](https://scavio.dev/docs/kuaishou-tag-feed?utm_source=agent-skills&utm_medium=skill&utm_campaign=kuaishou-scraper-api)
+- [Kuaishou trending](https://scavio.dev/docs/kuaishou-trending?utm_source=agent-skills&utm_medium=skill&utm_campaign=kuaishou-scraper-api)

@@ -110,7 +110,7 @@ On `/search`, `lang` is independent of `country`: the storefront sets the prices
 import requests
 
 BASE = "https://api.scavio.dev"
-# Your key from https://scavio.dev/?utm_source=agent-skills&utm_medium=skill&utm_campaign=apple-app-store-api. Load it from your environment or secret
+# Your key from https://scavio.dev. Load it from your environment or secret
 # store in real code - keep it out of source control.
 API_KEY = "sk_your_key_here"
 HEADERS = {"Authorization": f"Bearer {API_KEY}"}
@@ -180,7 +180,7 @@ Two shapes to code for:
 - `401` means the API key is invalid or missing. Check `SCAVIO_API_KEY`.
 - `404` on `/app` means Apple could not resolve that id. **This one is billed** - Apple answers with a 200 carrying an empty result list and charges for it. Verify the id before looping over a list of them.
 - **`/reviews` cannot 404.** An unknown id and a real app with zero reviews return the same empty feed, so an empty result never proves the app does not exist. Confirm the app with `/app` first.
-- `429` means rate or usage limit exceeded. Wait before retrying. See https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=apple-app-store-api.
+- `429` means rate or usage limit exceeded. Wait before retrying. See [rate limits](https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=apple-app-store-api).
 - `502` / `503` mean upstream is temporarily unavailable - wait a few seconds and retry.
 - If `SCAVIO_API_KEY` is not set, prompt the user to export it before continuing.
 

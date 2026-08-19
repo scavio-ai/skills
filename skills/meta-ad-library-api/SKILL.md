@@ -119,7 +119,7 @@ To surface them, set `ad_type: political_and_issue_ads`. If the user is asking "
 import requests
 
 BASE = "https://api.scavio.dev"
-# Your key from https://scavio.dev/?utm_source=agent-skills&utm_medium=skill&utm_campaign=meta-ad-library-api. Load it from your environment or secret
+# Your key from https://scavio.dev. Load it from your environment or secret
 # store in real code - keep it out of source control.
 API_KEY = "sk_your_key_here"
 HEADERS = {"Authorization": f"Bearer {API_KEY}"}
@@ -190,7 +190,7 @@ The error set here is `400 / 401 / 404 / 429 / 502` - **there is no 503 on this 
 - `400` means an invalid or missing parameter - e.g. a non-numeric `page_id` or `ad_archive_id`, or a `country` that is not exactly two characters. Fix and retry.
 - `401` means the API key is invalid or missing. Check `SCAVIO_API_KEY`.
 - `404` means the ad or page does not resolve.
-- `429` means rate or usage limit exceeded. Wait before retrying. See https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=meta-ad-library-api.
+- `429` means rate or usage limit exceeded. Wait before retrying. See [rate limits](https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=meta-ad-library-api).
 - `502` means upstream is temporarily unavailable - wait a few seconds and retry.
 - If a keyword search returns nothing, try `keyword_unordered` rather than `keyword_exact_phrase`, or widen `country` and `active_status`.
 - If `SCAVIO_API_KEY` is not set, prompt the user to export it before continuing.

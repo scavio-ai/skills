@@ -113,7 +113,7 @@ Yelp fixes the page size at **10** for both search and reviews.
 import requests
 
 BASE = "https://api.scavio.dev"
-# Your key from https://scavio.dev/?utm_source=agent-skills&utm_medium=skill&utm_campaign=yelp-business-data. Load it from your environment or secret
+# Your key from https://scavio.dev. Load it from your environment or secret
 # store in real code - keep it out of source control.
 API_KEY = "sk_your_key_here"
 HEADERS = {"Authorization": f"Bearer {API_KEY}"}
@@ -214,7 +214,7 @@ Every response uses the envelope `{ data, response_time, credits_used, credits_r
 - `400` means an invalid or missing parameter - `term` without `location` and no `url`, a `sort` outside its enum, or more than 20 attributes. Fix and retry.
 - `401` means the API key is invalid or missing. Check `SCAVIO_API_KEY`.
 - `404` means the business does not exist, or the review page is past the last one. Stop on `has_next_page: false` rather than discovering the end with a billed 404.
-- `429` means rate or usage limit exceeded. Wait before retrying. See https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=yelp-business-data.
+- `429` means rate or usage limit exceeded. Wait before retrying. See [rate limits](https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=yelp-business-data).
 - `502` / `503` mean upstream is temporarily unavailable - wait a few seconds and retry, up to a few times.
 - An empty search is usually the filters: drop `open_now`, widen `price`, or use a broader `term`.
 - If `SCAVIO_API_KEY` is not set, prompt the user to export it before continuing.

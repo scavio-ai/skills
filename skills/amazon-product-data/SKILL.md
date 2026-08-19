@@ -149,7 +149,7 @@ Search, then price-check the cheapest seller:
 import requests
 
 BASE = "https://api.scavio.dev"
-# Your key from https://scavio.dev/?utm_source=agent-skills&utm_medium=skill&utm_campaign=amazon-product-data. Load it from your environment or secret
+# Your key from https://scavio.dev. Load it from your environment or secret
 # store in real code - keep it out of source control.
 API_KEY = "sk_your_key_here"
 HEADERS = {"Authorization": f"Bearer {API_KEY}"}
@@ -407,7 +407,7 @@ Read these carefully before building on them:
 
 - `400` — an invalid parameter: an empty or over-500-character `query`, a `country` that is not exactly two letters, or a `/product` or `/offers` call with no ASIN in either `query` or `asin`. Not billed. Fix the request.
 - `401` — the API key is invalid or missing. Check `SCAVIO_API_KEY`.
-- `429` — rate or usage limit exceeded. Wait before retrying. See https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=amazon-product-data.
+- `429` — rate or usage limit exceeded. Wait before retrying. See [rate limits](https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=amazon-product-data).
 - `502` — Amazon data is temporarily unavailable, or the ASIN could not be fetched from that marketplace. **Not billed.** Wait a few seconds and retry once; if it repeats, check the ASIN exists on that `country`'s storefront before retrying again.
 - `503` — the upstream fetch never completed (network failure or timeout). **Not billed.** Retry after a short backoff.
 - A `200` with a top-level `warnings` array means the request carried a parameter that no longer exists and was ignored. Read it and fix the caller, because the response is not filtered the way the request implied:
@@ -435,7 +435,7 @@ Read these carefully before building on them:
 
 - `scavio-walmart` — the same product-research shape for Walmart.
 - `scavio-google-shopping` — cross-retailer price comparison when the user is not tied to Amazon.
-- Full API reference: https://scavio.dev/docs/amazon-api?utm_source=agent-skills&utm_medium=skill&utm_campaign=amazon-product-data (one page per endpoint: `amazon-api`, `amazon-product`, `amazon-offers`)
+- Full API reference: [Amazon API](https://scavio.dev/docs/amazon-api?utm_source=agent-skills&utm_medium=skill&utm_campaign=amazon-product-data) (one page per endpoint: `amazon-api`, `amazon-product`, `amazon-offers`)
 
 ## LangChain
 

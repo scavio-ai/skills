@@ -119,7 +119,7 @@ So on officers and filings, an empty page is the stop signal - and it is **indis
 import requests
 
 BASE = "https://api.scavio.dev"
-# Your key from https://scavio.dev/?utm_source=agent-skills&utm_medium=skill&utm_campaign=companies-house-api. Load it from your environment or secret
+# Your key from https://scavio.dev. Load it from your environment or secret
 # store in real code - keep it out of source control.
 API_KEY = "sk_your_key_here"
 HEADERS = {"Authorization": f"Bearer {API_KEY}"}
@@ -185,7 +185,7 @@ Every response uses the envelope `{ data, response_time, credits_used, credits_r
 - `400` means an invalid or missing parameter, e.g. a blank `query`. Fix and retry.
 - `401` means the API key is invalid or missing. Check `SCAVIO_API_KEY`.
 - `404` means the company number does not resolve. The transport already pads and upper-cases, so re-check the number via `/search` rather than reformatting it yourself.
-- `429` means rate or usage limit exceeded. Wait before retrying. See https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=companies-house-api.
+- `429` means rate or usage limit exceeded. Wait before retrying. See [rate limits](https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=companies-house-api).
 - `502` / `503` mean upstream is temporarily unavailable - wait a few seconds and retry.
 - If a name search returns nothing, try a shorter fragment - the register matches former names, so an old trading name is worth a second attempt.
 - If `SCAVIO_API_KEY` is not set, prompt the user to export it before continuing.

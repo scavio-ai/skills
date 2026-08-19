@@ -119,7 +119,7 @@ Base URL: `https://api.scavio.dev`. Every Tripadvisor endpoint costs **2 credits
 import requests
 
 BASE = "https://api.scavio.dev"
-# Your key from https://scavio.dev/?utm_source=agent-skills&utm_medium=skill&utm_campaign=tripadvisor-reviews-api. Load it from your environment or secret
+# Your key from https://scavio.dev. Load it from your environment or secret
 # store in real code - keep it out of source control.
 API_KEY = "sk_your_key_here"
 HEADERS = {"Authorization": f"Bearer {API_KEY}"}
@@ -213,7 +213,7 @@ Every response uses the envelope `{ data, response_time, credits_used, credits_r
 - `400` means an invalid or missing parameter - neither `geo_id` nor `url` on search, neither `location_id` nor `url` on location/reviews, a bare `d`-id with no geo, or a `category` outside the enum. Fix and retry.
 - `401` means the API key is invalid or missing. Check `SCAVIO_API_KEY`.
 - `404` means the id does not exist or the page is past the last one. Tripadvisor answers an unknown location id with a **billed** `200` city listing that the API restates as a 404 - re-resolve the name with `/locations` rather than retrying the id.
-- `429` means rate or usage limit exceeded. Wait before retrying. See https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=tripadvisor-reviews-api.
+- `429` means rate or usage limit exceeded. Wait before retrying. See [rate limits](https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=tripadvisor-reviews-api).
 - `502` / `503` mean upstream is temporarily unavailable - wait a few seconds and retry, up to a few times.
 - If `/locations` returns nothing useful, try the fuller place name ("Austin, Texas" rather than "Austin").
 - If `SCAVIO_API_KEY` is not set, prompt the user to export it before continuing.

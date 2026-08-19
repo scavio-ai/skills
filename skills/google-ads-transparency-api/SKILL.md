@@ -124,7 +124,7 @@ Google never publishes an exact ad count. The advertiser's headline total arrive
 import requests
 
 BASE = "https://api.scavio.dev"
-# Your key from https://scavio.dev/?utm_source=agent-skills&utm_medium=skill&utm_campaign=google-ads-transparency-api. Load it from your environment or secret
+# Your key from https://scavio.dev. Load it from your environment or secret
 # store in real code - keep it out of source control.
 API_KEY = "sk_your_key_here"
 HEADERS = {"Authorization": f"Bearer {API_KEY}"}
@@ -191,7 +191,7 @@ Every response uses the envelope `{ data, response_time, credits_used, credits_r
 - `400` means an invalid or missing parameter - e.g. neither `domain` nor `advertiser_id`. The advertiser id shape is validated before any upstream request, so a typo there costs nothing. Fix and retry.
 - `401` means the API key is invalid or missing. Check `SCAVIO_API_KEY`.
 - `404` on `/creative` usually means the `advertiser_id` and `creative_id` do not belong together. Re-pull the creative id from `/search` for that advertiser.
-- `429` means rate or usage limit exceeded. Wait before retrying. See https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=google-ads-transparency-api.
+- `429` means rate or usage limit exceeded. Wait before retrying. See [rate limits](https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=google-ads-transparency-api).
 - `502` / `503` mean upstream is temporarily unavailable - wait a few seconds and retry.
 - Zero rows from `/search` with a large `limit` is almost always the 100 ceiling, not an empty advertiser. Drop `limit` to 100 and retry before concluding anything.
 - If `SCAVIO_API_KEY` is not set, prompt the user to export it before continuing.

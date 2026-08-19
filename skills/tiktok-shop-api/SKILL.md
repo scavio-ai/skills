@@ -230,7 +230,7 @@ Chaining it, with the 404 handled the way it should be:
 import requests
 
 BASE = "https://api.scavio.dev"
-# Your key from https://scavio.dev/?utm_source=agent-skills&utm_medium=skill&utm_campaign=tiktok-shop-api. Load it from your environment or secret
+# Your key from https://scavio.dev. Load it from your environment or secret
 # store in real code - keep it out of source control.
 API_KEY = "sk_your_key_here"
 HEADERS = {"Authorization": f"Bearer {API_KEY}"}
@@ -532,7 +532,7 @@ Categories and resolve:
 - `404` on `/product` — **normal.** No detail exists for this product upstream. The body is `{"error": "Product not found in this region.", "credits_used": 1, "credits_remaining": N}`; there is no `data` key, so branch on the status code. Skip it; do not retry. `/product/reviews` is worth one call for the same id: 8 of 8 measured unresolvable ids answered HTTP 200 there, 7 of 8 with reviews.
 - `404` on `/category/products` or `/shop/products` — the id returned nothing on the first page, so the category or shop does not exist or has no products. Check the id rather than retrying.
 - `404` on `/resolve` — a supported link that TikTok could not resolve; it may have expired or may not point to a product or shop.
-- `429` — rate or usage limit exceeded. Wait before retrying. See https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=tiktok-shop-api.
+- `429` — rate or usage limit exceeded. Wait before retrying. See [rate limits](https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=tiktok-shop-api).
 - `502` — TikTok Shop data is temporarily unavailable. Wait a few seconds and retry; the request already spent an internal retry budget, so retry slowly, not in a tight loop.
 - Calls can take several seconds because short or truncated upstream pages are retried internally. Set a client timeout of at least 60 seconds.
 - If a search returns nothing, try `/tiktok-shop/search/suggestions` for a better keyword before giving up.
@@ -541,4 +541,4 @@ Categories and resolve:
 ## Related
 
 - `scavio-tiktok` — creator profiles, videos, comments, hashtags and the social graph. Use that skill for anything about TikTok content; use this one for the shop catalog.
-- Full API reference: https://scavio.dev/docs/tiktok-shop-search?utm_source=agent-skills&utm_medium=skill&utm_campaign=tiktok-shop-api (one page per endpoint: `tiktok-shop-search`, `tiktok-shop-suggestions`, `tiktok-shop-product`, `tiktok-shop-product-reviews`, `tiktok-shop-categories`, `tiktok-shop-category-products`, `tiktok-shop-shop-products`, `tiktok-shop-resolve`)
+- Full API reference: [Tiktok shop search](https://scavio.dev/docs/tiktok-shop-search?utm_source=agent-skills&utm_medium=skill&utm_campaign=tiktok-shop-api) (one page per endpoint: `tiktok-shop-search`, `tiktok-shop-suggestions`, `tiktok-shop-product`, `tiktok-shop-product-reviews`, `tiktok-shop-categories`, `tiktok-shop-category-products`, `tiktok-shop-shop-products`, `tiktok-shop-resolve`)

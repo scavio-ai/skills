@@ -165,7 +165,7 @@ Authorization: Bearer $SCAVIO_API_KEY
 import requests
 
 BASE = "https://api.scavio.dev"
-# Your key from https://scavio.dev/?utm_source=agent-skills&utm_medium=skill&utm_campaign=tiktok-scraper-api. Load it from your environment or secret
+# Your key from https://scavio.dev. Load it from your environment or secret
 # store in real code - keep it out of source control.
 API_KEY = "sk_your_key_here"
 HEADERS = {"Authorization": f"Bearer {API_KEY}"}
@@ -297,7 +297,7 @@ tag_vids = requests.post(f"{BASE}/api/v1/tiktok/hashtag/videos", headers=HEADERS
 ## Failure handling
 
 - `401` means the API key is invalid or missing. Prompt the user to check their `SCAVIO_API_KEY`.
-- `429` means rate limit exceeded. Wait before retrying. See https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=tiktok-scraper-api.
+- `429` means rate limit exceeded. Wait before retrying. See [rate limits](https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=tiktok-scraper-api).
 - `502` / `503` mean upstream is temporarily unavailable. Wait a few seconds before retrying.
 - If search returns no results, suggest different keywords, a broader `publish_time`, or a different `sort_type`.
 - If `SCAVIO_API_KEY` is not set, prompt the user to export it before continuing.

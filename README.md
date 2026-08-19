@@ -145,3 +145,18 @@ Get the key at [scavio.dev](https://scavio.dev). The free tier is 50 credits on 
 - Hosted MCP server: [mcp.scavio.dev](https://mcp.scavio.dev)
 - Python SDK: `pip install scavio`
 - JavaScript SDK: `npm i scavio`
+
+## Regenerating
+
+`skills/` is generated from `../openclaw/`, the single source of truth shared with ClawHub.
+Do not hand-edit it. Edit the source skill, then:
+
+```
+python3 build.py       # regenerate skills/
+python3 verify.py      # prove nothing but naming, H1 and UTM changed
+python3 build.py --check   # exits 1 if skills/ is stale
+```
+
+`verify.py` asserts the technical body is byte-identical to the source, the frontmatter
+parses as YAML, names are unique, every prose link carries a UTM, no example reads an
+environment key, and every install is version-pinned.

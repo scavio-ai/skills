@@ -111,7 +111,7 @@ Three things Zillow does that the filter table cannot show:
 import requests
 
 BASE = "https://api.scavio.dev"
-# Your key from https://scavio.dev/?utm_source=agent-skills&utm_medium=skill&utm_campaign=zillow-property-data. Load it from your environment or secret
+# Your key from https://scavio.dev. Load it from your environment or secret
 # store in real code - keep it out of source control.
 API_KEY = "sk_your_key_here"
 HEADERS = {"Authorization": f"Bearer {API_KEY}"}
@@ -195,7 +195,7 @@ Every response uses the envelope `{ data, response_time, credits_used, credits_r
 - `400` means an invalid or missing parameter (no `location`, a `sort` or `home_type` outside the enum) — fix and retry.
 - `401` means the API key is invalid or missing. Check `SCAVIO_API_KEY`.
 - `404` means Zillow could not resolve the region, the zpid, or the agent screen name. An unresolvable region is a 404, **not** an empty result set — re-check the spelling or fall back to a broader place name rather than retrying.
-- `429` means rate or usage limit exceeded. Wait before retrying. See https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=zillow-property-data.
+- `429` means rate or usage limit exceeded. Wait before retrying. See [rate limits](https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=zillow-property-data).
 - `502` / `503` mean upstream is temporarily unavailable — wait a few seconds and retry, up to a few times.
 - A search that returns zero properties with a `200` is a real result: the filters were too tight. Relax them rather than retrying the same body.
 - If `SCAVIO_API_KEY` is not set, prompt the user to export it before continuing.

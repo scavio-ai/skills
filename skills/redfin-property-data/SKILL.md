@@ -131,7 +131,7 @@ Rules the endpoint enforces:
 import requests
 
 BASE = "https://api.scavio.dev"
-# Your key from https://scavio.dev/?utm_source=agent-skills&utm_medium=skill&utm_campaign=redfin-property-data. Load it from your environment or secret
+# Your key from https://scavio.dev. Load it from your environment or secret
 # store in real code - keep it out of source control.
 API_KEY = "sk_your_key_here"
 HEADERS = {"Authorization": f"Bearer {API_KEY}"}
@@ -191,7 +191,7 @@ Every response uses the envelope `{ data, response_time, credits_used, credits_r
 - `400` means an invalid or missing parameter - a city name in `location`, a lone `region_id` without `region_type`, `sold_within_days` on a non-sold search, both day-on-market bounds at once, or a fractional numeric filter. Fix and retry.
 - `401` means the API key is invalid or missing. Check `SCAVIO_API_KEY`.
 - `404` means the property or region does not resolve. Re-check the id or URL.
-- `429` means rate or usage limit exceeded. Wait before retrying. See https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=redfin-property-data.
+- `429` means rate or usage limit exceeded. Wait before retrying. See [rate limits](https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=redfin-property-data).
 - `502` / `503` mean upstream is temporarily unavailable - wait a few seconds and retry.
 - If a search returns nothing, relax the price, bed or property-type filters before assuming the region is empty.
 - If `SCAVIO_API_KEY` is not set, prompt the user to export it before continuing.

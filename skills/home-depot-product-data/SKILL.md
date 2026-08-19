@@ -98,7 +98,7 @@ Base URL: `https://api.scavio.dev`. Every Home Depot endpoint costs **2 credits*
 import requests
 
 BASE = "https://api.scavio.dev"
-# Your key from https://scavio.dev/?utm_source=agent-skills&utm_medium=skill&utm_campaign=home-depot-product-data. Load it from your environment or secret
+# Your key from https://scavio.dev. Load it from your environment or secret
 # store in real code - keep it out of source control.
 API_KEY = "sk_your_key_here"
 HEADERS = {"Authorization": f"Bearer {API_KEY}"}
@@ -186,7 +186,7 @@ Every response uses the envelope `{ data, response_time, credits_used, credits_r
 - `400` means an invalid or missing parameter (no `query`, a `sort_by` outside the enum) — fix and retry.
 - `401` means the API key is invalid or missing. Check `SCAVIO_API_KEY`.
 - `404` on `/product` or `/reviews` means the item id does not exist, or the review page is past the last one. Home Depot answers those with a billed `200` shell that the API restates as a 404 — do not retry the same id or page.
-- `429` means rate or usage limit exceeded. Wait before retrying. See https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=home-depot-product-data.
+- `429` means rate or usage limit exceeded. Wait before retrying. See [rate limits](https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=home-depot-product-data).
 - `502` / `503` mean upstream is temporarily unavailable — wait a few seconds and retry, up to a few times.
 - If search returns nothing, relax the price filters or try broader keywords.
 - If `SCAVIO_API_KEY` is not set, prompt the user to export it before continuing.

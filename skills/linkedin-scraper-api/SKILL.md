@@ -158,7 +158,7 @@ Page sizes are 50 posts for the two feeds and 25 listings for job search.
 import requests
 
 BASE = "https://api.scavio.dev"
-# Your key from https://scavio.dev/?utm_source=agent-skills&utm_medium=skill&utm_campaign=linkedin-scraper-api. Load it from your environment or secret
+# Your key from https://scavio.dev. Load it from your environment or secret
 # store in real code - keep it out of source control.
 API_KEY = "sk_your_key_here"
 HEADERS = {"Authorization": f"Bearer {API_KEY}"}
@@ -286,7 +286,7 @@ An experience entry has two shapes. A single role carries `company` plus its own
 - `401` means the API key is invalid or missing. Check `SCAVIO_API_KEY`.
 - `404` on `/job` means the listing has no detail record upstream. **Not billed.** Roughly one job id in five returned by `/search/jobs` answers this way - expired and delisted postings linger in search after their detail page is gone. Skip that id and move to the next; retrying will not produce a record.
 - `410` means the endpoint was retired upstream. Permanent - do not retry. Read `reason` in the body.
-- `429` means rate or usage limit exceeded. Wait before retrying. See https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=linkedin-scraper-api.
+- `429` means rate or usage limit exceeded. Wait before retrying. See [rate limits](https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=linkedin-scraper-api).
 - `502` / `503` mean upstream is temporarily unavailable - wait a few seconds and retry, up to a few times.
 - If a search returns no results, relax filters or try different keywords.
 - If `SCAVIO_API_KEY` is not set, prompt the user to export it before continuing.
