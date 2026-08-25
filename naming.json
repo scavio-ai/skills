@@ -1,1 +1,657 @@
-{"naming": [{"dir": "scavio-airbnb", "slug": "airbnb-scraper-api", "name": "airbnb-scraper-api", "display": "Airbnb Scraper API - Stay Search, Listing Detail, Reviews", "query": "airbnb scraper api", "reused": "no"}, {"dir": "scavio-amazon", "slug": "amazon-product-data", "name": "amazon-product-data", "display": "Amazon Product Data API - Search, ASIN Lookup, Offers", "query": "amazon product data", "reused": "yes"}, {"dir": "scavio-app-store", "slug": "apple-app-store-api", "name": "apple-app-store-api", "display": "Apple App Store API - App Search, Listing Detail, Reviews", "query": "apple app store api", "reused": "no"}, {"dir": "scavio-booking", "slug": "booking-com-hotel-data", "name": "booking-com-hotel-data", "display": "Booking.com Hotel Data API - Search, Live Prices, Reviews", "query": "booking.com hotel prices", "reused": "yes"}, {"dir": "scavio-capterra", "slug": "capterra-reviews-api", "name": "capterra-reviews-api", "display": "Capterra Reviews API - Software Search, Pricing, Reviews", "query": "capterra reviews api", "reused": "no"}, {"dir": "scavio-companies-house", "slug": "companies-house-api", "name": "companies-house-api", "display": "Companies House API - UK Company Search, Officers, Filings", "query": "companies house api", "reused": "no"}, {"dir": "scavio-ebay", "slug": "ebay-product-data", "name": "ebay-product-data", "display": "eBay Product Data API - Live and Sold Listings, Sellers", "query": "ebay product data api", "reused": "no"}, {"dir": "scavio-extract", "slug": "url-to-markdown-api", "name": "url-to-markdown-api", "display": "URL to Markdown - Web Page Extract API", "query": "url to markdown api", "reused": "no"}, {"dir": "scavio-g2", "slug": "g2-software-reviews-api", "name": "g2-software-reviews-api", "display": "G2 Software Reviews API - Product Search, Ratings, Reviews", "query": "g2 reviews api", "reused": "no"}, {"dir": "scavio-glassdoor", "slug": "glassdoor-salary-data", "name": "glassdoor-salary-data", "display": "Glassdoor Salary Data API - Employer Profiles, Salaries, Reviews", "query": "glassdoor salary data", "reused": "no"}, {"dir": "scavio-google", "slug": "google-search-api", "name": "google-search-api", "display": "Google Search API - Organic SERP, Knowledge Graph, PAA, AI Overview", "query": "google search api", "reused": "yes"}, {"dir": "scavio-google-ads", "slug": "google-ads-transparency-api", "name": "google-ads-transparency-api", "display": "Google Ads Transparency API - Advertiser Lookup, Live Ad Creatives", "query": "google ads transparency api", "reused": "no"}, {"dir": "scavio-google-ai-mode", "slug": "google-ai-mode-api", "name": "google-ai-mode-api", "display": "Google AI Mode API - AI Answers with Cited Sources", "query": "google ai mode api", "reused": "no"}, {"dir": "scavio-google-flights", "slug": "google-flights-api", "name": "google-flights-api", "display": "Google Flights API - Route Search, Prices, Carriers, Stops", "query": "google flights api", "reused": "yes"}, {"dir": "scavio-google-hotels", "slug": "google-hotels-api", "name": "google-hotels-api", "display": "Google Hotels API - Hotel Search, Rates, Ratings, Amenities", "query": "google hotels api", "reused": "no"}, {"dir": "scavio-google-maps", "slug": "google-maps-api", "name": "google-maps-api", "display": "Google Maps API - Local Business Search, Place Detail, Reviews", "query": "google maps api", "reused": "no"}, {"dir": "scavio-google-news", "slug": "google-news-api", "name": "google-news-api", "display": "Google News API - Headlines by Keyword, Topic, Publication", "query": "google news api", "reused": "yes"}, {"dir": "scavio-google-play", "slug": "google-play-store-api", "name": "google-play-store-api", "display": "Google Play Store API - App Search, Install Counts, Reviews", "query": "google play store api", "reused": "no"}, {"dir": "scavio-google-shopping", "slug": "google-shopping-api", "name": "google-shopping-api", "display": "Google Shopping API - Product Search, Merchant Offers, Prices", "query": "google shopping api", "reused": "no"}, {"dir": "scavio-google-trends", "slug": "google-trends-api", "name": "google-trends-api", "display": "Google Trends API - Interest Over Time, By Region, Related Queries", "query": "google trends api", "reused": "no"}, {"dir": "scavio-home-depot", "slug": "home-depot-product-data", "name": "home-depot-product-data", "display": "Home Depot Product Data API - Search, Item Detail, Reviews", "query": "home depot product data", "reused": "yes"}, {"dir": "scavio-indeed", "slug": "indeed-jobs-api", "name": "indeed-jobs-api", "display": "Indeed Jobs API - Job Search and Full Posting Detail", "query": "indeed jobs api", "reused": "no"}, {"dir": "scavio-instagram", "slug": "instagram-scraper-api", "name": "instagram-scraper-api", "display": "Instagram Scraper API - Profiles, Posts, Reels, Stories, Followers", "query": "instagram scraper api", "reused": "no"}, {"dir": "scavio-kuaishou", "slug": "kuaishou-scraper-api", "name": "kuaishou-scraper-api", "display": "Kuaishou Scraper API - Profiles, Videos, Comments, Search", "query": "kuaishou api", "reused": "no"}, {"dir": "scavio-linkedin", "slug": "linkedin-scraper-api", "name": "linkedin-scraper-api", "display": "LinkedIn Scraper API - Person and Company Profiles, Posts, Jobs", "query": "linkedin scraper api", "reused": "no"}, {"dir": "scavio-meta-ads", "slug": "meta-ad-library-api", "name": "meta-ad-library-api", "display": "Meta Ad Library API - Facebook and Instagram Ad Search", "query": "meta ad library api", "reused": "no"}, {"dir": "scavio-reddit", "slug": "reddit-search-api", "name": "reddit-search-api", "display": "Reddit Search API - Posts, Comments, Subreddits, Users", "query": "reddit search api", "reused": "yes"}, {"dir": "scavio-redfin", "slug": "redfin-property-data", "name": "redfin-property-data", "display": "Redfin Property Data API - For Sale, Sold, Rentals, Price History", "query": "redfin property data", "reused": "no"}, {"dir": "scavio-sec-edgar", "slug": "sec-edgar-api", "name": "sec-edgar-api", "display": "SEC EDGAR API - Ticker to CIK, Filings, Filing Documents", "query": "sec edgar api", "reused": "no"}, {"dir": "scavio-target", "slug": "target-product-data", "name": "target-product-data", "display": "Target Product Data API - Search, Category, TCIN Detail, Reviews", "query": "target.com product data", "reused": "yes"}, {"dir": "scavio-threads", "slug": "threads-net-api", "name": "threads-net-api", "display": "Threads API - Profiles, Posts, Replies, Reposters", "query": "threads.net api", "reused": "no"}, {"dir": "scavio-tiktok", "slug": "tiktok-scraper-api", "name": "tiktok-scraper-api", "display": "TikTok Scraper API - Profiles, Videos, Comments, Hashtags", "query": "tiktok scraper api", "reused": "yes"}, {"dir": "scavio-tiktok-shop", "slug": "tiktok-shop-api", "name": "tiktok-shop-api", "display": "TikTok Shop API - Product Search, Prices, Shops, Sellers", "query": "tiktok shop api", "reused": "no"}, {"dir": "scavio-tripadvisor", "slug": "tripadvisor-reviews-api", "name": "tripadvisor-reviews-api", "display": "Tripadvisor Reviews API - Hotels, Restaurants, Attractions", "query": "tripadvisor reviews api", "reused": "no"}, {"dir": "scavio-walmart", "slug": "walmart-product-data", "name": "walmart-product-data", "display": "Walmart Product Data API - Search, Detail, Reviews, Offers", "query": "walmart product data", "reused": "yes"}, {"dir": "scavio-x", "slug": "twitter-scraper-api", "name": "twitter-scraper-api", "display": "Twitter (X) Scraper API - Tweet Search, Profiles, Followers", "query": "twitter scraper api", "reused": "no"}, {"dir": "scavio-yelp", "slug": "yelp-business-data", "name": "yelp-business-data", "display": "Yelp Business Data API - Search, Business Detail, Reviews", "query": "yelp business data", "reused": "no"}, {"dir": "scavio-youtube", "slug": "youtube-data-api", "name": "youtube-data-api", "display": "YouTube Data API - Search, Videos, Comments, Transcripts, Channels", "query": "youtube data api", "reused": "no"}, {"dir": "scavio-zillow", "slug": "zillow-property-data", "name": "zillow-property-data", "display": "Zillow Property Data API - For Sale, Rent, Sold, Price History", "query": "zillow property data", "reused": "no"}], "frontmatter": [{"dir": "scavio-airbnb", "description": "Airbnb scraper API: search stays for a location and date window with per-night and stay-total price plus the full discount ledger, pull one listing with amenities, host profile, house rules and the rating breakdown, and page real guest review bodies. 3 endpoints, 1 credit each; nightly price is search-only.", "tags": "airbnb, airbnb-scraper, airbnb-api, short-term-rental, vacation-rental, listings, nightly-rates, guest-reviews, travel, rental-market-research, agents, langchain, crewai, autogen, structured-data, json, ai-agents"}, {"dir": "scavio-amazon", "description": "Amazon product data API: keyword search, full product detail by ASIN, and every seller offer on an ASIN with the buy-box winner. Normalized JSON with price, rating, review count, availability, shipping and sellers. 3 endpoints, all 1 credit, 22 marketplaces; no server-side sort.", "tags": "amazon, amazon-product-data, product-search, asin, price-lookup, offers, buy-box, sellers, ecommerce, retail, competitor-research, agents, langchain, crewai, autogen, structured-data, json, ai-agents"}, {"dir": "scavio-app-store", "description": "Apple App Store API: search apps by keyword or publisher name, read a full listing by App Store id or bundle id with price, ratings, version, release notes and screenshots, and page user reviews with rating, text, author and app version. 3 endpoints, 1 credit each, any Apple storefront.", "tags": "app-store, apple-app-store, app-store-api, ios-apps, aso, app-reviews, app-metadata, bundle-id, apple, mobile-apps, competitor-research, agents, langchain, crewai, structured-data, json, ai-agents"}, {"dir": "scavio-booking", "description": "Booking.com hotel data API: search a destination and stay for live nightly prices, review scores and star ratings, pull one property in full with rooms, rate plans, facilities and policies, and read guest reviews with per-category subscores. 3 endpoints, 1 credit each, structured JSON.", "tags": "booking-com, booking-com-hotel-data, hotel-prices, hotels, nightly-rates, accommodation, travel, rate-shopping, guest-reviews, ota-data, agents, langchain, crewai, structured-data, json, ai-agents"}, {"dir": "scavio-capterra", "description": "Capterra reviews API: search B2B software for 20 ranked products, read a full profile with the complete pricing table, rated features, integrations and the 25 most recent reviews included, then page deeper reviews with five per-criterion scores each. 3 endpoints, 2 credits each, no search pagination.", "tags": "capterra, capterra-reviews, software-reviews, b2b-software, saas, software-pricing, vendor-comparison, review-mining, competitive-intelligence, buyer-research, agents, langchain, crewai, autogen, structured-data, json, ai-agents"}, {"dir": "scavio-companies-house", "description": "Companies House API for the UK register: search by company name (current and former names), then pull the full register entry with status, SIC codes, registered office and accounts due dates, the officers current and resigned, and filing history with the filed PDF. 4 endpoints, 1 credit each, structured JSON.", "tags": "companies-house, uk-company-search, company-registry, company-number, officers, directors, filing-history, kyb, kyc, due-diligence, sic-codes, b2b-data, langchain, crewai, autogen, structured-data, json, ai-agents"}, {"dir": "scavio-ebay", "description": "eBay product data API: search live or SOLD listings for comps and resale pricing (price, condition, bids, shipping, seller, feedback), read one listing in full with item specifics, shipping, returns and auction state, and pull a seller's feedback score, items sold and location. 3 endpoints, 1 credit each.", "tags": "ebay, ebay-product-data, sold-listings, price-research, resale, ecommerce, marketplace, product-data, seller-profile, price-monitoring, arbitrage, auctions, langchain, crewai, autogen, structured-data, json, ai-agents"}, {"dir": "scavio-extract", "description": "Turn any URL into clean Markdown, plain text or raw HTML for LLM prompts and RAG chunks. One endpoint, three fetch tiers: normal and advanced (renders JavaScript) at 1 credit, ultra for hard bot walls at 2. Only a successful extraction is billed. Returns url, format, mode, content and content_length.", "tags": "url-to-markdown, extract, read-url, web-scraping, html-to-markdown, content-extraction, page-content, readability, rag, llm-context, javascript-rendering, agent-tools, langchain, crewai, autogen, structured-data, json, ai-agents"}, {"dir": "scavio-g2", "description": "G2 software reviews API for B2B SaaS research: search products with star rating, review count and vendor, read a full profile with pricing editions, features, integrations and alternatives (no review text), and pull reviews with exact per-star counts and company-size, role, industry and region facets. 3 endpoints, 5 credits each.", "tags": "g2, g2-crowd, software-reviews, b2b-software, saas, competitive-intelligence, review-mining, voice-of-customer, product-research, pricing-research, vendor-comparison, alternatives, langchain, crewai, autogen, structured-data, json, ai-agents"}, {"dir": "scavio-glassdoor", "description": "Glassdoor salary data API: resolve a company name to an employer id, then pull salary percentiles P10-P90 for base and total pay by job title, the employer profile with per-category ratings, star distribution and CEO approval, and up to three full reviews with pros, cons and employer response. 4 endpoints, 1 credit each.", "tags": "glassdoor, glassdoor-salaries, salary-data, compensation, salary-benchmarking, employer-reviews, company-reviews, ceo-approval, employer-brand, recruiting, hr-tech, talent-intelligence, agents, scraping-api, structured-data, json, ai-agents"}, {"dir": "scavio-google", "description": "Google Search API returning the full SERP as structured JSON: organic results, ads, knowledge graph, AI Overview, People Also Ask, related searches, top stories and videos. Localize with gl/hl/location, filter by time period, page with start. One endpoint on the v2 engine, 1 credit per request.", "tags": "google-search-api, google-serp-api, serp-api, google-search, organic-results, knowledge-graph, people-also-ask, ai-overview, rank-tracking, seo, web-search, search-api, langchain, crewai, autogen, structured-data, json, ai-agents"}, {"dir": "scavio-google-ads", "description": "Google Ads Transparency Center data as JSON: resolve a brand or domain to a verified advertiser id, pull every ad it runs across Search, YouTube, Shopping, Maps and Play with first-seen and last-seen dates, then open one creative with its region and impression history. 3 endpoints, 1 credit each.", "tags": "google-ads-transparency, google-ads, ads-transparency-center, ad-library, competitor-ads, ad-creatives, advertiser-lookup, youtube-ads, ppc-research, paid-search, political-ads, ad-intelligence, langchain, crewai, autogen, structured-data, json, ai-agents"}, {"dir": "scavio-google-ai-mode", "description": "Google AI Mode answers as structured JSON: the AI-generated response split into text blocks, the cited source references behind it, and shopping results on commercial queries. Localize by country and language. One endpoint on the v2 engine, 1 credit per request.", "tags": "google-ai-mode, google-ai-mode-api, ai-overview, generative-search, answer-engine, aeo, citations, seo, google-search, langchain, crewai, autogen, structured-data, json, ai-agents"}, {"dir": "scavio-google-flights", "description": "Google Flights route search by date as structured JSON: price, airline, total duration, stops and per-leg detail across best_flights and other_flights. Round-trip, one-way and multi-city, with cabin class, stops, airline and sort filters. One endpoint on the v2 engine, 1 credit per request.", "tags": "google-flights, google-flights-api, flight-search, airfare, flight-prices, airlines, itinerary, travel, price-tracking, multi-city, langchain, crewai, autogen, structured-data, json, ai-agents"}, {"dir": "scavio-google-hotels", "description": "Google Hotels search for a destination and stay dates as structured JSON: properties with name, nightly rate and rating, then per-property detail with booking-site vendor prices. Filter by price, rating, hotel class, amenities and vacation rentals. 2 endpoints, 1 credit each.", "tags": "google-hotels, google-hotels-api, hotel-search, hotel-prices, nightly-rates, hotel-ratings, amenities, lodging, vacation-rentals, travel, price-comparison, langchain, crewai, autogen, structured-data, json, ai-agents"}, {"dir": "scavio-google-maps", "description": "Google Maps local business and place data as structured JSON: search places by query and map center, fetch full place detail with address, phone, hours, rating and GPS coordinates, and page reviews with sort. 3 endpoints, 1 credit per request, v2 engine.", "tags": "google-maps, google-maps-api, local-business-search, places, place-details, google-reviews, local-seo, business-listings, lead-generation, geocoding, agents, langchain, crewai, autogen, structured-data, json, ai-agents"}, {"dir": "scavio-google-news", "description": "Google News headlines as structured JSON - title, source name, publish date, link and thumbnail - searched by keyword with relevance or date sort, or browsed by topic, section, full-coverage story, publication token or kgmid. One endpoint, 1 credit per request, country and language scoped.", "tags": "google-news, google-news-api, news-api, headlines, current-events, media-monitoring, brand-monitoring, pr, journalism, research, agents, langchain, crewai, autogen, structured-data, json, ai-agents"}, {"dir": "scavio-google-play", "description": "Google Play Store data as structured JSON: search Android apps by keyword, pull a full listing with the real install count, rating histogram, permissions, Data safety table, changelog and 20 reviews, and cursor-page reviews by newest, relevance or rating. 3 endpoints, 2 credits each.", "tags": "google-play, google-play-api, play-store, android-apps, app-search, install-count, app-reviews, aso, app-store-optimization, data-safety, competitor-research, agents, langchain, crewai, autogen, structured-data, json, ai-agents"}, {"dir": "scavio-google-shopping", "description": "Google Shopping product and price data as structured JSON: search products with min/max price, on-sale, free-shipping and price-sort filters returning title, price, seller, rating and reviews, open a full product page with specs and variants, then page every store selling it. 3 endpoints, 1 credit each.", "tags": "google-shopping, google-shopping-api, product-search, price-comparison, merchant-offers, product-prices, ecommerce, retail, shopping-results, agents, langchain, crewai, autogen, structured-data, json, ai-agents"}, {"dir": "scavio-google-trends", "description": "Google Trends search-interest data as structured JSON: interest over time, interest by region (country, region, DMA or city), and related or rising queries and topics for a keyword, scoped by geo, date range and Google property, plus real-time trending searches per country. 2 endpoints, 1 credit each.", "tags": "google-trends, google-trends-api, search-trends, interest-over-time, trending-searches, keyword-research, market-research, demand-signals, seasonality, seo, agents, langchain, crewai, autogen, structured-data, json, ai-agents"}, {"dir": "scavio-home-depot", "description": "Home Depot product data: keyword search returning price, promotions, brand, model, ratings and per-store pickup and delivery; full item detail with spec table, dimensions, documents and return policy; and paginated review bodies with rating distribution. 3 endpoints, 2 credits each, structured JSON.", "tags": "home-depot, home-depot-api, home-depot-product-data, product-data, product-search, retail, home-improvement, hardware, pricing, product-reviews, price-monitoring, catalog-enrichment, web-scraping, langchain, crewai, ai-agents, structured-data, json"}, {"dir": "scavio-indeed", "description": "Indeed job search by keyword, location, radius, job type and posting age, plus one posting in full with description, structured salary, benefits and the original ATS link, employer profiles and employee reviews. 4 endpoints, 2 credits each. Salary filters match Indeed's estimate, not a posted figure.", "tags": "indeed, indeed-api, indeed-jobs, job-search, job-postings, jobs-api, recruiting, hiring, salary-data, labor-market, employer-reviews, talent-intelligence, web-scraping, langchain, crewai, ai-agents, structured-data, json"}, {"dir": "scavio-instagram", "description": "Instagram public data: profiles with follower counts and bio, timeline posts, reels, tagged posts, active stories, single-post detail, comments and replies, follower and following lists, and user and hashtag search. 12 endpoints, 2-10 credits each; responses are raw upstream JSON, not a normalized shape.", "tags": "instagram, instagram-api, instagram-scraper, social-media, profiles, reels, stories, followers, comments, hashtags, influencer-marketing, social-listening, langchain, crewai, autogen, ai-agents, structured-data, json"}, {"dir": "scavio-kuaishou", "description": "Kuaishou (China) public data: creator profiles, posts, live status, single and batched videos, comment threads and replies, hashtag feeds, leaderboards, and video, user, live and mixed search. 14 endpoints at 1, 2, 10 or 40 credits each. Kuaishou.com only - Kwai international is not covered.", "tags": "kuaishou, kuaishou-api, kuaishou-scraper, china, chinese-social-media, short-video, creator-data, video-data, comments, live-streaming, trending, social-listening, langchain, crewai, autogen, ai-agents, structured-data, json"}, {"dir": "scavio-linkedin", "description": "LinkedIn person and company profiles, their posts, job search by keyword and location, single job detail, and post comments as structured JSON. 9 endpoints from 1 to 30 credits, four of them paginated. People search and contact info were retired upstream and return 410, so they are not covered.", "tags": "linkedin, linkedin-api, linkedin-scraper, b2b, profiles, company-data, jobs, job-search, lead-generation, prospecting, recruiting, sales-intelligence, langchain, crewai, autogen, ai-agents, structured-data, json"}, {"dir": "scavio-meta-ads", "description": "Meta Ad Library search by keyword, Facebook Page id or ad archive id, returning the full ad creative, run dates, the Meta platforms each ad ran on, and spend, reach and impressions on political and issue ads. Cursor pagination walks every ad, not just page one. 3 endpoints, 1 credit per page, structured JSON.", "tags": "meta-ad-library, facebook-ads, instagram-ads, meta-ads, ad-library-api, competitor-ads, ad-creative, political-ads, ad-spend, marketing-research, langchain, crewai, autogen, structured-data, json, ai-agents"}, {"dir": "scavio-reddit", "description": "Reddit search plus post detail, threaded comments and reply expansion, subreddit metadata and feeds, redditor profiles with their posts and comments, the site-wide popular feed and trending searches. 12 endpoints, 1 credit each, structured JSON for sentiment analysis, brand monitoring and RAG.", "tags": "reddit, reddit-api, reddit-search, subreddits, threaded-comments, social-listening, brand-monitoring, sentiment-analysis, market-research, rag, langchain, crewai, autogen, structured-data, json, ai-agents"}, {"dir": "scavio-redfin", "description": "Redfin listing search for sale, sold or for rent with filters for price, beds, baths, square footage and property type; one property in full with the Redfin Estimate, price and tax history, schools and comparable sales; plus housing-market stats for a city, ZIP or neighborhood. 3 endpoints, 1 credit each.", "tags": "redfin, redfin-api, property-data, real-estate, mls-listings, home-prices, sold-homes, rentals, price-history, redfin-estimate, housing-market, comparable-sales, langchain, crewai, structured-data, json, ai-agents"}, {"dir": "scavio-sec-edgar", "description": "SEC EDGAR filings by ticker: resolve a ticker or company name to its CIK, then pull the filer profile (SIC, EIN, LEI, addresses), page filings with direct document links, read any XBRL concept's full reported history, and run EDGAR full-text search back to 2001. 6 endpoints, 1 credit each, structured JSON.", "tags": "sec-edgar, edgar-api, sec-filings, 10-k, 10-q, 8-k, cik-lookup, xbrl, financial-data, full-text-search, investment-research, due-diligence, langchain, crewai, structured-data, json, ai-agents"}, {"dir": "scavio-target", "description": "Target.com product data: keyword search, category browsing, product detail by TCIN with price, rating, images, specifications, variants and fulfillment, and reviews with the star breakdown and per-attribute averages. Store-aware pricing via store_id. 4 endpoints, 1 credit each, structured JSON.", "tags": "target-product-data, target-com, retail, ecommerce, product-search, tcin, product-reviews, price-tracking, store-availability, competitor-research, langchain, crewai, autogen, structured-data, json, ai-agents"}, {"dir": "scavio-threads", "description": "Threads (threads.net) API: read a profile, page a user's posts and replies, fetch a single post by id or threads.net URL, walk its comment tree, and search Threads people, all as structured JSON. 6 endpoints, 2 credits by user_id and 4 by username. People search only, there is no keyword or hashtag content search.", "tags": "threads, threads-api, threads-net, meta-threads, social-media, profiles, posts, replies, comments, people-search, social-listening, competitor-research, agents, langchain, crewai, structured-data, json, ai-agents"}, {"dir": "scavio-tiktok", "description": "TikTok scraper API: look up profiles by username or sec_user_id, list a user's videos, read full video detail, comments and comment replies, search videos and users by keyword, pull hashtag stats and hashtag videos, and walk followers and followings. 11 endpoints, all 1 credit, structured JSON.", "tags": "tiktok, tiktok-scraper, tiktok-api, social-media, short-video, profiles, videos, comments, hashtags, followers, influencer-marketing, social-listening, langchain, crewai, autogen, structured-data, json, ai-agents"}, {"dir": "scavio-tiktok-shop", "description": "TikTok Shop API: search the catalog for products with exact prices, ratings and sold counts, read product detail (images, variants, stock, shipping, seller), page reviews with a star histogram, walk the category tree, list a category's or shop's catalog, and resolve any TikTok Shop link to an id. 8 endpoints, 1 credit each.", "tags": "tiktok-shop, tiktok-shop-api, social-commerce, ecommerce, product-search, product-data, pricing, reviews, sellers, shops, category-catalog, competitor-research, langchain, crewai, autogen, structured-data, json, ai-agents"}, {"dir": "scavio-tripadvisor", "description": "Tripadvisor reviews API: resolve any place or business name to Tripadvisor ids, list ranked restaurants, hotels and attractions in a geo, read a location in full (rating histogram, sub-ratings, city ranking, price band, amenities, contact), and page reviews with trip date, trip type and management response. 4 endpoints, 2 credits each.", "tags": "tripadvisor, tripadvisor-reviews, tripadvisor-api, hotels, restaurants, attractions, reviews, ratings, travel, hospitality, local-business, review-mining, reputation-monitoring, agents, structured-data, json, ai-agents, scraping-api"}, {"dir": "scavio-walmart", "description": "Walmart product data API: keyword search, full product detail by item id, customer reviews with the rating breakdown, category listings, the buy-box offer on an item, and marketplace seller storefronts and their catalogs, as structured JSON. 7 endpoints; 1 credit, or 2 when search or category targets walmart.com.mx.", "tags": "walmart, walmart-product-data, walmart-api, ecommerce, retail, product-search, product-data, pricing, price-monitoring, reviews, buy-box, marketplace-sellers, langchain, crewai, autogen, structured-data, json, ai-agents"}, {"dir": "scavio-x", "description": "Twitter (X) scraper API: search tweets and people, read a tweet with its replies and retweeters, and pull user profiles, tweets, replies, media, followers and followings, plus trending topics by country. Returns text, favorites, retweets, replies, quotes, views and follower counts as JSON. 11 endpoints, 1 credit each.", "tags": "twitter, x, twitter-api, twitter-scraper, tweet-search, user-profiles, followers, trending-topics, social-media, social-listening, brand-monitoring, sentiment-analysis, langchain, crewai, autogen, structured-data, json, ai-agents"}, {"dir": "scavio-yelp", "description": "Yelp business data API: search businesses in a metro, pull one business in full with hours, amenities and health inspections, and page through reviews. Returns rating, review count, price band, categories, address, contact details, photos, and review text with owner responses. 3 endpoints, 2 credits each, structured JSON.", "tags": "yelp, yelp-api, yelp-reviews, business-data, local-business, business-listings, ratings, review-mining, business-hours, local-seo, lead-generation, reputation-management, restaurants, langchain, crewai, structured-data, json, ai-agents"}, {"dir": "scavio-youtube", "description": "YouTube data API: search videos, Shorts and channels, then pull video metadata, comments and replies, transcripts, related videos, download streams, and channel info, videos and community posts. Returns title, view count, duration, published time, channel and caption fields as JSON. 15 endpoints, 1-8 credits each.", "tags": "youtube, youtube-api, youtube-data-api, video-search, transcripts, captions, comments, channels, shorts, video-metadata, content-research, rag, langchain, crewai, autogen, structured-data, json, ai-agents"}, {"dir": "scavio-zillow", "description": "Zillow property data API: search listings for sale, for rent or sold, pull one property in full, and read an agent's profile and reviews. Returns price and price history, Zestimate, tax history, beds, baths, living area, days on market, schools, open houses and photos. 3 endpoints, 1 credit each, structured JSON.", "tags": "zillow, zillow-api, property-data, real-estate, listings, for-sale, for-rent, sold-homes, zestimate, price-history, home-prices, rental-market, market-analysis, langchain, crewai, structured-data, json, ai-agents"}], "readme": "# Scavio Agent Skills\n\n[Scavio](https://scavio.dev) is a unified web data API: one key, 32 platforms, structured JSON instead of HTML. This repo holds 39 Agent Skills, one per platform. A skill teaches your agent which Scavio endpoints exist for that platform, what parameters they take, what the response looks like, and what each call costs in credits, so the agent can call the API correctly without you writing an integration. Each skill is a single `SKILL.md` in the open Agent Skills format. The same folder loads in Claude Code, Cursor, Codex, OpenCode, Goose, OpenHands, Hermes Agent, OpenClaw, and any other client that reads the format.\n\n## Install\n\n```\nnpx skills add scavio-ai/skills\n```\n\nThat installs all 39 skills. To install one, append its slug:\n\n```\nnpx skills add scavio-ai/skills/amazon-product-data\n```\n\nAny client that reads the Agent Skills format can also load a folder directly. Clone this repo and point the client at the repo root, or copy a single skill directory into wherever that client keeps its skills.\n\n## Setup\n\nThe skills need one environment variable:\n\n```\nexport SCAVIO_API_KEY=...\n```\n\nGet the key at [scavio.dev](https://scavio.dev). The free tier is 50 credits on signup, no card required.\n\n## Skills\n\n### Search\n\n| Skill | What it does |\n| --- | --- |\n| `google-search-api` | Full Google SERP as JSON: organic, ads, knowledge graph, AI Overview, PAA |\n| `google-ai-mode-api` | Google AI Mode answers with their cited sources |\n| `google-news-api` | Headlines by keyword, topic, story or publication |\n| `google-trends-api` | Search interest over time, by region, and related queries |\n| `google-maps-api` | Local business search, place detail, and reviews |\n\n### Commerce\n\n| Skill | What it does |\n| --- | --- |\n| `amazon-product-data` | Keyword search, ASIN detail, and all seller offers with the buy box |\n| `ebay-product-data` | Live and sold listings for comps, plus listing and seller detail |\n| `walmart-product-data` | Search, item detail, reviews, categories, offers, and seller storefronts |\n| `target-product-data` | Search, category browse, TCIN detail, and reviews with store-aware pricing |\n| `home-depot-product-data` | Search with per-store pickup and delivery, item specs, and reviews |\n| `google-shopping-api` | Product search with price filters, product detail, and every store selling it |\n| `tiktok-shop-api` | Catalog search, product detail, reviews, categories, and shop catalogs |\n\n### Social and video\n\n| Skill | What it does |\n| --- | --- |\n| `instagram-scraper-api` | Profiles, posts, reels, stories, comments, followers, and search |\n| `tiktok-scraper-api` | Profiles, user videos, video detail, comments, hashtags, and search |\n| `youtube-data-api` | Video and channel search, metadata, comments, transcripts, and streams |\n| `twitter-scraper-api` | Tweet and people search, tweet detail, profiles, followers, and trends |\n| `reddit-search-api` | Search, post detail, threaded comments, subreddits, and redditor profiles |\n| `linkedin-scraper-api` | Person and company profiles, their posts, job search, and job detail |\n| `threads-net-api` | Threads profiles, posts, replies, post detail, and people search |\n| `kuaishou-scraper-api` | Kuaishou.com profiles, videos, comments, hashtags, and search |\n\n### Travel\n\n| Skill | What it does |\n| --- | --- |\n| `airbnb-scraper-api` | Stay search with the discount ledger, listing detail, and guest reviews |\n| `booking-com-hotel-data` | Destination search with live nightly prices, property detail, and reviews |\n| `google-hotels-api` | Hotel search for a stay, plus per-property booking-site vendor prices |\n| `google-flights-api` | Route search by date with price, carrier, duration, and stops |\n| `tripadvisor-reviews-api` | Resolve places, list ranked venues in a geo, location detail, and reviews |\n\n### Jobs and reviews\n\n| Skill | What it does |\n| --- | --- |\n| `indeed-jobs-api` | Job search, full posting detail with the ATS link, employers, and reviews |\n| `glassdoor-salary-data` | Salary percentiles by title, employer profiles, ratings, and reviews |\n| `g2-software-reviews-api` | B2B product search, profiles with pricing editions, and faceted reviews |\n| `capterra-reviews-api` | Software search, full profiles with the pricing table, and scored reviews |\n| `yelp-business-data` | Business search, full business detail with hours, and review pages |\n\n### Real estate\n\n| Skill | What it does |\n| --- | --- |\n| `zillow-property-data` | For sale, rent and sold listings, property detail, Zestimate, agent profiles |\n| `redfin-property-data` | Listing search, property detail with Redfin Estimate, and market stats |\n\n### App stores\n\n| Skill | What it does |\n| --- | --- |\n| `apple-app-store-api` | App search, listing detail by App Store or bundle id, and user reviews |\n| `google-play-store-api` | Android app search, listing with install counts and Data safety, reviews |\n\n### Company filings\n\n| Skill | What it does |\n| --- | --- |\n| `sec-edgar-api` | Ticker to CIK, filer profile, filings with documents, XBRL, full-text search |\n| `companies-house-api` | UK company search, register entry, officers, and filing history PDFs |\n\n### Ads\n\n| Skill | What it does |\n| --- | --- |\n| `google-ads-transparency-api` | Advertiser lookup and the live ad creatives a brand runs, with dates |\n| `meta-ad-library-api` | Facebook and Instagram ad search by keyword, Page id, or archive id |\n\n### Utility\n\n| Skill | What it does |\n| --- | --- |\n| `url-to-markdown-api` | Any URL to clean Markdown, plain text, or raw HTML for prompts and RAG |\n\n## Which skill do I want\n\n**I need prices for a product across retailers.** Start with `google-shopping-api` for the cross-merchant view, then go per retailer: `amazon-product-data` for ASIN detail and offers, `walmart-product-data`, `target-product-data`, `home-depot-product-data`. For resale and used comps, `ebay-product-data` searches sold listings.\n\n**I need a lead list of local businesses.** `google-maps-api` gives places, addresses, phone numbers, hours, and coordinates for a query and map center. `yelp-business-data` adds price band, amenities, and review text for the same kind of venue. `tripadvisor-reviews-api` covers restaurants, hotels, and attractions ranked within a geo.\n\n**I need to feed a RAG index or an LLM prompt.** `url-to-markdown-api` converts arbitrary pages to Markdown chunks. For discussion text, `reddit-search-api` returns threaded comments. For video, `youtube-data-api` returns transcripts.\n\n**I need to see what a competitor is doing.** `google-ads-transparency-api` and `meta-ad-library-api` return the ad creatives a brand is running and when they ran. `g2-software-reviews-api` and `capterra-reviews-api` return their pricing tables and review facets. `glassdoor-salary-data` and `indeed-jobs-api` return what they pay and what they are hiring for.\n\n## Links\n\n- Docs: [scavio.dev/docs](https://scavio.dev/docs)\n- Hosted MCP server: [mcp.scavio.dev](https://mcp.scavio.dev)\n- Python SDK: `pip install scavio`\n- JavaScript SDK: `npm i scavio`"}
+{
+  "naming": [
+    {
+      "dir": "scavio-airbnb",
+      "slug": "airbnb-scraper-api",
+      "name": "airbnb-scraper-api",
+      "display": "Airbnb Scraper API - Stay Search, Listing Detail, Reviews",
+      "query": "airbnb scraper api",
+      "reused": "no"
+    },
+    {
+      "dir": "scavio-aliexpress",
+      "slug": "aliexpress-product-data",
+      "name": "aliexpress-product-data",
+      "display": "AliExpress Product Data API - Search, Category, Reviews, Seller",
+      "query": "aliexpress product data",
+      "reused": "yes"
+    },
+    {
+      "dir": "scavio-amazon",
+      "slug": "amazon-product-data",
+      "name": "amazon-product-data",
+      "display": "Amazon Product Data API - Search, ASIN Lookup, Offers",
+      "query": "amazon product data",
+      "reused": "yes"
+    },
+    {
+      "dir": "scavio-app-store",
+      "slug": "apple-app-store-api",
+      "name": "apple-app-store-api",
+      "display": "Apple App Store API - App Search, Listing Detail, Reviews",
+      "query": "apple app store api",
+      "reused": "no"
+    },
+    {
+      "dir": "scavio-booking",
+      "slug": "booking-com-hotel-data",
+      "name": "booking-com-hotel-data",
+      "display": "Booking.com Hotel Data API - Search, Live Prices, Reviews",
+      "query": "booking.com hotel prices",
+      "reused": "yes"
+    },
+    {
+      "dir": "scavio-capterra",
+      "slug": "capterra-reviews-api",
+      "name": "capterra-reviews-api",
+      "display": "Capterra Reviews API - Software Search, Pricing, Reviews",
+      "query": "capterra reviews api",
+      "reused": "no"
+    },
+    {
+      "dir": "scavio-companies-house",
+      "slug": "companies-house-api",
+      "name": "companies-house-api",
+      "display": "Companies House API - UK Company Search, Officers, Filings",
+      "query": "companies house api",
+      "reused": "no"
+    },
+    {
+      "dir": "scavio-douyin",
+      "slug": "douyin-scraper-api",
+      "name": "douyin-scraper-api",
+      "display": "Douyin Scraper API - Videos, Creators, Comments, Search",
+      "query": "douyin scraper api",
+      "reused": "yes"
+    },
+    {
+      "dir": "scavio-ebay",
+      "slug": "ebay-product-data",
+      "name": "ebay-product-data",
+      "display": "eBay Product Data API - Live and Sold Listings, Sellers",
+      "query": "ebay product data api",
+      "reused": "no"
+    },
+    {
+      "dir": "scavio-etsy",
+      "slug": "etsy-product-data",
+      "name": "etsy-product-data",
+      "display": "Etsy Product Data API - Listings, Shops, Reviews",
+      "query": "etsy product data",
+      "reused": "yes"
+    },
+    {
+      "dir": "scavio-extract",
+      "slug": "url-to-markdown-api",
+      "name": "url-to-markdown-api",
+      "display": "URL to Markdown - Web Page Extract API",
+      "query": "url to markdown api",
+      "reused": "no"
+    },
+    {
+      "dir": "scavio-facebook",
+      "slug": "facebook-scraper-api",
+      "name": "facebook-scraper-api",
+      "display": "Facebook API - Pages, Posts, Reels, Groups, Events",
+      "query": "facebook scraper api",
+      "reused": "yes"
+    },
+    {
+      "dir": "scavio-g2",
+      "slug": "g2-software-reviews-api",
+      "name": "g2-software-reviews-api",
+      "display": "G2 Software Reviews API - Product Search, Ratings, Reviews",
+      "query": "g2 reviews api",
+      "reused": "no"
+    },
+    {
+      "dir": "scavio-github",
+      "slug": "github-api",
+      "name": "github-api",
+      "display": "GitHub API - Profiles, Repos, Issues, Search, Email Finder",
+      "query": "github api",
+      "reused": "yes"
+    },
+    {
+      "dir": "scavio-glassdoor",
+      "slug": "glassdoor-salary-data",
+      "name": "glassdoor-salary-data",
+      "display": "Glassdoor Salary Data API - Employer Profiles, Salaries, Reviews",
+      "query": "glassdoor salary data",
+      "reused": "no"
+    },
+    {
+      "dir": "scavio-google",
+      "slug": "google-search-api",
+      "name": "google-search-api",
+      "display": "Google Search API - Organic SERP, Knowledge Graph, PAA, AI Overview",
+      "query": "google search api",
+      "reused": "yes"
+    },
+    {
+      "dir": "scavio-google-ads",
+      "slug": "google-ads-transparency-api",
+      "name": "google-ads-transparency-api",
+      "display": "Google Ads Transparency API - Advertiser Lookup, Live Ad Creatives",
+      "query": "google ads transparency api",
+      "reused": "no"
+    },
+    {
+      "dir": "scavio-google-ai-mode",
+      "slug": "google-ai-mode-api",
+      "name": "google-ai-mode-api",
+      "display": "Google AI Mode API - AI Answers with Cited Sources",
+      "query": "google ai mode api",
+      "reused": "no"
+    },
+    {
+      "dir": "scavio-google-flights",
+      "slug": "google-flights-api",
+      "name": "google-flights-api",
+      "display": "Google Flights API - Route Search, Prices, Carriers, Stops",
+      "query": "google flights api",
+      "reused": "yes"
+    },
+    {
+      "dir": "scavio-google-hotels",
+      "slug": "google-hotels-api",
+      "name": "google-hotels-api",
+      "display": "Google Hotels API - Hotel Search, Rates, Ratings, Amenities",
+      "query": "google hotels api",
+      "reused": "no"
+    },
+    {
+      "dir": "scavio-google-maps",
+      "slug": "google-maps-api",
+      "name": "google-maps-api",
+      "display": "Google Maps API - Local Search, Place Detail, Reviews, Rank Tracking",
+      "query": "google maps api",
+      "reused": "no"
+    },
+    {
+      "dir": "scavio-google-news",
+      "slug": "google-news-api",
+      "name": "google-news-api",
+      "display": "Google News API - Headlines by Keyword, Topic, Publication",
+      "query": "google news api",
+      "reused": "yes"
+    },
+    {
+      "dir": "scavio-google-play",
+      "slug": "google-play-store-api",
+      "name": "google-play-store-api",
+      "display": "Google Play Store API - App Search, Install Counts, Reviews",
+      "query": "google play store api",
+      "reused": "no"
+    },
+    {
+      "dir": "scavio-google-shopping",
+      "slug": "google-shopping-api",
+      "name": "google-shopping-api",
+      "display": "Google Shopping API - Product Search, Merchant Offers, Prices",
+      "query": "google shopping api",
+      "reused": "no"
+    },
+    {
+      "dir": "scavio-google-trends",
+      "slug": "google-trends-api",
+      "name": "google-trends-api",
+      "display": "Google Trends API - Interest Over Time, By Region, Related Queries",
+      "query": "google trends api",
+      "reused": "no"
+    },
+    {
+      "dir": "scavio-home-depot",
+      "slug": "home-depot-product-data",
+      "name": "home-depot-product-data",
+      "display": "Home Depot Product Data API - Search, Item Detail, Reviews",
+      "query": "home depot product data",
+      "reused": "yes"
+    },
+    {
+      "dir": "scavio-indeed",
+      "slug": "indeed-jobs-api",
+      "name": "indeed-jobs-api",
+      "display": "Indeed Jobs API - Job Search and Full Posting Detail",
+      "query": "indeed jobs api",
+      "reused": "no"
+    },
+    {
+      "dir": "scavio-instagram",
+      "slug": "instagram-scraper-api",
+      "name": "instagram-scraper-api",
+      "display": "Instagram Scraper API - Profiles, Posts, Reels, Stories, Followers",
+      "query": "instagram scraper api",
+      "reused": "no"
+    },
+    {
+      "dir": "scavio-kuaishou",
+      "slug": "kuaishou-scraper-api",
+      "name": "kuaishou-scraper-api",
+      "display": "Kuaishou Scraper API - Profiles, Videos, Comments, Search",
+      "query": "kuaishou api",
+      "reused": "no"
+    },
+    {
+      "dir": "scavio-linkedin",
+      "slug": "linkedin-scraper-api",
+      "name": "linkedin-scraper-api",
+      "display": "LinkedIn Scraper API - Person and Company Profiles, Posts, Jobs",
+      "query": "linkedin scraper api",
+      "reused": "no"
+    },
+    {
+      "dir": "scavio-linkedin-ads",
+      "slug": "linkedin-ad-library-api",
+      "name": "linkedin-ad-library-api",
+      "display": "LinkedIn Ad Library API - Search Ads and Ad Detail",
+      "query": "linkedin ad library api",
+      "reused": "no"
+    },
+    {
+      "dir": "scavio-meta-ads",
+      "slug": "meta-ad-library-api",
+      "name": "meta-ad-library-api",
+      "display": "Meta Ad Library API - Facebook and Instagram Ad Search",
+      "query": "meta ad library api",
+      "reused": "no"
+    },
+    {
+      "dir": "scavio-pinterest",
+      "slug": "pinterest-api",
+      "name": "pinterest-api",
+      "display": "Pinterest API - Search, Pins, Boards, Profiles",
+      "query": "pinterest api",
+      "reused": "yes"
+    },
+    {
+      "dir": "scavio-reddit",
+      "slug": "reddit-search-api",
+      "name": "reddit-search-api",
+      "display": "Reddit Search API - Posts, Comments, Subreddits, Users",
+      "query": "reddit search api",
+      "reused": "yes"
+    },
+    {
+      "dir": "scavio-redfin",
+      "slug": "redfin-property-data",
+      "name": "redfin-property-data",
+      "display": "Redfin Property Data API - For Sale, Sold, Rentals, Price History",
+      "query": "redfin property data",
+      "reused": "no"
+    },
+    {
+      "dir": "scavio-screenshot",
+      "slug": "website-screenshot-api",
+      "name": "website-screenshot-api",
+      "display": "Website Screenshot API - Full-Page PNG of Any URL",
+      "query": "website screenshot api",
+      "reused": "no"
+    },
+    {
+      "dir": "scavio-sec-edgar",
+      "slug": "sec-edgar-api",
+      "name": "sec-edgar-api",
+      "display": "SEC EDGAR API - Ticker to CIK, Filings, Filing Documents",
+      "query": "sec edgar api",
+      "reused": "no"
+    },
+    {
+      "dir": "scavio-target",
+      "slug": "target-product-data",
+      "name": "target-product-data",
+      "display": "Target Product Data API - Search, Category, TCIN Detail, Reviews",
+      "query": "target.com product data",
+      "reused": "yes"
+    },
+    {
+      "dir": "scavio-threads",
+      "slug": "threads-net-api",
+      "name": "threads-net-api",
+      "display": "Threads API - Profiles, Posts, Replies, Reposters",
+      "query": "threads.net api",
+      "reused": "no"
+    },
+    {
+      "dir": "scavio-tiktok",
+      "slug": "tiktok-scraper-api",
+      "name": "tiktok-scraper-api",
+      "display": "TikTok Scraper API - Profiles, Videos, Comments, Hashtags",
+      "query": "tiktok scraper api",
+      "reused": "yes"
+    },
+    {
+      "dir": "scavio-tiktok-ads",
+      "slug": "tiktok-ad-library-api",
+      "name": "tiktok-ad-library-api",
+      "display": "TikTok Ad Library API - Search Ads, Top Ads, Ad Detail",
+      "query": "tiktok ad library api",
+      "reused": "no"
+    },
+    {
+      "dir": "scavio-tiktok-shop",
+      "slug": "tiktok-shop-api",
+      "name": "tiktok-shop-api",
+      "display": "TikTok Shop API - Product Search, Prices, Shops, Sellers",
+      "query": "tiktok shop api",
+      "reused": "no"
+    },
+    {
+      "dir": "scavio-tripadvisor",
+      "slug": "tripadvisor-reviews-api",
+      "name": "tripadvisor-reviews-api",
+      "display": "Tripadvisor Reviews API - Hotels, Restaurants, Attractions",
+      "query": "tripadvisor reviews api",
+      "reused": "no"
+    },
+    {
+      "dir": "scavio-twitch",
+      "slug": "twitch-api",
+      "name": "twitch-api",
+      "display": "Twitch API - Profiles, VODs, Clips, Schedule",
+      "query": "twitch api",
+      "reused": "yes"
+    },
+    {
+      "dir": "scavio-walmart",
+      "slug": "walmart-product-data",
+      "name": "walmart-product-data",
+      "display": "Walmart Product Data API - Search, Detail, Reviews, Offers",
+      "query": "walmart product data",
+      "reused": "yes"
+    },
+    {
+      "dir": "scavio-weibo",
+      "slug": "weibo-scraper-api",
+      "name": "weibo-scraper-api",
+      "display": "Weibo Scraper API - Users, Posts, Search, Hot Search",
+      "query": "weibo scraper api",
+      "reused": "yes"
+    },
+    {
+      "dir": "scavio-x",
+      "slug": "twitter-scraper-api",
+      "name": "twitter-scraper-api",
+      "display": "Twitter (X) Scraper API - Tweet Search, Profiles, Followers",
+      "query": "twitter scraper api",
+      "reused": "no"
+    },
+    {
+      "dir": "scavio-yelp",
+      "slug": "yelp-business-data",
+      "name": "yelp-business-data",
+      "display": "Yelp Business Data API - Search, Business Detail, Reviews",
+      "query": "yelp business data",
+      "reused": "no"
+    },
+    {
+      "dir": "scavio-youtube",
+      "slug": "youtube-data-api",
+      "name": "youtube-data-api",
+      "display": "YouTube Data API - Search, Videos, Comments, Transcripts, Channels",
+      "query": "youtube data api",
+      "reused": "no"
+    },
+    {
+      "dir": "scavio-zillow",
+      "slug": "zillow-property-data",
+      "name": "zillow-property-data",
+      "display": "Zillow Property Data API - For Sale, Rent, Sold, Price History",
+      "query": "zillow property data",
+      "reused": "no"
+    }
+  ],
+  "frontmatter": [
+    {
+      "dir": "scavio-airbnb",
+      "description": "Airbnb scraper API: search stays for a location and date window with per-night and stay-total price plus the full discount ledger, pull one listing with amenities, host profile, house rules and the rating breakdown, and page real guest review bodies. 3 endpoints, 1 credit each; nightly price is search-only.",
+      "tags": "airbnb, airbnb-scraper, airbnb-api, short-term-rental, vacation-rental, listings, nightly-rates, guest-reviews, travel, rental-market-research, agents, langchain, crewai, autogen, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-aliexpress",
+      "description": "Search AliExpress, browse a category, pull one product with every SKU variant, read translated buyer reviews, and open a seller's storefront and catalogue. 6 endpoints, 1 credit each, structured JSON.",
+      "tags": "aliexpress, product-data, ecommerce, price-tracking, product-search, sku-variants, product-reviews, seller-data, dropshipping, market-research, price-comparison, catalog, listings, agents, structured-data, json, ai-agents, scraping-api"
+    },
+    {
+      "dir": "scavio-amazon",
+      "description": "Amazon product data API: keyword search, full product detail by ASIN, and every seller offer on an ASIN with the buy-box winner. Normalized JSON with price, rating, review count, availability, shipping and sellers. 3 endpoints, all 1 credit, 22 marketplaces; no server-side sort.",
+      "tags": "amazon, amazon-product-data, product-search, asin, price-lookup, offers, buy-box, sellers, ecommerce, retail, competitor-research, agents, langchain, crewai, autogen, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-app-store",
+      "description": "Apple App Store API: search apps by keyword or publisher name, read a full listing by App Store id or bundle id with price, ratings, version, release notes and screenshots, and page user reviews with rating, text, author and app version. 3 endpoints, 1 credit each, any Apple storefront.",
+      "tags": "app-store, apple-app-store, app-store-api, ios-apps, aso, app-reviews, app-metadata, bundle-id, apple, mobile-apps, competitor-research, agents, langchain, crewai, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-booking",
+      "description": "Booking.com hotel data API: search a destination and stay for live nightly prices, review scores and star ratings, pull one property in full with rooms, rate plans, facilities and policies, and read guest reviews with per-category subscores. 3 endpoints, 1 credit each, structured JSON.",
+      "tags": "booking-com, booking-com-hotel-data, hotel-prices, hotels, nightly-rates, accommodation, travel, rate-shopping, guest-reviews, ota-data, agents, langchain, crewai, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-capterra",
+      "description": "Capterra reviews API: search B2B software for 20 ranked products, read a full profile with the complete pricing table, rated features, integrations and the 25 most recent reviews included, then page deeper reviews with five per-criterion scores each. 3 endpoints, 2 credits each, no search pagination.",
+      "tags": "capterra, capterra-reviews, software-reviews, b2b-software, saas, software-pricing, vendor-comparison, review-mining, competitive-intelligence, buyer-research, agents, langchain, crewai, autogen, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-companies-house",
+      "description": "Companies House API for the UK register: search by company name (current and former names), then pull the full register entry with status, SIC codes, registered office and accounts due dates, the officers current and resigned, and filing history with the filed PDF. 4 endpoints, 1 credit each, structured JSON.",
+      "tags": "companies-house, uk-company-search, company-registry, company-number, officers, directors, filing-history, kyb, kyc, due-diligence, sic-codes, b2b-data, langchain, crewai, autogen, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-douyin",
+      "description": "Pull Douyin videos, user profiles and feeds, comments, hashtags, music, live rooms, the hot-search board, and keyword search across videos, users, music, live and hashtags. 27 endpoints, structured JSON.",
+      "tags": "douyin, douyin-api, china-tiktok, short-video, social-media-data, creator-data, video-data, comments, hashtags, trending, live-stream, china-market, influencer-data, agents, structured-data, json, ai-agents, scraping-api"
+    },
+    {
+      "dir": "scavio-ebay",
+      "description": "eBay product data API: search live or SOLD listings for comps and resale pricing (price, condition, bids, shipping, seller, feedback), read one listing in full with item specifics, shipping, returns and auction state, and pull a seller's feedback score, items sold and location. 3 endpoints, 1 credit each.",
+      "tags": "ebay, ebay-product-data, sold-listings, price-research, resale, ecommerce, marketplace, product-data, seller-profile, price-monitoring, arbitrage, auctions, langchain, crewai, autogen, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-etsy",
+      "description": "Search Etsy listings, pull one listing with its variations and reviews, open a shop's profile and catalogue, and page through a shop's reviews. 5 endpoints, 2 credits each, structured JSON.",
+      "tags": "etsy, etsy-api, product-data, ecommerce, handmade, product-search, listings, product-reviews, shop-data, seller-analytics, market-research, price-comparison, craft, agents, structured-data, json, ai-agents, scraping-api"
+    },
+    {
+      "dir": "scavio-extract",
+      "description": "Turn any URL into clean Markdown, plain text or raw HTML for LLM prompts and RAG chunks. One endpoint, three fetch tiers: normal and advanced (renders JavaScript) at 1 credit, ultra for hard bot walls at 2. Only a successful extraction is billed. Returns url, format, mode, content and content_length.",
+      "tags": "url-to-markdown, extract, read-url, web-scraping, html-to-markdown, content-extraction, page-content, readability, rag, llm-context, javascript-rendering, agent-tools, langchain, crewai, autogen, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-facebook",
+      "description": "Pull a Facebook page's profile, posts, reels and photos, one post with its comments, a single reel/video with downloadable URLs, a public group and its posts, an event, and hashtag posts. 11 endpoints, 1 credit each, structured JSON.",
+      "tags": "facebook, facebook-api, social-media-data, page-data, posts, reels, comments, groups, events, hashtags, video-download, brand-monitoring, influencer-data, agents, structured-data, json, ai-agents, scraping-api"
+    },
+    {
+      "dir": "scavio-g2",
+      "description": "G2 software reviews API for B2B SaaS research: search products with star rating, review count and vendor, read a full profile with pricing editions, features, integrations and alternatives (no review text), and pull reviews with exact per-star counts and company-size, role, industry and region facets. 3 endpoints, 5 credits each.",
+      "tags": "g2, g2-crowd, software-reviews, b2b-software, saas, competitive-intelligence, review-mining, voice-of-customer, product-research, pricing-research, vendor-comparison, alternatives, langchain, crewai, autogen, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-github",
+      "description": "Pull GitHub profiles, repos, READMEs, releases, issues and comments, run GitHub search, and get composite intelligence - a repo dossier, a user's activity velocity, reaction-ranked top issues, and public commit emails. 13 endpoints, structured JSON.",
+      "tags": "github, github-api, developer-data, repos, repositories, issues, pull-requests, releases, code-search, contributor-analytics, osint, open-source, dev-intelligence, agents, structured-data, json, ai-agents, scraping-api"
+    },
+    {
+      "dir": "scavio-glassdoor",
+      "description": "Glassdoor salary data API: resolve a company name to an employer id, then pull salary percentiles P10-P90 for base and total pay by job title, the employer profile with per-category ratings, star distribution and CEO approval, and up to three full reviews with pros, cons and employer response. 4 endpoints, 1 credit each.",
+      "tags": "glassdoor, glassdoor-salaries, salary-data, compensation, salary-benchmarking, employer-reviews, company-reviews, ceo-approval, employer-brand, recruiting, hr-tech, talent-intelligence, agents, scraping-api, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-google",
+      "description": "Google Search API returning the full SERP as structured JSON: organic results, ads, knowledge graph, AI Overview, People Also Ask, related searches, top stories and videos. Localize with gl/hl/location, filter by time period, page with start. One endpoint on the v2 engine, 1 credit per request.",
+      "tags": "google-search-api, google-serp-api, serp-api, google-search, organic-results, knowledge-graph, people-also-ask, ai-overview, rank-tracking, seo, web-search, search-api, langchain, crewai, autogen, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-google-ads",
+      "description": "Google Ads Transparency Center data as JSON: resolve a brand or domain to a verified advertiser id, pull every ad it runs across Search, YouTube, Shopping, Maps and Play with first-seen and last-seen dates, then open one creative with its region and impression history. 3 endpoints, 1 credit each.",
+      "tags": "google-ads-transparency, google-ads, ads-transparency-center, ad-library, competitor-ads, ad-creatives, advertiser-lookup, youtube-ads, ppc-research, paid-search, political-ads, ad-intelligence, langchain, crewai, autogen, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-google-ai-mode",
+      "description": "Google AI Mode answers as structured JSON: the AI-generated response split into text blocks, the cited source references behind it, and shopping results on commercial queries. Localize by country and language. One endpoint on the v2 engine, 1 credit per request.",
+      "tags": "google-ai-mode, google-ai-mode-api, ai-overview, generative-search, answer-engine, aeo, citations, seo, google-search, langchain, crewai, autogen, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-google-flights",
+      "description": "Google Flights route search by date as structured JSON: price, airline, total duration, stops and per-leg detail across best_flights and other_flights. Round-trip, one-way and multi-city, with cabin class, stops, airline and sort filters. One endpoint on the v2 engine, 1 credit per request.",
+      "tags": "google-flights, google-flights-api, flight-search, airfare, flight-prices, airlines, itinerary, travel, price-tracking, multi-city, langchain, crewai, autogen, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-google-hotels",
+      "description": "Google Hotels search for a destination and stay dates as structured JSON: properties with name, nightly rate and rating, then per-property detail with booking-site vendor prices. Filter by price, rating, hotel class, amenities and vacation rentals. 2 endpoints, 1 credit each.",
+      "tags": "google-hotels, google-hotels-api, hotel-search, hotel-prices, nightly-rates, hotel-ratings, amenities, lodging, vacation-rentals, travel, price-comparison, langchain, crewai, autogen, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-google-maps",
+      "description": "Google Maps local business and place data as structured JSON: search places by query and map center, fetch full place detail with address, phone, hours, rating and GPS coordinates, page reviews with sort, and run a local-SEO geo-grid to track where a business ranks across an NxN lattice of points. 4 endpoints on the v2 engine; search, place and reviews are 1 credit, geo-grid bills per point.",
+      "tags": "google-maps, google-maps-api, local-business-search, places, place-details, google-reviews, local-seo, business-listings, lead-generation, geocoding, agents, langchain, crewai, autogen, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-google-news",
+      "description": "Google News headlines as structured JSON - title, source name, publish date, link and thumbnail - searched by keyword with relevance or date sort, or browsed by topic, section, full-coverage story, publication token or kgmid. One endpoint, 1 credit per request, country and language scoped.",
+      "tags": "google-news, google-news-api, news-api, headlines, current-events, media-monitoring, brand-monitoring, pr, journalism, research, agents, langchain, crewai, autogen, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-google-play",
+      "description": "Google Play Store data as structured JSON: search Android apps by keyword, pull a full listing with the real install count, rating histogram, permissions, Data safety table, changelog and 20 reviews, and cursor-page reviews by newest, relevance or rating. 3 endpoints, 2 credits each.",
+      "tags": "google-play, google-play-api, play-store, android-apps, app-search, install-count, app-reviews, aso, app-store-optimization, data-safety, competitor-research, agents, langchain, crewai, autogen, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-google-shopping",
+      "description": "Google Shopping product and price data as structured JSON: search products with min/max price, on-sale, free-shipping and price-sort filters returning title, price, seller, rating and reviews, open a full product page with specs and variants, then page every store selling it. 3 endpoints, 1 credit each.",
+      "tags": "google-shopping, google-shopping-api, product-search, price-comparison, merchant-offers, product-prices, ecommerce, retail, shopping-results, agents, langchain, crewai, autogen, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-google-trends",
+      "description": "Google Trends search-interest data as structured JSON: interest over time, interest by region (country, region, DMA or city), and related or rising queries and topics for a keyword, scoped by geo, date range and Google property, plus real-time trending searches per country. 2 endpoints, 1 credit each.",
+      "tags": "google-trends, google-trends-api, search-trends, interest-over-time, trending-searches, keyword-research, market-research, demand-signals, seasonality, seo, agents, langchain, crewai, autogen, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-home-depot",
+      "description": "Home Depot product data: keyword search returning price, promotions, brand, model, ratings and per-store pickup and delivery; full item detail with spec table, dimensions, documents and return policy; and paginated review bodies with rating distribution. 3 endpoints, 2 credits each, structured JSON.",
+      "tags": "home-depot, home-depot-api, home-depot-product-data, product-data, product-search, retail, home-improvement, hardware, pricing, product-reviews, price-monitoring, catalog-enrichment, web-scraping, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-indeed",
+      "description": "Indeed job search by keyword, location, radius, job type and posting age, plus one posting in full with description, structured salary, benefits and the original ATS link, employer profiles and employee reviews. 4 endpoints, 2 credits each. Salary filters match Indeed's estimate, not a posted figure.",
+      "tags": "indeed, indeed-api, indeed-jobs, job-search, job-postings, jobs-api, recruiting, hiring, salary-data, labor-market, employer-reviews, talent-intelligence, web-scraping, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-instagram",
+      "description": "Instagram public data: profiles with follower counts and bio, timeline posts, reels, tagged posts, active stories, single-post detail, comments and replies, follower and following lists, and user and hashtag search. 12 endpoints, 2-10 credits each; responses are raw upstream JSON, not a normalized shape.",
+      "tags": "instagram, instagram-api, instagram-scraper, social-media, profiles, reels, stories, followers, comments, hashtags, influencer-marketing, social-listening, langchain, crewai, autogen, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-kuaishou",
+      "description": "Kuaishou (China) public data: creator profiles, posts, live status, single and batched videos, comment threads and replies, hashtag feeds, leaderboards, and video, user, live and mixed search. 14 endpoints at 1, 2, 10 or 40 credits each. Kuaishou.com only - Kwai international is not covered.",
+      "tags": "kuaishou, kuaishou-api, kuaishou-scraper, china, chinese-social-media, short-video, creator-data, video-data, comments, live-streaming, trending, social-listening, langchain, crewai, autogen, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-linkedin",
+      "description": "LinkedIn person and company profiles, their posts, job search by keyword and location, single job detail, and post comments as structured JSON. 9 endpoints from 1 to 30 credits, four of them paginated. People search and contact info were retired upstream and return 410, so they are not covered.",
+      "tags": "linkedin, linkedin-api, linkedin-scraper, b2b, profiles, company-data, jobs, job-search, lead-generation, prospecting, recruiting, sales-intelligence, langchain, crewai, autogen, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-linkedin-ads",
+      "description": "Search ads running across LinkedIn by keyword and/or advertiser company id, returning each ad's advertiser, ad copy, format, promoted label, thumbnail and a detail link, then open one ad in full with its media, headline, who paid for it and the advertiser's company URL. 2 endpoints, 6 credits each, structured JSON.",
+      "tags": "linkedin-ads, linkedin-ad-library, ad-library-api, b2b-ads, competitor-ads, ad-creative, ad-intelligence, paid-social, marketing-research, sponsored-content, demand-gen, langchain, crewai, autogen, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-meta-ads",
+      "description": "Meta Ad Library search by keyword, Facebook Page id or ad archive id, returning the full ad creative, run dates, the Meta platforms each ad ran on, and spend, reach and impressions on political and issue ads. Cursor pagination walks every ad, not just page one. 3 endpoints, 1 credit per page, structured JSON.",
+      "tags": "meta-ad-library, facebook-ads, instagram-ads, meta-ads, ad-library-api, competitor-ads, ad-creative, political-ads, ad-spend, marketing-research, langchain, crewai, autogen, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-pinterest",
+      "description": "Search Pinterest pins, pull one pin with its save/share counts, read a user's profile and boards, page through a board, and look up how often external URLs have been saved. 6 endpoints, structured JSON.",
+      "tags": "pinterest, pinterest-api, pins, boards, social-media-data, visual-search, image-data, content-research, influencer-data, save-counts, url-stats, trends, agents, structured-data, json, ai-agents, scraping-api"
+    },
+    {
+      "dir": "scavio-reddit",
+      "description": "Reddit search plus post detail, threaded comments and reply expansion, subreddit metadata and feeds, redditor profiles with their posts and comments, the site-wide popular feed and trending searches. 12 endpoints, 1 credit each, structured JSON for sentiment analysis, brand monitoring and RAG.",
+      "tags": "reddit, reddit-api, reddit-search, subreddits, threaded-comments, social-listening, brand-monitoring, sentiment-analysis, market-research, rag, langchain, crewai, autogen, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-redfin",
+      "description": "Redfin listing search for sale, sold or for rent with filters for price, beds, baths, square footage and property type; one property in full with the Redfin Estimate, price and tax history, schools and comparable sales; plus housing-market stats for a city, ZIP or neighborhood. 3 endpoints, 1 credit each.",
+      "tags": "redfin, redfin-api, property-data, real-estate, mls-listings, home-prices, sold-homes, rentals, price-history, redfin-estimate, housing-market, comparable-sales, langchain, crewai, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-screenshot",
+      "description": "Capture a full-page PNG screenshot of any public URL, returned inline as a base64 data:image/png URI ready to drop into an <img> tag. One endpoint, three capture tiers - normal and advanced at 1 credit, ultra for the hardest sites at 5. Only a successful capture is billed. Returns url, image, image_format, mode and image_bytes.",
+      "tags": "website-screenshot, screenshot-api, url-to-screenshot, web-page-screenshot, full-page-screenshot, png, webpage-capture, visual-testing, website-preview, thumbnail, ocr-input, agent-tools, langchain, crewai, autogen, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-sec-edgar",
+      "description": "SEC EDGAR filings by ticker: resolve a ticker or company name to its CIK, then pull the filer profile (SIC, EIN, LEI, addresses), page filings with direct document links, read any XBRL concept's full reported history, and run EDGAR full-text search back to 2001. 6 endpoints, 1 credit each, structured JSON.",
+      "tags": "sec-edgar, edgar-api, sec-filings, 10-k, 10-q, 8-k, cik-lookup, xbrl, financial-data, full-text-search, investment-research, due-diligence, langchain, crewai, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-target",
+      "description": "Target.com product data: keyword search, category browsing, product detail by TCIN with price, rating, images, specifications, variants and fulfillment, and reviews with the star breakdown and per-attribute averages. Store-aware pricing via store_id. 4 endpoints, 1 credit each, structured JSON.",
+      "tags": "target-product-data, target-com, retail, ecommerce, product-search, tcin, product-reviews, price-tracking, store-availability, competitor-research, langchain, crewai, autogen, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-threads",
+      "description": "Threads (threads.net) API: read a profile, page a user's posts and replies, fetch a single post by id or threads.net URL, walk its comment tree, and search Threads people, all as structured JSON. 6 endpoints, 2 credits by user_id and 4 by username. People search only, there is no keyword or hashtag content search.",
+      "tags": "threads, threads-api, threads-net, meta-threads, social-media, profiles, posts, replies, comments, people-search, social-listening, competitor-research, agents, langchain, crewai, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-tiktok",
+      "description": "TikTok scraper API: look up profiles by username or sec_user_id, list a user's videos, read full video detail, comments and comment replies, search videos and users by keyword, pull hashtag stats and hashtag videos, and walk followers and followings. 11 endpoints, all 1 credit, structured JSON.",
+      "tags": "tiktok, tiktok-scraper, tiktok-api, social-media, short-video, profiles, videos, comments, hashtags, followers, influencer-marketing, social-listening, langchain, crewai, autogen, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-tiktok-ads",
+      "description": "Search ads running on TikTok by keyword and/or industry, pull the top-performing ads with a performance highlight, and open one ad in full with its objective, engagement, the countries it ran in, its landing page and a playable video. 3 endpoints, 1 credit each, structured JSON.",
+      "tags": "tiktok-ads, tiktok-ad-library, tiktok-creative-center, ad-library-api, competitor-ads, ad-creative, ad-intelligence, top-ads, paid-social, marketing-research, creative-research, social-ads, langchain, crewai, autogen, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-tiktok-shop",
+      "description": "TikTok Shop API: search the catalog for products with exact prices, ratings and sold counts, read product detail (images, variants, stock, shipping, seller), page reviews with a star histogram, walk the category tree, list a category's or shop's catalog, and resolve any TikTok Shop link to an id. 8 endpoints, 1 credit each.",
+      "tags": "tiktok-shop, tiktok-shop-api, social-commerce, ecommerce, product-search, product-data, pricing, reviews, sellers, shops, category-catalog, competitor-research, langchain, crewai, autogen, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-tripadvisor",
+      "description": "Tripadvisor reviews API: resolve any place or business name to Tripadvisor ids, list ranked restaurants, hotels and attractions in a geo, read a location in full (rating histogram, sub-ratings, city ranking, price band, amenities, contact), and page reviews with trip date, trip type and management response. 4 endpoints, 2 credits each.",
+      "tags": "tripadvisor, tripadvisor-reviews, tripadvisor-api, hotels, restaurants, attractions, reviews, ratings, travel, hospitality, local-business, review-mining, reputation-monitoring, agents, structured-data, json, ai-agents, scraping-api"
+    },
+    {
+      "dir": "scavio-twitch",
+      "description": "Pull a Twitch channel's profile and live status, list its VODs / highlights / uploads, read its stream schedule, and resolve a clip to downloadable MP4 qualities. 4 endpoints, 1 credit each, structured JSON.",
+      "tags": "twitch, twitch-api, streaming, live-stream, creator-data, vod, clips, channel-data, stream-schedule, gaming, influencer-data, video-download, agents, structured-data, json, ai-agents, scraping-api"
+    },
+    {
+      "dir": "scavio-walmart",
+      "description": "Walmart product data API: keyword search, full product detail by item id, customer reviews with the rating breakdown, category listings, the buy-box offer on an item, and marketplace seller storefronts and their catalogs, as structured JSON. 7 endpoints; 1 credit, or 2 when search or category targets walmart.com.mx.",
+      "tags": "walmart, walmart-product-data, walmart-api, ecommerce, retail, product-search, product-data, pricing, price-monitoring, reviews, buy-box, marketplace-sellers, langchain, crewai, autogen, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-weibo",
+      "description": "Pull Weibo user profiles and posts, post comments/likes/reposts, keyword search across posts, videos, users, topics and images, the hot-search board and ranking boards, and channel feeds. 31 endpoints, 1 credit each, structured JSON.",
+      "tags": "weibo, weibo-api, china-social-media, microblog, social-media-data, posts, comments, keyword-search, hot-search, trending, user-data, china-market, influencer-data, agents, structured-data, json, ai-agents, scraping-api"
+    },
+    {
+      "dir": "scavio-x",
+      "description": "Twitter (X) scraper API: search tweets and people, read a tweet with its replies and retweeters, and pull user profiles, tweets, replies, media, followers and followings, plus trending topics by country. Returns text, favorites, retweets, replies, quotes, views and follower counts as JSON. 11 endpoints, 1 credit each.",
+      "tags": "twitter, x, twitter-api, twitter-scraper, tweet-search, user-profiles, followers, trending-topics, social-media, social-listening, brand-monitoring, sentiment-analysis, langchain, crewai, autogen, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-yelp",
+      "description": "Yelp business data API: search businesses in a metro, pull one business in full with hours, amenities and health inspections, and page through reviews. Returns rating, review count, price band, categories, address, contact details, photos, and review text with owner responses. 3 endpoints, 2 credits each, structured JSON.",
+      "tags": "yelp, yelp-api, yelp-reviews, business-data, local-business, business-listings, ratings, review-mining, business-hours, local-seo, lead-generation, reputation-management, restaurants, langchain, crewai, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-youtube",
+      "description": "YouTube data API: search videos, Shorts and channels, then pull video metadata, comments and replies, transcripts, related videos, download streams, and channel info, videos and community posts. Returns title, view count, duration, published time, channel and caption fields as JSON. 15 endpoints, 1-8 credits each.",
+      "tags": "youtube, youtube-api, youtube-data-api, video-search, transcripts, captions, comments, channels, shorts, video-metadata, content-research, rag, langchain, crewai, autogen, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-zillow",
+      "description": "Zillow property data API: search listings for sale, for rent or sold, pull one property in full, and read an agent's profile and reviews. Returns price and price history, Zestimate, tax history, beds, baths, living area, days on market, schools, open houses and photos. 3 endpoints, 1 credit each, structured JSON.",
+      "tags": "zillow, zillow-api, property-data, real-estate, listings, for-sale, for-rent, sold-homes, zestimate, price-history, home-prices, rental-market, market-analysis, langchain, crewai, structured-data, json, ai-agents"
+    }
+  ],
+  "readme": "# Scavio Agent Skills\n\n[Scavio](https://scavio.dev) is a unified web data API: one key, 32 platforms, structured JSON instead of HTML. This repo holds 39 Agent Skills, one per platform. A skill teaches your agent which Scavio endpoints exist for that platform, what parameters they take, what the response looks like, and what each call costs in credits, so the agent can call the API correctly without you writing an integration. Each skill is a single `SKILL.md` in the open Agent Skills format. The same folder loads in Claude Code, Cursor, Codex, OpenCode, Goose, OpenHands, Hermes Agent, OpenClaw, and any other client that reads the format.\n\n## Install\n\n```\nnpx skills add scavio-ai/skills\n```\n\nThat installs all 39 skills. To install one, append its slug:\n\n```\nnpx skills add scavio-ai/skills/amazon-product-data\n```\n\nAny client that reads the Agent Skills format can also load a folder directly. Clone this repo and point the client at the repo root, or copy a single skill directory into wherever that client keeps its skills.\n\n## Setup\n\nThe skills need one environment variable:\n\n```\nexport SCAVIO_API_KEY=...\n```\n\nGet the key at [scavio.dev](https://scavio.dev). The free tier is 50 credits on signup, no card required.\n\n## Skills\n\n### Search\n\n| Skill | What it does |\n| --- | --- |\n| `google-search-api` | Full Google SERP as JSON: organic, ads, knowledge graph, AI Overview, PAA |\n| `google-ai-mode-api` | Google AI Mode answers with their cited sources |\n| `google-news-api` | Headlines by keyword, topic, story or publication |\n| `google-trends-api` | Search interest over time, by region, and related queries |\n| `google-maps-api` | Local business search, place detail, and reviews |\n\n### Commerce\n\n| Skill | What it does |\n| --- | --- |\n| `amazon-product-data` | Keyword search, ASIN detail, and all seller offers with the buy box |\n| `ebay-product-data` | Live and sold listings for comps, plus listing and seller detail |\n| `walmart-product-data` | Search, item detail, reviews, categories, offers, and seller storefronts |\n| `target-product-data` | Search, category browse, TCIN detail, and reviews with store-aware pricing |\n| `home-depot-product-data` | Search with per-store pickup and delivery, item specs, and reviews |\n| `google-shopping-api` | Product search with price filters, product detail, and every store selling it |\n| `tiktok-shop-api` | Catalog search, product detail, reviews, categories, and shop catalogs |\n\n### Social and video\n\n| Skill | What it does |\n| --- | --- |\n| `instagram-scraper-api` | Profiles, posts, reels, stories, comments, followers, and search |\n| `tiktok-scraper-api` | Profiles, user videos, video detail, comments, hashtags, and search |\n| `youtube-data-api` | Video and channel search, metadata, comments, transcripts, and streams |\n| `twitter-scraper-api` | Tweet and people search, tweet detail, profiles, followers, and trends |\n| `reddit-search-api` | Search, post detail, threaded comments, subreddits, and redditor profiles |\n| `linkedin-scraper-api` | Person and company profiles, their posts, job search, and job detail |\n| `threads-net-api` | Threads profiles, posts, replies, post detail, and people search |\n| `kuaishou-scraper-api` | Kuaishou.com profiles, videos, comments, hashtags, and search |\n\n### Travel\n\n| Skill | What it does |\n| --- | --- |\n| `airbnb-scraper-api` | Stay search with the discount ledger, listing detail, and guest reviews |\n| `booking-com-hotel-data` | Destination search with live nightly prices, property detail, and reviews |\n| `google-hotels-api` | Hotel search for a stay, plus per-property booking-site vendor prices |\n| `google-flights-api` | Route search by date with price, carrier, duration, and stops |\n| `tripadvisor-reviews-api` | Resolve places, list ranked venues in a geo, location detail, and reviews |\n\n### Jobs and reviews\n\n| Skill | What it does |\n| --- | --- |\n| `indeed-jobs-api` | Job search, full posting detail with the ATS link, employers, and reviews |\n| `glassdoor-salary-data` | Salary percentiles by title, employer profiles, ratings, and reviews |\n| `g2-software-reviews-api` | B2B product search, profiles with pricing editions, and faceted reviews |\n| `capterra-reviews-api` | Software search, full profiles with the pricing table, and scored reviews |\n| `yelp-business-data` | Business search, full business detail with hours, and review pages |\n\n### Real estate\n\n| Skill | What it does |\n| --- | --- |\n| `zillow-property-data` | For sale, rent and sold listings, property detail, Zestimate, agent profiles |\n| `redfin-property-data` | Listing search, property detail with Redfin Estimate, and market stats |\n\n### App stores\n\n| Skill | What it does |\n| --- | --- |\n| `apple-app-store-api` | App search, listing detail by App Store or bundle id, and user reviews |\n| `google-play-store-api` | Android app search, listing with install counts and Data safety, reviews |\n\n### Company filings\n\n| Skill | What it does |\n| --- | --- |\n| `sec-edgar-api` | Ticker to CIK, filer profile, filings with documents, XBRL, full-text search |\n| `companies-house-api` | UK company search, register entry, officers, and filing history PDFs |\n\n### Ads\n\n| Skill | What it does |\n| --- | --- |\n| `google-ads-transparency-api` | Advertiser lookup and the live ad creatives a brand runs, with dates |\n| `meta-ad-library-api` | Facebook and Instagram ad search by keyword, Page id, or archive id |\n\n### Utility\n\n| Skill | What it does |\n| --- | --- |\n| `url-to-markdown-api` | Any URL to clean Markdown, plain text, or raw HTML for prompts and RAG |\n\n## Which skill do I want\n\n**I need prices for a product across retailers.** Start with `google-shopping-api` for the cross-merchant view, then go per retailer: `amazon-product-data` for ASIN detail and offers, `walmart-product-data`, `target-product-data`, `home-depot-product-data`. For resale and used comps, `ebay-product-data` searches sold listings.\n\n**I need a lead list of local businesses.** `google-maps-api` gives places, addresses, phone numbers, hours, and coordinates for a query and map center. `yelp-business-data` adds price band, amenities, and review text for the same kind of venue. `tripadvisor-reviews-api` covers restaurants, hotels, and attractions ranked within a geo.\n\n**I need to feed a RAG index or an LLM prompt.** `url-to-markdown-api` converts arbitrary pages to Markdown chunks. For discussion text, `reddit-search-api` returns threaded comments. For video, `youtube-data-api` returns transcripts.\n\n**I need to see what a competitor is doing.** `google-ads-transparency-api` and `meta-ad-library-api` return the ad creatives a brand is running and when they ran. `g2-software-reviews-api` and `capterra-reviews-api` return their pricing tables and review facets. `glassdoor-salary-data` and `indeed-jobs-api` return what they pay and what they are hiring for.\n\n## Links\n\n- Docs: [scavio.dev/docs](https://scavio.dev/docs)\n- Hosted MCP server: [mcp.scavio.dev](https://mcp.scavio.dev)\n- Python SDK: `pip install scavio`\n- JavaScript SDK: `npm i scavio`"
+}

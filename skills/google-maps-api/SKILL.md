@@ -1,6 +1,6 @@
 ---
 name: google-maps-api
-description: "Google Maps local business and place data as structured JSON: search places by query and map center, fetch full place detail with address, phone, hours, rating and GPS coordinates, and page reviews with sort. 3 endpoints, 1 credit per request, v2 engine."
+description: "Google Maps local business and place data as structured JSON: search places by query and map center, fetch full place detail with address, phone, hours, rating and GPS coordinates, page reviews with sort, and run a local-SEO geo-grid to track where a business ranks across an NxN lattice of points. 4 endpoints on the v2 engine; search, place and reviews are 1 credit, geo-grid bills per point."
 version: 1.0.0
 tags: google-maps, google-maps-api, local-business-search, places, place-details, google-reviews, local-seo, business-listings, lead-generation, geocoding, agents, langchain, crewai, autogen, structured-data, json, ai-agents
 metadata:
@@ -15,9 +15,9 @@ metadata:
     homepage: https://scavio.dev/docs/google-maps?utm_source=agent-skills&utm_medium=skill&utm_campaign=google-maps-api
 ---
 
-# Google Maps API - Local Business Search, Place Detail, Reviews
+# Google Maps API - Local Search, Place Detail, Reviews, Rank Tracking
 
-Search Google Maps for places, fetch enriched details for a single place, and read its reviews — all as structured JSON. Three endpoints, each 1 credit.
+Search Google Maps for places, fetch enriched details for a single place, read its reviews, and track where a business ranks across a geographic grid of points — all as structured JSON. Four endpoints on the v2 engine.
 
 ## When to trigger
 
@@ -26,6 +26,7 @@ Use this skill when the user asks to:
 - Get a place's address, phone, hours, rating, or coordinates
 - Read reviews for a business or place
 - Build a local lead list or enrich places with map data
+- Track where a business ranks in Google Maps local results across an area (a local-SEO geo-grid)
 
 ## Setup
 
@@ -42,6 +43,7 @@ export SCAVIO_API_KEY=sk_live_your_key
 | `POST https://api.scavio.dev/api/v2/google/maps/search` | 1 | Search places, returns a paginated list |
 | `POST https://api.scavio.dev/api/v2/google/maps/place` | 1 | Full details for one place |
 | `POST https://api.scavio.dev/api/v2/google/maps/reviews` | 1 | Paginated reviews for a place |
+| `POST https://api.scavio.dev/api/v2/google/maps/geo-grid` | N² | Local-pack rank of one business across an N×N grid of points |
 
 ```
 Authorization: Bearer $SCAVIO_API_KEY
@@ -85,6 +87,25 @@ Authorization: Bearer $SCAVIO_API_KEY
 | `gl` | string | -- | Geo country |
 | `google_domain` | string | `google.com` | Regional Google domain |
 
+## Geo-Grid Rank Tracking Parameters
+
+`/maps/geo-grid` tracks where one business ranks in the Google Maps local pack across an N×N lattice of points around a center — the classic local-SEO geo-grid. It searches `query` at every point and reports the target business's rank there, plus an aggregate summary (average, best, worst rank and coverage). Provide `target_place_id` and/or `target_name`.
+
+| Parameter | Type | Default | Description |
+|---|---|---|---|
+| `query` | string | required | The search term to measure the business's local ranking for |
+| `target_place_id` | string | -- | Place ID of the business to track (exact match, preferred). One of `target_place_id`/`target_name` required |
+| `target_name` | string | -- | Business name to track (case-insensitive substring match). Used when no `target_place_id` |
+| `center` | object | required | Geographic center of the grid: `{ "lat": <num>, "lng": <num> }` |
+| `grid_size` | number | `5` | Grid dimension N for an N×N lattice of points (`3`, `5`, or `7`) |
+| `radius_km` | number | `2` | Half-extent of the grid from the center, in kilometers (max 100) |
+| `zoom` | number | `13` | Map zoom level applied at every grid point (1-21) |
+| `gl` | string | -- | Geo country, ISO 3166-1 alpha-2 |
+| `hl` | string | -- | UI language, ISO 639-1 |
+| `google_domain` | string | `google.com` | Regional Google domain |
+
+**Credits: billed per grid point** — an N×N grid costs **N² credits** (9 for `grid_size=3`, 25 for `5`, 49 for `7`). Any point that returns no data is not charged.
+
 ## Example
 
 ```python
@@ -113,11 +134,25 @@ reviews = requests.post(f"{BASE}/api/v2/google/maps/reviews", headers=HEADERS,
     json={"data_id": place["data_id"], "sort_by": "newest", "num": 10}).json()
 for r in reviews["reviews"]:
     print(r.get("rating"), r.get("snippet"))
+
+# 4. Geo-grid: where does a business rank across a 3x3 grid? (9 credits)
+grid = requests.post(f"{BASE}/api/v2/google/maps/geo-grid", headers=HEADERS,
+    json={
+        "query": "coffee shop",
+        "target_name": "Starbucks",
+        "center": {"lat": 40.7128, "lng": -74.006},
+        "grid_size": 3,
+        "radius_km": 2,
+    }).json()
+s = grid["data"]["summary"]
+print(s["points_found"], "of", s["points_total"], "points rank; avg rank", s["avg_rank"])
+for point in grid["data"]["grid"]:
+    print(point["lat"], point["lng"], point["rank"])
 ```
 
 ## Responses
 
-Search returns `local_results[]`; place returns `place_results`; reviews returns `place_info`, `topics[]`, `reviews[]`, and `pagination`. Each also includes `response_time`, `credits_used`, `credits_remaining`, and `cached`.
+Search returns `local_results[]`; place returns `place_results`; reviews returns `place_info`, `topics[]`, `reviews[]`, and `pagination`. Each also includes `response_time`, `credits_used`, `credits_remaining`, and `cached`. Geo-grid wraps its payload in `data`: `data.grid[]` (each point with `lat`, `lng`, `rank`, `found`) and `data.summary` (`points_total`, `points_found`, `avg_rank`, `best_rank`, `worst_rank`, `found_share`).
 
 ```json
 {
@@ -142,7 +177,7 @@ Search returns `local_results[]`; place returns `place_results`; reviews returns
 
 ## Guardrails
 
-- Each call costs 1 credit. Inform the user before paginating through many pages.
+- Search, place and reviews each cost 1 credit; geo-grid costs N² credits for an N×N grid (9 / 25 / 49). Inform the user before paginating through many pages or running a large grid.
 - Never fabricate place names, ratings, addresses, or review text. Only return API data.
 - Maps localizes by `ll` (map center), not `gl`. To search a specific city, pass its center.
 - `place` needs a `place_id`/`data_cid` and `reviews` needs a `data_id`/`place_id` — always run `/maps/search` first to obtain them.
