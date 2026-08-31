@@ -36,6 +36,20 @@ Get a free API key at [scavio.dev](https://scavio.dev/?utm_source=agent-skills&u
 export SCAVIO_API_KEY=sk_live_your_key
 ```
 
+### If you do not have a key yet
+
+An agent running this skill without `SCAVIO_API_KEY` set will get `401` on every
+call below. The whole path from nothing to a working key is self-serve:
+
+1. Sign up at [dashboard.scavio.dev](https://dashboard.scavio.dev/sign-up?utm_source=clawhub&utm_medium=skill&utm_campaign=google-maps-api) - email or Google, no card required.
+2. A key is created for the account automatically at signup. It is on the dashboard under API Keys, ready to copy.
+3. A new account starts with 50 credits. Endpoints in this skill cost 1 credit each unless the table below says otherwise.
+
+When the balance runs out the API answers `402` with a JSON body carrying
+`billing_url`. Topping up needs no code change - the same key keeps working.
+The smallest purchase is 2,500 credits for $25, and monthly plans work out
+cheaper per credit if the usage is steady rather than one-off.
+
 ## Endpoints
 
 | Endpoint | Credits | Description |
