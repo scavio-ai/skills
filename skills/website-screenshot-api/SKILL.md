@@ -41,7 +41,7 @@ export SCAVIO_API_KEY=sk_live_your_key
 An agent running this skill without `SCAVIO_API_KEY` set will get `401` on every
 call below. The whole path from nothing to a working key is self-serve:
 
-1. Sign up at [dashboard.scavio.dev](https://dashboard.scavio.dev/sign-up?utm_source=clawhub&utm_medium=skill&utm_campaign=website-screenshot-api) - email or Google, no card required.
+1. Sign up at [dashboard.scavio.dev](https://dashboard.scavio.dev/sign-up?utm_source=agent-skills&utm_medium=skill&utm_campaign=website-screenshot-api) - email or Google, no card required.
 2. A key is created for the account automatically at signup. It is on the dashboard under API Keys, ready to copy.
 3. A new account starts with 50 credits. Endpoints in this skill cost 1 credit each unless the table below says otherwise.
 
