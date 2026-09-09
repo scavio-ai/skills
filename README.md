@@ -1,4 +1,23 @@
+<div align="center">
+
 # Scavio Agent Skills
+
+**Give your AI agent live data from 50 platforms as structured JSON, through one API key**
+
+[![Platforms](https://img.shields.io/badge/Platforms-50-blue?style=flat-square)](https://scavio.dev)
+[![Endpoints](https://img.shields.io/badge/Endpoints-298-green?style=flat-square)](https://scavio.dev/docs)
+[![Skills](https://img.shields.io/badge/Skills-51-orange?style=flat-square)](#skills)
+[![skills.sh](https://img.shields.io/badge/skills.sh-listed-black?style=flat-square)](https://skills.sh/scavio-ai/skills)
+[![Agents](https://img.shields.io/badge/Agents-40+-blueviolet?style=flat-square)](https://skills.sh)
+[![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](LICENSE)
+
+[Overview](#overview) | [Install](#install) | [Setup](#setup) | [Skills](#skills) | [Which skill](#which-skill-do-i-want) | [Links](#links)
+
+</div>
+
+---
+
+## Overview
 
 [Scavio](https://scavio.dev) is a unified web data API: one key, 50 platforms, structured JSON instead of HTML. This repo holds 51 Agent Skills: one per platform, plus `scavio`, an umbrella that covers all 50 from a single install. A skill teaches your agent which Scavio endpoints exist for a platform, what parameters they take, what the response looks like, and what each call costs in credits, so the agent can call the API correctly without you writing an integration. Every skill is in the open Agent Skills format and loads in Claude Code, Cursor, Codex, OpenCode, Goose, OpenHands, Hermes Agent, OpenClaw, and any other client that reads the format.
 
