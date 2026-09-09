@@ -1,2 +1,6 @@
 .DS_Store
 node_modules/
+# Artifacts of running `npx skills add` inside this repo. The published tree is skills/.
+.agents/
+.claude/
+skills-lock.json

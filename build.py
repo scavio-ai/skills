@@ -4,12 +4,18 @@
 CLAUDE.md 5a-3: this repo is generated, never hand-edited, so it cannot drift from the
 ClawHub source. Edit ../openclaw/<brand>/SKILL.md, then run this.
 
-What it changes, and nothing else:
+Per-platform skills. What it changes, and nothing else:
   frontmatter  name/description/tags  <- naming.json (intent-first, per CLAUDE.md 7)
   body H1                             <- the intent display title
   every scavio.dev link               <- utm_source=agent-skills, campaign=<intent slug>
 
 The technical body is copied through byte-for-byte otherwise. `verify.py` proves that.
+
+The `scavio` umbrella. One skill that routes to a reference per platform, for users who
+want everything behind a single install and a single trigger:
+  skills/scavio/SKILL.md             <- umbrella.md with the platform table filled from
+                                        naming.json and links tagged campaign=scavio
+  skills/scavio/references/<slug>.md <- the body of skills/<slug>/SKILL.md, byte for byte
 
 Usage: python3 build.py [--check]    (--check exits 1 if the tree would change)
 """
@@ -23,6 +29,10 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 SRC = os.path.join(HERE, "..", "openclaw")
 DST = os.path.join(HERE, "skills")
 UTM = "utm_source=agent-skills&utm_medium=skill&utm_campaign={slug}"
+
+UMBRELLA = "scavio"
+TEMPLATE = os.path.join(HERE, "umbrella.md")
+TABLE_MARK = "<!-- PLATFORMS -->"
 
 FM = re.compile(r"\A---\n(.*?)\n---\n", re.S)
 URL = re.compile(r"https://scavio\.dev(?:/[^\s)\"'`<>\]]*)?")
@@ -64,9 +74,51 @@ def retag(text: str, slug: str) -> str:
     return "\n".join(out)
 
 
+def body_of(skill: str) -> str:
+    """The generated skill minus its frontmatter: what the umbrella ships as a reference."""
+    m = FM.match(skill)
+    return skill[m.end():].lstrip("\n")
+
+
+def platform_table(naming: list, groups: list) -> str:
+    """One table per group, in the order naming.json lists the groups. Every row links the
+    reference the agent must open, so the umbrella never has to describe an endpoint."""
+    by_group = {g: [] for g in groups}
+    for n in naming:
+        by_group[n["group"]].append(n)
+    parts = []
+    for g in groups:
+        rows = sorted(by_group[g], key=lambda n: n["platform"].lower())
+        if not rows:
+            continue
+        parts.append(f"**{g}**\n")
+        parts.append("| Platform | Reference | Endpoints | Credits per call |")
+        parts.append("|---|---|---|---|")
+        for n in rows:
+            parts.append(
+                f"| {n['platform']} | [{n['slug']}](references/{n['slug']}.md) "
+                f"| {n['endpoints']} | {n['credits']} |"
+            )
+        parts.append("")
+    return "\n".join(parts).rstrip("\n")
+
+
+def build_umbrella(staged: dict, naming: list, groups: list) -> dict:
+    """Return {relative path: text} for everything under skills/scavio/."""
+    tpl = open(TEMPLATE).read()
+    if TABLE_MARK not in tpl:
+        raise KeyError(f"umbrella.md has no {TABLE_MARK}")
+    text = tpl.replace(TABLE_MARK, platform_table(naming, groups))
+    files = {"SKILL.md": retag(text, UMBRELLA)}
+    for slug, skill in staged.items():
+        files[os.path.join("references", f"{slug}.md")] = body_of(skill)
+    return files
+
+
 def build(check: bool = False) -> int:
-    names = {n["dir"]: n for n in json.load(open(os.path.join(HERE, "naming.json")))["naming"]}
-    fmap = {f["dir"]: f for f in json.load(open(os.path.join(HERE, "naming.json")))["frontmatter"]}
+    cfg = json.load(open(os.path.join(HERE, "naming.json")))
+    names = {n["dir"]: n for n in cfg["naming"]}
+    fmap = {f["dir"]: f for f in cfg["frontmatter"]}
 
     staged, problems = {}, []
     for d in sorted(os.listdir(SRC)):
@@ -103,25 +155,32 @@ def build(check: bool = False) -> int:
             print("  " + x)
         return 1
 
+    # Everything the tree should contain, keyed by path relative to skills/.
+    want = {os.path.join(slug, "SKILL.md"): text for slug, text in staged.items()}
+    for rel, text in build_umbrella(staged, cfg["naming"], cfg["groups"]).items():
+        want[os.path.join(UMBRELLA, rel)] = text
+
     if check:
-        drift = []
-        for slug, text in staged.items():
-            q = os.path.join(DST, slug, "SKILL.md")
-            if not os.path.exists(q) or open(q).read() != text:
-                drift.append(slug)
-        extra = set(os.listdir(DST)) - set(staged) if os.path.isdir(DST) else set()
+        have = set()
+        if os.path.isdir(DST):
+            for root, _, files in os.walk(DST):
+                for fn in files:
+                    have.add(os.path.relpath(os.path.join(root, fn), DST))
+        drift = [r for r, t in want.items() if r not in have or open(os.path.join(DST, r)).read() != t]
+        extra = sorted(have - set(want))
         if drift or extra:
-            print(f"DRIFT: {len(drift)} changed {sorted(drift)[:5]}, {len(extra)} orphaned {sorted(extra)[:5]}")
+            print(f"DRIFT: {len(drift)} changed {sorted(drift)[:5]}, {len(extra)} orphaned {extra[:5]}")
             return 1
-        print(f"up to date: {len(staged)} skills")
+        print(f"up to date: {len(staged)} skills + {UMBRELLA} umbrella")
         return 0
 
     if os.path.isdir(DST):
         shutil.rmtree(DST)
-    for slug, text in staged.items():
-        os.makedirs(os.path.join(DST, slug), exist_ok=True)
-        open(os.path.join(DST, slug, "SKILL.md"), "w").write(text)
-    print(f"built {len(staged)} skills into skills/")
+    for rel, text in want.items():
+        path = os.path.join(DST, rel)
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        open(path, "w").write(text)
+    print(f"built {len(staged)} skills + {UMBRELLA} umbrella ({len(staged)} references) into skills/")
     return 0
 
 

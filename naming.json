@@ -6,7 +6,11 @@
       "name": "airbnb-scraper-api",
       "display": "Airbnb Scraper API - Stay Search, Listing Detail, Reviews",
       "query": "airbnb scraper api",
-      "reused": "no"
+      "reused": "no",
+      "platform": "Airbnb",
+      "group": "Travel",
+      "endpoints": "3",
+      "credits": "1"
     },
     {
       "dir": "scavio-aliexpress",
@@ -14,7 +18,11 @@
       "name": "aliexpress-product-data",
       "display": "AliExpress Product Data API - Search, Category, Reviews, Seller",
       "query": "aliexpress product data",
-      "reused": "yes"
+      "reused": "yes",
+      "platform": "AliExpress",
+      "group": "Commerce",
+      "endpoints": "6",
+      "credits": "1"
     },
     {
       "dir": "scavio-amazon",
@@ -22,7 +30,11 @@
       "name": "amazon-product-data",
       "display": "Amazon Product Data API - Search, ASIN Lookup, Offers",
       "query": "amazon product data",
-      "reused": "yes"
+      "reused": "yes",
+      "platform": "Amazon",
+      "group": "Commerce",
+      "endpoints": "3",
+      "credits": "1"
     },
     {
       "dir": "scavio-app-store",
@@ -30,7 +42,11 @@
       "name": "apple-app-store-api",
       "display": "Apple App Store API - App Search, Listing Detail, Reviews",
       "query": "apple app store api",
-      "reused": "no"
+      "reused": "no",
+      "platform": "Apple App Store",
+      "group": "App stores",
+      "endpoints": "3",
+      "credits": "1"
     },
     {
       "dir": "scavio-booking",
@@ -38,7 +54,11 @@
       "name": "booking-com-hotel-data",
       "display": "Booking.com Hotel Data API - Search, Live Prices, Reviews",
       "query": "booking.com hotel prices",
-      "reused": "yes"
+      "reused": "yes",
+      "platform": "Booking.com",
+      "group": "Travel",
+      "endpoints": "3",
+      "credits": "1"
     },
     {
       "dir": "scavio-capterra",
@@ -46,7 +66,11 @@
       "name": "capterra-reviews-api",
       "display": "Capterra Reviews API - Software Search, Pricing, Reviews",
       "query": "capterra reviews api",
-      "reused": "no"
+      "reused": "no",
+      "platform": "Capterra",
+      "group": "Jobs and reviews",
+      "endpoints": "3",
+      "credits": "2"
     },
     {
       "dir": "scavio-companies-house",
@@ -54,7 +78,11 @@
       "name": "companies-house-api",
       "display": "Companies House API - UK Company Search, Officers, Filings",
       "query": "companies house api",
-      "reused": "no"
+      "reused": "no",
+      "platform": "Companies House",
+      "group": "Companies and code",
+      "endpoints": "4",
+      "credits": "1"
     },
     {
       "dir": "scavio-douyin",
@@ -62,7 +90,11 @@
       "name": "douyin-scraper-api",
       "display": "Douyin Scraper API - Videos, Creators, Comments, Search",
       "query": "douyin scraper api",
-      "reused": "yes"
+      "reused": "yes",
+      "platform": "Douyin",
+      "group": "Social and video",
+      "endpoints": "27",
+      "credits": "1; search 10"
     },
     {
       "dir": "scavio-ebay",
@@ -70,7 +102,11 @@
       "name": "ebay-product-data",
       "display": "eBay Product Data API - Live and Sold Listings, Sellers",
       "query": "ebay product data api",
-      "reused": "no"
+      "reused": "no",
+      "platform": "eBay",
+      "group": "Commerce",
+      "endpoints": "3",
+      "credits": "1"
     },
     {
       "dir": "scavio-etsy",
@@ -78,7 +114,11 @@
       "name": "etsy-product-data",
       "display": "Etsy Product Data API - Listings, Shops, Reviews",
       "query": "etsy product data",
-      "reused": "yes"
+      "reused": "yes",
+      "platform": "Etsy",
+      "group": "Commerce",
+      "endpoints": "5",
+      "credits": "2"
     },
     {
       "dir": "scavio-extract",
@@ -86,7 +126,11 @@
       "name": "url-to-markdown-api",
       "display": "URL to Markdown - Web Page Extract API",
       "query": "url to markdown api",
-      "reused": "no"
+      "reused": "no",
+      "platform": "URL to Markdown",
+      "group": "Utility",
+      "endpoints": "1",
+      "credits": "1; ultra 2"
     },
     {
       "dir": "scavio-facebook",
@@ -94,7 +138,11 @@
       "name": "facebook-scraper-api",
       "display": "Facebook API - Pages, Posts, Reels, Groups, Events",
       "query": "facebook scraper api",
-      "reused": "yes"
+      "reused": "yes",
+      "platform": "Facebook",
+      "group": "Social and video",
+      "endpoints": "11",
+      "credits": "1"
     },
     {
       "dir": "scavio-g2",
@@ -102,7 +150,11 @@
       "name": "g2-software-reviews-api",
       "display": "G2 Software Reviews API - Product Search, Ratings, Reviews",
       "query": "g2 reviews api",
-      "reused": "no"
+      "reused": "no",
+      "platform": "G2",
+      "group": "Jobs and reviews",
+      "endpoints": "3",
+      "credits": "5"
     },
     {
       "dir": "scavio-github",
@@ -110,7 +162,11 @@
       "name": "github-api",
       "display": "GitHub API - Profiles, Repos, Issues, Search, Email Finder",
       "query": "github api",
-      "reused": "yes"
+      "reused": "yes",
+      "platform": "GitHub",
+      "group": "Companies and code",
+      "endpoints": "13",
+      "credits": "1; dossier and top-issues 5, profile-velocity 10, user/email 2"
     },
     {
       "dir": "scavio-glassdoor",
@@ -118,7 +174,11 @@
       "name": "glassdoor-salary-data",
       "display": "Glassdoor Salary Data API - Employer Profiles, Salaries, Reviews",
       "query": "glassdoor salary data",
-      "reused": "no"
+      "reused": "no",
+      "platform": "Glassdoor",
+      "group": "Jobs and reviews",
+      "endpoints": "4",
+      "credits": "1"
     },
     {
       "dir": "scavio-google",
@@ -126,7 +186,11 @@
       "name": "google-search-api",
       "display": "Google Search API - Organic SERP, Knowledge Graph, PAA, AI Overview",
       "query": "google search api",
-      "reused": "yes"
+      "reused": "yes",
+      "platform": "Google Search",
+      "group": "Search",
+      "endpoints": "1",
+      "credits": "1"
     },
     {
       "dir": "scavio-google-ads",
@@ -134,7 +198,11 @@
       "name": "google-ads-transparency-api",
       "display": "Google Ads Transparency API - Advertiser Lookup, Live Ad Creatives",
       "query": "google ads transparency api",
-      "reused": "no"
+      "reused": "no",
+      "platform": "Google Ads Transparency",
+      "group": "Ads",
+      "endpoints": "3",
+      "credits": "1"
     },
     {
       "dir": "scavio-google-ai-mode",
@@ -142,7 +210,11 @@
       "name": "google-ai-mode-api",
       "display": "Google AI Mode API - AI Answers with Cited Sources",
       "query": "google ai mode api",
-      "reused": "no"
+      "reused": "no",
+      "platform": "Google AI Mode",
+      "group": "Search",
+      "endpoints": "1",
+      "credits": "1"
     },
     {
       "dir": "scavio-google-flights",
@@ -150,7 +222,11 @@
       "name": "google-flights-api",
       "display": "Google Flights API - Route Search, Prices, Carriers, Stops",
       "query": "google flights api",
-      "reused": "yes"
+      "reused": "yes",
+      "platform": "Google Flights",
+      "group": "Travel",
+      "endpoints": "1",
+      "credits": "1"
     },
     {
       "dir": "scavio-google-hotels",
@@ -158,7 +234,11 @@
       "name": "google-hotels-api",
       "display": "Google Hotels API - Hotel Search, Rates, Ratings, Amenities",
       "query": "google hotels api",
-      "reused": "no"
+      "reused": "no",
+      "platform": "Google Hotels",
+      "group": "Travel",
+      "endpoints": "2",
+      "credits": "1"
     },
     {
       "dir": "scavio-google-maps",
@@ -166,7 +246,11 @@
       "name": "google-maps-api",
       "display": "Google Maps API - Local Search, Place Detail, Reviews, Rank Tracking",
       "query": "google maps api",
-      "reused": "no"
+      "reused": "no",
+      "platform": "Google Maps",
+      "group": "Search",
+      "endpoints": "4",
+      "credits": "1; geo-grid bills per point"
     },
     {
       "dir": "scavio-google-news",
@@ -174,7 +258,11 @@
       "name": "google-news-api",
       "display": "Google News API - Headlines by Keyword, Topic, Publication",
       "query": "google news api",
-      "reused": "yes"
+      "reused": "yes",
+      "platform": "Google News",
+      "group": "Search",
+      "endpoints": "1",
+      "credits": "1"
     },
     {
       "dir": "scavio-google-play",
@@ -182,7 +270,11 @@
       "name": "google-play-store-api",
       "display": "Google Play Store API - App Search, Install Counts, Reviews",
       "query": "google play store api",
-      "reused": "no"
+      "reused": "no",
+      "platform": "Google Play",
+      "group": "App stores",
+      "endpoints": "3",
+      "credits": "2"
     },
     {
       "dir": "scavio-google-shopping",
@@ -190,7 +282,11 @@
       "name": "google-shopping-api",
       "display": "Google Shopping API - Product Search, Merchant Offers, Prices",
       "query": "google shopping api",
-      "reused": "no"
+      "reused": "no",
+      "platform": "Google Shopping",
+      "group": "Commerce",
+      "endpoints": "3",
+      "credits": "1"
     },
     {
       "dir": "scavio-google-trends",
@@ -198,7 +294,11 @@
       "name": "google-trends-api",
       "display": "Google Trends API - Interest Over Time, By Region, Related Queries",
       "query": "google trends api",
-      "reused": "no"
+      "reused": "no",
+      "platform": "Google Trends",
+      "group": "Search",
+      "endpoints": "2",
+      "credits": "1"
     },
     {
       "dir": "scavio-home-depot",
@@ -206,7 +306,11 @@
       "name": "home-depot-product-data",
       "display": "Home Depot Product Data API - Search, Item Detail, Reviews",
       "query": "home depot product data",
-      "reused": "yes"
+      "reused": "yes",
+      "platform": "Home Depot",
+      "group": "Commerce",
+      "endpoints": "3",
+      "credits": "2"
     },
     {
       "dir": "scavio-indeed",
@@ -214,7 +318,11 @@
       "name": "indeed-jobs-api",
       "display": "Indeed Jobs API - Job Search and Full Posting Detail",
       "query": "indeed jobs api",
-      "reused": "no"
+      "reused": "no",
+      "platform": "Indeed",
+      "group": "Jobs and reviews",
+      "endpoints": "4",
+      "credits": "2"
     },
     {
       "dir": "scavio-instagram",
@@ -222,7 +330,11 @@
       "name": "instagram-scraper-api",
       "display": "Instagram Scraper API - Profiles, Posts, Reels, Stories, Followers",
       "query": "instagram scraper api",
-      "reused": "no"
+      "reused": "no",
+      "platform": "Instagram",
+      "group": "Social and video",
+      "endpoints": "12",
+      "credits": "2-10"
     },
     {
       "dir": "scavio-kuaishou",
@@ -230,7 +342,11 @@
       "name": "kuaishou-scraper-api",
       "display": "Kuaishou Scraper API - Profiles, Videos, Comments, Search",
       "query": "kuaishou api",
-      "reused": "no"
+      "reused": "no",
+      "platform": "Kuaishou",
+      "group": "Social and video",
+      "endpoints": "14",
+      "credits": "1, 2, 10 or 40"
     },
     {
       "dir": "scavio-linkedin",
@@ -238,7 +354,11 @@
       "name": "linkedin-scraper-api",
       "display": "LinkedIn Scraper API - Person and Company Profiles, Posts, Jobs",
       "query": "linkedin scraper api",
-      "reused": "no"
+      "reused": "no",
+      "platform": "LinkedIn",
+      "group": "Social and video",
+      "endpoints": "9",
+      "credits": "1-30"
     },
     {
       "dir": "scavio-linkedin-ads",
@@ -246,7 +366,11 @@
       "name": "linkedin-ad-library-api",
       "display": "LinkedIn Ad Library API - Search Ads and Ad Detail",
       "query": "linkedin ad library api",
-      "reused": "no"
+      "reused": "no",
+      "platform": "LinkedIn Ad Library",
+      "group": "Ads",
+      "endpoints": "2",
+      "credits": "6"
     },
     {
       "dir": "scavio-meta-ads",
@@ -254,7 +378,11 @@
       "name": "meta-ad-library-api",
       "display": "Meta Ad Library API - Facebook and Instagram Ad Search",
       "query": "meta ad library api",
-      "reused": "no"
+      "reused": "no",
+      "platform": "Meta Ad Library",
+      "group": "Ads",
+      "endpoints": "3",
+      "credits": "1 per page"
     },
     {
       "dir": "scavio-pinterest",
@@ -262,7 +390,11 @@
       "name": "pinterest-api",
       "display": "Pinterest API - Search, Pins, Boards, Profiles",
       "query": "pinterest api",
-      "reused": "yes"
+      "reused": "yes",
+      "platform": "Pinterest",
+      "group": "Social and video",
+      "endpoints": "6",
+      "credits": "1; url-stats 1-2"
     },
     {
       "dir": "scavio-reddit",
@@ -270,7 +402,11 @@
       "name": "reddit-search-api",
       "display": "Reddit Search API - Posts, Comments, Subreddits, Users",
       "query": "reddit search api",
-      "reused": "yes"
+      "reused": "yes",
+      "platform": "Reddit",
+      "group": "Social and video",
+      "endpoints": "12",
+      "credits": "1"
     },
     {
       "dir": "scavio-redfin",
@@ -278,7 +414,11 @@
       "name": "redfin-property-data",
       "display": "Redfin Property Data API - For Sale, Sold, Rentals, Price History",
       "query": "redfin property data",
-      "reused": "no"
+      "reused": "no",
+      "platform": "Redfin",
+      "group": "Real estate",
+      "endpoints": "3",
+      "credits": "1"
     },
     {
       "dir": "scavio-screenshot",
@@ -286,7 +426,11 @@
       "name": "website-screenshot-api",
       "display": "Website Screenshot API - Full-Page PNG of Any URL",
       "query": "website screenshot api",
-      "reused": "no"
+      "reused": "no",
+      "platform": "Website Screenshot",
+      "group": "Utility",
+      "endpoints": "1",
+      "credits": "1; ultra 5"
     },
     {
       "dir": "scavio-sec-edgar",
@@ -294,7 +438,11 @@
       "name": "sec-edgar-api",
       "display": "SEC EDGAR API - Ticker to CIK, Filings, Filing Documents",
       "query": "sec edgar api",
-      "reused": "no"
+      "reused": "no",
+      "platform": "SEC EDGAR",
+      "group": "Companies and code",
+      "endpoints": "6",
+      "credits": "1"
     },
     {
       "dir": "scavio-target",
@@ -302,7 +450,11 @@
       "name": "target-product-data",
       "display": "Target Product Data API - Search, Category, TCIN Detail, Reviews",
       "query": "target.com product data",
-      "reused": "yes"
+      "reused": "yes",
+      "platform": "Target",
+      "group": "Commerce",
+      "endpoints": "4",
+      "credits": "1"
     },
     {
       "dir": "scavio-threads",
@@ -310,7 +462,11 @@
       "name": "threads-net-api",
       "display": "Threads API - Profiles, Posts, Replies, Reposters",
       "query": "threads.net api",
-      "reused": "no"
+      "reused": "no",
+      "platform": "Threads",
+      "group": "Social and video",
+      "endpoints": "6",
+      "credits": "2 by user_id, 4 by username"
     },
     {
       "dir": "scavio-tiktok",
@@ -318,7 +474,11 @@
       "name": "tiktok-scraper-api",
       "display": "TikTok Scraper API - Profiles, Videos, Comments, Hashtags",
       "query": "tiktok scraper api",
-      "reused": "yes"
+      "reused": "yes",
+      "platform": "TikTok",
+      "group": "Social and video",
+      "endpoints": "11",
+      "credits": "1"
     },
     {
       "dir": "scavio-tiktok-ads",
@@ -326,7 +486,11 @@
       "name": "tiktok-ad-library-api",
       "display": "TikTok Ad Library API - Search Ads, Top Ads, Ad Detail",
       "query": "tiktok ad library api",
-      "reused": "no"
+      "reused": "no",
+      "platform": "TikTok Ad Library",
+      "group": "Ads",
+      "endpoints": "3",
+      "credits": "1"
     },
     {
       "dir": "scavio-tiktok-shop",
@@ -334,7 +498,11 @@
       "name": "tiktok-shop-api",
       "display": "TikTok Shop API - Product Search, Prices, Shops, Sellers",
       "query": "tiktok shop api",
-      "reused": "no"
+      "reused": "no",
+      "platform": "TikTok Shop",
+      "group": "Commerce",
+      "endpoints": "8",
+      "credits": "1"
     },
     {
       "dir": "scavio-tripadvisor",
@@ -342,7 +510,11 @@
       "name": "tripadvisor-reviews-api",
       "display": "Tripadvisor Reviews API - Hotels, Restaurants, Attractions",
       "query": "tripadvisor reviews api",
-      "reused": "no"
+      "reused": "no",
+      "platform": "Tripadvisor",
+      "group": "Travel",
+      "endpoints": "4",
+      "credits": "2"
     },
     {
       "dir": "scavio-twitch",
@@ -350,7 +522,11 @@
       "name": "twitch-api",
       "display": "Twitch API - Profiles, VODs, Clips, Schedule",
       "query": "twitch api",
-      "reused": "yes"
+      "reused": "yes",
+      "platform": "Twitch",
+      "group": "Social and video",
+      "endpoints": "4",
+      "credits": "1"
     },
     {
       "dir": "scavio-walmart",
@@ -358,7 +534,11 @@
       "name": "walmart-product-data",
       "display": "Walmart Product Data API - Search, Detail, Reviews, Offers",
       "query": "walmart product data",
-      "reused": "yes"
+      "reused": "yes",
+      "platform": "Walmart",
+      "group": "Commerce",
+      "endpoints": "7",
+      "credits": "1; 2 for walmart.com.mx search and category"
     },
     {
       "dir": "scavio-weibo",
@@ -366,7 +546,11 @@
       "name": "weibo-scraper-api",
       "display": "Weibo Scraper API - Users, Posts, Search, Hot Search",
       "query": "weibo scraper api",
-      "reused": "yes"
+      "reused": "yes",
+      "platform": "Weibo",
+      "group": "Social and video",
+      "endpoints": "31",
+      "credits": "1"
     },
     {
       "dir": "scavio-x",
@@ -374,7 +558,11 @@
       "name": "twitter-scraper-api",
       "display": "Twitter (X) Scraper API - Tweet Search, Profiles, Followers",
       "query": "twitter scraper api",
-      "reused": "no"
+      "reused": "no",
+      "platform": "Twitter/X",
+      "group": "Social and video",
+      "endpoints": "11",
+      "credits": "1"
     },
     {
       "dir": "scavio-yelp",
@@ -382,7 +570,11 @@
       "name": "yelp-business-data",
       "display": "Yelp Business Data API - Search, Business Detail, Reviews",
       "query": "yelp business data",
-      "reused": "no"
+      "reused": "no",
+      "platform": "Yelp",
+      "group": "Jobs and reviews",
+      "endpoints": "3",
+      "credits": "2"
     },
     {
       "dir": "scavio-youtube",
@@ -390,7 +582,11 @@
       "name": "youtube-data-api",
       "display": "YouTube Data API - Search, Videos, Comments, Transcripts, Channels",
       "query": "youtube data api",
-      "reused": "no"
+      "reused": "no",
+      "platform": "YouTube",
+      "group": "Social and video",
+      "endpoints": "15",
+      "credits": "1-8"
     },
     {
       "dir": "scavio-zillow",
@@ -398,7 +594,11 @@
       "name": "zillow-property-data",
       "display": "Zillow Property Data API - For Sale, Rent, Sold, Price History",
       "query": "zillow property data",
-      "reused": "no"
+      "reused": "no",
+      "platform": "Zillow",
+      "group": "Real estate",
+      "endpoints": "3",
+      "credits": "1"
     }
   ],
   "frontmatter": [
@@ -653,5 +853,16 @@
       "tags": "zillow, zillow-api, property-data, real-estate, listings, for-sale, for-rent, sold-homes, zestimate, price-history, home-prices, rental-market, market-analysis, langchain, crewai, structured-data, json, ai-agents"
     }
   ],
-  "readme": "# Scavio Agent Skills\n\n[Scavio](https://scavio.dev) is a unified web data API: one key, 32 platforms, structured JSON instead of HTML. This repo holds 39 Agent Skills, one per platform. A skill teaches your agent which Scavio endpoints exist for that platform, what parameters they take, what the response looks like, and what each call costs in credits, so the agent can call the API correctly without you writing an integration. Each skill is a single `SKILL.md` in the open Agent Skills format. The same folder loads in Claude Code, Cursor, Codex, OpenCode, Goose, OpenHands, Hermes Agent, OpenClaw, and any other client that reads the format.\n\n## Install\n\n```\nnpx skills add scavio-ai/skills\n```\n\nThat installs all 39 skills. To install one, append its slug:\n\n```\nnpx skills add scavio-ai/skills/amazon-product-data\n```\n\nAny client that reads the Agent Skills format can also load a folder directly. Clone this repo and point the client at the repo root, or copy a single skill directory into wherever that client keeps its skills.\n\n## Setup\n\nThe skills need one environment variable:\n\n```\nexport SCAVIO_API_KEY=...\n```\n\nGet the key at [scavio.dev](https://scavio.dev). The free tier is 50 credits on signup, no card required.\n\n## Skills\n\n### Search\n\n| Skill | What it does |\n| --- | --- |\n| `google-search-api` | Full Google SERP as JSON: organic, ads, knowledge graph, AI Overview, PAA |\n| `google-ai-mode-api` | Google AI Mode answers with their cited sources |\n| `google-news-api` | Headlines by keyword, topic, story or publication |\n| `google-trends-api` | Search interest over time, by region, and related queries |\n| `google-maps-api` | Local business search, place detail, and reviews |\n\n### Commerce\n\n| Skill | What it does |\n| --- | --- |\n| `amazon-product-data` | Keyword search, ASIN detail, and all seller offers with the buy box |\n| `ebay-product-data` | Live and sold listings for comps, plus listing and seller detail |\n| `walmart-product-data` | Search, item detail, reviews, categories, offers, and seller storefronts |\n| `target-product-data` | Search, category browse, TCIN detail, and reviews with store-aware pricing |\n| `home-depot-product-data` | Search with per-store pickup and delivery, item specs, and reviews |\n| `google-shopping-api` | Product search with price filters, product detail, and every store selling it |\n| `tiktok-shop-api` | Catalog search, product detail, reviews, categories, and shop catalogs |\n\n### Social and video\n\n| Skill | What it does |\n| --- | --- |\n| `instagram-scraper-api` | Profiles, posts, reels, stories, comments, followers, and search |\n| `tiktok-scraper-api` | Profiles, user videos, video detail, comments, hashtags, and search |\n| `youtube-data-api` | Video and channel search, metadata, comments, transcripts, and streams |\n| `twitter-scraper-api` | Tweet and people search, tweet detail, profiles, followers, and trends |\n| `reddit-search-api` | Search, post detail, threaded comments, subreddits, and redditor profiles |\n| `linkedin-scraper-api` | Person and company profiles, their posts, job search, and job detail |\n| `threads-net-api` | Threads profiles, posts, replies, post detail, and people search |\n| `kuaishou-scraper-api` | Kuaishou.com profiles, videos, comments, hashtags, and search |\n\n### Travel\n\n| Skill | What it does |\n| --- | --- |\n| `airbnb-scraper-api` | Stay search with the discount ledger, listing detail, and guest reviews |\n| `booking-com-hotel-data` | Destination search with live nightly prices, property detail, and reviews |\n| `google-hotels-api` | Hotel search for a stay, plus per-property booking-site vendor prices |\n| `google-flights-api` | Route search by date with price, carrier, duration, and stops |\n| `tripadvisor-reviews-api` | Resolve places, list ranked venues in a geo, location detail, and reviews |\n\n### Jobs and reviews\n\n| Skill | What it does |\n| --- | --- |\n| `indeed-jobs-api` | Job search, full posting detail with the ATS link, employers, and reviews |\n| `glassdoor-salary-data` | Salary percentiles by title, employer profiles, ratings, and reviews |\n| `g2-software-reviews-api` | B2B product search, profiles with pricing editions, and faceted reviews |\n| `capterra-reviews-api` | Software search, full profiles with the pricing table, and scored reviews |\n| `yelp-business-data` | Business search, full business detail with hours, and review pages |\n\n### Real estate\n\n| Skill | What it does |\n| --- | --- |\n| `zillow-property-data` | For sale, rent and sold listings, property detail, Zestimate, agent profiles |\n| `redfin-property-data` | Listing search, property detail with Redfin Estimate, and market stats |\n\n### App stores\n\n| Skill | What it does |\n| --- | --- |\n| `apple-app-store-api` | App search, listing detail by App Store or bundle id, and user reviews |\n| `google-play-store-api` | Android app search, listing with install counts and Data safety, reviews |\n\n### Company filings\n\n| Skill | What it does |\n| --- | --- |\n| `sec-edgar-api` | Ticker to CIK, filer profile, filings with documents, XBRL, full-text search |\n| `companies-house-api` | UK company search, register entry, officers, and filing history PDFs |\n\n### Ads\n\n| Skill | What it does |\n| --- | --- |\n| `google-ads-transparency-api` | Advertiser lookup and the live ad creatives a brand runs, with dates |\n| `meta-ad-library-api` | Facebook and Instagram ad search by keyword, Page id, or archive id |\n\n### Utility\n\n| Skill | What it does |\n| --- | --- |\n| `url-to-markdown-api` | Any URL to clean Markdown, plain text, or raw HTML for prompts and RAG |\n\n## Which skill do I want\n\n**I need prices for a product across retailers.** Start with `google-shopping-api` for the cross-merchant view, then go per retailer: `amazon-product-data` for ASIN detail and offers, `walmart-product-data`, `target-product-data`, `home-depot-product-data`. For resale and used comps, `ebay-product-data` searches sold listings.\n\n**I need a lead list of local businesses.** `google-maps-api` gives places, addresses, phone numbers, hours, and coordinates for a query and map center. `yelp-business-data` adds price band, amenities, and review text for the same kind of venue. `tripadvisor-reviews-api` covers restaurants, hotels, and attractions ranked within a geo.\n\n**I need to feed a RAG index or an LLM prompt.** `url-to-markdown-api` converts arbitrary pages to Markdown chunks. For discussion text, `reddit-search-api` returns threaded comments. For video, `youtube-data-api` returns transcripts.\n\n**I need to see what a competitor is doing.** `google-ads-transparency-api` and `meta-ad-library-api` return the ad creatives a brand is running and when they ran. `g2-software-reviews-api` and `capterra-reviews-api` return their pricing tables and review facets. `glassdoor-salary-data` and `indeed-jobs-api` return what they pay and what they are hiring for.\n\n## Links\n\n- Docs: [scavio.dev/docs](https://scavio.dev/docs)\n- Hosted MCP server: [mcp.scavio.dev](https://mcp.scavio.dev)\n- Python SDK: `pip install scavio`\n- JavaScript SDK: `npm i scavio`"
+  "groups": [
+    "Search",
+    "Commerce",
+    "Social and video",
+    "Travel",
+    "Jobs and reviews",
+    "Real estate",
+    "App stores",
+    "Companies and code",
+    "Ads",
+    "Utility"
+  ]
 }
