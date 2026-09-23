@@ -1,6 +1,6 @@
 # Douyin Scraper API - Videos, Creators, Comments, Search
 
-Pull Douyin (the Chinese TikTok) videos, user profiles and feeds, comments, hashtags, music, live rooms, the hot-search board, and run keyword search across videos, users, music, live and hashtags. All endpoints return structured JSON.
+Pull Douyin (the Chinese TikTok) videos, user profiles and feeds, comments, hashtags, music, live rooms, the hot-search board, run keyword search across videos, users, music and hashtags, and find which creators are live. All endpoints return structured JSON.
 
 ## When to trigger
 
@@ -9,8 +9,9 @@ Use this skill when the user asks to:
 - Read a user's profile, their posts, their liked videos, followers or following, or their current live stream
 - Read a video's comments and comment replies, or videos recommended alongside it
 - Look up a hashtag or a sound (music) and the videos under it
-- Read the hot-search board, the recommended home feed, or a live room by `web_rid`
-- Search Douyin by keyword - general, or scoped to videos, users, music, live streams or hashtags
+- Read the hot-search board, the recommended home feed, or a live room by `web_rid` or `live.douyin.com` URL
+- Search Douyin by keyword - general, or scoped to videos, users, music or hashtags
+- Find a creator's live room by nickname or Douyin ID, with live status, room id and stream title
 - Do China-market social research, creator analysis or trend spotting on Douyin
 
 ## Setup
@@ -82,7 +83,7 @@ Check `credits_used` on each response to confirm what a call cost.
 | `POST /api/v1/douyin/hashtag/videos` | 1 | Videos under a hashtag |
 | `POST /api/v1/douyin/music` | 1 | Details for a sound |
 | `POST /api/v1/douyin/music/videos` | 1 | Videos using a sound |
-| `POST /api/v1/douyin/live/room` | 1 | Live room detail by `web_rid` |
+| `POST /api/v1/douyin/live/room` | 1 | Live room detail (title, status, viewers, stream URLs, anchor) by `web_rid` or `live_room_url` |
 
 ### Trending / feed / resolve
 
@@ -101,7 +102,7 @@ Check `credits_used` on each response to confirm what a call cost.
 | `POST /api/v1/douyin/search/videos` | 10 | Search videos by keyword |
 | `POST /api/v1/douyin/search/users` | 10 | Search users by keyword |
 | `POST /api/v1/douyin/search/music` | 10 | Search sounds by keyword |
-| `POST /api/v1/douyin/search/live` | 10 | Search live streams by keyword |
+| `POST /api/v1/douyin/search/live` | 10 | Live rooms by creator nickname or Douyin ID (`is_live`, `room_id`, `title`); pages with `cursor` |
 | `POST /api/v1/douyin/search/hashtags` | 10 | Search hashtags by keyword |
 
 ## Key identifiers

@@ -72,7 +72,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | TikTok | [tiktok-scraper-api](references/tiktok-scraper-api.md) | 11 | 1 |
 | Twitch | [twitch-api](references/twitch-api.md) | 4 | 1 |
 | Twitter/X | [twitter-scraper-api](references/twitter-scraper-api.md) | 11 | 1 |
-| Weibo | [weibo-scraper-api](references/weibo-scraper-api.md) | 31 | 1 |
+| Weibo | [weibo-scraper-api](references/weibo-scraper-api.md) | 30 | 1 |
 | YouTube | [youtube-data-api](references/youtube-data-api.md) | 15 | 1-8 |
 
 **Travel**

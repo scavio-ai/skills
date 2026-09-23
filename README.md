@@ -106,7 +106,7 @@ Get the key at [scavio.dev](https://scavio.dev). The free tier is 50 credits on 
 | `pinterest-api` | Pin search, pin detail with save counts, user profiles, boards, and URL save counts |
 | `twitch-api` | Channel profile and live status, VODs, stream schedule, and clip download URLs |
 | `douyin-scraper-api` | Videos, profiles, feeds, comments, hashtags, music, live rooms, hot search, and keyword search |
-| `weibo-scraper-api` | Profiles, posts, comments, keyword search, hot-search and ranking boards, and channel feeds |
+| `weibo-scraper-api` | Profiles, posts, comments, keyword search, and hot-search and ranking boards |
 | `kuaishou-scraper-api` | Kuaishou.com profiles, videos, comments, hashtags, and search |
 
 ### Travel

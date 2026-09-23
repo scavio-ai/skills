@@ -549,7 +549,7 @@
       "reused": "yes",
       "platform": "Weibo",
       "group": "Social and video",
-      "endpoints": "31",
+      "endpoints": "30",
       "credits": "1"
     },
     {
@@ -639,7 +639,7 @@
     },
     {
       "dir": "scavio-douyin",
-      "description": "Pull Douyin videos, user profiles and feeds, comments, hashtags, music, live rooms, the hot-search board, and keyword search across videos, users, music, live and hashtags. 27 endpoints, structured JSON.",
+      "description": "Pull Douyin videos, user profiles and feeds, comments, hashtags, music, live rooms, the hot-search board, keyword search across videos, users, music and hashtags, and live-room lookup by creator. 27 endpoints, structured JSON.",
       "tags": "douyin, douyin-api, china-tiktok, short-video, social-media-data, creator-data, video-data, comments, hashtags, trending, live-stream, china-market, influencer-data, agents, structured-data, json, ai-agents, scraping-api"
     },
     {
@@ -829,7 +829,7 @@
     },
     {
       "dir": "scavio-weibo",
-      "description": "Pull Weibo user profiles and posts, post comments/likes/reposts, keyword search across posts, videos, users, topics and images, the hot-search board and ranking boards, and channel feeds. 31 endpoints, 1 credit each, structured JSON.",
+      "description": "Pull Weibo user profiles and posts, post comments/likes/reposts, keyword search across posts, videos, users, topics and images, and the hot-search and ranking boards. 30 endpoints, 1 credit each, structured JSON.",
       "tags": "weibo, weibo-api, china-social-media, microblog, social-media-data, posts, comments, keyword-search, hot-search, trending, user-data, china-market, influencer-data, agents, structured-data, json, ai-agents, scraping-api"
     },
     {

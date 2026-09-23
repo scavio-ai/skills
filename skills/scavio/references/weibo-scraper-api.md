@@ -1,6 +1,6 @@
 # Weibo Scraper API - Users, Posts, Search, Hot Search
 
-Pull Weibo user profiles and posts, a post's comments, likes and reposts, run keyword search across posts, videos, users, topics and images, read the hot-search board and ranking boards, and pull channel feeds. All endpoints return structured JSON.
+Pull Weibo user profiles and posts, a post's comments, likes and reposts, run keyword search across posts, videos, users, topics and images, and read the hot-search board and ranking boards. All endpoints return structured JSON.
 
 ## When to trigger
 
@@ -93,7 +93,6 @@ Base URL: `https://api.scavio.dev`. Every Weibo endpoint costs **1 credit**.
 | `POST /api/v1/weibo/rankings/entertainment` | The entertainment ranking board |
 | `POST /api/v1/weibo/rankings/life` | The lifestyle ranking board |
 | `POST /api/v1/weibo/rankings/social` | The social ranking board |
-| `POST /api/v1/weibo/channel-feed` | Popular content within a named channel |
 
 ## Key identifiers
 
@@ -150,6 +149,7 @@ Every response uses the envelope `{ data, response_time, credits_used, credits_r
 - `user/info` needs either `uid` or `custom`; the `post/*` endpoints need `id`. A missing identifier is a `422`, not an outage.
 - Paginate only with the cursor the previous response returned (`page`, `since_id` or `max_id`); stop when it stops advancing.
 - Hot-search and ranking boards are point-in-time snapshots - re-fetch for a fresh board.
+- `channel-feed` is retired: it returns `410` with `code: endpoint_retired` and is never billed. Use `hot-search` or `rankings/hot-timeline` for what is trending.
 - Never fabricate follower counts, post text, comment text or user details. Only return what the API returned.
 - Posts and comments are written by real people. Summarise; do not build profiles of individuals.
 
