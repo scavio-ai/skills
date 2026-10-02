@@ -1,8 +1,8 @@
 ---
 name: walmart-product-data
-description: "Walmart product data API: keyword search, full product detail by item id, customer reviews with the rating breakdown, category listings, the buy-box offer on an item, and marketplace seller storefronts and their catalogs, as structured JSON. 7 endpoints; 1 credit, or 2 when search or category targets walmart.com.mx."
-version: 3.0.0
-tags: walmart, walmart-product-data, walmart-api, ecommerce, retail, product-search, product-data, pricing, price-monitoring, reviews, buy-box, marketplace-sellers, langchain, crewai, autogen, structured-data, json, ai-agents
+description: "Walmart product data API: keyword search, full product detail by item id, customer reviews with the rating breakdown, category listings, the buy-box offer on an item, marketplace seller storefronts and catalogs, and stores near a US ZIP or Canadian postal code for store-targeted results, as structured JSON. 8 endpoints; 1 credit, or 2 for walmart.com.mx search/category or a store-targeted search/product."
+version: 3.1.0
+tags: walmart, walmart-product-data, walmart-api, ecommerce, retail, product-search, product-data, pricing, price-monitoring, reviews, buy-box, marketplace-sellers, store-locator, local-inventory, walmart-canada, langchain, crewai, autogen, structured-data, json, ai-agents
 metadata:
   openclaw:
     requires:
@@ -17,7 +17,7 @@ metadata:
 
 # Walmart Product Data API - Search, Detail, Reviews, Offers
 
-Search Walmart, read a product in full, page its customer reviews, list a category, look up the buy-box offer on an item, and read a marketplace seller's storefront and catalog. All endpoints return structured JSON.
+Search Walmart, read a product in full, page its customer reviews, list a category, look up the buy-box offer on an item, read a marketplace seller's storefront and catalog, and find Walmart stores near a ZIP or postal code so search and product results can be targeted at one store. All endpoints return structured JSON.
 
 ## When to trigger
 
@@ -31,6 +31,8 @@ Use this skill when the user asks to:
 - See what a Walmart marketplace seller lists
 - Compare Walmart pricing against another retailer (pair with scavio-amazon, scavio-ebay or scavio-target)
 - Search the Canadian (walmart.ca) or Mexican (walmart.com.mx) marketplace
+- Find the Walmart stores near a US ZIP or Canadian postal code
+- See what a specific Walmart store carries, or a product's availability at that store (walmart.com and walmart.ca)
 
 ## Setup
 
@@ -66,23 +68,25 @@ Base URL: `https://api.scavio.dev`.
 
 | Endpoint | Credits | Description |
 |---|---|---|
-| `POST /api/v1/walmart/search` | 1, or 2 when `domain` is `com.mx` | Keyword search: `products[]`, `products_count`, `location` |
-| `POST /api/v1/walmart/product` | 1 | Full product detail by item id |
+| `POST /api/v1/walmart/search` | 1, or 2 when `domain` is `com.mx` or the request targets a store | Keyword search: `products[]`, `products_count`, `location` |
+| `POST /api/v1/walmart/product` | 1, or 2 when the request targets a store | Full product detail by item id |
 | `POST /api/v1/walmart/reviews` | 1 | Customer reviews plus the rating breakdown |
 | `POST /api/v1/walmart/category` | 1, or 2 when `domain` is `com.mx` | Products in a category, same shape as search |
 | `POST /api/v1/walmart/offers` | 1 | The buy-box seller for an item |
 | `POST /api/v1/walmart/seller` | 1 | Marketplace seller storefront |
 | `POST /api/v1/walmart/seller-products` | 1 | A seller's catalog (path is hyphenated) |
+| `POST /api/v1/walmart/stores` | 1 | Stores near a US ZIP or Canadian postal code, nearest first, with `store_id` |
 
 ### Cost rule
 
-Cost is a function of the request body, not a constant. `domain` is the only price-bearing parameter:
+Cost is a function of the request body, not a constant. Two things change it:
 
 - `domain: "com"` (US, the default) costs 1 credit
 - `domain: "ca"` (Canada) costs 1 credit
-- `domain: "com.mx"` (Mexico) costs 2 credits
+- `domain: "com.mx"` (Mexico) costs 2 credits, on `/search` and `/category`
+- A store-targeted request (`store_id` + `delivery_zip`) on `/search` or `/product` costs 2 credits, on walmart.com or walmart.ca
 
-Only `/search` and `/category` accept `domain`, so only those two can ever cost 2. The other five endpoints are always 1 credit. Never quote a flat price for search or category without stating the domain rule.
+So `/search` can cost 2 through either rule, `/category` only through `com.mx`, and `/product` only through store targeting. `/reviews`, `/offers`, `/seller`, `/seller-products` and `/stores` are always 1 credit. Never quote a flat price for search, category or product without stating the rule.
 
 ## Workflow
 
@@ -92,8 +96,9 @@ Only `/search` and `/category` accept `domain`, so only those two can ever cost 
 4. **Browse a category:** call `/walmart/category` with `category_id`.
 5. **Buy box:** call `/walmart/offers` with `product_id` to see who currently wins the buy box and at what price.
 6. **Sellers:** a product, search or offers response carries `seller_catalog_id`. Pass that numeric id as `seller_id` to `/walmart/seller` for the storefront and to `/walmart/seller-products` for the catalog.
+7. **Target a store:** call `/walmart/stores` with `zipcode` (add `"domain": "ca"` for a Canadian postal code). Pick a `store_id` from `data.stores[]`, then send it with `delivery_zip` (and the same `domain`) to `/walmart/search` or `/walmart/product`. The results reflect that store's assortment and availability, and `data.location` confirms the store that was used. Store-targeted calls take 10-60 seconds.
 
-`search`, `reviews` and `category` paginate with `page` (1-based). `product`, `offers`, `seller` and `seller-products` do not paginate at all — there is no page or cursor parameter on them.
+`search`, `reviews` and `category` paginate with `page` (1-based). `product`, `offers`, `seller`, `seller-products` and `stores` do not paginate at all — there is no page or cursor parameter on them.
 
 ## Parameters
 
@@ -110,12 +115,17 @@ Only `/search` and `/category` accept `domain`, so only those two can ever cost 
 | `fulfillment_speed` | string | -- | `today` or `tomorrow` only |
 | `fulfillment_type` | string | -- | `in_store` for in-store pickup |
 | `domain` | string | `com` | `com` (1 credit), `ca` (1 credit), `com.mx` (2 credits) |
+| `delivery_zip` | string | -- | Shopper's 5-digit US ZIP, or Canadian postal code with `domain: "ca"`. Send together with `store_id` |
+| `store_id` | string | -- | Store from `/walmart/stores` on the same domain. Send together with `delivery_zip`. 2 credits; `com` and `ca` only |
 
 ### Product (`/product`)
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | `product_id` | string | required | Walmart item id (usItemId), e.g. `13544111159` |
+| `delivery_zip` | string | -- | Same as on search. Send together with `store_id` |
+| `store_id` | string | -- | Same as on search. 2 credits |
+| `domain` | string | `com` | `ca` is accepted only together with `store_id` + `delivery_zip` |
 
 ### Reviews (`/reviews`)
 
@@ -149,6 +159,13 @@ Only `/search` and `/category` accept `domain`, so only those two can ever cost 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | `seller_id` | string | required | NUMERIC catalog seller id, as returned in `seller_catalog_id`. Example `101480084` |
+
+### Stores (`/stores`)
+
+| Parameter | Type | Default | Description |
+|---|---|---|---|
+| `zipcode` | string | required | 5-digit US ZIP (`50036`), or a Canadian postal code (`M5V 2T6`, with or without the space) with `domain: "ca"` |
+| `domain` | string | `com` | `com` (walmart.com) or `ca` (walmart.ca) |
 
 ## Examples
 
@@ -188,11 +205,23 @@ catalog = requests.post(f"{BASE}/api/v1/walmart/seller-products", headers=HEADER
 # 6. Mexican marketplace search: this call costs 2 credits, not 1
 mx = requests.post(f"{BASE}/api/v1/walmart/search", headers=HEADERS,
     json={"query": "audifonos", "domain": "com.mx"}).json()
+
+# 7. Stores near a ZIP, then one store's search results (2 credits, 10-60s)
+stores = requests.post(f"{BASE}/api/v1/walmart/stores", headers=HEADERS,
+    json={"zipcode": "50036"}).json()
+store_id = stores["data"]["stores"][0]["store_id"]   # nearest first, e.g. "1389"
+local = requests.post(f"{BASE}/api/v1/walmart/search", headers=HEADERS, timeout=120,
+    json={"query": "whole milk", "delivery_zip": "50036", "store_id": store_id}).json()
+print(local["data"]["location"])   # the store the results were served against
+
+# 8. Same on walmart.ca: postal code + domain "ca" on both calls
+ca_stores = requests.post(f"{BASE}/api/v1/walmart/stores", headers=HEADERS,
+    json={"zipcode": "M5V 2T6", "domain": "ca"}).json()
 ```
 
 ## Response
 
-Every response uses the envelope `{ data, response_time, credits_used, credits_remaining }`, plus an optional `warnings[]` array of strings that Walmart adds when the request used a retired parameter.
+Every response uses the envelope `{ data, response_time, credits_used, credits_remaining }`, plus an optional `warnings[]` array of strings when part of the request was ignored (a retired parameter, `zipcode` sent to search or product, or store parameters sent to an endpoint that does not take them).
 
 - **search** puts the rows in `data.products[]` with `data.products_count`, and reports the Walmart store the results were served against in `data.location`. **category** returns the same product shape as search.
 - **product** returns price, rating, images, specifications, availability and seller.
@@ -200,20 +229,25 @@ Every response uses the envelope `{ data, response_time, credits_used, credits_r
 - **offers** returns price, seller, condition and the buy-box flag.
 - **seller** returns store name, rating, review count, Pro Seller badge and business details.
 - **seller-products** returns the seller's catalog with `total_count`.
+- **stores** returns `data.stores[]` nearest first: `store_id`, `name`, `type`, `distance_miles`, `address`, `latitude`, `longitude`, `open_24_hours`, `hours` and `pickup_types`, plus `zipcode`, `domain` and `count`.
 
-Read `credits_used` on the response rather than assuming a cost, since search and category are body-priced.
+Read `credits_used` on the response rather than assuming a cost, since search, category and product are body-priced.
+
+## Changed in 3.1.0
+
+- New `/walmart/stores` endpoint: stores near a US ZIP or Canadian postal code.
+- `delivery_zip` and `store_id` work again on `/search` and `/product`, sent together, on walmart.com and walmart.ca. They target one store's assortment and availability and cost 2 credits. `/product` accepts `domain: "ca"` with them.
+- `device` is now the only retired parameter.
 
 ## Changed in 3.0.0
 
-If you have an older version of this skill installed, stop sending these. They were tested against the live site before removal, and the API now answers them with a `warnings[]` entry rather than an error, which means a request that looks successful was silently unfiltered:
+If you have an older version of this skill installed, stop sending these. The API answers `device` with a `warnings[]` entry rather than an error, which means a request that looks successful was silently unfiltered:
 
 - **`device`** is gone. Desktop, mobile and tablet return identical page data, so the response would not change.
-- **`delivery_zip`** is gone. Walmart mints its location cookies server-side and ignores any sent to it, so results always come back against its default store. The store actually used is reported in `data.location`.
-- **`store_id`** is gone, for the same reason as `delivery_zip`. The store used is reported in `data.location`.
 - **`fulfillment_speed: "2_days"`** is gone. It leaked items 3-4 days out.
 - **`fulfillment_speed: "anytime"`** is gone. It was a no-op. To mean "anytime", omit the parameter entirely.
 
-`domain` is NOT retired. It is live, it is the price-bearing parameter, and it is the only way to reach walmart.ca and walmart.com.mx.
+`domain` is NOT retired. It is live, it can change the price, and it is the only way to reach walmart.ca and walmart.com.mx.
 
 New since 2.x: `/reviews`, `/category`, `/offers`, `/seller` and `/seller-products`. `sort_by` gained `rating_high` and `new`. `search` and `product` both changed response shape.
 
@@ -223,7 +257,11 @@ New since 2.x: `/reviews`, `/category`, `/offers`, `/seller` and `/seller-produc
 - `/offers` returns the BUY-BOX SELLER ONLY. It is not the full offer list, and must never be described as one. If the user wants every seller on an item, say that this API cannot enumerate them.
 - `/seller-products` returns roughly the first 40 items, server-rendered. There is no pagination on it. `total_count` reports the seller's real catalog size, so the two numbers will disagree and that is expected. Do not invent a `page` parameter.
 - `seller_id` must be the NUMERIC catalog seller id from `seller_catalog_id`. The GUID form of `seller_id` returns 404.
-- `domain` is accepted on `/search` and `/category` only. walmart.ca product pages could not be fetched at all in testing, so the id-keyed endpoints are US-only.
+- `domain` is accepted on `/search`, `/category` and `/stores`, and on `/product` only as `"ca"` together with a store target. The other id-keyed endpoints are US-only.
+- `delivery_zip` and `store_id` must be sent together, and only on `/search` and `/product`. One alone is a `400`. Get `store_id` from `/walmart/stores` on the same domain; a `store_id` that does not exist is a `400`. Store targeting works on walmart.com and walmart.ca, not walmart.com.mx.
+- `store_id` decides the store. Always read `data.location` to confirm which store the results came from, and tell the user.
+- A store-targeted product can return `404` when that store does not carry the item, even if it exists elsewhere. Say so rather than retrying.
+- Store-targeted calls take 10-60 seconds. Use a client timeout of at least 120 seconds.
 - `limit` on `/category` trims the response after fetching. It does not reduce the credit cost.
 - `category_id` accepts either the leaf id or the full underscore-joined path.
 - `sort_by`, `fulfillment_speed`, `fulfillment_type` and `domain` are closed enums - a value outside them is a `400`. Send only the values listed above; in particular `fulfillment_speed` no longer accepts `2_days` or `anytime`, and to mean "anytime" you omit the parameter.
@@ -231,9 +269,9 @@ New since 2.x: `/reviews`, `/category`, `/offers`, `/seller` and `/seller-produc
 
 ## Failure handling
 
-- `400` means an invalid or missing parameter. Fix and retry.
+- `400` means an invalid or missing parameter. Fix and retry. On a store-targeted call it can also mean `store_id` is not a real store, or only one of `delivery_zip` / `store_id` was sent.
 - `401` means the API key is invalid or missing. Check `SCAVIO_API_KEY`.
-- `404` on `/seller` or `/seller-products` almost always means a GUID was sent instead of the numeric `seller_catalog_id`.
+- `404` on `/seller` or `/seller-products` almost always means a GUID was sent instead of the numeric `seller_catalog_id`. On a store-targeted `/product` it means the store does not carry the item.
 - `429` means a rate or usage limit was exceeded. Wait before retrying. See [rate limits](https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=walmart-product-data).
 - `502` / `503` mean the upstream is temporarily unavailable. Transient 502s happen on Walmart; wait a few seconds and retry once before reporting failure.
 - If a response carries `warnings[]`, surface it to the user. It means part of their request was ignored.
@@ -249,3 +287,4 @@ New since 2.x: `/reviews`, `/category`, `/offers`, `/seller` and `/seller-produc
 - [Walmart offers](https://scavio.dev/docs/walmart-offers?utm_source=agent-skills&utm_medium=skill&utm_campaign=walmart-product-data)
 - [Walmart seller](https://scavio.dev/docs/walmart-seller?utm_source=agent-skills&utm_medium=skill&utm_campaign=walmart-product-data)
 - [Walmart seller products](https://scavio.dev/docs/walmart-seller-products?utm_source=agent-skills&utm_medium=skill&utm_campaign=walmart-product-data)
+- [Walmart stores](https://scavio.dev/docs/walmart-stores?utm_source=agent-skills&utm_medium=skill&utm_campaign=walmart-product-data)

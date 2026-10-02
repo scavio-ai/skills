@@ -55,7 +55,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Home Depot | [home-depot-product-data](references/home-depot-product-data.md) | 3 | 2 |
 | Target | [target-product-data](references/target-product-data.md) | 4 | 1 |
 | TikTok Shop | [tiktok-shop-api](references/tiktok-shop-api.md) | 8 | 1 |
-| Walmart | [walmart-product-data](references/walmart-product-data.md) | 7 | 1; 2 for walmart.com.mx search and category |
+| Walmart | [walmart-product-data](references/walmart-product-data.md) | 8 | 1; 2 for walmart.com.mx search/category or store-targeted search/product |
 
 **Social and video**
 

@@ -537,8 +537,8 @@
       "reused": "yes",
       "platform": "Walmart",
       "group": "Commerce",
-      "endpoints": "7",
-      "credits": "1; 2 for walmart.com.mx search and category"
+      "endpoints": "8",
+      "credits": "1; 2 for walmart.com.mx search/category or store-targeted search/product"
     },
     {
       "dir": "scavio-weibo",
@@ -824,8 +824,8 @@
     },
     {
       "dir": "scavio-walmart",
-      "description": "Walmart product data API: keyword search, full product detail by item id, customer reviews with the rating breakdown, category listings, the buy-box offer on an item, and marketplace seller storefronts and their catalogs, as structured JSON. 7 endpoints; 1 credit, or 2 when search or category targets walmart.com.mx.",
-      "tags": "walmart, walmart-product-data, walmart-api, ecommerce, retail, product-search, product-data, pricing, price-monitoring, reviews, buy-box, marketplace-sellers, langchain, crewai, autogen, structured-data, json, ai-agents"
+      "description": "Walmart product data API: keyword search, full product detail by item id, customer reviews with the rating breakdown, category listings, the buy-box offer on an item, marketplace seller storefronts and catalogs, and stores near a US ZIP or Canadian postal code for store-targeted results, as structured JSON. 8 endpoints; 1 credit, or 2 for walmart.com.mx search/category or a store-targeted search/product.",
+      "tags": "walmart, walmart-product-data, walmart-api, ecommerce, retail, product-search, product-data, pricing, price-monitoring, reviews, buy-box, marketplace-sellers, store-locator, local-inventory, walmart-canada, langchain, crewai, autogen, structured-data, json, ai-agents"
     },
     {
       "dir": "scavio-weibo",
