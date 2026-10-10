@@ -85,6 +85,18 @@
       "credits": "1"
     },
     {
+      "dir": "scavio-costco",
+      "slug": "costco-product-data",
+      "name": "costco-product-data",
+      "display": "Costco Product Data API - Warehouse Prices, Stock, Gas, Coupons",
+      "query": "costco product data",
+      "reused": "no",
+      "platform": "Costco",
+      "group": "Commerce",
+      "endpoints": "13",
+      "credits": "1; multi-warehouse prices, stock and gas scale with warehouse count"
+    },
+    {
       "dir": "scavio-douyin",
       "slug": "douyin-scraper-api",
       "name": "douyin-scraper-api",
@@ -636,6 +648,11 @@
       "dir": "scavio-companies-house",
       "description": "Companies House API for the UK register: search by company name (current and former names), then pull the full register entry with status, SIC codes, registered office and accounts due dates, the officers current and resigned, and filing history with the filed PDF. 4 endpoints, 1 credit each, structured JSON.",
       "tags": "companies-house, uk-company-search, company-registry, company-number, officers, directors, filing-history, kyb, kyc, due-diligence, sic-codes, b2b-data, langchain, crewai, autogen, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-costco",
+      "description": "Costco product data API: search and category listings with per-warehouse shelf price and stock, full item detail for up to 20 items, online vs in-warehouse prices at up to 10 warehouses with promotion dates, warehouse stock status, gas prices, the member coupon book, deal feeds, a clearance finder and reviews. 13 endpoints, mostly 1 credit each.",
+      "tags": "costco, costco-api, costco-product-data, product-data, product-search, retail, warehouse-club, warehouse-prices, gas-prices, coupons, clearance, pricing, product-reviews, price-monitoring, catalog-enrichment, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-douyin",
