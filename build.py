@@ -7,7 +7,7 @@ ClawHub source. Edit ../openclaw/<brand>/SKILL.md, then run this.
 Per-platform skills. What it changes, and nothing else:
   frontmatter  name/description/tags  <- naming.json (intent-first, per CLAUDE.md 7)
   body H1                             <- the intent display title
-  every scavio.dev link               <- utm_source=agent-skills, campaign=<intent slug>
+  every scavio.dev / dashboard link    <- utm_source=agent-skills, campaign=<intent slug>
 
 The technical body is copied through byte-for-byte otherwise. `verify.py` proves that.
 
@@ -35,7 +35,7 @@ TEMPLATE = os.path.join(HERE, "umbrella.md")
 TABLE_MARK = "<!-- PLATFORMS -->"
 
 FM = re.compile(r"\A---\n(.*?)\n---\n", re.S)
-URL = re.compile(r"https://scavio\.dev(?:/[^\s)\"'`<>\]]*)?")
+URL = re.compile(r"https://(?:dashboard\.)?scavio\.dev(?:/[^\s)\"'`<>\]]*)?")
 AMBIGUOUS = re.compile(r":\s|^[\[\{&*!|>%@`\"']|#\s")
 
 

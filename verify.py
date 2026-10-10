@@ -55,7 +55,7 @@ def untagged_links(text: str) -> int:
             continue
         if fenced:
             continue
-        for m in re.finditer(r"https://scavio\.dev[^\s)\"'`<>\]]*", line):
+        for m in re.finditer(r"https://(?:dashboard\.)?scavio\.dev[^\s)\"'`<>\]]*", line):
             if "utm_source=" not in m.group(0):
                 n += 1
     return n
