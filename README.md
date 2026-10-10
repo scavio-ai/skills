@@ -2,11 +2,11 @@
 
 # Scavio Agent Skills
 
-**Give your AI agent live data from 52 platforms as structured JSON, through one API key**
+**Give your AI agent live data from 54 platforms as structured JSON, through one API key**
 
-[![Platforms](https://img.shields.io/badge/Platforms-52-blue?style=flat-square)](https://scavio.dev)
-[![Endpoints](https://img.shields.io/badge/Endpoints-317-green?style=flat-square)](https://scavio.dev/docs)
-[![Skills](https://img.shields.io/badge/Skills-53-orange?style=flat-square)](#skills)
+[![Platforms](https://img.shields.io/badge/Platforms-54-blue?style=flat-square)](https://scavio.dev)
+[![Endpoints](https://img.shields.io/badge/Endpoints-330-green?style=flat-square)](https://scavio.dev/docs)
+[![Skills](https://img.shields.io/badge/Skills-55-orange?style=flat-square)](#skills)
 [![skills.sh](https://img.shields.io/badge/skills.sh-listed-black?style=flat-square)](https://skills.sh/scavio-ai/skills)
 [![Agents](https://img.shields.io/badge/Agents-40+-blueviolet?style=flat-square)](https://skills.sh)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](LICENSE)
@@ -19,7 +19,7 @@
 
 ## Overview
 
-[Scavio](https://scavio.dev) is a unified web data API: one key, 52 platforms, structured JSON instead of HTML. This repo holds 53 Agent Skills: one per platform, plus `scavio`, an umbrella that covers all 52 from a single install. A skill teaches your agent which Scavio endpoints exist for a platform, what parameters they take, what the response looks like, and what each call costs in credits, so the agent can call the API correctly without you writing an integration. Every skill is in the open Agent Skills format and loads in Claude Code, Cursor, Codex, OpenCode, Goose, OpenHands, Hermes Agent, OpenClaw, and any other client that reads the format.
+[Scavio](https://scavio.dev) is a unified web data API: one key, 54 platforms, structured JSON instead of HTML. This repo holds 55 Agent Skills: one per platform, plus `scavio`, an umbrella that covers all 54 from a single install. A skill teaches your agent which Scavio endpoints exist for a platform, what parameters they take, what the response looks like, and what each call costs in credits, so the agent can call the API correctly without you writing an integration. Every skill is in the open Agent Skills format and loads in Claude Code, Cursor, Codex, OpenCode, Goose, OpenHands, Hermes Agent, OpenClaw, and any other client that reads the format.
 
 ## Install
 
@@ -53,7 +53,7 @@ Any client that reads the Agent Skills format can also load a folder directly. C
 
 `scavio` is one `SKILL.md` that routes to a `references/` file per platform. Your agent carries one description in its context instead of fifty, and the platform detail loads only when a platform is used. The per-platform skills are the same content split up: each one is a fifth of what the umbrella loads per call, and each has its own trigger, so they fit a project that uses two or three platforms. Install one or the other, not both.
 
-Hermes Agent caps a community skill at 50 files and the umbrella ships 53, so on Hermes install the per-platform skills instead; every one of them passes the Hermes scan.
+Hermes Agent caps a community skill at 50 files and the umbrella ships 55, so on Hermes install the per-platform skills instead; every one of them passes the Hermes scan.
 
 ## Setup
 
@@ -137,6 +137,8 @@ Get the key at [scavio.dev](https://scavio.dev). The free tier is 50 credits on 
 | --- | --- |
 | `zillow-property-data` | For sale, rent and sold listings, property detail, Zestimate, agent profiles |
 | `redfin-property-data` | Listing search, property detail with Redfin Estimate, and market stats |
+| `realtor-com-property-data` | For sale, pending, rent and sold search at up to 200 rows per call, property detail with valuations and tax history, market stats, agents |
+| `rightmove-property-data` | UK listings for sale and to rent, full listing detail, England and Wales sold prices since 1995, agent branches |
 
 ### App stores
 
@@ -173,7 +175,7 @@ Get the key at [scavio.dev](https://scavio.dev). The free tier is 50 credits on 
 
 | Skill | What it does |
 | --- | --- |
-| `scavio` | All 52 platforms behind one trigger: routing table, shared setup, request format, cost gate, and failure handling, with a reference file per platform |
+| `scavio` | All 54 platforms behind one trigger: routing table, shared setup, request format, cost gate, and failure handling, with a reference file per platform |
 
 ## Which skill do I want
 

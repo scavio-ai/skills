@@ -409,6 +409,18 @@
       "credits": "1; url-stats 1-2"
     },
     {
+      "dir": "scavio-realtor",
+      "slug": "realtor-com-property-data",
+      "name": "realtor-com-property-data",
+      "display": "Realtor.com Property Data API - Listings, Sold Comps, Valuations, Agents",
+      "query": "realtor.com api",
+      "reused": "no",
+      "platform": "Realtor.com",
+      "group": "Real estate",
+      "endpoints": "6",
+      "credits": "1"
+    },
+    {
       "dir": "scavio-reddit",
       "slug": "reddit-search-api",
       "name": "reddit-search-api",
@@ -430,6 +442,18 @@
       "platform": "Redfin",
       "group": "Real estate",
       "endpoints": "3",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-rightmove",
+      "slug": "rightmove-property-data",
+      "name": "rightmove-property-data",
+      "display": "Rightmove Property Data API - UK Listings, England and Wales Sold Prices, Agents",
+      "query": "rightmove api",
+      "reused": "no",
+      "platform": "Rightmove",
+      "group": "Real estate",
+      "endpoints": "7",
       "credits": "1"
     },
     {
@@ -797,6 +821,11 @@
       "tags": "pinterest, pinterest-api, pins, boards, social-media-data, visual-search, image-data, content-research, influencer-data, save-counts, url-stats, trends, agents, structured-data, json, ai-agents, scraping-api"
     },
     {
+      "dir": "scavio-realtor",
+      "description": "Realtor.com property data API: search listings for sale, pending, for rent or sold with up to 200 rows per 1-credit call and filters for lot size, property type, sold-within days and listing-text keywords, pull one property in full with price and tax history, home value estimates, schools and flood/fire risk, get area market stats, and find agents with every review. 6 endpoints, 1 credit each.",
+      "tags": "realtor, realtor-com, realtor-api, realtor-com-api, real-estate, property-data, mls-listings, for-sale, for-rent, sold-homes, sold-comps, land-comps, home-prices, home-value-estimate, tax-history, housing-market, real-estate-agents, langchain, crewai, structured-data, json, ai-agents"
+    },
+    {
       "dir": "scavio-reddit",
       "description": "Reddit search plus post detail, threaded comments and reply expansion, subreddit metadata and feeds, redditor profiles with their posts and comments, the site-wide popular feed and trending searches. 12 endpoints, 1 credit each, structured JSON for sentiment analysis, brand monitoring and RAG.",
       "tags": "reddit, reddit-api, reddit-search, subreddits, threaded-comments, social-listening, brand-monitoring, sentiment-analysis, market-research, rag, langchain, crewai, autogen, structured-data, json, ai-agents"
@@ -805,6 +834,11 @@
       "dir": "scavio-redfin",
       "description": "Redfin listing search for sale, sold or for rent with filters for price, beds, baths, square footage and property type; one property in full with the Redfin Estimate, price and tax history, schools and comparable sales; plus housing-market stats for a city, ZIP or neighborhood. 3 endpoints, 1 credit each.",
       "tags": "redfin, redfin-api, property-data, real-estate, mls-listings, home-prices, sold-homes, rentals, price-history, redfin-estimate, housing-market, comparable-sales, langchain, crewai, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-rightmove",
+      "description": "Rightmove property data API: search UK property for sale or to rent with price, bedroom, type, tenure and must-have filters, read one listing in full with tenure, council tax band, EPC and floorplans, pull sold house prices for England and Wales with each address's sale history since 1995, and list estate agent branches. 7 endpoints, 1 credit each.",
+      "tags": "rightmove, rightmove-api, uk-property, uk-real-estate, property-data, house-prices, sold-prices, sold-house-prices, property-for-sale, property-to-rent, lettings, estate-agents, tenure, epc, langchain, crewai, structured-data, json, ai-agents"
     },
     {
       "dir": "scavio-screenshot",
