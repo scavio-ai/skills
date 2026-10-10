@@ -529,6 +529,18 @@
       "credits": "2"
     },
     {
+      "dir": "scavio-trustpilot",
+      "slug": "trustpilot-reviews-api",
+      "name": "trustpilot-reviews-api",
+      "display": "Trustpilot Reviews API - Business Search, TrustScore, Reviews, Categories",
+      "query": "trustpilot reviews api",
+      "reused": "no",
+      "platform": "Trustpilot",
+      "group": "Jobs and reviews",
+      "endpoints": "6",
+      "credits": "2"
+    },
+    {
       "dir": "scavio-twitch",
       "slug": "twitch-api",
       "name": "twitch-api",
@@ -833,6 +845,11 @@
       "dir": "scavio-tripadvisor",
       "description": "Tripadvisor reviews API: resolve any place or business name to Tripadvisor ids, list ranked restaurants, hotels and attractions in a geo, read a location in full (rating histogram, sub-ratings, city ranking, price band, amenities, contact), and page reviews with trip date, trip type and management response. 4 endpoints, 2 credits each.",
       "tags": "tripadvisor, tripadvisor-reviews, tripadvisor-api, hotels, restaurants, attractions, reviews, ratings, travel, hospitality, local-business, review-mining, reputation-monitoring, agents, structured-data, json, ai-agents, scraping-api"
+    },
+    {
+      "dir": "scavio-trustpilot",
+      "description": "Trustpilot reviews API: search businesses by keyword with TrustScore, review count and the email and phone they published, read a full profile with rating distribution, reply rate and days to reply, AI summary and topics, page reviews filtered by stars, language, date range, topic and text (200 per filter combination), and rank businesses in a category by minimum star rating. 6 endpoints, 2 credits each.",
+      "tags": "trustpilot, trustpilot-api, trustpilot-reviews, trustscore, review-mining, reputation-management, brand-monitoring, voice-of-customer, sentiment-analysis, lead-generation, business-search, business-data, competitive-intelligence, langchain, crewai, autogen, structured-data, json, ai-agents"
     },
     {
       "dir": "scavio-twitch",

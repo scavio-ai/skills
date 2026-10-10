@@ -2,11 +2,11 @@
 
 # Scavio Agent Skills
 
-**Give your AI agent live data from 51 platforms as structured JSON, through one API key**
+**Give your AI agent live data from 52 platforms as structured JSON, through one API key**
 
-[![Platforms](https://img.shields.io/badge/Platforms-51-blue?style=flat-square)](https://scavio.dev)
-[![Endpoints](https://img.shields.io/badge/Endpoints-311-green?style=flat-square)](https://scavio.dev/docs)
-[![Skills](https://img.shields.io/badge/Skills-52-orange?style=flat-square)](#skills)
+[![Platforms](https://img.shields.io/badge/Platforms-52-blue?style=flat-square)](https://scavio.dev)
+[![Endpoints](https://img.shields.io/badge/Endpoints-317-green?style=flat-square)](https://scavio.dev/docs)
+[![Skills](https://img.shields.io/badge/Skills-53-orange?style=flat-square)](#skills)
 [![skills.sh](https://img.shields.io/badge/skills.sh-listed-black?style=flat-square)](https://skills.sh/scavio-ai/skills)
 [![Agents](https://img.shields.io/badge/Agents-40+-blueviolet?style=flat-square)](https://skills.sh)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](LICENSE)
@@ -19,7 +19,7 @@
 
 ## Overview
 
-[Scavio](https://scavio.dev) is a unified web data API: one key, 51 platforms, structured JSON instead of HTML. This repo holds 52 Agent Skills: one per platform, plus `scavio`, an umbrella that covers all 51 from a single install. A skill teaches your agent which Scavio endpoints exist for a platform, what parameters they take, what the response looks like, and what each call costs in credits, so the agent can call the API correctly without you writing an integration. Every skill is in the open Agent Skills format and loads in Claude Code, Cursor, Codex, OpenCode, Goose, OpenHands, Hermes Agent, OpenClaw, and any other client that reads the format.
+[Scavio](https://scavio.dev) is a unified web data API: one key, 52 platforms, structured JSON instead of HTML. This repo holds 53 Agent Skills: one per platform, plus `scavio`, an umbrella that covers all 52 from a single install. A skill teaches your agent which Scavio endpoints exist for a platform, what parameters they take, what the response looks like, and what each call costs in credits, so the agent can call the API correctly without you writing an integration. Every skill is in the open Agent Skills format and loads in Claude Code, Cursor, Codex, OpenCode, Goose, OpenHands, Hermes Agent, OpenClaw, and any other client that reads the format.
 
 ## Install
 
@@ -53,7 +53,7 @@ Any client that reads the Agent Skills format can also load a folder directly. C
 
 `scavio` is one `SKILL.md` that routes to a `references/` file per platform. Your agent carries one description in its context instead of fifty, and the platform detail loads only when a platform is used. The per-platform skills are the same content split up: each one is a fifth of what the umbrella loads per call, and each has its own trigger, so they fit a project that uses two or three platforms. Install one or the other, not both.
 
-Hermes Agent caps a community skill at 50 files and the umbrella ships 52, so on Hermes install the per-platform skills instead; every one of them passes the Hermes scan.
+Hermes Agent caps a community skill at 50 files and the umbrella ships 53, so on Hermes install the per-platform skills instead; every one of them passes the Hermes scan.
 
 ## Setup
 
@@ -128,6 +128,7 @@ Get the key at [scavio.dev](https://scavio.dev). The free tier is 50 credits on 
 | `glassdoor-salary-data` | Salary percentiles by title, employer profiles, ratings, and reviews |
 | `g2-software-reviews-api` | B2B product search, profiles with pricing editions, and faceted reviews |
 | `capterra-reviews-api` | Software search, full profiles with the pricing table, and scored reviews |
+| `trustpilot-reviews-api` | Business search with TrustScore, full profiles with reply rate, filtered reviews, and category rankings |
 | `yelp-business-data` | Business search, full business detail with hours, and review pages |
 
 ### Real estate
@@ -172,13 +173,13 @@ Get the key at [scavio.dev](https://scavio.dev). The free tier is 50 credits on 
 
 | Skill | What it does |
 | --- | --- |
-| `scavio` | All 51 platforms behind one trigger: routing table, shared setup, request format, cost gate, and failure handling, with a reference file per platform |
+| `scavio` | All 52 platforms behind one trigger: routing table, shared setup, request format, cost gate, and failure handling, with a reference file per platform |
 
 ## Which skill do I want
 
 **I need prices for a product across retailers.** Start with `google-shopping-api` for the cross-merchant view, then go per retailer: `amazon-product-data` for ASIN detail and offers, `walmart-product-data`, `target-product-data`, `home-depot-product-data`, `costco-product-data`, `aliexpress-product-data`. For resale and used comps, `ebay-product-data` searches sold listings. For handmade and vintage, `etsy-product-data`.
 
-**I need a lead list of local businesses.** `google-maps-api` gives places, addresses, phone numbers, hours, and coordinates for a query and map center. `yelp-business-data` adds price band, amenities, and review text for the same kind of venue. `tripadvisor-reviews-api` covers restaurants, hotels, and attractions ranked within a geo.
+**I need a lead list of local businesses.** `google-maps-api` gives places, addresses, phone numbers, hours, and coordinates for a query and map center. `yelp-business-data` adds price band, amenities, and review text for the same kind of venue. `trustpilot-reviews-api` ranks online businesses in a category by star rating, with the website and the email and phone they published. `tripadvisor-reviews-api` covers restaurants, hotels, and attractions ranked within a geo.
 
 **I need to feed a RAG index or an LLM prompt.** `url-to-markdown-api` converts arbitrary pages to Markdown chunks. For discussion text, `reddit-search-api` returns threaded comments. For video, `youtube-data-api` returns transcripts. For code and issues, `github-api` returns READMEs, releases, and issue threads.
 

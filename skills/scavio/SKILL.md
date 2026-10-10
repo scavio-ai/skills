@@ -1,6 +1,6 @@
 ---
 name: scavio
-description: "Scavio web data API: one key, structured JSON from 51 platforms. Google Search, AI Mode, News, Trends, Maps, Shopping, Hotels, Flights, Play Store and Ads Transparency; Amazon, eBay, Walmart, Target, Home Depot, Costco, AliExpress, Etsy and TikTok Shop; Instagram, TikTok, YouTube, Twitter/X, Reddit, LinkedIn, Facebook, Threads, Pinterest, Twitch, Douyin, Weibo and Kuaishou; Airbnb, Booking.com and Tripadvisor; Indeed, Glassdoor, G2, Capterra and Yelp; Zillow and Redfin; Apple App Store; SEC EDGAR, Companies House and GitHub; the Meta, TikTok and LinkedIn ad libraries; URL to Markdown and website screenshots. Routes each request to the platform reference, quotes the credit cost before a paid call, and handles 402 and 429. Use when the user wants public data from any of these sites, code that calls Scavio, or a cost estimate."
+description: "Scavio web data API: one key, structured JSON from 52 platforms. Google Search, AI Mode, News, Trends, Maps, Shopping, Hotels, Flights, Play Store and Ads Transparency; Amazon, eBay, Walmart, Target, Home Depot, Costco, AliExpress, Etsy and TikTok Shop; Instagram, TikTok, YouTube, Twitter/X, Reddit, LinkedIn, Facebook, Threads, Pinterest, Twitch, Douyin, Weibo and Kuaishou; Airbnb, Booking.com and Tripadvisor; Indeed, Glassdoor, G2, Capterra, Trustpilot and Yelp; Zillow and Redfin; Apple App Store; SEC EDGAR, Companies House and GitHub; the Meta, TikTok and LinkedIn ad libraries; URL to Markdown and website screenshots. Routes each request to the platform reference, quotes the credit cost before a paid call, and handles 402 and 429. Use when the user wants public data from any of these sites, code that calls Scavio, or a cost estimate."
 version: 1.0.0
 tags: scavio, web-data-api, scraper-api, serp-api, social-media-api, ecommerce-api, google-search, amazon, instagram, tiktok, youtube, linkedin, reddit, structured-data, json, ai-agents, langchain, crewai, autogen
 metadata:
@@ -15,9 +15,9 @@ metadata:
     homepage: https://scavio.dev/docs?utm_source=agent-skills&utm_medium=skill&utm_campaign=scavio
 ---
 
-# Scavio - One API Key for 51 Web Data Platforms
+# Scavio - One API Key for 52 Web Data Platforms
 
-Scavio returns public pages from 51 platforms as structured JSON through one API key. This file is the router. It says which platform reference to read, how every request is shaped, what a call costs, and what to do when one fails. The files under `references/` hold the endpoints, parameters, measured response shapes and the traps for each platform. Open the reference before the first call to a platform in a session, and call from the reference, not from memory.
+Scavio returns public pages from 52 platforms as structured JSON through one API key. This file is the router. It says which platform reference to read, how every request is shaped, what a call costs, and what to do when one fails. The files under `references/` hold the endpoints, parameters, measured response shapes and the traps for each platform. Open the reference before the first call to a platform in a session, and call from the reference, not from memory.
 
 ## When to trigger
 
@@ -94,6 +94,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | G2 | [g2-software-reviews-api](references/g2-software-reviews-api.md) | 3 | 5 |
 | Glassdoor | [glassdoor-salary-data](references/glassdoor-salary-data.md) | 4 | 1 |
 | Indeed | [indeed-jobs-api](references/indeed-jobs-api.md) | 4 | 2 |
+| Trustpilot | [trustpilot-reviews-api](references/trustpilot-reviews-api.md) | 6 | 2 |
 | Yelp | [yelp-business-data](references/yelp-business-data.md) | 3 | 2 |
 
 **Real estate**
