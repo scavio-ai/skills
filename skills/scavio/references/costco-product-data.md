@@ -372,6 +372,19 @@ book = client.costco.coupons()
 markdowns = client.costco.clearance(warehouse_id="1062", query="snacks")
 ```
 
+```bash
+npm install scavio@0.18.0
+```
+
+```js
+import { Scavio } from "scavio";
+
+const scavio = new Scavio(); // reads SCAVIO_API_KEY
+const found = await scavio.costco.search({ query: "olive oil", warehouse_id: "1062", page_size: 5 });
+const prices = await scavio.costco.prices({ item_id: "1492456", warehouse_ids: ["1062", "1107"] });
+const book = await scavio.costco.coupons();
+```
+
 MCP: the Scavio MCP server exposes all 13 endpoints as tools (`search_costco`, `get_costco_prices`, `get_costco_availability`, `get_costco_gas_prices`, `get_costco_coupons`, `get_costco_clearance` and the rest). Costco is opt-in: add `costco` to `SCAVIO_PLATFORMS`.
 
 ```json
@@ -379,7 +392,7 @@ MCP: the Scavio MCP server exposes all 13 endpoints as tools (`search_costco`, `
   "mcpServers": {
     "scavio": {
       "command": "npx",
-      "args": ["-y", "@scavio/mcp-server@0.16.0"],
+      "args": ["-y", "@scavio/mcp-server@0.16.1"],
       "env": {
         "SCAVIO_API_KEY": "sk_live_your_key",
         "SCAVIO_PLATFORMS": "default,costco"
