@@ -531,7 +531,7 @@ Categories and resolve:
 - `404` on `/resolve` — a supported link that TikTok could not resolve; it may have expired or may not point to a product or shop.
 - `429` — rate or usage limit exceeded. Wait before retrying. See [rate limits](https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=tiktok-shop-api).
 - `502` — TikTok Shop data is temporarily unavailable. Wait a few seconds and retry; the request already spent an internal retry budget, so retry slowly, not in a tight loop.
-- Calls can take several seconds because short or truncated upstream pages are retried internally. Set a client timeout of at least 60 seconds.
+- Calls can take several seconds. Set a client timeout of at least 60 seconds.
 - If a search returns nothing, try `/tiktok-shop/search/suggestions` for a better keyword before giving up.
 - If `SCAVIO_API_KEY` is not set, prompt the user to export it before continuing.
 

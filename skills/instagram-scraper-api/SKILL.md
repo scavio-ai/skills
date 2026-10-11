@@ -1,6 +1,6 @@
 ---
 name: instagram-scraper-api
-description: "Instagram public data: profiles with follower counts and bio, timeline posts, reels, tagged posts, active stories, single-post detail, comments and replies, follower and following lists, and user and hashtag search. 12 endpoints, 2-10 credits each; responses are raw upstream JSON, not a normalized shape."
+description: "Instagram public data: profiles with follower counts and bio, timeline posts, reels, tagged posts, active stories, single-post detail, comments and replies, follower and following lists, and user and hashtag search. 12 endpoints, 2-10 credits each; responses keep Instagram's own structure, not a normalized shape."
 version: 1.0.0
 tags: instagram, instagram-api, instagram-scraper, social-media, profiles, reels, stories, followers, comments, hashtags, influencer-marketing, social-listening, langchain, crewai, autogen, ai-agents, structured-data, json
 metadata:
@@ -46,10 +46,10 @@ For TikTok creators use `scavio-tiktok`. For TikTok Shop products use `scavio-ti
 
 So you cannot chain `/post/comments` straight into `/post/comments/replies` — comments are addressed by shortcode, replies by `media_id`. To get replies, call `/instagram/post` first to resolve the `media_id`, then pass it with the `comment_id` from the comments call. That chain costs 8 + 10 + 8 = 26 credits; make sure the user actually wants it.
 
-**3. The response is a raw upstream passthrough, not a normalized Scavio shape.** Unlike Reddit, YouTube or LinkedIn, Instagram responses are handed back exactly as the provider returned them. Two consequences:
+**3. The response keeps Instagram's own structure, not a normalized Scavio shape.** Unlike Reddit, YouTube or LinkedIn, Instagram responses keep Instagram's field names. Two consequences:
 
 - **Field names are Instagram's, not friendly ones.** On a post, the video URL is at `video_versions[].url` — there is **no** `video_url`. The cover image is at `image_versions2.candidates[]` — there is **no** `thumbnail_url`. `media_type` is the integer `1` (image), `2` (video), or `8` (carousel).
-- **The top-level keys inside `data` can vary between calls on the same endpoint**, because two upstream versions are raced and either may win. Always probe defensively: check for `items` and for `data`, take whichever is present, and never assume a key exists.
+- **The top-level keys inside `data` can vary between calls on the same endpoint**, because the same endpoint can answer in two different structures. Always probe defensively: check for `items` and for `data`, take whichever is present, and never assume a key exists.
 
 Do not invent friendlier field names when reporting results, and do not claim a field is missing until you have checked the raw keys actually returned.
 
@@ -100,7 +100,7 @@ Base URL: `https://api.scavio.dev`. All paths are under `/api/v1/instagram`.
 | `POST /api/v1/instagram/search/users` | **10** | Find accounts by keyword |
 | `POST /api/v1/instagram/search/hashtags` | **10** | Find hashtags by keyword |
 
-The 8-vs-10 split is not arbitrary: the 10-credit endpoints race two upstream providers for reliability and are billed for both legs; the 8-credit ones have only a single provider. Nothing here is 1 credit.
+The 8-vs-10 split reflects what each lookup costs to serve reliably. Nothing here is 1 credit.
 
 ## Workflow
 
@@ -108,7 +108,7 @@ The 8-vs-10 split is not arbitrary: the 10-credit endpoints race two upstream pr
 2. **Prefer `user_id` once you have it.** Every response that includes a profile carries `pk` / `id` — that is the `user_id`. When both are sent, `user_id` wins and is more stable than a username, which can be changed by its owner.
 3. **Cheapest useful path:** `/user/posts` (2 credits) already carries captions, media, like and comment counts for recent posts. For "what is this creator posting about", that single call is often the whole answer.
 4. **Add `/profile` (10) only when you need follower counts**, bio text, verified status, or account type. Do not call it reflexively before a feed call.
-5. **Paginate with `cursor`.** Pass the continuation token from the previous response back as `cursor`. Names of the continuation field vary by endpoint and by which upstream leg won -- look for `next_max_id`, `pagination_token`, `next_min_id`, or `rank_token` and pass whichever is present. Stop when none is present or `has_more` / `more_available` is false.
+5. **Paginate with `cursor`.** Pass the continuation token from the previous response back as `cursor`. Names of the continuation field vary by endpoint and by which structure came back -- look for `next_max_id`, `pagination_token`, `next_min_id`, or `rank_token` and pass whichever is present. Stop when none is present or `has_more` / `more_available` is false.
 6. **Raise `count` instead of making more calls.** Each call costs the same regardless of page size, so a single `count: 50` is five times cheaper than five `count: 10` calls.
 
 ## Parameters
@@ -137,7 +137,7 @@ No `count`, no `cursor`. Stories are not paginated -- you get whatever is curren
 | `count` | number | `12` | Items per page, 1-50 |
 | `cursor` | string | -- | Continuation token from the previous response |
 
-Note on `/user/posts`: `count` is honored only when the newer upstream leg answers, and the older leg is the primary one here. Treat `count` as a request, not a guarantee, and read how many items you actually got rather than assuming.
+Note on `/user/posts`: `count` is often not honored. Treat `count` as a request, not a guarantee, and read how many items you actually got rather than assuming.
 
 Also on `/user/posts`: when you pass **only** `user_id`, the items may arrive **double-nested at `data.data`** rather than `data.items`. Probe both.
 
@@ -175,7 +175,7 @@ The post is at `data.items[0]`. Within it: `media_type` `1`/`2`/`8`, video at `v
 
 One of `shortcode` / `url` is required. **`media_id` is not accepted here** even though the sibling endpoints take it.
 
-Two cautions. First, `sort_order` is honored only when the newer upstream leg answers; if the older leg wins, your sort is silently ignored. Do not present comment ordering to the user as guaranteed. Second, **pass a canonical post URL or a bare shortcode only.** A `/share/` link, a profile URL, or any URL that is not of the form `instagram.com/p/<code>`, `/reel/<code>`, `/reels/<code>` or `/tv/<code>` currently fails as a **500**, not a clean 400. Extract the shortcode yourself and send that instead.
+Two cautions. First, `sort_order` is not always honored; when it is not, your sort is silently ignored. Do not present comment ordering to the user as guaranteed. Second, **pass a canonical post URL or a bare shortcode only.** A `/share/` link, a profile URL, or any URL that is not of the form `instagram.com/p/<code>`, `/reel/<code>`, `/reels/<code>` or `/tv/<code>` currently fails as a **500**, not a clean 400. Extract the shortcode yourself and send that instead.
 
 ### Comment replies (`/post/comments/replies`)
 
@@ -194,7 +194,7 @@ Both ids are required. `/post/comments` does not return `media_id`, so resolve i
 | `keyword` | string | required | Search term, 1-500 chars |
 | `cursor` | string | -- | Rank token from a previous response |
 
-The field is `keyword`, not `query` or `search`. There is **no `count`** -- page size is not controllable. Pagination is best-effort: if the older upstream leg answers, the cursor is ignored and you get page 1 again. Detect this by comparing the returned ids to what you already have rather than assuming forward progress.
+The field is `keyword`, not `query` or `search`. There is **no `count`** -- page size is not controllable. Pagination is best-effort: sometimes the cursor is ignored and you get page 1 again. Detect this by comparing the returned ids to what you already have rather than assuming forward progress.
 
 ## Errors
 

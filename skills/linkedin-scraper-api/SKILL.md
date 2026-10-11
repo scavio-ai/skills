@@ -1,6 +1,6 @@
 ---
 name: linkedin-scraper-api
-description: LinkedIn person and company profiles, their posts, job search by keyword and location, single job detail, and post comments as structured JSON. 9 endpoints from 1 to 30 credits, four of them paginated. People search and contact info were retired upstream and return 410, so they are not covered.
+description: LinkedIn person and company profiles, their posts, job search by keyword and location, single job detail, and post comments as structured JSON. 9 endpoints from 1 to 30 credits, four of them paginated. People search and contact info are no longer available and return 410, so they are not covered.
 version: 2.1.0
 tags: linkedin, linkedin-api, linkedin-scraper, b2b, profiles, company-data, jobs, job-search, lead-generation, prospecting, recruiting, sales-intelligence, langchain, crewai, autogen, ai-agents, structured-data, json
 metadata:
@@ -81,7 +81,7 @@ Base URL: `https://api.scavio.dev`. All paths are under `/api/v1/linkedin`. Cost
 
 ### Retired endpoints
 
-The upstream data provider withdrew five datasets. These paths still exist but always return HTTP **410** with `{"code": "endpoint_retired", "reason": ...}` and are **never billed**. Do not retry them, and never describe the data as temporarily unavailable - it is gone.
+Five LinkedIn datasets are no longer available. These paths still exist but always return HTTP **410** with `{"code": "endpoint_retired", "reason": ...}` and are **never billed**. Do not retry them, and never describe the data as temporarily unavailable - it is gone.
 
 | Retired | Closest substitute |
 |---|---|
@@ -286,7 +286,7 @@ An experience entry has two shapes. A single role carries `company` plus its own
 ## Guardrails
 
 - Cost varies by endpoint: the four profile and single-item reads are 1 credit, the four paginated endpoints are 10 credits **per page**, and `/job` is 30. A ten-page job search is 100 credits, so cap any paging loop and tell the user the credit cost you intend to spend before you start.
-- `/person` already contains the about text, experience and education - do not call `/person/about` as well for the same member, it is the same upstream fetch billed twice.
+- `/person` already contains the about text, experience and education - do not call `/person/about` as well for the same member, it is the same data billed twice.
 - Stop paging on the signal the endpoint actually gives you: `has_more` false for the three cursor endpoints, an empty `data[]` for `/post/comments`. Never stop on a short page of comments and never use `total` as a page budget - it is present on page 1 only.
 - Cursors are opaque and endpoint-specific. Echo `next_cursor` back unchanged; do not parse, build or increment one, and do not carry a cursor across endpoints or across a changed `username`, `company`, `search` or `type`. An unreadable cursor silently returns page one instead of erroring, which looks like a loop that never advances.
 - `/search/jobs` rotates its result set upstream, so pages overlap and a repeated search returns different listings. Dedupe by job `id`, do not present the pages you walked as an exhaustive list, and do not diff two runs to infer new postings.
@@ -299,7 +299,7 @@ An experience entry has two shapes. A single role carries `company` plus its own
 - `400` means an invalid or missing parameter (e.g. neither `username` nor `url`, or a `type` outside `posts` / `comments` / `reactions`) - fix and retry. A bad `cursor` is the exception: it does not 400, it quietly returns page one.
 - `401` means the API key is invalid or missing. Check `SCAVIO_API_KEY`.
 - `404` on `/job` means the listing has no detail record upstream. **Not billed.** Roughly one job id in five returned by `/search/jobs` answers this way - expired and delisted postings linger in search after their detail page is gone. Skip that id and move to the next; retrying will not produce a record.
-- `410` means the endpoint was retired upstream. Permanent - do not retry. Read `reason` in the body.
+- `410` means the endpoint was retired. Permanent - do not retry. Read `reason` in the body.
 - `429` means rate or usage limit exceeded. Wait before retrying. See [rate limits](https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=linkedin-scraper-api).
 - `502` / `503` mean upstream is temporarily unavailable - wait a few seconds and retry, up to a few times.
 - If a search returns no results, relax filters or try different keywords.

@@ -76,9 +76,9 @@ Extract is **tier-priced**, so there is no single "costs N credits" answer. The 
 
 | `mode` | What it does | Credits |
 |---|---|---|
-| `normal` (default) | Plain datacenter fetch | **1** |
+| `normal` (default) | Standard page read | **1** |
 | `advanced` | Renders JavaScript before reading | **1** |
-| `ultra` | Heaviest fetch, for the hardest bot walls | **2** |
+| `ultra` | Heaviest tier, for the hardest bot walls | **2** |
 
 `advanced` costs the same as `normal`, so reach for it freely on any page that renders client-side. `ultra` is the only step that doubles the price - escalate to it only after `normal` or `advanced` came back empty or blocked.
 

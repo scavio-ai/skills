@@ -83,7 +83,7 @@ Base URL: `https://api.scavio.dev`. Every Airbnb endpoint costs **1 credit**.
 
 `check_in` and `check_out` must be sent **together**. A dateless search defaults to roughly +30 days for 5 nights - and Airbnb A/B tests **both the window and the prices** on that shape: the same URL has come back split across two different windows with first-row prices of $680, $802 and $2,238. The response flags this as `dates_are_defaulted`. If it is `true`, do not quote the price as an answer to a dated question.
 
-`currency` defaults to `USD` in the transport. Send one explicitly; without it Airbnb prices off the proxy exit and two identical requests disagree.
+`currency` defaults to `USD` in the transport. Send one explicitly; without it Airbnb picks the currency itself and two identical requests can disagree.
 
 ### Pagination
 
@@ -117,7 +117,7 @@ The `limit` / `offset` names are load-bearing. The underscored `_limit` / `_offs
 | `page` | integer | -- | 1-based, 18 listings per page. **Cannot be combined with `cursor`** |
 | `cursor` | string | -- | `next_cursor` from a previous response. Wins over `page` |
 
-`room_type` and the named amenities are validated **before** the scrape, on purpose: an unrecognised value makes Airbnb return the *unfiltered* set under a `200`, so the user would pay for a filter that never ran.
+`room_type` and the named amenities are validated **before** the request, on purpose: an unrecognised value makes Airbnb return the *unfiltered* set under a `200`, so the user would pay for a filter that never ran.
 
 ### Listing (`/listing`)
 
@@ -253,7 +253,7 @@ Every response uses the envelope `{ data, response_time, credits_used, credits_r
 - Send `currency` on every call. Two identical requests without it can disagree.
 - Send `page` **or** `cursor`, never both - the request is rejected.
 - On `/reviews`, always send an explicit `limit`, and use exactly `limit` / `offset`. The underscored variants silently return the same 7 rows forever.
-- Never invent a `room_type` or amenity name. Unrecognised values are rejected before the scrape precisely so the user is not billed for a filter Airbnb would have ignored.
+- Never invent a `room_type` or amenity name. Unrecognised values are rejected before any billed request precisely so the user is not billed for a filter Airbnb would have ignored.
 - Never fabricate listing names, prices, ratings, host details or review text. Only return what the API returned.
 - Review text and host profiles are personal data about real people. Summarise; do not build profiles of individuals.
 
@@ -263,7 +263,7 @@ Every response uses the envelope `{ data, response_time, credits_used, credits_r
 - `401` means the API key is invalid or missing. Check `SCAVIO_API_KEY`.
 - `404` means Airbnb could not resolve the location, or the listing id does not exist.
 - `429` means rate or usage limit exceeded. Wait before retrying. See [rate limits](https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=airbnb-scraper-api).
-- `502` / `503` mean upstream is temporarily unavailable - wait a few seconds and retry, up to a few times. Airbnb occasionally serves a geo domain-switch interstitial; the transport already retries that internally, so a 502 that survives to you is real.
+- `502` / `503` mean upstream is temporarily unavailable - wait a few seconds and retry, up to a few times. A 502 that reaches you is real.
 - An empty result set is usually the filters - widen `max_price` (remember it is the stay total), drop `superhost` / `guest_favorite`, or shorten the stay.
 - If `SCAVIO_API_KEY` is not set, prompt the user to export it before continuing.
 

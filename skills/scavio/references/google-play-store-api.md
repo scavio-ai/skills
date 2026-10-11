@@ -50,7 +50,7 @@ Base URL: `https://api.scavio.dev`. All paths are under `/api/v1/googleplay`. Ev
 | `POST /api/v1/googleplay/app` | 2 | The complete store listing, plus the 20 server-rendered reviews |
 | `POST /api/v1/googleplay/reviews` | 2 | A page of reviews, cursor-paginated |
 
-Google Play is a **premium domain upstream**, which is why it is 2 credits and not 1. Budget accordingly before planning a deep review crawl.
+Google Play is priced at **2 credits**, not 1. Budget accordingly before planning a deep review crawl.
 
 ## Workflow
 

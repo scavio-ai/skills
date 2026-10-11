@@ -251,7 +251,7 @@ Always read `credits_used` off the response rather than assuming. The per-call c
 - `/user/resolve` accepts `kuaishou.com` and `v.kuaishou.com` links only.
 - **Quote the per-endpoint cost, never a platform cost.** Saying "Kuaishou calls cost 1 credit" is wrong by up to 40x. `profile` is 10, `video` is 2, `videos/batch` is 40, all four search endpoints are 10, everything else is 1.
 - Before a multi-page search, tell the user the running cost. Ten pages of `/search/videos` is 100 credits.
-- `/videos/batch` is capped at 20 photo ids. That cap exists precisely because this is the one call that fans out upstream spend. Do not attempt to work around it by chaining batches without telling the user what it will cost.
+- `/videos/batch` is capped at 20 photo ids. That cap exists precisely because this is the one call that fans out into many lookups. Do not attempt to work around it by chaining batches without telling the user what it will cost.
 - **The path is `/api/v1/kuaishou/video/sub-comments`.** Do not derive it from the name "comment replies". Copy the path from the table.
 - Never fabricate view counts, follower counts, video ids, comment text or leaderboard positions. Only return data the API returned.
 - Content and interface text are largely in Chinese. Translate for the user when helpful, but keep the original text alongside so ids and handles stay verifiable.

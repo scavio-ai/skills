@@ -86,7 +86,7 @@ Every request costs 1 credit.
 | `nfpr` | boolean | `false` | Set `true` to disable spelling autocorrection |
 | `filter` | string | `1` | `0` disables similar/omitted-results filtering |
 | `time_period` | string | -- | `last_hour`, `last_day`, `last_week`, `last_month`, `last_year` |
-| `resolve_ai_overview` | boolean | `true` | Inline the full AI Overview when Google defers it; set `false` to skip the extra upstream call |
+| `resolve_ai_overview` | boolean | `true` | Inline the full AI Overview when Google defers it; set `false` to skip the extra lookup |
 | `include_html` | boolean | `false` | Include raw Google HTML in the `html` field |
 
 ## Example

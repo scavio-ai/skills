@@ -133,7 +133,7 @@ company = requests.post(f"{BASE}/api/v1/glassdoor/company", headers=HEADERS,
 
 reviews_url, salaries_url = company["reviews_url"], company["salaries_url"]
 
-# 3. Reviews via the saved URL - one upstream fetch instead of two.
+# 3. Reviews via the saved URL - one lookup instead of two.
 #    Up to THREE reviews. There is no page param; move the window with filters.
 reviews = requests.post(f"{BASE}/api/v1/glassdoor/reviews", headers=HEADERS,
     json={"url": reviews_url, "category": "work_life_balance",
@@ -193,7 +193,7 @@ Every response uses the envelope `{ data, response_time, credits_used, credits_r
 - Every call is **1 credit**, including one that comes back empty or times out into a 502.
 - **Reviews are capped at three per response.** Never promise, imply or attempt a full review dump, and never invent a `page` parameter for `/reviews`. Report the cap, and use `filtered_review_count` / `total_review_count` to give the user the scale of what exists.
 - Three reviews are not a sample you can generalise from. Use the aggregate blocks - `rating_distribution`, `ratings`, `highlights`, `reviews_by_job_title` - for anything sentiment-shaped, and quote the individual reviews as anecdotes.
-- Chain `reviews_url` / `salaries_url` from `/company` whenever you already have them. Same price, half the upstream work, materially faster on a slow surface.
+- Chain `reviews_url` / `salaries_url` from `/company` whenever you already have them. Same price, half the work, materially faster on a slow surface.
 - `employer_id` must be a string. Send `"1699"`, not `1699`.
 - Never send `company` on its own expecting it to address an employer - it is cosmetic and the request is rejected without `employer_id` or `url`.
 - Salary figures are **Glassdoor's estimates for the job title**, not individual reported salaries. Say so whenever you quote one, along with `pay_period` and `currency`.
@@ -206,7 +206,7 @@ Every response uses the envelope `{ data, response_time, credits_used, credits_r
 - `401` means the API key is invalid or missing. Check `SCAVIO_API_KEY`.
 - `404` means the employer id or URL does not resolve. Re-run `/companies` rather than guessing another id.
 - `429` means rate or usage limit exceeded. Wait before retrying. See [rate limits](https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=glassdoor-salary-data).
-- `502` / `503` mean upstream is temporarily unavailable. **This is the common failure here** - Glassdoor sits behind a render-only, degraded pool. A failing call can take ~170 seconds before it reports. Retry once or twice with a short pause; do not hammer it, and do not shorten the client timeout to "fail faster" - you will abandon calls that were about to succeed.
+- `502` / `503` mean upstream is temporarily unavailable. **This is the common failure here** - a failing call can take ~170 seconds before it reports. Retry once or twice with a short pause; do not hammer it, and do not shorten the client timeout to "fail faster" - you will abandon calls that were about to succeed.
 - If `/companies` returns nothing useful, try the legal entity name or a shorter form of the brand.
 - If `SCAVIO_API_KEY` is not set, prompt the user to export it before continuing.
 

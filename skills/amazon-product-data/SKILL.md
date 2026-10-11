@@ -423,7 +423,7 @@ Read these carefully before building on them:
 - `401` — the API key is invalid or missing. Check `SCAVIO_API_KEY`.
 - `429` — rate or usage limit exceeded. Wait before retrying. See [rate limits](https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=amazon-product-data).
 - `502` — Amazon data is temporarily unavailable, or the ASIN could not be fetched from that marketplace. **Not billed.** Wait a few seconds and retry once; if it repeats, check the ASIN exists on that `country`'s storefront before retrying again.
-- `503` — the upstream fetch never completed (network failure or timeout). **Not billed.** Retry after a short backoff.
+- `503` — the request never completed (network failure or timeout). **Not billed.** Retry after a short backoff.
 - A `200` with a top-level `warnings` array means the request carried a parameter that no longer exists and was ignored. Read it and fix the caller, because the response is not filtered the way the request implied:
 
   ```json

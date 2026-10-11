@@ -65,7 +65,7 @@ Cost is a function of the request body, not a constant.
 - Addressed by **`user_id`: 2 credits.** This is the cheap path.
 - Addressed by **`username`: 4 credits.** A handle costs double.
 
-The reason is upstream: the provider's username lookup is dead, so passing a handle forces a second upstream call to resolve it to an id first. You pay for both.
+The reason: a handle has to be resolved to an id with a second lookup first. You pay for both.
 
 Only `/profile`, `/user/posts` and `/user/replies` accept a username at all, so only those three can cost 4. `/post`, `/post/comments` and `/search/users` are always 2.
 
@@ -177,7 +177,7 @@ Read `credits_used` on the response rather than assuming a cost. It will read 4 
 
 ## Guardrails
 
-- **There is no Threads content search.** Searching Threads for a keyword, topic or hashtag is not possible through this API — the upstream's `search_top` and `search_recent` fail on every attempt. `/search/users` is people search and nothing else. If the user asks to search Threads posts for a term, tell them plainly that Threads does not expose this, and offer the alternative of pulling a known account's posts with `/user/posts` and filtering client-side. Never imply a content search exists.
+- **There is no Threads content search.** Searching Threads for a keyword, topic or hashtag is not possible through this API. `/search/users` is people search and nothing else. If the user asks to search Threads posts for a term, tell them plainly that Threads does not expose this, and offer the alternative of pulling a known account's posts with `/user/posts` and filtering client-side. Never imply a content search exists.
 - **Prefer `user_id` over `username` everywhere.** A handle doubles the cost of `/profile`, `/user/posts` and `/user/replies`, from 2 credits to 4. Resolve the handle once and reuse the id for the rest of the session.
 - Do not send `username` and `user_id` together on the same request. Conflicting identifiers are rejected with a `422`.
 - `/post/comments` takes `post_id` only. It has no username form and no URL form.

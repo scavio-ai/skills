@@ -13,7 +13,7 @@ Use this skill when the user asks to:
 
 ## Cost: 5 credits per call
 
-**G2 is 5 credits per request - the most expensive platform on Scavio, and the only one at this tier.** g2.com bills a premium upstream on every single fetch, with no cheap mode available. Three calls is 15 credits.
+**G2 is 5 credits per request - the most expensive platform on Scavio, and the only one at this tier.** There is no cheaper mode. Three calls is 15 credits.
 
 Plan the run before making it, tell the user the credit cost up front, and never loop over search results calling `/product` on each one.
 
@@ -179,7 +179,7 @@ Every response uses the envelope `{ data, response_time, credits_used, credits_r
 - `401` means the API key is invalid or missing. Check `SCAVIO_API_KEY`.
 - `404` means the product does not resolve. Re-check the slug or id via `/search`.
 - `429` means rate or usage limit exceeded. Wait before retrying. See [rate limits](https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=g2-software-reviews-api).
-- `502` means G2 served a bot wall or a hollow shell. **This one is billed** - the upstream charged full price for a page that could not be used, and it arrives as a real HTTP 200 upstream before we classify it. Retries are deliberately conservative for exactly this reason: back off for several seconds and retry **at most once or twice**, then report the failure instead of burning credits.
+- `502` means G2 served a bot wall or a hollow shell. **This one is billed** - the page was served even though it could not be used. Retries are deliberately conservative for exactly this reason: back off for several seconds and retry **at most once or twice**, then report the failure instead of burning credits.
 - `503` means upstream is temporarily unavailable - wait a few seconds and retry.
 - If `SCAVIO_API_KEY` is not set, prompt the user to export it before continuing.
 

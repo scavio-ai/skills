@@ -219,7 +219,7 @@ Every response uses the envelope `{ data, response_time, credits_used, credits_r
 
 ## Guardrails
 
-- Every call is 1 credit, including `include_history`, which can buy up to 10 upstream fetches for that one credit. Use it rather than paging blindly into the past.
+- Every call is 1 credit, including `include_history`, which can do up to 10 lookups for that one credit. Use it rather than paging blindly into the past.
 - **XBRL tags are case-sensitive.** `netincomeloss` is a 404 upstream, not a fuzzy match. Never guess a tag - call `/sec/facts` and use one it actually reports.
 - **`form` behaves differently on two endpoints.** On `/filings` it matches the form and its root form, so `10-K` also returns `10-K/A` amendments (ask for `10-K/A` to get amendments only). On `/concept` it is an exact match, so `10-K` excludes `10-K/A`. Do not carry an assumption from one to the other.
 - EDGAR's "recent" block is **not a fixed window** - it can be a decade for a quiet filer and about a year for a prolific one. Never tell the user "this is everything" from a default `/filings` call; set `include_history` and check `history_truncated`.

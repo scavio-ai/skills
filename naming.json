@@ -804,7 +804,7 @@
     },
     {
       "dir": "scavio-instagram",
-      "description": "Instagram public data: profiles with follower counts and bio, timeline posts, reels, tagged posts, active stories, single-post detail, comments and replies, follower and following lists, and user and hashtag search. 12 endpoints, 2-10 credits each; responses are raw upstream JSON, not a normalized shape.",
+      "description": "Instagram public data: profiles with follower counts and bio, timeline posts, reels, tagged posts, active stories, single-post detail, comments and replies, follower and following lists, and user and hashtag search. 12 endpoints, 2-10 credits each; responses keep Instagram's own structure, not a normalized shape.",
       "tags": "instagram, instagram-api, instagram-scraper, social-media, profiles, reels, stories, followers, comments, hashtags, influencer-marketing, social-listening, langchain, crewai, autogen, ai-agents, structured-data, json"
     },
     {
@@ -814,7 +814,7 @@
     },
     {
       "dir": "scavio-linkedin",
-      "description": "LinkedIn person and company profiles, their posts, job search by keyword and location, single job detail, and post comments as structured JSON. 9 endpoints from 1 to 30 credits, four of them paginated. People search and contact info were retired upstream and return 410, so they are not covered.",
+      "description": "LinkedIn person and company profiles, their posts, job search by keyword and location, single job detail, and post comments as structured JSON. 9 endpoints from 1 to 30 credits, four of them paginated. People search and contact info are no longer available and return 410, so they are not covered.",
       "tags": "linkedin, linkedin-api, linkedin-scraper, b2b, profiles, company-data, jobs, job-search, lead-generation, prospecting, recruiting, sales-intelligence, langchain, crewai, autogen, ai-agents, structured-data, json"
     },
     {

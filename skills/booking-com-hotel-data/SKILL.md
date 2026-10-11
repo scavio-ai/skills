@@ -80,7 +80,7 @@ Booking prices a **stay**, not a property, so all three endpoints take dates.
 - **`checkin` and `checkout` must be sent together.** Booking ignores a lone `checkin` and prices its own default range, so you get real prices for dates nobody asked for. The API rejects an unpaired or out-of-order date.
 - **Omitting dates entirely on `/hotel` or `/reviews`** returns prices for a two-night range Booking chose. The response echoes whichever dates were actually used - read `checkin`, `checkout` and `nights` back before quoting a price.
 - **A search with neither `destination` nor `dest_id` would return Booking's homepage** - a credit spent for nothing - so the API rejects it up front.
-- **Always send `currency`.** It defaults to `USD` in the transport; without one Booking prices off the proxy exit and two identical requests disagree.
+- **Always send `currency`.** It defaults to `USD` in the transport; without one Booking picks the currency itself and two identical requests can disagree.
 
 ### Pagination
 

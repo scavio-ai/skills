@@ -58,7 +58,7 @@ Base URL: `https://api.scavio.dev`. Every Yelp endpoint costs **2 credits**.
 ### The two ways to waste 2 credits
 
 - **`/yelp/reviews` with `page: 1` re-fetches the document `/business` already returned.** It is the same content for another 2 credits. Always start review paging at page 2.
-- **A search without `location`** is answered off the proxy exit, so the same request reports on a different metro from one run to the next. `location` is effectively required even though the schema allows a `url` instead.
+- **A search without `location`** has no fixed place, so the same request reports on a different metro from one run to the next. `location` is effectively required even though the schema allows a `url` instead.
 
 ### Pagination
 
@@ -85,7 +85,7 @@ Yelp fixes the page size at **10** for both search and reviews.
 
 `(term AND location)` or `url` is required.
 
-`sort` is closed - Yelp **ignores** an unrecognised sort and serves default ranking under a `200`, so an invented value buys a premium scrape of a sort that never ran. `attributes` is the opposite: a deliberate passthrough, because Yelp's vocabulary runs to roughly 117 aliases per vertical. An alias Yelp does not know is ignored upstream and the results come back unfiltered - so check that the filter you asked for is reflected in the results before reporting it as applied.
+`sort` is closed - Yelp **ignores** an unrecognised sort and serves default ranking under a `200`, so an invented value buys a 2-credit call for a sort that never ran. `attributes` is the opposite: a deliberate passthrough, because Yelp's vocabulary runs to roughly 117 aliases per vertical. An alias Yelp does not know is ignored upstream and the results come back unfiltered - so check that the filter you asked for is reflected in the results before reporting it as applied.
 
 ### Business (`/business`)
 
@@ -115,7 +115,7 @@ BASE = "https://api.scavio.dev"
 API_KEY = "sk_your_key_here"
 HEADERS = {"Authorization": f"Bearer {API_KEY}"}
 
-# 1. Always send location - a location-less search follows the proxy exit
+# 1. Always send location - a location-less search drifts between metros
 found = requests.post(f"{BASE}/api/v1/yelp/search", headers=HEADERS,
     json={"term": "coffee", "location": "Austin, TX",
           "sort": "review_count", "price": [1, 2], "open_now": True}).json()
@@ -195,7 +195,7 @@ Every response uses the envelope `{ data, response_time, credits_used, credits_r
 
 ## Guardrails
 
-- Every call is **2 credits**, including one that comes back empty. Yelp is on the premium proxy table - budget before paging.
+- Every call is **2 credits**, including one that comes back empty - budget before paging.
 - **Never call `/reviews` with `page: 1`.** `/business` already returned that page; the repeat is 2 credits for a duplicate.
 - **Always send `location`.** Without it the answer is about wherever the request exited, and it can differ between two identical runs.
 - Never invent a `sort` value. An unrecognised sort is ignored and you pay for default ranking.

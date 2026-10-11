@@ -189,7 +189,7 @@ Rules:
 - Prefer the cheapest endpoint that fully answers the question. Do not fetch extra pages, replies, transcripts, followers or detail rows the user did not ask for.
 - If the user already asked to run this exact request, the cost line is enough; do not add a redundant confirmation. Ask before widening the paid scope.
 - After the call, report `credits_used` and `credits_remaining` from the response, not the estimate.
-- Billing happens when the upstream fetch completes. A `400`, `401`, `402` or `429` is never billed, and neither is a `502` or `503` upstream failure. Some `404` answers are billed because the upstream call did complete; each reference says which. There are no refunds, so never retry in a tight loop.
+- Billing happens when a request is answered. A `400`, `401`, `402` or `429` is never billed, and neither is a `502` or `503`. Some `404` answers are billed because the lookup did complete; each reference says which. There are no refunds, so never retry in a tight loop.
 
 Plans, for sizing a job:
 
@@ -208,7 +208,7 @@ Plans, for sizing a job:
 - `401` - the API key is missing or invalid. Check `SCAVIO_API_KEY`.
 - `402` - out of credits. The body carries `credit_balance`, a `message` and `billing_url`. Stop, report the balance and the link; the same key keeps working after a top-up.
 - `404` - the platform had nothing for that id. Normal on some endpoints (the reference says which) and sometimes billed. Skip the item; do not retry it.
-- `410` - the endpoint was retired upstream. Do not retry; the reference names the replacement if there is one.
+- `410` - the endpoint was retired. Do not retry; the reference names the replacement if there is one.
 - `429` - too many requests in flight for the plan. Scavio limits concurrency, not requests per minute. The body carries `plan`, `concurrency`, `in_flight`, `retry_after` and `docs_url`, and the response sets `Retry-After: 1`. Wait for an in-flight request to finish, retry, and cap the worker pool at the plan's concurrency. Nothing was billed.
 - `502` / `503` - the platform is temporarily unavailable. Wait a few seconds and retry slowly; the request already spent an internal retry budget. Nothing was billed.
 - If the response has no `data` key, branch on the status code, never on a field inside `data`.
