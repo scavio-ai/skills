@@ -385,6 +385,18 @@
       "credits": "6"
     },
     {
+      "dir": "scavio-mercadolibre",
+      "slug": "mercadolibre-product-data",
+      "name": "mercadolibre-product-data",
+      "display": "Mercado Libre Product Data API - Search, Products, Reviews, Questions, Best Sellers",
+      "query": "mercado libre api",
+      "reused": "no",
+      "platform": "Mercado Libre",
+      "group": "Commerce",
+      "endpoints": "5",
+      "credits": "2; reviews 1"
+    },
+    {
       "dir": "scavio-meta-ads",
       "slug": "meta-ad-library-api",
       "name": "meta-ad-library-api",
@@ -809,6 +821,11 @@
       "dir": "scavio-linkedin-ads",
       "description": "Search ads running across LinkedIn by keyword and/or advertiser company id, returning each ad's advertiser, ad copy, format, promoted label, thumbnail and a detail link, then open one ad in full with its media, headline, who paid for it and the advertiser's company URL. 2 endpoints, 6 credits each, structured JSON.",
       "tags": "linkedin-ads, linkedin-ad-library, ad-library-api, b2b-ads, competitor-ads, ad-creative, ad-intelligence, paid-social, marketing-research, sponsored-content, demand-gen, langchain, crewai, autogen, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-mercadolibre",
+      "description": "Mercado Libre product data API for Mexico, Brazil (Mercado Livre), Argentina and Colombia: search listings by keyword or seller with price, discount, installments, free shipping, Full and sponsored flags, pull one product with the buy-box seller, reputation, variations and star distribution, page reviews and buyer questions with seller answers, and get the top 20 best sellers in a category. 5 endpoints, 2 credits each, reviews 1.",
+      "tags": "mercado-libre, mercadolibre, mercado-livre, mercadolivre, mercado-libre-api, mercadolibre-api, mercado-livre-api, latam-ecommerce, mexico, brazil, argentina, colombia, product-data, product-search, price-monitoring, competitor-prices, seller-catalog, product-reviews, best-sellers, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-meta-ads",
