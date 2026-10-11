@@ -16,7 +16,7 @@ metadata:
 
 # Rightmove Property Data API - UK Listings, England and Wales Sold Prices, Agents
 
-Search UK property for sale or to rent on Rightmove, read one listing in full, pull sold house prices for a town, outcode or postcode with each address's full sale history, resolve a place name to a Rightmove location, and list estate and letting agent branches. All endpoints return structured JSON.
+Search UK property for sale or to rent on Rightmove, read one listing in full, pull sold house prices for a town, outcode or postcode with each address's full sale history, resolve a place name to a Rightmove location, and list estate and letting agent branches. It works as a Rightmove scraper API: every endpoint returns structured JSON, with no HTML parsing on your side.
 
 ## When to trigger
 
@@ -293,6 +293,7 @@ The sold area summary (captured, Bristol):
 ## Guardrails
 
 - **Sold prices cover England and Wales only.** Scotland and Northern Ireland addresses are not in `/sold` or `/sold-property`. Say so rather than returning an empty result as "no sales".
+- **Sold prices are HM Land Registry Price Paid records and run about two months behind.** `data_coverage.most_recent_transaction` gives the latest sale date covered; say so when the user asks about very recent sales. The free Land Registry file has the same prices; what Rightmove adds is bedrooms, photos, the last listing and each address's grouped history.
 - **Page caps.** Search serves 42 pages (about 1,000 listings), sold 40 pages and agents 50 pages per query. To reach more, slice by price band, property type, tenure, years or a smaller area (an outcode or postcode instead of a city), and de-duplicate by `property_id` or `sold_id`. Never claim to have pulled "every listing" when `total` is larger than what the pages cover.
 - **No keyword filter on search.** Filter on `summary` and `key_features` yourself; sending `keywords` is a `400`.
 - Live listings carry no price history. For what an address sold for, use `/sold` or `/sold-property`.
