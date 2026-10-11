@@ -1,6 +1,6 @@
 ---
 name: reddit-search-api
-description: Reddit search plus post detail, threaded comments and reply expansion, subreddit metadata and feeds, redditor profiles with their posts and comments, the site-wide popular feed and trending searches. 12 endpoints, 1 credit each, structured JSON for sentiment analysis, brand monitoring and RAG.
+description: Reddit search for posts, comments and subreddits plus post detail, threaded comments and reply expansion, subreddit metadata and feeds, redditor profiles with their posts and comments, the site-wide popular feed and trending searches. 14 endpoints, 1 credit each, structured JSON for sentiment analysis, brand monitoring and RAG.
 version: 2.0.0
 tags: reddit, reddit-api, reddit-search, subreddits, threaded-comments, social-listening, brand-monitoring, sentiment-analysis, market-research, rag, langchain, crewai, autogen, structured-data, json, ai-agents
 metadata:
@@ -17,12 +17,14 @@ metadata:
 
 # Reddit Search API - Posts, Comments, Subreddits, Users
 
-Search Reddit, read a post with its threaded comment tree, expand comment replies, and pull subreddit metadata and feeds, redditor profiles with their posts and comments, the site-wide popular feed, and trending search queries. All endpoints return structured JSON.
+Search Reddit posts, comments and subreddits, read a post with its threaded comment tree, expand comment replies, and pull subreddit metadata and feeds, redditor profiles with their posts and comments, the site-wide popular feed, and trending search queries. All endpoints return structured JSON.
 
 ## When to trigger
 
 Use this skill when the user asks to:
 - Search Reddit for opinions, discussions, or public sentiment on a topic
+- Search Reddit comments (not just posts) for a keyword, tool or brand mention
+- Find subreddits about a topic, with subscriber counts
 - Fetch the full text and comments of a Reddit post by id or URL
 - Expand the reply tree under a specific comment
 - Look up a subreddit's metadata or browse its post feed
@@ -69,6 +71,8 @@ Base URL: `https://api.scavio.dev`. All paths are under `/api/v1/reddit`. Every 
 | Endpoint | Credits | Description |
 |---|---|---|
 | `POST /api/v1/reddit/search` | 1 | Search Reddit posts by query |
+| `POST /api/v1/reddit/search/comments` | 1 | Search Reddit comments by query |
+| `POST /api/v1/reddit/search/subreddits` | 1 | Search subreddits by query |
 | `POST /api/v1/reddit/search/suggestions` | 1 | Autocomplete suggestions for a query |
 | `POST /api/v1/reddit/post` | 1 | Full details for a single post |
 | `POST /api/v1/reddit/post/comments` | 1 | Top-level comments for a post |
@@ -84,7 +88,8 @@ Base URL: `https://api.scavio.dev`. All paths are under `/api/v1/reddit`. Every 
 ## Workflow
 
 1. **Find discussions:** call `/reddit/search` with `query`. Read `results[].post_id`.
-2. **Autocomplete:** call `/reddit/search/suggestions` with `query` for typeahead strings.
+2. **Comments and communities:** call `/reddit/search/comments` with `query` (optional `sort`) to find comments, each with its post and subreddit; call `/reddit/search/subreddits` with `query` to find communities, then pass a `name` to `/reddit/subreddit` or `/reddit/subreddit/posts`.
+   **Autocomplete:** call `/reddit/search/suggestions` with `query` for typeahead strings.
 3. **Read a post:** call `/reddit/post` with `post_id` (a `t3_...` fullname or bare id) or a full Reddit `url`.
 4. **Comments:** call `/reddit/post/comments` with `post_id`. Each comment carries a `reply_cursor`; pass it to `/reddit/post/comments/replies` as `cursor` (with the same `post_id`) to expand that thread.
 5. **Subreddits:** call `/reddit/subreddit` for metadata, `/reddit/subreddit/posts` for the feed.
@@ -96,6 +101,21 @@ Paginated endpoints return `next_cursor`; pass it back as `cursor` for the next 
 ## Parameters
 
 ### Search (`/search`)
+
+| Parameter | Type | Default | Description |
+|---|---|---|---|
+| `query` | string | required | Search query (1-500 chars) |
+| `cursor` | string | -- | Pagination cursor from a prior `next_cursor` |
+
+### Comment search (`/search/comments`)
+
+| Parameter | Type | Default | Description |
+|---|---|---|---|
+| `query` | string | required | Search query (1-500 chars) |
+| `sort` | string | `RELEVANCE` | `RELEVANCE`, `HOT`, `TOP` or `NEW` |
+| `cursor` | string | -- | Pagination cursor from a prior `next_cursor` |
+
+### Subreddit search (`/search/subreddits`)
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
@@ -195,6 +215,18 @@ replies = requests.post(f"{BASE}/api/v1/reddit/post/comments/replies", headers=H
 # 4. Subreddit feed
 feed = requests.post(f"{BASE}/api/v1/reddit/subreddit/posts", headers=HEADERS,
     json={"subreddit": "Python", "sort": "TOP"}).json()
+
+# 5. Comment search, newest first - each hit carries its post and subreddit
+hits = requests.post(f"{BASE}/api/v1/reddit/search/comments", headers=HEADERS,
+    json={"query": "web scraping api", "sort": "NEW"}).json()
+for c in hits["data"]["results"]:
+    print(c["subreddit"], c["score"], c["post"]["title"], c["permalink"])
+
+# 6. Find communities on a topic
+subs = requests.post(f"{BASE}/api/v1/reddit/search/subreddits", headers=HEADERS,
+    json={"query": "web scraping"}).json()
+for s in subs["data"]["results"]:
+    print(s["prefixed_name"], s["subscribers"])
 ```
 
 ## Response shapes
@@ -202,6 +234,8 @@ feed = requests.post(f"{BASE}/api/v1/reddit/subreddit/posts", headers=HEADERS,
 Every response uses the envelope `{ data, response_time, credits_used, credits_remaining }`. Key `data` fields per endpoint:
 
 - **search** — `results[]` (`post_id`, `title`, `url`, `text`, `subreddit`, `author`, `score`, `num_comments`, `created_at`, `is_nsfw`), `next_cursor`.
+- **search/comments** — `results[]` (`comment_id`, `text`, `author`, `score`, `created_at`, `edited_at`, `is_op`, `permalink`, `subreddit`, `post{post_id,title,url,permalink,author,score,num_comments,created_at,is_nsfw}`), `next_cursor`, `has_more`.
+- **search/subreddits** — `results[]` (`id`, `name`, `prefixed_name`, `public_description`, `subscribers`, `is_nsfw`, `is_quarantined`, `icon`, `url`), `next_cursor`, `has_more`.
 - **search/suggestions** — `suggestions[]` (strings).
 - **post** — `post_id`, `title`, `text`, `url`, `subreddit`, `author`, `score`, `upvote_ratio`, `num_comments`, `created_at`, `is_nsfw`, `is_video`, `thumbnail`, `media`.
 - **post/comments** — `comments[]` (`comment_id`, `text`, `author`, `score`, `created_at`, `reply_cursor`), `next_cursor`.
@@ -246,6 +280,7 @@ Every response uses the envelope `{ data, response_time, credits_used, credits_r
 - Do not filter out NSFW posts silently — surface the `is_nsfw` flag so the user can decide.
 - When summarizing comment threads, preserve the author attribution.
 - To expand a comment thread, the replies endpoint needs both the `post_id` and that comment's `reply_cursor` (passed as `cursor`).
+- Search pagination moves forward: pass `next_cursor` back as `cursor` and each page returns new results (about 10 per page for comment and subreddit search).
 
 ## Failure handling
 

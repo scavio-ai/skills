@@ -69,13 +69,13 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Kuaishou | [kuaishou-scraper-api](references/kuaishou-scraper-api.md) | 14 | 1, 2, 10 or 40 |
 | LinkedIn | [linkedin-scraper-api](references/linkedin-scraper-api.md) | 9 | 1-30 |
 | Pinterest | [pinterest-api](references/pinterest-api.md) | 6 | 1; url-stats 1-2 |
-| Reddit | [reddit-search-api](references/reddit-search-api.md) | 12 | 1 |
+| Reddit | [reddit-search-api](references/reddit-search-api.md) | 14 | 1 |
 | Threads | [threads-net-api](references/threads-net-api.md) | 6 | 2 by user_id, 4 by username |
-| TikTok | [tiktok-scraper-api](references/tiktok-scraper-api.md) | 11 | 1 |
+| TikTok | [tiktok-scraper-api](references/tiktok-scraper-api.md) | 24 | 1 |
 | Twitch | [twitch-api](references/twitch-api.md) | 4 | 1 |
-| Twitter/X | [twitter-scraper-api](references/twitter-scraper-api.md) | 11 | 1 |
+| Twitter/X | [twitter-scraper-api](references/twitter-scraper-api.md) | 14 | 1 |
 | Weibo | [weibo-scraper-api](references/weibo-scraper-api.md) | 30 | 1 |
-| YouTube | [youtube-data-api](references/youtube-data-api.md) | 15 | 1-8 |
+| YouTube | [youtube-data-api](references/youtube-data-api.md) | 17 | 1-5 |
 
 **Travel**
 

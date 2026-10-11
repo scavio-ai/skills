@@ -441,7 +441,7 @@
       "reused": "yes",
       "platform": "Reddit",
       "group": "Social and video",
-      "endpoints": "12",
+      "endpoints": "14",
       "credits": "1"
     },
     {
@@ -525,7 +525,7 @@
       "reused": "yes",
       "platform": "TikTok",
       "group": "Social and video",
-      "endpoints": "11",
+      "endpoints": "24",
       "credits": "1"
     },
     {
@@ -621,7 +621,7 @@
       "reused": "no",
       "platform": "Twitter/X",
       "group": "Social and video",
-      "endpoints": "11",
+      "endpoints": "14",
       "credits": "1"
     },
     {
@@ -645,8 +645,8 @@
       "reused": "no",
       "platform": "YouTube",
       "group": "Social and video",
-      "endpoints": "15",
-      "credits": "1-8"
+      "endpoints": "17",
+      "credits": "1-5"
     },
     {
       "dir": "scavio-zillow",
@@ -844,7 +844,7 @@
     },
     {
       "dir": "scavio-reddit",
-      "description": "Reddit search plus post detail, threaded comments and reply expansion, subreddit metadata and feeds, redditor profiles with their posts and comments, the site-wide popular feed and trending searches. 12 endpoints, 1 credit each, structured JSON for sentiment analysis, brand monitoring and RAG.",
+      "description": "Reddit search for posts, comments and subreddits plus post detail, threaded comments and reply expansion, subreddit metadata and feeds, redditor profiles with their posts and comments, the site-wide popular feed and trending searches. 14 endpoints, 1 credit each, structured JSON for sentiment analysis, brand monitoring and RAG.",
       "tags": "reddit, reddit-api, reddit-search, subreddits, threaded-comments, social-listening, brand-monitoring, sentiment-analysis, market-research, rag, langchain, crewai, autogen, structured-data, json, ai-agents"
     },
     {
@@ -879,7 +879,7 @@
     },
     {
       "dir": "scavio-tiktok",
-      "description": "TikTok scraper API: look up profiles by username or sec_user_id, list a user's videos, read full video detail, comments and comment replies, search videos and users by keyword, pull hashtag stats and hashtag videos, and walk followers and followings. 11 endpoints, all 1 credit, structured JSON.",
+      "description": "TikTok scraper API: look up profiles by username or sec_user_id, list a user's videos, read full video detail, transcripts, comments and comment replies, search videos, users and sounds, pull hashtag stats and videos, sound detail and the Top 50 and Viral 50 charts, trending searches and videos, similar creators, playlists, live status and account region, and walk followers and followings. 24 endpoints, all 1 credit, structured JSON.",
       "tags": "tiktok, tiktok-scraper, tiktok-api, social-media, short-video, profiles, videos, comments, hashtags, followers, influencer-marketing, social-listening, langchain, crewai, autogen, structured-data, json, ai-agents"
     },
     {
@@ -919,7 +919,7 @@
     },
     {
       "dir": "scavio-x",
-      "description": "Twitter (X) scraper API: search tweets and people, read a tweet with its replies and retweeters, and pull user profiles, tweets, replies, media, followers and followings, plus trending topics by country. Returns text, favorites, retweets, replies, quotes, views and follower counts as JSON. 11 endpoints, 1 credit each.",
+      "description": "Twitter (X) scraper API: search tweets and people, read a tweet with its replies and retweeters, pull user profiles, tweets, replies, media, followers and followings, find X Communities and read their details and posts, plus trending topics by country. Returns text, favorites, retweets, replies, quotes, views and follower counts as JSON. 14 endpoints, 1 credit each.",
       "tags": "twitter, x, twitter-api, twitter-scraper, tweet-search, user-profiles, followers, trending-topics, social-media, social-listening, brand-monitoring, sentiment-analysis, langchain, crewai, autogen, structured-data, json, ai-agents"
     },
     {
@@ -929,7 +929,7 @@
     },
     {
       "dir": "scavio-youtube",
-      "description": "YouTube data API: search videos, Shorts and channels, then pull video metadata, comments and replies, transcripts, related videos, download streams, and channel info, videos and community posts. Returns title, view count, duration, published time, channel and caption fields as JSON. 15 endpoints, 1-8 credits each.",
+      "description": "YouTube data API: search videos, Shorts and channels, then pull video metadata, comments and replies, transcripts, related videos, download streams, channel info, videos and community posts, and a single community post with its comments. Returns title, view count, duration, published time, channel and caption fields as JSON. 17 endpoints, 1-5 credits each.",
       "tags": "youtube, youtube-api, youtube-data-api, video-search, transcripts, captions, comments, channels, shorts, video-metadata, content-research, rag, langchain, crewai, autogen, structured-data, json, ai-agents"
     },
     {

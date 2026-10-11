@@ -5,7 +5,7 @@
 **Give your AI agent live data from 55 platforms as structured JSON, through one API key**
 
 [![Platforms](https://img.shields.io/badge/Platforms-55-blue?style=flat-square)](https://scavio.dev)
-[![Endpoints](https://img.shields.io/badge/Endpoints-335-green?style=flat-square)](https://scavio.dev/docs)
+[![Endpoints](https://img.shields.io/badge/Endpoints-360-green?style=flat-square)](https://scavio.dev/docs)
 [![Skills](https://img.shields.io/badge/Skills-56-orange?style=flat-square)](#skills)
 [![skills.sh](https://img.shields.io/badge/skills.sh-listed-black?style=flat-square)](https://skills.sh/scavio-ai/skills)
 [![Agents](https://img.shields.io/badge/Agents-40+-blueviolet?style=flat-square)](https://skills.sh)
@@ -98,10 +98,10 @@ Get the key at [scavio.dev](https://scavio.dev). The free tier is 50 credits on 
 | Skill | What it does |
 | --- | --- |
 | `instagram-scraper-api` | Profiles, posts, reels, stories, comments, followers, and search |
-| `tiktok-scraper-api` | Profiles, user videos, video detail, comments, hashtags, and search |
-| `youtube-data-api` | Video and channel search, metadata, comments, transcripts, and streams |
-| `twitter-scraper-api` | Tweet and people search, tweet detail, profiles, followers, and trends |
-| `reddit-search-api` | Search, post detail, threaded comments, subreddits, and redditor profiles |
+| `tiktok-scraper-api` | Profiles, videos, transcripts, comments, hashtags, sounds and charts, trending, similar creators, live status, and search |
+| `youtube-data-api` | Video and channel search, metadata, comments, transcripts, community posts, and streams |
+| `twitter-scraper-api` | Tweet and people search, tweet detail, profiles, followers, Communities, and trends |
+| `reddit-search-api` | Post, comment and subreddit search, post detail, threaded comments, and redditor profiles |
 | `linkedin-scraper-api` | Person and company profiles, their posts, job search, and job detail |
 | `facebook-scraper-api` | Page profile, posts, reels and photos, post comments, groups, events, and hashtag posts |
 | `threads-net-api` | Threads profiles, posts, replies, post detail, and people search |

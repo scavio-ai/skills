@@ -1,6 +1,6 @@
 # Twitter (X) Scraper API - Tweet Search, Profiles, Followers
 
-Search X, read a single tweet with its replies and retweeters, pull a user's profile and their tweets, replies, media, followers, and followings, and get trending topics by country. All endpoints return structured JSON.
+Search X, read a single tweet with its replies and retweeters, pull a user's profile and their tweets, replies, media, followers, and followings, find X Communities and read their details and posts, and get trending topics by country. All endpoints return structured JSON.
 
 ## When to trigger
 
@@ -11,6 +11,7 @@ Use this skill when the user asks to:
 - Pull a user's tweets, replies, or media
 - List a user's followers or the accounts they follow
 - Get trending topics for a country
+- Find X Communities on a topic, read a Community's details and rules, or pull its posts
 - Monitor brand, competitor, or campaign mentions
 - Build RAG or sentiment pipelines that need social context
 
@@ -59,6 +60,9 @@ Base URL: `https://api.scavio.dev`. All paths are under `/api/v1/x`. Every endpo
 | `POST /api/v1/x/user/followers` | 1 | A user's followers |
 | `POST /api/v1/x/user/followings` | 1 | Accounts a user follows |
 | `POST /api/v1/x/trending` | 1 | Trending topics for a country |
+| `POST /api/v1/x/search/communities` | 1 | Search X Communities by keyword |
+| `POST /api/v1/x/community` | 1 | One Community's details and rules |
+| `POST /api/v1/x/community/tweets` | 1 | Posts in a Community (relevance or recency) |
 
 ## Workflow
 
@@ -69,6 +73,7 @@ Base URL: `https://api.scavio.dev`. All paths are under `/api/v1/x`. Every endpo
 5. **User activity:** call `/x/user/tweets`, `/x/user/replies`, or `/x/user/media` with `screen_name`.
 6. **Social graph:** call `/x/user/followers` and `/x/user/followings`.
 7. **Discovery:** call `/x/trending` with a `country` name.
+8. **Communities:** call `/x/search/communities` with `keyword`, take a `community_id`, then `/x/community` for its details and rules and `/x/community/tweets` (optional `ranking`) for its posts.
 
 Paginated endpoints return `next_cursor` (and often `prev_cursor`); pass `next_cursor` back as `cursor` for the next page. Stop when it is `null`.
 
@@ -113,6 +118,25 @@ Paginated endpoints return `next_cursor` (and often `prev_cursor`); pass `next_c
 
 `country` (optional, default `UnitedStates`) — a country name.
 
+### Community search (`/search/communities`)
+
+| Parameter | Type | Default | Description |
+|---|---|---|---|
+| `keyword` | string | required | Search query (1-500 chars) — this field is `keyword`, not `search` |
+| `cursor` | string | -- | Pagination cursor |
+
+### Community (`/community`)
+
+`community_id`* — a numeric Community id from `/search/communities`.
+
+### Community tweets (`/community/tweets`)
+
+| Parameter | Type | Default | Description |
+|---|---|---|---|
+| `community_id` | string | required | Numeric Community id |
+| `ranking` | string | -- | `Relevance` or `Recency`; omit for the Community's own ordering |
+| `cursor` | string | -- | Pagination cursor |
+
 ## Examples
 
 ```python
@@ -144,6 +168,16 @@ user_tweets = requests.post(f"{BASE}/api/v1/x/user/tweets", headers=HEADERS,
 # 4. Trending in a country
 trending = requests.post(f"{BASE}/api/v1/x/trending", headers=HEADERS,
     json={"country": "UnitedStates"}).json()
+
+# 5. Find a Community, then read its newest posts
+found = requests.post(f"{BASE}/api/v1/x/search/communities", headers=HEADERS,
+    json={"keyword": "crypto"}).json()
+community_id = found["data"]["communities"][0]["community_id"]
+
+posts = requests.post(f"{BASE}/api/v1/x/community/tweets", headers=HEADERS,
+    json={"community_id": community_id, "ranking": "Recency"}).json()
+for p in posts["data"]["timeline"]:
+    print(p["screen_name"], p["favorites"], p["text"][:80])
 ```
 
 ## Response shapes
@@ -161,6 +195,9 @@ Every response uses the envelope `{ data, response_time, credits_used, credits_r
 - **user/followers** — `followers_count`, `followers[]` (`user_id`, `screen_name`, `name`, `description`, `followers_count`, `blue_verified`, `location`), `next_cursor`.
 - **user/followings** — `following[]` (same user item shape), `next_cursor`, `more_users`.
 - **trending** — `trends[]` (`name`, `description`, `context`).
+- **search/communities** — `communities[]` (`community_id`, `name`, `member_count`, `primary_topic`, `is_nsfw`, `banner`), `next_cursor`, `has_more`.
+- **community** — `community_id`, `name`, `description`, `created_at`, `member_count`, `primary_topic`, `is_nsfw`, `banner`, `rules[]` (`name`, `description`).
+- **community/tweets** — `timeline[]` (same tweet item shape as search, plus `author{user_id,name,screen_name,blue_verified}` and `media{photos[],videos[]}`), `next_cursor`, `has_more`.
 
 ```json
 {
@@ -191,7 +228,7 @@ Every response uses the envelope `{ data, response_time, credits_used, credits_r
 
 ## Guardrails
 
-- The search field is `search`, not `query` — this differs from some other Scavio endpoints.
+- The search field is `search`, not `query` — this differs from some other Scavio endpoints. Community search is the exception: it takes `keyword`.
 - `screen_name` is a handle without the leading `@`.
 - Every X endpoint costs **1 credit**. Inform the user before paginating through many pages.
 - Never fabricate tweet ids, handles, metrics, or replies. Only return API data.

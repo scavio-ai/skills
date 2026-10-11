@@ -1,6 +1,6 @@
 # YouTube Data API - Search, Videos, Comments, Transcripts, Channels
 
-Search YouTube and retrieve videos, shorts, search suggestions, video metadata, comments, transcripts, related videos, download streams, and full channel data (info, videos, shorts, community posts). All endpoints return structured JSON.
+Search YouTube and retrieve videos, shorts, search suggestions, video metadata, comments, transcripts, related videos, download streams, full channel data (info, videos, shorts, community posts), and a single community post with its comments. All endpoints return structured JSON.
 
 ## When to trigger
 
@@ -12,6 +12,7 @@ Use this skill when the user asks to:
 - Get related videos or direct download stream URLs
 - Look up a channel's info, videos, shorts, or community posts
 - Resolve a channel handle or URL to a channel ID
+- Read one community post by id or URL, or the comments under it
 
 ## Setup
 
@@ -55,7 +56,7 @@ Base URL: `https://api.scavio.dev`. All paths are under `/api/v1/youtube`.
 | `POST /api/v1/youtube/video` | 1 | Full video metadata and captions list |
 | `POST /api/v1/youtube/comments` | 1 | Top-level comments for a video |
 | `POST /api/v1/youtube/comments/replies` | 1 | Replies to a specific comment |
-| `POST /api/v1/youtube/transcript` | 8 | Full transcript or timed subtitles |
+| `POST /api/v1/youtube/transcript` | 5 | Full transcript or timed subtitles |
 | `POST /api/v1/youtube/related` | 1 | Videos related to a video |
 | `POST /api/v1/youtube/streams` | 3 | Direct playable/downloadable stream URLs |
 
@@ -69,6 +70,8 @@ Base URL: `https://api.scavio.dev`. All paths are under `/api/v1/youtube`.
 | `POST /api/v1/youtube/channel/shorts` | 1 | A channel's Shorts |
 | `POST /api/v1/youtube/channel/community` | 1 | A channel's community posts |
 | `POST /api/v1/youtube/channel/resolve` | 1 | Resolve a handle or URL to a channel ID |
+| `POST /api/v1/youtube/community/post` | 1 | One community post by id or URL |
+| `POST /api/v1/youtube/community/post/comments` | 1 | Comments on a community post |
 
 > `POST /api/v1/youtube/metadata` still works as a **deprecated alias** of `/video`. Use `/video` for new code.
 
@@ -80,6 +83,7 @@ Base URL: `https://api.scavio.dev`. All paths are under `/api/v1/youtube`.
 4. **Get the text:** call `/transcript` for a plain transcript (`format: text`) or timed subtitles (`format: srt`).
 5. **Download:** call `/streams` for direct format URLs.
 6. **Channels:** resolve a handle with `/channel/resolve`, then call `/channel`, `/channel/videos`, `/channel/shorts`, or `/channel/community`.
+7. **Community posts:** take a `post_id` from `/channel/community` (or a post URL), call `/community/post` for the post, then `/community/post/comments` with the same `post_id` (optionally `cursor: comments_cursor`) for its comments.
 
 Paginated endpoints return `next_cursor` and `has_more`; pass `next_cursor` back as `cursor` for the next page.
 
@@ -147,6 +151,14 @@ Legacy boolean flags (`subtitles`, `creative_commons`, `hd`, `4k`, `live`, `360`
 
 `channel`* — a `@handle` or channel URL. Returns `channel_id` and `channel_url`.
 
+### Community post (`/community/post`)
+
+`post_id`* — a community post id (`post_id` from `/channel/community`) or a post URL.
+
+### Community post comments (`/community/post/comments`)
+
+`post_id`* , `cursor` (a prior `next_cursor`, or `comments_cursor` from `/community/post`).
+
 ## Examples
 
 ```python
@@ -199,6 +211,8 @@ Every response uses the envelope `{ data, response_time, credits_used, credits_r
 - **channel/shorts** — `channel_id`, `results[]` (`video_id`, `title`, `url`, `thumbnail`, `view_count`), `next_cursor`, `has_more`, `total_count`.
 - **channel/community** — `channel_id`, `posts[]` (`post_id`, `url`, `text`, `author_name`, `author_channel_id`, `published_time`, `vote_count`, `comment_count`, `images[]`, `attachment_type`), `next_cursor`, `has_more`.
 - **channel/resolve** — `channel_id`, `channel_url`.
+- **community/post** — `post_id`, `url`, `text`, `author_name`, `author_channel_id`, `author_url`, `author_avatar`, `published_time`, `vote_count`, `comment_count` (can be null), `attachment_type`, `images[]`, `comments_cursor`.
+- **community/post/comments** — `comments[]` (`comment_id`, `text`, `like_count`, `reply_count`, `published_time`, `reply_cursor`, `author{channel_id,name,url,avatar,is_verified,is_creator}`), `next_cursor`, `has_more`.
 - **streams** — `video_id`, `title`, `author`, `length_seconds`, `view_count`, `is_live`, `formats[]`, `adaptive_formats[]`, `available_qualities[]`, `expires_in_seconds`.
 
 ```json
@@ -228,7 +242,7 @@ Every response uses the envelope `{ data, response_time, credits_used, credits_r
 ## Guardrails
 
 - The search parameter is `search`, not `query` — this is different from other Scavio endpoints.
-- Credits are not uniform: `search` and `shorts` cost 2, `streams` costs 3, `transcript` costs 8, and every other endpoint costs 1. Inform the user before paginating through many pages, especially transcripts.
+- Credits are not uniform: `search` and `shorts` cost 2, `streams` costs 3, `transcript` costs 5, and every other endpoint costs 1. Inform the user before paginating through many pages, especially transcripts.
 - `/metadata` is a deprecated alias of `/video`; use `/video` in new code.
 - Stream URLs from `/streams` expire (`expires_in_seconds`) — use them promptly.
 - Never fabricate video IDs, view counts, transcripts, comments, or channel data. Only return API data.
