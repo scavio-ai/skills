@@ -15,6 +15,8 @@ Use this skill when the user asks to:
 
 This is usually the right first tool whenever a user pastes a link and asks a question about what is on it.
 
+**Many pages from one site, or a long list of URLs?** Do not loop this endpoint. Use the `website-crawler-api` skill: `POST /api/v1/extract/map` lists a site's URLs from its sitemap for 1 credit, `POST /api/v1/extract/crawl` crawls a whole site to Markdown as one job, and `POST /api/v1/extract/batch` extracts up to 1,000 URLs as one job, both billed per successful page at this same tier price. See [Website Crawler API](https://scavio.dev/website-crawler-api?utm_source=agent-skills&utm_medium=skill&utm_campaign=url-to-markdown-api).
+
 ## Setup
 
 Get a free API key at [scavio.dev](https://scavio.dev/?utm_source=agent-skills&utm_medium=skill&utm_campaign=url-to-markdown-api) (50 free credits to get started, no card required):

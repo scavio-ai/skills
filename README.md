@@ -5,8 +5,8 @@
 **Give your AI agent live data from 55 platforms as structured JSON, through one API key**
 
 [![Platforms](https://img.shields.io/badge/Platforms-55-blue?style=flat-square)](https://scavio.dev)
-[![Endpoints](https://img.shields.io/badge/Endpoints-360-green?style=flat-square)](https://scavio.dev/docs)
-[![Skills](https://img.shields.io/badge/Skills-56-orange?style=flat-square)](#skills)
+[![Endpoints](https://img.shields.io/badge/Endpoints-365-green?style=flat-square)](https://scavio.dev/docs)
+[![Skills](https://img.shields.io/badge/Skills-57-orange?style=flat-square)](#skills)
 [![skills.sh](https://img.shields.io/badge/skills.sh-listed-black?style=flat-square)](https://skills.sh/scavio-ai/skills)
 [![Agents](https://img.shields.io/badge/Agents-40+-blueviolet?style=flat-square)](https://skills.sh)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](LICENSE)
@@ -19,7 +19,7 @@
 
 ## Overview
 
-[Scavio](https://scavio.dev) is a unified web data API: one key, 55 platforms, structured JSON instead of HTML. This repo holds 56 Agent Skills: one per platform, plus `scavio`, an umbrella that covers all 55 from a single install. A skill teaches your agent which Scavio endpoints exist for a platform, what parameters they take, what the response looks like, and what each call costs in credits, so the agent can call the API correctly without you writing an integration. Every skill is in the open Agent Skills format and loads in Claude Code, Cursor, Codex, OpenCode, Goose, OpenHands, Hermes Agent, OpenClaw, and any other client that reads the format.
+[Scavio](https://scavio.dev) is a unified web data API: one key, 55 platforms, structured JSON instead of HTML. This repo holds 57 Agent Skills: one per platform, a website crawler skill, plus `scavio`, an umbrella that covers all of them from a single install. A skill teaches your agent which Scavio endpoints exist for a platform, what parameters they take, what the response looks like, and what each call costs in credits, so the agent can call the API correctly without you writing an integration. Every skill is in the open Agent Skills format and loads in Claude Code, Cursor, Codex, OpenCode, Goose, OpenHands, Hermes Agent, OpenClaw, and any other client that reads the format.
 
 ## Install
 
@@ -53,7 +53,7 @@ Any client that reads the Agent Skills format can also load a folder directly. C
 
 `scavio` is one `SKILL.md` that routes to a `references/` file per platform. Your agent carries one description in its context instead of fifty, and the platform detail loads only when a platform is used. The per-platform skills are the same content split up: each one is a fifth of what the umbrella loads per call, and each has its own trigger, so they fit a project that uses two or three platforms. Install one or the other, not both.
 
-Hermes Agent caps a community skill at 50 files and the umbrella ships 56, so on Hermes install the per-platform skills instead; every one of them passes the Hermes scan.
+Hermes Agent caps a community skill at 50 files and the umbrella ships 57, so on Hermes install the per-platform skills instead; every one of them passes the Hermes scan.
 
 ## Setup
 
@@ -171,6 +171,7 @@ Get the key at [scavio.dev](https://scavio.dev). The free tier is 50 credits on 
 | --- | --- |
 | `url-to-markdown-api` | Any URL to clean Markdown, plain text, or raw HTML for prompts and RAG |
 | `website-screenshot-api` | Full-page PNG of any public URL as an inline base64 image |
+| `website-crawler-api` | Crawl a whole site to Markdown, map every URL from its sitemap, and batch extract up to 1,000 URLs as one job |
 
 ### Umbrella
 
@@ -184,7 +185,7 @@ Get the key at [scavio.dev](https://scavio.dev). The free tier is 50 credits on 
 
 **I need a lead list of local businesses.** `google-maps-api` gives places, addresses, phone numbers, hours, and coordinates for a query and map center. `yelp-business-data` adds price band, amenities, and review text for the same kind of venue. `trustpilot-reviews-api` ranks online businesses in a category by star rating, with the website and the email and phone they published. `tripadvisor-reviews-api` covers restaurants, hotels, and attractions ranked within a geo.
 
-**I need to feed a RAG index or an LLM prompt.** `url-to-markdown-api` converts arbitrary pages to Markdown chunks. For discussion text, `reddit-search-api` returns threaded comments. For video, `youtube-data-api` returns transcripts. For code and issues, `github-api` returns READMEs, releases, and issue threads.
+**I need to feed a RAG index or an LLM prompt.** `url-to-markdown-api` converts arbitrary pages to Markdown chunks, and `website-crawler-api` crawls a whole docs site or sitemap to Markdown in one job. For discussion text, `reddit-search-api` returns threaded comments. For video, `youtube-data-api` returns transcripts. For code and issues, `github-api` returns READMEs, releases, and issue threads.
 
 **I need to see what a competitor is doing.** `google-ads-transparency-api`, `meta-ad-library-api`, `tiktok-ad-library-api` and `linkedin-ad-library-api` return the ad creatives a brand is running and when they ran. `g2-software-reviews-api` and `capterra-reviews-api` return their pricing tables and review facets. `glassdoor-salary-data` and `indeed-jobs-api` return what they pay and what they are hiring for.
 

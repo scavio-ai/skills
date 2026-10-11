@@ -601,6 +601,18 @@
       "credits": "1; 2 for walmart.com.mx search/category or store-targeted search/product"
     },
     {
+      "dir": "scavio-website-crawler",
+      "slug": "website-crawler-api",
+      "name": "website-crawler-api",
+      "display": "Website Crawler API - Map, Crawl and Batch Extract to Markdown",
+      "query": "website crawler api",
+      "reused": "no",
+      "platform": "Website Crawler",
+      "group": "Utility",
+      "endpoints": "7",
+      "credits": "map 1; 1 per page, ultra 2"
+    },
+    {
       "dir": "scavio-weibo",
       "slug": "weibo-scraper-api",
       "name": "weibo-scraper-api",
@@ -911,6 +923,11 @@
       "dir": "scavio-walmart",
       "description": "Walmart product data API: keyword search, full product detail by item id, customer reviews with the rating breakdown, category listings, the buy-box offer on an item, marketplace seller storefronts and catalogs, and stores near a US ZIP or Canadian postal code for store-targeted results, as structured JSON. 8 endpoints; 1 credit, or 2 for walmart.com.mx search/category or a store-targeted search/product.",
       "tags": "walmart, walmart-product-data, walmart-api, ecommerce, retail, product-search, product-data, pricing, price-monitoring, reviews, buy-box, marketplace-sellers, store-locator, local-inventory, walmart-canada, langchain, crewai, autogen, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-website-crawler",
+      "description": "Website crawler API: crawl a whole site to clean Markdown, map every URL from its sitemap, or batch extract up to 1,000 URLs in one job, with a status URL or a signed webhook. Map 1 credit; crawl and batch 1 credit per successful page (2 on ultra), failed pages free; robots.txt obeyed.",
+      "tags": "website-crawler, web-crawler-api, crawl-website, site-crawler, sitemap, sitemap-to-markdown, url-list, batch-scrape, batch-extract, website-to-markdown, rag, llm-context, knowledge-base, firecrawl-alternative, agent-tools, langchain, crewai, autogen, structured-data, json, ai-agents"
     },
     {
       "dir": "scavio-weibo",

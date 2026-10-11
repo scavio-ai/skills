@@ -1,6 +1,6 @@
 ---
 name: scavio
-description: "Scavio web data API: one key, structured JSON from 55 platforms. Google Search, AI Mode, News, Trends, Maps, Shopping, Hotels, Flights, Play Store and Ads Transparency; Amazon, eBay, Walmart, Target, Home Depot, Costco, Mercado Libre, AliExpress, Etsy and TikTok Shop; Instagram, TikTok, YouTube, Twitter/X, Reddit, LinkedIn, Facebook, Threads, Pinterest, Twitch, Douyin, Weibo and Kuaishou; Airbnb, Booking.com and Tripadvisor; Indeed, Glassdoor, G2, Capterra, Trustpilot and Yelp; Zillow, Redfin, Realtor.com and Rightmove; Apple App Store; SEC EDGAR, Companies House and GitHub; the Meta, TikTok and LinkedIn ad libraries; URL to Markdown and website screenshots. Routes each request to the platform reference, quotes the credit cost before a paid call, and handles 402 and 429. Use when the user wants public data from any of these sites, code that calls Scavio, or a cost estimate."
+description: "Scavio web data API: one key, structured JSON from 55 platforms. Google Search, AI Mode, News, Trends, Maps, Shopping, Hotels, Flights, Play Store and Ads Transparency; Amazon, eBay, Walmart, Target, Home Depot, Costco, Mercado Libre, AliExpress, Etsy and TikTok Shop; Instagram, TikTok, YouTube, Twitter/X, Reddit, LinkedIn, Facebook, Threads, Pinterest, Twitch, Douyin, Weibo and Kuaishou; Airbnb, Booking.com and Tripadvisor; Indeed, Glassdoor, G2, Capterra, Trustpilot and Yelp; Zillow, Redfin, Realtor.com and Rightmove; Apple App Store; SEC EDGAR, Companies House and GitHub; the Meta, TikTok and LinkedIn ad libraries; URL to Markdown, website crawling and website screenshots. Routes each request to the platform reference, quotes the credit cost before a paid call, and handles 402 and 429. Use when the user wants public data from any of these sites, code that calls Scavio, or a cost estimate."
 version: 1.0.0
 tags: scavio, web-data-api, scraper-api, serp-api, social-media-api, ecommerce-api, google-search, amazon, instagram, tiktok, youtube, linkedin, reddit, structured-data, json, ai-agents, langchain, crewai, autogen
 metadata:
@@ -25,9 +25,9 @@ Use this skill when the user asks to:
 - Pull public data from any platform in the table below: profiles, posts, comments, products, prices, reviews, listings, jobs, salaries, filings, ads, search results, transcripts
 - Write code that calls the Scavio API in any language
 - Estimate what a data job will cost in credits, or check their balance
-- Turn an arbitrary URL into Markdown or a screenshot
+- Turn an arbitrary URL into Markdown or a screenshot, or crawl a whole site, its sitemap or a URL list to Markdown
 
-Do not use it for a site that is not in the table. For an arbitrary page, `references/url-to-markdown-api.md` and `references/website-screenshot-api.md` are the fallbacks.
+Do not use it for a site that is not in the table. For an arbitrary page, `references/url-to-markdown-api.md` and `references/website-screenshot-api.md` are the fallbacks; for many pages of any site, `references/website-crawler-api.md`.
 
 ## Platforms
 
