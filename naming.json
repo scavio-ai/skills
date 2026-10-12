@@ -345,8 +345,8 @@
       "reused": "no",
       "platform": "Instagram",
       "group": "Social and video",
-      "endpoints": "12",
-      "credits": "2-10"
+      "endpoints": "20",
+      "credits": "1-2"
     },
     {
       "dir": "scavio-kuaishou",
@@ -816,8 +816,8 @@
     },
     {
       "dir": "scavio-instagram",
-      "description": "Instagram public data: profiles with follower counts and bio, timeline posts, reels, tagged posts, active stories, single-post detail, comments and replies, follower and following lists, and user and hashtag search. 12 endpoints, 2-10 credits each; responses keep Instagram's own structure, not a normalized shape.",
-      "tags": "instagram, instagram-api, instagram-scraper, social-media, profiles, reels, stories, followers, comments, hashtags, influencer-marketing, social-listening, langchain, crewai, autogen, ai-agents, structured-data, json"
+      "description": "Instagram public data: profiles with follower counts and bio, timeline posts, reels, tagged posts, stories and highlights, single-post detail, comments, replies and likers, follower, following and similar-account lists, and search across users, hashtags, Reels, music and locations. 20 endpoints, typically 1-2 credits each; responses keep Instagram's own structure, not a normalized shape.",
+      "tags": "instagram, instagram-api, instagram-scraper, social-media, profiles, reels, stories, followers, comments, hashtags, highlights, likers, influencer-marketing, social-listening, langchain, crewai, autogen, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-kuaishou",

@@ -97,7 +97,7 @@ Get the key at [scavio.dev](https://scavio.dev). The free tier is 50 credits on 
 
 | Skill | What it does |
 | --- | --- |
-| `instagram-scraper-api` | Profiles, posts, reels, stories, comments, followers, and search |
+| `instagram-scraper-api` | Profiles, posts, reels, stories, highlights, comments, likers, followers, and search |
 | `tiktok-scraper-api` | Profiles, videos, transcripts, comments, hashtags, sounds and charts, trending, similar creators, live status, and search |
 | `youtube-data-api` | Video and channel search, metadata, comments, transcripts, community posts, and streams |
 | `twitter-scraper-api` | Tweet and people search, tweet detail, profiles, followers, Communities, and trends |

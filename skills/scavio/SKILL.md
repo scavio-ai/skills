@@ -65,7 +65,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 |---|---|---|---|
 | Douyin | [douyin-scraper-api](references/douyin-scraper-api.md) | 27 | 1; search 10 |
 | Facebook | [facebook-scraper-api](references/facebook-scraper-api.md) | 11 | 1 |
-| Instagram | [instagram-scraper-api](references/instagram-scraper-api.md) | 12 | 2-10 |
+| Instagram | [instagram-scraper-api](references/instagram-scraper-api.md) | 20 | 1-2 |
 | Kuaishou | [kuaishou-scraper-api](references/kuaishou-scraper-api.md) | 14 | 1, 2, 10 or 40 |
 | LinkedIn | [linkedin-scraper-api](references/linkedin-scraper-api.md) | 9 | 1-30 |
 | Pinterest | [pinterest-api](references/pinterest-api.md) | 6 | 1; url-stats 1-2 |

@@ -1,8 +1,8 @@
 ---
 name: instagram-scraper-api
-description: "Instagram public data: profiles with follower counts and bio, timeline posts, reels, tagged posts, active stories, single-post detail, comments and replies, follower and following lists, and user and hashtag search. 12 endpoints, 2-10 credits each; responses keep Instagram's own structure, not a normalized shape."
+description: "Instagram public data: profiles with follower counts and bio, timeline posts, reels, tagged posts, stories and highlights, single-post detail, comments, replies and likers, follower, following and similar-account lists, and search across users, hashtags, Reels, music and locations. 20 endpoints, typically 1-2 credits each; responses keep Instagram's own structure, not a normalized shape."
 version: 1.0.0
-tags: instagram, instagram-api, instagram-scraper, social-media, profiles, reels, stories, followers, comments, hashtags, influencer-marketing, social-listening, langchain, crewai, autogen, ai-agents, structured-data, json
+tags: instagram, instagram-api, instagram-scraper, social-media, profiles, reels, stories, followers, comments, hashtags, highlights, likers, influencer-marketing, social-listening, langchain, crewai, autogen, ai-agents, structured-data, json
 metadata:
   openclaw:
     requires:
@@ -17,39 +17,48 @@ metadata:
 
 # Instagram Scraper API - Profiles, Posts, Reels, Stories, Followers
 
-Read public Instagram data as JSON: profiles, timeline posts, reels, tagged posts, active stories, single-post detail, comment threads, follower and following lists, and user/hashtag search.
+Read public Instagram data as JSON: profiles, timeline posts, reels, tagged posts, active stories and saved highlights, single-post detail, comment threads, post likers, follower, following and similar-account lists, and search across users, hashtags, Reels, music and locations.
 
 ## When to trigger
 
 Use this skill when the user asks to:
-- Look up an Instagram profile: follower count, bio, verified status, account type
+- Look up an Instagram profile: follower count, bio, verified status, category
 - Pull a creator's recent posts, reels, or the posts they were tagged in
+- Read a creator's active stories or the stories saved in their highlights
 - Read a specific post: caption, media URLs, like and comment counts
-- Mine the comments on a post, or the replies under one comment
-- List who follows an account, or who it follows
-- Find accounts or hashtags by keyword
+- Mine the comments on a post, the replies under one comment, or who liked a post
+- List who follows an account, who it follows, or which accounts are similar to it
+- Find accounts, hashtags, Reels, audio tracks or places by keyword
+- See which Reels use a given song or sound
 - Do influencer vetting, competitor tracking, or creator-discovery research on Instagram
 
 For TikTok creators use `scavio-tiktok`. For TikTok Shop products use `scavio-tiktok-shop`.
 
 ## Three things to read before you call anything
 
-**1. Instagram is the most expensive family in the API. Budget before you loop.** Costs are per-endpoint and range 2 to 10 credits, unlike Google or Reddit where everything is 1. A profile lookup is **10 credits** — ten times a Google search. On the free plan's 50 one-time credits that is five calls. The full table is below; read it before writing any loop. The cheap endpoint is `/user/posts` at **2 credits** — prefer it, and reach for the 10-credit endpoints only when you genuinely need what they carry.
+**1. Most calls cost 1 or 2 credits. Know which is which before you loop.** `/profile`, `/user/reels`, `/user/tagged` and `/music/posts` typically cost **1 credit**; every other endpoint typically costs **2**. Three exceptions to plan around:
 
-**2. There is no single post identifier that works everywhere.** The three post endpoints take three different, non-overlapping identity sets:
+- `/user/reels` and `/user/tagged` cost 2 the first time a given username is looked up, then 1. Sending `user_id` instead of `username` keeps them at 1.
+- `/search/users` and `/search/hashtags` cost **8** when you send a `cursor`. Page 1 is 2. Only ask for page 2 when page 1 genuinely was not enough.
+- Any request can cost more (never more than **10**) when it needs extra work to answer. `credits_used` in every response is the exact charge, so read it rather than assuming the typical price.
+
+On the free plan's 50 one-time credits that is about 50 profile lookups or 25 post-detail calls. The full table is below.
+
+**2. Post identifiers differ per endpoint.** The post endpoints take different identity sets:
 
 | Endpoint | Accepts | Does NOT accept |
 |---|---|---|
 | `/post` | `url`, `media_id`, or `shortcode` | -- |
 | `/post/comments` | `shortcode` or `url` | `media_id` |
+| `/post/likers` | `shortcode` or `url` | `media_id` |
 | `/post/comments/replies` | `media_id` + `comment_id` | `shortcode`, `url` |
 
-So you cannot chain `/post/comments` straight into `/post/comments/replies` — comments are addressed by shortcode, replies by `media_id`. To get replies, call `/instagram/post` first to resolve the `media_id`, then pass it with the `comment_id` from the comments call. That chain costs 8 + 10 + 8 = 26 credits; make sure the user actually wants it.
+To get replies, take `media_id` and `pk` from a comment in the `/post/comments` response (every comment carries both) and pass them as `media_id` and `comment_id`. Comments then replies is 2 + 2 = 4 credits.
 
-**3. The response keeps Instagram's own structure, not a normalized Scavio shape.** Unlike Reddit, YouTube or LinkedIn, Instagram responses keep Instagram's field names. Two consequences:
+**3. Responses keep Instagram's own field names, not a normalized Scavio shape.** Unlike Reddit, YouTube or LinkedIn, Instagram responses keep Instagram's structure, and it differs per endpoint (the per-endpoint notes below say where the list lives). Consequences:
 
-- **Field names are Instagram's, not friendly ones.** On a post, the video URL is at `video_versions[].url` — there is **no** `video_url`. The cover image is at `image_versions2.candidates[]` — there is **no** `thumbnail_url`. `media_type` is the integer `1` (image), `2` (video), or `8` (carousel).
-- **The top-level keys inside `data` can vary between calls on the same endpoint**, because the same endpoint can answer in two different structures. Always probe defensively: check for `items` and for `data`, take whichever is present, and never assume a key exists.
+- **Field names are Instagram's, not friendly ones.** On `/post`, the video URL is at `video_versions[].url` and the cover image at `image_versions2.candidates[]`. `media_type` is the integer `1` (image), `2` (video), or `8` (carousel).
+- **Each endpoint answers in one structure**, but structures differ between endpoints: `/user/posts` lists items at `data.data.items`, `/user/reels` at `data.items`, `/post/comments` at `data.comments`. Read the notes below rather than guessing.
 
 Do not invent friendlier field names when reporting results, and do not claim a field is missing until you have checked the raw keys actually returned.
 
@@ -68,7 +77,7 @@ call below. The whole path from nothing to a working key is self-serve:
 
 1. Sign up at [dashboard.scavio.dev](https://dashboard.scavio.dev/sign-up?utm_source=agent-skills&utm_medium=skill&utm_campaign=instagram-scraper-api) - email or Google, no card required.
 2. A key is created for the account automatically at signup. It is on the dashboard under API Keys, ready to copy.
-3. A new account starts with 50 credits. Endpoints in this skill cost 1 credit each unless the table below says otherwise.
+3. A new account starts with 50 credits. Endpoints in this skill cost 1 or 2 credits each, as the table below says.
 
 When the balance runs out the API answers `402` with a JSON body carrying
 `billing_url`. Topping up needs no code change - the same key keeps working.
@@ -83,33 +92,38 @@ Authorization: Bearer $SCAVIO_API_KEY
 
 ## Endpoints
 
-Base URL: `https://api.scavio.dev`. All paths are under `/api/v1/instagram`.
+Base URL: `https://api.scavio.dev`. All paths are under `/api/v1/instagram`. Credits are the typical cost per call (per page for paginated endpoints); `credits_used` in each response is the exact charge, never more than 10.
 
 | Endpoint | Credits | Description |
 |---|---|---|
-| `POST /api/v1/instagram/user/posts` | **2** | Timeline posts for a user. The cheap one -- start here |
-| `POST /api/v1/instagram/post` | **8** | Full detail for one post |
-| `POST /api/v1/instagram/post/comments/replies` | **8** | Replies under one comment |
-| `POST /api/v1/instagram/profile` | **10** | Profile: bio, counts, verified, account type |
-| `POST /api/v1/instagram/user/reels` | **10** | A user's reels |
-| `POST /api/v1/instagram/user/tagged` | **10** | Posts a user was tagged in |
-| `POST /api/v1/instagram/user/stories` | **10** | Currently active stories |
-| `POST /api/v1/instagram/post/comments` | **10** | Top-level comments on a post |
-| `POST /api/v1/instagram/user/followers` | **10** | Who follows this account |
-| `POST /api/v1/instagram/user/followings` | **10** | Who this account follows |
-| `POST /api/v1/instagram/search/users` | **10** | Find accounts by keyword |
-| `POST /api/v1/instagram/search/hashtags` | **10** | Find hashtags by keyword |
-
-The 8-vs-10 split reflects what each lookup costs to serve reliably. Nothing here is 1 credit.
+| `POST /api/v1/instagram/profile` | **1** | Profile: bio, follower/following/media counts, verified, category |
+| `POST /api/v1/instagram/user/posts` | **2** | Timeline posts for a user, about 12 per page |
+| `POST /api/v1/instagram/user/reels` | **1** (2 on a username's first lookup) | A user's reels |
+| `POST /api/v1/instagram/user/tagged` | **1** (2 on a username's first lookup) | Posts a user was tagged in |
+| `POST /api/v1/instagram/user/stories` | **2** | Currently active stories |
+| `POST /api/v1/instagram/user/highlights` | **2** | A user's story highlights: id, title, cover, item count |
+| `POST /api/v1/instagram/highlight/stories` | **2** | Every story saved in one highlight, with media URLs |
+| `POST /api/v1/instagram/post` | **2** | Full detail for one post |
+| `POST /api/v1/instagram/post/comments` | **2** | Top-level comments on a post |
+| `POST /api/v1/instagram/post/comments/replies` | **2** | Replies under one comment |
+| `POST /api/v1/instagram/post/likers` | **2** | Accounts that liked a post (up to about 1,000) and the total like count |
+| `POST /api/v1/instagram/user/followers` | **2** | Who follows this account |
+| `POST /api/v1/instagram/user/followings` | **2** | Who this account follows |
+| `POST /api/v1/instagram/user/similar` | **2** | Accounts similar to this one |
+| `POST /api/v1/instagram/search/users` | **2** (8 with a `cursor`) | Find accounts by keyword |
+| `POST /api/v1/instagram/search/hashtags` | **2** (8 with a `cursor`) | Find hashtags by keyword |
+| `POST /api/v1/instagram/search/reels` | **2** | Find Reels by keyword |
+| `POST /api/v1/instagram/search/music` | **2** | Find audio tracks by song or artist |
+| `POST /api/v1/instagram/music/posts` | **1** | Reels that use one audio track, plus its total reel count |
+| `POST /api/v1/instagram/search/locations` | **2** | Find places by name: id, address, coordinates |
 
 ## Workflow
 
 1. **Start from a username.** Every user endpoint accepts `username` (without the `@`). You do not need to resolve an id first, unlike TikTok.
-2. **Prefer `user_id` once you have it.** Every response that includes a profile carries `pk` / `id` — that is the `user_id`. When both are sent, `user_id` wins and is more stable than a username, which can be changed by its owner.
-3. **Cheapest useful path:** `/user/posts` (2 credits) already carries captions, media, like and comment counts for recent posts. For "what is this creator posting about", that single call is often the whole answer.
-4. **Add `/profile` (10) only when you need follower counts**, bio text, verified status, or account type. Do not call it reflexively before a feed call.
-5. **Paginate with `cursor`.** Pass the continuation token from the previous response back as `cursor`. Names of the continuation field vary by endpoint and by which structure came back -- look for `next_max_id`, `pagination_token`, `next_min_id`, or `rank_token` and pass whichever is present. Stop when none is present or `has_more` / `more_available` is false.
-6. **Raise `count` instead of making more calls.** Each call costs the same regardless of page size, so a single `count: 50` is five times cheaper than five `count: 10` calls.
+2. **Prefer `user_id` once you have it.** `/profile` returns it as `id` (and `pk`). When both are sent, `user_id` wins and is more stable than a username, which can be changed by its owner. On `/user/reels` and `/user/tagged` it also avoids the 2-credit first lookup.
+3. **Cheapest useful path for "what is this creator about":** `/profile` (1 credit) for counts and bio, then `/user/reels` (1) or `/user/posts` (2) for recent content with captions and engagement counts.
+4. **Paginate with `cursor`.** Pass the continuation token from the previous response back as `cursor`. Its name depends on the endpoint: `pagination_token` (user posts, Reels search), `next_max_id` (reels, tagged, followers, followings), `next_min_id` (comments), `paging_info.max_id` (music posts). Stop when none is present or `has_more` / `more_available` is false.
+5. **Do not rely on `count`.** `/user/posts` returns about 12 items per page whatever `count` says. Read how many items you actually got rather than assuming.
 
 ## Parameters
 
@@ -117,16 +131,27 @@ The 8-vs-10 split reflects what each lookup costs to serve reliably. Nothing her
 
 Nine endpoints take a user identity. Both fields are optional individually but **at least one is required**; omitting both is a 400. `user_id` takes precedence when both are sent. `user_id` is a **string**, even though it looks like a number.
 
-### Profile (`/profile`), Stories (`/user/stories`)
+### Profile (`/profile`), stories (`/user/stories`), highlights (`/user/highlights`), similar accounts (`/user/similar`)
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | `username` | string | -- | Instagram handle without `@` |
 | `user_id` | string | -- | Numeric id as a string. Wins over `username` |
 
-No `count`, no `cursor`. Stories are not paginated -- you get whatever is currently live, and an account with no active stories returns an empty set, which is a normal result and not an error.
+No `count`, no `cursor`.
 
-`/profile` returns the profile object **inlined at the root of `data`** -- there is no `data.user` wrapper. Read `data.follower_count`, not `data.user.follower_count`.
+- `/profile` returns the profile **inlined at the root of `data`**: `data.username`, `data.full_name`, `data.follower_count`, `data.following_count`, `data.media_count`, `data.biography`, `data.is_verified`, `data.is_private`, `data.category`, `data.external_url`. There is no `data.user` wrapper.
+- `/user/stories` lists live stories at `data.items` (also grouped per user under `data.reels.<user_id>.items`), each with `taken_at`, `expiring_at`, `media_type`, `thumbnail_url` and `video_url`. An account with no active stories returns an empty list, which is a normal result and not an error.
+- `/user/highlights` lists highlights at `data.data.items`, each with `id` (for example `highlight:18149897764550869`), `title`, `media_count`, `cover_media` and `created_at`.
+- `/user/similar` lists accounts at `data.data.items` with `id`, `username`, `full_name`, `is_verified`, `is_private`. It works for most creator accounts; some brand accounts return none, which is a normal empty result.
+
+### Highlight stories (`/highlight/stories`)
+
+| Parameter | Type | Default | Description |
+|---|---|---|---|
+| `highlight_id` | string | required | An `id` from `/user/highlights`, with or without the `highlight:` prefix |
+
+Stories are at `data.data.items`, each with `taken_at`, `media_type`, `image_versions`, and on video items `video_url` and `video_versions`. The highlight's own title is at `data.data.additional_data.title`.
 
 ### User posts (`/user/posts`), reels (`/user/reels`), tagged (`/user/tagged`)
 
@@ -134,12 +159,12 @@ No `count`, no `cursor`. Stories are not paginated -- you get whatever is curren
 |---|---|---|---|
 | `username` | string | -- | Handle without `@` |
 | `user_id` | string | -- | Wins over `username` |
-| `count` | number | `12` | Items per page, 1-50 |
+| `count` | number | `12` | Items per page, 1-50 (not honored on `/user/posts`) |
 | `cursor` | string | -- | Continuation token from the previous response |
 
-Note on `/user/posts`: `count` is often not honored. Treat `count` as a request, not a guarantee, and read how many items you actually got rather than assuming.
-
-Also on `/user/posts`: when you pass **only** `user_id`, the items may arrive **double-nested at `data.data`** rather than `data.items`. Probe both.
+- `/user/posts`: items at `data.data.items`, next page token at `data.pagination_token`. Each item carries `code`, `caption.text`, `like_count`, `comment_count`, `taken_at`, `media_type`, `image_versions` and `thumbnail_url`; video items add `video_url`, `video_versions` and `play_count`.
+- `/user/reels` and `/user/tagged`: items at `data.items`, next page token at `data.next_max_id`. Each item is compact: `code`, `shortcode`, `media_type`, `is_video`, `like_count`, `comment_count`, `view_count`, `taken_at`, `caption_text`, `thumbnail_url`, `video_url`, `owner`.
+- On `/user/tagged`, `video_url` is `null` on video items and `owner.full_name` / `owner.is_verified` are `null`. To get a tagged video's URL, call `/post` with its `code`.
 
 ### Followers (`/user/followers`), followings (`/user/followings`)
 
@@ -147,10 +172,10 @@ Also on `/user/posts`: when you pass **only** `user_id`, the items may arrive **
 |---|---|---|---|
 | `username` | string | -- | Handle without `@` |
 | `user_id` | string | -- | Wins over `username` |
-| `count` | number | `12` | Users per page, 1-**100** (the highest cap in the family) |
-| `cursor` | string | -- | Continuation token |
+| `count` | number | `12` | Users per page, 1-100 |
+| `cursor` | string | -- | Continuation token (`next_max_id`) |
 
-The path is `followings`, plural. Follower lists on large accounts are effectively bottomless -- Instagram will not hand over millions of rows, and each page is 10 credits. Set an explicit page budget with the user before starting, and stop when the continuation token stops coming back.
+Users are at `data.users`. The path is `followings`, plural. Follower lists on large accounts are effectively bottomless -- Instagram will not hand over millions of rows. Each page is 2 credits; set an explicit page budget with the user before starting, and stop when the continuation token stops coming back.
 
 ### Post detail (`/post`)
 
@@ -160,9 +185,7 @@ The path is `followings`, plural. Follower lists on large accounts are effective
 | `media_id` | string | -- | Numeric media id as a string. **Highest precedence** |
 | `shortcode` | string | -- | The code from the URL, e.g. `DUajw4YkorV` |
 
-One of the three is required. `media_id` wins over everything; `shortcode` is expanded into a URL internally.
-
-The post is at `data.items[0]`. Within it: `media_type` `1`/`2`/`8`, video at `video_versions[].url`, cover at `image_versions2.candidates[]`. For a carousel (`media_type: 8`) the children are nested inside the item -- walk them rather than expecting one media URL.
+One of the three is required. The post is at `data.items[0]`. Within it: `media_type` `1`/`2`/`8`, `caption.text`, `like_count`, `comment_count`, `play_count`, `user`, `usertags`, video at `video_versions[].url`, cover at `image_versions2.candidates[]`. For a carousel (`media_type: 8`) the children are under `carousel_media[]` -- walk them rather than expecting one media URL.
 
 ### Post comments (`/post/comments`)
 
@@ -170,31 +193,69 @@ The post is at `data.items[0]`. Within it: `media_type` `1`/`2`/`8`, video at `v
 |---|---|---|---|
 | `shortcode` | string | -- | The code from the post URL |
 | `url` | string | -- | Full post URL |
-| `cursor` | string | -- | Continuation token |
+| `cursor` | string | -- | Continuation token (`next_min_id`) |
 | `sort_order` | string | `popular` | `popular` or `newest` |
 
-One of `shortcode` / `url` is required. **`media_id` is not accepted here** even though the sibling endpoints take it.
+One of `shortcode` / `url` is required. **`media_id` is not accepted here.** Comments are at `data.comments`, each with `pk`, `text`, `user`, `comment_like_count`, `child_comment_count`, `created_at` and `media_id`; `data.comment_count` and `data.has_more_comments` describe the thread.
 
-Two cautions. First, `sort_order` is not always honored; when it is not, your sort is silently ignored. Do not present comment ordering to the user as guaranteed. Second, **pass a canonical post URL or a bare shortcode only.** A `/share/` link, a profile URL, or any URL that is not of the form `instagram.com/p/<code>`, `/reel/<code>`, `/reels/<code>` or `/tv/<code>` currently fails as a **500**, not a clean 400. Extract the shortcode yourself and send that instead.
+**Pass a canonical post URL or a bare shortcode only.** A `/share/` link, a profile URL, or any URL that is not of the form `instagram.com/p/<code>`, `/reel/<code>`, `/reels/<code>` or `/tv/<code>` fails. Extract the shortcode yourself and send that instead.
 
 ### Comment replies (`/post/comments/replies`)
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| `media_id` | string | required | The post's numeric media id, as a string |
-| `comment_id` | string | required | From a comment in the `/post/comments` response |
+| `media_id` | string | required | The post's numeric media id (the `media_id` on any comment) |
+| `comment_id` | string | required | The comment's `pk` from `/post/comments` |
 | `cursor` | string | -- | Continuation token |
 
-Both ids are required. `/post/comments` does not return `media_id`, so resolve it with `/instagram/post` first. See caution 2 at the top.
+Replies are at `data.child_comments`; the comment they answer is at `data.parent_comment`.
+
+### Post likers (`/post/likers`)
+
+| Parameter | Type | Default | Description |
+|---|---|---|---|
+| `shortcode` | string | -- | The code from the post URL |
+| `url` | string | -- | Full post URL |
+
+One of the two is required; no cursor. Accounts are at `data.data.items` (`id`, `username`, `full_name`, `is_verified`, `is_private`), up to about 1,000 per post. `data.data.total` is the post's total like count, `data.data.count` how many accounts came back.
 
 ### Search users (`/search/users`), search hashtags (`/search/hashtags`)
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | `keyword` | string | required | Search term, 1-500 chars |
-| `cursor` | string | -- | Rank token from a previous response |
+| `cursor` | string | -- | Rank token from a previous response. Makes the call cost 8 |
 
-The field is `keyword`, not `query` or `search`. There is **no `count`** -- page size is not controllable. Pagination is best-effort: sometimes the cursor is ignored and you get page 1 again. Detect this by comparing the returned ids to what you already have rather than assuming forward progress.
+The field is `keyword`, not `query` or `search`. There is **no `count`**. Users are at `data.users` (`pk`, `username`, `full_name`, `is_verified`); hashtags at `data.hashtags` (`id`, `name`, `media_count`).
+
+### Search Reels (`/search/reels`)
+
+| Parameter | Type | Default | Description |
+|---|---|---|---|
+| `keyword` | string | required | Search term |
+| `cursor` | string | -- | `pagination_token` from the previous response |
+
+Reels are at `data.data.items`, each with `code`, `caption.text`, `user`, `play_count`, `like_count`, `comment_count`, `taken_at` and `video_versions`. Next page token at `data.pagination_token`; each page is 2 credits.
+
+### Search music (`/search/music`) and music posts (`/music/posts`)
+
+| Endpoint | Parameter | Type | Description |
+|---|---|---|---|
+| `/search/music` | `keyword` | string, required | Song title or artist |
+| `/music/posts` | `music_id` | string, required | The `id` of a track from `/search/music` (numeric) |
+| `/music/posts` | `cursor` | string | `paging_info.max_id` from the previous response |
+
+`/search/music` lists tracks at `data.data.items` with `id`, `title`, `display_artist`, `duration_in_ms` and `progressive_download_url`. Pass the track's `id` (not `audio_id`) as `music_id`.
+
+`/music/posts` lists the Reels using that track at `data.items[].media` (`code`, `play_count`, `like_count`, `comment_count`, `video_versions`), with the track's total reel count at `data.media_count.clips_count` and `data.formatted_media_count`. More pages while `data.paging_info.more_available` is true; 1 credit per page.
+
+### Search locations (`/search/locations`)
+
+| Parameter | Type | Default | Description |
+|---|---|---|---|
+| `keyword` | string | required | Place name |
+
+Places are at `data.data.items` with `id`, `name`, `address`, `city`, `latitude` and `longitude`.
 
 ## Errors
 
@@ -205,7 +266,7 @@ The field is `keyword`, not `query` or `search`. There is **no `count`** -- page
 | 402 | Out of credits | Stop. Tell the user, do not retry |
 | 429 | Too many requests in flight at once | Wait for one to finish, then retry. Not a cooldown |
 | 500 | Unparseable post URL on `/post/comments` | Send a bare shortcode instead |
-| 502 | Upstream Instagram data temporarily unavailable | Retry once after a short delay, then give up |
+| 502 | Instagram data temporarily unavailable | Retry once after a short delay, then give up |
 
 A 402 or 429 means stop, not retry harder. Report the condition to the user rather than burning the remaining balance.
 
@@ -215,28 +276,48 @@ Every successful response carries `credits_used` and `credits_remaining` next to
 
 Concurrency is capped per plan -- 1 simultaneous request on free and pay-as-you-go, up to 50 on Growth. Exceeding it returns 429 immediately. Do not fan out parallel Instagram calls unless you know the plan allows it.
 
-Before any multi-call workflow, state the credit cost to the user. "Scanning this account's 500 followers is 10 credits per page of up to 100, so about 50 credits" is the kind of thing to say **before** starting, not after.
+Before any multi-call workflow, state the credit cost to the user. "Scanning this account's 500 followers is 2 credits per page of up to 100, so about 10 credits" is the kind of thing to say **before** starting, not after.
 
 ## Example
 
 ```bash
-# 1. Recent posts for a creator -- 2 credits, usually enough on its own
-curl -X POST 'https://api.scavio.dev/api/v1/instagram/user/posts' \
-  -H "Authorization: Bearer $SCAVIO_API_KEY" \
-  -H 'Content-Type: application/json' \
-  -d '{"username": "instagram", "count": 24}'
-
-# 2. Follower count and bio -- 10 credits, only when actually needed
+# 1. Follower count and bio -- 1 credit
 curl -X POST 'https://api.scavio.dev/api/v1/instagram/profile' \
   -H "Authorization: Bearer $SCAVIO_API_KEY" \
   -H 'Content-Type: application/json' \
-  -d '{"username": "instagram"}'
+  -d '{"username": "nasa"}'
 
-# 3. One post in full -- 8 credits
-curl -X POST 'https://api.scavio.dev/api/v1/instagram/post' \
+# 2. Recent reels for the same creator -- 1 credit
+curl -X POST 'https://api.scavio.dev/api/v1/instagram/user/reels' \
   -H "Authorization: Bearer $SCAVIO_API_KEY" \
   -H 'Content-Type: application/json' \
-  -d '{"shortcode": "DUajw4YkorV"}'
+  -d '{"username": "nasa"}'
+
+# 3. Who liked one post, plus the total like count -- 2 credits
+curl -X POST 'https://api.scavio.dev/api/v1/instagram/post/likers' \
+  -H "Authorization: Bearer $SCAVIO_API_KEY" \
+  -H 'Content-Type: application/json' \
+  -d '{"shortcode": "DeJ28eTxo4s"}'
+
+# 4. Which Reels use a song: find the track, then its Reels -- 2 + 1 credits
+curl -X POST 'https://api.scavio.dev/api/v1/instagram/search/music' \
+  -H "Authorization: Bearer $SCAVIO_API_KEY" \
+  -H 'Content-Type: application/json' \
+  -d '{"keyword": "espresso"}'
+curl -X POST 'https://api.scavio.dev/api/v1/instagram/music/posts' \
+  -H "Authorization: Bearer $SCAVIO_API_KEY" \
+  -H 'Content-Type: application/json' \
+  -d '{"music_id": "1747512212697470"}'
+
+# 5. A creator's highlights, then the stories in one -- 2 + 2 credits
+curl -X POST 'https://api.scavio.dev/api/v1/instagram/user/highlights' \
+  -H "Authorization: Bearer $SCAVIO_API_KEY" \
+  -H 'Content-Type: application/json' \
+  -d '{"username": "natgeo"}'
+curl -X POST 'https://api.scavio.dev/api/v1/instagram/highlight/stories' \
+  -H "Authorization: Bearer $SCAVIO_API_KEY" \
+  -H 'Content-Type: application/json' \
+  -d '{"highlight_id": "highlight:18149897764550869"}'
 ```
 
 ## Related skills
