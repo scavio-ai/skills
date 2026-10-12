@@ -1,6 +1,6 @@
 ---
 name: url-to-markdown-api
-description: "Turn any URL into clean Markdown, plain text or raw HTML for LLM prompts and RAG chunks. One endpoint, three fetch tiers: normal and advanced (renders JavaScript) at 1 credit, ultra for hard bot walls at 2. Only a successful extraction is billed. Returns url, format, mode, content and content_length."
+description: "Turn any URL into clean Markdown, plain text or raw HTML for LLM prompts and RAG chunks. One endpoint, three fetch tiers: normal and advanced (renders JavaScript) at 1 credit, ultra for the hardest pages at 2. Only a successful extraction is billed. Returns url, format, mode, content and content_length."
 version: 1.0.0
 tags: url-to-markdown, extract, read-url, web-scraping, html-to-markdown, content-extraction, page-content, readability, rag, llm-context, javascript-rendering, agent-tools, langchain, crewai, autogen, structured-data, json, ai-agents
 metadata:
