@@ -1,8 +1,8 @@
 ---
 name: google-search-api
-description: "Google Search API returning the full SERP as structured JSON: organic results, ads, knowledge graph, AI Overview, People Also Ask, related searches, top stories and videos. Localize with gl/hl/location, filter by time period, page with start. One endpoint on the v2 engine, 1 credit per request."
-version: 3.0.0
-tags: google-search-api, google-serp-api, serp-api, google-search, organic-results, knowledge-graph, people-also-ask, ai-overview, rank-tracking, seo, web-search, search-api, langchain, crewai, autogen, structured-data, json, ai-agents
+description: "Google Search API returning the full SERP as structured JSON: organic results, ads, knowledge graph, AI Overview, People Also Ask, related searches, top stories and videos. Localize with gl/hl/location, filter by time period, page with start. Also a drop-in Google Custom Search JSON API replacement: same cse.list parameters and items[] response at /customsearch/v1. 1 credit per request."
+version: 3.1.0
+tags: google-search-api, google-serp-api, serp-api, google-custom-search-api, cse-migration, google-search, organic-results, knowledge-graph, people-also-ask, ai-overview, rank-tracking, seo, web-search, search-api, langchain, crewai, autogen, structured-data, json, ai-agents
 metadata:
   openclaw:
     requires:
@@ -135,6 +135,38 @@ for r in data["organic_results"]:
 ```
 
 The response is a faithful passthrough of the SERP. Depending on the query it may also include: `ai_overview`, `knowledge_graph`, `top_ads`, `bottom_ads`, `top_stories`, `video_results`, `discussions_and_forums`, `local_results`, `local_map`, and `pagination`.
+
+## Migrating from the Google Custom Search JSON API
+
+When the user has existing Custom Search JSON API code (`googleapis.com/customsearch/v1`, `cse().list(...)`, a `cx` engine id, parsing `items[]`), do not rewrite it to the call above. Scavio answers the same request at Google's own path, so the migration is a host and key swap:
+
+```
+GET https://api.scavio.dev/customsearch/v1?key=$SCAVIO_API_KEY&cx=anything&q=coffee
+```
+
+- Same parameters (`q`, `num` 1-10, `start` 1-based, `gl`, `hl`, `lr`, `cr`, `safe`, `dateRestrict`, `siteSearch`, `siteSearchFilter`, `exactTerms`, `excludeTerms`, `orTerms`, `hq`, `fileType`) and the same `customsearch#search` response: `items[].title/link/snippet/displayLink/htmlTitle/htmlSnippet`, `searchInformation.totalResults` (a string) and `queries.nextPage`.
+- `/customsearch/v1/siterestrict` works too, and `GET`/`POST /api/v1/google/customsearch` is the canonical path. The key may go in `?key=` on these paths only; the `Authorization` header still works and is preferred for new code.
+- `cx` is accepted and ignored: results come from the whole web. Reproduce a site-list engine with `siteSearch` (enforced on the returned results, so a page can hold fewer than `num` items) or `site:` operators in `q`.
+- Image search, `sort`, `rights` and other parameters it cannot honour return `400` naming the parameter, instead of being silently ignored. Errors use Google's `{"error": {"code", "message", "errors", "status"}}` envelope.
+- 1 credit per request. Paging stops at 100 results (`start + num <= 100`), as on Custom Search.
+
+Google's own Python client works unchanged apart from the endpoint and key:
+
+```python
+# pip install google-api-python-client==2.184.0
+from googleapiclient.discovery import build
+
+service = build(
+    "customsearch", "v1",
+    developerKey="sk_your_key_here",  # your Scavio key
+    client_options={"api_endpoint": "https://api.scavio.dev"},
+)
+res = service.cse().list(q="langchain agents tutorial", cx="anything", num=5).execute()
+for item in res.get("items", []):
+    print(item["title"], item["link"])
+```
+
+For new code, or when the user wants the knowledge graph, AI overview or People Also Ask, use `POST /api/v2/google` above instead. Full mapping: [Custom Search compatible endpoint docs](https://scavio.dev/docs/google-custom-search-api?utm_source=agent-skills&utm_medium=skill&utm_campaign=google-search-api).
 
 ## Guardrails
 

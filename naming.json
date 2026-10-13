@@ -201,7 +201,7 @@
       "reused": "yes",
       "platform": "Google Search",
       "group": "Search",
-      "endpoints": "1",
+      "endpoints": "2",
       "credits": "1"
     },
     {
@@ -756,8 +756,8 @@
     },
     {
       "dir": "scavio-google",
-      "description": "Google Search API returning the full SERP as structured JSON: organic results, ads, knowledge graph, AI Overview, People Also Ask, related searches, top stories and videos. Localize with gl/hl/location, filter by time period, page with start. One endpoint on the v2 engine, 1 credit per request.",
-      "tags": "google-search-api, google-serp-api, serp-api, google-search, organic-results, knowledge-graph, people-also-ask, ai-overview, rank-tracking, seo, web-search, search-api, langchain, crewai, autogen, structured-data, json, ai-agents"
+      "description": "Google Search API returning the full SERP as structured JSON: organic results, ads, knowledge graph, AI Overview, People Also Ask, related searches, top stories and videos. Localize with gl/hl/location, filter by time period, page with start. Also a drop-in Google Custom Search JSON API replacement: same cse.list parameters and items[] response at /customsearch/v1. 1 credit per request.",
+      "tags": "google-search-api, google-serp-api, serp-api, google-custom-search-api, cse-migration, google-search, organic-results, knowledge-graph, people-also-ask, ai-overview, rank-tracking, seo, web-search, search-api, langchain, crewai, autogen, structured-data, json, ai-agents"
     },
     {
       "dir": "scavio-google-ads",

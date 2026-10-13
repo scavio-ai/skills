@@ -71,7 +71,7 @@ Get the key at [scavio.dev](https://scavio.dev). The free tier is 50 credits on 
 
 | Skill | What it does |
 | --- | --- |
-| `google-search-api` | Full Google SERP as JSON: organic, ads, knowledge graph, AI Overview, PAA |
+| `google-search-api` | Full Google SERP as JSON: organic, ads, knowledge graph, AI Overview, PAA; drop-in Custom Search JSON API replacement |
 | `google-ai-mode-api` | Google AI Mode answers with their cited sources |
 | `google-news-api` | Headlines by keyword, topic, story or publication |
 | `google-trends-api` | Search interest over time, by region, and related queries |

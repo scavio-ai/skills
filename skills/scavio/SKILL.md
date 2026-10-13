@@ -40,7 +40,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Google AI Mode | [google-ai-mode-api](references/google-ai-mode-api.md) | 1 | 1 |
 | Google Maps | [google-maps-api](references/google-maps-api.md) | 4 | 1; geo-grid bills per point |
 | Google News | [google-news-api](references/google-news-api.md) | 1 | 1 |
-| Google Search | [google-search-api](references/google-search-api.md) | 1 | 1 |
+| Google Search | [google-search-api](references/google-search-api.md) | 2 | 1 |
 | Google Trends | [google-trends-api](references/google-trends-api.md) | 2 | 1 |
 
 **Commerce**
