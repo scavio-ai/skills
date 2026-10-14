@@ -1,6 +1,6 @@
 ---
 name: chatgpt-scraper-api
-description: "ChatGPT scraper API for AI visibility: send a prompt, get the answer ChatGPT gives as JSON with every cited page (title, publisher, date), the web searches it ran and the products it recommended. Track brand mentions and citations in ChatGPT. 1 endpoint, 5 credits per answered prompt."
+description: "ChatGPT scraper API for AI visibility: send a prompt, get the answer ChatGPT gives as JSON with every cited page (title, publisher, date), the web searches it ran and the products it recommended. Track brand mentions and citations in ChatGPT. 1 endpoint, 1 credit per answered prompt."
 version: 1.0.0
 tags: chatgpt, chatgpt-scraper, chatgpt-api, ai-visibility, geo, generative-engine-optimization, brand-monitoring, llm-citations, answer-engine, share-of-voice, langchain, crewai, autogen, structured-data, json, ai-agents
 metadata:
@@ -17,7 +17,7 @@ metadata:
 
 # ChatGPT Scraper API - Answers, Citations, AI Visibility
 
-Send a prompt to ChatGPT and get back what ChatGPT tells the people asking it: the full answer as Markdown, every page it cites (title, publisher, publish date), the web searches it ran to answer, and the products it recommended. One endpoint, 5 credits per answered prompt; failed prompts are free.
+Send a prompt to ChatGPT and get back what ChatGPT tells the people asking it: the full answer as Markdown, every page it cites (title, publisher, publish date), the web searches it ran to answer, and the products it recommended. One endpoint, 1 credit per answered prompt; failed prompts are free.
 
 ## When to trigger
 
@@ -44,7 +44,7 @@ call below. The whole path from nothing to a working key is self-serve:
 
 1. Sign up at [dashboard.scavio.dev](https://dashboard.scavio.dev/sign-up?utm_source=agent-skills&utm_medium=skill&utm_campaign=chatgpt-scraper-api) - email or Google, no card required.
 2. A key is created for the account automatically at signup. It is on the dashboard under API Keys, ready to copy.
-3. A new account starts with 50 credits, enough for 10 prompts on this endpoint.
+3. A new account starts with 50 credits, enough for 50 prompts on this endpoint.
 
 When the balance runs out the API answers `402` with a JSON body carrying
 `billing_url`. Topping up needs no code change - the same key keeps working.
@@ -58,7 +58,7 @@ POST https://api.scavio.dev/api/v1/chatgpt/prompt
 Authorization: Bearer $SCAVIO_API_KEY
 ```
 
-Every answered prompt costs 5 credits. Answers typically take 10-40 seconds: use an HTTP timeout of at least 90 seconds.
+Every answered prompt costs 1 credit. Answers typically take 10-40 seconds: use an HTTP timeout of at least 90 seconds.
 
 ## Workflow
 
@@ -128,8 +128,8 @@ print("recommended:", [p["title"] for p in data["shopping"]])
     ]
   },
   "response_time": 28081,
-  "credits_used": 5,
-  "credits_remaining": 45
+  "credits_used": 1,
+  "credits_remaining": 49
 }
 ```
 
@@ -137,7 +137,7 @@ print("recommended:", [p["title"] for p in data["shopping"]])
 
 ## Guardrails
 
-- Each answered prompt costs 5 credits. Confirm before running large prompt lists.
+- Each answered prompt costs 1 credit. Confirm before running large prompt lists.
 - Never fabricate or paraphrase the answer as if it were ChatGPT's words. Quote `answer.markdown` and surface `sources` so the user can verify.
 - Answers vary between runs and are never cached. Do not present one run as ChatGPT's fixed opinion.
 - Prompts are limited to 1024 characters.

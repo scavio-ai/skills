@@ -37,7 +37,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 
 | Platform | Reference | Endpoints | Credits per call |
 |---|---|---|---|
-| ChatGPT | [chatgpt-scraper-api](references/chatgpt-scraper-api.md) | 1 | 5 |
+| ChatGPT | [chatgpt-scraper-api](references/chatgpt-scraper-api.md) | 1 | 1 |
 | Gemini | [gemini-scraper-api](references/gemini-scraper-api.md) | 1 | 5 |
 | Google AI Mode | [google-ai-mode-api](references/google-ai-mode-api.md) | 1 | 1 |
 | Google Maps | [google-maps-api](references/google-maps-api.md) | 4 | 1; geo-grid bills per point |

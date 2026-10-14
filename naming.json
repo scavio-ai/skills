@@ -238,7 +238,7 @@
       "platform": "ChatGPT",
       "group": "Search",
       "endpoints": "1",
-      "credits": "5"
+      "credits": "1"
     },
     {
       "dir": "scavio-gemini",
@@ -795,7 +795,7 @@
     },
     {
       "dir": "scavio-chatgpt",
-      "description": "ChatGPT scraper API for AI visibility: send a prompt, get the answer ChatGPT gives as JSON with every cited page (title, publisher, date), the web searches it ran and the products it recommended. Track brand mentions and citations in ChatGPT. 1 endpoint, 5 credits per answered prompt.",
+      "description": "ChatGPT scraper API for AI visibility: send a prompt, get the answer ChatGPT gives as JSON with every cited page (title, publisher, date), the web searches it ran and the products it recommended. Track brand mentions and citations in ChatGPT. 1 endpoint, 1 credit per answered prompt.",
       "tags": "chatgpt, chatgpt-scraper, chatgpt-api, ai-visibility, geo, generative-engine-optimization, brand-monitoring, llm-citations, answer-engine, share-of-voice, langchain, crewai, autogen, structured-data, json, ai-agents"
     },
     {
