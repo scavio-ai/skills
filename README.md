@@ -2,11 +2,11 @@
 
 # Scavio Agent Skills
 
-**Give your AI agent live data from 55 platforms as structured JSON, through one API key**
+**Give your AI agent live data from 57 platforms as structured JSON, through one API key**
 
-[![Platforms](https://img.shields.io/badge/Platforms-55-blue?style=flat-square)](https://scavio.dev)
+[![Platforms](https://img.shields.io/badge/Platforms-57-blue?style=flat-square)](https://scavio.dev)
 [![Endpoints](https://img.shields.io/badge/Endpoints-365-green?style=flat-square)](https://scavio.dev/docs)
-[![Skills](https://img.shields.io/badge/Skills-57-orange?style=flat-square)](#skills)
+[![Skills](https://img.shields.io/badge/Skills-59-orange?style=flat-square)](#skills)
 [![skills.sh](https://img.shields.io/badge/skills.sh-listed-black?style=flat-square)](https://skills.sh/scavio-ai/skills)
 [![Agents](https://img.shields.io/badge/Agents-40+-blueviolet?style=flat-square)](https://skills.sh)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](LICENSE)
@@ -19,7 +19,7 @@
 
 ## Overview
 
-[Scavio](https://scavio.dev) is a unified web data API: one key, 55 platforms, structured JSON instead of HTML. This repo holds 57 Agent Skills: one per platform, a website crawler skill, plus `scavio`, an umbrella that covers all of them from a single install. A skill teaches your agent which Scavio endpoints exist for a platform, what parameters they take, what the response looks like, and what each call costs in credits, so the agent can call the API correctly without you writing an integration. Every skill is in the open Agent Skills format and loads in Claude Code, Cursor, Codex, OpenCode, Goose, OpenHands, Hermes Agent, OpenClaw, and any other client that reads the format.
+[Scavio](https://scavio.dev) is a unified web data API: one key, 57 platforms, structured JSON instead of HTML. This repo holds 59 Agent Skills: one per platform, a website crawler skill, plus `scavio`, an umbrella that covers all of them from a single install. A skill teaches your agent which Scavio endpoints exist for a platform, what parameters they take, what the response looks like, and what each call costs in credits, so the agent can call the API correctly without you writing an integration. Every skill is in the open Agent Skills format and loads in Claude Code, Cursor, Codex, OpenCode, Goose, OpenHands, Hermes Agent, OpenClaw, and any other client that reads the format.
 
 ## Install
 
@@ -53,7 +53,7 @@ Any client that reads the Agent Skills format can also load a folder directly. C
 
 `scavio` is one `SKILL.md` that routes to a `references/` file per platform. Your agent carries one description in its context instead of fifty, and the platform detail loads only when a platform is used. The per-platform skills are the same content split up: each one is a fifth of what the umbrella loads per call, and each has its own trigger, so they fit a project that uses two or three platforms. Install one or the other, not both.
 
-Hermes Agent caps a community skill at 50 files and the umbrella ships 57, so on Hermes install the per-platform skills instead; every one of them passes the Hermes scan.
+Hermes Agent caps a community skill at 50 files and the umbrella ships 59, so on Hermes install the per-platform skills instead; every one of them passes the Hermes scan.
 
 ## Setup
 
@@ -73,6 +73,8 @@ Get the key at [scavio.dev](https://scavio.dev). The free tier is 50 credits on 
 | --- | --- |
 | `google-search-api` | Full Google SERP as JSON: organic, ads, knowledge graph, AI Overview, PAA; drop-in Custom Search JSON API replacement |
 | `google-ai-mode-api` | Google AI Mode answers with their cited sources |
+| `chatgpt-scraper-api` | ChatGPT's answer to a prompt with its cited pages, web searches and recommended products, for AI visibility tracking |
+| `gemini-scraper-api` | Gemini's answer to a prompt with its cited URLs and recommended products, same shape as ChatGPT |
 | `google-news-api` | Headlines by keyword, topic, story or publication |
 | `google-trends-api` | Search interest over time, by region, and related queries |
 | `google-maps-api` | Local business search, place detail, reviews, and a local-SEO geo-grid |
@@ -177,7 +179,7 @@ Get the key at [scavio.dev](https://scavio.dev). The free tier is 50 credits on 
 
 | Skill | What it does |
 | --- | --- |
-| `scavio` | All 55 platforms behind one trigger: routing table, shared setup, request format, cost gate, and failure handling, with a reference file per platform |
+| `scavio` | All 57 platforms behind one trigger: routing table, shared setup, request format, cost gate, and failure handling, with a reference file per platform |
 
 ## Which skill do I want
 

@@ -229,6 +229,30 @@
       "credits": "1"
     },
     {
+      "dir": "scavio-chatgpt",
+      "slug": "chatgpt-scraper-api",
+      "name": "chatgpt-scraper-api",
+      "display": "ChatGPT Scraper API - Answers, Citations, AI Visibility",
+      "query": "chatgpt scraper api",
+      "reused": "no",
+      "platform": "ChatGPT",
+      "group": "Search",
+      "endpoints": "1",
+      "credits": "5"
+    },
+    {
+      "dir": "scavio-gemini",
+      "slug": "gemini-scraper-api",
+      "name": "gemini-scraper-api",
+      "display": "Gemini Scraper API - Answers, Citations, AI Visibility",
+      "query": "gemini scraper api",
+      "reused": "no",
+      "platform": "Gemini",
+      "group": "Search",
+      "endpoints": "1",
+      "credits": "5"
+    },
+    {
       "dir": "scavio-google-flights",
       "slug": "google-flights-api",
       "name": "google-flights-api",
@@ -768,6 +792,16 @@
       "dir": "scavio-google-ai-mode",
       "description": "Google AI Mode answers as structured JSON: the AI-generated response split into text blocks, the cited source references behind it, and shopping results on commercial queries. Localize by country and language. One endpoint on the v2 engine, 1 credit per request.",
       "tags": "google-ai-mode, google-ai-mode-api, ai-overview, generative-search, answer-engine, aeo, citations, seo, google-search, langchain, crewai, autogen, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-chatgpt",
+      "description": "ChatGPT scraper API for AI visibility: send a prompt, get the answer ChatGPT gives as JSON with every cited page (title, publisher, date), the web searches it ran and the products it recommended. Track brand mentions and citations in ChatGPT. 1 endpoint, 5 credits per answered prompt.",
+      "tags": "chatgpt, chatgpt-scraper, chatgpt-api, ai-visibility, geo, generative-engine-optimization, brand-monitoring, llm-citations, answer-engine, share-of-voice, langchain, crewai, autogen, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-gemini",
+      "description": "Gemini scraper API for AI visibility: send a prompt, get the answer Google Gemini gives as JSON with the URLs it cites and the products it recommended, in the same shape as the ChatGPT skill. Track brand mentions in Gemini. 1 endpoint, 5 credits per answered prompt.",
+      "tags": "gemini, gemini-scraper, google-gemini, ai-visibility, geo, generative-engine-optimization, brand-monitoring, llm-citations, answer-engine, share-of-voice, langchain, crewai, autogen, structured-data, json, ai-agents"
     },
     {
       "dir": "scavio-google-flights",
