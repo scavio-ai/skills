@@ -1,6 +1,6 @@
 ---
 name: mercadolibre-product-data
-description: "Mercado Libre product data API for Mexico, Brazil (Mercado Livre), Argentina and Colombia: search listings by keyword or seller with price, discount, installments, free shipping, Full and sponsored flags, pull one product with the buy-box seller, reputation, variations and star distribution, page reviews and buyer questions with seller answers, and get the top 20 best sellers in a category. 5 endpoints, 2 credits each, reviews 1."
+description: "Mercado Libre product data API for Mexico, Brazil (Mercado Livre), Argentina and Colombia: search listings by keyword or seller with price, discount, installments, brand, rating, review count, free shipping, Full and sponsored flags, pull one product with the buy-box seller, reputation, variations and star distribution, page reviews and buyer questions with seller answers, and get the top 20 best sellers in a category. 5 endpoints, 2 credits each, reviews 1."
 version: 1.0.0
 tags: mercado-libre, mercadolibre, mercado-livre, mercadolivre, mercado-libre-api, mercadolibre-api, mercado-livre-api, latam-ecommerce, mexico, brazil, argentina, colombia, product-data, product-search, price-monitoring, competitor-prices, seller-catalog, product-reviews, best-sellers, langchain, crewai, ai-agents, structured-data, json
 metadata:
@@ -63,7 +63,7 @@ Base URL: `https://api.scavio.dev`. Countries: Mexico (`mx`), Brazil (`br`, Merc
 
 | Endpoint | Credits | What it returns |
 |---|---|---|
-| `POST /api/v1/mercadolibre/search` | 2 per page | About 48 listings per page by keyword, seller id or seller nickname: price, original price, discount, installments, seller and official-store flag where shown, rating, units sold as a lower bound, free shipping and Full flags, sponsored flag, item, product and category ids, plus the filters Mercado Libre applied on its own |
+| `POST /api/v1/mercadolibre/search` | 2 per page | About 48 listings per page by keyword, seller id or seller nickname: price, original price, discount, installments, seller and official-store flag where shown, brand, rating, review count, units sold as a lower bound, free shipping and Full flags, sponsored flag, item, product and category ids, plus the filters Mercado Libre applied on its own |
 | `POST /api/v1/mercadolibre/product` | 2 | One catalog product or listing: price and original price, installments, promotions, the buy-box seller with reputation level and seller tier, stock, shipping, rating with its star distribution, variations with sibling product ids, specs, description, pictures, categories |
 | `POST /api/v1/mercadolibre/reviews` | 1 per page | 15 reviews per page with rating, text, the original text when Mercado Libre translated it, date, likes, the review's country and photos; optional star filter |
 | `POST /api/v1/mercadolibre/questions` | 2 per page | Buyer questions on a listing with the seller's answers and answer dates; page with `next_offset` |
@@ -210,11 +210,11 @@ catalogue = meli("search", {"country": "mx", "seller_id": str(product["seller"][
 Every response uses the envelope `{ data, response_time, credits_used, credits_remaining }`. Key `data` fields:
 
 - **search** - `country`, `site_id`, `query`, `seller_id`, `seller_nickname`, `page`, `page_size`, `total`, `total_pages`, `sort`, `category_id`, `category_path[]`, `applied_filters[]` and `auto_applied_filters[]` {`id`, `name`, `values[]` {`id`, `name`}, `auto_applied`}, `available_filters[]` {`id`, `name`, `values[]` {`id`, `name`, `results`}}, `count`, `results[]`.
-  A row: `position`, `sponsored`, `item_id`, `product_id`, `user_product_id`, `title`, `url`, `image`, `price`, `original_price`, `discount_percent`, `currency`, `installments` {`count`, `amount`, `interest_free`}, `seller` {`name`, `official_store`} or null, `brand`, `rating`, `sold_quantity_min`, `sold_label`, `condition`, `free_shipping`, `full_fulfillment`, `shipping_label`, `cross_border`, `cross_border_origin`, `highlight`, `promotions[]` {`type`, `text`}, `category_id`, `domain_id`.
+  A row: `position`, `sponsored`, `item_id`, `product_id`, `user_product_id`, `title`, `url`, `image`, `price`, `original_price`, `discount_percent`, `currency`, `installments` {`count`, `amount`, `interest_free`}, `seller` {`name`, `official_store`} or null, `brand`, `rating`, `review_count`, `sold_quantity_min`, `sold_label`, `condition`, `free_shipping`, `full_fulfillment`, `shipping_label`, `cross_border`, `cross_border_origin`, `highlight`, `promotions[]` {`type`, `text`}, `category_id`, `domain_id`.
 - **product** - `country`, `site_id`, `product_id`, `item_id`, `user_product_id`, `url`, `title`, `brand`, `condition`, `sold_quantity_min`, `sold_label`, `price`, `original_price`, `discount_percent`, `currency`, `installments` {`count`, `amount`, `total`, `interest_free`}, `promotions[]`, `rating` {`average`, `count`, `distribution` {`1`..`5`}, `with_comment`, `with_photos`, `with_videos`}, `seller` {`seller_id`, `name`, `nickname`, `reputation_level`, `power_seller_status`, `official_store_id`, `store_type`, `sales_label`}, `stock` {`available`, `available_label`}, `shipping` {`free_shipping`, `logistic_type`, `mode`}, `variations[]` {`attribute`, `options[]` {`value`, `product_id`, `selected`}}, `specs[]` {`name`, `value`}, `description`, `pictures[]`, `categories[]` {`name`, `url`}, `category_id`, `domain_id`, `best_seller_position`.
 - **reviews** - `country`, `site_id`, `product_id`, `item_id`, `rating`, `page`, `page_size`, `count`, `reviews[]` {`review_id`, `rating`, `text`, `original_text`, `translated`, `created_at`, `likes`, `site_id`, `country`, `reviewer_country`, `variant`, `media[]` {`type`, `url`}}.
 - **questions** - `country`, `site_id`, `item_id`, `resolved_from`, `offset`, `next_offset`, `count`, `questions[]` {`question_id`, `text`, `answer` {`text`, `date`} or null}.
-- **best-sellers** - `country`, `site_id`, `category_id`, `category_name`, `category_path[]` {`id`, `name`}, `count`, `results[]`: the search row fields with `rank` in place of `position`.
+- **best-sellers** - `country`, `site_id`, `category_id`, `category_name`, `category_path[]` {`id`, `name`}, `count`, `results[]`: the search row fields with `rank` in place of `position` and no `review_count`.
 
 A search row, trimmed (captured, `country: "mx"`, `query: "iphone 15"`):
 
@@ -226,13 +226,15 @@ A search row, trimmed (captured, `country: "mx"`, `query: "iphone 15"`):
   "product_id": "MLM1027172667",
   "title": "Apple iPhone 15 (128 GB) - Azul - Distribuidor Autorizado",
   "url": "https://www.mercadolibre.com.mx/apple-iphone-15-128-gb-azul-distribuidor-autorizado/p/MLM1027172667",
-  "price": 15690,
+  "price": 16096,
   "original_price": 16999,
-  "discount_percent": 7,
+  "discount_percent": 5,
   "currency": "MXN",
-  "installments": { "count": 12, "amount": 1307, "interest_free": true },
+  "installments": { "count": 15, "amount": 1073, "interest_free": true },
   "seller": { "name": "Apple", "official_store": true },
+  "brand": "Apple",
   "rating": 4.9,
+  "review_count": 1923,
   "sold_quantity_min": 1000,
   "free_shipping": true,
   "full_fulfillment": true,
@@ -326,6 +328,7 @@ A question with its answer (captured, `MLM3571336480`; there is no question date
 
 - **About 2,000 results per query.** Search serves 42 pages of about 48 rows. To reach more, slice by price range (`min_price` / `max_price`), condition or seller, and de-duplicate by `item_id`. Never claim to have pulled "every listing" when `total` is above what the pages cover.
 - **Units sold are ranges, not counts.** `sold_quantity_min` is a lower bound (`sold_label` "+1000 vendidos" means at least 1,000). Never present it as an exact sales figure or derive revenue from it as if it were exact.
+- **Brand and review count on search rows.** `brand` and `review_count` come from the product list the search page publishes, which covers organic rows; most sponsored rows, and Colombia beyond the top result, return `review_count: null`. Null means the page published no total, never zero; it happens on some rated listings too, and coverage varies by query. `review_count` is the total the search page shows, and for catalog products that pool reviews across countries it can be lower than the product endpoint's `rating.count`.
 - **Sort is relevance or price only.** There is no newest, best-selling or rating sort; use `/best-sellers` for the ranked top 20 in a category.
 - **Seller on search rows only where shown.** `seller` and `sold_label` are null on rows where Mercado Libre does not show them on the card. `/product` returns the buy-box seller only; the list of every seller offering a product is not available.
 - **Auto-applied filters.** Mercado Libre may narrow a query to a category, brand or line, and in Brazil and Argentina may apply a "new" condition on its own. Read `auto_applied_filters` and tell the user when it changed what was searched.

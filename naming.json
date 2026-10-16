@@ -870,7 +870,7 @@
     },
     {
       "dir": "scavio-mercadolibre",
-      "description": "Mercado Libre product data API for Mexico, Brazil (Mercado Livre), Argentina and Colombia: search listings by keyword or seller with price, discount, installments, free shipping, Full and sponsored flags, pull one product with the buy-box seller, reputation, variations and star distribution, page reviews and buyer questions with seller answers, and get the top 20 best sellers in a category. 5 endpoints, 2 credits each, reviews 1.",
+      "description": "Mercado Libre product data API for Mexico, Brazil (Mercado Livre), Argentina and Colombia: search listings by keyword or seller with price, discount, installments, brand, rating, review count, free shipping, Full and sponsored flags, pull one product with the buy-box seller, reputation, variations and star distribution, page reviews and buyer questions with seller answers, and get the top 20 best sellers in a category. 5 endpoints, 2 credits each, reviews 1.",
       "tags": "mercado-libre, mercadolibre, mercado-livre, mercadolivre, mercado-libre-api, mercadolibre-api, mercado-livre-api, latam-ecommerce, mexico, brazil, argentina, colombia, product-data, product-search, price-monitoring, competitor-prices, seller-catalog, product-reviews, best-sellers, langchain, crewai, ai-agents, structured-data, json"
     },
     {
