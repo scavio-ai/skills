@@ -94,7 +94,7 @@
       "platform": "Costco",
       "group": "Commerce",
       "endpoints": "13",
-      "credits": "1; multi-warehouse prices, stock and gas scale with warehouse count"
+      "credits": "1; US search, category, deals and clearance 2; multi-warehouse prices, stock and gas scale with warehouse count"
     },
     {
       "dir": "scavio-douyin",

@@ -51,7 +51,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 |---|---|---|---|
 | AliExpress | [aliexpress-product-data](references/aliexpress-product-data.md) | 6 | 1 |
 | Amazon | [amazon-product-data](references/amazon-product-data.md) | 3 | 1 |
-| Costco | [costco-product-data](references/costco-product-data.md) | 13 | 1; multi-warehouse prices, stock and gas scale with warehouse count |
+| Costco | [costco-product-data](references/costco-product-data.md) | 13 | 1; US search, category, deals and clearance 2; multi-warehouse prices, stock and gas scale with warehouse count |
 | eBay | [ebay-product-data](references/ebay-product-data.md) | 3 | 1 |
 | Etsy | [etsy-product-data](references/etsy-product-data.md) | 5 | 2 |
 | Google Shopping | [google-shopping-api](references/google-shopping-api.md) | 3 | 1 |
