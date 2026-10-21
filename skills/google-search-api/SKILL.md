@@ -65,6 +65,7 @@ Every request costs 1 credit.
 1. Send the user's query as `query`. Add `gl`/`hl` to localize by country and language.
 2. Page with `start` (0 = page 1, 10 = page 2, 20 = page 3, ...).
 3. Narrow recency with `time_period` when the user wants fresh results.
+   For organic rankings as seen from a city, send `location` with `web_only: true`. The standard page currently localizes only the local pack, and `web_only` returns organic results only (no local pack, ads, AI Overview or related questions).
 4. Read `organic_results` for the main links; check `ai_overview`, `knowledge_graph`, and `related_questions` for richer answers.
 5. Return results in a clear, structured response. Cite URLs.
 
@@ -78,7 +79,7 @@ Every request costs 1 credit.
 | `gl` | string | -- | Geo country, ISO 3166-1 alpha-2 (e.g. `us`, `gb`, `de`) |
 | `hl` | string | -- | UI language, ISO 639-1 (e.g. `en`, `fr`, `es`) |
 | `google_domain` | string | `google.com` | Regional Google domain |
-| `location` | string | -- | Canonical location name, auto-UULE (e.g. `New York,New York,United States`) |
+| `location` | string | -- | Canonical location name, auto-UULE (e.g. `New York,New York,United States`). Localizes the local pack; add `web_only` for localized organic results |
 | `uule` | string | -- | Pre-encoded UULE (takes priority over `location`) |
 | `lr` | string | -- | Language restrict (`lang_en`) |
 | `cr` | string | -- | Country restrict (`countryUS`) |
@@ -88,6 +89,7 @@ Every request costs 1 credit.
 | `time_period` | string | -- | `last_hour`, `last_day`, `last_week`, `last_month`, `last_year` |
 | `resolve_ai_overview` | boolean | `true` | Inline the full AI Overview when Google defers it; set `false` to skip the extra lookup |
 | `include_html` | boolean | `false` | Include raw Google HTML in the `html` field |
+| `web_only` | boolean | `false` | Google's Web results only: `organic_results` localized to `location`; no local pack, ads, related questions, knowledge graph or AI Overview |
 
 ## Example
 
