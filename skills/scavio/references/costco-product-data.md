@@ -245,7 +245,7 @@ for row in markdowns["results"]:
 
 ## Response shapes
 
-Every response uses the envelope `{ data, response_time, credits_used, credits_remaining }`. Key `data` fields:
+Every response uses the envelope `{ data, response_time, fetched_at, credits_used, credits_remaining }`. `fetched_at` is the ISO time the data was retrieved; nothing is cached, so it is the age of the data. Key `data` fields:
 
 - **search / category / deals** - `country`, `query`, `category`, `redirected_to_category`, `corrected_query`, `warehouse_id`, `total_results`, `page`, `page_size`, `total_pages`, `count`, `results[]`, `facets[]` (deals also `type`).
   A row: `position`, `product_id`, `item_number`, `title`, `brand`, `categories`, `url`, `image`, `rating`, `reviews_count`, `price`, `original_price`, `on_sale`, `currency`, `delivery_availability`, `promotions`, `member_only`, `buyable`, `fsa_eligible`, `sold_in_warehouse`, `max_order_quantity`, `program_types`, `first_listed`, `variants_count`, and with `warehouse_id` a `warehouse` object (`warehouse_id`, `price`, `availability`, `price_code` {`ending`, `meaning`}).

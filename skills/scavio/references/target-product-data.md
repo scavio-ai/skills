@@ -1,6 +1,6 @@
-# Target Product Data API - Search, Category, TCIN Detail, Reviews
+# Target Product Data API - Search, TCIN Detail, Reviews, Store Stock
 
-Search Target.com, the US retailer: browse a category, read a product by its TCIN, and pull reviews with the rating breakdown, per-attribute averages and guest photos. All endpoints return structured JSON and cost 1 credit each.
+Search Target.com, the US retailer: browse a category, read a product by its TCIN, pull reviews with the rating breakdown, per-attribute averages and guest photos, and check a product's in-store stock at every Target near a ZIP. All endpoints return structured JSON and cost 1 credit each.
 
 Target calls are slow. See the latency table below and set your client timeout accordingly.
 
@@ -11,6 +11,7 @@ Use this skill when the user asks to:
 - Browse the products in a Target category
 - Look up a Target product by TCIN (Target's catalog id)
 - Check a Target product's price at a specific store
+- Check whether a Target store has a product in stock, how many units, and whether it can be picked up
 - Read Target reviews, the star breakdown or per-attribute ratings for a product
 - Compare Target pricing against another retailer (pair with scavio-walmart, scavio-amazon or scavio-ebay)
 
@@ -52,6 +53,7 @@ Base URL: `https://api.scavio.dev`. Every endpoint costs **1 credit**.
 | `POST /api/v1/target/category` | 1 | ~37s | Products in a category, same shape as search plus the breadcrumb |
 | `POST /api/v1/target/product` | 1 | ~4s | Product detail by TCIN: price, rating, images, specifications, variants, return policy, fulfillment |
 | `POST /api/v1/target/reviews` | 1 | ~40s | Reviews with the rating breakdown, per-attribute averages and guest photos |
+| `POST /api/v1/target/availability` | 1 | ~3s | In-store stock at every Target near a ZIP: units available, in-store, pickup, curbside and ship-to-store status, store address and hours |
 
 Latency, not cost, is the thing to plan around. A `502`-then-retry has been observed taking 105 seconds. Set a client timeout of at least 120 seconds, and prefer async or background execution if the user is waiting on a response.
 
@@ -61,7 +63,8 @@ Latency, not cost, is the thing to plan around. A `502`-then-retry has been obse
 2. **Browse a category:** call `/target/category` with `category_id`, which is the segment after `N-` in a target.com `/c/` URL.
 3. **Read a product:** call `/target/product` with `tcin`.
 4. **Reviews:** call `/target/reviews` with the same `tcin`.
-5. **Store-specific prices:** pass `store_id` on any of the four endpoints. It defaults to `3991`. It sets the prices returned; no Target endpoint returns in-store stock or pickup availability.
+5. **Store-specific prices:** pass `store_id` on search, category, product or reviews. It defaults to `3991`. It sets the prices returned, not stock.
+6. **In-store stock:** call `/target/availability` with `tcin` and a US `zip`. Every Target store nearby comes back with units available and per-channel status. Add `store_id` to keep one store.
 
 `search` and `category` paginate with `page` plus `count`. `product` and `reviews` do not paginate.
 
@@ -104,6 +107,15 @@ A child TCIN is answered by its variation parent, with the child present in `var
 | `limit` | integer >= 1 | -- | TRIMS the returned bodies only. There is no paging |
 | `store_id` | string | `3991` | Numeric Target store id |
 
+### Availability (`/availability`)
+
+| Parameter | Type | Default | Description |
+|---|---|---|---|
+| `tcin` | string | required | Target catalog id |
+| `zip` | string | required | 5-digit US ZIP to search around |
+| `radius` | integer 1-100 | `25` | Miles. At most 20 stores come back |
+| `store_id` | string | -- | Return only this store. It must be within the radius |
+
 ## Examples
 
 ```python
@@ -132,16 +144,23 @@ product = requests.post(f"{BASE}/api/v1/target/product", headers=HEADERS, timeou
 # 4. Reviews (~40s). Returns 8 bodies maximum, whatever review_count says.
 reviews = requests.post(f"{BASE}/api/v1/target/reviews", headers=HEADERS, timeout=TIMEOUT,
     json={"tcin": "1010453160"}).json()
+
+# 5. In-store stock at every Target near a ZIP (~3s)
+stock = requests.post(f"{BASE}/api/v1/target/availability", headers=HEADERS, timeout=TIMEOUT,
+    json={"tcin": "85978609", "zip": "79407"}).json()
+for store in stock["data"]["stores"]:
+    print(store["name"], store["quantity"], store["in_store"], store["pickup"])
 ```
 
 ## Response
 
-Every response uses the envelope `{ data, response_time, credits_used, credits_remaining }`.
+Every response uses the envelope `{ data, response_time, fetched_at, credits_used, credits_remaining }`. `fetched_at` is the ISO time the data was retrieved; responses are never cached, so it is the age of the data.
 
 - **search** returns the product rows with prices, ratings, badges and promotions.
 - **category** returns the same row shape as search, plus the category breadcrumb.
 - **product** returns price, rating, images, specifications, variants, return policy and fulfillment. `store_id` echoes the store you requested; `price_location_id` is the store Target keys the price to, which is `3991` for nationally priced items whatever store you asked for. Fulfillment covers shipping and purchase limits, not in-store stock.
 - **reviews** returns the review bodies with the rating breakdown, per-attribute averages and guest photos.
+- **availability** returns `tcin`, `zip`, `radius`, `street_date`, `count` and `stores[]`. Each store has `store_id`, `name`, `distance_miles`, `quantity` (units Target can promise at that store), `in_store`, `pickup`, `pickup_date`, `curbside`, `ship_to_store`, `address`, `phone` and 7 days of `hours`. Status values: `in_stock`, `limited_stock`, `out_of_stock`, `not_sold_in_store`, `unavailable`.
 
 `seller_id` and `seller_name` are **null for first-party stock, which is most of Target**. Null there means "sold by Target", not missing data. Only Target Plus marketplace rows name a vendor, and how many of those appear varies enormously by query: in testing, 22 of 24 rows for "office chair" carried a vendor and 0 of 24 for "patio furniture" did.
 
@@ -153,7 +172,7 @@ Every response uses the envelope `{ data, response_time, credits_used, credits_r
 - A null `seller_id` / `seller_name` means the item is sold by Target itself. Do not report it as missing or unknown data.
 - `count` is capped at 28. Target rejects anything higher outright.
 - Concurrency, not credits, is the real ceiling. Simultaneous requests are capped per plan and shared across Target, eBay, Walmart, Amazon and Google -- 1 on free and pay-as-you-go, up to 50 on Growth -- and a single Target call can hold a slot for 40 seconds. Do not fan out dozens of Target calls in parallel.
-- Prices are store-dependent. If the user cares about a specific store, pass `store_id`; if you did not pass one, say the numbers are for the default store. Never claim an item is in stock at a Target store: the API does not return in-store stock.
+- Prices are store-dependent. If the user cares about a specific store, pass `store_id`; if you did not pass one, say the numbers are for the default store. Never claim an item is in stock at a Target store from search, category or product: only `/availability` returns in-store stock. `not_sold_in_store` means Target sells that item online only, not that it is sold out.
 - Always include the product URL so the user can verify.
 
 ## Failure handling
@@ -172,3 +191,4 @@ Every response uses the envelope `{ data, response_time, credits_used, credits_r
 - [Target category](https://scavio.dev/docs/target-category?utm_source=agent-skills&utm_medium=skill&utm_campaign=target-product-data)
 - [Target product](https://scavio.dev/docs/target-product?utm_source=agent-skills&utm_medium=skill&utm_campaign=target-product-data)
 - [Target reviews](https://scavio.dev/docs/target-reviews?utm_source=agent-skills&utm_medium=skill&utm_campaign=target-product-data)
+- [Target availability](https://scavio.dev/docs/target-availability?utm_source=agent-skills&utm_medium=skill&utm_campaign=target-product-data)

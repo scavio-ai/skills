@@ -57,7 +57,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Google Shopping | [google-shopping-api](references/google-shopping-api.md) | 3 | 1 |
 | Home Depot | [home-depot-product-data](references/home-depot-product-data.md) | 3 | 2 |
 | Mercado Libre | [mercadolibre-product-data](references/mercadolibre-product-data.md) | 5 | 2; reviews 1 |
-| Target | [target-product-data](references/target-product-data.md) | 4 | 1 |
+| Target | [target-product-data](references/target-product-data.md) | 5 | 1 |
 | TikTok Shop | [tiktok-shop-api](references/tiktok-shop-api.md) | 8 | 1 |
 | Walmart | [walmart-product-data](references/walmart-product-data.md) | 8 | 1; 2 for walmart.com.mx search/category or store-targeted search/product |
 

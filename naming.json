@@ -520,12 +520,12 @@
       "dir": "scavio-target",
       "slug": "target-product-data",
       "name": "target-product-data",
-      "display": "Target Product Data API - Search, Category, TCIN Detail, Reviews",
+      "display": "Target Product Data API - Search, TCIN Detail, Reviews, Store Stock",
       "query": "target.com product data",
       "reused": "yes",
       "platform": "Target",
       "group": "Commerce",
-      "endpoints": "4",
+      "endpoints": "5",
       "credits": "1"
     },
     {
@@ -915,8 +915,8 @@
     },
     {
       "dir": "scavio-target",
-      "description": "Target.com product data: keyword search, category browsing, product detail by TCIN with price, rating, images, specifications, variants and fulfillment, and reviews with the star breakdown and per-attribute averages. Store-aware pricing via store_id. 4 endpoints, 1 credit each, structured JSON.",
-      "tags": "target-product-data, target-com, retail, ecommerce, product-search, tcin, product-reviews, price-tracking, store-pricing, competitor-research, langchain, crewai, autogen, structured-data, json, ai-agents"
+      "description": "Target.com product data: keyword search, category browsing, product detail by TCIN with price, rating, images, specifications, variants and fulfillment, reviews with the star breakdown and per-attribute averages, and in-store stock at every Target near a ZIP with units available and pickup status. Store-aware pricing via store_id. 5 endpoints, 1 credit each, structured JSON.",
+      "tags": "target-product-data, target-com, retail, ecommerce, product-search, tcin, product-reviews, price-tracking, store-pricing, store-availability, in-store-stock, competitor-research, langchain, crewai, autogen, structured-data, json, ai-agents"
     },
     {
       "dir": "scavio-threads",

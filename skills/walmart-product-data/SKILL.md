@@ -221,10 +221,10 @@ ca_stores = requests.post(f"{BASE}/api/v1/walmart/stores", headers=HEADERS,
 
 ## Response
 
-Every response uses the envelope `{ data, response_time, credits_used, credits_remaining }`, plus an optional `warnings[]` array of strings when part of the request was ignored (a retired parameter, `zipcode` sent to search or product, or store parameters sent to an endpoint that does not take them).
+Every response uses the envelope `{ data, response_time, fetched_at, credits_used, credits_remaining }` (`fetched_at` is the ISO time the data was retrieved; nothing is cached), plus an optional `warnings[]` array of strings when part of the request was ignored (a retired parameter, `zipcode` sent to search or product, or store parameters sent to an endpoint that does not take them).
 
-- **search** puts the rows in `data.products[]` with `data.products_count`, and reports the Walmart store the results were served against in `data.location`. **category** returns the same product shape as search.
-- **product** returns price, rating, images, specifications, availability and seller. `seller_type` is `INTERNAL` for Walmart itself and `EXTERNAL` for a marketplace seller (`is_marketplace_seller`). On a store-targeted call, `fulfillment.pickup` is `true` only when that store has the item for pickup, and `fulfillment.pickup_information` carries Walmart's message (e.g. "Pickup not available at <store>").
+- **search** puts the rows in `data.products[]` with `data.products_count`, and reports the Walmart store the results were served against in `data.location`. Each row's `fulfillment.stock_source` is `store` (on the selected store's shelf), `fulfillment_center` or `marketplace`, and on a store-targeted search `fulfillment.aisle` gives the aisle in that store (e.g. `Z34`), null when the store has none on hand. **category** returns the same product shape as search.
+- **product** returns price, rating, images, specifications, availability and seller. `seller_type` is `INTERNAL` for Walmart itself and `EXTERNAL` for a marketplace seller (`is_marketplace_seller`). On a store-targeted call, `fulfillment.pickup` is `true` only when that store has the item for pickup, and `fulfillment.pickup_information` carries Walmart's message (e.g. "Pickup not available at <store>"). `fulfillment.aisle` is the aisle at that store when Walmart lists one, and `fulfillment.available_nearby` is Walmart's flag for stock at a nearby store.
 - **reviews** returns the review bodies with ratings, text, author and date, plus the rating breakdown.
 - **offers** returns price, seller, condition, `seller_type` / `is_marketplace_seller` and the buy-box flag.
 - **seller** returns store name, rating, review count, Pro Seller badge and business details.
@@ -260,7 +260,7 @@ New since 2.x: `/reviews`, `/category`, `/offers`, `/seller` and `/seller-produc
 - `domain` is accepted on `/search`, `/category` and `/stores`, and on `/product` only as `"ca"` together with a store target. The other id-keyed endpoints are US-only.
 - `delivery_zip` and `store_id` must be sent together, and only on `/search` and `/product`. One alone is a `400`. Get `store_id` from `/walmart/stores` on the same domain; a `store_id` that does not exist is a `400`. Store targeting works on walmart.com and walmart.ca, not walmart.com.mx.
 - `store_id` decides the store. Always read `data.location` to confirm which store the results came from, and tell the user.
-- For "is it on the shelf at this store", use a store-targeted call and read `fulfillment.pickup`. A marketplace offer (`seller_type: EXTERNAL`) fulfilled by Walmart ships from a fulfillment center and is not store stock, even when `fulfilled_by` is `Walmart`.
+- For "is it on the shelf at this store", use a store-targeted call and read `fulfillment.pickup`; on search rows also check `fulfillment.stock_source` is `store`. A marketplace offer (`seller_type: EXTERNAL`) fulfilled by Walmart ships from a fulfillment center and is not store stock, even when `fulfilled_by` is `Walmart`.
 - A store-targeted product can return `404` when that store does not carry the item, even if it exists elsewhere. Say so rather than retrying.
 - Store-targeted calls take 10-60 seconds. Use a client timeout of at least 120 seconds.
 - `limit` on `/category` trims the response after fetching. It does not reduce the credit cost.
