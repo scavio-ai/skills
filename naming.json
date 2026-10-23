@@ -916,7 +916,7 @@
     {
       "dir": "scavio-target",
       "description": "Target.com product data: keyword search, category browsing, product detail by TCIN with price, rating, images, specifications, variants and fulfillment, and reviews with the star breakdown and per-attribute averages. Store-aware pricing via store_id. 4 endpoints, 1 credit each, structured JSON.",
-      "tags": "target-product-data, target-com, retail, ecommerce, product-search, tcin, product-reviews, price-tracking, store-availability, competitor-research, langchain, crewai, autogen, structured-data, json, ai-agents"
+      "tags": "target-product-data, target-com, retail, ecommerce, product-search, tcin, product-reviews, price-tracking, store-pricing, competitor-research, langchain, crewai, autogen, structured-data, json, ai-agents"
     },
     {
       "dir": "scavio-threads",

@@ -10,7 +10,7 @@ Use this skill when the user asks to:
 - Search Target.com for products by keyword
 - Browse the products in a Target category
 - Look up a Target product by TCIN (Target's catalog id)
-- Check a Target product's price or availability at a specific store
+- Check a Target product's price at a specific store
 - Read Target reviews, the star breakdown or per-attribute ratings for a product
 - Compare Target pricing against another retailer (pair with scavio-walmart, scavio-amazon or scavio-ebay)
 
@@ -61,7 +61,7 @@ Latency, not cost, is the thing to plan around. A `502`-then-retry has been obse
 2. **Browse a category:** call `/target/category` with `category_id`, which is the segment after `N-` in a target.com `/c/` URL.
 3. **Read a product:** call `/target/product` with `tcin`.
 4. **Reviews:** call `/target/reviews` with the same `tcin`.
-5. **Store-specific prices:** pass `store_id` on any of the four endpoints. It defaults to `3991`. Unlike Walmart, this is a real request parameter here: prices and availability are the caller's choice.
+5. **Store-specific prices:** pass `store_id` on any of the four endpoints. It defaults to `3991`. It sets the prices returned; no Target endpoint returns in-store stock or pickup availability.
 
 `search` and `category` paginate with `page` plus `count`. `product` and `reviews` do not paginate.
 
@@ -75,7 +75,7 @@ Latency, not cost, is the thing to plan around. A `502`-then-retry has been obse
 | `page` | integer >= 1 | -- | Results page, 1-based |
 | `count` | integer 1-28 | `24` | Results per page. Target rejects anything above 28 outright |
 | `sort` | string | `relevance` | `relevance`, `featured`, `price_low`, `price_high`, `rating_high`, `best_seller`, `newest` |
-| `store_id` | string | `3991` | Numeric Target store id. Sets the store prices and availability are read against |
+| `store_id` | string | `3991` | Numeric Target store id. Sets the store prices are read against |
 
 ### Category (`/category`)
 
@@ -140,7 +140,7 @@ Every response uses the envelope `{ data, response_time, credits_used, credits_r
 
 - **search** returns the product rows with prices, ratings, badges and promotions.
 - **category** returns the same row shape as search, plus the category breadcrumb.
-- **product** returns price, rating, images, specifications, variants, return policy and fulfillment.
+- **product** returns price, rating, images, specifications, variants, return policy and fulfillment. `store_id` echoes the store you requested; `price_location_id` is the store Target keys the price to, which is `3991` for nationally priced items whatever store you asked for. Fulfillment covers shipping and purchase limits, not in-store stock.
 - **reviews** returns the review bodies with the rating breakdown, per-attribute averages and guest photos.
 
 `seller_id` and `seller_name` are **null for first-party stock, which is most of Target**. Null there means "sold by Target", not missing data. Only Target Plus marketplace rows name a vendor, and how many of those appear varies enormously by query: in testing, 22 of 24 rows for "office chair" carried a vendor and 0 of 24 for "patio furniture" did.
@@ -153,7 +153,7 @@ Every response uses the envelope `{ data, response_time, credits_used, credits_r
 - A null `seller_id` / `seller_name` means the item is sold by Target itself. Do not report it as missing or unknown data.
 - `count` is capped at 28. Target rejects anything higher outright.
 - Concurrency, not credits, is the real ceiling. Simultaneous requests are capped per plan and shared across Target, eBay, Walmart, Amazon and Google -- 1 on free and pay-as-you-go, up to 50 on Growth -- and a single Target call can hold a slot for 40 seconds. Do not fan out dozens of Target calls in parallel.
-- Prices and availability are store-dependent. If the user cares about a specific store, pass `store_id`; if you did not pass one, say the numbers are for the default store.
+- Prices are store-dependent. If the user cares about a specific store, pass `store_id`; if you did not pass one, say the numbers are for the default store. Never claim an item is in stock at a Target store: the API does not return in-store stock.
 - Always include the product URL so the user can verify.
 
 ## Failure handling
