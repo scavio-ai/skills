@@ -337,6 +337,18 @@
       "credits": "1"
     },
     {
+      "dir": "scavio-heb",
+      "slug": "heb-grocery-data",
+      "name": "heb-grocery-data",
+      "display": "HEB Grocery Data API - Search, Product Detail, Store Locator",
+      "query": "heb grocery data",
+      "reused": "no",
+      "platform": "HEB",
+      "group": "Commerce",
+      "endpoints": "3",
+      "credits": "2"
+    },
+    {
       "dir": "scavio-home-depot",
       "slug": "home-depot-product-data",
       "name": "home-depot-product-data",
@@ -383,6 +395,18 @@
       "group": "Social and video",
       "endpoints": "14",
       "credits": "1, 2, 10 or 40"
+    },
+    {
+      "dir": "scavio-kroger",
+      "slug": "kroger-grocery-data",
+      "name": "kroger-grocery-data",
+      "display": "Kroger Grocery Data API - Search, Product Detail, Multi-Banner",
+      "query": "kroger grocery data",
+      "reused": "no",
+      "platform": "Kroger",
+      "group": "Commerce",
+      "endpoints": "2",
+      "credits": "2"
     },
     {
       "dir": "scavio-linkedin",
@@ -839,6 +863,11 @@
       "tags": "google-trends, google-trends-api, search-trends, interest-over-time, trending-searches, keyword-research, market-research, demand-signals, seasonality, seo, agents, langchain, crewai, autogen, structured-data, json, ai-agents"
     },
     {
+      "dir": "scavio-heb",
+      "description": "HEB grocery data API: product search with price, unit price, rating and availability, full item detail with nutrition facts and ingredients, and store locator for HEB and Central Market locations. 3 endpoints, 2 credits each.",
+      "tags": "heb, heb-api, heb-grocery-data, grocery, grocery-prices, texas-grocery, product-data, product-search, retail, store-locator, nutrition, price-monitoring, catalog-enrichment, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
       "dir": "scavio-home-depot",
       "description": "Home Depot product data: keyword search returning price, promotions, brand, model, ratings and per-store pickup and delivery; full item detail with spec table, dimensions, documents and return policy; and paginated review bodies with rating distribution. 3 endpoints, 2 credits each, structured JSON.",
       "tags": "home-depot, home-depot-api, home-depot-product-data, product-data, product-search, retail, home-improvement, hardware, pricing, product-reviews, price-monitoring, catalog-enrichment, web-scraping, langchain, crewai, ai-agents, structured-data, json"
@@ -857,6 +886,11 @@
       "dir": "scavio-kuaishou",
       "description": "Kuaishou (China) public data: creator profiles, posts, live status, single and batched videos, comment threads and replies, hashtag feeds, leaderboards, and video, user, live and mixed search. 14 endpoints at 1, 2, 10 or 40 credits each. Kuaishou.com only - Kwai international is not covered.",
       "tags": "kuaishou, kuaishou-api, kuaishou-scraper, china, chinese-social-media, short-video, creator-data, video-data, comments, live-streaming, trending, social-listening, langchain, crewai, autogen, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-kroger",
+      "description": "Kroger grocery data API: product search with price, unit price, rating and availability, and full item detail with nutrition facts and ingredients across Kroger, Ralphs, Fred Meyer, Harris Teeter, King Soopers and Fry's. 2 endpoints, 2 credits each.",
+      "tags": "kroger, kroger-api, kroger-grocery-data, grocery, grocery-prices, ralphs, fred-meyer, harris-teeter, king-soopers, frys, product-data, product-search, retail, nutrition, price-monitoring, catalog-enrichment, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-linkedin",
