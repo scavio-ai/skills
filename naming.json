@@ -97,6 +97,18 @@
       "credits": "1; US search, category, deals and clearance 2; multi-warehouse prices, stock and gas scale with warehouse count"
     },
     {
+      "dir": "scavio-decathlon",
+      "slug": "decathlon-product-data",
+      "name": "decathlon-product-data",
+      "display": "Decathlon Product Data API - Search, Pricing, 7 Countries",
+      "query": "decathlon product data",
+      "reused": "no",
+      "platform": "Decathlon",
+      "group": "Commerce",
+      "endpoints": "2",
+      "credits": "2"
+    },
+    {
       "dir": "scavio-douyin",
       "slug": "douyin-scraper-api",
       "name": "douyin-scraper-api",
@@ -761,6 +773,11 @@
       "dir": "scavio-costco",
       "description": "Costco product data API: search and category listings with per-warehouse shelf price and stock, full item detail for up to 20 items, online vs in-warehouse prices at up to 10 warehouses with promotion dates, warehouse stock status, gas prices, the member coupon book, deal feeds, a clearance finder and reviews. 13 endpoints, mostly 1 credit each.",
       "tags": "costco, costco-api, costco-product-data, product-data, product-search, retail, warehouse-club, warehouse-prices, gas-prices, coupons, clearance, pricing, product-reviews, price-monitoring, catalog-enrichment, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-decathlon",
+      "description": "Decathlon product data API: product search with price, rating, availability and images, and full item detail with variants, SKU, GTIN, breadcrumbs and category across 7 country domains (FR, ES, IT, IN, UK, PT, international). 2 endpoints, 2 credits each.",
+      "tags": "decathlon, decathlon-api, decathlon-product-data, sporting-goods, sports-equipment, product-search, product-data, retail, price-monitoring, catalog-enrichment, europe, france, spain, italy, india, uk, portugal, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-douyin",
