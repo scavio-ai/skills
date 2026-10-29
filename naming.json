@@ -370,7 +370,7 @@
       "platform": "Total Wine",
       "group": "Commerce",
       "endpoints": "3",
-      "credits": "2"
+      "credits": "10"
     },
     {
       "dir": "scavio-specs",
@@ -382,7 +382,7 @@
       "platform": "Spec's",
       "group": "Commerce",
       "endpoints": "3",
-      "credits": "1"
+      "credits": "5"
     },
     {
       "dir": "scavio-home-depot",
@@ -910,12 +910,12 @@
     },
     {
       "dir": "scavio-totalwine",
-      "description": "Total Wine product data API: search Total Wine & More at the store you choose with that store's price, units in stock, purchase limit and aisle, full product detail with bay, shelf and restock date, and a store locator. 3 endpoints, 2 credits each.",
+      "description": "Total Wine product data API: search Total Wine & More at the store you choose with that store's price, units in stock, purchase limit and aisle, full product detail with bay, shelf and restock date, and a store locator. 3 endpoints, 10 credits each.",
       "tags": "total-wine, total-wine-api, total-wine-product-data, liquor, wine, beer, spirits, liquor-prices, store-prices, inventory, product-search, product-data, store-locator, retail, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-specs",
-      "description": "Spec's liquor prices API: search Spec's Wines, Spirits & Finer Foods in Texas, get a product's price and stock at every Spec's store in one call, and list stores by region. 3 endpoints, 1 credit each.",
+      "description": "Spec's liquor prices API: search Spec's Wines, Spirits & Finer Foods in Texas, get a product's price and stock at every Spec's store in one call, and list stores by region. 3 endpoints, 5 credits each.",
       "tags": "specs, specs-liquor, specs-api, specs-liquor-prices, liquor, wine, beer, spirits, texas, liquor-prices, store-prices, product-search, product-data, store-locator, retail, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
     },
     {

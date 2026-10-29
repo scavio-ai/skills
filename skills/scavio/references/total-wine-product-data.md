@@ -27,7 +27,7 @@ call below. The whole path from nothing to a working key is self-serve:
 
 1. Sign up at [dashboard.scavio.dev](https://dashboard.scavio.dev/sign-up?utm_source=agent-skills&utm_medium=skill&utm_campaign=total-wine-product-data) - email or Google, no card required.
 2. A key is created for the account automatically at signup. It is on the dashboard under API Keys, ready to copy.
-3. A new account starts with 50 credits. Every endpoint in this skill costs 2 credits.
+3. A new account starts with 50 credits. Every endpoint in this skill costs 10 credits.
 
 When the balance runs out the API answers `402` with a JSON body carrying
 `billing_url`. Topping up needs no code change - the same key keeps working.
@@ -40,13 +40,13 @@ Authorization: Bearer $SCAVIO_API_KEY
 
 ## Endpoints
 
-Base URL: `https://api.scavio.dev`. All Total Wine endpoints cost **2 credits**.
+Base URL: `https://api.scavio.dev`. All Total Wine endpoints cost **10 credits**.
 
 | Endpoint | Credits | What it returns |
 |---|---|---|
-| `POST /api/v1/totalwine/stores` | 2 | Stores near a ZIP or city, nearest first: `store_id`, address, phone, coordinates, distance in miles |
-| `POST /api/v1/totalwine/search` | 2 | Search at one store: price (cents), units in stock, purchase limit, aisle, size, rating, pickup/delivery/shipping. `store_id` required |
-| `POST /api/v1/totalwine/product` | 2 | One product at one store: price, units in stock, aisle, bay, shelf, last restock date, ABV, taste profile. `store_id` required |
+| `POST /api/v1/totalwine/stores` | 10 | Stores near a ZIP or city, nearest first: `store_id`, address, phone, coordinates, distance in miles |
+| `POST /api/v1/totalwine/search` | 10 | Search at one store: price (cents), units in stock, purchase limit, aisle, size, rating, pickup/delivery/shipping. `store_id` required |
+| `POST /api/v1/totalwine/product` | 10 | One product at one store: price, units in stock, aisle, bay, shelf, last restock date, ABV, taste profile. `store_id` required |
 
 ## Workflow
 
@@ -134,7 +134,7 @@ Captured response (store 503, San Antonio Del Norte; trimmed to one product):
     ]
   },
   "response_time": 11108,
-  "credits_used": 2
+  "credits_used": 10
 }
 ```
 
@@ -193,8 +193,8 @@ Every response uses the envelope `{ data, response_time, fetched_at, credits_use
 ## SDKs
 
 ```bash
-pip install scavio==0.29.0
-npm install scavio@0.29.0
+pip install scavio==0.29.1
+npm install scavio@0.29.1
 ```
 
 ```js
@@ -214,7 +214,7 @@ MCP: the Scavio MCP server exposes all 3 endpoints as tools (`search_totalwine`,
   "mcpServers": {
     "scavio": {
       "command": "npx",
-      "args": ["-y", "@scavio/mcp-server@0.27.0"],
+      "args": ["-y", "@scavio/mcp-server@0.27.1"],
       "env": {
         "SCAVIO_API_KEY": "sk_live_your_key",
         "SCAVIO_PLATFORMS": "default,totalwine"

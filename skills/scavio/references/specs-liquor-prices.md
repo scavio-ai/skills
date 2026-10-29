@@ -26,7 +26,7 @@ call below. The whole path from nothing to a working key is self-serve:
 
 1. Sign up at [dashboard.scavio.dev](https://dashboard.scavio.dev/sign-up?utm_source=agent-skills&utm_medium=skill&utm_campaign=specs-liquor-prices) - email or Google, no card required.
 2. A key is created for the account automatically at signup. It is on the dashboard under API Keys, ready to copy.
-3. A new account starts with 50 credits. Every endpoint in this skill costs 1 credit.
+3. A new account starts with 50 credits. Every endpoint in this skill costs 5 credits.
 
 When the balance runs out the API answers `402` with a JSON body carrying
 `billing_url`. Topping up needs no code change - the same key keeps working.
@@ -39,13 +39,13 @@ Authorization: Bearer $SCAVIO_API_KEY
 
 ## Endpoints
 
-Base URL: `https://api.scavio.dev`. All Spec's endpoints cost **1 credit**.
+Base URL: `https://api.scavio.dev`. All Spec's endpoints cost **5 credits**.
 
 | Endpoint | Credits | What it returns |
 |---|---|---|
-| `POST /api/v1/specs/search` | 1 | Search results with the online price (cents), case price and quantity, promo and Keyclub flags, stock, size, SKU, UPC and `slug` |
-| `POST /api/v1/specs/product` | 1 | One product with `store_prices[]` (every store's price and stock, about 200 stores), the online price, ABV, origin and tasting notes. Optional `store_id` |
-| `POST /api/v1/specs/stores` | 1 | Stores in a region: `store_id`, name, status, address, phone, coordinates, hours |
+| `POST /api/v1/specs/search` | 5 | Search results with the online price (cents), case price and quantity, promo and Keyclub flags, stock, size, SKU, UPC and `slug` |
+| `POST /api/v1/specs/product` | 5 | One product with `store_prices[]` (every store's price and stock, about 200 stores), the online price, ABV, origin and tasting notes. Optional `store_id` |
+| `POST /api/v1/specs/stores` | 5 | Stores in a region: `store_id`, name, status, address, phone, coordinates, hours |
 
 ## Workflow
 
@@ -63,7 +63,7 @@ Search returns the online price only. Store prices differ, so use the product ca
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | `query` | string | required | Keywords (1-200 chars) |
-| `page` | integer | 1 | 1-based page, 24 results per page |
+| `page` | integer | 5 | 1-based page, 24 results per page |
 
 ### Product (`/product`)
 
@@ -141,7 +141,7 @@ Captured response (store 169, Stone Oak; trimmed to 2 of 195 store_prices entrie
     ]
   },
   "response_time": 29059,
-  "credits_used": 1
+  "credits_used": 5
 }
 ```
 
@@ -202,8 +202,8 @@ Every response uses the envelope `{ data, response_time, fetched_at, credits_use
 ## SDKs
 
 ```bash
-pip install scavio==0.29.0
-npm install scavio@0.29.0
+pip install scavio==0.29.1
+npm install scavio@0.29.1
 ```
 
 ```js
@@ -222,7 +222,7 @@ MCP: the Scavio MCP server exposes all 3 endpoints as tools (`search_specs`, `ge
   "mcpServers": {
     "scavio": {
       "command": "npx",
-      "args": ["-y", "@scavio/mcp-server@0.27.0"],
+      "args": ["-y", "@scavio/mcp-server@0.27.1"],
       "env": {
         "SCAVIO_API_KEY": "sk_live_your_key",
         "SCAVIO_PLATFORMS": "default,specs"

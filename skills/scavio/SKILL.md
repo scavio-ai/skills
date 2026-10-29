@@ -60,10 +60,10 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Home Depot | [home-depot-product-data](references/home-depot-product-data.md) | 3 | 2 |
 | Kroger | [kroger-grocery-data](references/kroger-grocery-data.md) | 2 | 2 |
 | Mercado Libre | [mercadolibre-product-data](references/mercadolibre-product-data.md) | 5 | 2; reviews 1 |
-| Spec's | [specs-liquor-prices](references/specs-liquor-prices.md) | 3 | 1 |
+| Spec's | [specs-liquor-prices](references/specs-liquor-prices.md) | 3 | 5 |
 | Target | [target-product-data](references/target-product-data.md) | 5 | 1 |
 | TikTok Shop | [tiktok-shop-api](references/tiktok-shop-api.md) | 8 | 1 |
-| Total Wine | [total-wine-product-data](references/total-wine-product-data.md) | 3 | 2 |
+| Total Wine | [total-wine-product-data](references/total-wine-product-data.md) | 3 | 10 |
 | Walmart | [walmart-product-data](references/walmart-product-data.md) | 8 | 1; 2 for walmart.com.mx search/category or store-targeted search/product |
 
 **Social and video**
