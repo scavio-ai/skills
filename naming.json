@@ -361,6 +361,30 @@
       "credits": "2"
     },
     {
+      "dir": "scavio-totalwine",
+      "slug": "total-wine-product-data",
+      "name": "total-wine-product-data",
+      "display": "Total Wine Product Data API - Store Prices, Stock, Store Locator",
+      "query": "total wine product data",
+      "reused": "no",
+      "platform": "Total Wine",
+      "group": "Commerce",
+      "endpoints": "3",
+      "credits": "2"
+    },
+    {
+      "dir": "scavio-specs",
+      "slug": "specs-liquor-prices",
+      "name": "specs-liquor-prices",
+      "display": "Spec's Liquor Prices API - Every Texas Store, Search, Store Locator",
+      "query": "specs liquor prices",
+      "reused": "no",
+      "platform": "Spec's",
+      "group": "Commerce",
+      "endpoints": "3",
+      "credits": "1"
+    },
+    {
       "dir": "scavio-home-depot",
       "slug": "home-depot-product-data",
       "name": "home-depot-product-data",
@@ -883,6 +907,16 @@
       "dir": "scavio-heb",
       "description": "HEB grocery data API: product search with price, unit price, rating and availability, full item detail with nutrition facts and ingredients, and store locator for HEB and Central Market locations. 3 endpoints, 2 credits each.",
       "tags": "heb, heb-api, heb-grocery-data, grocery, grocery-prices, texas-grocery, product-data, product-search, retail, store-locator, nutrition, price-monitoring, catalog-enrichment, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-totalwine",
+      "description": "Total Wine product data API: search Total Wine & More at the store you choose with that store's price, units in stock, purchase limit and aisle, full product detail with bay, shelf and restock date, and a store locator. 3 endpoints, 2 credits each.",
+      "tags": "total-wine, total-wine-api, total-wine-product-data, liquor, wine, beer, spirits, liquor-prices, store-prices, inventory, product-search, product-data, store-locator, retail, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-specs",
+      "description": "Spec's liquor prices API: search Spec's Wines, Spirits & Finer Foods in Texas, get a product's price and stock at every Spec's store in one call, and list stores by region. 3 endpoints, 1 credit each.",
+      "tags": "specs, specs-liquor, specs-api, specs-liquor-prices, liquor, wine, beer, spirits, texas, liquor-prices, store-prices, product-search, product-data, store-locator, retail, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-home-depot",

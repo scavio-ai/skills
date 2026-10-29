@@ -92,6 +92,8 @@ Get the key at [scavio.dev](https://scavio.dev). The free tier is 50 credits on 
 | `heb-grocery-data` | Search, product detail with ingredients and nutrition, and store locator, with per-store prices, stock and aisle via `store_id` |
 | `kroger-grocery-data` | Kroger-family grocery search and product detail |
 | `decathlon-product-data` | Decathlon sporting-goods search and product detail across country sites |
+| `total-wine-product-data` | Total Wine & More search and product detail at the store you choose (price, units in stock, aisle), plus a store locator |
+| `specs-liquor-prices` | Spec's (Texas) search, every store's price and stock for a product in one call, and a store locator by region |
 | `mercadolibre-product-data` | Mercado Libre and Mercado Livre search by keyword or seller, product detail with the buy-box seller, reviews, buyer questions, and best sellers (MX, BR, AR, CO) |
 | `google-shopping-api` | Product search with price filters, product detail, and every store selling it |
 | `aliexpress-product-data` | Search, category browse, product with every SKU variant, translated reviews, and seller storefronts |
@@ -186,7 +188,7 @@ Get the key at [scavio.dev](https://scavio.dev). The free tier is 50 credits on 
 
 ## Which skill do I want
 
-**I need prices for a product across retailers.** Start with `google-shopping-api` for the cross-merchant view, then go per retailer: `amazon-product-data` for ASIN detail and offers, `walmart-product-data`, `target-product-data`, `home-depot-product-data`, `costco-product-data`, `heb-grocery-data` and `kroger-grocery-data` for groceries, `decathlon-product-data`, `aliexpress-product-data`, and `mercadolibre-product-data` for Mexico, Brazil, Argentina and Colombia. For resale and used comps, `ebay-product-data` searches sold listings. For handmade and vintage, `etsy-product-data`.
+**I need prices for a product across retailers.** Start with `google-shopping-api` for the cross-merchant view, then go per retailer: `amazon-product-data` for ASIN detail and offers, `walmart-product-data`, `target-product-data`, `home-depot-product-data`, `costco-product-data`, `heb-grocery-data` and `kroger-grocery-data` for groceries, `total-wine-product-data` and `specs-liquor-prices` for liquor, wine and beer, `decathlon-product-data`, `aliexpress-product-data`, and `mercadolibre-product-data` for Mexico, Brazil, Argentina and Colombia. For resale and used comps, `ebay-product-data` searches sold listings. For handmade and vintage, `etsy-product-data`.
 
 **I need a lead list of local businesses.** `google-maps-api` gives places, addresses, phone numbers, hours, and coordinates for a query and map center. `yelp-business-data` adds price band, amenities, and review text for the same kind of venue. `trustpilot-reviews-api` ranks online businesses in a category by star rating, with the website and the email and phone they published. `tripadvisor-reviews-api` covers restaurants, hotels, and attractions ranked within a geo.
 
