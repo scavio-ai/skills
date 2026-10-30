@@ -202,7 +202,7 @@
       "platform": "Glassdoor",
       "group": "Jobs and reviews",
       "endpoints": "4",
-      "credits": "1"
+      "credits": "2"
     },
     {
       "dir": "scavio-google",
@@ -828,7 +828,7 @@
     },
     {
       "dir": "scavio-glassdoor",
-      "description": "Glassdoor salary data API: resolve a company name to an employer id, then pull salary percentiles P10-P90 for base and total pay by job title, the employer profile with per-category ratings, star distribution and CEO approval, and up to three full reviews with pros, cons and employer response. 4 endpoints, 1 credit each.",
+      "description": "Glassdoor salary data API: resolve a company name to an employer id, then pull salary percentiles P10-P90 for base and total pay by job title, the employer profile with per-category ratings, star distribution and CEO approval, and up to three full reviews with pros, cons and employer response. 4 endpoints, 2 credits each.",
       "tags": "glassdoor, glassdoor-salaries, salary-data, compensation, salary-benchmarking, employer-reviews, company-reviews, ceo-approval, employer-brand, recruiting, hr-tech, talent-intelligence, agents, scraping-api, structured-data, json, ai-agents"
     },
     {

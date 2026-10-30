@@ -99,7 +99,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 |---|---|---|---|
 | Capterra | [capterra-reviews-api](references/capterra-reviews-api.md) | 3 | 2 |
 | G2 | [g2-software-reviews-api](references/g2-software-reviews-api.md) | 3 | 5 |
-| Glassdoor | [glassdoor-salary-data](references/glassdoor-salary-data.md) | 4 | 1 |
+| Glassdoor | [glassdoor-salary-data](references/glassdoor-salary-data.md) | 4 | 2 |
 | Indeed | [indeed-jobs-api](references/indeed-jobs-api.md) | 4 | 2 |
 | Trustpilot | [trustpilot-reviews-api](references/trustpilot-reviews-api.md) | 6 | 2 |
 | Yelp | [yelp-business-data](references/yelp-business-data.md) | 3 | 2 |

@@ -1,6 +1,6 @@
 ---
 name: glassdoor-salary-data
-description: "Glassdoor salary data API: resolve a company name to an employer id, then pull salary percentiles P10-P90 for base and total pay by job title, the employer profile with per-category ratings, star distribution and CEO approval, and up to three full reviews with pros, cons and employer response. 4 endpoints, 1 credit each."
+description: "Glassdoor salary data API: resolve a company name to an employer id, then pull salary percentiles P10-P90 for base and total pay by job title, the employer profile with per-category ratings, star distribution and CEO approval, and up to three full reviews with pros, cons and employer response. 4 endpoints, 2 credits each."
 version: 1.0.0
 tags: glassdoor, glassdoor-salaries, salary-data, compensation, salary-benchmarking, employer-reviews, company-reviews, ceo-approval, employer-brand, recruiting, hr-tech, talent-intelligence, agents, scraping-api, structured-data, json, ai-agents
 metadata:
@@ -28,7 +28,7 @@ Use this skill when the user asks to:
 - Benchmark compensation or employer brand across companies
 - Turn a company NAME into the employer id Glassdoor's URLs use
 
-Note: Glassdoor is the slowest surface on this API. A profile call runs 3-47 seconds, reviews around 75, salaries around 41, and a call that ultimately fails can take up to ~170 seconds before it reports a 502. Set a client timeout of at least 180 seconds and expect the occasional retry.
+Note: a Glassdoor call usually answers in a few seconds, but a call that ultimately fails can take up to two minutes before it reports a 502, and reviews or salaries addressed by `employer_id` make an extra lookup first. Keep a client timeout of 180 seconds and expect the occasional retry.
 
 ## Setup
 
@@ -45,7 +45,7 @@ call below. The whole path from nothing to a working key is self-serve:
 
 1. Sign up at [dashboard.scavio.dev](https://dashboard.scavio.dev/sign-up?utm_source=agent-skills&utm_medium=skill&utm_campaign=glassdoor-salary-data) - email or Google, no card required.
 2. A key is created for the account automatically at signup. It is on the dashboard under API Keys, ready to copy.
-3. A new account starts with 50 credits. Endpoints in this skill cost 1 credit each unless the table below says otherwise.
+3. A new account starts with 50 credits. Endpoints in this skill cost 2 credits each.
 
 When the balance runs out the API answers `402` with a JSON body carrying
 `billing_url`. Topping up needs no code change - the same key keeps working.
@@ -60,14 +60,14 @@ Authorization: Bearer $SCAVIO_API_KEY
 
 ## Endpoints
 
-Base URL: `https://api.scavio.dev`. Every Glassdoor endpoint costs **1 credit**.
+Base URL: `https://api.scavio.dev`. Every Glassdoor endpoint costs **2 credits**.
 
 | Endpoint | Credits | What it returns |
 |---|---|---|
-| `POST /api/v1/glassdoor/companies` | 1 | **START HERE.** Search Glassdoor for a company by name and resolve it to an `employer_id` |
-| `POST /api/v1/glassdoor/company` | 1 | Employer profile: description, mission, industry, sector, HQ, size and revenue bands, stock symbol, year founded, overall and per-category ratings, star distribution, CEO approval, awards, FAQ, five server-rendered reviews, **plus `reviews_url` / `salaries_url`** |
-| `POST /api/v1/glassdoor/reviews` | 1 | Up to **three** full reviews with per-axis scores, pros, cons, advice, job title, location, employment status and employer response - plus complete rating statistics, star distribution, aggregate pro/con highlight terms and per-job-title review counts |
-| `POST /api/v1/glassdoor/salaries` | 1 | Salaries by job title, 10 per page: base-pay and total-pay percentiles P10-P90 with medians, sample counts, currency, pay period, last-reported date |
+| `POST /api/v1/glassdoor/companies` | 2 | **START HERE.** Search Glassdoor for a company by name and resolve it to an `employer_id` |
+| `POST /api/v1/glassdoor/company` | 2 | Employer profile: description, mission, industry, sector, HQ, size and revenue bands, stock symbol, year founded, overall and per-category ratings, star distribution, CEO approval, awards, FAQ, five server-rendered reviews, **plus `reviews_url` / `salaries_url`** |
+| `POST /api/v1/glassdoor/reviews` | 2 | Up to **three** full reviews with per-axis scores, pros, cons, advice, job title, location, employment status and employer response - plus complete rating statistics, star distribution, aggregate pro/con highlight terms and per-job-title review counts |
+| `POST /api/v1/glassdoor/salaries` | 2 | Salaries by job title, 10 per page: base-pay and total-pay percentiles P10-P90 with medians, sample counts, currency, pay period, last-reported date |
 
 ## Workflow
 
@@ -136,7 +136,7 @@ BASE = "https://api.scavio.dev"
 # store in real code - keep it out of source control.
 API_KEY = "sk_your_key_here"
 HEADERS = {"Authorization": f"Bearer {API_KEY}"}
-TIMEOUT = 180          # Glassdoor is slow - do not use a short client timeout
+TIMEOUT = 180          # a failing Glassdoor call can take two minutes to report
 
 # 1. ALWAYS START HERE - a name is not an employer id
 hits = requests.post(f"{BASE}/api/v1/glassdoor/companies", headers=HEADERS,
@@ -200,17 +200,17 @@ Every response uses the envelope `{ data, response_time, credits_used, credits_r
       }
     ]
   },
-  "credits_used": 1,
+  "credits_used": 2,
   "credits_remaining": 999
 }
 ```
 
 ## Guardrails
 
-- Every call is **1 credit**, including one that comes back empty or times out into a 502.
+- Every call that returns data is **2 credits**, including an empty result. Most 502s are not charged.
 - **Reviews are capped at three per response.** Never promise, imply or attempt a full review dump, and never invent a `page` parameter for `/reviews`. Report the cap, and use `filtered_review_count` / `total_review_count` to give the user the scale of what exists.
 - Three reviews are not a sample you can generalise from. Use the aggregate blocks - `rating_distribution`, `ratings`, `highlights`, `reviews_by_job_title` - for anything sentiment-shaped, and quote the individual reviews as anecdotes.
-- Chain `reviews_url` / `salaries_url` from `/company` whenever you already have them. Same price, half the work, materially faster on a slow surface.
+- Chain `reviews_url` / `salaries_url` from `/company` whenever you already have them. Same price, half the work, and faster.
 - `employer_id` must be a string. Send `"1699"`, not `1699`.
 - Never send `company` on its own expecting it to address an employer - it is cosmetic and the request is rejected without `employer_id` or `url`.
 - Salary figures are **Glassdoor's estimates for the job title**, not individual reported salaries. Say so whenever you quote one, along with `pay_period` and `currency`.
@@ -223,7 +223,7 @@ Every response uses the envelope `{ data, response_time, credits_used, credits_r
 - `401` means the API key is invalid or missing. Check `SCAVIO_API_KEY`.
 - `404` means the employer id or URL does not resolve. Re-run `/companies` rather than guessing another id.
 - `429` means rate or usage limit exceeded. Wait before retrying. See [rate limits](https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=glassdoor-salary-data).
-- `502` / `503` mean upstream is temporarily unavailable. **This is the common failure here** - a failing call can take ~170 seconds before it reports. Retry once or twice with a short pause; do not hammer it, and do not shorten the client timeout to "fail faster" - you will abandon calls that were about to succeed.
+- `502` / `503` mean upstream is temporarily unavailable. A failing call can take up to two minutes before it reports. Retry once or twice with a short pause; do not hammer it, and do not shorten the client timeout to "fail faster" - you will abandon calls that were about to succeed.
 - If `/companies` returns nothing useful, try the legal entity name or a shorter form of the brand.
 - If `SCAVIO_API_KEY` is not set, prompt the user to export it before continuing.
 
