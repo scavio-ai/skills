@@ -19,7 +19,7 @@
 
 ## Overview
 
-[Scavio](https://scavio.dev) is a unified web data API: one key, 60 platforms, structured JSON instead of HTML. This repo holds 62 Agent Skills: one per platform, a website crawler skill, plus `scavio`, an umbrella that covers all of them from a single install. A skill teaches your agent which Scavio endpoints exist for a platform, what parameters they take, what the response looks like, and what each call costs in credits, so the agent can call the API correctly without you writing an integration. Every skill is in the open Agent Skills format and loads in Claude Code, Cursor, Codex, OpenCode, Goose, OpenHands, Hermes Agent, OpenClaw, and any other client that reads the format.
+[Scavio](https://scavio.dev) is a unified web data API: one key, 60 platforms, structured JSON instead of HTML. This repo holds 63 Agent Skills: one per platform, a website crawler skill, plus `scavio`, an umbrella that covers all of them from a single install. A skill teaches your agent which Scavio endpoints exist for a platform, what parameters they take, what the response looks like, and what each call costs in credits, so the agent can call the API correctly without you writing an integration. Every skill is in the open Agent Skills format and loads in Claude Code, Cursor, Codex, OpenCode, Goose, OpenHands, Hermes Agent, OpenClaw, and any other client that reads the format.
 
 ## Install
 
@@ -92,7 +92,6 @@ Get the key at [scavio.dev](https://scavio.dev). The free tier is 50 credits on 
 | `heb-grocery-data` | Search, product detail with ingredients and nutrition, and store locator, with per-store prices, stock and aisle via `store_id` |
 | `kroger-grocery-data` | Kroger-family grocery search and product detail |
 | `decathlon-product-data` | Decathlon sporting-goods search and product detail across country sites |
-| `total-wine-product-data` | Total Wine & More search and product detail at the store you choose (price, units in stock, aisle), plus a store locator |
 | `specs-liquor-prices` | Spec's (Texas) search, every store's price and stock for a product in one call, and a store locator by region |
 | `mercadolibre-product-data` | Mercado Libre and Mercado Livre search by keyword or seller, product detail with the buy-box seller, reviews, buyer questions, and best sellers (MX, BR, AR, CO) |
 | `google-shopping-api` | Product search with price filters, product detail, and every store selling it |
@@ -188,7 +187,7 @@ Get the key at [scavio.dev](https://scavio.dev). The free tier is 50 credits on 
 
 ## Which skill do I want
 
-**I need prices for a product across retailers.** Start with `google-shopping-api` for the cross-merchant view, then go per retailer: `amazon-product-data` for ASIN detail and offers, `walmart-product-data`, `target-product-data`, `home-depot-product-data`, `costco-product-data`, `heb-grocery-data` and `kroger-grocery-data` for groceries, `total-wine-product-data` and `specs-liquor-prices` for liquor, wine and beer, `decathlon-product-data`, `aliexpress-product-data`, and `mercadolibre-product-data` for Mexico, Brazil, Argentina and Colombia. For resale and used comps, `ebay-product-data` searches sold listings. For handmade and vintage, `etsy-product-data`.
+**I need prices for a product across retailers.** Start with `google-shopping-api` for the cross-merchant view, then go per retailer: `amazon-product-data` for ASIN detail and offers, `walmart-product-data`, `target-product-data`, `home-depot-product-data`, `costco-product-data`, `heb-grocery-data` and `kroger-grocery-data` for groceries, `specs-liquor-prices` for liquor, wine and beer, `decathlon-product-data`, `aliexpress-product-data`, and `mercadolibre-product-data` for Mexico, Brazil, Argentina and Colombia. For resale and used comps, `ebay-product-data` searches sold listings. For handmade and vintage, `etsy-product-data`.
 
 **I need a lead list of local businesses.** `google-maps-api` gives places, addresses, phone numbers, hours, and coordinates for a query and map center. `yelp-business-data` adds price band, amenities, and review text for the same kind of venue. `trustpilot-reviews-api` ranks online businesses in a category by star rating, with the website and the email and phone they published. `tripadvisor-reviews-api` covers restaurants, hotels, and attractions ranked within a geo.
 
