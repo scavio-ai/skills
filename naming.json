@@ -373,6 +373,54 @@
       "credits": "5"
     },
     {
+      "dir": "scavio-lowes",
+      "slug": "lowes-product-data",
+      "name": "lowes-product-data",
+      "display": "Lowe's Product Data API - Store Price, Stock, Search, Reviews",
+      "query": "lowes product data",
+      "reused": "no",
+      "platform": "Lowe's",
+      "group": "Commerce",
+      "endpoints": "4",
+      "credits": "2; reviews 1"
+    },
+    {
+      "dir": "scavio-samsclub",
+      "slug": "sams-club-product-data",
+      "name": "sams-club-product-data",
+      "display": "Sam's Club Product Data API - Club Prices, Instant Savings, Stock, Reviews",
+      "query": "sams club product data",
+      "reused": "no",
+      "platform": "Sam's Club",
+      "group": "Commerce",
+      "endpoints": "6",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-canadiantire",
+      "slug": "canadian-tire-api",
+      "name": "canadian-tire-api",
+      "display": "Canadian Tire API - Store Prices, Stock, Clearance, Deals",
+      "query": "canadian tire api",
+      "reused": "no",
+      "platform": "Canadian Tire",
+      "group": "Commerce",
+      "endpoints": "6",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-dollargeneral",
+      "slug": "dollar-general-api",
+      "name": "dollar-general-api",
+      "display": "Dollar General API - Store Prices, Stock, Deals, Coupons",
+      "query": "dollar general api",
+      "reused": "no",
+      "platform": "Dollar General",
+      "group": "Commerce",
+      "endpoints": "5",
+      "credits": "1"
+    },
+    {
       "dir": "scavio-home-depot",
       "slug": "home-depot-product-data",
       "name": "home-depot-product-data",
@@ -900,6 +948,26 @@
       "dir": "scavio-specs",
       "description": "Spec's liquor prices API: search Spec's Wines, Spirits & Finer Foods in Texas, get a product's price and stock at every Spec's store in one call, and list stores by region. 3 endpoints, 5 credits each.",
       "tags": "specs, specs-liquor, specs-api, specs-liquor-prices, liquor, wine, beer, spirits, texas, liquor-prices, store-prices, product-search, product-data, store-locator, retail, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-lowes",
+      "description": "Lowe's product data API: search Lowe's by keyword or category at the store you choose with that store's price, was-price, sale end date and stock, item detail with on-hand quantity, aisle and bay and stock at nearby stores, a store locator by ZIP, and paged customer reviews with the star breakdown. 4 endpoints; search, product and stores 2 credits, reviews 1.",
+      "tags": "lowes, lowes-api, lowes-product-data, home-improvement, hardware, tools, store-prices, store-inventory, in-store-stock, aisle-location, product-search, product-data, product-reviews, store-locator, deals, retail, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-samsclub",
+      "description": "Sam's Club product data API: search Sam's Club, read an item's club shelf price, Instant Savings, stock and aisle at the club you choose, find clubs near a ZIP, list every Instant Savings item and any category including clearance, and page member reviews. 6 endpoints, 1 credit each.",
+      "tags": "sams-club, samsclub, sams-club-api, sams-club-product-data, warehouse-club, wholesale, bulk, club-prices, instant-savings, clearance, store-inventory, product-search, product-data, product-reviews, store-locator, deals, retail, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-canadiantire",
+      "description": "Canadian Tire API: search canadiantire.ca at the store you choose with that store's CAD price, regular price and stock, read full product detail, check price and stock for up to 50 SKUs in one call, find stores near a postal code with their stock and aisle for an item, and list each store's clearance and deals. 6 endpoints, 1 credit each.",
+      "tags": "canadian-tire, canadiantire, canadian-tire-api, canada, canadian-retail, cad-prices, store-prices, store-inventory, in-store-stock, aisle-location, clearance, deals, rebates, product-search, product-data, store-locator, retail, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-dollargeneral",
+      "description": "Dollar General API: search Dollar General at the store you choose with that store's price and units on hand, look up a product by UPC, get one product's unit count at up to 25 nearby stores in one call, list on-sale and clearance items, and page the current digital coupons. 5 endpoints, 1 credit each.",
+      "tags": "dollar-general, dollargeneral, dollar-general-api, dollar-store, discount-retail, store-prices, store-inventory, in-store-stock, clearance, deals, digital-coupons, coupons, product-search, product-data, store-locator, upc-lookup, retail, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-home-depot",
