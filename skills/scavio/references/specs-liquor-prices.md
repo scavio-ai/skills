@@ -63,7 +63,7 @@ Search returns the online price only. Store prices differ, so use the product ca
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | `query` | string | required | Keywords (1-200 chars) |
-| `page` | integer | 5 | 1-based page, 24 results per page |
+| `page` | integer | 1 | 1-based page, 24 results per page |
 
 ### Product (`/product`)
 
