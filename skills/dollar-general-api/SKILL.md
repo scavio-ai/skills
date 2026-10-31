@@ -256,6 +256,8 @@ Every response uses the envelope `{ data, response_time, fetched_at, credits_use
 
 - Prices are in dollars: `14.95` is $14.95.
 - `available_quantity` (search, deals, product) and `quantity` (stores) are units on hand at that store. `inventory_status` / `stock_status` are the site's raw codes; use the counts and `in_stock` when answering.
+- Vendor-stocked lines report a flat 5 rather than a real count: Frito-Lay chips (Doritos, Lay's) read exactly 5 at every store checked. Treat a 5 on those as "in stock", not "5 left".
+- `value` is the coupon's dollar amount. Spend-threshold rewards ("Spend $30, Save $10") take it from the summary; when there is no amount to read, it is `null`.
 - The deals listing and its `total_results` cover the whole chain, so out-of-stock items are included. Only `available_quantity > 0` means the item is at that store.
 - Clearance items carry the current price only: `original_price` equals `price` there, so do not report a discount for them.
 - Dollar General returns `rating` and `review_count` only; there is no review text endpoint.

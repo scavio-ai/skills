@@ -49,7 +49,7 @@ Base URL: `https://api.scavio.dev`. All Canadian Tire endpoints cost **1 credit*
 | `POST /api/v1/canadiantire/product` | 1 | One product by code: breadcrumb, images, videos, descriptions, features, specifications, price and regular price, warranty, manuals, variants with their SKUs, and the store's stock and pickup and ship-to-home dates |
 | `POST /api/v1/canadiantire/stores` | 1 | Stores near a postal code or coordinates, nearest first: `store_id`, name, address, phone, coordinates, distance, weekly hours, services. With `sku`, each store's stock quantity and aisle for it |
 | `POST /api/v1/canadiantire/availability` | 1 | Up to 50 SKUs at one store in one call: price, regular price, sale and clearance flags, price valid-until date, quantity, aisle, online stock, pickup and delivery dates. Unknown SKUs are listed in `not_found` |
-| `POST /api/v1/canadiantire/clearance` | 1 | Every clearance item at one store, 100 per page, in-stock only by default |
+| `POST /api/v1/canadiantire/clearance` | 1 | Every clearance item at one store, 100 per page, filtered to items Canadian Tire lists as available there by default |
 | `POST /api/v1/canadiantire/deals` | 1 | Items on a deal at one store, 100 per page: `sale`, `instant_rebate`, `special_buy` or `loyalty` (Triangle Rewards) |
 
 ## Workflow
@@ -106,7 +106,7 @@ Prices and stock are per store, and differ by province (Quebec prices differ fro
 |---|---|---|---|
 | `store_id` | string | required | Store number |
 | `page` | integer | 1 | 1-based page (1-100), 100 results per page |
-| `in_stock_only` | boolean | true | Only clearance items in stock at `store_id` |
+| `in_stock_only` | boolean | true | Only clearance items Canadian Tire lists as available at `store_id`. Its index counts nearly every clearance item as available, so 10-25% of rows can still show `store_quantity` 0 or null: filter on `store_quantity > 0` for what is on the shelf |
 
 ### Deals (`/deals`)
 
