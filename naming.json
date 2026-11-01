@@ -421,6 +421,78 @@
       "credits": "1"
     },
     {
+      "dir": "scavio-sephora",
+      "slug": "sephora-product-data",
+      "name": "sephora-product-data",
+      "display": "Sephora Product Data API - Search, Shades, Prices, Reviews Summary",
+      "query": "sephora product data",
+      "reused": "no",
+      "platform": "Sephora",
+      "group": "Commerce",
+      "endpoints": "3",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-ulta",
+      "slug": "ulta-beauty-api",
+      "name": "ulta-beauty-api",
+      "display": "Ulta Beauty API - Search, Prices, Shades, Store Stock",
+      "query": "ulta beauty api",
+      "reused": "no",
+      "platform": "Ulta Beauty",
+      "group": "Commerce",
+      "endpoints": "4",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-aldi",
+      "slug": "aldi-grocery-data",
+      "name": "aldi-grocery-data",
+      "display": "ALDI Grocery Data API - Store Prices, Stock, Stores",
+      "query": "aldi grocery data",
+      "reused": "no",
+      "platform": "ALDI",
+      "group": "Commerce",
+      "endpoints": "3",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-microcenter",
+      "slug": "micro-center-api",
+      "name": "micro-center-api",
+      "display": "Micro Center API - Store Stock, Open Box, Prices",
+      "query": "micro center api",
+      "reused": "no",
+      "platform": "Micro Center",
+      "group": "Commerce",
+      "endpoints": "3",
+      "credits": "2; stores 1"
+    },
+    {
+      "dir": "scavio-walgreens",
+      "slug": "walgreens-product-data",
+      "name": "walgreens-product-data",
+      "display": "Walgreens Product Data API - Prices, Store Stock, Stores",
+      "query": "walgreens product data",
+      "reused": "no",
+      "platform": "Walgreens",
+      "group": "Commerce",
+      "endpoints": "4",
+      "credits": "2; stock 4"
+    },
+    {
+      "dir": "scavio-cvs",
+      "slug": "cvs-product-data",
+      "name": "cvs-product-data",
+      "display": "CVS Product Data API - Prices, Coupons, Store Stock",
+      "query": "cvs product data",
+      "reused": "no",
+      "platform": "CVS",
+      "group": "Commerce",
+      "endpoints": "3",
+      "credits": "1"
+    },
+    {
       "dir": "scavio-home-depot",
       "slug": "home-depot-product-data",
       "name": "home-depot-product-data",
@@ -968,6 +1040,36 @@
       "dir": "scavio-dollargeneral",
       "description": "Dollar General API: search Dollar General at the store you choose with that store's price and units on hand, look up a product by UPC, get one product's unit count at up to 25 nearby stores in one call, list on-sale and clearance items, and page the current digital coupons. 5 endpoints, 1 credit each.",
       "tags": "dollar-general, dollargeneral, dollar-general-api, dollar-store, discount-retail, store-prices, store-inventory, in-store-stock, clearance, deals, digital-coupons, coupons, product-search, product-data, store-locator, upc-lookup, retail, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-sephora",
+      "description": "Sephora product data API: search sephora.com and list any category with price, list and sale price, rating, review count and bestseller, new and exclusive flags, then read one product with every shade or size, stock per shade, ingredients, and Sephora's review summary with pro and con sentiment counts. 3 endpoints, 1 credit each.",
+      "tags": "sephora, sephora-api, sephora-product-data, beauty, cosmetics, makeup, skincare, fragrance, shades, beauty-prices, product-search, product-data, category-listing, review-summary, review-sentiment, ingredients, retail, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-ulta",
+      "description": "Ulta Beauty API: search ulta.com or list a category with list and sale price, discount, promo text, rating and review count, read one product with every shade or size, GTIN, ingredients and the five latest reviews, and check whether one shade is in stock for pickup at the 10 Ulta stores nearest a ZIP. 4 endpoints, 1 credit each.",
+      "tags": "ulta, ulta-beauty, ulta-api, ulta-beauty-api, beauty, cosmetics, makeup, skincare, hair-care, shades, beauty-prices, store-inventory, in-store-stock, store-pickup, product-search, product-data, category-listing, retail, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-aldi",
+      "description": "ALDI grocery data API: search ALDI US at the store you choose with that store's price, sale price, unit price, stock level and in-store location, priced for in-store, pickup or delivery, read one product with ingredients, allergens and dietary labels, and find ALDI stores near a ZIP. 3 endpoints, 1 credit each.",
+      "tags": "aldi, aldi-us, aldi-api, aldi-grocery-data, grocery, groceries, supermarket, discount-grocery, store-prices, grocery-prices, store-inventory, in-stock, in-store-location, unit-price, ingredients, allergens, product-search, product-data, store-locator, retail, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-microcenter",
+      "description": "Micro Center API: search Micro Center by keyword or category at the store you choose with price and that store's stock count (capped at 25+) and open-box units, read one product with specs, UPC, recent reviews, the store's open-box units with condition and price and which stores have it, and list every store id. 3 endpoints; search and product 2 credits, stores 1.",
+      "tags": "micro-center, microcenter, micro-center-api, computer-parts, pc-parts, graphics-cards, gpu, cpu, electronics, open-box, store-inventory, in-store-stock, product-search, product-data, product-specs, store-locator, retail, price-monitoring, stock-alerts, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-walgreens",
+      "description": "Walgreens product data API: search walgreens.com retail products with regular and sale price, unit price, coupons, rewards and rebates, read one product with UPC, ingredients and offers, find Walgreens and Duane Reade stores near a ZIP, and get live unit counts of one product at up to 20 stores in one call. 4 endpoints; search, product and stores 2 credits, stock 4.",
+      "tags": "walgreens, walgreens-api, walgreens-product-data, duane-reade, pharmacy-retail, drugstore, health, beauty, personal-care, store-inventory, in-store-stock, coupons, rewards, rebates, product-search, product-data, store-locator, upc-lookup, retail, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-cvs",
+      "description": "CVS product data API: search cvs.com front-store products with regular and sale price, ExtraBucks rewards and manufacturer coupons, and units in store, for pickup and for same-day delivery at the store you choose, read one product with UPC, ingredients and warnings, and check stock for up to 20 SKUs at one store. 3 endpoints, 1 credit each.",
+      "tags": "cvs, cvs-pharmacy, cvs-api, cvs-product-data, drugstore, health, beauty, personal-care, extrabucks, coupons, manufacturer-coupons, store-inventory, in-store-stock, same-day-delivery, product-search, product-data, upc-lookup, retail, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-home-depot",

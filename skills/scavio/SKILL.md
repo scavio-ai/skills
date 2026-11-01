@@ -1,6 +1,6 @@
 ---
 name: scavio
-description: "Scavio web data API: one key, structured JSON from 64 platforms. Google Search, AI Mode, News, Trends, Maps, Shopping, Hotels, Flights, Play Store and Ads Transparency; ChatGPT and Gemini answers; Amazon, eBay, Walmart, Target, Home Depot, Lowe's, Costco, Sam's Club, Kroger, H-E-B, Dollar General, Canadian Tire, Decathlon, Spec's, Mercado Libre, AliExpress, Etsy and TikTok Shop; Instagram, TikTok, YouTube, Twitter/X, Reddit, LinkedIn, Facebook, Threads, Pinterest, Twitch, Douyin, Weibo and Kuaishou; Airbnb, Booking.com and Tripadvisor; Indeed, Glassdoor, G2, Capterra, Trustpilot and Yelp; Zillow, Redfin, Realtor.com and Rightmove; Apple App Store; SEC EDGAR, Companies House and GitHub; the Meta, TikTok and LinkedIn ad libraries; URL to Markdown, website crawling and website screenshots. Routes each request to the platform reference, quotes the credit cost before a paid call, and handles 402 and 429. Use when the user wants public data from any of these sites, code that calls Scavio, or a cost estimate."
+description: "Scavio web data API: one key, structured JSON from 70 platforms. Google Search, AI Mode, News, Trends, Maps, Shopping, Hotels, Flights, Play Store and Ads Transparency; ChatGPT and Gemini answers; Amazon, eBay, Walmart, Target, Home Depot, Lowe's, Costco, Sam's Club, Kroger, H-E-B, ALDI, Dollar General, Walgreens, CVS, Sephora, Ulta Beauty, Micro Center, Canadian Tire, Decathlon, Spec's, Mercado Libre, AliExpress, Etsy and TikTok Shop; Instagram, TikTok, YouTube, Twitter/X, Reddit, LinkedIn, Facebook, Threads, Pinterest, Twitch, Douyin, Weibo and Kuaishou; Airbnb, Booking.com and Tripadvisor; Indeed, Glassdoor, G2, Capterra, Trustpilot and Yelp; Zillow, Redfin, Realtor.com and Rightmove; Apple App Store; SEC EDGAR, Companies House and GitHub; the Meta, TikTok and LinkedIn ad libraries; URL to Markdown, website crawling and website screenshots. Routes each request to the platform reference, quotes the credit cost before a paid call, and handles 402 and 429. Use when the user wants public data from any of these sites, code that calls Scavio, or a cost estimate."
 version: 1.0.0
 tags: scavio, web-data-api, scraper-api, serp-api, social-media-api, ecommerce-api, google-search, amazon, instagram, tiktok, youtube, linkedin, reddit, structured-data, json, ai-agents, langchain, crewai, autogen
 metadata:
@@ -15,9 +15,9 @@ metadata:
     homepage: https://scavio.dev/docs?utm_source=agent-skills&utm_medium=skill&utm_campaign=scavio
 ---
 
-# Scavio - One API Key for 64 Web Data Platforms
+# Scavio - One API Key for 70 Web Data Platforms
 
-Scavio returns public pages from 64 platforms as structured JSON through one API key. This file is the router. It says which platform reference to read, how every request is shaped, what a call costs, and what to do when one fails. The files under `references/` hold the endpoints, parameters, measured response shapes and the traps for each platform. Open the reference before the first call to a platform in a session, and call from the reference, not from memory.
+Scavio returns public pages from 70 platforms as structured JSON through one API key. This file is the router. It says which platform reference to read, how every request is shaped, what a call costs, and what to do when one fails. The files under `references/` hold the endpoints, parameters, measured response shapes and the traps for each platform. Open the reference before the first call to a platform in a session, and call from the reference, not from memory.
 
 ## When to trigger
 
@@ -49,10 +49,12 @@ Each row is one reference file. Open it before the first call to that platform. 
 
 | Platform | Reference | Endpoints | Credits per call |
 |---|---|---|---|
+| ALDI | [aldi-grocery-data](references/aldi-grocery-data.md) | 3 | 1 |
 | AliExpress | [aliexpress-product-data](references/aliexpress-product-data.md) | 6 | 1 |
 | Amazon | [amazon-product-data](references/amazon-product-data.md) | 3 | 1 |
 | Canadian Tire | [canadian-tire-api](references/canadian-tire-api.md) | 6 | 1 |
 | Costco | [costco-product-data](references/costco-product-data.md) | 13 | 1; US search, category, deals and clearance 2; multi-warehouse prices, stock and gas scale with warehouse count |
+| CVS | [cvs-product-data](references/cvs-product-data.md) | 3 | 1 |
 | Decathlon | [decathlon-product-data](references/decathlon-product-data.md) | 2 | 2 |
 | Dollar General | [dollar-general-api](references/dollar-general-api.md) | 5 | 1 |
 | eBay | [ebay-product-data](references/ebay-product-data.md) | 3 | 1 |
@@ -63,10 +65,14 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Kroger | [kroger-grocery-data](references/kroger-grocery-data.md) | 2 | 2 |
 | Lowe's | [lowes-product-data](references/lowes-product-data.md) | 4 | 2; reviews 1 |
 | Mercado Libre | [mercadolibre-product-data](references/mercadolibre-product-data.md) | 5 | 2; reviews 1 |
+| Micro Center | [micro-center-api](references/micro-center-api.md) | 3 | 2; stores 1 |
 | Sam's Club | [sams-club-product-data](references/sams-club-product-data.md) | 6 | 1 |
+| Sephora | [sephora-product-data](references/sephora-product-data.md) | 3 | 1 |
 | Spec's | [specs-liquor-prices](references/specs-liquor-prices.md) | 3 | 5 |
 | Target | [target-product-data](references/target-product-data.md) | 5 | 1 |
 | TikTok Shop | [tiktok-shop-api](references/tiktok-shop-api.md) | 8 | 1 |
+| Ulta Beauty | [ulta-beauty-api](references/ulta-beauty-api.md) | 4 | 1 |
+| Walgreens | [walgreens-product-data](references/walgreens-product-data.md) | 4 | 2; stock 4 |
 | Walmart | [walmart-product-data](references/walmart-product-data.md) | 8 | 1; 2 for walmart.com.mx search/category or store-targeted search/product |
 
 **Social and video**
