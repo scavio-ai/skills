@@ -115,7 +115,7 @@ Captured search result row ("sledge hammer" at store 3181, 27 results):
   "in_stock": true,
   "stock_quantity": 13,
   "stock_message": "In-Stock at",
-  "not_available_at_store": false,
+  "not_available_at_store": null,
   "pickup_available": true,
   "delivery_available": true
 }
@@ -235,7 +235,7 @@ Every response uses the envelope `{ data, response_time, fetched_at, credits_use
 - Prices are in dollars. Without `store_id` the product is priced for the site's default store (3598) and every stock field is null; with `store_id` it is priced for that store. Name the store when quoting a price or stock.
 - The price ladder: `everyday_price` is the regular price, `sale_price` a temporary price ending on `sale_end_date`, and `price` what the item sells for now. `rebates` are mail-in rebates (Menards' 11% rebate is one); `final_price` is the site's own "price after rebate", not what is charged at the register. Quote `price` as the purchase price and `final_price` as the after-rebate value, and give the rebate dates.
 - `store_id` costs 2 credits instead of 1 and typically takes 10-40 seconds. Call without it when the user only needs the price.
-- `store.stock_quantity` is that store's unit count and `store.locations` the aisle text ("Item Located in Aisle 221 Section L"). `not_available_at_store: true` means the store does not sell the item, which is different from out of stock.
+- `store.stock_quantity` is that store's unit count and `store.locations` the aisle text ("Item Located in Aisle 221 Section L"). `not_available_at_store: true` means the store does not sell the item, which is different from out of stock. That flag comes from product with `store_id`; in search it is always null.
 - No ratings, reviews or UPC are returned.
 - Never fabricate prices, rebates or stock. Only return what the API returned, with the product `url`.
 

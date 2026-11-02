@@ -16,7 +16,7 @@ metadata:
 
 # Chewy Product Data API - Prices, Autoship, Ratings
 
-Search Chewy pet products by keyword, or browse any chewy.com category, 36 per page, with the one-time price, the Autoship (repeat delivery) price and discount, the first-Autoship price with its discount and savings cap, the strike-through and per-unit price, rating, rating count, stock and deal flags. Read one product with list, offer and minimum advertised (MAP) price, star distribution, review count, GTIN, specifications, ingredients and feeding details where Chewy lists them, promotions, and every size and flavor variant with its own price and stock. Both endpoints return structured JSON.
+Search Chewy pet products by keyword, or browse any chewy.com category, 36 per page, with the one-time price, the Autoship (repeat delivery) price and discount, the strike-through and per-unit price, rating, rating count, stock and deal flags. Read one product with list, offer and minimum advertised (MAP) price, the first-Autoship price with its discount and savings cap, star distribution, review count, GTIN, specifications, ingredients and feeding details where Chewy lists them, promotions, and every size and flavor variant with its own price and stock. Both endpoints return structured JSON.
 
 ## When to trigger
 
@@ -61,14 +61,14 @@ Base URL: `https://api.scavio.dev`. Both Chewy endpoints cost **10 credits** per
 
 | Endpoint | Credits | What it returns |
 |---|---|---|
-| `POST /api/v1/chewy/search` | 10 | 36 products per page for a keyword or a category: product id, part number, name, brand, URL, image, one-time price, offer and strike-through price, Autoship price and discount, first-Autoship price, discount and savings cap, MAP price, per-unit price, rating, rating count, in-stock, deal, new, exclusive and prescription flags, key benefits. Sponsored listings removed. A `redirect` when Chewy sends the query to a category |
+| `POST /api/v1/chewy/search` | 10 | 36 products per page for a keyword or a category: product id, part number, name, brand, URL, image, one-time price, offer and strike-through price, Autoship price and discount, per-unit price, rating, rating count, in-stock, deal, new, exclusive and prescription flags, key benefits. First-Autoship fields only on Autoship-deal rows; MAP usually null. Sponsored listings removed. A `redirect` when Chewy sends the query to a category |
 | `POST /api/v1/chewy/product` | 10 | One product by id or URL: one-time, offer, list and strike-through price with savings, MAP price and whether it is enforced, Autoship and first-Autoship price, per-unit price, stock, rating, rating count, review count, star distribution, attribute scores, GTIN, description, key benefits, specifications, details (ingredients, feeding), breadcrumbs, images, promotions and every variant with its own price, Autoship price and stock |
 
 ## Workflow
 
 Every call costs 10 credits, so plan the calls before making them and say the cost before running more than a few.
 
-1. **Find products:** call `/chewy/search` with `query`, or with `category_id` to browse a category. Each row has a `product_id` and already carries the one-time, Autoship and first-Autoship prices, so a price comparison often needs no product call.
+1. **Find products:** call `/chewy/search` with `query`, or with `category_id` to browse a category. Each row has a `product_id` and already carries the one-time and Autoship prices, so a one-time vs Autoship comparison needs no product call. The first-Autoship price is filled only on Autoship-deal rows; call product for it and for MAP.
 2. **Check for a redirect:** if `redirect` is not null, Chewy sent the query to that category page and the rows are that category's products, not a keyword match.
 3. **One product in full:** call `/chewy/product` with the row's `product_id` (or a chewy.com URL) for the star distribution, review count, specifications, ingredients and every size and flavor in `variants`.
 
@@ -231,7 +231,7 @@ Every response uses the envelope `{ data, response_time, fetched_at, credits_use
 
 ## Guardrails
 
-- Every call costs 10 credits. Prefer search rows (which already carry one-time, Autoship and first-Autoship prices) over a product call per item, and never loop over pages or products without telling the user the credit cost first.
+- Every call costs 10 credits. Prefer search rows (which already carry one-time and Autoship prices) over a product call per item when those are all you need, and never loop over pages or products without telling the user the credit cost first.
 - Prices are in US dollars and national; Chewy is online only, with no stores, store stock or store locator.
 - Three prices, three meanings: `price` is the one-time purchase price, `autoship_price` the recurring Autoship (repeat delivery) price, and `first_autoship_price` the first Autoship order only, a bigger discount capped at `first_autoship_max_savings` dollars. Name which one you quote.
 - `autoship_price` can be `null` even when `autoship_allowed` is true (deal items often carry no Autoship price). Say so; do not compute one from `autoship_discount_pct`.
