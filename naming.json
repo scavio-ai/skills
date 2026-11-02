@@ -568,13 +568,13 @@
       "dir": "scavio-menards",
       "slug": "menards-product-data",
       "name": "menards-product-data",
-      "display": "Menards Product Data API - Prices, Rebates, Store Stock",
+      "display": "Menards Product Data API - Search, Prices, Rebates, Store Stock",
       "query": "menards product data",
       "reused": "no",
       "platform": "Menards",
       "group": "Commerce",
-      "endpoints": "2",
-      "credits": "1; product with store_id 2"
+      "endpoints": "3",
+      "credits": "search 2; product 1, 2 with store_id; stores 1"
     },
     {
       "dir": "scavio-home-depot",
@@ -1187,8 +1187,8 @@
     },
     {
       "dir": "scavio-menards",
-      "description": "Menards product data API: read one menards.com product by item id or URL with the everyday price, sale price and end date, mail-in rebates such as the 11% rebate and the final price after rebates, add a store for that store's stock quantity and aisle location, and find Menards stores near a ZIP or city. 2 endpoints; product 1 credit, 2 with a store, stores 1.",
-      "tags": "menards, menards-api, menards-product-data, home-improvement, hardware, building-materials, tools, rebates, mail-in-rebate, store-prices, store-inventory, in-store-stock, aisle-location, product-data, product-specs, store-locator, retail, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
+      "description": "Menards product data API: search menards.com at the store you choose with each result's price, sale price, the 11% mail-in rebate, final price after rebate and that store's stock count, read one product by item id or URL with the full price ladder, specifications and that store's stock and aisle, and find Menards stores near a ZIP or city. 3 endpoints; search 2 credits, product 1 (2 with a store), stores 1.",
+      "tags": "menards, menards-api, menards-product-data, menards-search, product-search, home-improvement, hardware, building-materials, tools, rebates, mail-in-rebate, store-prices, store-inventory, in-store-stock, aisle-location, product-data, product-specs, store-locator, retail, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-home-depot",
