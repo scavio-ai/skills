@@ -1,6 +1,6 @@
 # HEB Grocery Data API - Search, Product Detail, Store Locator
 
-Search HEB products, read full item detail with pricing and nutrition, and find HEB stores near a location. Pass a `store_id` to get one store's prices, stock, aisle location and search assortment. All endpoints return structured JSON.
+Search HEB products, read full item detail with pricing and nutrition, and find HEB stores near a location. Pass a `store_id` to get one store's prices, stock, aisle location and search assortment. Pass `"country": "mx"` to search and read products on HEB Mexico (heb.com.mx) with peso prices, units in stock and promotions. All endpoints return structured JSON.
 
 ## When to trigger
 
@@ -11,6 +11,7 @@ Use this skill when the user asks to:
 - Check the price, stock or aisle location of a product at a specific HEB store
 - Get nutrition facts, ingredients or specifications for an HEB product
 - Find HEB stores near a zip code or city in Texas
+- Find products, prices, markdowns, stock or promotions on HEB Mexico (heb.com.mx), e.g. "precios de leche en HEB"
 - Monitor HEB pricing or enrich a catalog with HEB product data
 
 ## Setup
@@ -47,9 +48,9 @@ Base URL: `https://api.scavio.dev`. All HEB endpoints cost **2 credits**.
 
 | Endpoint | Credits | What it returns |
 |---|---|---|
-| `POST /api/v1/heb/search` | 2 | Product search results: name, brand, price (cents), sale status, unit price, size, UPC, stock, EBT/SNAP eligibility, aisle location and URL. Optional `store_id` |
-| `POST /api/v1/heb/product` | 2 | Full product detail: description, ingredients, nutrition, images, similar products, coupons and aisle location. Optional `store_id` |
-| `POST /api/v1/heb/stores` | 2 | HEB stores near a ZIP or city: `store_number`, address, phone, hours, pharmacy, fulfillment channels and distance |
+| `POST /api/v1/heb/search` | 2 | Product search results: name, brand, price (cents), sale status, unit price, size, UPC, stock, EBT/SNAP eligibility, aisle location and URL. Optional `store_id`. With `country: "mx"`: peso prices, units in stock and promotions |
+| `POST /api/v1/heb/product` | 2 | Full product detail: description, ingredients, nutrition, images, similar products, coupons and aisle location. Optional `store_id`. With `country: "mx"`: peso price, stock, promotions and nutrition |
+| `POST /api/v1/heb/stores` | 2 | HEB stores near a US ZIP or city: `store_number`, address, phone, hours, pharmacy, fulfillment channels and distance. US only |
 
 ## Workflow
 
@@ -68,9 +69,21 @@ Prices, stock and the in-store aisle differ by store. Without `store_id` every c
 
 An unknown store number returns `400` with `store_id 99999 is not an HEB store. Find store numbers with /api/v1/heb/stores.` Store pricing is US (heb.com) only. Credits are unchanged: 2 per call.
 
+### HEB Mexico (heb.com.mx)
+
+Add `"country": "mx"` to `/heb/search` and `/heb/product` (pass the `url` from a Mexico search as `product_url`).
+
+- `price` and `list_price` are integers in **Mexican peso cents**: `10000` is MX$100.00. `list_price` is set only on a markdown (`is_on_sale: true`); the discount is `1 - price / list_price`.
+- Every row adds `stock` (units on hand, a live figure that moves between calls), `store_id` (HEB Mexico's default store, e.g. `"hebmx002959"`), `is_sponsored` and `promotions[]` - `{id, type, label, description, discount, discount_type, ends_at}`. `type` is `Rebajado` (price cut), `AhorraMas` (multi-buy such as "2x45") or `ComboLoco` (free gift with purchase). A multi-buy or gift does not change `price`, so read `promotions` too.
+- `upc` is the EAN barcode. Search pages are always 20 rows and carry `total_results` and `total_pages`.
+- Product adds `images[]`, plain-text `description`, `ingredients` and `nutrition` (per portion, else per 100 g) when HEB lists them; nutrient names stay in Spanish.
+- Not available for Mexico: `store_id` as an input, `page_size`, `/heb/stores`, `unit_price`, `is_ebt_snap`, `product_location`, `similar_products`, `coupons`.
+
+Captured on 2026-11-02 (`{"query": "leche", "country": "mx"}`, one row, trimmed): `"name": "Alpura Leche Deslactosada 4 Pack 4 L"`, `"brand": "ALPURA"`, `"price": 10000`, `"list_price": 14200`, `"is_on_sale": true`, `"upc": "7501056215538"`, `"stock": 156`, `"promotions": [{"type": "Rebajado", "discount": 29.58, "discount_type": "percent", ...}]`.
+
 ### Pagination
 
-- **Search:** `page` (1-based) and `page_size` (default 60, 1-60). The response carries `total_results` and `count`. Each page is 2 credits.
+- **Search:** `page` (1-based) and `page_size` (default 60, 1-60; Mexico is always 20). The response carries `total_results` and `count` (Mexico adds `total_pages`). Each page is 2 credits.
 - **Product and stores:** no pagination.
 
 ## Parameters
@@ -83,15 +96,17 @@ An unknown store number returns `400` with `store_id 99999 is not an HEB store. 
 | `page` | integer | 1 | 1-based page number |
 | `page_size` | integer | 60 | Results per page, 1-60 |
 | `store_id` | string or integer | - | HEB store number from `/heb/stores` (`store_number`). Prices, stock, aisle and assortment for that store. US only |
+| `country` | string | `us` | `us` for heb.com, `mx` for heb.com.mx (Mexico) |
 
 ### Product (`/product`)
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| `product_url` | string | one of | An heb.com product URL |
+| `product_url` | string | one of | An heb.com or heb.com.mx product URL |
 | `slug` | string | one of | Product slug (the readable part of the product URL), used with `product_id` |
 | `product_id` | string | one of | Product id (`id` in search results). Needs `slug`, unless `store_id` is set |
 | `store_id` | string or integer | - | HEB store number from `/heb/stores`. Price, stock and aisle for that store. US only |
+| `country` | string | `us` | `us` for heb.com, `mx` for heb.com.mx (Mexico) |
 
 ### Stores (`/stores`)
 
@@ -188,12 +203,13 @@ Every response uses the envelope `{ data, response_time, fetched_at, credits_use
 
 ## Guardrails
 
-- HEB operates primarily in Texas. Store searches outside this area return few or no results.
-- `price` and `list_price` are integers in cents: `398` is $3.98.
+- HEB operates in Texas (heb.com) and northeast Mexico (heb.com.mx, `country: "mx"`). The store locator covers US stores only.
+- `price` and `list_price` are integers in cents: `398` is $3.98 in the US, `10000` is MX$100.00 for Mexico. Always say which currency.
+- Mexico prices and stock are for HEB Mexico's default store; say so, since a specific Mexican store cannot be chosen.
 - Prices, stock and aisle are per store. When the user names a town or ZIP, look the store up and pass `store_id`; otherwise say the prices are for HEB's default store. Name the store from `data.store` in the answer.
 - Unit prices (`unit_price`) are the best way to compare products of different sizes.
 - Never fabricate prices, nutrition facts or store hours. Only return what the API returned, and surface the product `url` so the user can verify.
-- `on_sale` and `promotions` reflect the current heb.com state; in-store prices may differ.
+- `is_on_sale` and (Mexico) `promotions` reflect the current site state; in-store prices may differ.
 
 ## Failure handling
 
