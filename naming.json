@@ -493,6 +493,90 @@
       "credits": "1"
     },
     {
+      "dir": "scavio-wholefoods",
+      "slug": "whole-foods-grocery-data",
+      "name": "whole-foods-grocery-data",
+      "display": "Whole Foods Grocery Data API - Store Prices, Prime Deals, Sales Flyer",
+      "query": "whole foods grocery data",
+      "reused": "no",
+      "platform": "Whole Foods Market",
+      "group": "Commerce",
+      "endpoints": "7",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-harborfreight",
+      "slug": "harbor-freight-api",
+      "name": "harbor-freight-api",
+      "display": "Harbor Freight API - Prices, Coupons, Store Stock, Reviews",
+      "query": "harbor freight api",
+      "reused": "no",
+      "platform": "Harbor Freight",
+      "group": "Commerce",
+      "endpoints": "7",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-petsmart",
+      "slug": "petsmart-product-data",
+      "name": "petsmart-product-data",
+      "display": "PetSmart Product Data API - Prices, Autoship, Store Stock, Deals",
+      "query": "petsmart product data",
+      "reused": "no",
+      "platform": "PetSmart",
+      "group": "Commerce",
+      "endpoints": "6",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-petco",
+      "slug": "petco-product-data",
+      "name": "petco-product-data",
+      "display": "Petco Product Data API - Prices, Repeat Delivery, Store Stock",
+      "query": "petco product data",
+      "reused": "no",
+      "platform": "Petco",
+      "group": "Commerce",
+      "endpoints": "5",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-iherb",
+      "slug": "iherb-product-data",
+      "name": "iherb-product-data",
+      "display": "iHerb Product Data API - Search, Prices, Supplement Facts, Ratings",
+      "query": "iherb product data",
+      "reused": "no",
+      "platform": "iHerb",
+      "group": "Commerce",
+      "endpoints": "4",
+      "credits": "2"
+    },
+    {
+      "dir": "scavio-chewy",
+      "slug": "chewy-product-data",
+      "name": "chewy-product-data",
+      "display": "Chewy Product Data API - Prices, Autoship, Ratings",
+      "query": "chewy product data",
+      "reused": "no",
+      "platform": "Chewy",
+      "group": "Commerce",
+      "endpoints": "2",
+      "credits": "10"
+    },
+    {
+      "dir": "scavio-menards",
+      "slug": "menards-product-data",
+      "name": "menards-product-data",
+      "display": "Menards Product Data API - Prices, Rebates, Store Stock",
+      "query": "menards product data",
+      "reused": "no",
+      "platform": "Menards",
+      "group": "Commerce",
+      "endpoints": "2",
+      "credits": "1; product with store_id 2"
+    },
+    {
       "dir": "scavio-home-depot",
       "slug": "home-depot-product-data",
       "name": "home-depot-product-data",
@@ -1070,6 +1154,41 @@
       "dir": "scavio-cvs",
       "description": "CVS product data API: search cvs.com front-store products with regular and sale price, ExtraBucks rewards and manufacturer coupons, and units in store, for pickup and for same-day delivery at the store you choose, read one product with UPC, ingredients and warnings, and check stock for up to 20 SKUs at one store. 3 endpoints, 1 credit each.",
       "tags": "cvs, cvs-pharmacy, cvs-api, cvs-product-data, drugstore, health, beauty, personal-care, extrabucks, coupons, manufacturer-coupons, store-inventory, in-store-stock, same-day-delivery, product-search, product-data, upc-lookup, retail, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-wholefoods",
+      "description": "Whole Foods grocery data API: search and browse Whole Foods Market at the store you choose with that store's shelf price, sale price and Prime member price with sale dates, list every product on sale at a store, read one product with ingredients, nutrition facts, diets and its in-store and online prices side by side, find stores near a ZIP, read one store, and pull its weekly sales flyer. 7 endpoints, 1 credit each.",
+      "tags": "whole-foods, whole-foods-market, wholefoods, whole-foods-api, whole-foods-grocery-data, grocery, groceries, supermarket, organic, store-prices, grocery-prices, prime-deals, sale-prices, weekly-ad, sales-flyer, nutrition-facts, ingredients, product-search, product-data, category-listing, store-locator, retail, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-harborfreight",
+      "description": "Harbor Freight API: search harborfreight.com or list clearance with the national price, sale price and end date, public coupon price, Inside Track member price and competitor compare-at price, read one product with UPC, specs and manuals, batch prices for up to 50 items, find stores near a ZIP, check in-stock, limited or out-of-stock status and aisle for up to 20 items at nearby stores, and page customer reviews. 7 endpoints, 1 credit each.",
+      "tags": "harbor-freight, harborfreight, harbor-freight-api, tools, power-tools, hand-tools, automotive, coupons, member-prices, inside-track-club, clearance, store-inventory, in-store-stock, aisle-location, product-search, product-data, product-reviews, store-locator, retail, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-petsmart",
+      "description": "PetSmart product data API: search petsmart.com with national price, sale price, rating, promotions and how many stores stock each item, read one product with every size and flavor, UPC, sale end date and Autoship first-order and recurring price, find the 12 stores nearest a ZIP, get unit counts for up to 20 SKUs at one store or 20 store and SKU pairs, and list the Sale section. 6 endpoints, 1 credit each.",
+      "tags": "petsmart, petsmart-api, petsmart-product-data, pet-supplies, pet-food, dog-food, cat-food, autoship, store-inventory, in-store-stock, pickup-stock, deals, sale, promotions, product-search, product-data, store-locator, upc-lookup, retail, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-petco",
+      "description": "Petco product data API: search petco.com or list any category with price, list price and Repeat Delivery autoship price, rating, review count and every size or flavor variation, read one product with each variant's UPC, first-autoship price, ingredients and guaranteed analysis, find Petco stores near a ZIP, and check units on hand for up to 10 products at one store. 5 endpoints, 1 credit each.",
+      "tags": "petco, petco-api, petco-product-data, pet-supplies, pet-food, dog-food, cat-food, pet-retail, autoship, repeat-delivery, store-inventory, in-store-stock, product-search, product-data, category-listing, store-locator, upc-lookup, ingredients, retail, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-iherb",
+      "description": "iHerb product data API: search iherb.com by keyword or brand with price, list price, discount, rating, review count, stock and recent sales, read one product with UPC, price per serving, supplement facts, ingredients, variants and best-seller rankings, check price and stock for up to 50 products in one call, and read the review summary with the star histogram and top positive and critical review. US store, USD. 4 endpoints, 2 credits each.",
+      "tags": "iherb, iherb-api, iherb-product-data, supplements, vitamins, health, wellness, sports-nutrition, beauty, supplement-facts, ingredients, product-search, product-data, bulk-prices, review-summary, ratings, upc-lookup, online-retail, retail, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-chewy",
+      "description": "Chewy product data API: search chewy.com or browse a category, 36 products per page, with the one-time price, Autoship price and discount, first-Autoship price and savings cap, MAP price, rating and rating count, and read one product with the star distribution, review count, GTIN, specifications, ingredients, promotions and every size and flavor variant with its own price. 2 endpoints, 10 credits each.",
+      "tags": "chewy, chewy-api, chewy-product-data, pet-supplies, pet-food, dog-food, cat-food, autoship, pet-prices, map-price, product-search, product-data, category-listing, ratings, gtin, retail, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-menards",
+      "description": "Menards product data API: read one menards.com product by item id or URL with the everyday price, sale price and end date, mail-in rebates such as the 11% rebate and the final price after rebates, add a store for that store's stock quantity and aisle location, and find Menards stores near a ZIP or city. 2 endpoints; product 1 credit, 2 with a store, stores 1.",
+      "tags": "menards, menards-api, menards-product-data, home-improvement, hardware, building-materials, tools, rebates, mail-in-rebate, store-prices, store-inventory, in-store-stock, aisle-location, product-data, product-specs, store-locator, retail, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-home-depot",
