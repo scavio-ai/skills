@@ -1,6 +1,6 @@
 # CVS Product Data API - Prices, Coupons, Store Stock
 
-Search CVS front-store products (health, beauty, personal care, household; nothing pharmacy) with regular and sale price, unit price, promotion text, ExtraBucks rewards and manufacturer coupons, and the units available at one store: on the shelf, for pickup and for same-day delivery. Read one product with UPC, description, ingredients, directions, warnings and every variant, and check stock for up to 20 SKUs at one store in one call. All endpoints return structured JSON.
+Search CVS front-store products (health, beauty, personal care, household; nothing pharmacy) with regular and sale price, unit price, promotion text, ExtraBucks rewards and manufacturer coupons, and the units available at one store: on the shelf and for pickup. Read one product with UPC, description, ingredients, directions, warnings and every variant, and check stock for up to 20 SKUs at one store in one call. All endpoints return structured JSON.
 
 ## When to trigger
 
@@ -8,7 +8,7 @@ Use this skill when the user asks to:
 - Find health, beauty, personal care or household items at CVS by keyword or item number
 - Check a CVS product's price, sale price or unit price
 - List the ExtraBucks rewards and manufacturer coupons on a CVS product
-- Check how many units a CVS store has on the shelf, for pickup or for same-day delivery
+- Check how many units a CVS store has on the shelf or for pickup
 - Check stock for a list of SKUs at one CVS store
 - Read a product's ingredients, directions, warnings or UPC
 - Compare CVS prices with Walgreens or other retailers, or monitor them
@@ -45,9 +45,9 @@ Base URL: `https://api.scavio.dev`. All CVS endpoints cost **1 credit**.
 
 | Endpoint | Credits | What it returns |
 |---|---|---|
-| `POST /api/v1/cvs/search` | 1 | Up to 48 products per page: product id and SKU id, name, brand, URL, regular and sale price, unit price, promotion text, rating, review count, size, image, coupons (ExtraBucks rewards and manufacturer coupons), and stock at one store (in store, pickup, same-day delivery) plus online ship stock. Brand, price-range and rating facets |
+| `POST /api/v1/cvs/search` | 1 | Up to 48 products per page: product id and SKU id, name, brand, URL, regular and sale price, unit price, promotion text, rating, review count, size, image, coupons (ExtraBucks rewards and manufacturer coupons), and stock at one store (in store, pickup) plus online ship stock. Brand, price-range and rating facets |
 | `POST /api/v1/cvs/product` | 1 | One product by URL or id: regular and sale price, unit price, promotion and its end date, rating, review count, UPC, size, description, highlights, ingredients, directions, warnings, attributes, breadcrumbs, images and every variant (SKU id, UPC, size, price, rating) |
-| `POST /api/v1/cvs/stock` | 1 | Units at one store for up to 20 SKUs: in store, pickup and online ship stock (same-day units come from search) |
+| `POST /api/v1/cvs/stock` | 1 | Units at one store for up to 20 SKUs: in store, pickup and online ship stock |
 
 ## Workflow
 
@@ -146,7 +146,7 @@ A captured `/search` row for `{"query": "toothpaste"}` (store 7019), on sale wit
       "expires": "2026-11-15T23:59:59-05:00"
     }
   ],
-  "stock": { "in_store": 50, "pickup": 46, "same_day_delivery": 4, "ship": 0, "ship_available": false },
+  "stock": { "in_store": 50, "pickup": 46, "same_day_delivery": null, "ship": 0, "ship_available": false },
   "pickup_eligible": true,
   "same_day_eligible": true,
   "is_new": false,
@@ -198,7 +198,7 @@ Every response uses the envelope `{ data, response_time, fetched_at, credits_use
 ## Guardrails
 
 - Prices are in dollars and the same at every store: `4.69` is $4.69. `price` is the regular price and `sale_price` what it sells for now; they are equal when not on sale. `unit_price` is CVS's own label (`"$1.66/oz."`), a string.
-- Stock belongs to `store_id`: `in_store` is on the shelf, `pickup` is what can be ordered for pickup there, `same_day_delivery` is from that store, and `ship` is the online warehouse (chain-wide, not the store). On `stock`, `same_day_delivery` is always `null` (that lookup does not report it); read same-day units from `search` with the same `store_id`.
+- Stock belongs to `store_id`: `in_store` is on the shelf, `pickup` is what can be ordered for pickup there, and `ship` is the online warehouse (chain-wide, not the store). `same_day_delivery` is always `null` on both `search` and `stock`: CVS reports one same-day count per SKU whichever store is sent, so it is not a store's number.
 - Without `store_id`, search stock is store 7019's (New York). Name the store when quoting stock.
 - An unknown store number or SKU is NOT an error: everything reads 0. If every count is 0, check the store number before telling the user an item is out of stock.
 - There is no store locator. Store numbers come from cvs.com store pages ("Store ID: #7019").
