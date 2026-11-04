@@ -112,8 +112,10 @@ Captured on 2026-11-02 (`{"query": "leche", "country": "mx"}`, one row, trimmed)
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| `zip` | string | one of | 5-digit US ZIP code |
-| `city` | string | one of | City name (e.g. `Austin`, `San Antonio`) |
+| `zip` | string | -- | 5-digit US ZIP code. Wins over `city` when both are sent |
+| `city` | string | -- | City name (e.g. `Austin`, `Austin, TX`), used when no `zip` is sent |
+
+Returns the 5 nearest stores within 100 miles, nearest first, with `distance_miles` from the searched location. Send `zip` or `city`; with neither, the stores nearest San Antonio are returned.
 
 ## Examples
 

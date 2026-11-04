@@ -97,7 +97,7 @@ Latency, not cost, is the thing to plan around. A `502`-then-retry has been obse
 | `tcin` | string | required | Target catalog id, e.g. `1010453160` |
 | `store_id` | string | `3991` | Numeric Target store id |
 
-A child TCIN is answered by its variation parent, with the child present in `variants`.
+A child TCIN (one size or colour) returns that exact variant: its own `tcin`, `price` and `regular_price` (not the family's range), plus `parent_tcin` and `selected_variant` (`attributes[]` with every option axis, e.g. Size and Color, plus `url`, `image`, `sold_out`, `shipping_available`). A parent TCIN returns the family with `price_min` / `price_max`; both new fields are null there.
 
 ### Reviews (`/reviews`)
 
