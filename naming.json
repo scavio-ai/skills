@@ -124,7 +124,7 @@
       "dir": "scavio-ebay",
       "slug": "ebay-product-data",
       "name": "ebay-product-data",
-      "display": "eBay Product Data API - Live and Sold Listings, Sellers",
+      "display": "eBay Product Data API - Live Listings, Units Sold, Sellers",
       "query": "ebay product data api",
       "reused": "no",
       "platform": "eBay",
@@ -1002,8 +1002,8 @@
     },
     {
       "dir": "scavio-ebay",
-      "description": "eBay product data API: search live or SOLD listings for comps and resale pricing (price, condition, bids, shipping, seller, feedback), read one listing in full with item specifics, shipping, returns and auction state, and pull a seller's feedback score, items sold and location. 3 endpoints, 1 credit each.",
-      "tags": "ebay, ebay-product-data, sold-listings, price-research, resale, ecommerce, marketplace, product-data, seller-profile, price-monitoring, arbitrage, auctions, langchain, crewai, autogen, structured-data, json, ai-agents"
+      "description": "eBay product data API: search live listings with price, condition, bids, units sold, watchers, shipping and seller feedback, read one listing in full with item specifics, shipping, returns and auction state, and pull a seller's feedback score, items sold and location. 3 endpoints, 1 credit each. Sold-listing search is currently unavailable.",
+      "tags": "ebay, ebay-product-data, live-listings, price-research, resale, ecommerce, marketplace, product-data, seller-profile, price-monitoring, arbitrage, auctions, langchain, crewai, autogen, structured-data, json, ai-agents"
     },
     {
       "dir": "scavio-etsy",
