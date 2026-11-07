@@ -580,13 +580,13 @@
       "dir": "scavio-nordstrom",
       "slug": "nordstrom-product-data",
       "name": "nordstrom-product-data",
-      "display": "Nordstrom Product Data API - Search, Prices, SKU Stock, Reviews",
+      "display": "Nordstrom Product Data API - Search, Sale, SKU Stock, Store Pickup",
       "query": "nordstrom product data",
       "reused": "no",
       "platform": "Nordstrom",
       "group": "Commerce",
-      "endpoints": "2",
-      "credits": "5"
+      "endpoints": "7",
+      "credits": "5; availability 10"
     },
     {
       "dir": "scavio-home-depot",
@@ -1204,8 +1204,8 @@
     },
     {
       "dir": "scavio-nordstrom",
-      "description": "Nordstrom product data API: search nordstrom.com with current price, original price, percent off, rating, review count, badges and every color, sorted by relevance, rating, price, newest or percent off, then read one product with every size and color as a SKU with UPC, price, regular, clearance or promotion price type, stock and units available to ship, plus the star histogram, size-fit distribution and the reviews shown on the page. 2 endpoints, 5 credits each.",
-      "tags": "nordstrom, nordstrom-api, nordstrom-product-data, nordstrom-scraper, fashion, apparel, shoes, designer-brands, clothing-prices, sale-tracking, price-drop-alerts, percent-off, clearance, sku-data, upc, size-fit, product-search, product-data, product-reviews, retail, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
+      "description": "Nordstrom product data API: search nordstrom.com or list any category, sale section or brand catalog with price, original price, percent off, rating, badges, every color and filter counts, read one product with every size and color as a SKU with UPC, regular, clearance or promotion price, stock and units available to ship plus the star histogram, size-fit distribution and the reviews on the page, check per-SKU ship and store-pickup availability with the stores that can do pickup, find Nordstrom stores near a ZIP with hours, and pull search autocomplete. 7 endpoints, 5 credits each, availability 10.",
+      "tags": "nordstrom, nordstrom-api, nordstrom-product-data, nordstrom-scraper, fashion, apparel, shoes, designer-brands, clothing-prices, sale-tracking, price-drop-alerts, percent-off, clearance, sku-data, upc, size-fit, product-search, product-data, product-reviews, category-browse, brand-catalog, store-locator, store-pickup, in-store-availability, autocomplete, retail, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-home-depot",
