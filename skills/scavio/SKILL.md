@@ -70,7 +70,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Menards | [menards-product-data](references/menards-product-data.md) | 3 | search 2; product 1, 2 with store_id; stores 1 |
 | Mercado Libre | [mercadolibre-product-data](references/mercadolibre-product-data.md) | 5 | 2; reviews 1 |
 | Micro Center | [micro-center-api](references/micro-center-api.md) | 3 | 2; stores 1 |
-| Nordstrom | [nordstrom-product-data](references/nordstrom-product-data.md) | 7 | 5; availability 10 |
+| Nordstrom | [nordstrom-product-data](references/nordstrom-product-data.md) | 8 | 5; availability and reviews 10 |
 | Petco | [petco-product-data](references/petco-product-data.md) | 5 | 1 |
 | PetSmart | [petsmart-product-data](references/petsmart-product-data.md) | 6 | 1 |
 | Sam's Club | [sams-club-product-data](references/sams-club-product-data.md) | 6 | 1 |
