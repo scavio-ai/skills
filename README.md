@@ -2,11 +2,11 @@
 
 # Scavio Agent Skills
 
-**Give your AI agent live data from 77 platforms as structured JSON, through one API key**
+**Give your AI agent live data from 78 platforms as structured JSON, through one API key**
 
-[![Platforms](https://img.shields.io/badge/Platforms-77-blue?style=flat-square)](https://scavio.dev)
-[![Endpoints](https://img.shields.io/badge/Endpoints-439-green?style=flat-square)](https://scavio.dev/docs)
-[![Skills](https://img.shields.io/badge/Skills-79-orange?style=flat-square)](#skills)
+[![Platforms](https://img.shields.io/badge/Platforms-78-blue?style=flat-square)](https://scavio.dev)
+[![Endpoints](https://img.shields.io/badge/Endpoints-441-green?style=flat-square)](https://scavio.dev/docs)
+[![Skills](https://img.shields.io/badge/Skills-80-orange?style=flat-square)](#skills)
 [![skills.sh](https://img.shields.io/badge/skills.sh-listed-black?style=flat-square)](https://skills.sh/scavio-ai/skills)
 [![Agents](https://img.shields.io/badge/Agents-40+-blueviolet?style=flat-square)](https://skills.sh)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](LICENSE)
@@ -19,7 +19,7 @@
 
 ## Overview
 
-[Scavio](https://scavio.dev) is a unified web data API: one key, 77 platforms, structured JSON instead of HTML. This repo holds 80 Agent Skills: one per platform, a website crawler skill, plus `scavio`, an umbrella that covers all of them from a single install. A skill teaches your agent which Scavio endpoints exist for a platform, what parameters they take, what the response looks like, and what each call costs in credits, so the agent can call the API correctly without you writing an integration. Every skill is in the open Agent Skills format and loads in Claude Code, Cursor, Codex, OpenCode, Goose, OpenHands, Hermes Agent, OpenClaw, and any other client that reads the format.
+[Scavio](https://scavio.dev) is a unified web data API: one key, 78 platforms, structured JSON instead of HTML. This repo holds 81 Agent Skills: one per platform, a website crawler skill, plus `scavio`, an umbrella that covers all of them from a single install. A skill teaches your agent which Scavio endpoints exist for a platform, what parameters they take, what the response looks like, and what each call costs in credits, so the agent can call the API correctly without you writing an integration. Every skill is in the open Agent Skills format and loads in Claude Code, Cursor, Codex, OpenCode, Goose, OpenHands, Hermes Agent, OpenClaw, and any other client that reads the format.
 
 ## Install
 
@@ -53,7 +53,7 @@ Any client that reads the Agent Skills format can also load a folder directly. C
 
 `scavio` is one `SKILL.md` that routes to a `references/` file per platform. Your agent carries one description in its context instead of fifty, and the platform detail loads only when a platform is used. The per-platform skills are the same content split up: each one is a fifth of what the umbrella loads per call, and each has its own trigger, so they fit a project that uses two or three platforms. Install one or the other, not both.
 
-Hermes Agent caps a community skill at 50 files and the umbrella ships 80, so on Hermes install the per-platform skills instead; every one of them passes the Hermes scan.
+Hermes Agent caps a community skill at 50 files and the umbrella ships 81, so on Hermes install the per-platform skills instead; every one of them passes the Hermes scan.
 
 ## Setup
 
@@ -110,6 +110,7 @@ Get the key at [scavio.dev](https://scavio.dev). The free tier is 50 credits on 
 | `iherb-product-data` | iHerb search by keyword or brand, product detail with supplement facts, price per serving and variants, price and stock for up to 50 products in one call, and the review summary (US store, USD) |
 | `chewy-product-data` | Chewy search and category listings with one-time, Autoship and first-Autoship prices and ratings, and product detail with MAP price, star distribution, specifications and every size and flavor variant |
 | `menards-product-data` | Menards product detail by item id or URL with the everyday and sale price, mail-in rebates and the price after rebate, stock quantity and aisle at the store you choose, and a store locator (no search) |
+| `nordstrom-product-data` | Nordstrom search with current and original price, percent off, rating, badges, marketplace seller and every color, sortable by percent off, and product detail with every size and color as a SKU (UPC, regular or clearance price, stock, units available to ship), the star histogram, size-fit distribution and the reviews on the page |
 | `mercadolibre-product-data` | Mercado Libre and Mercado Livre search by keyword or seller, product detail with the buy-box seller, reviews, buyer questions, and best sellers (MX, BR, AR, CO) |
 | `google-shopping-api` | Product search with price filters, product detail, and every store selling it |
 | `aliexpress-product-data` | Search, category browse, product with every SKU variant, translated reviews, and seller storefronts |
@@ -200,11 +201,11 @@ Get the key at [scavio.dev](https://scavio.dev). The free tier is 50 credits on 
 
 | Skill | What it does |
 | --- | --- |
-| `scavio` | All 77 platforms behind one trigger: routing table, shared setup, request format, cost gate, and failure handling, with a reference file per platform |
+| `scavio` | All 78 platforms behind one trigger: routing table, shared setup, request format, cost gate, and failure handling, with a reference file per platform |
 
 ## Which skill do I want
 
-**I need prices for a product across retailers.** Start with `google-shopping-api` for the cross-merchant view, then go per retailer: `amazon-product-data` for ASIN detail and offers, `walmart-product-data`, `target-product-data`, `home-depot-product-data`, `costco-product-data`, `heb-grocery-data` and `kroger-grocery-data` for groceries, `specs-liquor-prices` for liquor, wine and beer, `lowes-product-data` for home improvement, `sams-club-product-data` for warehouse-club prices, `dollar-general-api` for discount stores, `aldi-grocery-data` for ALDI groceries, `walgreens-product-data` and `cvs-product-data` for drugstores, `sephora-product-data` and `ulta-beauty-api` for beauty, `micro-center-api` for PC parts and open-box stock, `whole-foods-grocery-data` for Whole Foods store prices, Prime deals and the weekly flyer, `petsmart-product-data`, `petco-product-data` and `chewy-product-data` for pet supplies with autoship prices, `iherb-product-data` for supplements and vitamins, `harbor-freight-api` for tools, coupons and member prices, `menards-product-data` for Menards prices, rebates and store stock, `canadian-tire-api` for Canada, `decathlon-product-data`, `aliexpress-product-data`, and `mercadolibre-product-data` for Mexico, Brazil, Argentina and Colombia. For resale and used comps, `ebay-product-data` searches sold listings. For handmade and vintage, `etsy-product-data`.
+**I need prices for a product across retailers.** Start with `google-shopping-api` for the cross-merchant view, then go per retailer: `amazon-product-data` for ASIN detail and offers, `walmart-product-data`, `target-product-data`, `home-depot-product-data`, `costco-product-data`, `heb-grocery-data` and `kroger-grocery-data` for groceries, `specs-liquor-prices` for liquor, wine and beer, `lowes-product-data` for home improvement, `sams-club-product-data` for warehouse-club prices, `dollar-general-api` for discount stores, `aldi-grocery-data` for ALDI groceries, `walgreens-product-data` and `cvs-product-data` for drugstores, `sephora-product-data` and `ulta-beauty-api` for beauty, `nordstrom-product-data` for fashion prices, markdowns and per-size stock, `micro-center-api` for PC parts and open-box stock, `whole-foods-grocery-data` for Whole Foods store prices, Prime deals and the weekly flyer, `petsmart-product-data`, `petco-product-data` and `chewy-product-data` for pet supplies with autoship prices, `iherb-product-data` for supplements and vitamins, `harbor-freight-api` for tools, coupons and member prices, `menards-product-data` for Menards prices, rebates and store stock, `canadian-tire-api` for Canada, `decathlon-product-data`, `aliexpress-product-data`, and `mercadolibre-product-data` for Mexico, Brazil, Argentina and Colombia. For resale and used comps, `ebay-product-data` searches sold listings. For handmade and vintage, `etsy-product-data`.
 
 **I need a lead list of local businesses.** `google-maps-api` gives places, addresses, phone numbers, hours, and coordinates for a query and map center. `yelp-business-data` adds price band, amenities, and review text for the same kind of venue. `trustpilot-reviews-api` ranks online businesses in a category by star rating, with the website and the email and phone they published. `tripadvisor-reviews-api` covers restaurants, hotels, and attractions ranked within a geo.
 

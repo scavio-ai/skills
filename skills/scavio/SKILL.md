@@ -1,6 +1,6 @@
 ---
 name: scavio
-description: "Scavio web data API: one key, structured JSON from 77 platforms. Google Search, AI Mode, News, Trends, Maps, Shopping, Hotels, Flights, Play Store and Ads Transparency; ChatGPT and Gemini answers; Amazon, eBay, Walmart, Target, Home Depot, Lowe's, Costco, Sam's Club, Kroger, H-E-B, ALDI, Whole Foods Market, Dollar General, Walgreens, CVS, iHerb, Sephora, Ulta Beauty, PetSmart, Petco, Chewy, Micro Center, Harbor Freight, Menards, Canadian Tire, Decathlon, Spec's, Mercado Libre, AliExpress, Etsy and TikTok Shop; Instagram, TikTok, YouTube, Twitter/X, Reddit, LinkedIn, Facebook, Threads, Pinterest, Twitch, Douyin, Weibo and Kuaishou; Airbnb, Booking.com and Tripadvisor; Indeed, Glassdoor, G2, Capterra, Trustpilot and Yelp; Zillow, Redfin, Realtor.com and Rightmove; Apple App Store; SEC EDGAR, Companies House and GitHub; the Meta, TikTok and LinkedIn ad libraries; URL to Markdown, website crawling and website screenshots. Routes each request to the platform reference, quotes the credit cost before a paid call, and handles 402 and 429. Use when the user wants public data from any of these sites, code that calls Scavio, or a cost estimate."
+description: "Scavio web data API: one key, structured JSON from 78 platforms. Google Search, AI Mode, News, Trends, Maps, Shopping, Hotels, Flights, Play Store and Ads Transparency; ChatGPT and Gemini answers; Amazon, eBay, Walmart, Target, Home Depot, Lowe's, Costco, Sam's Club, Kroger, H-E-B, ALDI, Whole Foods Market, Dollar General, Walgreens, CVS, iHerb, Sephora, Ulta Beauty, Nordstrom, PetSmart, Petco, Chewy, Micro Center, Harbor Freight, Menards, Canadian Tire, Decathlon, Spec's, Mercado Libre, AliExpress, Etsy and TikTok Shop; Instagram, TikTok, YouTube, Twitter/X, Reddit, LinkedIn, Facebook, Threads, Pinterest, Twitch, Douyin, Weibo and Kuaishou; Airbnb, Booking.com and Tripadvisor; Indeed, Glassdoor, G2, Capterra, Trustpilot and Yelp; Zillow, Redfin, Realtor.com and Rightmove; Apple App Store; SEC EDGAR, Companies House and GitHub; the Meta, TikTok and LinkedIn ad libraries; URL to Markdown, website crawling and website screenshots. Routes each request to the platform reference, quotes the credit cost before a paid call, and handles 402 and 429. Use when the user wants public data from any of these sites, code that calls Scavio, or a cost estimate."
 version: 1.0.0
 tags: scavio, web-data-api, scraper-api, serp-api, social-media-api, ecommerce-api, google-search, amazon, instagram, tiktok, youtube, linkedin, reddit, structured-data, json, ai-agents, langchain, crewai, autogen
 metadata:
@@ -15,9 +15,9 @@ metadata:
     homepage: https://scavio.dev/docs?utm_source=agent-skills&utm_medium=skill&utm_campaign=scavio
 ---
 
-# Scavio - One API Key for 77 Web Data Platforms
+# Scavio - One API Key for 78 Web Data Platforms
 
-Scavio returns public pages from 77 platforms as structured JSON through one API key. This file is the router. It says which platform reference to read, how every request is shaped, what a call costs, and what to do when one fails. The files under `references/` hold the endpoints, parameters, measured response shapes and the traps for each platform. Open the reference before the first call to a platform in a session, and call from the reference, not from memory.
+Scavio returns public pages from 78 platforms as structured JSON through one API key. This file is the router. It says which platform reference to read, how every request is shaped, what a call costs, and what to do when one fails. The files under `references/` hold the endpoints, parameters, measured response shapes and the traps for each platform. Open the reference before the first call to a platform in a session, and call from the reference, not from memory.
 
 ## When to trigger
 
@@ -70,6 +70,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Menards | [menards-product-data](references/menards-product-data.md) | 3 | search 2; product 1, 2 with store_id; stores 1 |
 | Mercado Libre | [mercadolibre-product-data](references/mercadolibre-product-data.md) | 5 | 2; reviews 1 |
 | Micro Center | [micro-center-api](references/micro-center-api.md) | 3 | 2; stores 1 |
+| Nordstrom | [nordstrom-product-data](references/nordstrom-product-data.md) | 2 | 5 |
 | Petco | [petco-product-data](references/petco-product-data.md) | 5 | 1 |
 | PetSmart | [petsmart-product-data](references/petsmart-product-data.md) | 6 | 1 |
 | Sam's Club | [sams-club-product-data](references/sams-club-product-data.md) | 6 | 1 |

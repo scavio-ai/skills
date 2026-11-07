@@ -577,6 +577,18 @@
       "credits": "search 2; product 1, 2 with store_id; stores 1"
     },
     {
+      "dir": "scavio-nordstrom",
+      "slug": "nordstrom-product-data",
+      "name": "nordstrom-product-data",
+      "display": "Nordstrom Product Data API - Search, Prices, SKU Stock, Reviews",
+      "query": "nordstrom product data",
+      "reused": "no",
+      "platform": "Nordstrom",
+      "group": "Commerce",
+      "endpoints": "2",
+      "credits": "5"
+    },
+    {
       "dir": "scavio-home-depot",
       "slug": "home-depot-product-data",
       "name": "home-depot-product-data",
@@ -1189,6 +1201,11 @@
       "dir": "scavio-menards",
       "description": "Menards product data API: search menards.com at the store you choose with each result's price, sale price, the 11% mail-in rebate, final price after rebate and that store's stock count, read one product by item id or URL with the full price ladder, specifications and that store's stock and aisle, and find Menards stores near a ZIP or city. 3 endpoints; search 2 credits, product 1 (2 with a store), stores 1.",
       "tags": "menards, menards-api, menards-product-data, menards-search, product-search, home-improvement, hardware, building-materials, tools, rebates, mail-in-rebate, store-prices, store-inventory, in-store-stock, aisle-location, product-data, product-specs, store-locator, retail, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-nordstrom",
+      "description": "Nordstrom product data API: search nordstrom.com with current price, original price, percent off, rating, review count, badges and every color, sorted by relevance, rating, price, newest or percent off, then read one product with every size and color as a SKU with UPC, price, regular, clearance or promotion price type, stock and units available to ship, plus the star histogram, size-fit distribution and the reviews shown on the page. 2 endpoints, 5 credits each.",
+      "tags": "nordstrom, nordstrom-api, nordstrom-product-data, nordstrom-scraper, fashion, apparel, shoes, designer-brands, clothing-prices, sale-tracking, price-drop-alerts, percent-off, clearance, sku-data, upc, size-fit, product-search, product-data, product-reviews, retail, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-home-depot",
