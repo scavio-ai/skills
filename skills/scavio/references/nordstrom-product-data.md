@@ -286,6 +286,21 @@ Every response uses the envelope `{ data, response_time, fetched_at, credits_use
 - `429` means rate or usage limit exceeded. Wait before retrying. See [rate limits](https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=nordstrom-product-data).
 - `502` or `503` means Nordstrom is temporarily unavailable or returned an unusable page. It is not charged; retry after a few seconds.
 
+## SDKs
+
+```bash
+pip install scavio==0.35.0
+npm install scavio@0.35.0
+```
+
+```js
+import { Scavio } from "scavio";
+
+const scavio = new Scavio(); // reads SCAVIO_API_KEY
+const { data: found } = await scavio.nordstrom.search({ query: "dress", sort: "percent_off" });
+const item = await scavio.nordstrom.product({ url: found.products[0].url });
+```
+
 ## MCP
 
 The Scavio MCP server exposes both endpoints as tools (`search_nordstrom`, `get_nordstrom_product`). Nordstrom is opt-in: add `nordstrom` to `SCAVIO_PLATFORMS`.
