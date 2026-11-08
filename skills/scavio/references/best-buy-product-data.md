@@ -686,15 +686,15 @@ npm install scavio@0.40.0
 import { Scavio } from "scavio";
 
 const scavio = new Scavio(); // reads SCAVIO_API_KEY
-const { data: found } = await scavio.bestbuy.search({ query: "tv", sort: "best_discount", filters: { open_box: true } });
-const { data: item } = await scavio.bestbuy.product({ sku: found.products[0].sku });
-const { data: pickup } = await scavio.bestbuy.availability({ sku: item.sku, zip: "94103" });
-const { data: near } = await scavio.bestbuy.stores({ zip: "94103" });
-const { data: prices } = await scavio.bestbuy.prices({ skus: ["6607832", "6673112"] });
-const { data: today } = await scavio.bestbuy.deals({});
-const { data: cat } = await scavio.bestbuy.category({ category_id: "abcat0101001" });
-const { data: rev } = await scavio.bestbuy.reviews({ sku: item.sku, rating: 1, sort: "newest" });
-const { data: ideas } = await scavio.bestbuy.suggestions({ query: "ps5 con" });
+const { data: found } = await scavio.bestBuy.search({ query: "tv", sort: "best_discount", filters: { open_box: true } });
+const { data: item } = await scavio.bestBuy.product({ sku: found.products[0].sku });
+const { data: pickup } = await scavio.bestBuy.availability({ sku: item.sku, zip: "94103" });
+const { data: near } = await scavio.bestBuy.stores({ zip: "94103" });
+const { data: prices } = await scavio.bestBuy.prices({ skus: ["6607832", "6673112"] });
+const { data: today } = await scavio.bestBuy.deals();
+const { data: cat } = await scavio.bestBuy.category({ category_id: "abcat0101001" });
+const { data: rev } = await scavio.bestBuy.reviews({ sku: item.sku, rating: 1, sort: "newest" });
+const { data: ideas } = await scavio.bestBuy.suggestions({ query: "ps5 con" });
 ```
 
 ## MCP
