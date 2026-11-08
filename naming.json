@@ -601,6 +601,18 @@
       "credits": "5; availability and reviews 10"
     },
     {
+      "dir": "scavio-bestbuy",
+      "slug": "best-buy-product-data",
+      "name": "best-buy-product-data",
+      "display": "Best Buy Product Data API - Open-Box Prices, Store Stock, Deals, Reviews",
+      "query": "best buy api",
+      "reused": "no",
+      "platform": "Best Buy",
+      "group": "Commerce",
+      "endpoints": "9",
+      "credits": "2; stores and suggestions 1, deals and pcmcat category pages 3"
+    },
+    {
       "dir": "scavio-home-depot",
       "slug": "home-depot-product-data",
       "name": "home-depot-product-data",
@@ -1223,6 +1235,11 @@
       "dir": "scavio-nordstromrack",
       "description": "Nordstrom Rack product data API: search nordstromrack.com or list any /shop or /clearance category, Clear the Rack, flash events or a brand catalog with price, compare-at price, percent off, the clearance price and any extra-off promotion price on top, rating, badges, every color and filter counts, read one product with every size and color as a SKU with UPC, price type, stock and units available to ship plus the star histogram, size-fit distribution and the reviews on the page, pull Rack's own review history (up to 200 per call) sorted and filtered by stars, verified purchase, photos or text with the rating summary and AI review summary, check per-SKU ship and Rack store-pickup availability with the stores that can do pickup, find Nordstrom Rack stores near a ZIP with hours, and pull search autocomplete. 8 endpoints, 5 credits each, availability and reviews 10.",
       "tags": "nordstrom-rack, nordstrom-rack-api, nordstromrack, nordstrom-rack-product-data, nordstrom-rack-scraper, nordstrom-rack-clearance, clear-the-rack, flash-events, off-price, resale-sourcing, fashion, apparel, shoes, designer-brands, clothing-prices, clearance-tracking, price-drop-alerts, percent-off, sku-data, upc, size-fit, product-search, product-data, product-reviews, review-analysis, category-browse, brand-catalog, map-monitoring, store-locator, store-pickup, in-store-availability, autocomplete, retail, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-bestbuy",
+      "description": "Best Buy product data API: search bestbuy.com or browse any category or deals page, 18 products per page, with price, regular price, savings, deal badge, condition, rating and seller type, filtered by brand, on sale, clearance, open box or a price range, read one product by SKU with UPC, model, every open-box offer by condition (fair, good, excellent) with its price and savings against new and regular, the full spec table and the AI review summary, check store pickup status (in stock, limited, ship to store, out of stock) of a SKU at up to 8 stores near a ZIP, find stores with 35 days of dated hours, get today's Deal of the Day, batch prices for up to 15 SKUs, page first-party reviews with the star histogram and pros and cons, and pull search autocomplete. 9 endpoints, 2 credits each; stores and suggestions 1, deals and pcmcat category pages 3.",
+      "tags": "best-buy, bestbuy, best-buy-api, best-buy-product-data, best-buy-scraper, best-buy-open-box, open-box-prices, best-buy-price-tracker, price-drop-alerts, best-buy-stock-checker, in-stock-tracker, store-pickup, in-store-availability, deal-of-the-day, best-buy-deals, clearance, electronics, consumer-electronics, tvs, laptops, gaming, upc, sku-data, product-specs, product-search, product-data, product-reviews, review-analysis, category-browse, store-locator, store-hours, batch-prices, autocomplete, retail, price-monitoring, price-comparison, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-home-depot",
