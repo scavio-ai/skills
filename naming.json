@@ -589,6 +589,18 @@
       "credits": "5; availability and reviews 10"
     },
     {
+      "dir": "scavio-nordstromrack",
+      "slug": "nordstrom-rack-product-data",
+      "name": "nordstrom-rack-product-data",
+      "display": "Nordstrom Rack Product Data API - Clearance, Flash Events, Store Pickup, Reviews",
+      "query": "nordstrom rack api",
+      "reused": "no",
+      "platform": "Nordstrom Rack",
+      "group": "Commerce",
+      "endpoints": "8",
+      "credits": "5; availability and reviews 10"
+    },
+    {
       "dir": "scavio-home-depot",
       "slug": "home-depot-product-data",
       "name": "home-depot-product-data",
@@ -1206,6 +1218,11 @@
       "dir": "scavio-nordstrom",
       "description": "Nordstrom product data API: search nordstrom.com or list any category, sale section or brand catalog with price, original price, percent off, rating, badges, every color and filter counts, read one product with every size and color as a SKU with UPC, regular, clearance or promotion price, stock and units available to ship plus the star histogram, size-fit distribution and the reviews on the page, pull a product's review history (up to 200 per call) sorted and filtered by stars, verified purchase, photos or text with the rating summary, size and width fit, praised and criticized features and the AI review summary, check per-SKU ship and store-pickup availability with the stores that can do pickup, find Nordstrom stores near a ZIP with hours, and pull search autocomplete. 8 endpoints, 5 credits each, availability and reviews 10.",
       "tags": "nordstrom, nordstrom-api, nordstrom-product-data, nordstrom-scraper, nordstrom-reviews, fashion, apparel, shoes, designer-brands, clothing-prices, sale-tracking, price-drop-alerts, percent-off, clearance, sku-data, upc, size-fit, product-search, product-data, product-reviews, review-analysis, category-browse, brand-catalog, store-locator, store-pickup, in-store-availability, autocomplete, retail, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-nordstromrack",
+      "description": "Nordstrom Rack product data API: search nordstromrack.com or list any /shop or /clearance category, Clear the Rack, flash events or a brand catalog with price, compare-at price, percent off, the clearance price and any extra-off promotion price on top, rating, badges, every color and filter counts, read one product with every size and color as a SKU with UPC, price type, stock and units available to ship plus the star histogram, size-fit distribution and the reviews on the page, pull Rack's own review history (up to 200 per call) sorted and filtered by stars, verified purchase, photos or text with the rating summary and AI review summary, check per-SKU ship and Rack store-pickup availability with the stores that can do pickup, find Nordstrom Rack stores near a ZIP with hours, and pull search autocomplete. 8 endpoints, 5 credits each, availability and reviews 10.",
+      "tags": "nordstrom-rack, nordstrom-rack-api, nordstromrack, nordstrom-rack-product-data, nordstrom-rack-scraper, nordstrom-rack-clearance, clear-the-rack, flash-events, off-price, resale-sourcing, fashion, apparel, shoes, designer-brands, clothing-prices, clearance-tracking, price-drop-alerts, percent-off, sku-data, upc, size-fit, product-search, product-data, product-reviews, review-analysis, category-browse, brand-catalog, map-monitoring, store-locator, store-pickup, in-store-availability, autocomplete, retail, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-home-depot",

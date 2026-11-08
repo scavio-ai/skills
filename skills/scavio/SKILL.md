@@ -71,6 +71,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Mercado Libre | [mercadolibre-product-data](references/mercadolibre-product-data.md) | 5 | 2; reviews 1 |
 | Micro Center | [micro-center-api](references/micro-center-api.md) | 3 | 2; stores 1 |
 | Nordstrom | [nordstrom-product-data](references/nordstrom-product-data.md) | 8 | 5; availability and reviews 10 |
+| Nordstrom Rack | [nordstrom-rack-product-data](references/nordstrom-rack-product-data.md) | 8 | 5; availability and reviews 10 |
 | Petco | [petco-product-data](references/petco-product-data.md) | 5 | 1 |
 | PetSmart | [petsmart-product-data](references/petsmart-product-data.md) | 6 | 1 |
 | Sam's Club | [sams-club-product-data](references/sams-club-product-data.md) | 6 | 1 |
