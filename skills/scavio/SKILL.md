@@ -166,21 +166,45 @@ Each row is one reference file. Open it before the first call to that platform. 
 
 ## Setup
 
-Get a free API key at [scavio.dev](https://scavio.dev/?utm_source=agent-skills&utm_medium=skill&utm_campaign=scavio) (50 free credits to get started, no card required):
+Every call reads the key from `SCAVIO_API_KEY`. The quickest way to get one (Node.js 18+) is to sign in from the terminal; it saves the key to the shell profile without printing it:
 
 ```bash
-export SCAVIO_API_KEY=sk_live_your_key
+npx -y scavio@0.39.2 login
+```
+
+Or create a free account at [scavio.dev](https://scavio.dev/?utm_source=agent-skills&utm_medium=skill&utm_campaign=scavio) (50 free credits, no card required), copy the key from the dashboard and export it yourself:
+
+```bash
+export SCAVIO_API_KEY=sk_your_key
 ```
 
 ### If you do not have a key yet
 
-An agent running this skill without `SCAVIO_API_KEY` set will get `401` on every call. The whole path from nothing to a working key is self-serve:
+An agent running this skill without `SCAVIO_API_KEY` set will get `401` on every call. Sign the user in instead of asking for a key:
 
-1. Sign up at [dashboard.scavio.dev](https://dashboard.scavio.dev/sign-up?utm_source=agent-skills&utm_medium=skill&utm_campaign=scavio) - email or Google, no card required.
-2. A key is created for the account automatically at signup. It is on the dashboard under API Keys, ready to copy.
-3. A new account starts with 50 credits. Most endpoints cost 1 credit; the table above and each reference say where that differs.
+1. Run `npx -y scavio@0.39.2 login`. It prints a link and a code, and opens the browser when it can. Show the user both and ask them to open the link, sign in or create a free account, check that the page shows the same code, and click Approve.
+2. Run `npx -y scavio@0.39.2 login --wait`. Exit 0 means the key is saved; exit 2 means not approved yet, so run it again (each run waits up to 60 seconds); exit 3 means the user denied it; exit 1 means the code expired or failed, so start again.
+3. The key is in the user's shell profile, not in your current shell. `npx -y scavio@0.39.2 status` confirms it works. Tell the user to restart the agent so `SCAVIO_API_KEY` is loaded.
+4. A new account starts with 50 credits. Most endpoints cost 1 credit; the Platforms table and each reference say where that differs.
 
-Never print, log or paste the key. Keep `$SCAVIO_API_KEY` as a variable reference in every example and command. If the user has to set it, tell them to export it in their shell rather than paste it into the chat.
+If Node.js is not available, send the user to [dashboard.scavio.dev](https://dashboard.scavio.dev/sign-up?utm_source=agent-skills&utm_medium=skill&utm_campaign=scavio) to copy the key (created automatically at signup) and add it to their shell profile themselves.
+
+Never print, log or paste the key, and never read the shell profile or `~/.config/scavio/credentials.json`. Keep `$SCAVIO_API_KEY` as a variable reference in every example and command. Never ask the user to paste the key into the chat.
+
+## Cross-platform ad search
+
+Three endpoints query the Meta, TikTok, LinkedIn and Google ad libraries in one call and merge the results. Use them when the user wants a brand's or a keyword's ads across platforms; for one platform, use that platform's reference instead.
+
+| Endpoint | Body | Returns in `data` |
+|---|---|---|
+| `POST /api/v1/ads/search` | `query` (required), `platforms`, `country`, `limit` | `query`, `total`, `platforms` (per-platform `status` and `count`), `ads` |
+| `POST /api/v1/ads/advertisers` | `brand` (required), `platforms`, `country` | `brand`, `resolutions` (per platform: `status`, `chosen`, ranked `candidates` with `id`, `confidence`) |
+| `POST /api/v1/ads/dossier` | `brand` (required), `platforms`, `country`, `limit`, optional `meta_page_id`, `linkedin_company_id`, `google_advertiser_id` | `brand`, `resolved`, `summary` (`total_ads`, `platforms_active`, `by_platform`, `date_range`), `platforms`, `ads` |
+
+- `platforms` is any of `meta`, `tiktok`, `linkedin`, `google` (default all four). `country` is ISO2, default `US`. `limit` is ads kept per platform, default 30, max 100.
+- Each ad in `ads` has the same shape on every platform: `platform`, `ad_id`, `advertiser` (`name`, `id`, `profile_url`, `domain`), `creative` (`type`, `headline`, `body`, `cta`, `media_urls`), `landing_page`, `first_seen`, `last_seen`, `regions`, `metrics`, `is_active`, `detail_url`.
+- Cost is per platform that answers: meta 1, tiktok 1, google 1-2, linkedin 6 (a dossier can spend up to 2 on Meta). A platform that errors is not billed. All four platforms: up to 10 credits for a search, 9 to resolve advertisers, 11 for a dossier. Narrow `platforms` when the user only needs some.
+- If the dossier picked the wrong advertiser, call `/api/v1/ads/advertisers`, pick the right `id` from `candidates`, and pass it as `meta_page_id`, `linkedin_company_id` or `google_advertiser_id`.
 
 ## Request format
 
@@ -223,10 +247,11 @@ Plans, for sizing a job:
 |---|---|---|---|
 | Free | $0 | 50 one-time | 1 |
 | Pay As You Go | $0.01 per credit, 2,500 minimum | as purchased | 1 |
-| Project | $30/mo | 7,000/mo | 5 |
-| Bootstrap | $100/mo | 28,000/mo | 10 |
-| Startup | $250/mo | 85,000/mo | 15 |
-| Growth | $500/mo | 200,000/mo | 50 |
+| Hobby | $15/mo ($12/mo yearly) | 3,000/mo | 1 |
+| Project | $30/mo ($24/mo yearly) | 10,000/mo | 5 |
+| Bootstrap | $100/mo ($79/mo yearly) | 50,000/mo | 10 |
+| Startup | $250/mo ($199/mo yearly) | 150,000/mo | 15 |
+| Growth | $500/mo ($399/mo yearly) | 500,000/mo | 50 |
 
 ## Failure handling
 
