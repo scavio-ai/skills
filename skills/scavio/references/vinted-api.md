@@ -65,8 +65,9 @@ Base URL: `https://api.scavio.dev`. Most calls take 1-5 seconds, some up to 11 s
 
 Every endpoint takes `country` (default `fr`): `fr`, `be`, `lu`, `es`, `nl`, `lt`, `de`, `at`, `it`, `uk` (vinted.co.uk), `pt`, `us` (vinted.com), `cz`, `sk`, `pl`, `se`, `ro`, `hu`, `dk`, `fi`, `hr`, `gr`, `ie`, `ee`, `lv`, `si`, `au` (vinted.com.au).
 
-- The EU sites share one cross-border listing pool. The same listings come back on vinted.fr, vinted.de or vinted.pl, priced in that site's currency: EUR, or CZK (`cz`), PLN (`pl`), SEK (`se`), RON (`ro`), HUF (`hu`), DKK (`dk`). A search on `pl` returns prices in PLN, not a separate Polish catalog.
-- `uk` (GBP), `us` (USD) and `au` (AUD) are separate catalogs with their own listings.
+- Every site can show listings from sellers in other countries, with the price converted to that site's currency: EUR, or CZK (`cz`), PLN (`pl`), SEK (`se`), RON (`ro`), HUF (`hu`), DKK (`dk`), GBP (`uk`), USD (`us`), AUD (`au`). `uk`, `us` and `au` are not closed catalogs: a `uk` search returned an Australian seller's 20 AUD item at 10.43 GBP.
+- The EU sites share one cross-border pool: the same listings come back on vinted.fr, vinted.de or vinted.pl, each priced in that site's currency. A search on `pl` returns prices in PLN, not a separate Polish catalog.
+- `/vinted/product` returns the seller's own price and currency, which can differ from the search price. Compare search prices within one site, and quote the product price with its own currency.
 - Category names, condition labels, filter titles and suggestions come back in the site's language (category `10` is `Robes` on `fr` and `Kleider` on `de`). Ids are shared, so a `category_id` or `brand_ids` value works on every site.
 
 ## Workflow
