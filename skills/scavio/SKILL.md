@@ -82,6 +82,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | TCGplayer | [tcgplayer-api](references/tcgplayer-api.md) | 13 | 1 |
 | TikTok Shop | [tiktok-shop-api](references/tiktok-shop-api.md) | 8 | 1 |
 | Ulta Beauty | [ulta-beauty-api](references/ulta-beauty-api.md) | 4 | 1 |
+| Vinted | [vinted-api](references/vinted-api.md) | 9 | 1 |
 | Walgreens | [walgreens-product-data](references/walgreens-product-data.md) | 4 | 2; stock 4 |
 | Walmart | [walmart-product-data](references/walmart-product-data.md) | 8 | 1; 2 for walmart.com.mx search/category or store-targeted search/product |
 | Whole Foods Market | [whole-foods-grocery-data](references/whole-foods-grocery-data.md) | 7 | 1 |

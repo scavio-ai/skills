@@ -625,6 +625,18 @@
       "credits": "1"
     },
     {
+      "dir": "scavio-vinted",
+      "slug": "vinted-api",
+      "name": "vinted-api",
+      "display": "Vinted API - Listings, Prices, Sellers Across 27 Markets",
+      "query": "vinted api",
+      "reused": "no",
+      "platform": "Vinted",
+      "group": "Commerce",
+      "endpoints": "9",
+      "credits": "1"
+    },
+    {
       "dir": "scavio-home-depot",
       "slug": "home-depot-product-data",
       "name": "home-depot-product-data",
@@ -1257,6 +1269,11 @@
       "dir": "scavio-tcgplayer",
       "description": "TCGplayer API: search tcgplayer.com cards and sealed products across Pokemon, Magic: The Gathering, Yu-Gi-Oh!, One Piece, Lorcana and every other game (71 product lines), read one product with the market price of every SKU (condition x printing x language) and the low, high and count of the recent sales behind it, page every live seller listing with price, shipping and seller rating, pull up to a year of price history with quantity sold per day or week, the 5 most recent sales, a whole set's price guide, every set of a game, autocomplete, trending searches, and a seller's profile, buyer feedback and catalogue. 13 endpoints, 1 credit each. The official TCGplayer API is closed to new developers.",
       "tags": "tcgplayer, tcgplayer-api, tcgplayer-market-price, tcgplayer-price-history, tcgplayer-price-guide, tcgplayer-scraper, tcgplayer-api-alternative, pokemon-card-prices, pokemon-tcg, mtg-prices, magic-the-gathering, yugioh, one-piece-card-game, lorcana, trading-cards, card-prices, sealed-product, booster-box-prices, market-price, price-history, sales-history, recent-sales, card-price-tracker, collection-tracker, discord-price-bot, repricing, card-shop, seller-data, seller-feedback, marketplace, collectibles, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-vinted",
+      "description": "Vinted API: search second-hand listings on any of 27 Vinted country sites (France, UK, US, Germany, Poland, Spain, Italy, the Netherlands, Australia and more) by keyword, category, brand, condition, size, color, material and price range, 96 items per page with price, the Vinted fee and the total, read one listing in full with its category path, photos and sold or reserved state, pull a seller's public profile, listed items and reviews, and look up brand ids, filter options with live counts, the localized category tree and search autocomplete. 9 endpoints, 1 credit each. The official Vinted API serves only allowlisted Vinted Pro businesses and has no marketplace search.",
+      "tags": "vinted, vinted-api, vinted-scraper, vinted-search, vinted-bot, vinted-alerts, vinted-monitor, vinted-price-tracker, vinted-prices, vinted-listings, vinted-seller, vinted-brands, vinted-categories, second-hand, secondhand-fashion, resale, reseller, price-research, resale-prices, brand-research, market-sizing, discord-bot, new-listing-alerts, marketplace, fashion, clothing, europe, multi-country, seller-reputation, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-home-depot",
