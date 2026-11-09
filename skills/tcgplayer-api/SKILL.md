@@ -477,7 +477,7 @@ Captured `data` (9 of 10 products, 2 of the first product's 3 featured listings,
       "number": null,
       "rarity": null,
       "product_type": null,
-      "sealed": false,
+      "sealed": null,
       "foil_only": false,
       "release_date": null,
       "market_price": 211.28,
@@ -786,7 +786,8 @@ Every response uses the envelope `{ data, response_time, fetched_at, credits_use
 - Search and seller-products rows carry at most 3 featured `listings[]`, not every offer. Use `/listings` for the full list (`total_results` there is the real count).
 - `market_price` can be `null` on a product with no recent sales (one captured search row has it null with a `lowest_price` of $549.98). Say there is no market price; do not substitute the listing price without saying so.
 - `/sales` returns at most the 5 newest sales and has no pagination. Never call it a sales history or say "the last N sales" for N above 5. For volume and older sale ranges use `/price-history`.
-- Price-history buckets are newest first, and the first is today's partial bucket. A bucket with `quantity_sold: 0` has every sale price `null` (nothing sold), never a $0 sale; its `market_price` is still set. `bucket_days` is the measured bucket width (1 for `month`) and is null when there are fewer than 3 buckets. History goes back one year at most (`annual`).
+- Price-history buckets are newest first, and the first is today's partial bucket. A bucket with `quantity_sold: 0` has every sale price `null` (nothing sold), never a $0 sale; its `market_price` is still set, except before a product's first sale, when `market_price` is `null` too (no price yet). `bucket_days` is the measured bucket width (1 for `month`) and is null when there are fewer than 3 buckets. History goes back one year at most (`annual`).
+- Search and seller-products hits have no reliable product type. Pass `product_type` (`cards` or `sealed`) and every hit gets `product_type` and `sealed`; without it, `sealed` is `true` only when TCGplayer flags it, `false` only when the hit says Cards, and otherwise `null` (unknown). `/tcgplayer/product` gives the definitive type.
 - A product with no sales in the range is a 404 on `/price-history` (the same as an unknown id). Try a longer `range` before saying the card never sells.
 - Under `relevance` and `best_match`, TCGplayer's ranking shifts between calls, so page 2+ drops products the previous page already showed; `duplicates_removed` says how many, and `count` can be below `limit` while `has_more` is still true. To walk every result, use `price_asc`, `price_desc` or `name_asc`, which page predictably.
 - `game` and `set` take `url_name` values (`pokemon`, `base-set`), the same as a facet's `url_value`; `rarity` takes the facet's display value (`Holo Rare`). Game names differ by endpoint (`"Magic: The Gathering"` on `/games`, `"Magic"` in a seller's `games[]`, `"YuGiOh"` without punctuation): match on `game_id`, not on the name.
