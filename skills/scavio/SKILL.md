@@ -79,6 +79,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Sephora | [sephora-product-data](references/sephora-product-data.md) | 3 | 1 |
 | Spec's | [specs-liquor-prices](references/specs-liquor-prices.md) | 3 | 5 |
 | Target | [target-product-data](references/target-product-data.md) | 5 | 1 |
+| TCGplayer | [tcgplayer-api](references/tcgplayer-api.md) | 13 | 1 |
 | TikTok Shop | [tiktok-shop-api](references/tiktok-shop-api.md) | 8 | 1 |
 | Ulta Beauty | [ulta-beauty-api](references/ulta-beauty-api.md) | 4 | 1 |
 | Walgreens | [walgreens-product-data](references/walgreens-product-data.md) | 4 | 2; stock 4 |

@@ -613,6 +613,18 @@
       "credits": "2; stores and suggestions 1, deals and pcmcat category pages 3"
     },
     {
+      "dir": "scavio-tcgplayer",
+      "slug": "tcgplayer-api",
+      "name": "tcgplayer-api",
+      "display": "TCGplayer API - Card Market Prices, Price History, Listings, Sellers",
+      "query": "tcgplayer api",
+      "reused": "no",
+      "platform": "TCGplayer",
+      "group": "Commerce",
+      "endpoints": "13",
+      "credits": "1"
+    },
+    {
       "dir": "scavio-home-depot",
       "slug": "home-depot-product-data",
       "name": "home-depot-product-data",
@@ -1240,6 +1252,11 @@
       "dir": "scavio-bestbuy",
       "description": "Best Buy product data API: search bestbuy.com or browse any category or deals page, 18 products per page, with price, regular price, savings, deal badge, condition, rating and seller type, filtered by brand, on sale, clearance, open box or a price range, read one product by SKU with UPC, model, every open-box offer by condition (fair, good, excellent) with its price and savings against new and regular, the full spec table and the AI review summary, check store pickup status (in stock, limited, ship to store, out of stock) of a SKU at up to 8 stores near a ZIP, find stores with 35 days of dated hours, get today's Deal of the Day, batch prices for up to 15 SKUs, page first-party reviews with the star histogram and pros and cons, and pull search autocomplete. 9 endpoints, 2 credits each; stores and suggestions 1, deals and pcmcat category pages 3.",
       "tags": "best-buy, bestbuy, best-buy-api, best-buy-product-data, best-buy-scraper, best-buy-open-box, open-box-prices, best-buy-price-tracker, price-drop-alerts, best-buy-stock-checker, in-stock-tracker, store-pickup, in-store-availability, deal-of-the-day, best-buy-deals, clearance, electronics, consumer-electronics, tvs, laptops, gaming, upc, sku-data, product-specs, product-search, product-data, product-reviews, review-analysis, category-browse, store-locator, store-hours, batch-prices, autocomplete, retail, price-monitoring, price-comparison, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-tcgplayer",
+      "description": "TCGplayer API: search tcgplayer.com cards and sealed products across Pokemon, Magic: The Gathering, Yu-Gi-Oh!, One Piece, Lorcana and every other game (71 product lines), read one product with the market price of every SKU (condition x printing x language) and the low, high and count of the recent sales behind it, page every live seller listing with price, shipping and seller rating, pull up to a year of price history with quantity sold per day or week, the 5 most recent sales, a whole set's price guide, every set of a game, autocomplete, trending searches, and a seller's profile, buyer feedback and catalogue. 13 endpoints, 1 credit each. The official TCGplayer API is closed to new developers.",
+      "tags": "tcgplayer, tcgplayer-api, tcgplayer-market-price, tcgplayer-price-history, tcgplayer-price-guide, tcgplayer-scraper, tcgplayer-api-alternative, pokemon-card-prices, pokemon-tcg, mtg-prices, magic-the-gathering, yugioh, one-piece-card-game, lorcana, trading-cards, card-prices, sealed-product, booster-box-prices, market-price, price-history, sales-history, recent-sales, card-price-tracker, collection-tracker, discord-price-bot, repricing, card-shop, seller-data, seller-feedback, marketplace, collectibles, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-home-depot",
