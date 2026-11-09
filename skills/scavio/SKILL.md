@@ -68,6 +68,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | iHerb | [iherb-product-data](references/iherb-product-data.md) | 4 | 2 |
 | Kroger | [kroger-grocery-data](references/kroger-grocery-data.md) | 2 | 2 |
 | Lowe's | [lowes-product-data](references/lowes-product-data.md) | 4 | 2; reviews 1 |
+| Macy's | [macys-product-data](references/macys-product-data.md) | 9 | 1 |
 | Menards | [menards-product-data](references/menards-product-data.md) | 3 | search 2; product 1, 2 with store_id; stores 1 |
 | Mercado Libre | [mercadolibre-product-data](references/mercadolibre-product-data.md) | 5 | 2; reviews 1 |
 | Micro Center | [micro-center-api](references/micro-center-api.md) | 3 | 2; stores 1 |

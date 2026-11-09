@@ -637,6 +637,18 @@
       "credits": "1"
     },
     {
+      "dir": "scavio-macys",
+      "slug": "macys-product-data",
+      "name": "macys-product-data",
+      "display": "Macy's Product Data API - Search, Prices, Reviews, Store Pickup",
+      "query": "macys api",
+      "reused": "no",
+      "platform": "Macy's",
+      "group": "Commerce",
+      "endpoints": "9",
+      "credits": "1"
+    },
+    {
       "dir": "scavio-home-depot",
       "slug": "home-depot-product-data",
       "name": "home-depot-product-data",
@@ -1274,6 +1286,11 @@
       "dir": "scavio-vinted",
       "description": "Vinted API: search second-hand listings on any of 27 Vinted country sites (France, UK, US, Germany, Poland, Spain, Italy, the Netherlands, Australia and more) by keyword, category, brand, condition, size, color, material and price range, 96 items per page with price, the Vinted fee and the total, read one listing in full with its category path, photos and sold or reserved state, pull a seller's public profile, listed items and reviews, and look up brand ids, filter options with live counts, the localized category tree and search autocomplete. 9 endpoints, 1 credit each. The official Vinted API serves only allowlisted Vinted Pro businesses and has no marketplace search.",
       "tags": "vinted, vinted-api, vinted-scraper, vinted-search, vinted-bot, vinted-alerts, vinted-monitor, vinted-price-tracker, vinted-prices, vinted-listings, vinted-seller, vinted-brands, vinted-categories, second-hand, secondhand-fashion, resale, reseller, price-research, resale-prices, brand-research, market-sizing, discord-bot, new-listing-alerts, marketplace, fashion, clothing, europe, multi-country, seller-reputation, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-macys",
+      "description": "Macy's product data API: search macys.com or browse any category, brand page or sale section (Sales & Offers, Clearance, Today Only, Last Act, Limited-Time Specials, Black Friday Deals), 60 products per page with current, regular and sale price, percent off, sale end date, deal label, promotions, rating and colors, filtered by brand, color, special offer, any price range, store pickup or any facet, read one product with every variant (UPC, color, size, availability), the rating histogram and fit, or price up to 10 products in one call for a Macy's price tracker, page Macy's own reviews up to 100 at a time, find stores near a ZIP, a point or a city, and check store pickup near you or per size and color at one store. 9 endpoints, 1 credit each. The official Macy's API issues keys only to pre-approved Macy's Partners and has no public catalog search.",
+      "tags": "macys, macys-api, macys-product-data, macys-scraper, macys-price-tracker, macys-price-drop, macys-sale-alerts, macys-clearance, macys-deals, macys-black-friday, last-act, today-only, macys-in-stock, macys-store-pickup, in-store-availability, store-locator, macys-reviews, department-store, fashion, apparel, clothing-prices, shoes, beauty, home-goods, upc, variant-data, product-search, product-data, product-reviews, review-analysis, category-browse, brand-catalog, batch-products, autocomplete, retail, price-monitoring, price-comparison, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-home-depot",
