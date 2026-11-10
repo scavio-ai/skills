@@ -681,7 +681,7 @@
       "reused": "no",
       "platform": "JCPenney",
       "group": "Commerce",
-      "endpoints": "9",
+      "endpoints": "11",
       "credits": "1"
     },
     {
@@ -1340,8 +1340,8 @@
     },
     {
       "dir": "scavio-jcpenney",
-      "description": "JCPenney API: search jcpenney.com or browse any category, a brand, or the Clearance, Sale, Black Friday, Big Buy, Limited Time Special, Closeout and Buy 1 Get 1 deal lists, 48 products per page (up to 25 pages) with the current and regular price range, price type (sale, clearance, original), percent off, deal label, the price after today's coupon with the coupon code, rating, review count, badge and colors, filtered by brand, color, size, price range, deal label or any facet (store pickup, rating, gender), for JCPenney clearance tracking and price alerts; read one product with every variant's SKU, UPC, color, size and online stock level, or up to 20 products in one call (prices are product-level ranges; review text is not available); get real unit counts for one SKU at the 5 nearest JCPenney stores to a ZIP; find stores with hours and services; pull search suggestions and today's public JCPenney coupon codes. 9 endpoints, 1 credit each. JCPenney publishes no public developer API.",
-      "tags": "jcpenney, jcpenney-api, jcpenney-product-data, jcpenney-scraper, jcp, jcpenney-clearance, jcpenney-price-tracker, jcpenney-coupons, jcpenney-coupon-codes, jcpenney-in-stock, jcpenney-store-availability, jcpenney-black-friday, jcpenney-deals, jcpenney-sale, clearance-tracker, price-drop-alerts, coupon-codes, store-availability, store-locator, inventory, department-store, apparel, home-goods, beauty, upc, variant-data, batch-products, product-search, product-data, category-browse, brand-catalog, autocomplete, retail, price-monitoring, price-comparison, langchain, crewai, ai-agents, structured-data, json"
+      "description": "JCPenney API: search jcpenney.com or browse any category, a brand, or the Clearance, Sale, Black Friday, Big Buy, Limited Time Special, Closeout and Buy 1 Get 1 deal lists, 48 products per page (up to 25 pages) with the current and regular price range, price type (sale, clearance, original), percent off, deal label, the price after today's coupon with the coupon code, rating, review count, badge and colors, filtered by brand, color, size, price range, deal label or any facet (store pickup, rating, gender), for JCPenney clearance tracking and price alerts; read one product with every variant's SKU, UPC, color, size and online stock level, or up to 20 products in one call (prices are product-level ranges); get real unit counts for one SKU at the 5 nearest JCPenney stores to a ZIP; find stores with hours and services; pull search suggestions and today's public JCPenney coupon codes; read real JCPenney review text sorted most recent, most helpful, highest or lowest rating, or relevance, or one star rating only, with verified, incentivized and syndicated badges, photos, the brand's reply and Quality / Value ratings; and pull product questions with every answer labelled brand, JCPenney staff, AI or customer. 11 endpoints, 1 credit each. JCPenney publishes no public developer API.",
+      "tags": "jcpenney, jcpenney-api, jcpenney-product-data, jcpenney-scraper, jcp, jcpenney-clearance, jcpenney-price-tracker, jcpenney-coupons, jcpenney-coupon-codes, jcpenney-in-stock, jcpenney-store-availability, jcpenney-reviews, jcpenney-questions, jcpenney-black-friday, jcpenney-deals, jcpenney-sale, clearance-tracker, price-drop-alerts, coupon-codes, store-availability, store-locator, inventory, department-store, apparel, home-goods, beauty, upc, variant-data, batch-products, product-reviews, review-text, questions-and-answers, product-search, product-data, category-browse, brand-catalog, autocomplete, retail, price-monitoring, price-comparison, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-home-depot",

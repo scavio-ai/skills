@@ -1,22 +1,22 @@
 ---
 name: jcpenney-product-data
-description: "JCPenney API: search jcpenney.com or browse any category, a brand, or the Clearance, Sale, Black Friday, Big Buy, Limited Time Special, Closeout and Buy 1 Get 1 deal lists, 48 products per page (up to 25 pages) with the current and regular price range, price type (sale, clearance, original), percent off, deal label, the price after today's coupon with the coupon code, rating, review count, badge and colors, filtered by brand, color, size, price range, deal label or any facet (store pickup, rating, gender), for JCPenney clearance tracking and price alerts; read one product with every variant's SKU, UPC, color, size and online stock level, or up to 20 products in one call (prices are product-level ranges; review text is not available); get real unit counts for one SKU at the 5 nearest JCPenney stores to a ZIP; find stores with hours and services; pull search suggestions and today's public JCPenney coupon codes. 9 endpoints, 1 credit each. JCPenney publishes no public developer API."
+description: "JCPenney API: search jcpenney.com or browse any category, a brand, or the Clearance, Sale, Black Friday, Big Buy, Limited Time Special, Closeout and Buy 1 Get 1 deal lists, 48 products per page (up to 25 pages) with the current and regular price range, price type (sale, clearance, original), percent off, deal label, the price after today's coupon with the coupon code, rating, review count, badge and colors, filtered by brand, color, size, price range, deal label or any facet (store pickup, rating, gender), for JCPenney clearance tracking and price alerts; read one product with every variant's SKU, UPC, color, size and online stock level, or up to 20 products in one call (prices are product-level ranges); get real unit counts for one SKU at the 5 nearest JCPenney stores to a ZIP; find stores with hours and services; pull search suggestions and today's public JCPenney coupon codes; read real JCPenney review text sorted most recent, most helpful, highest or lowest rating, or relevance, or one star rating only, with verified, incentivized and syndicated badges, photos, the brand's reply and Quality / Value ratings; and pull product questions with every answer labelled brand, JCPenney staff, AI or customer. 11 endpoints, 1 credit each. JCPenney publishes no public developer API."
 version: 1.0.0
-tags: jcpenney, jcpenney-api, jcpenney-product-data, jcpenney-scraper, jcp, jcpenney-clearance, jcpenney-price-tracker, jcpenney-coupons, jcpenney-coupon-codes, jcpenney-in-stock, jcpenney-store-availability, jcpenney-black-friday, jcpenney-deals, jcpenney-sale, clearance-tracker, price-drop-alerts, coupon-codes, store-availability, store-locator, inventory, department-store, apparel, home-goods, beauty, upc, variant-data, batch-products, product-search, product-data, category-browse, brand-catalog, autocomplete, retail, price-monitoring, price-comparison, langchain, crewai, ai-agents, structured-data, json
+tags: jcpenney, jcpenney-api, jcpenney-product-data, jcpenney-scraper, jcp, jcpenney-clearance, jcpenney-price-tracker, jcpenney-coupons, jcpenney-coupon-codes, jcpenney-in-stock, jcpenney-store-availability, jcpenney-reviews, jcpenney-questions, jcpenney-black-friday, jcpenney-deals, jcpenney-sale, clearance-tracker, price-drop-alerts, coupon-codes, store-availability, store-locator, inventory, department-store, apparel, home-goods, beauty, upc, variant-data, batch-products, product-reviews, review-text, questions-and-answers, product-search, product-data, category-browse, brand-catalog, autocomplete, retail, price-monitoring, price-comparison, langchain, crewai, ai-agents, structured-data, json
 metadata:
   openclaw:
     requires:
       env:
         - SCAVIO_API_KEY
     primaryEnv: SCAVIO_API_KEY
-    timeout: 120
+    timeout: 240
     throttle: 1
     homepage: https://scavio.dev/docs/jcpenney-product?utm_source=agent-skills&utm_medium=skill&utm_campaign=jcpenney-product-data
 ---
 
 # JCPenney Product Data API - Clearance, Coupons, Store Stock
 
-Search JCPenney (jcpenney.com, US with Puerto Rico stores, prices in USD) by keyword, or browse a category by its path or URL, one brand by name, or one of the deal lists (Clearance, Sale, Black Friday deals, Big Buy, Limited Time Special, Best Value, Gotta Have It, Closeout, Buy 1 Get 1, or any Deals & Promotions label), 48 products per page and at most 25 pages (1,200 items) per query. Sort by relevance, new arrivals, best sellers, rating or price; filter by brand, color, size, price range, deal label, or any facet value the response lists (store availability, average rating, gender, rise...). Each item carries the id, title, brand, URL, image, SKU id, current price and the top of its range, regular price, `price_type` (`sale`, `clearance`, `original`), percent off, deal label, the price after today's coupon (`coupon_price`) with the `coupon_code`, the average rating, review count, badge (Only at JCP, NEW, Few Left), availability labels, colors with their SKU ids, and a marketplace flag with the seller for third-party items. Read one product by id or URL with its description, features, breadcrumbs, rating, review and question counts, the price block (regular, sale and clearance ranges, percent off, deal label, the after-coupon price and when the price starts and ends), and every variant (SKU, UPC, color, size, status, max per order, online stock as high, low or out); or read up to 20 products in one call for price checks. Check one SKU's real unit count at the 5 nearest stores to a ZIP. Find stores with weekly hours, services (salon, portrait studio, JCPenney Beauty, curbside pickup...) and pickup directions, pull the search box's suggestions and today's public coupon codes. All endpoints return structured JSON, 1 credit each.
+Search JCPenney (jcpenney.com, US with Puerto Rico stores, prices in USD) by keyword, or browse a category by its path or URL, one brand by name, or one of the deal lists (Clearance, Sale, Black Friday deals, Big Buy, Limited Time Special, Best Value, Gotta Have It, Closeout, Buy 1 Get 1, or any Deals & Promotions label), 48 products per page and at most 25 pages (1,200 items) per query. Sort by relevance, new arrivals, best sellers, rating or price; filter by brand, color, size, price range, deal label, or any facet value the response lists (store availability, average rating, gender, rise...). Each item carries the id, title, brand, URL, image, SKU id, current price and the top of its range, regular price, `price_type` (`sale`, `clearance`, `original`), percent off, deal label, the price after today's coupon (`coupon_price`) with the `coupon_code`, the average rating, review count, badge (Only at JCP, NEW, Few Left), availability labels, colors with their SKU ids, and a marketplace flag with the seller for third-party items. Read one product by id or URL with its description, features, breadcrumbs, rating, review and question counts, the price block (regular, sale and clearance ranges, percent off, deal label, the after-coupon price and when the price starts and ends), and every variant (SKU, UPC, color, size, status, max per order, online stock as high, low or out); or read up to 20 products in one call for price checks. Check one SKU's real unit count at the 5 nearest stores to a ZIP. Find stores with weekly hours, services (salon, portrait studio, JCPenney Beauty, curbside pickup...) and pickup directions, pull the search box's suggestions and today's public coupon codes. Read one product's real review text, up to 98 reviews per call, sorted most recent, most helpful, highest or lowest rating, or relevance, or only one star rating, with the rating distribution, recommend percentage and Quality / Value averages, and per review the verified-purchaser, incentivized and syndicated badges, photos, videos and the brand's reply; or its customer questions with every answer, each answer labelled brand, JCPenney staff, AI or customer. All 11 endpoints return structured JSON, 1 credit each.
 
 See also: for Kohl's clearance, Kohl's Cash and store pickup use the `kohls-product-data` skill; for Macy's use `macys-product-data`; for the cross-retailer price view use `google-shopping-api`.
 
@@ -31,6 +31,8 @@ Use this skill when the user asks to:
 - Prepare a JCPenney Black Friday watch list from the Black Friday deal list
 - Find JCPenney stores near a ZIP, a city or a point, with hours, salon, portrait studio, JCPenney Beauty and curbside pickup
 - Get JCPenney search suggestions for keyword research
+- Read what JCPenney customers say about a product: the most helpful or the newest reviews, only the 1-star complaints, the rating distribution, Quality and Value scores, and the brand's replies
+- Pull a JCPenney product's questions and answers, and tell brand, JCPenney staff, AI-generated and customer answers apart
 
 ## Setup
 
@@ -60,7 +62,7 @@ Authorization: Bearer $SCAVIO_API_KEY
 
 ## Endpoints
 
-Base URL: `https://api.scavio.dev`. Every endpoint answered in 3 to 7 seconds in the captures (listings 3-6, product about 4, suggestions about 7). Allow a client timeout of at least 60 seconds.
+Base URL: `https://api.scavio.dev`. The nine catalog, store and coupon endpoints answered in 3 to 7 seconds in the captures (listings 3-6, product about 4, suggestions about 7); allow a client timeout of at least 60 seconds for them. `/reviews` and `/questions` take much longer than the other endpoints: usually 15-90 seconds, up to about 3 minutes when JCPenney is slow to answer and the call is retried for you (the captures below took 154 and 63 seconds). Set a client timeout of at least 240 seconds for those two.
 
 | Endpoint | Credits | What it returns |
 |---|---|---|
@@ -73,6 +75,8 @@ Base URL: `https://api.scavio.dev`. Every endpoint answered in 3 to 7 seconds in
 | `POST /api/v1/jcpenney/store-availability` | 1 | One SKU at the 5 nearest stores to a ZIP (or lat + lng): per store `quantity` (a real unit count), `status` (`in_stock`, `low`, `out_of_stock`, `not_stocked`), `stocked`, `updated_at`, address, phone, distance and hours. Plus `count`, `stores_with_stock`, `total_quantity` |
 | `POST /api/v1/jcpenney/suggestions` | 1 | The search box's suggestions for a partial term: each `term` with its search URL and, where JCPenney offers them, department refinements |
 | `POST /api/v1/jcpenney/coupons` | 1 | Today's public JCPenney coupons: `code` (null for in-store offers that need none), `channel` (`online`, `in store`, `both`), headline, details, every offer under the coupon, `starts_at`, `ends_at`, the full disclaimer with its exclusions, and the eligible-products URL |
+| `POST /api/v1/jcpenney/reviews` | 1 | One product's review text by `product_id` or `url`, 8-98 per call (default 38), `sort` and an optional star `rating` filter: `total_reviews` (every language), `displayed_reviews` (the English reviews JCPenney lists), `matching_reviews` (under the sort and filter), `average_rating`, `rating_distribution` 1-5, `recommended_percent`, `secondary_ratings_averages` (Quality, Value, Apparel...), `photo_count`, and `reviews[]`: rating, title, text, author nickname, location, dates, recommended, helpful / unhelpful votes, `verified_purchaser`, `incentivized`, `syndicated` + `syndication_source`, photos, videos, secondary ratings, `brand_response`, `original_product_name`. Slow: allow 240 s |
+| `POST /api/v1/jcpenney/questions` | 1 | One product's customer questions by `product_id` or `url`, 10-50 per call (default 10), newest first: `total_questions`, `total_answers`, and per question the text, details, author, date, `answer_count`, helpful votes and every answer with `author_type` (`brand`, `retailer` for JCPenney staff, `ai`, `customer`), `ai_label` (`AI-Generated`, `AI-Assisted` or null), `is_best_answer`, date and votes. No sort parameter. Slow: allow 240 s |
 
 ## Workflow
 
@@ -84,6 +88,7 @@ Base URL: `https://api.scavio.dev`. Every endpoint answered in 3 to 7 seconds in
 6. **Price tracking:** call `/jcpenney/product` with up to 20 `product_ids` per call (1 credit), or walk `/jcpenney/deals` with `type: "clearance"`, and store `id`, `price`, `regular_price`, `price_type`, `percent_off`, `coupon_price` per run. Compare runs yourself: there is no price history.
 7. **Coupons:** `/jcpenney/coupons` lists today's public codes. A listing item's `coupon_price` and `coupon_code` (and `price.coupon` on `/product`) already show what today's coupon does to that item.
 8. **Keyword research:** `/jcpenney/suggestions` with a partial term returns completions with their department refinements.
+9. **Reviews and Q&A:** call `/jcpenney/reviews` or `/jcpenney/questions` with the product's `id` as `product_id` (the `review_count` and `question_count` on `/product` tell you whether there is anything to read). Use a 240-second client timeout, ask for only as many reviews as the task needs, and run these calls one at a time.
 
 ## Parameters
 
@@ -177,6 +182,28 @@ Pass `sku` and one of `zip` or `lat` + `lng` (no city).
 
 No parameters: send `{}`.
 
+### Reviews (`/reviews`)
+
+Pass `product_id` or `url`.
+
+| Parameter | Type | Default | Description |
+|---|---|---|---|
+| `product_id` | string | one of | A JCPenney product id (`ppr` / `ppm` / `pp` + digits), as on `/product` |
+| `url` | string | one of | A jcpenney.com product URL ending in its product id. If both are sent they must name the same product |
+| `sort` | string | `most_recent` | `most_recent`, `most_helpful`, `highest_rating`, `lowest_rating` or `relevance` (JCPenney's own review sort menu) |
+| `rating` | integer | none | Only reviews with this star rating, 1-5. A rating nobody gave returns an empty list |
+| `max_reviews` | integer | 38 | Reviews to return, 8-98. JCPenney lists 8, then 30 more per page, so 8, 38, 68 and 98 are the natural sizes; larger values take longer |
+
+### Questions (`/questions`)
+
+Pass `product_id` or `url`. There is no sort: questions come in JCPenney's order, newest first.
+
+| Parameter | Type | Default | Description |
+|---|---|---|---|
+| `product_id` | string | one of | A JCPenney product id, as on `/product` |
+| `url` | string | one of | A jcpenney.com product URL ending in its product id |
+| `max_questions` | integer | 10 | Questions to return, 10-50 (10 per page). Every answer to each question is included |
+
 ## Examples
 
 ### Product
@@ -260,7 +287,7 @@ Captured `data` (3 of 14 features, 2 of 8 images and 279 of 281 variants trimmed
 }
 ```
 
-`price` on `/product` is a block of product-level ranges, not a number: JCPenney does not expose a price per size or per color, so every one of the 281 variants shares the $19.99 sale price and none carries a price of its own. `percent_off` (58) compares the sale price with the $48 regular price. `price.coupon` is the price after today's coupon: $15.99 with `2HONOR`. `starts_at` / `ends_at` bound the price window (this "GOTTA HAVE IT PRICE!" ran one day). `online_stock` is a level (`high`, `low`, `out`), not a count: in this answer 252 variants were `high`, 19 `low` and 10 `out`; `status` is the site's own (`Available`, `AvailableLow`, `NotAvailable`). `rating` (4.06) and `review_count` (161) are all the API gives about reviews: review text is not available. Pass `variants[0].sku` (`"84630160042"`) to `/store-availability`.
+`price` on `/product` is a block of product-level ranges, not a number: JCPenney does not expose a price per size or per color, so every one of the 281 variants shares the $19.99 sale price and none carries a price of its own. `percent_off` (58) compares the sale price with the $48 regular price. `price.coupon` is the price after today's coupon: $15.99 with `2HONOR`. `starts_at` / `ends_at` bound the price window (this "GOTTA HAVE IT PRICE!" ran one day). `online_stock` is a level (`high`, `low`, `out`), not a count: in this answer 252 variants were `high`, 19 `low` and 10 `out`; `status` is the site's own (`Available`, `AvailableLow`, `NotAvailable`). `rating` (4.06), `review_count` (161), `question_count` and `answer_count` are the summary; call `/reviews` and `/questions` with the same `product_id` for the review text and the Q&A. Pass `variants[0].sku` (`"84630160042"`) to `/store-availability`.
 
 With `product_ids` (up to 20) the answer is `{count, products[], not_found[]}`, each product in the same shape with `online_stock` null and `online_stock_checked: false`.
 
@@ -659,6 +686,186 @@ Captured `data` (9 of 13 suggestions trimmed):
 
 `departments[]` holds `{name, url}` refinements where JCPenney offers them for a term; it was empty for every `jea` completion.
 
+### Reviews
+
+```bash
+curl -X POST https://api.scavio.dev/api/v1/jcpenney/reviews \
+  -H "Authorization: Bearer $SCAVIO_API_KEY" \
+  -H "Content-Type: application/json" \
+  --max-time 240 \
+  -d '{"product_id": "ppr5008604049", "sort": "most_helpful"}'
+```
+
+Captured `data` (36 of 38 reviews trimmed; the call took 154 seconds):
+
+```json
+{
+  "product_id": "ppr5008604049",
+  "total_reviews": 163,
+  "displayed_reviews": 163,
+  "average_rating": 4.04,
+  "rating_distribution": { "1": 21, "2": 9, "3": 12, "4": 21, "5": 100 },
+  "recommended_percent": 78,
+  "secondary_ratings_averages": {
+    "Value": { "average": 4.42, "max": 5 },
+    "Apparel": { "average": 3.24, "max": 5 },
+    "Quality": { "average": 4.27, "max": 5 }
+  },
+  "photo_count": 3,
+  "sort": "most_helpful",
+  "rating_filter": null,
+  "matching_reviews": 163,
+  "count": 38,
+  "reviews": [
+    {
+      "id": "252797047",
+      "rating": 1,
+      "title": "The fit has changed and isn't good.",
+      "text": "I've been wearing these St. John's Bay jeans for over 6 years and loved them.  This year I bought 3 new pairs and was very disappointed to find that the fit has changed.  The legs are baggy and the back pockets are way too big.  They make me feel very \"dumpy\" now.  Now I have to find a different brand as I won't be buying these again.",
+      "author": "Can25",
+      "location": "Pueblo, Co",
+      "submitted_at": "2026-07-14T16:06:34+00:00",
+      "updated_at": "2026-11-10T05:24:37+00:00",
+      "recommended": false,
+      "helpful_votes": 68,
+      "unhelpful_votes": 0,
+      "verified_purchaser": false,
+      "incentivized": false,
+      "syndicated": false,
+      "syndication_source": null,
+      "photos": [],
+      "videos": [],
+      "secondary_ratings": {
+        "Value": { "value": 5, "max": 5, "min_label": null, "max_label": null },
+        "Apparel": { "value": 3, "max": 5, "min_label": null, "max_label": null },
+        "Quality": { "value": 4, "max": 5, "min_label": null, "max_label": null }
+      },
+      "brand_response": null,
+      "original_product_name": "St. John's Bay Womens Mid Rise Straight Leg Jean"
+    },
+    {
+      "id": "251993817",
+      "rating": 4,
+      "title": "St. John’s",
+      "text": "I’ve been struggling to purchase jeans that fit. I have some St. John’s Bay from years ago and I love the fit. I bought these jeans in hopes that I’d get a better fit. Still not as great as he older ones.",
+      "author": "EAS57",
+      "location": "Santa Rosa CA",
+      "submitted_at": "2026-06-17T20:51:47+00:00",
+      "updated_at": "2026-11-10T04:02:54+00:00",
+      "recommended": false,
+      "helpful_votes": 42,
+      "unhelpful_votes": 0,
+      "verified_purchaser": false,
+      "incentivized": true,
+      "syndicated": false,
+      "syndication_source": null,
+      "photos": [],
+      "videos": [],
+      "secondary_ratings": {
+        "Value": { "value": 4, "max": 5, "min_label": null, "max_label": null },
+        "Apparel": { "value": 4, "max": 5, "min_label": null, "max_label": null },
+        "Quality": { "value": 5, "max": 5, "min_label": null, "max_label": null }
+      },
+      "brand_response": null,
+      "original_product_name": "St. John's Bay Womens Mid Rise Straight Leg Jean"
+    }
+  ]
+}
+```
+
+`total_reviews` counts the product's reviews in every language, `displayed_reviews` the English reviews JCPenney lists and pages through, and `matching_reviews` those under the `sort` and `rating` filter: here all three are 163, but they can differ widely (one air fryer had 1,395 in total and 725 displayed). Quote `total_reviews` as the review count and `matching_reviews` as how many a filtered list could reach. `count` (38) is how many came back. `rating_distribution` and `recommended_percent` (78) cover the whole product, not just the returned page. `incentivized: true` is JCPenney's badge for a reviewer who got something for the review (a free product or a sweepstakes entry); 28 of these 38 carried it, and none was `verified_purchaser`, so report the badges with any summary. `syndicated: true` marks a review collected on another site (`syndication_source` names it, such as the brand's own site or Influenster). `secondary_ratings` holds the per-review Quality, Value and Apparel scores behind `secondary_ratings_averages`. `brand_response` is the brand's public reply when there is one, otherwise null.
+
+### Questions
+
+```bash
+curl -X POST https://api.scavio.dev/api/v1/jcpenney/questions \
+  -H "Authorization: Bearer $SCAVIO_API_KEY" \
+  -H "Content-Type: application/json" \
+  --max-time 240 \
+  -d '{"product_id": "ppr5008212471"}'
+```
+
+Captured `data` for a sheet set (7 of 10 questions trimmed; the call took 63 seconds):
+
+```json
+{
+  "product_id": "ppr5008212471",
+  "total_questions": 57,
+  "total_answers": 45,
+  "count": 10,
+  "questions": [
+    {
+      "id": "8281853",
+      "question": "does the split king set fit motion bed",
+      "details": null,
+      "author": "madfinger",
+      "submitted_at": "2026-10-10T16:28:24+00:00",
+      "answer_count": 1,
+      "helpful_votes": 0,
+      "answers": [
+        {
+          "id": "7910232",
+          "text": "Yes, the split king set is designed to work well on adjustable or motion beds.",
+          "author": "Manojna",
+          "author_type": "retailer",
+          "ai_label": "AI-Assisted",
+          "is_best_answer": false,
+          "submitted_at": "2026-10-15T11:17:34+00:00",
+          "helpful_votes": 0,
+          "unhelpful_votes": 0
+        }
+      ]
+    },
+    {
+      "id": "8269869",
+      "question": "Are they labeled top and side",
+      "details": null,
+      "author": "Nora50",
+      "submitted_at": "2026-09-25T10:03:50+00:00",
+      "answer_count": 1,
+      "helpful_votes": 0,
+      "answers": [
+        {
+          "id": "7901399",
+          "text": "Yes, the fitted sheet includes sewn-in labels to identify the top/bottom and side edges. These tags are designed to help you place the sheets on the mattress properly and eliminate guesswork.",
+          "author": "Manojna",
+          "author_type": "ai",
+          "ai_label": "AI-Generated",
+          "is_best_answer": false,
+          "submitted_at": "2026-10-01T08:51:32+00:00",
+          "helpful_votes": 1,
+          "unhelpful_votes": 0
+        }
+      ]
+    },
+    {
+      "id": "8261116",
+      "question": "Piling",
+      "details": null,
+      "author": "Rhenne",
+      "submitted_at": "2026-09-14T18:36:30+00:00",
+      "answer_count": 1,
+      "helpful_votes": 0,
+      "answers": [
+        {
+          "id": "7896380",
+          "text": "No pilling Should happen if you follow the care instruction provided in the label",
+          "author": "JCP Support 1",
+          "author_type": "retailer",
+          "ai_label": null,
+          "is_best_answer": false,
+          "submitted_at": "2026-09-24T07:35:51+00:00",
+          "helpful_votes": 0,
+          "unhelpful_votes": 0
+        }
+      ]
+    }
+  ]
+}
+```
+
+`author_type` says who answered: `brand` (the manufacturer's product experts), `retailer` (JCPenney staff), `ai` (an AI-generated answer) or `customer`. `ai_label` is JCPenney's own label, `AI-Generated` or `AI-Assisted`, and can sit on a staff answer too (the split king answer above is `retailer` with `AI-Assisted`). Of the 10 answers in this capture, 6 were `ai` / `AI-Generated`, 2 `retailer` / `AI-Assisted` and 2 plain `retailer`. Say who answered when you quote an answer, and never present an AI answer as a shopper's. `total_questions` (57) and `total_answers` (45) cover the whole product; `count` is how many questions came back.
+
 ### Python
 
 ```python
@@ -670,8 +877,8 @@ BASE = "https://api.scavio.dev"
 API_KEY = "sk_your_key_here"
 HEADERS = {"Authorization": f"Bearer {API_KEY}"}
 
-def jcpenney(endpoint, body):
-    r = requests.post(f"{BASE}/api/v1/jcpenney/{endpoint}", headers=HEADERS, json=body, timeout=60)
+def jcpenney(endpoint, body, timeout=60):
+    r = requests.post(f"{BASE}/api/v1/jcpenney/{endpoint}", headers=HEADERS, json=body, timeout=timeout)
     r.raise_for_status()
     return r.json()["data"]
 
@@ -691,6 +898,16 @@ for s in near["stores"]:
 batch = jcpenney("product", {"product_ids": ["ppr5008604049", "ppr5008660235"]})
 for p in batch["products"]:
     print(p["id"], p["price"]["current_min"], p["price"]["price_type"], p["price"]["coupon"])
+
+# 4. The 1-star reviews and the Q&A (slow: allow 240 s each, run one at a time)
+low = jcpenney("reviews", {"product_id": "ppr5008604049", "rating": 1, "max_reviews": 8}, timeout=240)
+print(low["total_reviews"], "reviews,", low["matching_reviews"], "with 1 star")
+for rv in low["reviews"]:
+    print(rv["rating"], rv["title"], "| verified:", rv["verified_purchaser"], "incentivized:", rv["incentivized"])
+qa = jcpenney("questions", {"product_id": "ppr5008212471"}, timeout=240)
+for q in qa["questions"]:
+    for a in q["answers"]:
+        print(q["question"], "->", a["author_type"], a["ai_label"], a["text"][:80])
 ```
 
 ## Response shapes
@@ -708,6 +925,8 @@ Every response uses the envelope `{ data, response_time, fetched_at, credits_use
 - **store-availability** - `sku`, `location`, `radius`, `in_stock_only`, `count`, `stores_with_stock`, `total_quantity`, `stores[]` {`store_id`, `name`, `address`, `city`, `state`, `zip`, `phone`, `lat`, `lng`, `distance_miles`, `hours[]` {`day`, `open`, `close`}, `quantity`, `status`, `stocked`, `updated_at`}.
 - **suggestions** - `query`, `count`, `suggestions[]` {`term`, `url`, `departments[]` {`name`, `url`}}.
 - **coupons** - `count`, `codes`, `coupons[]` {`code`, `channel`, `headline`, `details`, `offers[]` {`headline`, `details`}, `starts_at`, `ends_at`, `disclaimer`, `url`}.
+- **reviews** - `product_id`, `total_reviews`, `displayed_reviews`, `average_rating`, `rating_distribution` {`1`..`5`}, `recommended_percent`, `secondary_ratings_averages` {name: {`average`, `max`}}, `photo_count`, `sort`, `rating_filter`, `matching_reviews`, `count`, `reviews[]` {`id`, `rating`, `title`, `text`, `author`, `location`, `submitted_at`, `updated_at`, `recommended`, `helpful_votes`, `unhelpful_votes`, `verified_purchaser`, `incentivized`, `syndicated`, `syndication_source`, `photos[]`, `videos[]`, `secondary_ratings` {name: {`value`, `max`, `min_label`, `max_label`}}, `brand_response` (null when the brand did not reply), `original_product_name`}.
+- **questions** - `product_id`, `total_questions`, `total_answers`, `count`, `questions[]` {`id`, `question`, `details`, `author`, `submitted_at`, `answer_count`, `helpful_votes`, `answers[]` {`id`, `text`, `author`, `author_type` (`brand`, `retailer`, `ai`, `customer`), `ai_label`, `is_best_answer`, `submitted_at`, `helpful_votes`, `unhelpful_votes`}}.
 
 ## Guardrails
 
@@ -717,7 +936,11 @@ Every response uses the envelope `{ data, response_time, fetched_at, credits_use
 - `price_in_cart: true` means JCPenney shows the price only in the cart: the price fields and `coupon_price` are null. Say so; never guess the cart price.
 - `coupon_price` (and `price.coupon` on `/product`) is the price after today's coupon in `coupon_code`, as JCPenney computes it. This API does not apply it at checkout, codes have end dates (see `/coupons`), and JCPenney's terms say its coupon codes do not apply to marketplace products unless stated.
 - Marketplace items: `is_marketplace: true` marks a third-party seller's product (its id usually starts `ppm`), with `seller` when the listing names one. There is no sponsored-item flag: the grid carries none.
-- Reviews: `rating` and `review_count` (and `question_count`, `answer_count` on `/product`) only. Review text is not available from any endpoint, so never summarize or quote what reviewers say.
+- Reviews and Q&A are slow: `/reviews` and `/questions` usually take 15-90 seconds and up to about 3 minutes, against 3-7 seconds for every other endpoint. Use a client timeout of at least 240 seconds, run them one at a time, ask for only as many reviews as the task needs (8 is the fastest), and tell the user the call takes a while rather than retrying early.
+- Review counts: `total_reviews` is every language, `displayed_reviews` the English reviews JCPenney lists (it can be about half of `total_reviews`), `matching_reviews` those under the current `sort` and `rating`, and `count` how many came back (at most 98 per call). Never present the returned reviews as all of them. `rating_distribution`, `average_rating` and `recommended_percent` describe the whole product.
+- Review badges: report `incentivized`, `verified_purchaser` and `syndicated` (with `syndication_source`) alongside any summary of what reviewers say; an incentivized review was rewarded, a syndicated one was written on another site, and neither should be presented as an ordinary JCPenney shopper's review. Quote review text verbatim with its rating and date, never paraphrase it as a quote.
+- Q&A: there is no sort parameter; questions come newest first, at most 50 per call with every answer. Name who answered from `author_type` (`brand`, `retailer` = JCPenney staff, `ai`, `customer`) and `ai_label`; an AI-generated or AI-assisted answer is not a shopper's experience and can be wrong.
+- Privacy: reviewer age, gender and IP addresses, and answerer IP addresses, are never returned. Reviewers appear by the nickname and location they chose to publish.
 - Filters: `filters` keys are `facets[].id` and values are `facets[].values[].value` from a previous answer. Price is a bucket from the `s1_price_range` facet; there is no free `min_price` / `max_price`. A filter that matches nothing returns a 200 with `total: 0`; check `total` and the `selected` flags before claiming a list is filtered. At most 10 facets and 40 values per call.
 - Depth: 48 items per page, at most 25 pages (1,200 items) per query, whatever `total` says. Split a larger list with filters (brand, size, price range, department) rather than paging further; a page past the last one returns an empty `items` list.
 - The `price_low_to_high` and `price_high_to_low` sorts are JCPenney's own and loose: sort the items by `price` yourself when you need a strict order.
@@ -731,18 +954,19 @@ Every response uses the envelope `{ data, response_time, fetched_at, credits_use
 
 ## Failure handling
 
-- `400` means a missing or invalid parameter (no `query`; `page` outside 1-25; an unknown `sort` or deal `type`; both `type` and `label`; a `filters` value that is not an object of facet id to value(s), a facet name that is not a `facets[].id`, more than 10 facets or more than 20 values for one; a `brand` filter on `/brand` or a `deal` filter on `/deals`; both `path` and `url`, or both `brand` and `url`; a category path that is not `/g/...?id=cat...`; a department page with no filter; a `department` that is not a `dept...` / `cat...` id; a `product_id` that is not `ppr` / `ppm` / `pp` + digits; a product `url` without its id; more than 20 `product_ids`, or `product_ids` with `product_id` / `url`; `product_id` and `url` naming different products; a `sku` that is not 8-16 digits; a ZIP that is not 5 digits; more than one location; `city` without `state` or `lat` without `lng`; `city` on store availability; a `radius` outside 1-100; a `page_size` outside 1-20).
+- `400` means a missing or invalid parameter (no `query`; no `product_id` or `url` on `/reviews` or `/questions`; an unknown review `sort`; a `rating` outside 1-5; `max_reviews` outside 8-98 or `max_questions` outside 10-50; `page` outside 1-25; an unknown `sort` or deal `type`; both `type` and `label`; a `filters` value that is not an object of facet id to value(s), a facet name that is not a `facets[].id`, more than 10 facets or more than 20 values for one; a `brand` filter on `/brand` or a `deal` filter on `/deals`; both `path` and `url`, or both `brand` and `url`; a category path that is not `/g/...?id=cat...`; a department page with no filter; a `department` that is not a `dept...` / `cat...` id; a `product_id` that is not `ppr` / `ppm` / `pp` + digits; a product `url` without its id; more than 20 `product_ids`, or `product_ids` with `product_id` / `url`; `product_id` and `url` naming different products; a `sku` that is not 8-16 digits; a ZIP that is not 5 digits; more than one location; `city` without `state` or `lat` without `lng`; `city` on store availability; a `radius` outside 1-100; a `page_size` outside 1-20).
 - `401` means the API key is invalid or missing. Check `SCAVIO_API_KEY`.
 - `402` means the balance is out of credits. The body carries `billing_url`.
-- `404` means no such product (none of the `product_ids` either), no such brand, no products under that category, or no such SKU. Not charged. Re-run the search for a fresh `id`, or use a brand as the `Brand` facet of a search lists it. `/stores` with no store in range answers 200 with `count: 0`.
+- `404` means no such product (none of the `product_ids` either, or the product of a `/reviews` / `/questions` call), no such brand, no products under that category, or no such SKU. Not charged. A product with no reviews or no questions is a 200 with an empty list, not a 404. Re-run the search for a fresh `id`, or use a brand as the `Brand` facet of a search lists it. `/stores` with no store in range answers 200 with `count: 0`.
 - `429` means rate or usage limit exceeded. Wait before retrying. See [rate limits](https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=jcpenney-product-data).
 - `502` or `503` means JCPenney is temporarily unavailable or returned an unusable page. Upstream checks sometimes fail; retried automatically. It is not charged, so retry after a few seconds.
+- On `/reviews` and `/questions`, a `502` means the reviews or questions could not be loaded this time (already retried once for you, not charged), and a `503` with a `Retry-After` header means too many review and question calls are running at once: wait the `Retry-After` seconds (30) and send it again. Neither is charged.
 
 ## SDKs
 
 ```bash
-pip install scavio==0.45.0
-npm install scavio@0.46.0
+pip install scavio==0.46.0
+npm install scavio@0.47.0
 ```
 
 ```js
@@ -760,18 +984,21 @@ const { data: batch } = await scavio.jcpenney.product({ product_ids: ["ppr500860
 const { data: stores } = await scavio.jcpenney.stores({ zip: "75024" });
 const { data: ideas } = await scavio.jcpenney.suggestions({ query: "jea" });
 const { data: codes } = await scavio.jcpenney.coupons();
+// Slow (15-90 s, up to ~3 min): the SDK allows a longer timeout for these two
+const { data: reviews } = await scavio.jcpenney.reviews({ product_id: "ppr5008604049", sort: "most_helpful" });
+const { data: qa } = await scavio.jcpenney.questions({ product_id: "ppr5008212471" });
 ```
 
 ## MCP
 
-The Scavio MCP server exposes all nine endpoints as tools: `search_jcpenney`, `get_jcpenney_product`, `get_jcpenney_category`, `get_jcpenney_brand`, `get_jcpenney_deals`, `get_jcpenney_stores`, `get_jcpenney_store_availability`, `get_jcpenney_suggestions` and `get_jcpenney_coupons`. JCPenney is opt-in: add `jcpenney` to `SCAVIO_PLATFORMS`.
+The Scavio MCP server exposes all eleven endpoints as tools: `search_jcpenney`, `get_jcpenney_product`, `get_jcpenney_category`, `get_jcpenney_brand`, `get_jcpenney_deals`, `get_jcpenney_stores`, `get_jcpenney_store_availability`, `get_jcpenney_suggestions`, `get_jcpenney_coupons`, `get_jcpenney_reviews` and `get_jcpenney_questions`. JCPenney is opt-in: add `jcpenney` to `SCAVIO_PLATFORMS`.
 
 ```json
 {
   "mcpServers": {
     "scavio": {
       "command": "npx",
-      "args": ["-y", "@scavio/mcp-server@0.43.0"],
+      "args": ["-y", "@scavio/mcp-server@0.44.0"],
       "env": {
         "SCAVIO_API_KEY": "sk_live_your_key",
         "SCAVIO_PLATFORMS": "default,jcpenney"
@@ -783,4 +1010,4 @@ The Scavio MCP server exposes all nine endpoints as tools: `search_jcpenney`, `g
 
 ## Docs
 
-Full reference per endpoint: [search](https://scavio.dev/docs/jcpenney-search?utm_source=agent-skills&utm_medium=skill&utm_campaign=jcpenney-product-data), [product](https://scavio.dev/docs/jcpenney-product?utm_source=agent-skills&utm_medium=skill&utm_campaign=jcpenney-product-data), [category](https://scavio.dev/docs/jcpenney-category?utm_source=agent-skills&utm_medium=skill&utm_campaign=jcpenney-product-data), [brand](https://scavio.dev/docs/jcpenney-brand?utm_source=agent-skills&utm_medium=skill&utm_campaign=jcpenney-product-data), [deals](https://scavio.dev/docs/jcpenney-deals?utm_source=agent-skills&utm_medium=skill&utm_campaign=jcpenney-product-data), [stores](https://scavio.dev/docs/jcpenney-stores?utm_source=agent-skills&utm_medium=skill&utm_campaign=jcpenney-product-data), [store availability](https://scavio.dev/docs/jcpenney-store-availability?utm_source=agent-skills&utm_medium=skill&utm_campaign=jcpenney-product-data), [suggestions](https://scavio.dev/docs/jcpenney-suggestions?utm_source=agent-skills&utm_medium=skill&utm_campaign=jcpenney-product-data), [coupons](https://scavio.dev/docs/jcpenney-coupons?utm_source=agent-skills&utm_medium=skill&utm_campaign=jcpenney-product-data). Overview: [JCPenney API](https://scavio.dev/jcpenney-api?utm_source=agent-skills&utm_medium=skill&utm_campaign=jcpenney-product-data).
+Full reference per endpoint: [search](https://scavio.dev/docs/jcpenney-search?utm_source=agent-skills&utm_medium=skill&utm_campaign=jcpenney-product-data), [product](https://scavio.dev/docs/jcpenney-product?utm_source=agent-skills&utm_medium=skill&utm_campaign=jcpenney-product-data), [category](https://scavio.dev/docs/jcpenney-category?utm_source=agent-skills&utm_medium=skill&utm_campaign=jcpenney-product-data), [brand](https://scavio.dev/docs/jcpenney-brand?utm_source=agent-skills&utm_medium=skill&utm_campaign=jcpenney-product-data), [deals](https://scavio.dev/docs/jcpenney-deals?utm_source=agent-skills&utm_medium=skill&utm_campaign=jcpenney-product-data), [stores](https://scavio.dev/docs/jcpenney-stores?utm_source=agent-skills&utm_medium=skill&utm_campaign=jcpenney-product-data), [store availability](https://scavio.dev/docs/jcpenney-store-availability?utm_source=agent-skills&utm_medium=skill&utm_campaign=jcpenney-product-data), [suggestions](https://scavio.dev/docs/jcpenney-suggestions?utm_source=agent-skills&utm_medium=skill&utm_campaign=jcpenney-product-data), [coupons](https://scavio.dev/docs/jcpenney-coupons?utm_source=agent-skills&utm_medium=skill&utm_campaign=jcpenney-product-data), [reviews](https://scavio.dev/docs/jcpenney-reviews?utm_source=agent-skills&utm_medium=skill&utm_campaign=jcpenney-product-data), [questions](https://scavio.dev/docs/jcpenney-questions?utm_source=agent-skills&utm_medium=skill&utm_campaign=jcpenney-product-data). Overview: [JCPenney API](https://scavio.dev/jcpenney-api?utm_source=agent-skills&utm_medium=skill&utm_campaign=jcpenney-product-data).
