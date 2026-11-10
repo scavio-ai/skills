@@ -76,6 +76,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Nordstrom Rack | [nordstrom-rack-product-data](references/nordstrom-rack-product-data.md) | 8 | 5; availability and reviews 10 |
 | Petco | [petco-product-data](references/petco-product-data.md) | 5 | 1 |
 | PetSmart | [petsmart-product-data](references/petsmart-product-data.md) | 6 | 1 |
+| Saks Fifth Avenue | [saks-fifth-avenue-api](references/saks-fifth-avenue-api.md) | 9 | 2 |
 | Sam's Club | [sams-club-product-data](references/sams-club-product-data.md) | 6 | 1 |
 | Sephora | [sephora-product-data](references/sephora-product-data.md) | 3 | 1 |
 | Spec's | [specs-liquor-prices](references/specs-liquor-prices.md) | 3 | 5 |
