@@ -673,6 +673,18 @@
       "credits": "2; stores 1"
     },
     {
+      "dir": "scavio-jcpenney",
+      "slug": "jcpenney-product-data",
+      "name": "jcpenney-product-data",
+      "display": "JCPenney Product Data API - Clearance, Coupons, Store Stock",
+      "query": "jcpenney api",
+      "reused": "no",
+      "platform": "JCPenney",
+      "group": "Commerce",
+      "endpoints": "9",
+      "credits": "1"
+    },
+    {
       "dir": "scavio-home-depot",
       "slug": "home-depot-product-data",
       "name": "home-depot-product-data",
@@ -1325,6 +1337,11 @@
       "dir": "scavio-kohls",
       "description": "Kohl's API: search kohls.com or browse any catalog page, a brand, or the Clearance, Sale, Earn Kohl's Cash and Sephora at Kohl's lists, 120 products per page with current, regular and sale price, sale or clearance label, percent off, the price after a public coupon code with the code, BOGO promotions, rating, review count and badges, sponsored items flagged, filtered by brand, color, size, on sale, clearance or any facet (price buckets, discount, rating, store pickup), for Kohl's clearance tracking and price alerts; read one product with every variant's SKU, UPC, online units and price, Kohl's Cash earn and redeem windows and the offers that apply (review text is not available); check one SKU's pickup unit count at every Kohl's store within about 50 miles of a ZIP; find stores; pull search suggestions and today's public Kohl's coupon codes. 9 endpoints, 2 credits each, stores 1. Kohl's publishes no public developer or catalog API.",
       "tags": "kohls, kohls-api, kohls-product-data, kohls-scraper, kohls-clearance, kohls-price-tracker, kohls-cash, kohls-coupons, kohls-coupon-codes, kohls-in-stock, kohls-store-pickup, kohls-black-friday, kohls-deals, kohls-sale, sephora-at-kohls, clearance-tracker, store-availability, store-locator, inventory, department-store, apparel, home-goods, small-appliances, beauty, upc, variant-data, product-search, product-data, category-browse, brand-catalog, coupon-codes, autocomplete, retail, price-monitoring, price-comparison, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-jcpenney",
+      "description": "JCPenney API: search jcpenney.com or browse any category, a brand, or the Clearance, Sale, Black Friday, Big Buy, Limited Time Special, Closeout and Buy 1 Get 1 deal lists, 48 products per page (up to 25 pages) with the current and regular price range, price type (sale, clearance, original), percent off, deal label, the price after today's coupon with the coupon code, rating, review count, badge and colors, filtered by brand, color, size, price range, deal label or any facet (store pickup, rating, gender), for JCPenney clearance tracking and price alerts; read one product with every variant's SKU, UPC, color, size and online stock level, or up to 20 products in one call (prices are product-level ranges; review text is not available); get real unit counts for one SKU at the 5 nearest JCPenney stores to a ZIP; find stores with hours and services; pull search suggestions and today's public JCPenney coupon codes. 9 endpoints, 1 credit each. JCPenney publishes no public developer API.",
+      "tags": "jcpenney, jcpenney-api, jcpenney-product-data, jcpenney-scraper, jcp, jcpenney-clearance, jcpenney-price-tracker, jcpenney-coupons, jcpenney-coupon-codes, jcpenney-in-stock, jcpenney-store-availability, jcpenney-black-friday, jcpenney-deals, jcpenney-sale, clearance-tracker, price-drop-alerts, coupon-codes, store-availability, store-locator, inventory, department-store, apparel, home-goods, beauty, upc, variant-data, batch-products, product-search, product-data, category-browse, brand-catalog, autocomplete, retail, price-monitoring, price-comparison, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-home-depot",
