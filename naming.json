@@ -661,6 +661,18 @@
       "credits": "2"
     },
     {
+      "dir": "scavio-kohls",
+      "slug": "kohls-product-data",
+      "name": "kohls-product-data",
+      "display": "Kohl's Product Data API - Clearance, Kohl's Cash, Store Pickup Stock",
+      "query": "kohls api",
+      "reused": "no",
+      "platform": "Kohl's",
+      "group": "Commerce",
+      "endpoints": "9",
+      "credits": "2; stores 1"
+    },
+    {
       "dir": "scavio-home-depot",
       "slug": "home-depot-product-data",
       "name": "home-depot-product-data",
@@ -1308,6 +1320,11 @@
       "dir": "scavio-saks",
       "description": "Saks Fifth Avenue API: search saksfifthavenue.com, browse any category, a designer's page or the Sale, Women's Clothing Sale, Men's Sale and New Arrivals lists, 24 grid positions per page with price, regular and sale price, percent off, badge, final-sale, clearance and returnable flags, promotions and colors, filtered by designer, color, size, any price range, on sale, new arrivals or any facet, for designer sale tracking and Saks price alerts; read one product with every color and size, per-SKU online units, restock date and the average rating (review text is not available), check a variant's stock at the Saks stores near a ZIP with the store's unit count where the site shows it, find stores, pull search suggestions and the full A-Z designer index of about 1,200 designers. 9 endpoints, 2 credits each. Saks publishes no public developer or catalog API.",
       "tags": "saks, saks-api, saks-fifth-avenue, saks-fifth-avenue-api, saks-scraper, saks-price-tracker, saks-designer-sale, saks-sale, saks-sale-alerts, saks-black-friday, saks-new-arrivals, saks-in-stock, saks-store-pickup, store-availability, store-locator, designer-sale, designer-price-tracker, designer-directory, luxury-fashion, designer-fashion, department-store, luxury, fashion, apparel, shoes, handbags, beauty, variant-data, inventory, product-search, product-data, category-browse, brand-catalog, autocomplete, retail, price-monitoring, price-comparison, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-kohls",
+      "description": "Kohl's API: search kohls.com or browse any catalog page, a brand, or the Clearance, Sale, Earn Kohl's Cash and Sephora at Kohl's lists, 120 products per page with current, regular and sale price, sale or clearance label, percent off, the price after a public coupon code with the code, BOGO promotions, rating, review count and badges, sponsored items flagged, filtered by brand, color, size, on sale, clearance or any facet (price buckets, discount, rating, store pickup), for Kohl's clearance tracking and price alerts; read one product with every variant's SKU, UPC, online units and price, Kohl's Cash earn and redeem windows and the offers that apply (review text is not available); check one SKU's pickup unit count at every Kohl's store within about 50 miles of a ZIP; find stores; pull search suggestions and today's public Kohl's coupon codes. 9 endpoints, 2 credits each, stores 1. Kohl's publishes no public developer or catalog API.",
+      "tags": "kohls, kohls-api, kohls-product-data, kohls-scraper, kohls-clearance, kohls-price-tracker, kohls-cash, kohls-coupons, kohls-coupon-codes, kohls-in-stock, kohls-store-pickup, kohls-black-friday, kohls-deals, kohls-sale, sephora-at-kohls, clearance-tracker, store-availability, store-locator, inventory, department-store, apparel, home-goods, small-appliances, beauty, upc, variant-data, product-search, product-data, category-browse, brand-catalog, coupon-codes, autocomplete, retail, price-monitoring, price-comparison, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-home-depot",

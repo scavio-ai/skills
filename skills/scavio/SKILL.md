@@ -66,6 +66,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | HEB | [heb-grocery-data](references/heb-grocery-data.md) | 3 | 2 |
 | Home Depot | [home-depot-product-data](references/home-depot-product-data.md) | 3 | 2 |
 | iHerb | [iherb-product-data](references/iherb-product-data.md) | 4 | 2 |
+| Kohl's | [kohls-product-data](references/kohls-product-data.md) | 9 | 2; stores 1 |
 | Kroger | [kroger-grocery-data](references/kroger-grocery-data.md) | 2 | 2 |
 | Lowe's | [lowes-product-data](references/lowes-product-data.md) | 4 | 2; reviews 1 |
 | Macy's | [macys-product-data](references/macys-product-data.md) | 9 | 1 |
