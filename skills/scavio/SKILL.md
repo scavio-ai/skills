@@ -58,6 +58,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Costco | [costco-product-data](references/costco-product-data.md) | 13 | 1; US search, category, deals and clearance 2; multi-warehouse prices, stock and gas scale with warehouse count |
 | CVS | [cvs-product-data](references/cvs-product-data.md) | 3 | 1 |
 | Decathlon | [decathlon-product-data](references/decathlon-product-data.md) | 2 | 2 |
+| Dick's Sporting Goods | [dicks-sporting-goods-api](references/dicks-sporting-goods-api.md) | 9 | 1; product, reviews 2 |
 | Dollar General | [dollar-general-api](references/dollar-general-api.md) | 5 | 1 |
 | eBay | [ebay-product-data](references/ebay-product-data.md) | 3 | 1 |
 | Etsy | [etsy-product-data](references/etsy-product-data.md) | 5 | 2 |

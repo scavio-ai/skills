@@ -685,6 +685,18 @@
       "credits": "1"
     },
     {
+      "dir": "scavio-dicks",
+      "slug": "dicks-sporting-goods-api",
+      "name": "dicks-sporting-goods-api",
+      "display": "Dick's Sporting Goods API - Clearance, Per-Size Prices, Store Stock",
+      "query": "dicks sporting goods api",
+      "reused": "no",
+      "platform": "Dick's Sporting Goods",
+      "group": "Commerce",
+      "endpoints": "9",
+      "credits": "1; product, reviews 2"
+    },
+    {
       "dir": "scavio-home-depot",
       "slug": "home-depot-product-data",
       "name": "home-depot-product-data",
@@ -1342,6 +1354,11 @@
       "dir": "scavio-jcpenney",
       "description": "JCPenney API: search jcpenney.com or browse any category, a brand, or the Clearance, Sale, Black Friday, Big Buy, Limited Time Special, Closeout and Buy 1 Get 1 deal lists, 48 products per page (up to 25 pages) with the current and regular price range, price type (sale, clearance, original), percent off, deal label, the price after today's coupon with the coupon code, rating, review count, badge and colors, filtered by brand, color, size, price range, deal label or any facet (store pickup, rating, gender), for JCPenney clearance tracking and price alerts; read one product with every variant's SKU, UPC, color, size and online stock level, or up to 20 products in one call (prices are product-level ranges); get real unit counts for one SKU at the 5 nearest JCPenney stores to a ZIP; find stores with hours and services; pull search suggestions and today's public JCPenney coupon codes; read real JCPenney review text sorted most recent, most helpful, highest or lowest rating, or relevance, or one star rating only, with verified, incentivized and syndicated badges, photos, the brand's reply and Quality / Value ratings; and pull product questions with every answer labelled brand, JCPenney staff, AI or customer. 11 endpoints, 1 credit each. JCPenney publishes no public developer API.",
       "tags": "jcpenney, jcpenney-api, jcpenney-product-data, jcpenney-scraper, jcp, jcpenney-clearance, jcpenney-price-tracker, jcpenney-coupons, jcpenney-coupon-codes, jcpenney-in-stock, jcpenney-store-availability, jcpenney-reviews, jcpenney-questions, jcpenney-black-friday, jcpenney-deals, jcpenney-sale, clearance-tracker, price-drop-alerts, coupon-codes, store-availability, store-locator, inventory, department-store, apparel, home-goods, beauty, upc, variant-data, batch-products, product-reviews, review-text, questions-and-answers, product-search, product-data, category-browse, brand-catalog, autocomplete, retail, price-monitoring, price-comparison, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-dicks",
+      "description": "Dick's Sporting Goods API: search dickssportinggoods.com or browse any category, a brand, or the Clearance, Sale and This Week's Deals lists, 48 products per page by default (up to 144) with the current and list price range, percent off, rating, review count, badge, colors, merchandised items flagged and the offer-price windows Dick's has planned, filtered by brand, an approximate price range or any facet (gender, shoe size, color, rating, sale), for Dick's clearance tracking and price alerts; read one product with every SKU's own price, list price, percent off, clearance flag, UPC and online units (sizes and colors are priced separately, so some sizes can be on clearance while others are not), or a fast style-level summary of up to 5 products in one call; get unit counts for up to 20 SKUs at up to 100 Dick's, Golf Galaxy or Public Lands stores near a ZIP with address, phone and hours; read the 15 newest reviews with the rating statistics (no review paging, no Q&A text); pull search suggestions. 9 endpoints, 1 credit each; product and reviews 2. Dick's Sporting Goods publishes no public developer API.",
+      "tags": "dicks, dicks-sporting-goods, dicks-sporting-goods-api, dicks-api, dicks-scraper, dicks-clearance, dicks-sale, dicks-price-tracker, dicks-price-match, dicks-in-stock, dicks-store-availability, dicks-black-friday, dicks-deals, golf-galaxy, public-lands, going-going-gone, house-of-sport, sporting-goods, athletic-shoes, running-shoes, golf, outdoor, fitness, clearance-tracker, price-drop-alerts, per-size-prices, store-availability, inventory, upc, variant-data, batch-products, product-reviews, product-search, product-data, category-browse, brand-catalog, autocomplete, retail, price-monitoring, price-comparison, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-home-depot",
