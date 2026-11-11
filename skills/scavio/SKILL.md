@@ -62,6 +62,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Dollar General | [dollar-general-api](references/dollar-general-api.md) | 5 | 1 |
 | eBay | [ebay-product-data](references/ebay-product-data.md) | 3 | 1 |
 | Etsy | [etsy-product-data](references/etsy-product-data.md) | 5 | 2 |
+| Foot Locker | [foot-locker-api](references/foot-locker-api.md) | 10 | 1 |
 | Google Shopping | [google-shopping-api](references/google-shopping-api.md) | 3 | 1 |
 | Harbor Freight | [harbor-freight-api](references/harbor-freight-api.md) | 7 | 1 |
 | HEB | [heb-grocery-data](references/heb-grocery-data.md) | 3 | 2 |

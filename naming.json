@@ -697,6 +697,18 @@
       "credits": "1; product, reviews 2"
     },
     {
+      "dir": "scavio-footlocker",
+      "slug": "foot-locker-api",
+      "name": "foot-locker-api",
+      "display": "Foot Locker API - Release Calendar, Size Availability, Prices in 13 Markets",
+      "query": "foot locker api",
+      "reused": "no",
+      "platform": "Foot Locker",
+      "group": "Commerce",
+      "endpoints": "10",
+      "credits": "1"
+    },
+    {
       "dir": "scavio-home-depot",
       "slug": "home-depot-product-data",
       "name": "home-depot-product-data",
@@ -1359,6 +1371,11 @@
       "dir": "scavio-dicks",
       "description": "Dick's Sporting Goods API: search dickssportinggoods.com or browse any category, a brand, or the Clearance, Sale and This Week's Deals lists, 48 products per page by default (up to 144) with the current and list price range, percent off, rating, review count, badge, colors, merchandised items flagged and the offer-price windows Dick's has planned, filtered by brand, an approximate price range or any facet (gender, shoe size, color, rating, sale), for Dick's clearance tracking and price alerts; read one product with every SKU's own price, list price, percent off, clearance flag, UPC and online units (sizes and colors are priced separately, so some sizes can be on clearance while others are not), or a fast style-level summary of up to 5 products in one call; get unit counts for up to 20 SKUs at up to 100 Dick's, Golf Galaxy or Public Lands stores near a ZIP with address, phone and hours; read the 15 newest reviews with the rating statistics (no review paging, no Q&A text); pull search suggestions. 9 endpoints, 1 credit each; product and reviews 2. Dick's Sporting Goods publishes no public developer API.",
       "tags": "dicks, dicks-sporting-goods, dicks-sporting-goods-api, dicks-api, dicks-scraper, dicks-clearance, dicks-sale, dicks-price-tracker, dicks-price-match, dicks-in-stock, dicks-store-availability, dicks-black-friday, dicks-deals, golf-galaxy, public-lands, going-going-gone, house-of-sport, sporting-goods, athletic-shoes, running-shoes, golf, outdoor, fitness, clearance-tracker, price-drop-alerts, per-size-prices, store-availability, inventory, upc, variant-data, batch-products, product-reviews, product-search, product-data, category-browse, brand-catalog, autocomplete, retail, price-monitoring, price-comparison, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-footlocker",
+      "description": "Foot Locker API: the Foot Locker release calendar for the US, Canada and the UK (launch date and time, retail price, colorway, heat level, size run, reservation windows) as monitoring data, filtered by upcoming or launched, dates and brand; search footlocker.com or 12 country storefronts (Canada, UK, Germany, France, Italy, Spain, Netherlands, Belgium, Austria, Ireland, Australia, New Zealand) in local language and currency, or browse a category, a brand, the Sale list, Foot Locker Exclusives or promo-eligible items, 48 per page with price, list price, percent off, EU 30-day lowest price, rating and each colorway's price, filtered by brand, gender, color, price, shoe size or any facet; read one product with per-size availability (yes / no to ship and pick up, and how many stores show each size) and launch info; find US stores and which nearby stores show a size available; read US reviews and shopper Q&A. 10 endpoints, 1 credit each. No unit counts, no checkout. Foot Locker publishes no public developer API.",
+      "tags": "foot-locker, footlocker, foot-locker-api, footlocker-api, foot-locker-release-dates, foot-locker-release-calendar, foot-locker-releases, sneaker-release-calendar, sneaker-release-dates, release-monitoring, foot-locker-restock, foot-locker-in-stock, size-availability, foot-locker-store-availability, foot-locker-sale, foot-locker-deals, foot-locker-exclusives, foot-locker-black-friday, foot-locker-reviews, foot-locker-scraper, sneakers, athletic-shoes, jordan, nike, adidas, new-balance, store-locator, per-size-availability, multi-country, europe, canada, uk, australia, product-reviews, questions-and-answers, product-search, product-data, category-browse, brand-catalog, retail, price-monitoring, price-comparison, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-home-depot",
