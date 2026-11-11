@@ -709,6 +709,18 @@
       "credits": "1"
     },
     {
+      "dir": "scavio-fanatics",
+      "slug": "fanatics-merchandise-api",
+      "name": "fanatics-merchandise-api",
+      "display": "Fanatics Merchandise API - Jersey Prices, Sales, Sizes, League Shops",
+      "query": "fanatics api",
+      "reused": "no",
+      "platform": "Fanatics",
+      "group": "Commerce",
+      "endpoints": "5",
+      "credits": "1"
+    },
+    {
       "dir": "scavio-home-depot",
       "slug": "home-depot-product-data",
       "name": "home-depot-product-data",
@@ -1376,6 +1388,11 @@
       "dir": "scavio-footlocker",
       "description": "Foot Locker API: the Foot Locker release calendar for the US, Canada and the UK (launch date and time, retail price, colorway, heat level, size run, reservation windows) as monitoring data, filtered by upcoming or launched, dates and brand; search footlocker.com or 12 country storefronts (Canada, UK, Germany, France, Italy, Spain, Netherlands, Belgium, Austria, Ireland, Australia, New Zealand) in local language and currency, or browse a category, a brand, the Sale list, Foot Locker Exclusives or promo-eligible items, 48 per page with price, list price, percent off, EU 30-day lowest price, rating and each colorway's price, filtered by brand, gender, color, price, shoe size or any facet; read one product with per-size availability (yes / no to ship and pick up, and how many stores show each size) and launch info; find US stores and which nearby stores show a size available; read US reviews and shopper Q&A. 10 endpoints, 1 credit each. No unit counts, no checkout. Foot Locker publishes no public developer API.",
       "tags": "foot-locker, footlocker, foot-locker-api, footlocker-api, foot-locker-release-dates, foot-locker-release-calendar, foot-locker-releases, sneaker-release-calendar, sneaker-release-dates, release-monitoring, foot-locker-restock, foot-locker-in-stock, size-availability, foot-locker-store-availability, foot-locker-sale, foot-locker-deals, foot-locker-exclusives, foot-locker-black-friday, foot-locker-reviews, foot-locker-scraper, sneakers, athletic-shoes, jordan, nike, adidas, new-balance, store-locator, per-size-availability, multi-country, europe, canada, uk, australia, product-reviews, questions-and-answers, product-search, product-data, category-browse, brand-catalog, retail, price-monitoring, price-comparison, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-fanatics",
+      "description": "Fanatics merchandise API (product data, not sportsbook or odds): search fanatics.com, 7 international Fanatics storefronts (UK, Germany, France, Spain, Italy, Japan, Canada in English or French) in local language and currency, or the US league stores (NFL Shop, MLB Shop, NHL Shop, MLS Store), browse a team, player, league section, department, brand or collection, or list the Sale, Clearance and Under-25 deals, up to 72 products per page with current, regular, sale, clearance and with-code price (the site's public promo code), ship-by and delivery estimates and facets with team, player, size and department ids; read one jersey or product with every size's availability and stock level (low / out, never unit counts), personalization fields and team roster (price already includes personalization), Jersey Assurance and authentic flags, the active promo code and the rating with fit, value and quality; read US reviews with four sorts and a star filter, pooled across the style, plus the site's AI-written summary. 5 endpoints, 1 credit each. No store stock, no checkout, no price history. Fanatics publishes no public product or price API.",
+      "tags": "fanatics, fanatics-api, fanatics-merchandise-api, fanatics-product-data, fanatics-scraper, fanatics-jersey, fanatics-jersey-sale, fanatics-sale, fanatics-clearance, fanatics-black-friday, fanatics-promo-code, nfl-shop, mlb-shop, nhl-shop, mls-store, sports-merchandise, fan-gear, jerseys, player-jerseys, team-merchandise, licensed-merchandise, nfl, nba, mlb, nhl, mls, college, soccer-jerseys, size-availability, stock-level, personalization, product-reviews, multi-country, europe, uk, japan, canada, product-search, product-data, category-browse, retail, price-monitoring, price-comparison, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-home-depot",
