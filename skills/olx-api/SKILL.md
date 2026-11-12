@@ -111,7 +111,7 @@ Every endpoint takes `country` (default `pl`). Prices come in the site's currenc
 2. **Precise filters:** get the category id from `/categories` (or an item's `category_id`, or a suggestion's `category_id` from `/suggestions`), call `/filters` for it, then send the `send_as` keys in `filters` on `/search`: `{"filter_float_m:from": 40, "filter_enum_rooms": ["two", "three"]}`. Location ids come from `/locations`.
 3. **One ad in full:** `/offer` with the `id` from a search item (or the ad link) for the description, every parameter, breadcrumb, photos and seller.
 4. **Price monitoring:** poll `/offer` for a fixed list of ad ids, or `/search` for a query, on a schedule; store `price.value`, `price.previous_value`, `status` and the time per run and compare runs yourself. A `404` on a tracked ad means it ended or was removed. There is no price history endpoint.
-5. **New-listing monitor:** poll `/search` with `sort: "newest"` and the filters you need, keep the ad ids you have already seen, and treat unseen ids as new. `newest` orders by last refresh, so check `created_at` to tell a new ad from a refreshed old one.
+5. **New-listing monitor:** poll `/search` with `sort: "newest"` and the filters you need, keep the ad ids you have already seen, and treat unseen ids as new. `newest` orders by last refresh, approximately (neighbouring ads can be a few minutes out of order; sort by `refreshed_at` yourself for a strict order), so check `created_at` to tell a new ad from a refreshed old one.
 6. **Check a seller:** `seller.id` from any item feeds `/seller` (business or private, business name, member since, live ad count) and `/seller-ads` (their ads, with the search sorts and filters).
 
 ## Parameters
