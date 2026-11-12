@@ -733,6 +733,18 @@
       "credits": "1; Belgium search and product 2"
     },
     {
+      "dir": "scavio-allegro",
+      "slug": "allegro-api",
+      "name": "allegro-api",
+      "display": "Allegro API - Offers, Every Seller's Price, Sellers, Sold Counts",
+      "query": "allegro api",
+      "reused": "no",
+      "platform": "Allegro",
+      "group": "Commerce",
+      "endpoints": "7",
+      "credits": "2"
+    },
+    {
       "dir": "scavio-home-depot",
       "slug": "home-depot-product-data",
       "name": "home-depot-product-data",
@@ -1410,6 +1422,11 @@
       "dir": "scavio-carrefour",
       "description": "Carrefour API for carrefour.fr groceries: search by keyword or browse a category (aisle), 30 products per page with price, unit price per kg or litre, the promotion with type, label, loyalty-card flag and start and end dates, Nutri-Score, Eco-Score, rating and marketplace seller, filtered by brand, promotion, Nutri-Score, organic, Carrefour brands or price range and sorted by price, unit price or rating; list items on promotion (catalogue, immediate discounts, loyalty-card offers, festive selection); pass a store ref for that store's shelf price and range instead of the national online price; read one product with ingredients, allergens and nutrition per 100 g and per portion; read verified customer reviews; find stores near a French postal code or a point with a service filter (drive, fuel station), check which nearby stores carry a product (yes / no, no price), and read a store's services, opening and drive hours, next pickup slot and fuel prices per litre. Search and product also serve Carrefour Argentina (ARS, Spanish), Romania (RON, Romanian) and Belgium (EUR, French or Dutch); data comes in the market's language. 9 endpoints, 1 credit each (Belgium search and product 2). No price history, no checkout. Carrefour publishes no public carrefour.fr product or price API.",
       "tags": "carrefour, carrefour-api, carrefour-grocery-prices, carrefour-price-data, carrefour-promotions, carrefour-france, carrefour-fr, carrefour-drive, carrefour-black-friday, french-supermarket, french-supermarket-prices, france-grocery, grocery, grocery-prices, supermarket-prices, store-prices, price-per-store, unit-price, nutri-score, eco-score, ingredients, allergens, nutrition, product-reviews, store-locator, store-availability, fuel-prices, carrefour-belgium, carrefour-argentina, carrefour-romania, multi-country, europe, product-search, product-data, category-browse, retail, price-monitoring, catalog-enrichment, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-allegro",
+      "description": "Allegro API for allegro.pl, Poland's largest marketplace, plus allegro.cz (CZK), allegro.sk (EUR) and allegro.hu (HUF): search by keyword or browse a category, 60 organic offers per page plus sponsored slots, with price, price incl. delivery, condition, auction state, discount and the EU 30-day lowest price shown on a discount, sold count (\"x people bought\"), Allegro Smart!, the seller (super seller, positive feedback percent, business or private) and the placement (regular, promoted, sponsored), sorted by price, price with delivery, popularity, ending soonest or newest and filtered by price, new or used, buy now or auction, Smart! and the deals zone (Black Weeks); read one offer in full with every parameter, GTIN, delivery methods and prices, stock, returns, warranty and auction bids; read one catalog product with its lowest price, offer count, buy-box offer, star distribution, review aspects and the first 20 reviews; list every seller's offer for one product for price comparison and price monitoring; read a seller's offers and categories and the seller's buyer ratings, super-seller status and member-since date. Data comes in the site's language. 7 endpoints, 2 credits each. No price history, no bidding or checkout. Allegro no longer grants access to its public offer search (GET /offers/listing).",
+      "tags": "allegro, allegro-api, allegro-pl, allegro-price-monitoring, allegro-price-tracker, allegro-scraper, allegro-offers, allegro-offers-listing-alternative, allegro-product-data, allegro-sellers, allegro-seller-ratings, allegro-sold-count, allegro-black-weeks, allegro-czech, allegro-slovakia, allegro-hungary, polish-marketplace, poland-ecommerce, central-europe, cee-ecommerce, marketplace, price-comparison, price-monitoring, competitor-prices, repricing, buy-box, omnibus-price, 30-day-lowest-price, auctions, sponsored-offers, seller-data, product-reviews, multi-country, europe, product-search, product-data, category-browse, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-home-depot",
