@@ -156,6 +156,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Platform | Reference | Endpoints | Credits per call |
 |---|---|---|---|
 | Companies House | [companies-house-api](references/companies-house-api.md) | 4 | 1 |
+| Company Enrich | [company-enrichment-api](references/company-enrichment-api.md) | 1 | 10 |
 | GitHub | [github-api](references/github-api.md) | 13 | 1; dossier and top-issues 5, profile-velocity 10, user/email 2 |
 | SEC EDGAR | [sec-edgar-api](references/sec-edgar-api.md) | 6 | 1 |
 

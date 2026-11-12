@@ -1115,6 +1115,18 @@
       "group": "Real estate",
       "endpoints": "3",
       "credits": "1"
+    },
+    {
+      "dir": "scavio-company-enrich",
+      "slug": "company-enrichment-api",
+      "name": "company-enrichment-api",
+      "display": "Company Enrichment API - Emails, Phones, Socials, Owner from a Website or Google Maps",
+      "query": "company enrichment api",
+      "reused": "no",
+      "platform": "Company Enrich",
+      "group": "Companies and code",
+      "endpoints": "1",
+      "credits": "10"
     }
   ],
   "frontmatter": [
@@ -1582,6 +1594,11 @@
       "dir": "scavio-zillow",
       "description": "Zillow property data API: search listings for sale, for rent or sold, pull one property in full, and read an agent's profile and reviews. Returns price and price history, Zestimate, tax history, beds, baths, living area, days on market, schools, open houses and photos. 3 endpoints, 1 credit each, structured JSON.",
       "tags": "zillow, zillow-api, property-data, real-estate, listings, for-sale, for-rent, sold-homes, zestimate, price-history, home-prices, rental-market, market-analysis, langchain, crewai, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-company-enrich",
+      "description": "Company enrichment API - turn a business website or a Google Maps place_id into contact data as structured JSON - the company's published emails, phone numbers, social profiles (Facebook, Instagram, LinkedIn, X, TikTok, YouTube, Pinterest) and contact page, plus the owner or founder's name and title with the page that names them. Built for the step after a Google Maps search - enrich every local result into a lead. 1 endpoint, 10 credits from a website, 20 from a place_id; an unreachable site is free.",
+      "tags": "company-enrichment, company-enrichment-api, lead-enrichment, lead-generation, business-contacts, contact-finder, company-emails, business-phone-numbers, social-profiles, owner-name, founder-lookup, google-maps-leads, local-business-leads, place-id, b2b-data, sales-prospecting, crm-enrichment, agents, ai-agents, structured-data, json, mcp"
     }
   ],
   "groups": [

@@ -8,7 +8,7 @@ Use this skill when the user asks to:
 - Find local businesses or places ("coffee shops near downtown Austin")
 - Get a place's address, phone, hours, rating, or coordinates
 - Read reviews for a business or place
-- Build a local lead list or enrich places with map data
+- Build a local lead list or enrich places with map data (for each business's emails, phones, socials and owner, chain into Company Enrich, step 5 below)
 - Track where a business ranks in Google Maps local results across an area (a local-SEO geo-grid)
 
 ## Setup
@@ -52,6 +52,7 @@ Authorization: Bearer $SCAVIO_API_KEY
 2. **Localize:** Maps uses `ll` (map center `@lat,lng,zoomz`), NOT `gl`, to decide where results come from. Pass a city center (e.g. `@30.2672,-97.7431,12z`) to focus a city. If you only have a country, pass `gl` and the API defaults `ll` to that country's center.
 3. **Place details:** take a `place_id` (or `data_cid`) from search and call `/maps/place` for full info in `place_results`.
 4. **Reviews:** take a `data_id` (or `place_id`) and call `/maps/reviews`. Page with `next_page_token`.
+5. **Contacts and owner (lead list):** pass a result's `place_id` to `POST https://api.scavio.dev/api/v1/company/enrich` (`{"place_id": "..."}`, 20 credits) for the business's published emails, phone numbers, social profiles, contact page and the owner's name and title with the page that names them. Calls take 10-45 seconds, up to about 2 minutes on a slow site; use a timeout of at least 180 seconds. Full reference: the `company-enrichment-api` skill or [the Company Enrich docs](https://scavio.dev/docs/company-enrich?utm_source=agent-skills&utm_medium=skill&utm_campaign=google-maps-api).
 
 ## Maps Search Parameters
 
