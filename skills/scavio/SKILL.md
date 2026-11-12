@@ -54,6 +54,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Amazon | [amazon-product-data](references/amazon-product-data.md) | 3 | 1 |
 | Best Buy | [best-buy-product-data](references/best-buy-product-data.md) | 9 | 2; stores and suggestions 1, deals and pcmcat category pages 3 |
 | Canadian Tire | [canadian-tire-api](references/canadian-tire-api.md) | 6 | 1 |
+| Carrefour | [carrefour-api](references/carrefour-api.md) | 9 | 1; Belgium search and product 2 |
 | Chewy | [chewy-product-data](references/chewy-product-data.md) | 2 | 10 |
 | Costco | [costco-product-data](references/costco-product-data.md) | 13 | 1; US search, category, deals and clearance 2; multi-warehouse prices, stock and gas scale with warehouse count |
 | CVS | [cvs-product-data](references/cvs-product-data.md) | 3 | 1 |

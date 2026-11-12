@@ -721,6 +721,18 @@
       "credits": "1"
     },
     {
+      "dir": "scavio-carrefour",
+      "slug": "carrefour-api",
+      "name": "carrefour-api",
+      "display": "Carrefour API - Grocery Prices by Store, Promotions, Nutri-Score, Stores",
+      "query": "carrefour api",
+      "reused": "no",
+      "platform": "Carrefour",
+      "group": "Commerce",
+      "endpoints": "9",
+      "credits": "1; Belgium search and product 2"
+    },
+    {
       "dir": "scavio-home-depot",
       "slug": "home-depot-product-data",
       "name": "home-depot-product-data",
@@ -1393,6 +1405,11 @@
       "dir": "scavio-fanatics",
       "description": "Fanatics merchandise API (product data, not sportsbook or odds): search fanatics.com, 7 international Fanatics storefronts (UK, Germany, France, Spain, Italy, Japan, Canada in English or French) in local language and currency, or the US league stores (NFL Shop, MLB Shop, NHL Shop, MLS Store), browse a team, player, league section, department, brand or collection, or list the Sale, Clearance and Under-25 deals, up to 72 products per page with current, regular, sale, clearance and with-code price (the site's public promo code), ship-by and delivery estimates and facets with team, player, size and department ids; read one jersey or product with every size's availability and stock level (low / out, never unit counts), personalization fields and team roster (price already includes personalization), Jersey Assurance and authentic flags, the active promo code and the rating with fit, value and quality; read US reviews with four sorts and a star filter, pooled across the style, plus the site's AI-written summary. 5 endpoints, 1 credit each. No store stock, no checkout, no price history. Fanatics publishes no public product or price API.",
       "tags": "fanatics, fanatics-api, fanatics-merchandise-api, fanatics-product-data, fanatics-scraper, fanatics-jersey, fanatics-jersey-sale, fanatics-sale, fanatics-clearance, fanatics-black-friday, fanatics-promo-code, nfl-shop, mlb-shop, nhl-shop, mls-store, sports-merchandise, fan-gear, jerseys, player-jerseys, team-merchandise, licensed-merchandise, nfl, nba, mlb, nhl, mls, college, soccer-jerseys, size-availability, stock-level, personalization, product-reviews, multi-country, europe, uk, japan, canada, product-search, product-data, category-browse, retail, price-monitoring, price-comparison, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-carrefour",
+      "description": "Carrefour API for carrefour.fr groceries: search by keyword or browse a category (aisle), 30 products per page with price, unit price per kg or litre, the promotion with type, label, loyalty-card flag and start and end dates, Nutri-Score, Eco-Score, rating and marketplace seller, filtered by brand, promotion, Nutri-Score, organic, Carrefour brands or price range and sorted by price, unit price or rating; list items on promotion (catalogue, immediate discounts, loyalty-card offers, festive selection); pass a store ref for that store's shelf price and range instead of the national online price; read one product with ingredients, allergens and nutrition per 100 g and per portion; read verified customer reviews; find stores near a French postal code or a point with a service filter (drive, fuel station), check which nearby stores carry a product (yes / no, no price), and read a store's services, opening and drive hours, next pickup slot and fuel prices per litre. Search and product also serve Carrefour Argentina (ARS, Spanish), Romania (RON, Romanian) and Belgium (EUR, French or Dutch); data comes in the market's language. 9 endpoints, 1 credit each (Belgium search and product 2). No price history, no checkout. Carrefour publishes no public carrefour.fr product or price API.",
+      "tags": "carrefour, carrefour-api, carrefour-grocery-prices, carrefour-price-data, carrefour-promotions, carrefour-france, carrefour-fr, carrefour-drive, carrefour-black-friday, french-supermarket, french-supermarket-prices, france-grocery, grocery, grocery-prices, supermarket-prices, store-prices, price-per-store, unit-price, nutri-score, eco-score, ingredients, allergens, nutrition, product-reviews, store-locator, store-availability, fuel-prices, carrefour-belgium, carrefour-argentina, carrefour-romania, multi-country, europe, product-search, product-data, category-browse, retail, price-monitoring, catalog-enrichment, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-home-depot",
