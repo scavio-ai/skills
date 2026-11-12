@@ -84,7 +84,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | PetSmart | [petsmart-product-data](references/petsmart-product-data.md) | 6 | 1 |
 | Saks Fifth Avenue | [saks-fifth-avenue-api](references/saks-fifth-avenue-api.md) | 9 | 2 |
 | Sam's Club | [sams-club-product-data](references/sams-club-product-data.md) | 6 | 1 |
-| Sephora | [sephora-product-data](references/sephora-product-data.md) | 3 | 1 |
+| Sephora | [sephora-product-data](references/sephora-product-data.md) | 3 | 1; product 2 |
 | Spec's | [specs-liquor-prices](references/specs-liquor-prices.md) | 3 | 5 |
 | Target | [target-product-data](references/target-product-data.md) | 5 | 1 |
 | TCGplayer | [tcgplayer-api](references/tcgplayer-api.md) | 13 | 1 |

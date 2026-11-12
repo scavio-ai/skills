@@ -29,7 +29,7 @@ call below. The whole path from nothing to a working key is self-serve:
 
 1. Sign up at [dashboard.scavio.dev](https://dashboard.scavio.dev/sign-up?utm_source=agent-skills&utm_medium=skill&utm_campaign=sephora-product-data) - email or Google, no card required.
 2. A key is created for the account automatically at signup. It is on the dashboard under API Keys, ready to copy.
-3. A new account starts with 50 credits. Every endpoint in this skill costs 1 credit.
+3. A new account starts with 50 credits. Search and category cost 1 credit per call, product 2.
 
 When the balance runs out the API answers `402` with a JSON body carrying
 `billing_url`. Topping up needs no code change - the same key keeps working.
@@ -42,7 +42,7 @@ Authorization: Bearer $SCAVIO_API_KEY
 
 ## Endpoints
 
-Base URL: `https://api.scavio.dev`. All Sephora endpoints cost **1 credit**.
+Base URL: `https://api.scavio.dev`. Search and category cost **1 credit**, product **2 credits**.
 
 | Endpoint | Credits | What it returns |
 |---|---|---|
@@ -141,7 +141,7 @@ Captured response (MAC lipstick; description, breadcrumbs and 31 `skus[]` trimme
     "sku_count": 31
   },
   "response_time": 3465,
-  "credits_used": 1
+  "credits_used": 2
 }
 ```
 

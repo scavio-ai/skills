@@ -1,6 +1,6 @@
 ---
 name: sephora-product-data
-description: "Sephora product data API: search sephora.com and list any category with price, list and sale price, rating, review count and bestseller, new and exclusive flags, then read one product with every shade or size, stock per shade, ingredients, and Sephora's review summary with pro and con sentiment counts. 3 endpoints, 1 credit each."
+description: "Sephora product data API: search sephora.com and list any category with price, list and sale price, rating, review count and bestseller, new and exclusive flags, then read one product with every shade or size, stock per shade, ingredients, and Sephora's review summary with pro and con sentiment counts. 3 endpoints: search and category 1 credit, product 2."
 version: 1.0.0
 tags: sephora, sephora-api, sephora-product-data, beauty, cosmetics, makeup, skincare, fragrance, shades, beauty-prices, product-search, product-data, category-listing, review-summary, review-sentiment, ingredients, retail, price-monitoring, langchain, crewai, ai-agents, structured-data, json
 metadata:
@@ -45,7 +45,7 @@ call below. The whole path from nothing to a working key is self-serve:
 
 1. Sign up at [dashboard.scavio.dev](https://dashboard.scavio.dev/sign-up?utm_source=agent-skills&utm_medium=skill&utm_campaign=sephora-product-data) - email or Google, no card required.
 2. A key is created for the account automatically at signup. It is on the dashboard under API Keys, ready to copy.
-3. A new account starts with 50 credits. Every endpoint in this skill costs 1 credit.
+3. A new account starts with 50 credits. Search and category cost 1 credit per call, product 2.
 
 When the balance runs out the API answers `402` with a JSON body carrying
 `billing_url`. Topping up needs no code change - the same key keeps working.
@@ -58,7 +58,7 @@ Authorization: Bearer $SCAVIO_API_KEY
 
 ## Endpoints
 
-Base URL: `https://api.scavio.dev`. All Sephora endpoints cost **1 credit**.
+Base URL: `https://api.scavio.dev`. Search and category cost **1 credit**, product **2 credits**.
 
 | Endpoint | Credits | What it returns |
 |---|---|---|
@@ -157,7 +157,7 @@ Captured response (MAC lipstick; description, breadcrumbs and 31 `skus[]` trimme
     "sku_count": 31
   },
   "response_time": 3465,
-  "credits_used": 1
+  "credits_used": 2
 }
 ```
 
