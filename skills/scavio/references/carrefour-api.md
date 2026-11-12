@@ -490,7 +490,7 @@ Captured `data` (2 of 4 breadcrumb entries, 5 of 8 nutrients per table and the d
 }
 ```
 
-`allergens` are the words the ingredient list writes in capitals, exactly as written there (`NOISETTES`, `LAIT`, `SOJA`): they come from the label text, so for an allergy question quote the `ingredients` line too and tell the user to check the pack. Nutrient names and quantities are French strings with their unit (`"matières grasses"`, `"30.9 g"`); `per_portion.label` gives the portion size (15 g). `regulated_name` is the legal product name. `rating.distribution` is the percentage of ratings per star (7 / 0 / 0 / 36 / 57 adds up to 100 over `count` 14), not a count. Non-food items carry `characteristics[]` (`name`, `values`) and `key_features` instead of nutrition. `max_quantity` is the most units of the item one order can take on the site.
+`allergens` are the words the ingredient list writes in capitals that name one of the 14 EU regulated allergens, exactly as written there (`NOISETTES`, `LAIT`, `SOJA`; "may contain" traces included): they come from the label text, so for an allergy question quote the `ingredients` line too and tell the user to check the pack. Nutrient names and quantities are French strings with their unit (`"matières grasses"`, `"30.9 g"`); `per_portion.label` gives the portion size (15 g). `regulated_name` is the legal product name. `rating.distribution` is the percentage of ratings per star (7 / 0 / 0 / 36 / 57 adds up to 100 over `count` 14), not a count. Non-food items carry `characteristics[]` (`name`, `values`) and `key_features` instead of nutrition. `max_quantity` is the most units of the item one order can take on the site.
 
 ### Reviews
 
@@ -634,7 +634,7 @@ Captured `data` (8 of 10 stores trimmed):
       "name": "Express Lyon Saxe 163",
       "banner": "CARREFOUR EXPRESS",
       "format": "PROXIMITE",
-      "distance_km": 0.11,
+      "distance_km": 0.18,
       "address": {
         "line1": "163b Avenue Du Marechal De Saxe",
         "line2": null,
@@ -657,7 +657,7 @@ Captured `data` (8 of 10 stores trimmed):
       "name": "Lyon -Gambetta 10",
       "banner": "PROXI",
       "format": "PROXIMITE",
-      "distance_km": 0.36,
+      "distance_km": 0.58,
       "address": {
         "line1": "10 Cr Gambetta",
         "line2": null,
@@ -706,7 +706,7 @@ Captured `data` (19 of 20 stores and 5 days of each week trimmed):
   "stores": [
     {
       "available": true,
-      "distance_km": 0.96053,
+      "distance_km": 0.96,
       "store": {
         "id": "8424",
         "ref": "281",
