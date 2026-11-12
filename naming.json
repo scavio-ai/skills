@@ -745,6 +745,18 @@
       "credits": "2"
     },
     {
+      "dir": "scavio-olx",
+      "slug": "olx-api",
+      "name": "olx-api",
+      "display": "OLX API - Listings, Ads, Sellers, 7 OLX Europe Markets",
+      "query": "olx api",
+      "reused": "no",
+      "platform": "OLX",
+      "group": "Commerce",
+      "endpoints": "9",
+      "credits": "1"
+    },
+    {
       "dir": "scavio-home-depot",
       "slug": "home-depot-product-data",
       "name": "home-depot-product-data",
@@ -1439,6 +1451,11 @@
       "dir": "scavio-allegro",
       "description": "Allegro API for allegro.pl, Poland's largest marketplace, plus allegro.cz (CZK), allegro.sk (EUR) and allegro.hu (HUF): search by keyword or browse a category, 60 organic offers per page plus sponsored slots, with price, price incl. delivery, condition, auction state, discount and the EU 30-day lowest price shown on a discount, sold count (\"x people bought\"), Allegro Smart!, the seller (super seller, positive feedback percent, business or private) and the placement (regular, promoted, sponsored), sorted by price, price with delivery, popularity, ending soonest or newest and filtered by price, new or used, buy now or auction, Smart! and the deals zone (Black Weeks); read one offer in full with every parameter, GTIN, delivery methods and prices, stock, returns, warranty and auction bids; read one catalog product with its lowest price, offer count, buy-box offer, star distribution, review aspects and the first 20 reviews; list every seller's offer for one product for price comparison and price monitoring; read a seller's offers and categories and the seller's buyer ratings, super-seller status and member-since date. Data comes in the site's language. 7 endpoints, 2 credits each. No price history, no bidding or checkout. Allegro no longer grants access to its public offer search (GET /offers/listing).",
       "tags": "allegro, allegro-api, allegro-pl, allegro-price-monitoring, allegro-price-tracker, allegro-scraper, allegro-offers, allegro-offers-listing-alternative, allegro-product-data, allegro-sellers, allegro-seller-ratings, allegro-sold-count, allegro-black-weeks, allegro-czech, allegro-slovakia, allegro-hungary, polish-marketplace, poland-ecommerce, central-europe, cee-ecommerce, marketplace, price-comparison, price-monitoring, competitor-prices, repricing, buy-box, omnibus-price, 30-day-lowest-price, auctions, sponsored-offers, seller-data, product-reviews, multi-country, europe, product-search, product-data, category-browse, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-olx",
+      "description": "OLX API for the OLX Europe classifieds sites: olx.pl (Poland), olx.ro, olx.pt, olx.bg, olx.ua, olx.kz and olx.uz; not OLX Brasil, OLX India or the Dubizzle-run OLX sites. Search ads by keyword or category, sorted by newest or price and filtered by price, condition, private or business seller, OLX delivery, photos, region, city or district with a radius and each category's own filters (rooms, area, year, mileage) listed with values and live counts by the filters endpoint; up to 1,000 results per search, promoted ads interleaved and flagged with their slot; read one ad in full with every parameter, category breadcrumb, photos, location, dates and job salary ranges; read a seller's business flag, business name, member-since date and live ads; look up the category tree, location ids, search suggestions and similar ads. Prices in the site's currency (PLN, RON, EUR, UAH, KZT, UZS), with the seller's original currency kept when the site converts it; data comes in the site's language. Private sellers' names, phone numbers, emails and map positions are never returned. 9 endpoints, 1 credit each. No messaging, seller ratings, view counts or price history. The OLX Partner API manages your own ads only and cannot read other people's ads.",
+      "tags": "olx, olx-api, olx-listings-api, olx-europe, olx-pl, olx-ro, olx-pt, olx-bg, olx-ua, olx-kz, olx-uz, olx-price-monitoring, olx-new-listing-alerts, olx-used-car-data, olx-real-estate-data, olx-partner-api-alternative, olx-poland, olx-romania, olx-portugal, olx-bulgaria, olx-ukraine, olx-kazakhstan, olx-uzbekistan, classifieds, classifieds-api, used-goods, used-cars, real-estate, rentals, jobs, salary-data, price-monitoring, new-listing-alerts, brand-protection, central-europe, eastern-europe, marketplace, multi-country, europe, product-search, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-home-depot",
