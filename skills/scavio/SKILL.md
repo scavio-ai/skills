@@ -73,7 +73,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | iHerb | [iherb-product-data](references/iherb-product-data.md) | 4 | 2 |
 | JCPenney | [jcpenney-product-data](references/jcpenney-product-data.md) | 11 | 1 |
 | Kohl's | [kohls-product-data](references/kohls-product-data.md) | 9 | 2; stores 1 |
-| Kroger | [kroger-grocery-data](references/kroger-grocery-data.md) | 2 | 2 |
+| Kroger | [kroger-grocery-data](references/kroger-grocery-data.md) | 8 | 1; search and product 2, store prices 3 |
 | Lowe's | [lowes-product-data](references/lowes-product-data.md) | 4 | 2; reviews 1 |
 | Macy's | [macys-product-data](references/macys-product-data.md) | 9 | 1 |
 | Menards | [menards-product-data](references/menards-product-data.md) | 3 | search 2; product 1, 2 with store_id; stores 1 |
