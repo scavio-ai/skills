@@ -817,6 +817,18 @@
       "credits": "1; search and product 2, store prices 3"
     },
     {
+      "dir": "scavio-publix",
+      "slug": "publix-api",
+      "name": "publix-api",
+      "display": "Publix API - Weekly Ad, BOGO Deals, Store Prices, Pub Subs",
+      "query": "publix api",
+      "reused": "no",
+      "platform": "Publix",
+      "group": "Commerce",
+      "endpoints": "11",
+      "credits": "1"
+    },
+    {
       "dir": "scavio-linkedin",
       "slug": "linkedin-scraper-api",
       "name": "linkedin-scraper-api",
@@ -1481,6 +1493,11 @@
       "dir": "scavio-kroger",
       "description": "Kroger grocery data API for kroger.com and the QFC and Fred Meyer banners: product search and category listings (first page, up to 24 products) with price, promo price, multi-buy, unit price, stock level, SNAP eligibility and star ratings, each priced at a store the site chooses and names; full product detail with nutrition, ingredients, allergens and aisle; price, promotion, stock, available quantity, aisle and fulfillment for up to 25 UPCs at the store you choose; a store locator by ZIP or city with hours, departments, pharmacy and fuel centers; this week's weekly digital deals; a store's digital coupons by department (listed, never clipped); and search suggestions. Prices in integer cents. 8 endpoints, 1 credit each (search and product 2, store prices 3). Other Kroger banners are not covered yet; no review text, fuel prices or price history.",
       "tags": "kroger, kroger-api, kroger-grocery-data, fred-meyer, fred-meyer-api, fred-meyer-prices, qfc, qfc-api, qfc-prices, kroger-banner-prices, grocery, grocery-prices, store-prices, price-per-store, store-locator, digital-coupons, coupons, weekly-deals, weekly-digital-deals, pacific-northwest, product-data, product-search, category-browse, retail, nutrition, price-monitoring, catalog-enrichment, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-publix",
+      "description": "Publix API for publix.com, store by store: the weekly ad (about 700 items a week, about 230 Buy 1 Get 1 Free) with its start and end dates, deal type (bogo, b2g1, multi-buy, sale price, percent off), sale price, multi-buy bundle, save-up-to text and coupon stacking, filtered by department, BOGO only or text; the store's Extra Savings with the reduced price and period; the store's digital coupons with value, limits, dates and terms (listed, never clipped); one keyword across the weekly ad, Extra Savings and coupons; product search and category listings, 48 per page, sorted by name, popularity, savings or views and filtered by on sale, BOGO or brand, with aisle, promo and facets; a product card with nutrition facts by Publix item code; the deli and bakery order-ahead menu with each store's Pub Sub, platter and cake prices; the category tree; a store locator by ZIP or city with hours, services, pharmacy hours and the day each store's weekly ad starts; and search suggestions. Publix shows prices online only for items on promotion and order-ahead items, so price is null otherwise, never estimated; prices differ by store. 11 endpoints, 1 credit each. No regular shelf prices, reviews, ingredients, allergens, UPCs, delivery prices, coupon clipping or price history. Publix publishes no public developer API.",
+      "tags": "publix, publix-api, publix-weekly-ad, publix-bogo, publix-bogo-list, publix-prices-by-store, publix-coupons, publix-digital-coupons, publix-extra-savings, publix-pub-sub, publix-deli, publix-order-ahead, publix-scraper, grocery, grocery-prices, weekly-ad, bogo, bogo-deals, store-prices, price-per-store, store-locator, digital-coupons, coupons, promotion-tracking, deal-alerts, southeast-us, florida, georgia, product-search, product-data, category-browse, nutrition, retail, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-linkedin",

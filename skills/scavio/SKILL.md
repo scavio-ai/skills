@@ -84,6 +84,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | OLX | [olx-api](references/olx-api.md) | 9 | 1 |
 | Petco | [petco-product-data](references/petco-product-data.md) | 5 | 1 |
 | PetSmart | [petsmart-product-data](references/petsmart-product-data.md) | 6 | 1 |
+| Publix | [publix-api](references/publix-api.md) | 11 | 1 |
 | Saks Fifth Avenue | [saks-fifth-avenue-api](references/saks-fifth-avenue-api.md) | 9 | 2 |
 | Sam's Club | [sams-club-product-data](references/sams-club-product-data.md) | 6 | 1 |
 | Sephora | [sephora-product-data](references/sephora-product-data.md) | 3 | 1; product 2 |
