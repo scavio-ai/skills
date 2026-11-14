@@ -394,7 +394,7 @@
       "platform": "Sam's Club",
       "group": "Commerce",
       "endpoints": "6",
-      "credits": "1"
+      "credits": "2; clubs 1"
     },
     {
       "dir": "scavio-canadiantire",
@@ -1340,7 +1340,7 @@
     },
     {
       "dir": "scavio-samsclub",
-      "description": "Sam's Club product data API: search Sam's Club, read an item's club shelf price, Instant Savings, stock and aisle at the club you choose, find clubs near a ZIP, list every Instant Savings item and any category including clearance, and page member reviews. 6 endpoints, 1 credit each.",
+      "description": "Sam's Club product data API: search Sam's Club, read an item's club shelf price, Instant Savings, stock and aisle at the club you choose, find clubs near a ZIP, list every Instant Savings item and any category including clearance, and page member reviews. 6 endpoints: clubs 1 credit, the other five 2 credits each.",
       "tags": "sams-club, samsclub, sams-club-api, sams-club-product-data, warehouse-club, wholesale, bulk, club-prices, instant-savings, clearance, store-inventory, product-search, product-data, product-reviews, store-locator, deals, retail, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
     },
     {

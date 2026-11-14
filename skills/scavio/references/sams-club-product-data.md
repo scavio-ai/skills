@@ -28,7 +28,7 @@ call below. The whole path from nothing to a working key is self-serve:
 
 1. Sign up at [dashboard.scavio.dev](https://dashboard.scavio.dev/sign-up?utm_source=agent-skills&utm_medium=skill&utm_campaign=sams-club-product-data) - email or Google, no card required.
 2. A key is created for the account automatically at signup. It is on the dashboard under API Keys, ready to copy.
-3. A new account starts with 50 credits. Every endpoint in this skill costs 1 credit.
+3. A new account starts with 50 credits. Clubs costs 1 credit per call; search, product, savings, category and reviews cost 2.
 
 When the balance runs out the API answers `402` with a JSON body carrying
 `billing_url`. Topping up needs no code change - the same key keeps working.
@@ -41,16 +41,16 @@ Authorization: Bearer $SCAVIO_API_KEY
 
 ## Endpoints
 
-Base URL: `https://api.scavio.dev`. All Sam's Club endpoints cost **1 credit**.
+Base URL: `https://api.scavio.dev`. Clubs costs **1 credit**; every other Sam's Club endpoint costs **2 credits**.
 
 | Endpoint | Credits | What it returns |
 |---|---|---|
-| `POST /api/v1/samsclub/search` | 1 | Up to 45 results per page: `item_id`, price, was-price, savings, unit price, Instant Savings, rating, review count, stock, pickup/delivery/shipping availability and aisle |
-| `POST /api/v1/samsclub/product` | 1 | One item: online price and `club_price`, Instant Savings, member and order limits, rating histogram, UPC, model, specifications, and fulfillment per method with stock status, quantity and aisle. Optional `club_id` |
+| `POST /api/v1/samsclub/search` | 2 | Up to 45 results per page: `item_id`, price, was-price, savings, unit price, Instant Savings, rating, review count, stock, pickup/delivery/shipping availability and aisle |
+| `POST /api/v1/samsclub/product` | 2 | One item: online price and `club_price`, Instant Savings, member and order limits, rating histogram, UPC, model, specifications, and fulfillment per method with stock status, quantity and aisle. Optional `club_id` |
 | `POST /api/v1/samsclub/clubs` | 1 | Clubs near a ZIP within 100 miles, nearest first: `club_id`, name, address, coordinates, distance, phone, hours, services and whether it is temporarily closed |
-| `POST /api/v1/samsclub/savings` | 1 | Every Instant Savings item, paged: price, was-price, savings, and each offer's amount, end date and limit |
-| `POST /api/v1/samsclub/category` | 1 | Products in a category, paged, same fields as search. Clearance is category `1150109` |
-| `POST /api/v1/samsclub/reviews` | 1 | 10 reviews per page with rating, title, text, author, date, verified purchase and helpful votes, plus the average, total, star breakdown and the top positive and negative review |
+| `POST /api/v1/samsclub/savings` | 2 | Every Instant Savings item, paged: price, was-price, savings, and each offer's amount, end date and limit |
+| `POST /api/v1/samsclub/category` | 2 | Products in a category, paged, same fields as search. Clearance is category `1150109` |
+| `POST /api/v1/samsclub/reviews` | 2 | 10 reviews per page with rating, title, text, author, date, verified purchase and helpful votes, plus the average, total, star breakdown and the top positive and negative review |
 
 ## Workflow
 
@@ -166,7 +166,7 @@ Captured response (club 6372, Dallas; trimmed: descriptions, images, specificati
     }
   },
   "response_time": 20119,
-  "credits_used": 1
+  "credits_used": 2
 }
 ```
 
