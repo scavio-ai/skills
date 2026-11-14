@@ -877,6 +877,18 @@
       "credits": "6"
     },
     {
+      "dir": "scavio-maisonsdumonde",
+      "slug": "maisons-du-monde-api",
+      "name": "maisons-du-monde-api",
+      "display": "Maisons du Monde API - Promo Prices, Product Data, Reviews, Store Stock",
+      "query": "maisons du monde api",
+      "reused": "no",
+      "platform": "Maisons du Monde",
+      "group": "Commerce",
+      "endpoints": "9",
+      "credits": "1"
+    },
+    {
       "dir": "scavio-mercadolibre",
       "slug": "mercadolibre-product-data",
       "name": "mercadolibre-product-data",
@@ -1554,6 +1566,11 @@
       "dir": "scavio-linkedin-ads",
       "description": "Search ads running across LinkedIn by keyword and/or advertiser company id, returning each ad's advertiser, ad copy, format, promoted label, thumbnail and a detail link, then open one ad in full with its media, headline, who paid for it and the advertiser's company URL. 2 endpoints, 6 credits each, structured JSON.",
       "tags": "linkedin-ads, linkedin-ad-library, ad-library-api, b2b-ads, competitor-ads, ad-creative, ad-intelligence, paid-social, marketing-research, sponsored-content, demand-gen, langchain, crewai, autogen, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-maisonsdumonde",
+      "description": "Maisons du Monde API for promo prices and product data on maisonsdumonde.com: keyword search and category grids (40 per page, exact total, sorted by price or customer rating, filtered by price range, discount, stock, rating, color, material, style, brand or marketplace seller) with price, the crossed-out price (was_price), discount, badges, rating and who sells each item (Maisons du Monde or a marketplace seller); one product in full by reference or link with exact online stock, variants with their price difference, dimensions, materials, made-in country, assembly and dimension PDFs, the review summary, Q&A and the same product on every other market; Black Friday, Seconde Chance (used and returned items) and any category's discounted items; reviews pooled across markets and shown translated into the request language, with the star histogram, per-criterion scores and cursor paging; stores near a postcode, one store's phone, hours and services, and one item's stock at one store with the home delivery from-price; marketplace sellers with their rating, orders and catalog. 9 markets in 6 languages: France, Belgium (French or Dutch), Luxembourg, the Netherlands, Germany, Spain, Italy and Portugal in EUR, Switzerland (French, German or Italian) in CHF; marketplace sellers on fr, de, es and it. 9 endpoints, 1 credit each. No 30-day lowest price (Maisons du Monde does not show one), price history or search suggestions. Maisons du Monde publishes no public product or price API; its marketplace seller API is for approved sellers.",
+      "tags": "maisons-du-monde, maisons-du-monde-api, maisonsdumonde, maisons-du-monde-prices, maisons-du-monde-promo, maisons-du-monde-black-friday, maisons-du-monde-soldes, maisons-du-monde-reviews, maisons-du-monde-stores, maisons-du-monde-stock, maisons-du-monde-marketplace, maisons-du-monde-france, furniture, home-decor, furniture-prices, promo-prices, price-monitoring, price-tracking, cross-border-prices, multi-country, europe, product-search, product-data, product-reviews, category-browse, store-stock, store-locator, retail, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-mercadolibre",
