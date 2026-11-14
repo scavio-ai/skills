@@ -20,7 +20,7 @@ Read Maisons du Monde (furniture and home decor) product data on maisonsdumonde.
 
 **The job this skill is for: Maisons du Monde promo prices.** Every item carries `price` (what the site charges now) next to `was_price` (the crossed-out price shown next to a discount) and `discount_percent` (the page's own percent off), plus `sold_by`: `mdm` for items Maisons du Monde sells itself, `marketplace` for third-party sellers (France, Germany, Spain and Italy). Maisons du Monde shows no 30-day lowest price and no price history, so neither is returned: to see whether a price really moved, read the same items on a schedule and store each reading with its time and market. Black Friday 2026 is November 27; the French winter soldes run from 2027-01-06 to 2027-02-02.
 
-**Prices by country: the euro markets shared one price, Switzerland is priced separately in CHF.** The same product reference serves every market. Measured on 2026-11-14 on 6 products, every euro market we read gave the same price for the same product, and Switzerland had its own CHF price:
+**Prices by country: prices can differ by market, and Switzerland is priced separately in CHF.** The same product reference serves every market, and prices are in the market's currency, never converted. Measured on 2026-11-14 on about 170 discounted sofas sold by Maisons du Monde, matched by reference against France: Luxembourg, the Netherlands, Germany, Spain, Italy and Portugal matched France on every item; Belgium differed on 19 of 170 (18 lower, 1 higher: 238617 was 449.50 EUR in France and 399.50 in Belgium, 234542 was 799.20 in France and 1039.20 in Belgium); `discount_percent` never differed; and of 165 sofas sold in Switzerland, 111 showed the same number in CHF and 54 were 9-10% higher. Readings on 6 products the same day:
 
 | Product | Euro markets read | EUR price (was) | Switzerland |
 |---|---|---|---|
@@ -31,7 +31,7 @@ Read Maisons du Monde (furniture and home decor) product data on maisonsdumonde.
 | 230448 corner sofa | `be`, `lu` | 1699 | CHF 1699 |
 | 166180 3/4-seat corner sofa | `es`, `it`, `pt` | 199.50 (399) | not read |
 
-That is 6 products on one day, not a rule: read each market you care about and compare. In Switzerland the number is sometimes the same as the euro price and sometimes not, but it is always in CHF: never compare a CHF price with a EUR price without converting it yourself, with the rate and its date.
+These are readings on one day, not a rule: read each market you report and compare. In Switzerland the number is sometimes the same as the euro price and sometimes not, but it is always in CHF: never compare a CHF price with a EUR price without converting it yourself, with the rate and its date.
 
 Maisons du Monde publishes no public product or price API. Its marketplace runs a seller API for approved third-party sellers, who use it to publish and update their own products, offers and stock; product feeds go to approved affiliates through affiliate networks.
 
@@ -779,13 +779,13 @@ Every response uses the envelope `{ data, response_time, fetched_at, credits_use
 
 ## Guardrails
 
-- Crossed-out price: `was_price` is the crossed-out price the page shows next to a discount, and `discount_percent` is the page's own percent off. Maisons du Monde shows no 30-day lowest price, so none is returned: never call `was_price` the 30-day lowest price, the previous price or yesterday's price, and never present `discount_percent` as a measured price drop. For a measured change, compare your own stored readings.
-- Prices by country: the euro markets shared one price per product on the 6 products measured on 2026-11-14; that is a measurement, not a guarantee. Read each market you report. Switzerland is priced separately in CHF. Never compare CHF with EUR without converting explicitly, with the rate and its date.
+- Crossed-out price: `was_price` is the crossed-out price the page shows next to a discount, and `discount_percent` is the page's own percent off. Maisons du Monde shows no 30-day lowest price, so none is returned: never call `was_price` the 30-day lowest price, the previous price or yesterday's price, and never present `discount_percent` as a measured price drop. For a measured change, compare your own stored readings. On marketplace items `discount_percent` is the site's rounded label and can differ from the `price` / `was_price` arithmetic by a few points; Maisons du Monde-sold items match exactly.
+- Prices by country: prices can differ by market. Measured on 2026-11-14 on about 170 discounted sofas, Luxembourg, the Netherlands, Germany, Spain, Italy and Portugal matched France on every item, Belgium differed on 19, and Switzerland is priced separately in CHF. Read each market you report; never carry one market's price to another. Never compare CHF with EUR without converting explicitly, with the rate and its date.
 - Marketplace: on `fr`, `de`, `es` and `it` some items are sold by third-party sellers (`sold_by: "marketplace"`, `id` starting with `M`), who set their own prices. Keep them apart from Maisons du Monde's own items in any statistic (`sold_by: "mdm"` filters them out). Grid tiles carry `sold_by` but not the seller's name: `/product` has `seller`.
 - Sponsored tiles: `items[]` can hold sponsored marketplace tiles (`sponsored: true`, up to 16 on page 1); `count` excludes them. Drop them before ranking or counting.
 - `eco_participation` (`fr`) is the French furniture recycling fee, included in `price`. Do not add it to the price.
 - German search: sorted keyword searches on `de` come back in relevance order with a note. Use `/category` to sort on `de`.
-- Paging: 40 per page, at most 250 pages; narrow with filters past that.
+- Paging: 40 per page, at most 250 pages; narrow with filters past that. Price-sorted pages can repeat an item at a page boundary (tied prices swap between pages): dedupe by `id`.
 - Reviews are pooled across every Maisons du Monde market and shown translated into the request language. Say so when quoting one, and say where it was written (`source_market`). The site has no star filter; `rating_histogram` covers every review. Reviews carry no verified-buyer flag, id or title. Quote short excerpts, and never more than the `author` display name of a reviewer.
 - A product with no reviews, and a marketplace item (whose reviews the site does not list), answers `404` on `/reviews`.
 - Delivery: home delivery is a from-price per product and market (`delivery[].from_price`, the site's "à partir de" wording). There is no postcode-exact delivery cost: never present the from-price as the user's delivery cost.
