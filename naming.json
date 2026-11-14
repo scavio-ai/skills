@@ -1081,6 +1081,18 @@
       "credits": "1; 2 for walmart.com.mx search/category or store-targeted search/product"
     },
     {
+      "dir": "scavio-wayfair",
+      "slug": "wayfair-api",
+      "name": "wayfair-api",
+      "display": "Wayfair API - Product Prices, Sale and Was Price, Reviews, Delivery",
+      "query": "wayfair api",
+      "reused": "no",
+      "platform": "Wayfair",
+      "group": "Commerce",
+      "endpoints": "4",
+      "credits": "1"
+    },
+    {
       "dir": "scavio-website-crawler",
       "slug": "website-crawler-api",
       "name": "website-crawler-api",
@@ -1615,6 +1627,11 @@
       "dir": "scavio-walmart",
       "description": "Walmart product data API: keyword search, full product detail by item id, customer reviews with the rating breakdown, category listings, the buy-box offer on an item, marketplace seller storefronts and catalogs, and stores near a US ZIP or Canadian postal code for store-targeted results, as structured JSON. 8 endpoints; 1 credit, or 2 for walmart.com.mx search/category or a store-targeted search/product.",
       "tags": "walmart, walmart-product-data, walmart-api, ecommerce, retail, product-search, product-data, pricing, price-monitoring, reviews, buy-box, marketplace-sellers, store-locator, local-inventory, walmart-canada, langchain, crewai, autogen, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-wayfair",
+      "description": "Wayfair API for Wayfair prices and product data: keyword search and category listings (30 per keyword page, 48 per category page) with price, sale price, was price (Wayfair's strikethrough), price label (Sale, Closeout), discount, per-item price for sets, loyalty savings, badge, rating, review count, stock text, open-box price and sponsored flag, sorted by price or customer rating and filtered by sale, closeout, open box, new arrivals, in stock, brand id, minimum rating, price range or any facet; one product in full by SKU or link with every option (size, color) and its option_id, the price and stock of one option, dimensions, specifications, documents, returns, rating histogram, the review summary, review aspects, the 5 reviews the page shows and a delivery estimate to a US ZIP or Canadian postal code; and the market's current sale events. wayfair.com (USD), wayfair.ca in English or French (CAD), wayfair.co.uk (GBP) and wayfair.ie (EUR), plus AllModern, Birch Lane, Joss & Main and Perigold. 4 endpoints, 1 credit each. Wayfair shows no price history: poll and store price, sale price and was price to build one. No review paging, typeahead or checkout. Wayfair publishes no public catalog, price or review API.",
+      "tags": "wayfair, wayfair-api, wayfair-prices, wayfair-price-history, wayfair-price-tracking, wayfair-sale-price, wayfair-was-price, wayfair-product-data, wayfair-reviews, wayfair-delivery, wayfair-deals, wayfair-canada, wayfair-uk, allmodern, birch-lane, joss-and-main, perigold, furniture, home-furnishing, home-decor, price-monitoring, price-tracking, product-search, product-data, product-reviews, category-browse, retail, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-website-crawler",

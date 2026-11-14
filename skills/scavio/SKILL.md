@@ -97,6 +97,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Vinted | [vinted-api](references/vinted-api.md) | 9 | 1 |
 | Walgreens | [walgreens-product-data](references/walgreens-product-data.md) | 4 | 2; stock 4 |
 | Walmart | [walmart-product-data](references/walmart-product-data.md) | 8 | 1; 2 for walmart.com.mx search/category or store-targeted search/product |
+| Wayfair | [wayfair-api](references/wayfair-api.md) | 4 | 1 |
 | Whole Foods Market | [whole-foods-grocery-data](references/whole-foods-grocery-data.md) | 7 | 1 |
 
 **Social and video**
