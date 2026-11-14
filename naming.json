@@ -49,6 +49,18 @@
       "credits": "1"
     },
     {
+      "dir": "scavio-ashley",
+      "slug": "ashley-furniture-api",
+      "name": "ashley-furniture-api",
+      "display": "Ashley Furniture API - Prices, Sale and Regular Price, Reviews, Stores",
+      "query": "ashley furniture api",
+      "reused": "no",
+      "platform": "Ashley Furniture",
+      "group": "Commerce",
+      "endpoints": "6",
+      "credits": "2; search and product 1 on ca, ph, sa and tr"
+    },
+    {
       "dir": "scavio-booking",
       "slug": "booking-com-hotel-data",
       "name": "booking-com-hotel-data",
@@ -1197,6 +1209,11 @@
       "dir": "scavio-app-store",
       "description": "Apple App Store API: search apps by keyword or publisher name, read a full listing by App Store id or bundle id with price, ratings, version, release notes and screenshots, and page user reviews with rating, text, author and app version. 3 endpoints, 1 credit each, any Apple storefront.",
       "tags": "app-store, apple-app-store, app-store-api, ios-apps, aso, app-reviews, app-metadata, bundle-id, apple, mobile-apps, competitor-research, agents, langchain, crewai, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-ashley",
+      "description": "Ashley Furniture API for Ashley sale prices and product data: keyword search (48 per page, exact total, sorted by best sellers, price, newest, customer rating or name) and category and deal grids (30 per page, filtered by facet or price range) with price, Ashley's Regular Price (its struck-through price), discount, sale, clearance, doorbuster, outlet and hot buy badges, rating, review count and stock; one product in full by item number or link with every option and variant, set components, dimensions, materials, assembly, stock and delivery, the nearest store, the rating histogram, the first 10 reviews, customer photos and customer Q&A with staff answers; the Black Friday, clearance and Hot Buys deal grids; stores near a latitude and longitude and one store's address, phone and hours. Ashley prices vary by region: every US answer reports priced_for, the ZIP and price zone Ashley priced it for (no ZIP input). ashleyfurniture.com (USD), plus search and product on Ashley's licensed storefronts ashleyhomestore.ca (CAD), Mexico (MXN, Spanish), the Philippines (PHP), Saudi Arabia (SAR) and Turkey (TRY, Turkish). 6 endpoints, 2 credits per call on us and mx, 1 on ca, ph, sa and tr. No price history, review paging or ZIP store search. Ashley's official API is for its dealers (wholesale pricing); Ashley publishes no public shopper-price API.",
+      "tags": "ashley, ashley-furniture, ashley-furniture-api, ashley-homestore, ashley-furniture-prices, ashley-furniture-sale, ashley-regular-price, ashley-black-friday, ashley-clearance, ashley-hot-buys, ashley-reviews, ashley-stores, ashley-canada, ashley-mexico, furniture, furniture-prices, home-furnishing, price-monitoring, price-tracking, product-search, product-data, product-reviews, category-browse, store-locator, retail, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-booking",

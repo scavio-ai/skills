@@ -53,6 +53,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | AliExpress | [aliexpress-product-data](references/aliexpress-product-data.md) | 6 | 1 |
 | Allegro | [allegro-api](references/allegro-api.md) | 7 | 2 |
 | Amazon | [amazon-product-data](references/amazon-product-data.md) | 3 | 1 |
+| Ashley Furniture | [ashley-furniture-api](references/ashley-furniture-api.md) | 6 | 2; search and product 1 on ca, ph, sa and tr |
 | Best Buy | [best-buy-product-data](references/best-buy-product-data.md) | 9 | 2; stores and suggestions 1, deals and pcmcat category pages 3 |
 | Canadian Tire | [canadian-tire-api](references/canadian-tire-api.md) | 6 | 1 |
 | Carrefour | [carrefour-api](references/carrefour-api.md) | 9 | 1; Belgium search and product 2 |
