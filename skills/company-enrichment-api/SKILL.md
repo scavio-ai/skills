@@ -72,7 +72,7 @@ Provide `url` or `place_id`. With neither, the API answers `400` (not charged).
 
 1. **From a website:** call `/company/enrich` with `{"url": "..."}`.
 2. **From Google Maps:** call `POST /api/v2/google/maps/search` (1 credit, see the `google-maps-api` skill), keep each `local_results[].place_id`, then call `/company/enrich` with `{"place_id": "..."}` for each business.
-3. **Read the result:** contacts are in `data.company`; the owner, when a page names one, is in `data.owner`; the pages that were read are in `data.pages_read`.
+3. **Read the result:** contacts are in `data.company`; the owner, when a page names one, is in `data.owner`.
 
 ## Example
 
@@ -113,7 +113,7 @@ The payload is under `data`; the envelope adds `response_time` (ms), `fetched_at
 
 - `data.company`: `name`, `website`, `domain`, `emails[]` (addresses printed on the site, company-domain first), `phones[]` (digits only), `socials` (one profile URL per network found: facebook, instagram, linkedin, x, tiktok, youtube, pinterest), `contact_page` (or null), `address` and `place_id` (filled when you pass a place_id).
 - `data.owner`: `name`, `title` (owner, founder, co-founder, president, CEO or managing director, as the source states it), `source_url` (the page that names them), `email`, `email_status` (`published` when an address on the site matches the owner's name, otherwise `not_found` with `email` null). `data.owner` is `null` when no page names one.
-- `data.pages_read[]`: the home page plus up to 3 contact, about or team pages, and the privacy and terms pages.
+- Each call reads the home page, up to 3 contact, about or team pages, and the privacy and terms pages.
 
 Real response captured 2026-11-10 (`url: https://reliantplumbing.com`, phones trimmed to 3):
 
@@ -141,14 +141,7 @@ Real response captured 2026-11-10 (`url: https://reliantplumbing.com`, phones tr
       "source_url": "https://reliantplumbing.com/about-us/",
       "email": null,
       "email_status": "not_found"
-    },
-    "pages_read": [
-      "https://reliantplumbing.com/",
-      "https://reliantplumbing.com/contact-us/",
-      "https://reliantplumbing.com/about-us/",
-      "https://reliantplumbing.com/privacy-policy/",
-      "https://reliantplumbing.com/terms-conditions/"
-    ]
+    }
   },
   "response_time": 27498,
   "fetched_at": "2026-11-10T16:53:37.418Z",
