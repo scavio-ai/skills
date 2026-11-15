@@ -95,11 +95,11 @@ for place in search["local_results"][:5]:
 
 The payload is under `data`; the envelope adds `response_time` (ms), `fetched_at`, `credits_used` (the exact charge) and `credits_remaining`.
 
-- `data.company`: `name`, `website`, `domain`, `emails[]` (addresses printed on the site, company-domain first), `phones[]` (digits only), `socials` (one profile URL per network found: facebook, instagram, linkedin, x, tiktok, youtube, pinterest), `contact_page` (or null), `address` and `place_id` (filled when you pass a place_id).
+- `data.company`: `name`, `website`, `domain`, `emails[]` (addresses printed on the site, company-domain first; other companies' addresses such as a distributor list are dropped), `phones[]` (E.164 like `+15122226029` when the number validates, otherwise digits as printed), `socials` (one profile URL per network found: facebook, instagram, linkedin, x, tiktok, youtube, pinterest), `contact_page` (or null), `address` and `place_id` (filled when you pass a place_id).
 - `data.owner`: `name`, `title` (owner, founder, co-founder, president, CEO or managing director, as the source states it), `source_url` (the page that names them), `email`, `email_status` (`published` when an address on the site matches the owner's name, otherwise `not_found` with `email` null). `data.owner` is `null` when no page names one.
 - Each call reads the home page, up to 3 contact, about or team pages, and the privacy and terms pages.
 
-Real response captured 2026-11-10 (`url: https://reliantplumbing.com`, phones trimmed to 3):
+Real response captured 2026-11-15 (`url: https://reliantplumbing.com`, phones trimmed to 3):
 
 ```json
 {
@@ -108,8 +108,14 @@ Real response captured 2026-11-10 (`url: https://reliantplumbing.com`, phones tr
       "name": "Reliant Plumbing",
       "website": "https://reliantplumbing.com/",
       "domain": "reliantplumbing.com",
-      "emails": ["office@reliantplumbing.com"],
-      "phones": ["5122226029", "5129003549", "5123996886"],
+      "emails": [
+        "office@reliantplumbing.com"
+      ],
+      "phones": [
+        "+15122226029",
+        "+15129003549",
+        "+15123996886"
+      ],
       "socials": {
         "facebook": "https://www.facebook.com/ReliantPlumbingTx",
         "youtube": "https://www.youtube.com/channel/UC6sOp-XAWD1NwU6aosEHEPA",
@@ -121,16 +127,16 @@ Real response captured 2026-11-10 (`url: https://reliantplumbing.com`, phones tr
     },
     "owner": {
       "name": "Max Hicks",
-      "title": "Founder",
-      "source_url": "https://reliantplumbing.com/about-us/",
+      "title": "Owner & Founder",
+      "source_url": "https://www.connectively.us/p/max-hicks",
       "email": null,
       "email_status": "not_found"
     }
   },
-  "response_time": 27498,
-  "fetched_at": "2026-11-10T16:53:37.418Z",
+  "response_time": 9581,
+  "fetched_at": "2026-11-15T10:14:11.990Z",
   "credits_used": 10,
-  "credits_remaining": 69632
+  "credits_remaining": 63277
 }
 ```
 
