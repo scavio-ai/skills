@@ -157,6 +157,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 |---|---|---|---|
 | Apple App Store | [apple-app-store-api](references/apple-app-store-api.md) | 3 | 1 |
 | Google Play | [google-play-store-api](references/google-play-store-api.md) | 3 | 2 |
+| Nintendo eShop | [nintendo-eshop-api](references/nintendo-eshop-api.md) | 6 | 1 |
 
 **Companies and code**
 

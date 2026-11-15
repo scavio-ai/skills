@@ -913,6 +913,18 @@
       "credits": "1 per page"
     },
     {
+      "dir": "scavio-nintendo",
+      "slug": "nintendo-eshop-api",
+      "name": "nintendo-eshop-api",
+      "display": "Nintendo eShop API - Game Prices by Country, Sales, DLC, Releases",
+      "query": "nintendo eshop api",
+      "reused": "no",
+      "platform": "Nintendo eShop",
+      "group": "App stores",
+      "endpoints": "6",
+      "credits": "1"
+    },
+    {
       "dir": "scavio-pinterest",
       "slug": "pinterest-api",
       "name": "pinterest-api",
@@ -1593,6 +1605,11 @@
       "dir": "scavio-meta-ads",
       "description": "Meta Ad Library search by keyword, Facebook Page id or ad archive id, returning the full ad creative, run dates, the Meta platforms each ad ran on, and spend, reach and impressions on political and issue ads. Cursor pagination walks every ad, not just page one. 3 endpoints, 1 credit per page, structured JSON.",
       "tags": "meta-ad-library, facebook-ads, instagram-ads, meta-ads, ad-library-api, competitor-ads, ad-creative, political-ads, ad-spend, marketing-research, langchain, crewai, autogen, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-nintendo",
+      "description": "Nintendo eShop API for Nintendo eShop regional prices: one game's regular price, sale price, discount and the eShop's own sale start and end dates in each eShop country, in that country's currency (never converted), for 1 to 50 item ids per call; catalog search by keyword (Europe sorted by relevance, newest, price, title or discount and filtered by platform, on sale, price range, genre, players, publisher, demo and type; Japan by relevance, newest or price with platform, on sale, publisher and type; the Americas by relevance or newest); one game in full with publisher, developer, release date, genres, players, languages, file size, age rating (ESRB, PEGI, USK, CERO, CLASSIND), editions, demo and Nintendo Switch Online needs; games on sale now (every discounted game in Europe and Japan; Nintendo's featured sale pages in the Americas); new and upcoming releases; a game's DLC, bundles and upgrade packs with prices. Nintendo Switch and Nintendo Switch 2. 46 countries: the US, Canada (English or French), Mexico, Brazil, Argentina, Chile, Colombia and Peru; the UK, Ireland, Germany, Austria, Switzerland (German, French or Italian), France, Belgium (French or Dutch), the Netherlands, Luxembourg, Italy, Spain, Portugal, Australia, New Zealand and South Africa; 18 more European countries on the English catalog with their own prices (PLN, CZK, SEK, NOK, DKK, EUR); Japan; and prices only in Korea, Hong Kong, Taiwan and Israel. Item ids are per eShop region (Americas, Europe, Japan, Korea, Hong Kong and Taiwan). 6 endpoints, 1 credit each. No user reviews (Nintendo has none), no best-seller charts and no price history: poll the prices endpoint. Nintendo has no public eShop catalog or price API.",
+      "tags": "nintendo, nintendo-eshop, nintendo-eshop-api, nintendo-eshop-prices, eshop-prices, eshop-prices-by-country, nintendo-eshop-sale, eshop-sale-end-date, nintendo-switch, nintendo-switch-2, switch-game-prices, switch-2-game-prices, nintendo-dlc, nintendo-releases, nintendo-new-releases, nintendo-upcoming-games, nintendo-black-friday, eshop-price-tracker, game-prices, game-deals, video-games, digital-games, price-comparison, price-monitoring, price-tracker, multi-country, regional-pricing, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-pinterest",
