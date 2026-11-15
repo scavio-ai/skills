@@ -1057,6 +1057,18 @@
       "credits": "1"
     },
     {
+      "dir": "scavio-trendyol",
+      "slug": "trendyol-api",
+      "name": "trendyol-api",
+      "display": "Trendyol API - Product Prices, Seller Offers, Reviews, Rankings",
+      "query": "trendyol api",
+      "reused": "no",
+      "platform": "Trendyol",
+      "group": "Commerce",
+      "endpoints": "12",
+      "credits": "1"
+    },
+    {
       "dir": "scavio-tripadvisor",
       "slug": "tripadvisor-reviews-api",
       "name": "tripadvisor-reviews-api",
