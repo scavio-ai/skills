@@ -6,7 +6,7 @@ Read Trendyol marketplace data from trendyol.com and its international storefron
 
 **Lowest-price badge: a day count, not a price.** Trendyol tags some offers "lowest price of the last N days" (`Son 10 Günün En Düşük Fiyatı` on tr). `lowest_price_badge` is {`days`, `text`}: 10, 14, 30 or 90 days on the Turkish storefront, 7, 14 or 30 on the international ones (where `text` is `null`). Trendyol publishes no numeric 30-day lowest price and no price history, so neither is returned: never present a badge as a measured price, and to see whether a price moved, read the same product on a schedule and store each reading with its time, market and seller. Black Friday 2026 is Friday, November 27; press calendars put Trendyol's Efsane Günler at November 26 to December 2, 2026.
 
-**International storefronts have their own price lists.** The same `content_id` serves every storefront, but each storefront is priced on its own (most international items are sold by Trendyol itself and shipped cross-border), not as a currency conversion of the Turkish price. Measured on 2 products on 2026-11-15, from the captures:
+**International storefronts have their own price lists.** The same `content_id` serves every storefront, but each storefront is priced on its own, not as a currency conversion of the Turkish price, and its items are sold by Trendyol itself or by other sellers (check `buy_box` and `other_sellers`). Measured on 2 products on 2026-11-15, from the captures:
 
 | Product | Storefront (`country`, `language`) | Seller | `price` | `original_price` | Currency |
 |---|---|---|---|---|---|
@@ -480,7 +480,7 @@ Captured `data` (Turkey, 2026-11-15; 2 of 41 attributes, 1 of 4 images and 3 of 
   "max_installments": 1,
   "vat_percent": 20,
   "has_description": true,
-  "notes": ["price is what one unit costs at checkout (basket discounts applied); original_price is the higher price it is shown against; international storefronts have their own price lists (mostly sold by Trendyol cross-border), not a currency conversion.", "lowest_price_badge is the site's own badge (lowest price of the last N days): it gives the day count only; Trendyol publishes no numeric 30-day lowest price and no price history.", "other_sellers are the other offers on this product (the buy box is the site's default seller). Reviews, questions, coupons and delivery dates are separate calls."],
+  "notes": ["price is what one unit costs at checkout (basket discounts applied); original_price is the higher price it is shown against; each international storefront has its own price list, not a currency conversion; items there are sold by Trendyol itself or by other sellers (see buy_box and other_sellers).", "lowest_price_badge is the site's own badge (lowest price of the last N days): it gives the day count only; Trendyol publishes no numeric 30-day lowest price and no price history.", "other_sellers are the other offers on this product (the buy box is the site's default seller). Reviews, questions, coupons and delivery dates are separate calls."],
   "country": "tr",
   "language": "tr"
 }
@@ -1106,8 +1106,8 @@ Every response uses the envelope `{ data, response_time, fetched_at, credits_use
 ## SDKs
 
 ```bash
-pip install scavio==0.60.0
-npm install scavio@0.61.0
+pip install scavio==0.60.1
+npm install scavio@0.61.1
 ```
 
 ```js
@@ -1139,7 +1139,7 @@ The Scavio MCP server exposes all twelve endpoints as tools: `search_trendyol`, 
   "mcpServers": {
     "scavio": {
       "command": "npx",
-      "args": ["-y", "@scavio/mcp-server@0.58.0"],
+      "args": ["-y", "@scavio/mcp-server@0.58.1"],
       "env": {
         "SCAVIO_API_KEY": "sk_live_your_key",
         "SCAVIO_PLATFORMS": "default,trendyol"
