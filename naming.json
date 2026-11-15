@@ -769,6 +769,18 @@
       "credits": "1"
     },
     {
+      "dir": "scavio-hm",
+      "slug": "hm-api",
+      "name": "hm-api",
+      "display": "H&M API - Prices by Country, Product Data, Stock by Size, Stores",
+      "query": "h&m api",
+      "reused": "no",
+      "platform": "H&M",
+      "group": "Commerce",
+      "endpoints": "9",
+      "credits": "1; product 2"
+    },
+    {
       "dir": "scavio-home-depot",
       "slug": "home-depot-product-data",
       "name": "home-depot-product-data",
@@ -1545,6 +1557,11 @@
       "dir": "scavio-olx",
       "description": "OLX API for the OLX Europe classifieds sites: olx.pl (Poland), olx.ro, olx.pt, olx.bg, olx.ua, olx.kz and olx.uz; not OLX Brasil, OLX India or the Dubizzle-run OLX sites. Search ads by keyword or category, sorted by newest or price and filtered by price, condition, private or business seller, OLX delivery, photos, region, city or district with a radius and each category's own filters (rooms, area, year, mileage) listed with values and live counts by the filters endpoint; up to 1,000 results per search, promoted ads interleaved and flagged with their slot; read one ad in full with every parameter, category breadcrumb, photos, location, dates and job salary ranges; read a seller's business flag, business name, member-since date and live ads; look up the category tree, location ids, search suggestions and similar ads. Prices in the site's currency (PLN, RON, EUR, UAH, KZT, UZS), with the seller's original currency kept when the site converts it; data comes in the site's language. Private sellers' names, phone numbers, emails and map positions are never returned. 9 endpoints, 1 credit each. No messaging, seller ratings, view counts or price history. The OLX Partner API manages your own ads only and cannot read other people's ads.",
       "tags": "olx, olx-api, olx-listings-api, olx-europe, olx-pl, olx-ro, olx-pt, olx-bg, olx-ua, olx-kz, olx-uz, olx-price-monitoring, olx-new-listing-alerts, olx-used-car-data, olx-real-estate-data, olx-partner-api-alternative, olx-poland, olx-romania, olx-portugal, olx-bulgaria, olx-ukraine, olx-kazakhstan, olx-uzbekistan, classifieds, classifieds-api, used-goods, used-cars, real-estate, rentals, jobs, salary-data, price-monitoring, new-listing-alerts, brand-protection, central-europe, eastern-europe, marketplace, multi-country, europe, product-search, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-hm",
+      "description": "H&M API for H&M prices by country: one article's price, sale price, member price (as H&M displays it), discount, EU prior price and online stock by size in each H&M market, in that market's currency (never converted); article codes are the same 10-digit code in every market, so one code prices the item everywhere. Keyword search (or search by article code) sorted by relevance, newest or price and filtered by colour, size, material, fit, product type, department, on sale or one store's assortment; one article in full with description, composition, care, fit attributes, every colourway with its own prices, rating and the 10 latest reviews with fit feedback; online stock per size for every colour with H&M's low-stock flag; H&M stores by city, postal code or radius with opening hours, departments and campaigns; category grids by H&M's category ids (the same in every market); the sale grid and new arrivals per department (women, men, kids, baby, home); search suggestions; countries of production with supplier and factory names and cities. 47 countries: the US, Canada (English or French), Mexico, the UK, Ireland, Germany, Austria, Switzerland (German, French or Italian), France, Belgium (Dutch or French), the Netherlands, Italy, Spain, Portugal, Sweden, Finland (Finnish or Swedish), Denmark, Norway, Poland, Czechia, Slovakia, Hungary, Romania, Bulgaria, Greece, Serbia, Turkey, Ukraine, Israel (Hebrew), Hong Kong and Macau, Taiwan, Japan, South Korea, India, Malaysia, the Philippines, Singapore, Vietnam and Australia, plus Croatia, Cyprus, Estonia, Latvia, Lithuania, Luxembourg and Slovenia on H&M's shared English EUR store. 9 endpoints, 1 credit each, product 2. No price history (poll and store), no per-size store stock, no full review list, no checkout prices, and not COS, Weekday, & Other Stories, Monki or ARKET. H&M has no public product data API.",
+      "tags": "hm, h-and-m, hm-api, hm-product-data, hm-product-api, hm-prices, hm-prices-by-country, hm-price-api, hm-member-price, hm-sale, hm-sale-tracker, hm-stock, hm-stock-by-size, hm-stores, hm-new-arrivals, hm-black-friday, hm-country-of-production, fashion, fashion-prices, clothing-prices, apparel, fast-fashion, retail, price-comparison, price-monitoring, price-tracker, multi-country, regional-pricing, supply-chain, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-home-depot",

@@ -68,6 +68,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Fanatics | [fanatics-merchandise-api](references/fanatics-merchandise-api.md) | 5 | 1 |
 | Foot Locker | [foot-locker-api](references/foot-locker-api.md) | 10 | 1 |
 | Google Shopping | [google-shopping-api](references/google-shopping-api.md) | 3 | 1 |
+| H&M | [hm-api](references/hm-api.md) | 9 | 1; product 2 |
 | Harbor Freight | [harbor-freight-api](references/harbor-freight-api.md) | 7 | 1 |
 | HEB | [heb-grocery-data](references/heb-grocery-data.md) | 3 | 2 |
 | Home Depot | [home-depot-product-data](references/home-depot-product-data.md) | 3 | 2 |
