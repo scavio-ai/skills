@@ -103,6 +103,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Walmart | [walmart-product-data](references/walmart-product-data.md) | 8 | 1; 2 for walmart.com.mx search/category or store-targeted search/product |
 | Wayfair | [wayfair-api](references/wayfair-api.md) | 4 | 1 |
 | Whole Foods Market | [whole-foods-grocery-data](references/whole-foods-grocery-data.md) | 7 | 1 |
+| Zara | [zara-api](references/zara-api.md) | 12 | 2; some 4 or 6; cn 1 |
 
 **Social and video**
 

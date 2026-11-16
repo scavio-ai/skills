@@ -1213,6 +1213,18 @@
       "credits": "1-5"
     },
     {
+      "dir": "scavio-zara",
+      "slug": "zara-api",
+      "name": "zara-api",
+      "display": "Zara API - Prices by Country, Stock by Size, Stores, Product Data",
+      "query": "zara api",
+      "reused": "no",
+      "platform": "Zara",
+      "group": "Commerce",
+      "endpoints": "12",
+      "credits": "2; some 4 or 6; cn 1"
+    },
+    {
       "dir": "scavio-zillow",
       "slug": "zillow-property-data",
       "name": "zillow-property-data",
@@ -1742,6 +1754,11 @@
       "dir": "scavio-youtube",
       "description": "YouTube data API: search videos, Shorts and channels, then pull video metadata, comments and replies, transcripts, related videos, download streams, channel info, videos and community posts, and a single community post with its comments. Returns title, view count, duration, published time, channel and caption fields as JSON. 17 endpoints, 1-5 credits each.",
       "tags": "youtube, youtube-api, youtube-data-api, video-search, transcripts, captions, comments, channels, shorts, video-metadata, content-research, rag, langchain, crewai, autogen, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-zara",
+      "description": "Zara API for Zara prices by country: one Zara reference's price, old price on a markdown, discount and online stock by size in each Zara market, in that market's currency (never converted); references and the colour's product ids are the same on every market of Zara's international site, so one reference prices the item everywhere, and the prices endpoint takes one reference and up to 10 countries per call, listing the markets that do not sell it. Keyword search (or a reference lookup) sorted by price and filtered by colour, size, price range or section (woman, man, kids, home); one product in full by link, product id and slug, or reference, with description, composition, every colour with its own prices, Zara's promotions with start and end dates and each size's online availability (in stock, out of stock, low on stock, coming soon); online stock per size; units per size in up to 8 physical stores, split into sales floor and stockroom, by store ids or a point; Zara stores near a point with address, phone, 7 dated days of opening hours, sections and services; materials with composition, certified materials, care instructions and the country of production as Zara states it (traceability steps on France); the category tree and every product of a category with an exact total; the SPECIAL PRICES list (seasonal and per market) and NEW ARRIVALS list of a section; search suggestions in the market's language with an English fallback. 102 storefronts in their own currencies and 205 market-languages across Europe, the Americas, the Middle East, Africa and Asia-Pacific, including the US, Canada, Mexico, Brazil, the UK, the EU markets, Switzerland, Turkey, the Gulf, India, Japan, South Korea, Australia and Zara's separate China site (its own product ids). 12 endpoints, 2 credits per call, 4 for deals, new arrivals, store stock by point and product by reference or after a redirect, 6 for both, prices 2 per market, China 1. No reviews (Zara shows none), no price history (poll and store), and not Pull&Bear, Massimo Dutti, Bershka, Stradivarius, Oysho, Zara Home or Lefties. Zara has no public product data API.",
+      "tags": "zara, zara-api, zara-product-data, zara-product-api, zara-prices, zara-prices-by-country, zara-price-api, zara-sale, zara-sale-tracker, zara-special-prices, zara-stock, zara-stock-by-size, zara-store-stock, zara-stores, zara-new-arrivals, zara-new-in, zara-black-friday, zara-reference-lookup, zara-country-of-production, inditex, fashion, fashion-prices, clothing-prices, apparel, fast-fashion, retail, price-comparison, price-monitoring, price-tracker, multi-country, regional-pricing, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-zillow",
