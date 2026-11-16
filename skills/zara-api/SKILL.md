@@ -18,7 +18,7 @@ metadata:
 
 Read Zara's own online stores (zara.com in 102 storefronts, and zara.cn for China): keyword search, one product in full, one reference priced across countries, online stock per size, units per size in physical stores, Zara stores with opening hours, materials and country of production, the category tree and category lists, special prices, new arrivals and search suggestions. All 12 endpoints return structured JSON. Most calls cost 2 credits; a few cost 4 or 6 (see Endpoints); China (`cn`) costs 1 credit per call.
 
-**The job this skill is for: Zara prices by country.** One Zara reference's price, sale price and stock by size in each Zara market, in that market's currency. **References and product ids are global on Zara's international site**: the reference printed on the product page (`display_reference`, e.g. `4591/381`) and the colour's `product_id` name the same item in every market. China (`cn`) is Zara's separate site with its own product ids: use the reference there. `/prices` takes one reference and up to 10 countries per call.
+**The job this skill is for: Zara prices by country.** One Zara reference's price, sale price and stock by size in each Zara market, in that market's currency. **References are global on Zara's international site**: the reference printed on the product page (`display_reference`, e.g. `4591/381`) names the same item in every market. A colour's `product_id` is usually the same across markets but can differ, and China (`cn`) runs its own product ids: match across markets with the reference. `/prices` takes one reference and up to 10 countries per call.
 
 Captured on 2026-11-16, reference `4591/381` (the 100% wool suit blazer) from the prices endpoint with its default 10 markets:
 
@@ -440,7 +440,7 @@ Captured `data` (US, 2026-11-16; 1 of 24 items, 2 of 8 colours, 2 of 16 colour v
   "country": "us",
   "language": "en",
   "currency": "USD",
-  "notes": ["product_id is the colour's product id and is global on Zara's international site (the same id names the same colour in every market except cn); display_reference is the reference printed on the product page (pass it to prices or product reference)."]
+  "notes": ["product_id is the colour's product id; it is usually the same in every market on Zara's international site but can differ (cn runs its own ids), so match across markets with the reference; display_reference is the reference printed on the product page (pass it to prices or product reference)."]
 }
 ```
 
@@ -790,7 +790,7 @@ Captured `data` (US women, 2026-11-16, 4 credits; 1 of 24 items shown, image lin
 }
 ```
 
-Zara's SPECIAL PRICES categories are seasonal and per market. On 2026-11-16, 13 markets had no special-prices category for the woman section (`mx`, `au`, `br`, `il`, `za`, `ar`, `cl`, `cy`, `nz`, `pe`, `py`, `uy`, `ve`): those answer 200 with no items and a note (2 credits), not an error. On `fr`, `be`, `lu`, `mc` and `iq` Zara lists special prices without a previous price, so `old_price` is `null` there.
+Zara's SPECIAL PRICES categories are seasonal and per market. A market can show no special-prices category for a section at a given time (on 2026-11-16, `mx` and `cy` for woman): those answer 200 with no items and a note (2 credits), not an error. On `fr`, `be`, `lu`, `mc` and `iq` Zara lists special prices without a previous price, so `old_price` is `null` there.
 
 ### New arrivals
 
@@ -881,7 +881,7 @@ Every response uses the envelope `{ data, response_time, fetched_at, credits_use
 
 ## Guardrails
 
-- References and product ids are global on Zara's international site; `product_id` names one colour. `cn` runs its own product ids (the same reference can carry another id there): use the reference across markets when `cn` is involved.
+- References are global on Zara's international site; `product_id` names one colour and is usually the same across markets, but a colour can carry another id in some markets (measured: 8727/223 colour 406 is 545413053 on gb, 588478514 on es) and `cn` runs its own ids: match across markets with the reference.
 - Prices are per colour: quote the price of the colour the user asked about. In `/prices`, `price` is the lowest current price among the reference's colours; each colour is in `colors`.
 - `old_price` appears only on a markdown. Zara's sales are seasonal and per market: an empty `/deals` answer is not an error, and never claim every market has a sale running. On `fr`, `be`, `lu`, `mc` and `iq` special prices carry no previous price.
 - `availability` on search, product and stock is ONLINE stock in that market. `/store-stock` is units in physical stores. Never present one as the other. Zara's own help pages call store stock information tentative.
@@ -906,8 +906,8 @@ Every response uses the envelope `{ data, response_time, fetched_at, credits_use
 ## SDKs
 
 ```bash
-pip install scavio==0.63.0
-npm install scavio@0.64.0
+pip install scavio==0.63.1
+npm install scavio@0.64.1
 ```
 
 ```js
@@ -939,7 +939,7 @@ The Scavio MCP server exposes all twelve endpoints as tools: `search_zara`, `get
   "mcpServers": {
     "scavio": {
       "command": "npx",
-      "args": ["-y", "@scavio/mcp-server@0.61.0"],
+      "args": ["-y", "@scavio/mcp-server@0.61.1"],
       "env": {
         "SCAVIO_API_KEY": "sk_live_your_key",
         "SCAVIO_PLATFORMS": "default,zara"
