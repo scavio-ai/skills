@@ -2,16 +2,18 @@
 
 Read Mercari's two marketplaces: Mercari US (mercari.com, US dollars, English) and Mercari Japan (jp.mercari.com, yen, Japanese). Search listings by keyword, category or brand, on sale or sold; read one item in full; browse the category tree and the brand list; read the US deals list and what is trending on Mercari US; and on Mercari Japan read a seller's profile, the seller's most recent reviews and a Mercari Shops shop. All 11 endpoints return structured JSON and cost 1 credit per call.
 
-**The job this skill is for: Mercari sold prices.** `/search` with `status: "sold"` returns sold listings with their prices (sold items and items sold but still in transit, `status: "trading"`). The same query with the default `status: "on_sale"` returns the asking prices of live listings, so asking price and sold price for one query come from the same endpoint, one call each. A sold item keeps its full listing: `/item` on a sold US item returns its `sold_at` time, price, the seller's earlier price and the rest of the listing. Search results carry no sold time and no likes; `/item` has both.
+**The job this skill is for: Mercari sold prices.** `/search` with `status: "sold"` returns sold listings with their prices (sold items and items sold but still in transit, `status: "trading"`). The same query with the default `status: "on_sale"` returns the asking prices of live listings, so asking price and sold price for one query come from the same endpoint, one call each. A sold item keeps its full listing: `/item` on a sold US item returns its `sold_at` time when Mercari shows it (some sold items carry none), price, the seller's earlier price and the rest of the listing. Search results carry no sold time and no likes; `/item` has both.
 
-Captured on 2026-11-16 on `us` with `query` `nintendo switch`, page 1 of each:
+What a sold search returns differs from an on-sale search on `us`, so read both sides before comparing:
 
-| `status` | `sort` | `count` | `status` of the items | median `price` (USD) | lowest / highest |
-|---|---|---|---|---|---|
-| `on_sale` | `relevance` | 50 | 50 `on_sale` | 38.55 | 6 / 550 |
-| `sold` | `recently_sold` | 50 | 50 `trading` | 36.23 | 7 / 374.99 |
+| | `status: "on_sale"` (default) | `status: "sold"` |
+|---|---|---|
+| `price` | the asking price | the price it sold at |
+| order under `sort: "relevance"` | Mercari's best match | most recently sold first, whatever relevance asks (price sorts apply) |
+| keyword match | Mercari's best match | looser: can match set names and descriptions |
+| item `status` | `on_sale` | `sold` or `trading` (sold, still in transit; the most recent sales mostly are) |
 
-Both pages mix consoles, games and accessories (the sold page opened with "Mortal Kombat 1 Nintendo Switch Game" at 16 USD), so a median over one keyword page is not the price of one product. Narrow first (a `category_id` such as `797` Consoles, a `brand_id`, a `condition`, a `price_min`), then compare. The most recently sold items are usually still in transit (`trading`): all 50 on that page were.
+Because the sold side matches the keyword more loosely and comes in sale order, a sold page and an on-sale page for the same keyword are different item sets (a "nintendo switch" sold page mixes games and accessories with consoles). Narrow both sides first (a `category_id` such as `797` Consoles, a `brand_id`, a `condition`, a `price_min`), keep only items whose titles match the product, then compare.
 
 Mercari publishes no public marketplace data API for Mercari US or Mercari Japan. Mercari Shops (Japan) has an API for shop owners to manage their own products and orders; it is not a marketplace data API.
 
@@ -61,7 +63,7 @@ Authorization: Bearer $SCAVIO_API_KEY
 
 ## Endpoints
 
-Base URL: `https://api.scavio.dev`. On `us` most calls take 3 to 20 seconds. On `jp` calls are slower: search typically 30 to 60 seconds, other endpoints 10 to 30 seconds. Set a client timeout of at least 240 seconds and send one call at a time (a busy moment answers `503` with `Retry-After`).
+Base URL: `https://api.scavio.dev`. On `us` most calls take 3 to 20 seconds. On `jp` calls are slower: typically 10 to 20 seconds, up to about a minute. Set a client timeout of at least 240 seconds and send one call at a time (a busy moment answers `503` with `Retry-After`).
 
 | Endpoint | Markets | Credits | What it returns |
 |---|---|---|---|
@@ -97,10 +99,10 @@ Every endpoint takes `country`:
 
 ## Workflow
 
-1. **Sold prices for a query:** `/search` with `query` and `status: "sold"` (on `us` add `sort: "recently_sold"`). Each item has `price`, `currency`, `status` (`sold` or `trading`), `condition`, `brand` and `url`. Narrow with `category_id`, `brand_id`, `condition` or a price range before summarising.
-2. **Asking vs sold:** run the same body again with `status: "on_sale"` and compare the two price lists. Say which page(s) you read and the date.
-3. **When it sold:** grids have no sold time. Call `/item` on the items you need: `sold_at` is when it sold, and the listing is complete (description, condition, shipping, likes, seller).
-4. **Price drops:** `original_price` is the seller's earlier price when it is above `price`, with `discount_percent`. On `us`, `/deals` (or `deals_only: true` on search) lists only price-dropped listings.
+1. **Sold prices for a query:** `/search` with `query` and `status: "sold"` (on `us` sold results come most recently sold first under `relevance` too; `sort: "recently_sold"` says so explicitly, and price sorts apply). Each item has `price`, `currency`, `status` (`sold` or `trading`), `condition`, `brand` and `url`. Sold results match the keyword more loosely than on-sale results (set names, descriptions): narrow with `category_id`, `brand_id`, `condition` or a price range and check titles before summarising.
+2. **Asking vs sold:** run the same body again with `status: "on_sale"`, keep the items whose titles match the product on both sides, and compare the two price lists. Say which page(s) you read and the date. Later `us` pages can repeat items from earlier pages (promoted placements): dedupe by `item_id` when you read several pages.
+3. **When it sold:** grids have no sold time. Call `/item` on the items you need: `sold_at` is when it sold (null on some sold items), and the listing is complete (description, condition, shipping, likes, seller).
+4. **Price drops:** `original_price` is the seller's earlier price when it is above `price`, with `discount_percent` (`us` only: it is never set on `jp` results). On `us`, `/deals` (or `deals_only: true` on search) lists only price-dropped listings.
 5. **Ids:** `/categories` gives `category_id`s (on `us` walk down with `parent_id`; on `jp` one call returns the whole tree); `/brands` with `query` gives `brand_id`s. Use them on `/category`, `/brand` or as search filters, in the same market.
 6. **Japan seller check:** `seller_id` from a `jp` search or item feeds `/seller` (ratings, counts, badges, first 30 listings) and `/seller-reviews` (the latest 100). A Mercari Shops product (`is_shop: true`) carries `shop_id`: `/shop` reads the shop; for its products use search with `shops_only: true` or `/item` on a product id.
 7. **Trends (US):** `/trending` for rising keywords and brands, then search those keywords with `status: "sold"` to see what they sell for.
@@ -113,11 +115,11 @@ Every endpoint takes `country`:
 |---|---|---|---|
 | `country` | string | `us` | `us` or `jp` |
 | `status` | string | `on_sale` | `on_sale`, `sold` (sold and in transit) or `all`. On `jp`, `all` applies no status filter (Mercari Japan's default: mostly on sale plus some in transit) |
-| `sort` | string | `relevance` | `relevance`, `newest`, `price_asc`, `price_desc`; `recently_sold` on `us` only; `likes` on `jp` only. On `jp`, `newest` follows Mercari Japan's own order: a relisted or edited listing can rank above a newer one, so `created_at` is not strictly descending |
-| `page` | integer | 1 | `us`: 1 to 20 (50 per page, 1,000 results); `jp`: 1 to 91 (120 per page) |
+| `sort` | string | `relevance` | `relevance`, `newest`, `price_asc`, `price_desc`; `recently_sold` on `us` only; `likes` on `jp` only. On a `us` sold search Mercari orders results most recently sold first whatever relevance asks; price sorts apply. On `jp`, `newest` follows Mercari Japan's own order: a relisted or edited listing can rank above a newer one, so `created_at` is not strictly descending |
+| `page` | integer | 1 | `us`: 1 to 20 (50 per page; later pages can repeat earlier items, so dedupe by `item_id`); `jp`: 1 to 91 (120 per page) |
 | `price_min` / `price_max` | number | none | US dollars on `us`; whole yen on `jp` |
 | `condition` | string or list | all | One or more of `new`, `like_new`, `good`, `fair`, `poor`; `bad` on `jp` only. Several are ORed |
-| `shipping` | string | all | `free` (the seller pays shipping) or `buyer_pays` |
+| `shipping` | string | all | `free` (the seller pays shipping) or `buyer_pays`. On `us`, result rows carry `free_shipping` only when you send this filter |
 | `size_id` | string | none | `us` only: a Mercari US size id |
 | `deals_only` | boolean | false | `us` only: only listings whose price the seller dropped |
 | `shops_only` | boolean | false | `jp` only: only Mercari Shops products (business sellers) |
@@ -249,8 +251,8 @@ Captured `data` (us, 2026-11-16; 2 of 50 items and the notes shown):
     }
   ],
   "notes": [
-    "status sold returns sold items and items sold but still in transit (status trading).",
-    "total is Mercari's own count, capped at 10,000 or 20,000; 50 items per page, 1,000 results reachable (page 20). Results carry no likes or sold time: the item endpoint has both."
+    "status sold returns sold items and items sold but still in transit (status trading). On us, Mercari orders sold results most recently sold first whatever relevance asks, and matches the keyword more loosely than on-sale results (set names, descriptions): price sorts apply; check titles before comparing prices.",
+    "total is Mercari's own count and stops at 10,000 (10,000 means 10,000 or more); 50 items per page, up to page 20. Later pages can repeat items from earlier pages (promoted placements): dedupe by item_id. Results carry no likes, sold time or shipping payer (free_shipping is set only when you filter by shipping): the item endpoint has all three."
   ]
 }
 ```
@@ -320,7 +322,7 @@ Captured `data` (us, 2026-11-16; `description` cut, 2 of 11 photos, `seller.name
 }
 ```
 
-The listing sold on 2025-12-13 and still reads in full eleven months later: sold at 3,200 USD after a drop from 5,000. `price_with_buyer_fee` is the price including Mercari US's buyer fee; shipping (`shipping.fee`, paid by the buyer here) is separate.
+The listing sold on 2025-12-13 and still reads in full eleven months later: sold at 3,200 USD after a drop from 5,000. `price_with_buyer_fee` is the total Mercari quotes the buyer: `price` plus buyer fees, plus shipping when the buyer pays it. `shipping.fee` is the shipping label cost, paid by `shipping.payer` (the buyer here).
 
 ### Item (Mercari Japan, with comments)
 
@@ -556,7 +558,7 @@ Captured `data` (us, 2026-11-16; 2 of 20 keywords and 1 of 20 brands shown, `rec
 
 ### Other endpoints (captured 2026-11-16)
 
-- `/search` on `jp` with `{"country": "jp", "query": "ポケモンカード"}` (16.3 seconds): `page_size` 120, `max_page` 91, `total` 15000, 120 items, median price 4,155.5 JPY. `jp` items add `is_shop`, `shop_id`, `is_auction` and `updated_at`; first item `m32038141796` "ポケモンカード ミュウツーex FUR" at 400 JPY, `condition` `fair` (`condition_name` "やや傷や汚れあり"), `is_auction: true`.
+- `/search` on `jp` with `{"country": "jp", "query": "ポケモンカード"}` (16.3 seconds): `page_size` 120, `max_page` 91, `total` 15000 (Mercari Japan's cap: 15,000 or more), 120 items. `jp` items add `is_shop`, `shop_id`, `is_auction` and `updated_at`; first item `m32038141796` "ポケモンカード ミュウツーex FUR" at 400 JPY, `condition` `fair` (`condition_name` "やや傷や汚れあり"), `is_auction: true`.
 - `/category` with `{"category_id": "797"}` (us): `category` `{"category_id": "797", "name": "Consoles"}`, 50 items, `filters` `{"category_id": "797"}`. On `jp`, `category.name` is `null`: take names from `/categories`.
 - `/brand` with `{"brand_id": "4591"}` (us): `brand` `{"brand_id": "4591", "name": "Nintendo"}`, 50 items.
 - `/deals` with `{}` (us): 50 items, `filters` `{"deals_only": true}`, every item with `original_price` above `price`, e.g. `m77098184688` "Bath & Body Works Ghost Halloween Wallflower Plug In" at 9 USD, `original_price` 15, `discount_percent` 40.
@@ -586,9 +588,11 @@ base = {"query": "nintendo switch oled", "category_id": "797", "condition": ["ne
 on_sale = mercari("search", {**base, "status": "on_sale"})
 sold = mercari("search", {**base, "status": "sold", "sort": "recently_sold"})
 
+# Sold results match the keyword loosely: keep titles that carry every query word.
+words = base["query"].lower().split()
 captured_at = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
 for label, d in (("on sale", on_sale), ("sold", sold)):
-    prices = [i["price"] for i in d["items"]]
+    prices = [i["price"] for i in d["items"] if all(w in i["title"].lower() for w in words)]
     if prices:
         print(captured_at, label, len(prices), "items, median", statistics.median(prices), d["currency"])
 
@@ -602,9 +606,9 @@ for it in sold["items"][:3]:
 
 Every response uses the envelope `{ data, response_time, fetched_at, credits_used, credits_remaining }`. Everything is fetched live. Every answer carries `country`, `currency` and `language`; `notes` explains anything market-specific.
 
-- **Grid answer** (search, category, brand, deals) - `query`, `category` {`category_id`, `name`} (category), `brand` {`brand_id`, `name`} (brand), `status`, `sort`, `page`, `page_size` (50 / 120), `max_page` (20 / 91), `total` (Mercari's own count: capped at 10,000 or 20,000 on `us`, 15,000 on `jp`), `has_more`, `filters` (the filters applied), `count`, `items[]`, `notes`.
-- **Grid item** - `item_id`, `title`, `url`, `price`, `original_price`, `discount_percent`, `currency`, `status` (`on_sale`, `trading`, `sold`), `condition` (`new`, `like_new`, `good`, `fair`, `poor`, `bad`), `condition_name` (Mercari's own label, Japanese on `jp`), `brand` {`brand_id`, `name`} or null, `category_id`, `size`, `thumbnail`, `seller_id`, `free_shipping`, `created_at`; `us` adds `category` (name); `jp` adds `is_shop`, `shop_id`, `is_auction`, `updated_at`. No likes, no sold time.
-- **item** - the grid fields plus `description`, `sold_at`, `category` {`category_id`, `name`, `path[]`}, `color`, `shipping` {`payer`, `method`, `service`, `fee`, `days_to_ship`, `ships_from`}, `likes`, `offers_allowed`, `photos[]`, `updated_at`, `seller`. `us` adds `price_with_buyer_fee`, `in_carts`, `authenticated`, `shipping.ships_from` as a US state, and `seller` {`seller_id`, `name`, `rating`, `review_count`, `listings_count`, `sold_count`, `joined`, `badges[]` (`pro_seller`, `id_verified`, `phone_verified`, `email_verified`, `facebook_verified`)}. `jp` adds `comment_count`, `authentication_available`, `hashtags`, `shipping.carrier`, `shipping.anonymous`, `shipping.days_to_ship` {`min`, `max`, `label`}, `shipping.ships_from` as a prefecture, `is_shop`, `shop`, `comments[]` {`text`, `date`, `is_seller`}, and `seller` {`seller_id`, `name`, `rating`, `ratings` {`good`, `normal`, `bad`}, `review_count`, `listings_count`, `quick_shipper`, `is_official`, `joined`, `badges[]` {`id`, `name`, `description`}}. A `jp` Mercari Shops product (22-character id) answers `is_shop: true` with `stock` and `shop` {`shop_id`, `name`, `rating`, `review_count`, `url`, `other_products[]`}.
+- **Grid answer** (search, category, brand, deals) - `query`, `category` {`category_id`, `name`} (category), `brand` {`brand_id`, `name`} (brand), `status`, `sort`, `page`, `page_size` (50 / 120), `max_page` (20 / 91), `total` (Mercari's own count; it stops at 10,000 on `us` and 15,000 on `jp`, where the cap means that many or more), `has_more`, `filters` (the filters applied), `count`, `items[]`, `notes`.
+- **Grid item** - `item_id`, `title`, `url`, `price`, `original_price`, `discount_percent`, `currency`, `status` (`on_sale`, `trading`, `sold`), `condition` (`new`, `like_new`, `good`, `fair`, `poor`, `bad`), `condition_name` (Mercari's own label, Japanese on `jp`), `brand` {`brand_id`, `name`} or null, `category_id`, `size`, `thumbnail`, `seller_id`, `free_shipping` (`us`: set only when the request filters by `shipping`, since Mercari leaves the payer empty on result rows; `jp`: null on Mercari Shops rows), `created_at`; `us` adds `category` (name); `jp` adds `is_shop`, `shop_id`, `is_auction`, `updated_at`. No likes, no sold time.
+- **item** - the grid fields plus `description`, `sold_at` (null on some sold items), `category` {`category_id`, `name`, `path[]`}, `color`, `shipping` {`payer`, `method`, `service`, `fee`, `days_to_ship`, `ships_from`}, `likes`, `offers_allowed`, `photos[]`, `updated_at`, `seller`. `us` adds `price_with_buyer_fee` (price plus buyer fees, plus shipping when the buyer pays it; `shipping.fee` is the label cost, paid by `shipping.payer`), `in_carts`, `authenticated`, `shipping.ships_from` as a US state, and `seller` {`seller_id`, `name`, `rating`, `review_count`, `listings_count`, `sold_count`, `joined`, `badges[]` (`pro_seller`, `id_verified`, `phone_verified`, `email_verified`, `facebook_verified`)}. `jp` adds `comment_count`, `authentication_available`, `hashtags`, `shipping.carrier`, `shipping.anonymous`, `shipping.days_to_ship` {`min`, `max`, `label`}, `shipping.ships_from` as a prefecture, `is_shop`, `shop`, `comments[]` {`text`, `date`, `is_seller`}, and `seller` {`seller_id`, `name`, `rating`, `ratings` {`good`, `normal`, `bad`}, `review_count`, `listings_count`, `quick_shipper`, `is_official`, `joined`, `badges[]` {`id`, `name`, `description`}}. A `jp` Mercari Shops product (22-character id) answers `is_shop: true` with `stock` and `shop` {`shop_id`, `name`, `rating`, `review_count`, `url`, `other_products[]`}.
 - **categories** - `parent_id`, `count`, `categories[]` {`category_id`, `name`, `parent_id`, `level`, `has_children`; `us` adds `title`}.
 - **brands** - `query`, `page`, `page_size` (1,000), `total`, `brands_in_market`, `has_more`, `count`, `brands[]` {`brand_id`, `name`; `jp` adds `subname` and `reading`}.
 - **trending** - `count`, `keywords[]` {`position`, `keyword`, `search_rank`, `rank_change`, `search_volume_change_percent`, `trend`}, `brands[]` {`position`, `brand_id`, `name`, `demand`, `demand_change`, `sold_rate_7d`, `recent_listings[]` {`item_id`, `title`, `url`, `thumbnail`}}.
@@ -614,17 +618,18 @@ Every response uses the envelope `{ data, response_time, fetched_at, credits_use
 
 ## Guardrails
 
-- Sold prices: `status: "sold"` includes items sold but still in transit (`status: "trading"`); report both as sold. Say which query, filters, page and date a sold-price figure comes from, and never present the median of one mixed keyword page as the price of one product.
+- Sold prices: `status: "sold"` includes items sold but still in transit (`status: "trading"`); report both as sold. Say which query, filters, page and date a sold-price figure comes from, and never present the median of one mixed keyword page as the price of one product. On `us`, sold results come most recently sold first (never describe them as relevance-ranked) and match the keyword more loosely than on-sale results: check titles before comparing prices.
 - `status: "on_sale"` prices are asking prices, not what items sold for. Keep the two apart in every summary.
-- Grids have no sold time and no likes. Never estimate when something sold from `created_at`; call `/item` for `sold_at`.
-- Search depth is fixed: `us` 50 per page up to page 20 (1,000 results), `jp` 120 per page up to page 91. `total` is Mercari's capped count. Never claim to have read every result or to know a market's size from `total`.
+- Grids have no sold time and no likes. Never estimate when something sold from `created_at`; call `/item` for `sold_at`, and handle a null `sold_at` on a sold item (Mercari does not always show it).
+- Search depth is fixed: `us` 50 per page up to page 20, `jp` 120 per page up to page 91. Later `us` pages can repeat items from earlier pages (promoted placements): dedupe by `item_id`, and never count rows as unique results. `total` stops at 10,000 on `us` and 15,000 on `jp` (at the cap it means that many or more). Never claim to have read every result or to know a market's size from `total`.
 - On `jp`, `sort: "newest"` is Mercari Japan's own order (relisted or edited listings move up): sort by `created_at` yourself when strict order matters.
 - Ids are per market. Never reuse a `us` id on `jp` or the reverse.
 - `jp` text is Japanese as sellers wrote it and is not translated. If you translate, say so; never present a translation as Mercari's text. Prices on `jp` are yen: convert only when asked, with the rate and its date.
-- `original_price` appears only when the seller's earlier price is above `price`. It is one earlier price, not a price history; there is no price history endpoint (poll and store).
+- `original_price` appears only when the seller's earlier price is above `price`, and never on `jp` results. It is one earlier price, not a price history; there is no price history endpoint (poll and store).
 - Not available, so do not offer them: US seller profiles and US seller reviews, search suggestions (either market), deals and trending on `jp`, a Mercari Shops product list on `/shop`, price history, buying, offers, messaging, or anything that posts or edits a listing.
 - People: reviews and comments never carry who wrote them; do not try to identify reviewers or commenters. Seller `name` is the public display name: use seller data to judge a seller before a purchase, not to profile or contact a person.
 - Terms: Mercari US's Prohibited Conduct policy says you may not use any robot, spider, crawler, scraper or other automated means not provided by Mercari to access the service or to extract data, and Mercari's global platform terms prohibit gathering the platform with a bot or scraper. This is not legal advice; read the current terms for your market and use case. Do not republish Mercari listing photos, seller names or avatars, or Mercari logos; link listings by `url` instead.
+- On `us`, never call a listing free shipping from a search row unless the request filtered by `shipping`; read `shipping.payer` on `/item`.
 - Never fabricate prices, ids, sold times, ratings or comments. Only return what the API returned, with the `country`, `currency` and the listing `url`.
 
 ## Failure handling
