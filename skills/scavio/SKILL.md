@@ -83,6 +83,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Maisons du Monde | [maisons-du-monde-api](references/maisons-du-monde-api.md) | 9 | 1 |
 | Menards | [menards-product-data](references/menards-product-data.md) | 3 | search 2; product 1, 2 with store_id; stores 1 |
 | Mercado Libre | [mercadolibre-product-data](references/mercadolibre-product-data.md) | 5 | 2; reviews 1 |
+| Mercari | [mercari-api](references/mercari-api.md) | 11 | 1 |
 | Micro Center | [micro-center-api](references/micro-center-api.md) | 3 | 2; stores 1 |
 | Nordstrom | [nordstrom-product-data](references/nordstrom-product-data.md) | 8 | 5; availability and reviews 10 |
 | Nordstrom Rack | [nordstrom-rack-product-data](references/nordstrom-rack-product-data.md) | 8 | 5; availability and reviews 10 |
