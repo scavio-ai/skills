@@ -61,6 +61,18 @@
       "credits": "2; search and product 1 on ca, ph, sa and tr"
     },
     {
+      "dir": "scavio-asos",
+      "slug": "asos-api",
+      "name": "asos-api",
+      "display": "ASOS API - Prices by Country and Currency, Stock by Size, Reviews",
+      "query": "asos api",
+      "reused": "no",
+      "platform": "ASOS",
+      "group": "Commerce",
+      "endpoints": "11",
+      "credits": "1"
+    },
+    {
       "dir": "scavio-booking",
       "slug": "booking-com-hotel-data",
       "name": "booking-com-hotel-data",
@@ -1274,6 +1286,11 @@
       "dir": "scavio-ashley",
       "description": "Ashley Furniture API for Ashley sale prices and product data: keyword search (48 per page, exact total, sorted by best sellers, price, newest, customer rating or name) and category and deal grids (30 per page, filtered by facet or price range) with price, Ashley's Regular Price (its struck-through price), discount, sale, clearance, doorbuster, outlet and hot buy badges, rating, review count and stock; one product in full by item number or link with every option and variant, set components, dimensions, materials, assembly, stock and delivery, the nearest store, the rating histogram, the first 10 reviews, customer photos and customer Q&A with staff answers; the Black Friday, clearance and Hot Buys deal grids; stores near a latitude and longitude and one store's address, phone and hours. Ashley prices vary by region: every US answer reports priced_for, the ZIP and price zone Ashley priced it for (no ZIP input). ashleyfurniture.com (USD), plus search and product on Ashley's licensed storefronts ashleyhomestore.ca (CAD), Mexico (MXN, Spanish), the Philippines (PHP), Saudi Arabia (SAR) and Turkey (TRY, Turkish). 6 endpoints, 2 credits per call on us and mx, 1 on ca, ph, sa and tr. No price history, review paging or ZIP store search. Ashley's official API is for its dealers (wholesale pricing); Ashley publishes no public shopper-price API.",
       "tags": "ashley, ashley-furniture, ashley-furniture-api, ashley-homestore, ashley-furniture-prices, ashley-furniture-sale, ashley-regular-price, ashley-black-friday, ashley-clearance, ashley-hot-buys, ashley-reviews, ashley-stores, ashley-canada, ashley-mexico, furniture, furniture-prices, home-furnishing, price-monitoring, price-tracking, product-search, product-data, product-reviews, category-browse, store-locator, retail, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-asos",
+      "description": "ASOS API for ASOS prices by country and currency: one ASOS product's price, previous price (ASOS's was price), RRP, lowest price of the last 30 days where ASOS shows it, sale and outlet flags, discount and online stock by size in each ASOS store and currency, never converted; product ids and category ids are the same in every ASOS store, so one id prices the item everywhere, and the stock endpoint takes up to 100 product ids per call with the ids a store does not sell listed apart. Keyword search sorted by relevance, newest or price and filtered by gender, brand, colour, size, body-fit range (plus, petite, tall, maternity, hourglass, wide fit, fuller bust), product type, price, sale or any facet, up to 200 per page (keyword results reach position 2,088); one product in full by id, co-ord set id or link, with description, composition, care, size and fit, country of manufacture, every size variant with SKU, EAN, price and online stock (in stock, low stock, restocking soon), the rating with fit and quality, ASOS's own labelled AI review summary and the other colours; customer reviews per store, up to 50 per page, sorted by relevance, newest, oldest or rating and filtered by star rating, with fit and quality averages, no reviewer names; search suggestions with result counts; the store's women and men category tree and every product of a category or brand page; the A-Z brand list; the Sale and New In lists for women or men; the markets table with every country's store, language, currencies and size schema. 235 countries and 245 country-currency combinations: ASOS's UK, US, French, German, Spanish, Italian, Australian, Danish, Dutch, Polish and Swedish stores in their own languages, plus its European and international stores in English (Ireland, Portugal, Belgium, Norway, Canada, Mexico, India, South Africa, Switzerland, New Zealand, the UAE, Saudi Arabia, Hong Kong, Israel, Japan, South Korea, Singapore, Taiwan, China and more), in GBP, USD, EUR, AUD, DKK, PLN, SEK, NOK, CAD, CHF, NZD, AED, SAR, HKD, ILS, SGD, TWD or CNY. 11 endpoints, 1 credit per call. Online stock only (ASOS has no physical stores), no outlet, no promo codes, no price history (poll and store). ASOS has no public product data API.",
+      "tags": "asos, asos-api, asos-product-data, asos-product-api, asos-prices, asos-prices-by-country, asos-price-api, asos-price-tracker, asos-sale, asos-stock, asos-stock-by-size, asos-reviews, asos-reviews-api, asos-new-in, asos-brands, asos-black-friday, fashion, fashion-prices, clothing-prices, apparel, retail, price-comparison, price-monitoring, price-tracker, multi-country, multi-currency, regional-pricing, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-booking",
