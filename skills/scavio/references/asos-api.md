@@ -1,8 +1,8 @@
 # ASOS API - Prices by Country and Currency, Stock by Size, Reviews
 
-Read ASOS's own online stores (asos.com): keyword search, one product in full with every size, the price and online stock of up to 100 products in one call, customer reviews per store, search suggestions, the category tree and any category list, the A-Z brand list, the sale and new-in lists, and the table of every country ASOS sells in. All 11 endpoints return structured JSON and cost 1 credit per call.
+Read ASOS's own online stores (asos.com): keyword search, one product in full with every size, the price and online stock of up to 100 products in one call, customer reviews by store, search suggestions, the category tree and any category list, the A-Z brand list, the sale and new-in lists, and the table of every country ASOS sells in. All 11 endpoints return structured JSON and cost 1 credit per call.
 
-**The job this skill is for: ASOS prices by country and currency.** One ASOS product's price, previous price, RRP, sale flag and stock by size in each ASOS store and currency. **Product ids and category ids are the same in every ASOS store**; titles come back in the store's language. Prices are set per store and currency, not per country inside a store: ASOS's European store prices Ireland and Portugal alike in EUR. Which products a country is offered can still differ (shipping restrictions). `/stock` takes up to 100 product ids per call, so one call per store and currency prices a whole list.
+**The job this skill is for: ASOS prices by country and currency.** One ASOS product's price, previous price, RRP, sale flag and stock by size in each ASOS store and currency. **Product ids and category ids are the same in every ASOS store**; titles come back in the store's language. Countries served by the same ASOS store in the same currency share one price list, except Ireland, which has its own euro prices on ASOS's European store (measured 2026-11-16 on all 245 country-currency combinations: product 209194116 read 145.99 EUR in `ie` and 109.99 EUR in `pt`, both on `europe`). Which products a country is offered still differs (shipping restrictions). `price` is the lowest size price when ASOS prices sizes differently (variants carry each size's price). `/stock` takes up to 100 product ids per call, so one call per country and currency prices a whole list.
 
 Captured on 2026-11-16 from `/stock` with `product_ids` `205338218` (Jack & Jones Eddie loose jeans in washed black) and `206956133` (Jack & Jones Alex baggy jean in washed black), one call per row:
 
@@ -38,7 +38,7 @@ See also: for Zara prices by country use `zara-api`; for H&M prices by country u
 ## When to trigger
 
 Use this skill when the user asks to:
-- Compare one ASOS item's price across countries and currencies (one product id, one call per store and currency)
+- Compare one ASOS item's price across countries and currencies (one product id, one call per country and currency)
 - Check whether an ASOS item is on sale in a store: its price, previous price or RRP, discount and the lowest price of the last 30 days
 - Track ASOS prices over time (Black Friday, the sale) by polling up to 100 product ids per call and storing each reading
 - Check which sizes of an ASOS item are in stock online, or low on stock, in a store
@@ -122,7 +122,7 @@ Every endpoint takes `country` (lowercase ISO-2, default `gb`; `gb` for the Unit
 - The first currency listed is ASOS's default for the country; any currency listed is accepted. `/markets` answers the full list live (country, name, store, language, currencies, default currency, size schema).
 - Every endpoint serves every combination except `/suggestions` on `pl` (ASOS's Polish store answers no search suggestions; use search there).
 - Held back, answering `400` before anything is charged: `uk` (use `gb`); `ru` and `by` (ASOS is not selling there); any country ASOS does not list; a currency ASOS does not offer the country (the error lists the allowed ones).
-- Reviews are per store: the same product has different reviews on `gb` and `de`. The European and international stores share one review pool.
+- Which reviews come back depends on the store: `gb`, `us`, `au` and ASOS's European and international stores share one English review pool; `es`, `it`, `nl`, `se`, `dk` and `pl` add reviews written in their own language to that pool; `fr` and `de` show only reviews written in French or German. Each review carries its `language`; totals differ by store.
 
 ## Workflow
 
@@ -404,7 +404,7 @@ Captured `data` (gb, 2026-11-16; 1 of 10 reviews and 1 of 2 notes shown, the `ai
   "currency": "GBP",
   "store": "gb",
   "language": "en-GB",
-  "notes": ["Reviews are per store: the same product has different reviews on each store (gb, de, fr ...); the European and international stores share one review pool."]
+  "notes": ["Which reviews come back depends on the store: gb, us, au and ASOS's European and international stores share one English review pool; es, it, nl, se, dk and pl add reviews written in their own language to that pool; fr and de show only reviews written in French or German (each review carries its language; totals differ by store)."]
 }
 ```
 
@@ -623,12 +623,12 @@ Every response uses the envelope `{ data, response_time, fetched_at, credits_use
 
 ## Guardrails
 
-- Product ids and category ids are global: the same id in every ASOS store. Prices are per store and currency, not per country: never assume two countries on the same store and currency differ in price, and never assume the same currency on two stores is the same price.
+- Product ids and category ids are global: the same id in every ASOS store. Countries on the same store and currency share one price list, except Ireland (its own euro prices on the European store): never assume Ireland prices like the other `europe` euro countries, and never assume the same currency on two stores is the same price. Read each country you quote.
 - Quote the price of the store and currency the user asked about, with `store` and `currency`. A size can carry its own price (`variants[].price`).
-- `previous_price` and `rrp` appear only above the price. Sales are per store: an item marked down on one store may not be on another, and never claim every store has a sale running.
+- `previous_price` and `rrp` appear only above the price. Sales differ by store (and Ireland by country): an item marked down on one store may not be on another, and never claim every store has a sale running.
 - Stock is ONLINE stock in that store. ASOS has no physical stores: there is no store locator and no store stock, and never present ASOS stock as in-store availability.
 - `/stock` returns variant ids, not size names: map them with the product answer's `variants`.
-- Reviews are per store; quote the store with the counts. `ai_summary` is ASOS's own AI-generated summary: present it as such, with its disclaimer. Never invent reviewer names.
+- Which reviews come back depends on the store (English pool on gb, us, au, europe and international; own-language reviews added on es, it, nl, se, dk and pl; only French or German on fr and de); quote the store with the counts. `ai_summary` is ASOS's own AI-generated summary: present it as such, with its disclaimer. Never invent reviewer names.
 - Keyword search stops at position 2,088 (`max_reachable`); never claim to have read every result of a larger `total`.
 - The search `brand` filter takes brand facet ids; `/brands` `brand_id` is a category id for `/category`. Do not mix them.
 - Not available: an outlet (ASOS's outlet categories returned no items on 2026-11-16), promo codes (shown only to signed-in shoppers), a store locator, price history (poll and store), checkout and delivery prices.
