@@ -723,7 +723,7 @@ Every response uses the envelope `{ data, response_time, fetched_at, credits_use
 - Search, stock, store stock, stores, reviews, suggestions, category, deals, new arrivals and categories are `us`, `jp`, `kr` only (search also `tw`, `hk`, `cn`). On the other markets only product and prices work: say so per market rather than claiming every endpoint everywhere.
 - Category ids are per market (women is `22210` on `us`, `1071` on `jp`, `57892` on `kr`): take them from `/categories` on the same market.
 - Not available: price history (poll and store), store-level prices, checkout. GU is a separate brand and not a separate platform here; Uniqlo's own listings can include GU collaboration items (`kr` limited offers did), and they come back as Uniqlo lists them.
-- Terms: Uniqlo's terms of use restrict automated collection; review them and get your own advice. This is not legal advice. Do not republish Uniqlo product photos, campaign images or logos; link product pages instead.
+- Terms: Scavio fetches the public Uniqlo page when your request asks for it and returns it as JSON (no stored dataset, no response cache). Uniqlo's terms of use cover how its website and content may be used; review them for your use case and get your own advice. This is not legal advice. Do not republish Uniqlo product photos, campaign images or logos; link product pages instead.
 - Never fabricate prices, ids, sizes, stock, store details or reviews. Only return what the API returned, with the country, the currency and the product `url`.
 
 ## Failure handling
