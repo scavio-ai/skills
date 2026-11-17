@@ -101,6 +101,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | TikTok Shop | [tiktok-shop-api](references/tiktok-shop-api.md) | 8 | 1 |
 | Trendyol | [trendyol-api](references/trendyol-api.md) | 12 | 1 |
 | Ulta Beauty | [ulta-beauty-api](references/ulta-beauty-api.md) | 4 | 1 |
+| Uniqlo | [uniqlo-api](references/uniqlo-api.md) | 12 | 1; store stock by product 2; prices 1 per market |
 | Vinted | [vinted-api](references/vinted-api.md) | 9 | 1 |
 | Walgreens | [walgreens-product-data](references/walgreens-product-data.md) | 4 | 2; stock 4 |
 | Walmart | [walmart-product-data](references/walmart-product-data.md) | 8 | 1; 2 for walmart.com.mx search/category or store-targeted search/product |
