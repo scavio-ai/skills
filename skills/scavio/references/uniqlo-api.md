@@ -22,10 +22,13 @@ Captured on 2026-11-17, product `E479000-000` (barrel jeans) from the prices end
 Titles come back in each market's language and prices in its own currency, never converted. To compare countries, convert explicitly and state the rate and its date (for example the ECB reference rates of that day), and keep `tax` in mind: US and Canadian prices exclude sales tax, the others in this table include it. A shopper's tax refund abroad is not in any price.
 
 **The price fields.** `price` is Uniqlo's regular price, `promo_price` its promotional price when it sends one. The two groups of markets show a drop differently:
-- **US, Japan and South Korea** (and India, measured in the build) show a sale or limited-time offer only as **flags**: `promo_price` equals `price`, and `on_sale`, `limited_offer` {`name`, `start`, `end`} and `price_flags` [{`code`, `name`, `start`, `end`}] carry the drop with its ISO dates. The answer carries no earlier price there: never compute or invent a was-price or a discount for these markets.
-- **Europe and Southeast Asia** show `promo_price` **below** `price`, with `discount_percent`. Captured on `vn` the same day: `E471601-000` at `price` 489000, `promo_price` 391000 VND, `discount_percent` 20, a limited offer from 13 to 19 November. Where Uniqlo shows the 30-day lowest price next to a discount (Europe), the product and prices answers add `lowest_price_30d`; the key is absent otherwise.
+- On **`us`, `jp`, `kr` and `ca`** (and on some items `sg`, `my` and `in`) Uniqlo marks a drop with **flags only**, so `promo_price` equals `price`; `on_sale`, `limited_offer` {`name`, `start`, `end`} and `price_flags` [{`code`, `name`, `start`, `end`}] carry the flags. The answer carries no earlier price there: never compute or invent a was-price or a discount for these markets. Captured on `ca` the same day: Seamless Down Parka `E470077-000` at `price` 99.9 and `promo_price` 99.9 CAD, flagged `discount` "Sale".
+- In **Europe, Australia and most of Southeast Asia** `promo_price` is **below** `price`, with `discount_percent`. Captured on `vn` the same day: `E471601-000` at `price` 489000, `promo_price` 391000 VND, `discount_percent` 20, a limited offer labelled "Ưu đãi có giới hạn từ 13 thg 11 - 19 thg 11 2026".
+- **Offer windows.** Only a limited-time offer has a window: quote Uniqlo's own label in `price_flags.name` (e.g. "Limited-Time Offer until 11/18"), not a date read from `end`. A sale flag carries a start but no end, and Select Colors/Sizes Only (`colorSizeLimitedPrice`) carries no dates. Where Uniqlo shows the 30-day lowest price next to a discount (Europe), the product and prices answers add `lowest_price_30d`; the key is absent otherwise.
 
-**Price history.** Uniqlo shows none and none is returned. To build one, call `/prices` (or product) on a schedule and store each reading with its time, country, currency and flags. Limited offers carry their own start and end dates. Black Friday 2026 is November 27; Uniqlo had announced no Black Friday dates in anything captured as of 2026-11-17.
+**Price history.** Uniqlo shows none and none is returned. To build one, call `/prices` (or product) on a schedule and store each reading with its time, country, currency and flags. Only limited-time offers carry a window, under Uniqlo's own label.
+
+**Price groups.** Product and prices default to `price_group` `00`, Uniqlo's regular price list. Search can list the same `product_id` a second time in price group `01`, mostly Uniqlo's Select Colors/Sizes Only sale price for some colours or sizes (`us` `E471601-000`: `00` at 29.9, `01` at 19.9); pass `price_group: "01"` to `/product` to read that price and the colours and sizes it covers. `/prices` compares group `00` unless `price_group` is sent. Store stock needs the price group the variant came from (see Guardrails). Black Friday 2026 is November 27; Uniqlo had announced no Black Friday dates in anything captured as of 2026-11-17.
 
 Uniqlo has no public product data API. Neither Uniqlo nor Fast Retailing publishes developer documentation for catalog, price, stock or review data.
 
@@ -35,7 +38,7 @@ See also: for Zara prices by country use `zara-api`; for H&M prices by country u
 
 Use this skill when the user asks to:
 - Compare one Uniqlo item's price across countries, Japan against the US, the UK, Europe or Asia, each in its own currency (one product id, up to 10 countries per call)
-- Check whether a Uniqlo item is on a limited-time offer or on sale in a market, and when the offer ends
+- Check whether a Uniqlo item is on a limited-time offer or on sale in a market, and when a limited offer ends (Uniqlo's own label)
 - Track Uniqlo prices over time (limited offers, Black Friday, seasonal sales) by polling and storing prices
 - Check which colours and sizes of a Uniqlo item are in stock online (US, Japan, Korea)
 - Check whether a size is in stock at the Uniqlo stores near a place (US, Japan, Korea)
@@ -116,9 +119,9 @@ Every endpoint except `/prices` takes `country` (lowercase ISO-2, default `us`; 
 ## Workflow
 
 1. **One item, every country:** take the product id (`items[].product_id` of a search answer, or `E` + the 6-digit code printed on the product page + `-000`). Call `/prices` with `product_id` and up to 10 `countries` (1 credit per market that answered). Each market gives `price`, `promo_price`, `discount_percent`, `on_sale`, `limited_offer`, `price_flags`, `tax`, `title` and the market's own `url`; `not_sold` lists the markets that do not sell it. Store each reading with its time.
-2. **Is it on offer:** read `on_sale`, `limited_offer` and `price_flags` (with start and end). On `us`, `jp`, `kr` the flags are the whole story; elsewhere `promo_price` is below `price`.
+2. **Is it on offer:** read `on_sale`, `limited_offer` and `price_flags` (quote the label in `name`). On `us`, `jp`, `kr` and `ca` (and on some items `sg`, `my`, `in`) the flags are the whole story; in Europe, Australia and most of Southeast Asia `promo_price` is below `price`. For a Select Colors/Sizes Only price, read the item's price group `01` with `/product`.
 3. **Sizes in stock online (us, jp, kr):** `/stock` with the `product_id` returns every colour x size variant with `status`, `quantity` (capped at 11) and its `l2_id`.
-4. **Size in a store (us, jp, kr):** `/store-stock` with that `l2_id` and a `lat` + `lng` (1 credit), or with `product_id` + `color` + `size` (+ `length`) and a point (2 credits). Match `store_code` to `/stores` for the address and hours.
+4. **Size in a store (us, jp, kr):** `/store-stock` with that `l2_id` and a `lat` + `lng` (1 credit), or with `product_id` + `color` + `size` (+ `length`) and a point (2 credits); send the `price_group` the variant came from (default `00`). Match `store_code` to `/stores` for the address and hours.
 5. **Fit:** `/reviews` with the `product_id`: each review's `fit` (1 tight, 3 true to size, 5 loose) and `purchased_size`; `rating.fit` is the product's average.
 6. **Browse:** `/categories` for the tree, then `/category` with a node's `path`. `/deals` (`sale` or `limited_offer`) and `/new-arrivals` for the current lists. `/search` with `query`; read `facets` from the first answer, then filter with those codes in the same market.
 7. **Price tracking:** poll `/prices` (or product) on a schedule and store each reading. There is no price history endpoint.
@@ -135,7 +138,7 @@ Every endpoint except `/prices` takes `country` (lowercase ISO-2, default `us`; 
 | `page_size` | integer | 24 | 1 to 100 (48 on `tw`, `hk`, `cn`); Uniqlo answers up to offset 500 |
 | `sort` | string | `featured` | `featured` (Uniqlo's order), `newest`, `price_asc`, `price_desc`, `top_rated` (us jp kr), `best_selling` (tw hk cn) |
 | `gender` | string | none | `women`, `men`, `kids`, `baby` (search, deals, new arrivals, categories) |
-| `price_group` | string | `00` | `items[].price_group` of a search answer (product, stock, store-stock, prices) |
+| `price_group` | string | `00` | `items[].price_group` of a search answer (product, stock, store-stock, prices): `00` is Uniqlo's regular price list, `01` mostly the Select Colors/Sizes Only sale price |
 
 ### Search (`/search`)
 
@@ -177,6 +180,7 @@ On `tw`, `hk`, `cn` search takes `query`, `sort`, `page`, `page_size` and the pr
 |---|---|---|---|
 | `l2_id` | string | one of | A variant id, 8 digits (`variants[].l2_id` of stock or product): 1 credit |
 | `product_id` + `color` + `size` | string | one of | Product id with `colors[].code` (`COL67`) and `sizes[].code` (`INS028`); add `length` when the product comes in lengths: 2 credits |
+| `price_group` | string | `00` | The price group the variant came from (`items[].price_group` of search, or `price_group` of product), with either form. A variant of price group `01` asked as `00` reads out of stock in every store |
 | `lat` / `lng` | number | required | A point in the country (40.758, -73.9855 New York; 35.6595, 139.7005 Tokyo; 37.5636, 126.9826 Seoul) |
 | `limit` | integer | 10 | Stores, 1 to 10 |
 
@@ -224,7 +228,7 @@ curl -X POST https://api.scavio.dev/api/v1/uniqlo/prices \
   -d '{"product_id": "E479000-000"}'
 ```
 
-Captured `data` (2026-11-17, the default 10 markets, 10 credits; 3 of 10 markets shown, the rest are in the table above, notes shortened to 1 of 3):
+Captured `data` (2026-11-17, the default 10 markets, 10 credits; 3 of 10 markets shown, the rest are in the table above, notes shortened to 1 of 4):
 
 ```json
 {
@@ -352,32 +356,34 @@ curl -X POST https://api.scavio.dev/api/v1/uniqlo/store-stock \
   -d '{"l2_id": "08665900", "lat": 40.758, "lng": -73.9855}'
 ```
 
-Captured `data` (US, New York, 2026-11-17, 1 credit; 1 of 10 stores shown). `08665900` is the BLUE 29inch variant, `in_stock` online with `quantity` 11 in the stock answer the same day, and `out_of_stock` in all 10 stores nearest Times Square: online and store stock are different things.
+Captured `data` (US, near Times Square, 2026-11-17, 1 credit; 1 of 10 stores shown). `08665900` is the BLUE 29inch variant in price group `00` (the default, so the request does not send it): 10 of the 10 stores nearest the point had it, 5 `in_stock` and 5 `low_stock`. Online stock (`/stock`) and store stock are different answers.
 
 ```json
 {
   "l2_id": "08665900",
+  "price_group": "00",
   "point": {"lat": 40.758, "lng": -73.9855},
   "stores": [
     {
       "store_code": "131876",
       "name": "UNIQLO Bryant Park at 5th Avenue",
       "distance_km": 0.6,
-      "status": "out_of_stock",
-      "status_raw": "OUT_OF_STOCK",
+      "status": "in_stock",
+      "status_raw": "IN_STOCK",
       "store_status": "open",
-      "order_and_pick": false,
+      "order_and_pick": true,
       "sections": {"women": true, "men": true, "kids": false, "baby": false, "maternity": false}
     }
   ],
   "count": 10,
-  "stores_with_stock": 0,
+  "stores_with_stock": 10,
   "total_stores": 93,
   "country": "us",
   "language": "en",
   "currency": "USD",
   "notes": [
     "Store stock, not online stock: status per store is Uniqlo's own (in_stock, low_stock, out_of_stock); Uniqlo shows no unit counts per store. distance_km from the point. store_code matches stores[].store_code of the stores answer.",
+    "price_group is the variant's price group (default 00): a variant of price group 01 asked as 00 reads out of stock in every store, so send the price group the l2_id or product came from.",
     "Uniqlo does not refuse an unknown l2_id (it answers every store out of stock): take l2_id from stock or product."
   ]
 }
@@ -631,7 +637,7 @@ Captured `data` (US, 2026-11-17; 3 of 10 suggestions and 1 of 6 categories shown
 ```json
 {
   "query": "jea",
-  "suggestions": ["jw anderson women jeans", "baggy jeans", "jwa straight jeans"],
+  "suggestions": ["jw anderson women jeans", "baggy jeans", "Barrel jeans"],
   "categories": [{"id": 23339, "title": "Jeans", "gender_id": 22210, "gender": "Women", "parent_id": 23296, "parent": "Bottoms"}],
   "features": [{"title": "NY POP ART UT", "url": "https://www.uniqlo.com/us/en/spl/ut/ny-pop-art"}],
   "count": 10,
@@ -674,9 +680,9 @@ for m in d["markets"]:
     if not m["available"]:
         print(m["country"], "not sold")
         continue
-    offer = m["limited_offer"]["end"] if m["limited_offer"] else ""
+    offer = m["limited_offer"]["name"] if m["limited_offer"] else ""  # Uniqlo's own label
     promo = m["promo_price"] if m["promo_price"] is not None and m["promo_price"] < m["price"] else ""
-    print(captured_at, m["country"], m["price"], m["currency"], m["tax"], "promo", promo, "offer ends", offer)
+    print(captured_at, m["country"], m["price"], m["currency"], m["tax"], "promo", promo, "offer", offer)
 for e in d["errors"]:
     print(e["country"], "no answer (not charged)")
 
@@ -695,7 +701,7 @@ Every response uses the envelope `{ data, response_time, fetched_at, credits_use
 - **product** - `product_id`, `price_group`, `title`, `url`, `description`, `information`, `design_details`, `composition`, `washing`, `care`, `countries_of_origin`, `gender`, `category` {`gender`, `class`, `category`, `subcategory` each {`id`, `name`}}, `price`, `promo_price`, `currency`, `discount_percent`, `on_sale`, `limited_offer`, `price_flags`, `lowest_price_30d` (when Uniqlo shows it), `tax`, `flags`, `colors[]` {`code`, `display_code`, `name`, `image`}, `sizes[]`, `lengths[]`, `representative`, `rating` {`average`, `count`, `fit`, `distribution`}, `review_count`, `images`, `size_chart_url`, `tags[]` {`group`, `name`}, `best_seller`, `discontinued`, `variants` (us jp kr; else `null`).
 - **prices** - `product_id`, `price_group`, `markets[]` {`country`, `language`, `currency`, `available`, `title`, `product_id`, `price`, `promo_price`, `discount_percent`, `on_sale`, `limited_offer`, `price_flags`, `lowest_price_30d` (when shown), `tax`, `url`}, `not_sold`, `errors[]`, `count`.
 - **stock** - `product_id`, `price_group`, `title`, `variants[]` {`l2_id`, `sku`, `color`, `size`, `length`, `price`, `promo_price`, `on_sale`, `price_flags`, `sold_online`, `status`, `status_raw`, `quantity`, `quantity_capped`, `back_in_stock`, `in_transit`}, `variants_total`, `variants_in_stock`.
-- **store-stock** - `l2_id`, `point`, `stores[]` {`store_code`, `name`, `distance_km`, `status`, `status_raw`, `store_status`, `order_and_pick`, `sections`}, `count`, `stores_with_stock`, `total_stores`.
+- **store-stock** - `l2_id`, `price_group`, `variant` (when resolved from product, colour and size), `point`, `stores[]` {`store_code`, `name`, `distance_km`, `status`, `status_raw`, `store_status`, `order_and_pick`, `sections`}, `count`, `stores_with_stock`, `total_stores`.
 - **stores** - `point`, `stores[]` {`store_id`, `store_code`, `name`, `address`, `postal_code`, `city`, `region`, `country`, `lat`, `lng`, `distance_km`, `phone`, `opening_hours` {`mon` .. `sun` {`open`, `close`}}, `today`, `status`, `store_type`, `open_date`, `click_and_collect`, `inventory_shown`, `pickup_location`, `sections`, `services`, `accessibility`}, `count`, `total`, `page`, `limit`, `has_more`.
 - **reviews** - `product_id`, `rating` {`average`, `count`, `fit`, `distribution`}, `reviews[]` {`review_id`, `rating`, `title`, `text`, `created_at`, `fit`, `fit_label`, `purchased_size`, `purchased_color`, `height_range`, `weight_range`, `age_range`, `gender`, `shoe_size`, `helpful_count`, `incentivized`, `syndicated`}, `count`, `total`, `page`, `page_size`, `has_more`, `sort`.
 - **suggestions** - `query`, `suggestions[]` (strings), `categories[]` {`id`, `title`, `gender_id`, `gender`, `parent_id`, `parent`}, `features[]` {`title`, `url`}, `count`. With no query: `trending[]` {`text`, `type`, `url`}.
@@ -705,15 +711,18 @@ Every response uses the envelope `{ data, response_time, fetched_at, credits_use
 
 - Product ids are global on uniqlo.com: the same `E479000-000` opens the product in every uniqlo.com market that sells it. `tw`, `hk`, `cn` use their own `u` + 13-digit codes: a uniqlo.com id answers `400` there and a u-code answers `400` elsewhere. `/prices` does not cover Greater China.
 - The 6-digit code on the product page is not accepted alone: send `E` + the code + `-000` (`479000` -> `E479000-000`).
-- On `us`, `jp`, `kr` a sale or limited offer shows only as flags (`on_sale`, `limited_offer`, `price_flags` with dates) and `promo_price` equals `price`. Never compute a discount or invent a was-price there. Europe and Southeast Asia show `promo_price` below `price`.
+- On `us`, `jp`, `kr` and `ca` (and on some items `sg`, `my` and `in`) Uniqlo marks a drop with flags only (`on_sale`, `limited_offer`, `price_flags`), so `promo_price` equals `price`. Never compute a discount or invent a was-price there. In Europe, Australia and most of Southeast Asia `promo_price` is below `price`.
+- Quote a limited offer's end with Uniqlo's own label (`price_flags.name`, e.g. "Limited-Time Offer until 11/18"), never a date read from `end`. Sale flags carry a start but no end; Select Colors/Sizes Only carries no dates.
+- `price_group` `00` is Uniqlo's regular price list (the default). Search can list the same `product_id` again in group `01`, mostly a Select Colors/Sizes Only sale price; read it with `/product` and `price_group: "01"`. `/prices` compares group `00` unless `price_group` is sent. Not every group-`01` item carries a sale flag.
 - `tax` says whether a price includes sales tax (`exclusive` on `us` and `ca` in the capture). Say so when comparing countries.
-- `/stock` is ONLINE stock; `/store-stock` is per physical store. Never present one as the other. Online `quantity` is capped at 11 (`quantity_capped: true` means 11 or more); stores show a status only, no unit counts. Many store answers are `out_of_stock`: that is Uniqlo's real answer, not an error.
+- `/stock` is ONLINE stock; `/store-stock` is per physical store. Never present one as the other. Online `quantity` is capped at 11 (`quantity_capped: true` means 11 or more); stores show a status only, no unit counts.
+- On `/store-stock` send the `price_group` the variant came from: a variant of price group `01` asked as `00` reads out of stock in every store. A store `out_of_stock` for the right price group is Uniqlo's answer, not an error.
 - Uniqlo answers an unknown `l2_id` with every store out of stock rather than an error: take `l2_id` from `/stock` or `/product`.
 - Ratings are per region: the European markets share one review pool (same count on `gb`, `de`, `fr`), so a European rating is not a UK-only or Germany-only figure. Review texts are served on `us`, `jp`, `kr` only.
 - `fit` runs 1 (tight) to 5 (loose), 3 true to size; `null` when the reviewer gave none. Reviewer names and locations are not returned; never claim them.
 - Search, stock, store stock, stores, reviews, suggestions, category, deals, new arrivals and categories are `us`, `jp`, `kr` only (search also `tw`, `hk`, `cn`). On the other markets only product and prices work: say so per market rather than claiming every endpoint everywhere.
 - Category ids are per market (women is `22210` on `us`, `1071` on `jp`, `57892` on `kr`): take them from `/categories` on the same market.
-- Not available: price history (poll and store), store-level prices, checkout, and GU, Uniqlo's sister brand (Uniqlo's own Korean limited-offer list can include GU items; they come back as Uniqlo lists them).
+- Not available: price history (poll and store), store-level prices, checkout. GU is a separate brand and not a separate platform here; Uniqlo's own listings can include GU collaboration items (`kr` limited offers did), and they come back as Uniqlo lists them.
 - Terms: Uniqlo's terms of use restrict automated collection; review them and get your own advice. This is not legal advice. Do not republish Uniqlo product photos, campaign images or logos; link product pages instead.
 - Never fabricate prices, ids, sizes, stock, store details or reviews. Only return what the API returned, with the country, the currency and the product `url`.
 
