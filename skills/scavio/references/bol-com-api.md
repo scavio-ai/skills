@@ -1,8 +1,8 @@
 # bol.com API - Prices, Offers, Sellers, NL and BE
 
-Read bol.com, the marketplace of the Netherlands and Belgium, on its three storefronts: Netherlands in Dutch (`nl-nl`), Belgium in Dutch (`be-nl`) and Belgium in French (`be-fr`), all in euros. Look up one product by bol product id, link or EAN; list every seller's offer on it; search by keyword or browse a category, a brand, a seller's range or a bol promotion; read a seller's public profile; and read today's deals. All 9 endpoints return structured JSON and cost 2 credits per call; a product lookup by EAN costs 4.
+Read bol.com, the marketplace of the Netherlands and Belgium, on its three storefronts: Netherlands in Dutch (`nl-nl`), Belgium in Dutch (`be-nl`) and Belgium in French (`be-fr`), all in euros. Look up one product by bol product id, link or EAN; list its 10 lowest-priced offers; search by keyword or browse a category, a brand, a seller's range or a bol promotion; read a seller's public profile; and read today's deals. All 9 endpoints return structured JSON and cost 2 credits per call; a product lookup by EAN costs 4.
 
-**The job this skill is for: bol.com competitor prices.** `/product` gives the buy box (the offer bol shows first: price, seller, the reference price bol shows next to it and its type, shipping cost, delivery promise), `offer_count`, and the cheapest new, fastest new, cheapest second-hand and per-grade refurbished offers. `/offers` lists every seller's offer on the same product: price, condition (with the refurbished grade or second-hand state), shipping cost, delivery date and the seller's rating. Product ids, EANs and seller ids are shared across storefronts, so the same id prices the product in the Netherlands and in Belgium.
+**The job this skill is for: bol.com competitor prices.** `/product` gives the buy box (the offer bol shows first: price, seller, the reference price bol shows next to it and its type, shipping cost, delivery promise), `offer_count`, and the cheapest new, fastest new, cheapest second-hand and per-grade refurbished offers. `/offers` lists the 10 lowest-priced offers on the same product, lowest price first: price, condition (with the refurbished grade or second-hand state), shipping cost, delivery date and the seller's rating, with counts by condition for all its offers (`has_more` when bol has more; there is no paging). Product ids, EANs and seller ids are shared across storefronts, so the same id prices the product in the Netherlands and in Belgium.
 
 bol has two official APIs, both behind an account: the Retailer API for registered bol sellers (free; its competing-offers call covers an EAN the seller works with, for the seller's own sales) and the Marketing Catalog API for registered affiliates (the best offer, ratings and search, to send traffic to bol). This skill needs neither account, which suits teams that do not sell on bol, or that track bol next to other marketplaces.
 
@@ -11,7 +11,7 @@ See also: for Amazon.nl and Amazon.com.be use `amazon-product-data` with the `nl
 ## When to trigger
 
 Use this skill when the user asks to:
-- Check competitor prices for a product on bol.com: who holds the buy box, at what price, and every other seller's offer
+- Check competitor prices for a product on bol.com: who holds the buy box, at what price, and the lowest-priced competing offers
 - Look up a bol.com product by EAN / GTIN (barcode) and get its price and offers
 - Compare a product's price and offers between bol.com Netherlands and bol.com Belgium
 - Read the reference price bol shows next to a price (the supplier's recommended price, or bol's most-shown price of the last 90 days) and the discount against it
@@ -57,13 +57,13 @@ Base URL: `https://api.scavio.dev`. Most calls take 2 to 10 seconds; a busy mome
 |---|---|---|---|
 | `POST /api/v1/bolcom/search` | `nl-nl`, `be-nl`, `be-fr` | 2 | Products for a keyword, about 24 to 30 per page up to page 10, sorted and filtered, sponsored items flagged, with facets |
 | `POST /api/v1/bolcom/product` | `nl-nl`, `be-nl`, `be-fr` | 2 (4 by `ean`) | One product by `product_id`, `url` or `ean`: buy box, offer counts, cheapest and fastest offers, refurbished grades, specifications, category path, rating distribution, bol's AI review topics and the first 10 reviews |
-| `POST /api/v1/bolcom/offers` | `nl-nl`, `be-nl`, `be-fr` | 2 | Every seller's offer on one product: price, reference price, condition, shipping cost, delivery date, seller with rating |
-| `POST /api/v1/bolcom/seller` | `nl-nl`, `be-nl`, `be-fr` | 2 | A seller's public profile: rating out of 10 with 4 sub-ratings, positive percent, review counts, product count, EU trader data |
-| `POST /api/v1/bolcom/seller-products` | `nl-nl`, `be-nl`, `be-fr` | 2 | The products a seller sells, paged and sorted (each with its buy box, which can be another seller's) |
-| `POST /api/v1/bolcom/category` | `nl-nl`, `be-nl`, `be-fr` | 2 | Products in one category, paged, sorted and filtered like search |
-| `POST /api/v1/bolcom/brand` | `nl-nl`, `be-nl`, `be-fr` | 2 | Products of one brand, paged and sorted |
-| `POST /api/v1/bolcom/deals` | `nl-nl`, `be-nl`, `be-fr` | 2 | Today's day deal and the first deal products of a few categories |
-| `POST /api/v1/bolcom/campaign` | `nl-nl`, `be-nl`, `be-fr` | 2 | The products of one bol promotion (a Black Friday list, the day deal), paged and sorted |
+| `POST /api/v1/bolcom/offers` | `nl-nl`, `be-nl`, `be-fr` | 2 | The 10 lowest-priced offers on one product: price, reference price, condition, shipping cost, delivery date, seller with rating; counts by condition for all offers |
+| `POST /api/v1/bolcom/seller` | `nl-nl`, `be-nl`, `be-fr` | 2 | A seller's public profile: rating out of 10 with up to 4 sub-ratings, positive percent, review counts, product count, EU trader data |
+| `POST /api/v1/bolcom/seller-products` | `nl-nl`, `be-nl`, `be-fr` | 2 | The products a seller sells, pages 1 to 500, sorted (each with its buy box, which can be another seller's) |
+| `POST /api/v1/bolcom/category` | `nl-nl`, `be-nl`, `be-fr` | 2 | Products in one category, pages 1 to 500, sorted and filtered like search |
+| `POST /api/v1/bolcom/brand` | `nl-nl`, `be-nl`, `be-fr` | 2 | Products of one brand, pages 1 to 500, sorted |
+| `POST /api/v1/bolcom/deals` | `nl-nl`, `be-nl`, `be-fr` | 2 | Today's day deal (linked on the storefront asked) and the first deal products of a few categories |
+| `POST /api/v1/bolcom/campaign` | `nl-nl`, `be-nl`, `be-fr` | 2 | The products of one bol promotion (a Black Friday list, the day deal), pages 1 to 500, sorted |
 
 A not-found (an unknown product, seller, category, brand or an ended campaign) is charged for what the call spent (2, or 4 when an EAN search answered a product with another EAN); a failed call is not charged.
 
@@ -85,13 +85,13 @@ Every endpoint takes `country` and `language`:
 
 ## Workflow
 
-1. **Competitor prices for one product:** `/product` (by `product_id`, `url` or `ean`) for the buy box, `offer_count`, `cheapest_new`, `fastest_new`, `cheapest_second_hand` and `refurbished`; then `/offers` with the same `product_id` for every seller's offer. The offers list does not mark the buy box: match `offers[].offer_id` against the product's `buy_box.offer_id`. 4 credits (6 by EAN).
+1. **Competitor prices for one product:** `/product` (by `product_id`, `url` or `ean`) for the buy box, `offer_count`, `cheapest_new`, `fastest_new`, `cheapest_second_hand` and `refurbished`; then `/offers` with the same `product_id` for the 10 lowest-priced offers and the counts of all offers by condition. The offers list does not mark the buy box: match `offers[].offer_id` against the product's `buy_box.offer_id`. 4 credits (6 by EAN).
 2. **Netherlands vs Belgium:** run the same `product_id` with `country: "nl"` and `country: "be"`. Compare prices, offer counts and who holds the buy box; say which storefront each figure came from.
 3. **From a barcode:** `/product` with `ean` (8, 12, 13 or 14 digits). It is a search plus the product page, so it costs 4 credits; the answer carries `requested_ean` and the product's own `ean`. Once you have `product_id`, use it (2 credits).
-4. **Find products:** `/search` with `query` (Dutch or French keywords match best; an EAN as `query` also finds that product). Search stops at page 10. List items carry no EAN: call `/product` for it. For deeper lists use `/category` (up to `max_page`, for example 69 pages for earphones on `be-fr`), `/brand` or `/campaign`.
+4. **Find products:** `/search` with `query` (Dutch or French keywords match best; an EAN as `query` also finds that product). Search stops at page 10. List items carry no EAN: call `/product` for it. For deeper lists use `/category` (up to `max_page`, at most 500; for example 69 pages for earphones on `be-fr`), `/brand` or `/campaign`.
 5. **Filter by brand:** take the brand's value id from the `Merk` / `Marque` facet of a search answer and send it as `brand_facet_id` on `/search` or `/category`. It is a different id from `brand.brand_id`, which feeds `/brand`.
 6. **Seller check:** `seller_id` from an offer (`offer.seller_id` on list items, `seller.seller_id` on offers and the buy box) feeds `/seller` and `/seller-products`. `seller_id` `"0"` is bol itself (`sold_by_bol: true`): it has no seller profile.
-7. **Promotions:** `/deals` gives today's day deal with its `campaign_id`; offer `labels[]` carry `campaign_id`s too (for example a Black Friday label). `/campaign` with that id lists every product in the promotion.
+7. **Promotions:** `/deals` gives today's day deal with its `campaign_id`; offer `labels[]` carry `campaign_id`s too (for example a Black Friday label). `/campaign` with that id lists every product in the promotion; each item's `offer` is its buy box, which does not always carry the campaign's label.
 
 ## Parameters
 
@@ -141,7 +141,7 @@ Exactly one of `seller_id` (digits, `"1770745"`) or `url` (the seller's bol.com 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | `category_id` | string | required | A bol category id (`"8440"` earphones; the same id on every storefront) |
-| `page` | integer | 1 | 1 to `max_page` of the answer |
+| `page` | integer | 1 | 1 to `max_page` of the answer (bol lists at most 500 pages; above 500 answers `400`) |
 | `sort` | string | `popularity` | `popularity`, `price_asc`, `price_desc`, `rating`, `wishlist`. `relevance` is not offered on listing pages (`400`) |
 
 Plus the search filters `price_min`, `price_max`, `condition`, `deals_only`, `select_deals`, `delivery`, `brand_facet_id` and `facets` (not `category_id`).
@@ -245,7 +245,7 @@ Captured `data` (nl-nl, 2026-11-17; `description`, `specifications` (68 rows), `
 
 bol itself (`seller_id` `"0"`, `sold_by_bol: true`) holds the buy box here at 208.95 EUR against the supplier's recommended price of 249 (`reference_price_type` `rrp`); `discount_percent` 16 is computed against it because bol did not show it struck through (`discount_shown: false`). Reviews are pooled across the product family: only 3 of the 10 reviews in this answer carry this `product_id`, the other 7 were written for two related product ids, and `rating` counts the pool. `review_topics` are bol's own AI-generated summaries; `review_summary` (bol's AI recap) is often null.
 
-### Offers (every seller)
+### Offers (the 10 lowest-priced)
 
 ```bash
 curl -X POST https://api.scavio.dev/api/v1/bolcom/offers \
@@ -254,14 +254,14 @@ curl -X POST https://api.scavio.dev/api/v1/bolcom/offers \
   -d '{"product_id": "9300000240171936"}'
 ```
 
-Captured `data` (nl-nl, 2026-11-17; 3 of 10 offers and the notes dropped):
+Captured `data` (nl-nl, 2026-11-17; 3 of the 10 offers returned, the notes dropped):
 
 ```json
 {
   "product_id": "9300000240171936",
   "title": "Apple iPhone 17 - 256GB - Black",
   "url": "https://www.bol.com/nl/nl/p/apple-iphone-17-256gb-zwart/9300000240171936/",
-  "counts": { "new": 7, "refurbished": 3, "second_hand": 0 },
+  "counts": { "new": 8, "refurbished": 3, "second_hand": 0 },
   "offers": [
     {
       "offer_id": "0f298674-b156-4768-aae0-91a80602a427",
@@ -272,7 +272,7 @@ Captured `data` (nl-nl, 2026-11-17; 3 of 10 offers and the notes dropped):
       "discount_shown": false,
       "condition": "refurbished",
       "refurbished_grade": "B",
-      "seller": { "seller_id": "1849943", "name": "Alloccaz", "sold_by_bol": false, "rating": 8.6, "rating_percent": 80, "top_seller": false },
+      "seller": { "seller_id": "1849943", "name": "Alloccaz", "sold_by_bol": false, "rating": 8.6, "top_seller": false },
       "shipping_cost": 0,
       "delivery_text": "Uiterlijk 24 november in huis",
       "delivery_date": "2026-11-24",
@@ -282,13 +282,13 @@ Captured `data` (nl-nl, 2026-11-17; 3 of 10 offers and the notes dropped):
     },
     {
       "offer_id": "4484d8ba-b7d2-4f71-bd94-182f88421e7e",
-      "price": 939,
+      "price": 945,
       "reference_price": 1119,
       "reference_price_type": "rrp",
       "discount_percent": 16,
       "discount_shown": false,
       "condition": "new",
-      "seller": { "seller_id": "1756174", "name": "EZShop NL", "sold_by_bol": false, "rating": 9.1, "rating_percent": 100, "top_seller": false },
+      "seller": { "seller_id": "1756174", "name": "EZShop NL", "sold_by_bol": false, "rating": 9.1, "top_seller": false },
       "shipping_cost": 0,
       "delivery_text": "Op voorraad. Voor 23:59 uur besteld, donderdag in huis",
       "delivery_date": "2026-11-19",
@@ -297,23 +297,23 @@ Captured `data` (nl-nl, 2026-11-17; 3 of 10 offers and the notes dropped):
       "labels": []
     },
     {
-      "offer_id": "50782414-827c-4edd-8e6e-b450dc8753ab",
-      "price": 1079.95,
+      "offer_id": "5b18086f-cff1-496c-9be5-60f89a150cab",
+      "price": 1029,
       "reference_price": 1119,
       "reference_price_type": "rrp",
-      "discount_percent": 3,
+      "discount_percent": 8,
       "discount_shown": false,
       "condition": "new",
-      "seller": { "seller_id": "1340238", "name": "MyPhone B.V.", "sold_by_bol": false, "rating": 7.6, "rating_percent": 80, "top_seller": false },
+      "seller": { "seller_id": "1823883", "name": "Smartphonehoekje.nl", "sold_by_bol": false, "rating": 9, "top_seller": false },
       "shipping_cost": 0,
-      "delivery_text": "Uiterlijk 27 november in huis",
-      "delivery_date": "2026-11-27",
-      "delivered_within_48h": false,
+      "delivery_text": "Op voorraad. Voor 23:59 uur besteld, morgen in huis",
+      "delivery_date": "2026-11-18",
+      "delivered_within_48h": true,
       "low_stock": false,
       "labels": []
     }
   ],
-  "has_more": false,
+  "has_more": true,
   "count": 10,
   "country": "nl",
   "language": "nl",
@@ -322,7 +322,7 @@ Captured `data` (nl-nl, 2026-11-17; 3 of 10 offers and the notes dropped):
 }
 ```
 
-Offers come lowest price first as bol orders them, all conditions mixed: here 3 refurbished offers (from 766 EUR, grade B) before 7 new ones (939 to 1079.95 EUR, two sellers at 939). `rating` is the seller's score out of 10 and `rating_percent` its positive share. The list has no buy-box flag: the product answer's `buy_box.offer_id` names it.
+`offers` are the 10 lowest-priced offers, lowest price first as bol orders them, all conditions mixed: here 3 refurbished offers (from 766 EUR, grade B) before 7 new ones (945 to 1029 EUR, three sellers at 945). `counts` covers all of the product's offers (8 new + 3 refurbished = 11), and `has_more` is true because bol has more than the 10 returned: the higher-priced one is not returned, and there is no paging. `rating` is the seller's score out of 10 (the seller's positive percentage is on `/seller`). The list has no buy-box flag: the product answer's `buy_box.offer_id` names it.
 
 ### Product by EAN (Belgium, French)
 
@@ -528,15 +528,15 @@ Captured `data` (nl-nl, 2026-11-17; `url`, `description` and the notes dropped):
 }
 ```
 
-`rating` (out of 10) is computed over recent reviews (`reviews_used_for_rating` 49 here), while `reviews` counts every review by sentiment. `business` is the trader data bol publishes under EU rules; no street address is returned, and review texts are not returned.
+`rating` (out of 10) is computed over the reviews `rating_method` names, as bol states per seller (`recent_reviews`: the last 3 months, `reviews_used_for_rating` 49 here; `all_reviews`: all of the seller's reviews), and `positive_percent` is bol's positive percentage over those reviews; `rating_details` carries up to four sub-ratings (some sellers have fewer), while `reviews` counts every review by sentiment, all time. `business` is the trader data bol publishes under EU rules; no street address is returned, and review texts are not returned.
 
 ### Other endpoints (captured 2026-11-17)
 
 - `/seller-products` with `{"seller_id": "1767374", "country": "be"}` (be-nl): `seller` `{"seller_id": "1767374", "name": "FlowCart"}`, 24 items, `total` 187, `max_page` 8, `sort` `popularity`. Each item's `offer` is that product's buy box, which can be another seller's; items can add `cheapest_refurbished` (with `refurbished_grade`) or `cheapest_second_hand`.
 - `/category` with `{"category_id": "8440", "country": "be", "language": "fr"}` (be-fr): `category` `{"category_id": "8440", "name": "Écouteurs", ...}` with `breadcrumbs`, 28 items (6 sponsored), `total` 1650, `max_page` 69, 15 facets.
 - `/brand` with `{"brand_id": "5070005"}` (nl-nl): `brand` `{"brand_id": "5070005", "name": "Apple", "premium_brand": true}`, 24 items, `total` 2035, `max_page` 85.
-- `/campaign` with `{"campaign_id": "555136"}` (nl-nl): `campaign` `{"campaign_id": "555136", "name": "Deals op steel- en robotstofzuigers", "description": "Ontdek alle Black Friday deals op steel- en robotstofzuigers van o.a. Dyson, Roborock, Rowenta, Dreame en Bosch.", "type": "discount", "ends_at": "2026-12-01T00:00:00.000+01:00"}` (a Black Friday list of stick and robot vacuums), 24 items, `total` 155, `max_page` 7.
-- `/deals` with `{"country": "be"}` (be-nl): `day_deal` "Little Live Pets & Beyblade" with `campaign_id` `556789` and `ends_at` `2026-11-18T00:00:00.000+01:00`; 4 `category_deals` (Speelgoed, Elektronica, Boeken, Persoonlijke verzorging) with 14 products; 8 `more_deal_category_ids`. Deal products carry `seller_id` only (`seller_name` null).
+- `/campaign` with `{"campaign_id": "555136"}` (nl-nl): `campaign` `{"campaign_id": "555136", "name": "Deals op steel- en robotstofzuigers", "description": "Ontdek alle Black Friday deals op steel- en robotstofzuigers van o.a. Dyson, Roborock, Rowenta, Dreame en Bosch.", "type": "discount", "ends_at": "2026-12-01T00:00:00.000+01:00"}` (a Black Friday list of stick and robot vacuums), 24 items, `total` 156, `max_page` 7.
+- `/deals` with `{"country": "be"}` (be-nl): `day_deal` "Little Live Pets & Beyblade" with `campaign_id` `556789`, `url` `https://www.bol.com/be/nl/ra/dagdeal-op-little-live-pets---beyblade/556789/` (the day deal on the storefront asked) and `ends_at` `2026-11-18T00:00:00.000+01:00`; 4 `category_deals` (Speelgoed, Elektronica, Boeken, Persoonlijke verzorging) with 14 products; 8 `more_deal_category_ids`. Deal products carry `seller_id` only (`seller_name` null).
 
 ### Python
 
@@ -575,24 +575,24 @@ for country in ("nl", "be"):
 
 Every response uses the envelope `{ data, response_time, fetched_at, credits_used, credits_remaining }`. Everything is fetched live. Every answer carries `country`, `language`, `storefront`, `currency` (`EUR`) and `notes`.
 
-- **Offer** (list items, buy box, offers) - `offer_id`, `price`, `reference_price`, `reference_price_type` (`rrp`: the supplier's recommended price, bol's "Adviesprijs" / "Prix conseillé"; `most_shown_price`: bol's most-shown non-promotional price over the last 90 days), `discount_percent` (bol's own percentage when `discount_shown` is true, else computed against the reference price), `discount_shown` (bol shows the reference struck through), `condition` (`new`, `refurbished` with `refurbished_grade` A / B / C, `second_hand` with `second_hand_state` and `condition_note` when given), `delivery_text` (bol's delivery promise in the storefront language), `delivery_date`, `delivered_within_48h`, `low_stock`, `labels[]` {`text`, `campaign_id`, `mechanism`}. List items and deals add `seller_id`, `seller_name`, `sold_by_bol`; the buy box and offers carry `seller` {`seller_id`, `name`, `sold_by_bol`, and for partners `rating` (out of 10), `rating_percent`, `top_seller`, sometimes `top_quality_seller`} and `shipping_cost`.
+- **Offer** (list items, buy box, offers) - `offer_id`, `price`, `reference_price`, `reference_price_type` (`rrp`: the supplier's recommended price, bol's "Adviesprijs" / "Prix conseillé"; `most_shown_price`: bol's most-shown non-promotional price over the last 90 days), `discount_percent` (bol's own percentage when `discount_shown` is true, else computed against the reference price), `discount_shown` (bol shows the reference struck through), `condition` (`new`, `refurbished` with `refurbished_grade` A / B / C, `second_hand` with `second_hand_state` and `condition_note` when given), `delivery_text` (bol's delivery promise in the storefront language), `delivery_date`, `delivered_within_48h`, `low_stock`, `labels[]` {`text`, `campaign_id`, `mechanism`}. List items and deals add `seller_id`, `seller_name`, `sold_by_bol`; the buy box and offers carry `seller` {`seller_id`, `name`, `sold_by_bol`, and for partners `rating` (out of 10), `top_seller`, sometimes `top_quality_seller`} and `shipping_cost`.
 - **Listing answer** (search, category, brand, seller-products, campaign) - `items[]`, `count`, `sponsored_count`, `total` (bol's count), `page`, `max_page`, `has_more`, `sort`, `sorts_offered`, `filters` and `filters_ignored` (when sent), `facets[]` {`id`, `name`, `type` (`category`, `values`, `range`), `values[]` {`id`, `name`, `count`, `applied`} or `unit`, `min`, `max`, `applied_min`, `applied_max`}, `notes`. Search adds `query` and `dominant_category`; category adds `category` {`category_id`, `name`, `url`, `breadcrumbs`}; brand adds `brand` {`brand_id`, `name`, `premium_brand`}; seller-products adds `seller` {`seller_id`, `name`}; campaign adds `campaign` {`campaign_id`, `name`, `description`, `type`, `ends_at`}.
 - **List item** - `product_id`, `title`, `url`, `brand` {`brand_id`, `name`}, `category` (name), `rating` {`average`, `count`}, `offer` (the buy box), `cheapest_second_hand` and `cheapest_refurbished` when bol shows them, `energy_label` {`class`, `description`}, `image`, `family_id`, `sponsored`. No EAN.
 - **product** - `product_id`, `ean`, `title`, `subtitle`, `url`, `brand`, `description` (plain text), `specifications[]` {`group`, `name`, `key`, `value`}, `category_path[]` {`category_id`, `name`}, `buy_box`, `offer_count`, `cheapest_new` {`price`}, `fastest_new` {`price`, `delivery_text`, `delivery_date`}, `cheapest_second_hand`, `refurbished[]` {`grade`, `grade_name`, `offer_count`, `cheapest`}, `energy_label`, `images[]`, `video` {`url`, `poster`}, `series[]`, `rating` {`average`, `count`, `distribution` 1-5}, `review_topics[]` {`topic`, `review_count`, `positive`, `neutral`, `negative`, `summary`}, `review_summary`, `reviews[]` (first 10: `review_id`, `rating`, `title`, `text`, `pros`, `cons`, `verified`, `is_translated`, `refurbished_purchase`, `date`, `helpful_count`, `not_helpful_count`, `product_id`), `more_reviews`; `requested_ean` when looked up by EAN.
-- **offers** - `product_id`, `title`, `url`, `counts` {`new`, `refurbished`, `second_hand`}, `offers[]`, `has_more`, `count`.
+- **offers** - `product_id`, `title`, `url`, `counts` {`new`, `refurbished`, `second_hand`} (all of the product's offers), `offers[]` (up to 10, lowest price first), `has_more` (bol has more than the 10 returned; no paging), `count`.
 - **seller** - `seller` {`seller_id`, `name`, `url`, `active_since`, `description`, `rating`, `rating_details` {`product_info`, `delivery_time`, `shipping`, `service`}, `rating_method`, `reviews_used_for_rating`, `positive_percent`, `top_seller`, `reviews` {`positive`, `neutral`, `negative`, `total`}, `product_count`, `business` {`company_name`, `city`, `country`, `registration_number`, `vat_number`, `country_of_origin`}}.
-- **deals** - `day_deal` {`title`, `campaign_id`, `url`, `ends_at`, `highlighted_product` {`product_id`, `title`, `url`, `image`}}, `category_deals[]` {`category_id`, `category_name`, `products[]` {`product_id`, `title`, `url`, `image`, `offer`}}, `more_deal_category_ids`, `count`.
+- **deals** - `day_deal` {`title`, `campaign_id`, `url` (on the storefront asked), `ends_at`, `highlighted_product` {`product_id`, `title`, `url`, `image`}}, `category_deals[]` {`category_id`, `category_name`, `products[]` {`product_id`, `title`, `url`, `image`, `offer`}}, `more_deal_category_ids`, `count`.
 
 ## Guardrails
 
-- Competitor prices: the buy box is the offer bol shows first, not always the lowest price; compare `buy_box` with `cheapest_new` and the full `/offers` list, and add `shipping_cost` when comparing sellers. Say which storefront, product id and time each price comes from.
+- Competitor prices: the buy box is the offer bol shows first, not always the lowest price; compare `buy_box` with `cheapest_new` and the `/offers` list (the 10 lowest-priced; when `has_more` is true, say the higher-priced offers were not read), and add `shipping_cost` when comparing sellers. Say which storefront, product id and time each price comes from.
 - `/offers` mixes conditions (refurbished offers often come first, being cheaper). Never compare a refurbished or second-hand price with a new price as if they were the same product state.
 - `reference_price` is a reference bol shows, not a past price paid: name its type (`rrp` = recommended retail price, `most_shown_price` = bol's most-shown price of the last 90 days). There is no price history and no 30-day lowest price: poll and store if the user needs a history.
 - Search depth is fixed: pages 1 to 10 (about 280 results). Sorting by anything but relevance can narrow bol's result set (the build measured nintendo switch at 6,655 results by relevance, 30 by price), and price sorts follow bol's own ordering, so small inversions against the buy-box price occur: sort yourself when strict order matters. Never claim to have read every result or to know a market's size from `total`.
-- Listing pages (category, brand, seller-products, campaign) default to `popularity` and do not offer `relevance`; brand, seller-products and campaign take no filters.
+- Listing pages (category, brand, seller-products, campaign) run pages 1 to 500, default to `popularity` and do not offer `relevance`; brand, seller-products and campaign take no filters.
 - `brand_facet_id` and `brand_id` are different id spaces; never send one as the other.
 - `product_id` is a 16-digit string. Never send it as a JSON number.
-- Reviews: the first 10 as bol shows them, pooled across the product family; filter by `reviews[].product_id` before attributing a review to a product, and treat `rating` as the pool's rating. No review paging, sorting or star filter. `review_topics` and `review_summary` are bol's AI summaries: label them as bol's. On `be-fr`, review texts are bol's translation.
+- Reviews: the first 10 as bol shows them, pooled across the product family; filter by `reviews[].product_id` before attributing a review to a product, and treat `rating` as the pool's rating. No review paging, sorting or star filter. `review_topics` and `review_summary` are bol's AI summaries: label them as bol's. On `be-fr`, review texts are bol's translation and `review_topics` stay Dutch as bol serves them.
 - `seller_id` `"0"` is bol itself; it has no seller profile or seller product list.
 - Not available, so do not offer them: price history, 30-day lowest price, search suggestions, review paging beyond the first 10, seller review texts, pickup points, bol Select member prices, a structured variant selector, buying, or anything that changes an offer.
 - People: reviews never carry reviewer names, ages or locations; do not try to identify reviewers. Seller `business` data is the trader information bol publishes; use it to judge a seller, not to contact or profile a person.
@@ -601,7 +601,7 @@ Every response uses the envelope `{ data, response_time, fetched_at, credits_use
 
 ## Failure handling
 
-- `400` means a missing or invalid parameter, and it is not charged: a `country` other than `nl` / `be`, a `language` other than `nl` / `fr`, `fr` with `nl` ("French is available on be (storefront be-fr); nl is Dutch only."), a search `page` above 10 ("page must be 1 to 10: bol.com search stops at page 10 (about 280 results)."), `relevance` on a listing page, a filter on brand, seller-products or campaign ("... is not available on brand (page and sort only)."), `price_min` above `price_max`, more than 10 `facets`, an EAN that is not 8, 12, 13 or 14 digits, a long `product_id` sent as a JSON number ("product_id must be sent as a string (too long for a JSON number)."), `seller_id` `0`, not exactly one of the id fields and `url`, or a link that is not a bol.com link of the right kind.
+- `400` means a missing or invalid parameter, and it is not charged: a `country` other than `nl` / `be`, a `language` other than `nl` / `fr`, `fr` with `nl` ("French is available on be (storefront be-fr); nl is Dutch only."), a search `page` above 10 ("page must be 1 to 10: bol.com search stops at page 10 (about 280 results)."), a listing `page` above 500, `relevance` on a listing page, a filter on brand, seller-products or campaign ("... is not available on brand (page and sort only)."), `price_min` above `price_max`, more than 10 `facets`, an EAN that is not 8, 12, 13 or 14 digits, a long `product_id` sent as a JSON number ("product_id must be sent as a string (too long for a JSON number)."), `seller_id` `0`, not exactly one of the id fields and `url`, or a link that is not a bol.com link of the right kind.
 - `401` means the API key is invalid or missing. Check `SCAVIO_API_KEY`.
 - `402` means the balance is out of credits. The body carries `billing_url`.
 - `404` means not found, and it is charged for what the call spent: "bol.com has no product ... on nl-nl.", "No bol.com product carries EAN ... on be-fr.", "bol.com has no seller ...", "bol.com has no category ...", "bol.com has no brand ...", "bol.com has no running campaign ... on nl-nl." (campaigns end). Take ids from a previous answer rather than guessing them.
