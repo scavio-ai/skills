@@ -769,6 +769,18 @@
       "credits": "2"
     },
     {
+      "dir": "scavio-bolcom",
+      "slug": "bol-com-api",
+      "name": "bol-com-api",
+      "display": "bol.com API - Prices, Offers, Sellers, NL and BE",
+      "query": "bol.com api",
+      "reused": "no",
+      "platform": "bol.com",
+      "group": "Commerce",
+      "endpoints": "9",
+      "credits": "2; product by EAN 4"
+    },
+    {
       "dir": "scavio-olx",
       "slug": "olx-api",
       "name": "olx-api",
@@ -1593,6 +1605,11 @@
       "dir": "scavio-allegro",
       "description": "Allegro API for allegro.pl, Poland's largest marketplace, plus allegro.cz (CZK), allegro.sk (EUR) and allegro.hu (HUF): search by keyword or browse a category, 60 organic offers per page plus sponsored slots, with price, price incl. delivery, condition, auction state, discount and the EU 30-day lowest price shown on a discount, sold count (\"x people bought\"), Allegro Smart!, the seller (super seller, positive feedback percent, business or private) and the placement (regular, promoted, sponsored), sorted by price, price with delivery, popularity, ending soonest or newest and filtered by price, new or used, buy now or auction, Smart! and the deals zone (Black Weeks); read one offer in full with every parameter, GTIN, delivery methods and prices, stock, returns, warranty and auction bids; read one catalog product with its lowest price, offer count, buy-box offer, star distribution, review aspects and the first 20 reviews; list every seller's offer for one product for price comparison and price monitoring; read a seller's offers and categories and the seller's buyer ratings, super-seller status and member-since date. Data comes in the site's language. 7 endpoints, 2 credits each. No price history, no bidding or checkout. Allegro no longer grants access to its public offer search (GET /offers/listing).",
       "tags": "allegro, allegro-api, allegro-pl, allegro-price-monitoring, allegro-price-tracker, allegro-scraper, allegro-offers, allegro-offers-listing-alternative, allegro-product-data, allegro-sellers, allegro-seller-ratings, allegro-sold-count, allegro-black-weeks, allegro-czech, allegro-slovakia, allegro-hungary, polish-marketplace, poland-ecommerce, central-europe, cee-ecommerce, marketplace, price-comparison, price-monitoring, competitor-prices, repricing, buy-box, omnibus-price, 30-day-lowest-price, auctions, sponsored-offers, seller-data, product-reviews, multi-country, europe, product-search, product-data, category-browse, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-bolcom",
+      "description": "bol.com API for bol.com competitor prices and marketplace data in the Netherlands and Belgium, in euros, on three storefronts: nl-nl (Dutch), be-nl (Dutch) and be-fr (French; bol's own texts in French, review texts bol's translation). One product by bol product id, link or EAN / GTIN with the buy box (price, seller, reference price with its type: the supplier's recommended price or bol's most-shown price of the last 90 days, discount, shipping cost, delivery promise), the offer count, the cheapest new, fastest new and cheapest second-hand offers, refurbished offers by grade, specifications, category path, rating distribution, bol's AI review topics and the first 10 reviews (pooled across the product family, no reviewer names); every seller's offer on one product with price, condition (refurbished grade, second-hand state), shipping cost, delivery date and the seller's rating out of 10, for price comparison and price monitoring; keyword search (pages 1 to 10, sorted by relevance, popularity, price, rating or most wished for, filtered by price, condition, deals, Select deals, delivery, brand and any facet, sponsored items flagged); category, brand, seller and promotion (Black Friday list, day deal) listings sorted by popularity, price, rating or most wished for; a seller's public profile with rating out of 10, four sub-ratings, positive percent, review counts, product count and the EU trader data bol publishes (company, city, country, registration and VAT number, no street address); today's deals. Product, EAN, category, seller and offer ids are shared across storefronts; prices and offers can differ between the Netherlands and Belgium. 9 endpoints, 2 credits each, product by EAN 4. No price history or 30-day lowest price, no review paging beyond the first 10, no search suggestions. bol's own APIs need an account: the Retailer API is for registered bol sellers, the Marketing Catalog API for registered affiliates.",
+      "tags": "bol, bol-com, bolcom, bol-com-api, bolcom-api, bol-com-prices, bol-com-price-monitoring, bol-com-competitor-prices, bol-com-buy-box, bol-com-offers, bol-com-sellers, bol-com-seller-ratings, bol-com-reviews, bol-com-ean, bol-com-deals, bol-com-black-friday, bol-com-netherlands, bol-com-belgium, dutch-marketplace, netherlands-ecommerce, belgium-ecommerce, benelux, marketplace, price-comparison, price-monitoring, competitor-prices, repricing, buy-box, ean-lookup, seller-data, product-reviews, multi-country, europe, product-search, product-data, category-browse, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-olx",
