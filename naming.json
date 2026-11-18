@@ -1285,6 +1285,18 @@
       "credits": "1; product 2 outside the US; nz 5, product 6"
     },
     {
+      "dir": "scavio-poshmark",
+      "slug": "poshmark-api",
+      "name": "poshmark-api",
+      "display": "Poshmark API - Sold Prices, Listings, Closets, Love Notes",
+      "query": "poshmark api",
+      "reused": "no",
+      "platform": "Poshmark",
+      "group": "Commerce",
+      "endpoints": "15",
+      "credits": "1"
+    },
+    {
       "dir": "scavio-zillow",
       "slug": "zillow-property-data",
       "name": "zillow-property-data",
@@ -1844,6 +1856,11 @@
       "dir": "scavio-depop",
       "description": "Depop API for Depop resale prices: what Depop listings ask in each of its 9 storefronts (US, UK, Australia, Ireland, Canada, New Zealand, Germany, France, Italy), priced the way Depop shows them to a buyer in that market (listing price, original price, buyer fee, tax, shipping and the total; the currency is the listing's, and a few sellers list in another one), from keyword search, a category path, a brand page or a curated explore page with filters for brand, condition, colour, price range, marked-down, gender, group and product type, kids and size, sorted by relevance or price, with facet counts. Search, category, brand and explore return the first 24 results per query, sort and filter set: Depop serves no next page, so narrow with filters or a price range. One listing in full by slug, link or product id with description, hashtags, condition, sizes, shipping, likes, markdown, the buyer-market price and the seller's own listing price, and the seller summary (rating, reviews, items sold, last seen). A shop's profile (rating, review total, items sold, followers, listings per category), its listings for sale and its sold listings with the price they sold at and any markdown, cursor-paged 24 at a time (Depop shows no sale date, only when the listing last changed), and the reviews it received as a seller or buyer (no reviewer names). Plus shop search by username, the category tree with names in English, German, French or Italian, the brand list, search suggestions and similar listings (US). 14 endpoints, 1 credit per call; product 2 outside the US; New Zealand 5, product 6. Not available: keyword sold search (sold prices come per shop), results past the first 24, views, join date, price history (poll and store). Depop's Selling API is private, for high-volume sellers and partners managing their own listings and orders, with no marketplace search.",
       "tags": "depop, depop-api, depop-prices, depop-price-check, depop-resale-prices, depop-sold, depop-sold-prices, depop-sold-items, depop-search, depop-listings, depop-shop, depop-seller, depop-seller-reviews, depop-reviews, depop-brands, depop-categories, depop-scraper, depop-vs-vinted, resale, reseller, resale-prices, secondhand-fashion, second-hand, vintage, streetwear, y2k, marketplace, fashion, clothing, multi-country, seller-reputation, price-research, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-poshmark",
+      "description": "Poshmark API for Poshmark sold prices: sold Poshmark listings by keyword on Poshmark US (poshmark.com, USD) and Poshmark Canada (poshmark.ca, CAD) with the price shown on the sold listing (offers are private and not returned) and the date Poshmark marked it sold, filtered by brand, department, category, subcategory, size, condition (new with tags, boutique, like new, good, fair), colour and price range and sorted by relevance, newest, price, price drop or likes, up to 480 sold listings per query and filter combination (10 pages of 48; narrow with filters or price bands to reach more). Active listings for the same query, up to about 5,000 per query, with the original price the seller entered, the price the listing was first listed at and Poshmark's price-drop badge, plus facet counts by brand, colour and category. One listing in full by listing id or link with description, condition, sizes with quantity available and sold, shipping, bundle offer, likes, comments (no authors) and the seller's closet stats; listing ids and closets are global and answer in the listing's own currency. Category and brand grids (available, sold or all), a closet's profile (items sold, orders shipped, followers, Posh Ambassador, last active, Love Notes count), its listings for sale or sold, and its latest 100 Love Notes (no buyer names). Plus closet search by username, the category tree, the top 50 brands, brand suggestions, Posh Parties with their listings and similar listings. 15 endpoints, 1 credit per call. Not available: sold results past 480 per query and filter combination, Love Notes past 100, Posh Shows, trending searches, offers, bundles, price history (poll and store). Poshmark has no public developer API.",
+      "tags": "poshmark, poshmark-api, poshmark-sold, poshmark-sold-prices, poshmark-sold-listings, poshmark-price, poshmark-prices, poshmark-price-check, poshmark-comps, poshmark-search, poshmark-listings, poshmark-closet, poshmark-seller, poshmark-love-notes, poshmark-original-price, poshmark-price-drop, poshmark-nwt, poshmark-canada, poshmark-parties, poshmark-brands, poshmark-categories, poshmark-scraper, poshmark-vs-depop, resale, reseller, resale-prices, sold-comps, secondhand-fashion, second-hand, marketplace, fashion, clothing, price-research, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-zillow",
