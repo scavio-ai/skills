@@ -58,15 +58,15 @@ Base URL: `https://api.scavio.dev`. Shop, categories, brands, suggestions and si
 
 | Endpoint | Markets | What it returns |
 |---|---|---|
-| `POST /api/v1/depop/search` | all 9 | The first 24 listings for a query in one buyer market: product id, slug, URL, title, description, brand, category, group, product type, status, seller country, pictures, sizes, condition, colours, gender, kids, likes, boosted, discounted, discount percentage and the buyer-market `price` breakdown. Plus `total_count` (Depop's approximate count) and `facets` (counts per department, group, product type, brand, colour, condition, size) |
-| `POST /api/v1/depop/product` | all 9 | One listing by slug, link or product id, priced for a buyer in the market: description, hashtags, brand, category with breadcrumbs, condition, colours, sizes (sold sizes included), gender, pictures, likes, quantity, shipping (method, parcel size, payer, free shipping, national cost), discount, `price` (buyer market) and `listing_price` (the seller's own currency and price), and the seller (username, verified, country, rating, review total, items sold, last seen, average shipping days) |
+| `POST /api/v1/depop/search` | all 9 | The first 24 listings for a query in one buyer market: product id, slug, URL, title, description, brand, category, group, product type, status, pictures, sizes, condition, colours, gender, kids, likes, boosted, discounted, discount percentage, the buyer-market `price` breakdown and `buyer_market_price` (true when priced in the market's currency). Plus `total_count` (Depop's approximate count) and `facets` (counts per department, group, product type, brand, colour, condition, size) |
+| `POST /api/v1/depop/product` | all 9 | One listing by slug, link or product id, priced for a buyer in the market: description, hashtags, brand, category with breadcrumbs, condition, colours, sizes (sold sizes included), gender, pictures, likes, quantity, shipping (method, parcel size, payer, free shipping, national cost: the seller's domestic rate), discount, `price` (buyer market) and `listing_price` (the seller's own currency and price), and the seller (username, verified, country of the seller account, rating, review total, items sold, last seen, average shipping days) |
 | `POST /api/v1/depop/category` | all 9 | The first 24 listings of one category path (`mens/bottoms/jeans`) |
 | `POST /api/v1/depop/brand` | all 9 | The first 24 listings of one brand by slug (`carhartt`) |
 | `POST /api/v1/depop/explore` | all 9 | One of Depop's curated explore pages (`90s-menswear`): title, the search it runs, the first 24 listings and the market's other explore page slugs |
 | `POST /api/v1/depop/suggestions` | all 9 | Search suggestions for a partial query, each with its group, gender and Depop's filter label ("in Men's Bottoms") |
 | `POST /api/v1/depop/shop` | global | A shop by username or shop id: bio, verified, followers, following, rating, review total, seller and buyer rating counts, items sold, last seen, listings per department and category |
 | `POST /api/v1/depop/shop-products` | global | A shop's listings for sale, up to 24 per page, cursor-paged, with `created_at` and `updated_at` |
-| `POST /api/v1/depop/shop-sold` | global | A shop's sold listings with the price they sold at and any markdown, up to 24 per page, cursor-paged, with `created_at` and `updated_at` (no sale date) |
+| `POST /api/v1/depop/shop-sold` | global | A shop's sold listings with the price they sold at and any markdown, up to 24 per page, cursor-paged, with `created_at` and `updated_at` (no sale date); `status` `sold` (sold on Depop) or `marked_as_sold` (the seller marked it sold, which may be outside Depop) |
 | `POST /api/v1/depop/shop-reviews` | global | Reviews a shop received as a seller (default) or as a buyer, 24 per page: date, rating, text and the product (id, image). No reviewer names |
 | `POST /api/v1/depop/shops-search` | global | Shops whose username matches a query: shop id, username, URL |
 | `POST /api/v1/depop/categories` | global | The category tree: departments > groups > product types, each with id, name and path; names in `en`, `en-US`, `de`, `fr` or `it`; optional size sets |
@@ -89,9 +89,9 @@ Each shop-products, shop-sold or shop-reviews page is one call. A not-found (`40
 
 `country` is the **buyer's** country (default `us`): `us` (USD), `gb` (GBP; `uk` is accepted), `au` (AUD), `ie` (EUR), `ca` (CAD), `nz` (NZD), `de` (EUR), `fr` (EUR), `it` (EUR). Any other country answers `400` before anything is charged.
 
-- **Search shows that market's sellers.** On every captured non-US search for `levis 501` (2026-11-18), all 24 items had `seller_country` equal to the market.
+- **No seller country on list items.** Search, category, brand, explore, similar and the shop lists carry no seller country: Depop's item country is the listing's country, which is neither the market nor always the seller's. `/product` has `seller.country`, the seller account's country.
 - **Listing ids and slugs are global**: one `slug` or `product_id` opens the same listing from any market. The price changes with the market: a buyer in another country sees that market's buyer fee, tax (for example `tax_type: "UK_IMPORT_VAT"` for a UK buyer of a listing from abroad) and international shipping (`shipping_boundary: "international"`). Quote the market with every price.
-- **Currency is the listing's.** `price.currency` is the currency the seller listed in, usually the market's, but some sellers list in another one: on the captured `fr` search 1 of 24 items was priced in USD, on `it` 2 of 24. Never add up or compare prices across currencies without converting and stating the rate and its date.
+- **Currency is the listing's.** `price.currency` is the currency the seller listed in, usually the market's, but some sellers list in another one: on the captured `fr` search 1 of 24 items was priced in USD, on `it` 2 of 24. Search, category, brand, explore and similar items carry `buyer_market_price`: `true` when the listing is priced in the market's currency, `false` otherwise. A `false` item is shown unconverted, with the listing's own price block (captured on `it`: 835564347 at USD 30, `buyer_fee` 0, `tax` 0, `shipping` 5.99 national), and `/product` returns the same block, so no price in the market's currency exists for it. Never add up or compare prices across currencies without converting and stating the rate and its date.
 - **Language.** Depop's interface is English in every storefront. Titles and descriptions are what sellers wrote, often in German, French or Italian on `de`, `fr` and `it` (the captured `fr` product begins "Marque : Levi's Modèle : 501"). `/categories` returns group and product type names in `en`, `en-US`, `de`, `fr` or `it`; department names stay English.
 - Shop, shop-products, shop-sold, shop-reviews, shops-search, categories and brands are global: they take no `country`. Shop listing prices carry the buyer fee, tax and shipping of a US buyer view.
 
@@ -104,20 +104,20 @@ Captured 2026-11-18: the first market-local listing of each market's `levis 501`
 | `au` (1000857330) | 2 | AUD | 60 | 60 | 3.7 | 10 | 73.7 | 73.7 |
 | `ie` (980192162) | 2 | EUR | 25.5 | 30 | 0 | 6 | 31.5 | 25.5 |
 | `ca` (1004916694) | 2 | CAD | 20 | 20 | 0 | 10 | 30 | 20 |
-| `nz` (1004240623) | 6 | NZD | 25 | 25 | 0 | 10 | 35 | 25 |
+| `nz` (1005367169) | 6 | NZD | 15 | 15 | 0 | 9 | 24 | 15 |
 | `de` (1005057718) | 2 | EUR | 20 | 20 | 0 | 5 | 25 | 20 |
 | `fr` (996937442) | 2 | EUR | 32 | 32 | 0 | 5 | 37 | 32 |
 | `it` (954045052) | 2 | EUR | 22 | 22 | 0 | 6.9 | 28.9 | 22 |
 
-`tax` was 0 on every row (all domestic listings). `total` is price plus buyer fee, tax and shipping. `headline_price` is the figure Depop headlines and can leave out shipping (US: 3.6 + 0.88 = 4.48; UK: 15 + 1.45 + 2 = 18.45). On the captured `gb` and `au` searches all 24 items carried a buyer fee.
+`tax` was 0 on every row (all domestic listings). `total` is computed by Scavio from Depop's parts: price + buyer fee + tax + shipping. `headline_price` is the price Depop itself headlines in that market: on `us` it leaves out shipping (3.6 + 0.88 = 4.48), on `gb` it includes the fee and shipping (15 + 1.45 + 2 = 18.45). `original_price` is the seller's own original price before a markdown; it is seller-set and can be far above `price`. On the captured `gb` and `au` searches all 24 items carried a buyer fee.
 
 ## Workflow
 
-1. **Search:** call `/depop/search` with `query` and `country`. Each item has `product_id`, `slug`, `url`, the `price` breakdown and `seller_country`.
+1. **Search:** call `/depop/search` with `query` and `country`. Each item has `product_id`, `slug`, `url`, the `price` breakdown and `buyer_market_price`.
 2. **Narrow it:** read `facets` (counts by group, product type, brand id, colour, condition, size) and search again with `brand_ids`, `conditions`, `colors`, `group` / `product_type`, `price_min` / `price_max`, `on_sale` or `size`. Each narrowed call returns a different first 24.
 3. **Browse instead of search:** `/depop/categories` gives each category's `path` (the input of `/depop/category`) and the group and product type ids (search filters). `/depop/brands` gives each brand's `slug` (the input of `/depop/brand`) and `id` (the `brand_ids` filter).
 4. **Read a listing:** `/depop/product` with the `slug` (or `url`, or `product_id`) and the buyer's `country` for the full listing, the buyer-market price and the seller summary.
-5. **Sold prices:** the listing's `seller.username` (or `seller.id`) feeds `/depop/shop-sold`; page with `cursor: next_cursor` while `has_more` is true. Group sold items by brand and product type before quoting a typical sold price, and say these are one shop's sales.
+5. **Sold prices:** the listing's `seller.username` (or `seller.id`) feeds `/depop/shop-sold`; page with `cursor: next_cursor` while `has_more` is true. Keep `status: "sold"` (sold on Depop) apart from `marked_as_sold` (the seller marked it sold, which may be outside Depop, so its price may not be a Depop sale). Group sold items by brand and product type before quoting a typical sold price, and say these are one shop's sales.
 6. **Judge the seller:** `/depop/shop` (rating, review total, items sold, last seen) and `/depop/shop-reviews` (what buyers wrote, newest first).
 7. **Price watching:** there is no price history. Poll the same query or listing on a schedule and store each answer with its date.
 
@@ -248,7 +248,6 @@ Captured `data` (US, 2026-11-18, 1 credit; 1 of 24 items shown, facet lists cut 
       "group": "bottoms",
       "product_type": "jeans",
       "status": "on_sale",
-      "seller_country": "us",
       "pictures": [
         "https://media-photos.depop.com/r1/246425927/5238161359_f99f633173f94f63bd5664a2fecae959/P0.jpg",
         "https://media-photos.depop.com/r1/246425927/5238162256_6e49777bff2149608bd9305db99d0d51/P0.jpg",
@@ -260,7 +259,7 @@ Captured `data` (US, 2026-11-18, 1 credit; 1 of 24 items shown, facet lists cut 
       "colors": ["navy", "blue"],
       "gender": "male",
       "kids": false,
-      "like_count": 16,
+      "like_count": 20,
       "boosted": false,
       "discounted": false,
       "discount_percentage": null,
@@ -275,30 +274,31 @@ Captured `data` (US, 2026-11-18, 1 credit; 1 of 24 items shown, facet lists cut 
         "shipping_boundary": "national",
         "total": 16.99,
         "headline_price": 11
-      }
+      },
+      "buyer_market_price": true
     }
   ],
   "count": 24,
-  "total_count": 8986,
+  "total_count": 9145,
   "facets": {
-    "total": 8987,
+    "total": 9145,
     "departments": [
       {
         "id": "menswear",
-        "count": 4983,
-        "groups": [{ "id": "bottoms", "count": 4944 }, { "id": "tops", "count": 23 }],
-        "product_types": [{ "id": "jeans", "count": 4770 }, { "id": "shorts", "count": 147 }]
+        "count": 5074,
+        "groups": [{ "id": "bottoms", "count": 5034 }, { "id": "tops", "count": 24 }],
+        "product_types": [{ "id": "jeans", "count": 4853 }, { "id": "shorts", "count": 153 }]
       }
     ],
-    "brands": [{ "id": 31, "count": 8773 }, { "id": 1667, "count": 125 }],
-    "colors": [{ "id": "blue", "count": 6563 }, { "id": "navy", "count": 1898 }],
-    "conditions": [{ "id": "used_excellent", "count": 4126 }, { "id": "used_good", "count": 2403 }],
-    "sizes": [{ "id": "60.19", "count": 793 }, { "id": "60.17", "count": 653 }]
+    "brands": [{ "id": 31, "count": 8924 }, { "id": 1667, "count": 128 }],
+    "colors": [{ "id": "blue", "count": 6675 }, { "id": "navy", "count": 1931 }],
+    "conditions": [{ "id": "used_excellent", "count": 4180 }, { "id": "used_good", "count": 2458 }],
+    "sizes": [{ "id": "60.19", "count": 810 }, { "id": "60.17", "count": 671 }]
   }
 }
 ```
 
-Read an item as: the seller asks $11.00, a US buyer pays $5.99 shipping, total $16.99. `count` is 24 (the first 24 results); `total_count` (8,986) is Depop's approximate count of matches, not what the answer holds. `total_count` can be off on small result sets: the captured `de` and `ie` searches returned 24 items with `total_count: 4`. Only `/search` carries `facets`; category, brand and explore return `facets: null`. `pictures` holds the first 3 photos, `picture_count` all of them.
+Read an item as: the seller asks $11.00, a US buyer pays $5.99 shipping, total $16.99. `count` is 24 (the first 24 results); `total_count` (9,145) is Depop's approximate count of matches, not what the answer holds. `total_count` can be off on small result sets: the captured `de` and `ie` searches returned 24 items with `total_count: 4`. Only `/search` carries `facets`; category, brand and explore return `facets: null`. `pictures` holds the first 3 photos, `picture_count` all of them.
 
 ### Product
 
@@ -382,7 +382,7 @@ Captured `data` (US, 2026-11-18, 1 credit; 4 of 5 pictures and the notes dropped
 }
 ```
 
-The seller marked it down 40% from $6.00 to $3.60 (`discounted`, `original_price`, `discount_percentage`). `price` is what a buyer in `country` sees; `listing_price` is the seller's own currency and price, and differs from `price.currency` when the buyer market is another country. `shipping.method`, `parcel_size` and `payer` were `null` on every captured non-US product; `national_cost` came back on all 9. `status` is `sold` on a sold listing. Listing dates and views are not shown here (`/shop-products` has `created_at` and `updated_at`).
+The seller marked it down 40% from $6.00 to $3.60 (`discounted`, `original_price`, `discount_percentage`). `price` is what a buyer in `country` sees; `listing_price` is the seller's own currency and price, and differs from `price.currency` when the buyer market is another country. `shipping.method`, `parcel_size` and `payer` were `null` on every captured non-US product; `national_cost` (the seller's domestic shipping rate, which can differ from `price.shipping`, the shipping the buyer pays) came back on all 9. `seller.country` is the seller account's country. `status` is `sold` on a sold listing. Listing dates and views are not shown here (`/shop-products` has `created_at` and `updated_at`).
 
 ### Shop sold
 
@@ -410,7 +410,6 @@ Captured `data` (2026-11-18, 1 credit; 1 of 24 items and 1 of 2 pictures shown):
       "group": "tops",
       "product_type": "tshirts",
       "status": "sold",
-      "seller_country": "us",
       "pictures": ["https://media-photos.depop.com/b1/46847613/5229284382_3272e2d2da124299b8358a41d2a28954/P0.jpg"],
       "picture_count": 2,
       "sizes": [{ "id": 6, "name": "XL", "quantity": 1, "status": "sold" }],
@@ -443,12 +442,12 @@ Captured `data` (2026-11-18, 1 credit; 1 of 24 items and 1 of 2 pictures shown):
   "next_cursor": "MTAwMzM5Mjg3OXwyMDI2LTExLTE3VDAyOjMyOjU0LjQwNDIyNzAwMFp8MjQ",
   "notes": [
     "Shop data is global (one record for every market). Prices are in the seller's listing currency, with the buyer fee, tax and shipping of a US buyer view.",
-    "updated_at is when the listing last changed; Depop shows no sale date."
+    "status sold = sold on Depop; marked_as_sold = the seller marked it sold (may be outside Depop, so its price may not be a Depop sale). updated_at is when the listing last changed; Depop shows no sale date."
   ]
 }
 ```
 
-Read it as: listed at $4.00, marked down 35%, sold at $2.60. `updated_at` is the last change to the listing, not the sale date; say "last updated" when quoting it. `like_count` was `null` on every shop-products, shop-sold and similar item in the captures (search items carry it). `/shop-products` has the same shape for the shop's listings for sale (`status: "on_sale"`).
+Read it as: listed at $4.00, marked down 35%, sold on Depop at $2.60. `status` is `sold` for a sale on Depop and `marked_as_sold` when the seller marked the listing sold, which may have happened outside Depop (all 24 on this captured page were `sold`). Shop lists carry no `buyer_market_price`. `updated_at` is the last change to the listing, not the sale date; say "last updated" when quoting it. `like_count` was `null` on every shop-products, shop-sold and similar item in the captures (search items carry it). `/shop-products` has the same shape for the shop's listings for sale (`status: "on_sale"`).
 
 ### Shop
 
@@ -468,7 +467,7 @@ Captured `data` (2026-11-18, 1 credit; 1 of 4 departments and 2 of its categorie
   "url": "https://www.depop.com/flomem/",
   "bio": "Some y2k pieces",
   "verified": false,
-  "followers": 101,
+  "followers": 102,
   "following": 48,
   "reviews_rating": 4.9,
   "reviews_total": 123,
@@ -612,12 +611,12 @@ Captured `data` (US, 2026-11-18, 1 credit; the 24 items, which have the search i
   "filters": {},
   "items": [],
   "count": 24,
-  "total_count": 1568810,
+  "total_count": 1569103,
   "facets": null
 }
 ```
 
-`/brand` with `{"slug": "carhartt"}` answers the same shape with `brand: {"id": 1673, "name": "Carhartt", "slug": "carhartt"}` (captured: 23 items, `total_count` 354624). `/explore` with `{"slug": "90s-menswear"}` adds `title` ("'90s Menswear"), `search_query` (`?q=90s+vintage&gender=male`, the search the page runs) and `more_slugs` (108 other explore pages on `us` in the capture).
+`/brand` with `{"slug": "carhartt"}` answers the same shape with `brand: {"id": 1673, "name": "Carhartt", "slug": "carhartt"}` (captured: 23 items, `total_count` 354626). `/explore` with `{"slug": "90s-menswear"}` adds `title` ("'90s Menswear"), `search_query` (`?q=90s+vintage&gender=male`, the search the page runs) and `more_slugs` (108 other explore pages on `us` in the capture).
 
 ### Suggestions and shops search
 
@@ -644,7 +643,7 @@ Captured `data` (US, 2026-11-18, 1 credit; 3 of 10 suggestions shown):
 }
 ```
 
-`/shops-search` with `{"query": "y2k"}` returned 5 shops (`shop_id`, `username`, `url`), for example `{"shop_id": 14055622, "username": "y2kfitz", "url": "https://www.depop.com/y2kfitz/"}`. Use `/shop` for a shop's stats.
+`/shops-search` with `{"query": "y2k"}` returned 5 shops (`shop_id`, `username`, `url`), for example `{"shop_id": 444458094, "username": "y2kvault013", "url": "https://www.depop.com/y2kvault013/"}`. Use `/shop` for a shop's stats.
 
 ### Similar
 
@@ -655,7 +654,7 @@ curl -X POST https://api.scavio.dev/api/v1/depop/similar \
   -d '{"product_id": 1002884801}'
 ```
 
-Returned 23 listings in the search item shape plus `created_at` and `updated_at`. In the capture 8 of the 23 were `boosted: true` (listings their sellers promote).
+Returned 23 listings in the search item shape plus `created_at` and `updated_at`. In the capture 9 of the 23 were `boosted: true` (listings their sellers promote).
 
 ### Python
 
@@ -692,6 +691,8 @@ while len(sold) < 72:
         break
     cursor = page["next_cursor"]
 for s in sold:
+    if s["status"] != "sold":  # marked_as_sold may be a sale outside Depop
+        continue
     print(s["price"]["price"], s["price"]["original_price"], s["price"]["currency"], s["title"], "last updated", s["updated_at"])
 ```
 
@@ -699,7 +700,7 @@ for s in sold:
 
 Every response uses the envelope `{ data, response_time, fetched_at, credits_used, credits_remaining }`. Everything is fetched when the request asks for it; nothing is cached. `notes` explains anything market-specific.
 
-- **listing item** (search, category, brand, explore, similar, shop-products, shop-sold) - `product_id`, `slug`, `url`, `title`, `description`, `brand` {`id`, `name`, `slug`}, `category`, `group`, `product_type`, `status` (`on_sale`, `sold`), `seller_country`, `pictures[]` (first 3), `picture_count`, `sizes[]` {`id`, `name`, `quantity`, `status`}, `condition`, `colors[]`, `gender`, `kids`, `like_count`, `boosted`, `discounted`, `discount_percentage`, `price` {`currency`, `price`, `original_price`, `buyer_fee`, `tax`, `tax_type`, `shipping`, `shipping_boundary`, `total`, `headline_price`}; plus `created_at`, `updated_at` on similar, shop-products and shop-sold.
+- **listing item** (search, category, brand, explore, similar, shop-products, shop-sold) - `product_id`, `slug`, `url`, `title`, `description`, `brand` {`id`, `name`, `slug`}, `category`, `group`, `product_type`, `status` (`on_sale`; on shop-sold `sold` or `marked_as_sold`), `pictures[]` (first 3), `picture_count`, `sizes[]` {`id`, `name`, `quantity`, `status`}, `condition`, `colors[]`, `gender`, `kids`, `like_count`, `boosted`, `discounted`, `discount_percentage`, `price` {`currency`, `price`, `original_price`, `buyer_fee`, `tax`, `tax_type`, `shipping`, `shipping_boundary`, `total`, `headline_price`}; plus `buyer_market_price` on search, category, brand, explore and similar; plus `created_at`, `updated_at` on similar, shop-products and shop-sold. No seller country (product has `seller.country`).
 - **search** - `query`, `country`, `currency`, `sort`, `filters`, `items[]`, `count`, `total_count`, `facets` {`total`, `departments[]` {`id`, `count`, `groups[]`, `product_types[]`}, `brands[]`, `colors[]`, `conditions[]`, `sizes[]`, each {`id`, `count`}}, `notes[]`.
 - **category** - `category` {`department`, `group`, `product_type`, `path`}, `country`, `currency`, `sort`, `filters`, `items[]`, `count`, `total_count`, `facets` (`null`), `notes[]`.
 - **brand** - `brand` {`id`, `name`, `slug`} and the category fields.
@@ -718,10 +719,10 @@ Every response uses the envelope `{ data, response_time, fetched_at, credits_use
 
 - Search, category, brand and explore return the first 24 results per query, sort and filter set; there is no `page` parameter and Depop serves no next page. Never call 24 items "all listings" or "every result", and never present `total_count` as the number of items returned. To cover more, run narrower slices (brand, condition, product type, price range).
 - `price_asc` / `price_desc` return Depop's first 24 for that order, put in strict listing-price order, with listings priced in another currency than the market's last. They are the 24 cheapest or dearest Depop chose to show, not a sorted catalog.
-- Sold prices come per shop from `/shop-sold`. There is no keyword search of sold listings, so never present one shop's sales as Depop-wide sold comps, and never invent a sale date: `updated_at` is when the listing last changed, `created_at` when it was listed.
-- `price` is what a buyer in `country` pays: listing price plus `buyer_fee`, `tax` (`tax_type` names it) and `shipping` (`shipping_boundary` national or international) make `total`. `headline_price` is Depop's headline and can leave out shipping. Say which field you quote.
-- The US buyer fee is not stable on Depop's side: Depop returns it on some calls and not on others for the same kind of listing. In the 2026-11-18 US captures, every item on the category, explore and similar answers carried a `buyer_fee`, and none on the search and brand answers. Report the `buyer_fee` Depop returned; never promise a fee or compute one.
-- `price.currency` is the listing's currency, which can differ from the market's (`fr` 1 of 24, `it` 2 of 24 in USD in the capture). On `/product`, `listing_price` is the seller's own price and currency. Convert explicitly, with the rate and its date, before comparing.
+- Sold prices come per shop from `/shop-sold`. There is no keyword search of sold listings, so never present one shop's sales as Depop-wide sold comps, and never invent a sale date: `updated_at` is when the listing last changed, `created_at` when it was listed. A `marked_as_sold` item was marked sold by the seller and may not be a Depop sale: keep it apart from `sold`.
+- `price` is what Depop shows a buyer in `country`: `total` is Scavio's sum of the listing price, `buyer_fee`, `tax` (`tax_type` names it) and `shipping` (what the buyer pays; `shipping_boundary` national or international). `headline_price` is the price Depop itself headlines in that market (`us` leaves out shipping, `gb` includes the fee and shipping). Say which field you quote.
+- The US buyer fee is not stable on Depop's side: Depop returns it on some calls and not on others for the same kind of listing. In the 2026-11-18 US captures, every item on the brand and shop-products answers carried a `buyer_fee` and none on search, category, explore, similar and shop-sold; an earlier capture the same day had it on category, explore and similar and not on brand or shop-products. Report the `buyer_fee` Depop returned; never promise a fee or compute one.
+- `price.currency` is the listing's currency, which can differ from the market's (`fr` 1 of 24, `it` 2 of 24 in USD in the capture; those items carry `buyer_market_price: false`). On `/product`, `listing_price` is the seller's own price and currency. Convert explicitly, with the rate and its date, before comparing.
 - Product costs 2 credits on `gb`, `au`, `ie`, `ca`, `de`, `fr`, `it` and 6 on `nz`; search, category, brand and explore cost 5 on `nz`. Tell the user before a loop of product calls outside the US or any `nz` loop.
 - `size` is partly honoured by Depop: check each item's `sizes` before calling a result set size-filtered.
 - Titles and descriptions are the seller's own words in the seller's language; Depop's interface strings are English everywhere. Do not translate prices or sizes from a description into structured fields.
@@ -744,8 +745,8 @@ Every response uses the envelope `{ data, response_time, fetched_at, credits_use
 ## SDKs
 
 ```bash
-pip install scavio==0.68.0
-npm install scavio@0.69.0
+pip install scavio==0.68.1
+npm install scavio@0.69.1
 ```
 
 ```js
@@ -779,7 +780,7 @@ The Scavio MCP server exposes all fourteen endpoints as tools: `search_depop`, `
   "mcpServers": {
     "scavio": {
       "command": "npx",
-      "args": ["-y", "@scavio/mcp-server@0.68.0"],
+      "args": ["-y", "@scavio/mcp-server@0.68.1"],
       "env": {
         "SCAVIO_API_KEY": "sk_live_your_key",
         "SCAVIO_PLATFORMS": "default,depop"
