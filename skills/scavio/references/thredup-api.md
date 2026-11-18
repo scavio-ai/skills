@@ -125,7 +125,7 @@ Every list endpoint returns all three by default (the answer's `filters.seller_t
 | `price_min` / `price_max` | number | none | Whole USD. Approximate: thredUP matches the filter on an item's base price, so an item can show slightly outside the range (a 0-10 range returned items at 11.99-12.99). `under_10` sets its own range and takes neither |
 | `clearance` | boolean | false | Only clearance items |
 | `seller_type` | string or array | all three | `thredup`, `direct_listing`, `dropship` |
-| `sort` | string | `default` | `default` (the page's own order: relevance for a search, recommended for a list, price drop for sold; the answer's `sort` says which), `recommended`, `relevance`, `newest`, `price_high`, `price_low`, `price_drop` (recently discounted). `new_arrivals` and `price_drops` take no `sort` |
+| `sort` | string | `default` | `default` (the page's own order: relevance for a search, recommended for a list, price drop for sold, where thredUP applies no other sort; the answer's `sort` says which), `recommended`, `relevance`, `newest`, `price_high`, `price_low`, `price_drop` (recently discounted). `new_arrivals` and `price_drops` take no `sort` |
 | `page` | integer | 1 | 119 items per page, 1-21 (a later page answers `400`, not charged) |
 
 ### Product (`/product`) and similar (`/similar`)
