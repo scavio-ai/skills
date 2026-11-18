@@ -1273,6 +1273,18 @@
       "credits": "1; store stock by product 2; prices 1 per market"
     },
     {
+      "dir": "scavio-depop",
+      "slug": "depop-api",
+      "name": "depop-api",
+      "display": "Depop API - Listings, Shop Sold Prices, Seller Reviews",
+      "query": "depop api",
+      "reused": "no",
+      "platform": "Depop",
+      "group": "Commerce",
+      "endpoints": "14",
+      "credits": "1; product 2 outside the US; nz 5, product 6"
+    },
+    {
       "dir": "scavio-zillow",
       "slug": "zillow-property-data",
       "name": "zillow-property-data",
@@ -1827,6 +1839,11 @@
       "dir": "scavio-uniqlo",
       "description": "Uniqlo API for Uniqlo prices by country, Japan vs the rest: one uniqlo.com product id (E479000-000, the same id in every uniqlo.com market) priced in up to 10 markets per call, each in its own currency and never converted, with the promo price, limited-offer and sale flags (Uniqlo's own offer labels), tax inclusive or exclusive and the markets that do not sell it. On the US, Japan, South Korea and Canada (and on some items Singapore, Malaysia and India) a limited offer or sale shows as flags only (promo price equals price, no was-price); in Europe, Australia and most of Southeast Asia the promo price is below the regular price, with the 30-day lowest price where Uniqlo shows it. Price group 01, mostly Select Colors/Sizes Only sale prices, can be read with product. Online stock of every colour and size (status and quantity, capped at 11), stock status of one variant (with its price group) in up to 10 stores near a point, stores with address, phone and opening hours, customer reviews with rating, fit (1 tight to 5 loose), purchased size and colour, height, weight and age ranges (no reviewer names or locations; European markets share one rating pool), keyword search sorted by price, newest or rating and filtered by gender, category, colour, size, flag or price range, one product in full with description, composition, washing, country of origin, category, colours, sizes, rating and size chart link, category lists, the sale and limited-offer lists, new arrivals, the category tree and search suggestions or trending search words. Every endpoint on the US, Japan and South Korea; search and product on Uniqlo's Greater China sites (Taiwan, Hong Kong, China; their own product codes, Chinese titles); product and prices on 35 more storefronts: the UK, Canada, Australia, India, Indonesia, Malaysia, the Philippines, Singapore, Thailand, Vietnam, Germany, France, Spain, Italy, the Netherlands, Belgium, Denmark, Sweden and Uniqlo's EU store in euros for 17 more EU countries. 12 endpoints, 1 credit per call, store stock by product, colour and size 2, prices 1 per market. No price history (poll and store), no store-level prices; GU is a separate brand, not a separate platform here. Uniqlo and Fast Retailing publish no public product data API.",
       "tags": "uniqlo, uniqlo-api, uniqlo-product-data, uniqlo-product-api, uniqlo-prices, uniqlo-prices-by-country, uniqlo-japan-prices, uniqlo-price-api, uniqlo-sale, uniqlo-limited-offer, uniqlo-stock, uniqlo-stock-by-size, uniqlo-store-stock, uniqlo-stores, uniqlo-reviews, uniqlo-fit-reviews, uniqlo-new-arrivals, uniqlo-black-friday, heattech, fast-retailing, fashion, fashion-prices, clothing-prices, apparel, retail, price-comparison, price-monitoring, price-tracker, multi-country, regional-pricing, product-reviews, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-depop",
+      "description": "Depop API for Depop resale prices: what Depop listings ask in each of its 9 storefronts (US, UK, Australia, Ireland, Canada, New Zealand, Germany, France, Italy), priced the way Depop shows them to a buyer in that market (listing price, original price, buyer fee, tax, shipping and the total; the currency is the listing's, and a few sellers list in another one), from keyword search, a category path, a brand page or a curated explore page with filters for brand, condition, colour, price range, marked-down, gender, group and product type, kids and size, sorted by relevance or price, with facet counts. Search, category, brand and explore return the first 24 results per query, sort and filter set: Depop serves no next page, so narrow with filters or a price range. One listing in full by slug, link or product id with description, hashtags, condition, sizes, shipping, likes, markdown, the buyer-market price and the seller's own listing price, and the seller summary (rating, reviews, items sold, last seen). A shop's profile (rating, review total, items sold, followers, listings per category), its listings for sale and its sold listings with the price they sold at and any markdown, cursor-paged 24 at a time (Depop shows no sale date, only when the listing last changed), and the reviews it received as a seller or buyer (no reviewer names). Plus shop search by username, the category tree with names in English, German, French or Italian, the brand list, search suggestions and similar listings (US). 14 endpoints, 1 credit per call; product 2 outside the US; New Zealand 5, product 6. Not available: keyword sold search (sold prices come per shop), results past the first 24, views, join date, price history (poll and store). Depop's Selling API is private, for high-volume sellers and partners managing their own listings and orders, with no marketplace search.",
+      "tags": "depop, depop-api, depop-prices, depop-price-check, depop-resale-prices, depop-sold, depop-sold-prices, depop-sold-items, depop-search, depop-listings, depop-shop, depop-seller, depop-seller-reviews, depop-reviews, depop-brands, depop-categories, depop-scraper, depop-vs-vinted, resale, reseller, resale-prices, secondhand-fashion, second-hand, vintage, streetwear, y2k, marketplace, fashion, clothing, multi-country, seller-reputation, price-research, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-zillow",
