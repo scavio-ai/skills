@@ -100,6 +100,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Spec's | [specs-liquor-prices](references/specs-liquor-prices.md) | 3 | 5 |
 | Target | [target-product-data](references/target-product-data.md) | 5 | 1 |
 | TCGplayer | [tcgplayer-api](references/tcgplayer-api.md) | 13 | 1 |
+| thredUP | [thredup-api](references/thredup-api.md) | 12 | 1 |
 | TikTok Shop | [tiktok-shop-api](references/tiktok-shop-api.md) | 8 | 1 |
 | Trendyol | [trendyol-api](references/trendyol-api.md) | 12 | 1 |
 | Ulta Beauty | [ulta-beauty-api](references/ulta-beauty-api.md) | 4 | 1 |

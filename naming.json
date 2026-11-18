@@ -1297,6 +1297,18 @@
       "credits": "1"
     },
     {
+      "dir": "scavio-thredup",
+      "slug": "thredup-api",
+      "name": "thredup-api",
+      "display": "thredUP API - Prices, Estimated Retail, Sold Listings",
+      "query": "thredup api",
+      "reused": "no",
+      "platform": "thredUP",
+      "group": "Commerce",
+      "endpoints": "12",
+      "credits": "1"
+    },
+    {
       "dir": "scavio-zillow",
       "slug": "zillow-property-data",
       "name": "zillow-property-data",
@@ -1861,6 +1873,11 @@
       "dir": "scavio-poshmark",
       "description": "Poshmark API for Poshmark sold prices: sold Poshmark listings by keyword on Poshmark US (poshmark.com, USD) and Poshmark Canada (poshmark.ca, CAD) with the price shown on the sold listing (offers are private and not returned) and the date Poshmark marked it sold, filtered by brand, department, category, subcategory, size, condition (new with tags, boutique, like new, good, fair), colour and price range and sorted by relevance, newest, price, price drop or likes, up to 480 sold listings per query and filter combination (10 pages of 48; narrow with filters or price bands to reach more). Active listings for the same query, up to about 5,000 per query, with the original price the seller entered, the price the listing was first listed at and Poshmark's price-drop badge, plus facet counts by brand, colour and category. One listing in full by listing id or link with description, condition, sizes with quantity available and sold, shipping, bundle offer, likes, comments (no authors) and the seller's closet stats; listing ids and closets are global and answer in the listing's own currency. Category and brand grids (available, sold or all), a closet's profile (items sold, orders shipped, followers, Posh Ambassador, last active, Love Notes count), its listings for sale or sold, and its latest 100 Love Notes (no buyer names). Plus closet search by username, the category tree, the top 50 brands, brand suggestions, Posh Parties with their listings and similar listings. 15 endpoints, 1 credit per call. Not available: sold results past 480 per query and filter combination, Love Notes past 100, Posh Shows, trending searches, offers, bundles, price history (poll and store). Poshmark has no public developer API.",
       "tags": "poshmark, poshmark-api, poshmark-sold, poshmark-sold-prices, poshmark-sold-listings, poshmark-price, poshmark-prices, poshmark-price-check, poshmark-comps, poshmark-search, poshmark-listings, poshmark-closet, poshmark-seller, poshmark-love-notes, poshmark-original-price, poshmark-price-drop, poshmark-nwt, poshmark-canada, poshmark-parties, poshmark-brands, poshmark-categories, poshmark-scraper, poshmark-vs-depop, resale, reseller, resale-prices, sold-comps, secondhand-fashion, second-hand, marketplace, fashion, clothing, price-research, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-thredup",
+      "description": "thredUP API for thredUP prices: each item's price on thredUP's US store (thredup.com, USD; thredUP ships to the US and Canada from it), the estimated original retail (thredUP's estimate on items thredUP prices, entered by the seller on Direct Listings) and the percent off computed from the two, the condition (new with tags, excellent, very good, good, flawed) and the flaws thredUP noted, measurements, materials, fit and who priced the item (thredUP, a Direct Listing peer seller or a dropship partner). Keyword search (semantic: use the brand filter for one brand), 119 items per page up to page 21 (about 2,500 items per query and filter combination; the total reads 10,000+ at most), filtered by department, brand, category, size, condition, colour, material, pattern, price range (approximate), clearance and seller type and sorted by relevance, recommended, newest, price or recently discounted. Sold listings by brand or category (no keyword) with the price the item last listed at; thredUP shows no sold date. Category and brand grids, the deal collections (clearance, under $10, new arrivals, price drops), one item in full by item number or link with condition notes, measurements, characteristics, pictures and Direct Listing shipping and buyer protection, Rescue boxes with their bundle prices, one department's categories and filter values (sizing ids, conditions, colours, materials, patterns, price ranges), the brand directory by term or letter, search suggestions, trending searches and the first 120 similar items. 12 endpoints, 1 credit per call. Departments: women, girls, boys, handbags, shoes, designer, plus, juniors, maternity, accessories (no men's department). Not available: product reviews, seller shops, sold dates, men's clothing, payout data, price history (poll and store). thredUP has no public developer API.",
+      "tags": "thredup, thredup-api, thredup-prices, thredup-price, thredup-price-check, thredup-estimated-retail, thredup-percent-off, thredup-sold, thredup-sold-listings, thredup-search, thredup-listings, thredup-sale, thredup-clearance, thredup-deals, thredup-price-drops, thredup-rescue-box, thredup-direct-listing, thredup-brands, thredup-categories, thredup-condition, thredup-measurements, thredup-vs-poshmark, resale, reseller, resale-prices, secondhand-fashion, second-hand, thrift, marketplace, fashion, clothing, price-research, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-zillow",
