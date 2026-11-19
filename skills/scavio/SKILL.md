@@ -69,6 +69,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | eBay | [ebay-product-data](references/ebay-product-data.md) | 3 | 1 |
 | Etsy | [etsy-product-data](references/etsy-product-data.md) | 5 | 2 |
 | Fanatics | [fanatics-merchandise-api](references/fanatics-merchandise-api.md) | 5 | 1 |
+| Fashion Nova | [fashion-nova-api](references/fashion-nova-api.md) | 7 | 1 |
 | Foot Locker | [foot-locker-api](references/foot-locker-api.md) | 10 | 1 |
 | Google Shopping | [google-shopping-api](references/google-shopping-api.md) | 3 | 1 |
 | H&M | [hm-api](references/hm-api.md) | 9 | 1; product 2 |
