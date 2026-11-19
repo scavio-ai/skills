@@ -1,15 +1,15 @@
 # Fashion Nova API - Sale Prices, Sizes in Stock, Reviews
 
-Read Fashion Nova's own online store (fashionnova.com) in any of its 104 country storefronts: keyword search, any collection to full depth, one style in full with every colour and size, its reviews, the category tree, search suggestions and similar styles. All 7 endpoints return structured JSON at 1 credit per call.
+Read Fashion Nova's own online store (fashionnova.com) in any of its 104 country storefronts: keyword search, any collection page by page, one style in full with every colour and size, its reviews, the category tree, search suggestions and similar styles. All 7 endpoints return structured JSON at 1 credit per call.
 
 **The job this skill is for: Fashion Nova sale prices.** Each style's `price`, the `compare_at` price (the struck-through price the site shows), `percent_off` computed by Scavio from the two, the `final_sale` flag and the stock of every size, in the storefront's own currency, on a dated read.
 
 Five limits shape every answer, so say them plainly:
 - **Search is 60 per page, pages 1-18 (1-6 under a sort other than `featured`), and is matched loosely.** Fashion Nova's search is semantic: its `total` moves between calls, page 2 can repeat a few items of page 1, and loosely related items show up further down. Never call a search answer "all products". Narrow with filters, or browse a collection.
-- **Collections page through to full depth** (60 per page, up to page 200; `has_more` says when the list ends). Use them for complete lists: `sale`, `best-sellers`, `new`, `back-in-stock`, `womens-novadeals` (the Black Friday Deals link) or any category handle.
+- **Collections page through up to about 10,000 products** (60 per page, pages 1-166; `total` can be larger, `has_more` says when the list ends and is `false` at page 166). Consecutive pages can repeat a few products while the list moves: dedupe by `product_id` + `color`. Use them for complete lists: `sale`, `best-sellers`, `new`, `back-in-stock`, `womens-novadeals` (the Black Friday Deals link) or any category handle.
 - **No compare-at price in the 27 EEA countries.** There Fashion Nova shows VAT-inclusive prices and no struck-through price, so `compare_at` and `percent_off` are `null` and `on_sale` is `false`. That is not "no discount": it is a price the site shows without a "was" price.
 - **Stock is per size, as Fashion Nova's page shows it.** `quantity` is the number the page carries and `low_stock` is the site's own flag. Never promise exact inventory.
-- **Reviews are one English pool shared by every storefront**, 10 per page, pages 1-8 per sort and star filter. No reviewer names are returned.
+- **Reviews are per style, not per colour, in one pool shared by every storefront** (mostly English; `language` on each review says which), 10 per page, pages 1-8 per sort and star filter. `size_purchased` and `usual_size` are the reviewer's own free text. No reviewer names are returned.
 
 Fashion Nova has no public developer API or product feed. This skill reads the public fashionnova.com storefronts instead, with one Scavio key.
 
@@ -61,7 +61,7 @@ Base URL: `https://api.scavio.dev`. In the captures, search took 5 seconds, prod
 | Endpoint | What it returns |
 |---|---|
 | `POST /api/v1/fashionnova/search` | Styles for a keyword in one storefront, 60 per page (pages 1-18, 1-6 under a sort), with filters and sorts, plus the facets the answer offers. Matched loosely: narrow with filters |
-| `POST /api/v1/fashionnova/collection` | One collection by handle or link (sale, best-sellers, new, back-in-stock, womens-novadeals, jeans, dresses, mens, plus ...), 60 per page to full depth (up to page 200), same filters and sorts |
+| `POST /api/v1/fashionnova/collection` | One collection by handle or link (sale, best-sellers, new, back-in-stock, womens-novadeals, jeans, dresses, mens, plus ...), 60 per page, pages 1-166 (up to about 10,000 products), same filters and sorts |
 | `POST /api/v1/fashionnova/product` | One style by handle (+ colour) or link: every colour with every size (SKU, price, compare-at, quantity, low stock), rating with star histogram and fit, the first 3 reviews, Fashion Nova's own AI review summary, size guide, delivery estimate, promo line |
 | `POST /api/v1/fashionnova/reviews` | A page of a style's reviews, 10 per page (pages 1-8), sorted and filtered by star |
 | `POST /api/v1/fashionnova/categories` | The navigation for one division (women, men, curve) as collection handles, plus the site's trending searches |
@@ -87,7 +87,7 @@ Every endpoint costs **1 credit per call**. Each page is one call. A not-found (
 - **EEA (27, no compare-at):** `at`, `be`, `cy`, `cz`, `de`, `dk`, `ee`, `es`, `fi`, `fr`, `gr`, `hu`, `ie`, `is`, `it`, `lt`, `lu`, `lv`, `mt`, `nl`, `no`, `pl`, `pt`, `ro`, `se`, `si`, `sk`. Prices include VAT; `compare_at`, `percent_off` are `null` and `on_sale` is `false`. The non-EEA euro storefronts (`ad`, `mc`, `me`, `va`, `re`, `gp` ...) keep a compare-at price.
 - **Spanish (`language: "es"`) in 67 countries:** every country above except the 37 English-only ones (`us`, `zz` and the other USD territories listed first, except `xk`). Titles, descriptions, badges and the promo line come back in Spanish (in the captured `mx`/`es` product, `details` and `materials` stayed in English). Fashion Nova's own site defaults to Spanish in `cl`, `do`, `es`, `mx` and `pe`; Scavio's default stays `en` everywhere.
 - A country Fashion Nova does not run, or `es` where the storefront has no Spanish, answers `400` before anything is charged (the message lists the countries, or the storefront's languages).
-- `reviews` and `suggestions` take no `country`: one English review pool and one suggestion list serve every storefront. `categories` handles work in every storefront. `similar` answers from the US store in USD.
+- `reviews` and `suggestions` take no `country`: one review pool (per style, mostly English) and one suggestion list serve every storefront. `categories` handles work in every storefront. `similar` answers from the US store in USD.
 
 The same style in six storefronts (San Diego Sculpting Stretch Flare Jeans, Black Wash, captured 2026-11-19, `/product`):
 
@@ -104,8 +104,8 @@ The same style in six storefronts (San Diego Sculpting Stretch Flare Jeans, Blac
 
 - `price` is the price the site lists (the lowest size price on a style); `compare_at` is the struck-through price the site shows next to it.
 - `percent_off` is computed by Scavio: `round((1 - price / compare_at) * 100)`. `on_sale` is `true` when `compare_at` is above `price`. Both are `null` / `false` without a compare-at price (the EEA storefronts). Quote it as "computed from the price and the compare-at price".
-- `badge` is the site's own label (`60% OFF`, `DEALS`, `SNATCHED`, `NOVA LUXE`, `OFERTAS` in Spanish). It is a label, not a computed figure: use `percent_off` for numbers.
-- `price_with_code` is `{price, currency}`: the price the site shows with its current promo code, when it shows one; `price` stays the listed price. `promo` on a product is the site's promo line (captured: "Black Friday Deals Starting at $5! Prices as Marked").
+- `badge` is the site's own label (`60% OFF`, `DEALS`, `SNATCHED`, `NOVA LUXE`, `OFERTAS` in Spanish). It is a label, not a computed figure, and can read a different percent than the price: use `percent_off` for numbers.
+- `price_with_code` is `{price, currency}`: the price with Fashion Nova's current code as the page computes it (40% off `compare_at`), when the page carries one; `price` stays the listed price. On a style already marked down 40% or more it is at or above `price`, so the code does not lower the price: `code_lowers_price` says which (`true` when `price_with_code` is below `price`, `null` without a code price). On the captured bodycon dress page, 45 of 60 items carried a code price and 17 of those were not below the listed price. `promo` on a product is the site's promo line (captured: "Black Friday Deals Starting at $5! Prices as Marked").
 - `final_sale` marks items the site sells as final sale. On the captured `sale` collection page, all 60 items were final sale.
 
 ## Workflow
@@ -130,13 +130,13 @@ The same style in six storefronts (San Diego Sculpting Stretch Flare Jeans, Blac
 | `country` | string | `us` | See Markets |
 | `language` | string | `en` | `en` or `es` (where served) |
 | `sort` | string | `featured` | `featured`, `best_selling`, `price_low`, `price_high`, `newest` |
-| `size` | string or array | all | Sizes as the site writes them (`M`, `7`, `1X`), up to 15 (facet `size`) |
+| `size` | string or array | all | Sizes as the site writes them (`M`, `7`, `1X`), facet `size`: an array of up to 10, or up to 15 comma-separated in one string |
 | `color` | string or array | all | Colour families, up to 10: `black`, `blue`, `white`, `pink`, `brown`, `red`, `yellow`, `green`, `gray`, `purple`, `orange`, `gold`, `silver`, `nude`, `ivory` ... (facet `color`) |
 | `price_min` / `price_max` | number | none | Whole units of the storefront's currency |
 | `division` | string or array | all | `women` or `curve` (Fashion Nova's plus range) |
 | `category` | string or array | all | Categories as the site writes them (`Jeans`, `Dresses`, `Tops`), facet `category` |
 | `filters` | object | none | Any other facet by `facets[].name` -> value or list of values (`facets[].values[].value`), up to 10 facets, e.g. `{"fit_type": "Baggy", "rise": "High Rise"}`. Captured facet names: `occasion`, `sleeve`, `bottom_style`, `bottom_length`, `fabric`, `detail`, `neckline`, `fit_type`, `print`, `top_style`; others include `rise`, `stretch`, `wash`, `top_length`, `deals` |
-| `page` | integer | 1 | 60 per page. Search: 1-18, or 1-6 under a sort other than `featured`. Collection: 1-200 |
+| `page` | integer | 1 | 60 per page. Search: 1-18, or 1-6 under a sort other than `featured`. Collection: 1-166 |
 
 A facet name the list does not offer matches nothing: the answer has 0 items and lists the name in `unrecognized_filters`. Fix the name from `facets[]`.
 
@@ -171,7 +171,7 @@ curl -X POST https://api.scavio.dev/api/v1/fashionnova/search \
   -d '{"query": "bodycon dress"}'
 ```
 
-Captured `data` (2026-11-19, 1 credit; 1 of 60 items shown, 3 of 9 sizes and 2 of 5 colours kept, `image` and `facets` omitted):
+Captured `data` (2026-11-19, 1 credit; 2 of 60 items shown, 3 sizes and at most 2 colours each kept, `image` and `facets` omitted):
 
 ```json
 {
@@ -203,6 +203,7 @@ Captured `data` (2026-11-19, 1 credit; 1 of 60 items shown, 3 of 9 sizes and 2 o
       "on_sale": true,
       "currency": "USD",
       "price_with_code": { "price": 21, "currency": "USD" },
+      "code_lowers_price": true,
       "final_sale": false,
       "badge": "SNATCHED",
       "in_stock": true,
@@ -218,12 +219,43 @@ Captured `data` (2026-11-19, 1 credit; 1 of 60 items shown, 3 of 9 sizes and 2 o
         { "color": "Black", "color_slug": "black", "product_id": "6544132374652" },
         { "color": "Chocolate", "color_slug": "chocolate", "product_id": "6545011703932" }
       ]
+    },
+    {
+      "product_id": "6539429838972",
+      "handle": "kacy-mesh-mini-dress",
+      "color": "Brown/combo",
+      "color_slug": "brown-combo",
+      "title": "Kacy Mesh Mini Dress - Brown/combo",
+      "base_title": "Kacy Mesh Mini Dress",
+      "url": "https://www.fashionnova.com/products/kacy-mesh-mini-dress?color=brown-combo",
+      "product_type": "Dresses",
+      "price": 14.99,
+      "compare_at": 29.99,
+      "percent_off": 50,
+      "on_sale": true,
+      "currency": "USD",
+      "price_with_code": { "price": 18, "currency": "USD" },
+      "code_lowers_price": false,
+      "final_sale": false,
+      "badge": "50% OFF",
+      "in_stock": true,
+      "coming_soon": false,
+      "limited": false,
+      "sizes_in_stock": 7,
+      "sizes": [
+        { "size": "XS", "quantity": 231, "available": true, "low_stock": false },
+        { "size": "S", "quantity": 311, "available": true, "low_stock": false },
+        { "size": "M", "quantity": 584, "available": true, "low_stock": false }
+      ],
+      "colors": [
+        { "color": "Brown/combo", "color_slug": "brown-combo", "product_id": "6539429838972" }
+      ]
     }
   ]
 }
 ```
 
-Read the item as: listed at $23.99, compare-at $34.99, 31 percent off computed from the two, $21 with the site's current promo code. On this page all 60 items were `on_sale`, 5 were `final_sale`, and `percent_off` ran from 30 to 70 (median 40). The same query in `fr` returned this style at EUR 26.95 with `compare_at: null` and `percent_off: null` (EEA); in `mx` / `es` at MXN 450 against 656 as "Vestido Midi Ajustado Mallory Halter - Chocolate". `total` (372) is the search's count for this call; it moves between calls.
+Read the first item as: listed at $23.99, compare-at $34.99, 31 percent off computed from the two, $21 with the site's current code (below the listed price). The second is listed at $14.99, 50 percent off $29.99, and its code price ($18, 40% off the compare-at price) is above the listed price, so `code_lowers_price` is `false`: the code does not lower it. On this page all 60 items were `on_sale`, 6 were `final_sale`, and `percent_off` ran from 30 to 76 (median 40). The same query in `fr` returned this style at EUR 26.95 with `compare_at: null` and `percent_off: null` (EEA); in `mx` / `es` at MXN 450 against 656 as "Vestido Midi Ajustado Mallory Halter - Chocolate". `total` (372) is the search's count for this call; it moves between calls.
 
 ### Collection
 
@@ -234,7 +266,7 @@ curl -X POST https://api.scavio.dev/api/v1/fashionnova/collection \
   -d '{"handle": "sale"}'
 ```
 
-Captured (2026-11-19, 1 credit): `handle: "sale"`, `title: "Women's Clothing on Sale"`, `total` 365, `total_pages` 7, `has_more: true`, 60 items in the search item shape and 8 facets (`category`, `size`, `color`, `occasion`, `fabric`, `top_style`, `bottom_style`, `price`). The first item: Soft Days Plaid Blouse - Brown/combo at $10.98 against $27.99, `percent_off` 61, `final_sale: true`, badge `60% OFF`. On this page every item was `final_sale`, prices ran from $4.98 to $13.98 and `percent_off` from 60 to 62. A collection page can hold fewer than 60 items and still not be the last: follow `has_more`.
+Captured (2026-11-19, 1 credit): `handle: "sale"`, `title: "Women's Clothing on Sale"`, `total` 365, `total_pages` 7, `has_more: true`, 60 items in the search item shape and 8 facets (`category`, `size`, `color`, `occasion`, `fabric`, `top_style`, `bottom_style`, `price`). The first item: Soft Days Plaid Blouse - Brown/combo at $10.98 against $27.99, `percent_off` 61, `final_sale: true`, badge `60% OFF`. On this page every item was `final_sale`, prices ran from $4.98 to $13.98 and `percent_off` from 60 to 62. A collection page can hold fewer than 60 items and still not be the last: follow `has_more`. `total_pages` is approximate and can differ between pages of one collection; a collection lists up to about 10,000 products (166 pages), so on the biggest ones (`women`, `plus`) `total` is larger than what can be paged: narrow them with filters.
 
 ### Product
 
@@ -268,13 +300,14 @@ Captured `data` (2026-11-19, 1 credit; trimmed to the price, stock and review fi
   "percent_off": 49,
   "on_sale": true,
   "price_with_code": null,
+  "code_lowers_price": null,
   "promo": "Black Friday Deals Starting at $5! Prices as Marked",
   "final_sale": false,
   "badge": "DEALS",
   "in_stock": true,
   "sizes": [
     { "size": "00", "sku": "YJDM15HRSFL1_BlackWash_00", "price": 18, "compare_at": 34.99, "quantity": 23, "available": true, "low_stock": false },
-    { "size": "3", "sku": "YJDM15HRSFL1_BlackWash_3", "price": 18, "compare_at": 34.99, "quantity": 105, "available": true, "low_stock": false },
+    { "size": "3", "sku": "YJDM15HRSFL1_BlackWash_3", "price": 18, "compare_at": 34.99, "quantity": 103, "available": true, "low_stock": false },
     { "size": "14 Plus", "sku": "YJDM15HRSFL1_BlackWash_14 Plus", "price": 18, "compare_at": 34.99, "quantity": 0, "available": false, "low_stock": false }
   ],
   "rating": { "average": 4.5, "count": 602, "histogram": { "1": 29, "2": 10, "3": 42, "4": 70, "5": 451 }, "fit": "true_to_size", "fit_score": 2 },
@@ -285,14 +318,14 @@ Captured `data` (2026-11-19, 1 credit; trimmed to the price, stock and review fi
     "buy_if": "Buy this if you are looking for high-rise flare jeans with comfortable stretch, durable soft denim, and a long, flattering silhouette in a classic black wash."
   },
   "delivery": {
-    "standard": { "method": "3-7 Business Days", "from": "2026-11-25", "to": "2026-11-25", "order_by": "2026-11-18T20:00:00-08:00" },
+    "standard": { "method": "3-7 Business Days", "from": "2026-11-30", "to": "2026-11-30", "order_by": "2026-11-18T20:00:00-08:00" },
     "rush": { "method": "1-Day Shipping", "from": "2026-11-20", "to": "2026-11-20", "order_by": "2026-11-19T13:30:00-08:00" }
   },
   "default_collection": { "handle": "jeans", "title": "Fashion Nova Jeans" }
 }
 ```
 
-The 15 sizes ran from `00` to `22 Plus`: sizes `00` to `15` had 13 to 105 units, the five Plus sizes 0. `colors[]` holds every colour of the style (here Black Wash, Dark Wash and Light Wash, each at 18 against 34.99) with its own `sizes[]`, so one call prices every colour and size. `site_ai_review_summary` is Fashion Nova's own AI summary of its reviews (`summary`, `buy_if`, `topics`, `generated_at`), not Scavio's: label it so when quoting it. `delivery` is `null` where the site gives no estimate for the storefront (the `ca`, `gb` and `au` captures). `size_guide` is `{title, inches, cm}`, each a table of rows.
+The 15 sizes ran from `00` to `22 Plus`: sizes `00` to `15` had 13 to 103 units, the five Plus sizes 0. `colors[]` holds every colour of the style (here Black Wash, Dark Wash and Light Wash, each at 18 against 34.99) with its own `sizes[]`, so one call prices every colour and size. `site_ai_review_summary` is Fashion Nova's own AI summary of its reviews (`summary`, `buy_if`, `topics`, `generated_at`), not Scavio's: label it so when quoting it. `delivery` is `null` where the site gives no estimate for the storefront (the `ca`, `gb` and `au` captures). `size_guide` is `{title, inches, cm}`, each a table of rows.
 
 ### Reviews
 
@@ -394,9 +427,9 @@ for rv in low["reviews"]:
 
 Every response uses the envelope `{ data, response_time, fetched_at, credits_used, credits_remaining }`. Everything is fetched when the request asks for it; nothing is cached.
 
-- **item** (search, collection, similar) - `product_id`, `handle` (the style), `color`, `color_slug`, `title`, `base_title`, `url`, `product_type`, `price`, `compare_at`, `percent_off`, `on_sale`, `currency`, `price_with_code` {`price`, `currency`} or `null`, `final_sale`, `badge`, `in_stock`, `coming_soon`, `limited`, `sizes_in_stock`, `sizes[]` {`size`, `quantity`, `available`, `low_stock`}, `image`, `colors[]` {`color`, `color_slug`, `product_id`}.
-- **search / collection** - `query` (search) or `handle`, `title`, `description`, `url` (collection), then `country`, `language`, `currency`, `sort`, `filters`, `unrecognized_filters` (only when a facet name was not offered), `page`, `page_size` (60), `total`, `total_pages`, `has_more`, `count`, `items[]`, `facets[]` {`name`, `title`, `values[]` {`value`, `label`}}.
-- **product** - `country`, `language`, `currency`, `product_id`, `handle`, `color`, `color_slug`, `title`, `base_title`, `url`, `brand`, `division`, `product_type`, `description`, `details`, `materials`, `attributes` {category, occasion, fit_type, rise, stretch, print ...}, `model_height` (when the site gives it), `price`, `compare_at`, `percent_off`, `on_sale`, `price_with_code`, `promo`, `final_sale`, `badge`, `in_stock`, `coming_soon`, `limited`, `sizes[]` {`size`, `sku`, `price`, `compare_at`, `quantity`, `available`, `low_stock`}, `images[]`, `colors[]` {`product_id`, `color`, `color_slug`, `title`, `url`, `price`, `compare_at`, `percent_off`, `on_sale`, `currency`, `price_with_code`, `final_sale`, `badge`, `in_stock`, `coming_soon`, `image`, `sizes[]`}, `rating` {`average`, `count`, `histogram`, `fit`, `fit_score`}, `reviews[]` (the first 3), `site_ai_review_summary` {`summary`, `buy_if`, `topics`, `generated_at`}, `size_guide` {`title`, `inches`, `cm`}, `delivery` {`standard`, `rush`: {`method`, `from`, `to`, `order_by`}} or `null`, `default_collection` {`handle`, `title`}, `collections[]` {`handle`, `title`}.
+- **item** (search, collection, similar) - `product_id`, `handle` (the style), `color`, `color_slug`, `title`, `base_title`, `url`, `product_type`, `price`, `compare_at`, `percent_off`, `on_sale`, `currency`, `price_with_code` {`price`, `currency`} or `null`, `code_lowers_price` (`true` / `false`, `null` without a code price), `final_sale`, `badge`, `in_stock`, `coming_soon`, `limited`, `sizes_in_stock`, `sizes[]` {`size`, `quantity`, `available`, `low_stock`}, `image`, `colors[]` {`color`, `color_slug`, `product_id`}.
+- **search / collection** - `query` (search) or `handle`, `title`, `description`, `url` (collection), then `country`, `language`, `currency`, `sort`, `filters`, `unrecognized_filters` (only when a facet name was not offered), `page`, `page_size` (60), `total`, `total_pages` (approximate), `has_more`, `count`, `items[]`, `facets[]` {`name`, `title`, `values[]` {`value`, `label`}}.
+- **product** - `country`, `language`, `currency`, `product_id`, `handle`, `color`, `color_slug`, `title`, `base_title`, `url`, `brand`, `division`, `product_type`, `description`, `details`, `materials`, `attributes` {category, occasion, fit_type, rise, stretch, print ...}, `model_height` (when the site gives it), `price`, `compare_at`, `percent_off`, `on_sale`, `price_with_code`, `code_lowers_price`, `promo`, `final_sale`, `badge`, `in_stock`, `coming_soon`, `limited`, `sizes[]` {`size`, `sku`, `price`, `compare_at`, `quantity`, `available`, `low_stock`}, `images[]`, `colors[]` {`product_id`, `color`, `color_slug`, `title`, `url`, `price`, `compare_at`, `percent_off`, `on_sale`, `currency`, `price_with_code`, `code_lowers_price`, `final_sale`, `badge`, `in_stock`, `coming_soon`, `image`, `sizes[]`}, `rating` {`average`, `count`, `histogram`, `fit`, `fit_score`}, `reviews[]` (the first 3), `site_ai_review_summary` {`summary`, `buy_if`, `topics`, `generated_at`}, `size_guide` {`title`, `inches`, `cm`}, `delivery` {`standard`, `rush`: {`method`, `from`, `to`, `order_by`}} or `null`, `default_collection` {`handle`, `title`}, `collections[]` {`handle`, `title`}.
 - **review** - `id`, `rating`, `title`, `body`, `date`, `verified_buyer`, `votes_up`, `votes_down`, `fit` (`runs_small`, `true_to_size`, `runs_large`), `fit_score`, `size_purchased`, `usual_size`, `color_purchased`, `language`, `topics[]`. **reviews** - `handle`, `color_slug`, `sort`, `star`, `page`, `page_size` (10), `language` (`en`), `total`, `has_more`, `rating`, `count`, `reviews[]`.
 - **categories** - `division`, `count`, `collection_count`, `categories[]` {`name`, `handle`, `url`, `sections[]` {`name`, `items[]` {`name`, `handle`, `url`}}} (`handle` is `null` for a link that is not a collection), `trending_searches[]`.
 - **suggestions** - `query`, `division`, `count`, `queries[]`, `products[]` {`product_id`, `title`, `title_es`, `handle`, `color_slug`, `url`, `image`}, `collections[]` {`handle`, `title`}.
@@ -404,19 +437,19 @@ Every response uses the envelope `{ data, response_time, fetched_at, credits_use
 
 ## Guardrails
 
-- Search is semantic and capped: 18 pages of 60 (6 under a sort), a `total` that moves between calls, and items that can repeat across pages. Never call a search answer "all products" and never present `total` as what was returned. For complete lists use a collection and follow `has_more`; de-duplicate by `product_id` when combining search pages.
+- Search is semantic and capped: 18 pages of 60 (6 under a sort), a `total` that moves between calls, and items that can repeat across pages. Never call a search answer "all products" and never present `total` as what was returned. For complete lists use a collection and follow `has_more` (up to about 10,000 products, page 166); de-duplicate by `product_id` + `color` when combining search or collection pages.
 - `percent_off` is computed by Scavio from `price` and `compare_at`; say so. `badge` is the site's own label and can differ from it. In the 27 EEA storefronts there is no compare-at price: report `percent_off` as not available there, never as 0.
 - Prices are in each storefront's own currency and are not converted. Convert explicitly, with the rate and its date, before comparing storefronts. EEA prices include VAT.
 - `quantity` is the per-size number Fashion Nova's page shows and `low_stock` is the site's own flag: report them as what the page showed at `fetched_at`, never as guaranteed inventory.
-- Reviews: one English pool for every storefront; 80 reviews per sort and star combination; review totals as returned. Never return or try to identify reviewer names. `site_ai_review_summary` is Fashion Nova's own AI summary: label it as Fashion Nova's. If review moderation comes up: in January 2022 Fashion Nova paid $4.2 million to settle FTC allegations that it did not post reviews under four stars (FTC press release, January 25, 2022). Never imply anything about current reviews beyond what an answer shows.
-- `price_with_code` is the price with the site's current promo code, not what every buyer pays; `price` is the listed price.
-- Not available: a store locator (Fashion Nova lists no stores), a brand directory (everything is Fashion Nova's own brand), price history (poll and store), gift cards, new-arrival dates. This API cannot buy, add to cart or apply codes.
+- Reviews: one pool per style (every colour returns the same reviews), shared by every storefront and mostly English (`language` per review); `size_purchased` / `usual_size` are free text, normalise before counting; 80 reviews per sort and star combination; review totals as returned. Never return or try to identify reviewer names. `site_ai_review_summary` is Fashion Nova's own AI summary: label it as Fashion Nova's. If review moderation comes up: in January 2022 Fashion Nova paid $4.2 million to settle FTC allegations that it did not post reviews under four stars (FTC press release, January 25, 2022). Never imply anything about current reviews beyond what an answer shows.
+- `price_with_code` is the price with Fashion Nova's current code as the page computes it (40% off `compare_at`), not what every buyer pays; when `code_lowers_price` is `false` the code does not lower the price. `price` is the listed price.
+- Not available: a store locator (Fashion Nova lists no stores), a brand directory or brand filter (`brand` is the store's vendor field: collab and licensed brand names appear in titles), price history (poll and store), gift cards, new-arrival dates. This API cannot buy, add to cart or apply codes.
 - Terms: Scavio does not collect or store Fashion Nova data: each call fetches the public Fashion Nova page at the moment the request asks for it and returns what it shows as JSON, with no response cache. Fashion Nova's terms of service cover how its service may be used; read the current terms for your use case and get your own advice. This is not legal advice. Do not republish Fashion Nova product photos or logos; link styles by `url` instead.
 - Never fabricate prices, compare-at prices, stock, reviews or ratings. Only return what the API returned, with the currency, the `fetched_at` date and the item `url`.
 
 ## Failure handling
 
-- `400` means a missing or invalid parameter, and it is not charged: a country Fashion Nova does not run (the message lists the countries), `es` where the storefront has no Spanish, a `page` above the cap (search 18, or 6 under a sort; collection 200; reviews 8), a missing `query` on search or suggestions, both or neither of `handle` / `url`, a `handle` that is not a Fashion Nova handle, a `color` that is not a colour slug, a `url` that is not a fashionnova.com product or collection link, an unknown `sort`, `division` or `star`, `price_min` above `price_max`, more than 10 facets in `filters`, or a named input (`size`, `color`, `division`, `sort`, `page`, `query`, price) sent inside `filters`.
+- `400` means a missing or invalid parameter, and it is not charged: a country Fashion Nova does not run (the message lists the countries), `es` where the storefront has no Spanish, a `page` above the cap (search 18, or 6 under a sort; collection 166; reviews 8), a missing `query` on search or suggestions, both or neither of `handle` / `url`, a `handle` that is not a Fashion Nova handle, a `color` that is not a colour slug, a `url` that is not a fashionnova.com product or collection link, an unknown `sort`, `division` or `star`, `price_min` above `price_max`, more than 10 facets in `filters`, or a named input (`size`, `color`, `division`, `sort`, `page`, `query`, price) sent inside `filters`.
 - `401` means the API key is invalid or missing. Check `SCAVIO_API_KEY`.
 - `402` means the balance is out of credits. The body carries `billing_url`.
 - `404` means not found, and it is charged: "No Fashion Nova product with this handle (or this colour of it).", "No Fashion Nova collection with this handle (collection handles come from categories).", "No similar products for this product." Take handles and colour slugs from a previous answer rather than guessing them.
