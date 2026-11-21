@@ -1321,6 +1321,18 @@
       "credits": "1"
     },
     {
+      "dir": "scavio-argos",
+      "slug": "argos-stock-checker-api",
+      "name": "argos-stock-checker-api",
+      "display": "Argos Stock Checker API - Store Stock by Postcode, Prices, Reviews",
+      "query": "argos stock checker",
+      "reused": "no",
+      "platform": "Argos",
+      "group": "Commerce",
+      "endpoints": "10",
+      "credits": "2"
+    },
+    {
       "dir": "scavio-zillow",
       "slug": "zillow-property-data",
       "name": "zillow-property-data",
@@ -1895,6 +1907,11 @@
       "dir": "scavio-fashionnova",
       "description": "Fashion Nova API for Fashion Nova sale prices - each style's price, the compare-at (struck-through) price and the percent off computed from the two, the final-sale flag and per-size stock, in any of Fashion Nova's 104 countries in the local currency (37 currencies; English everywhere, Spanish in 67 countries). Keyword search (60 per page, up to page 18), any collection to full depth (sale, best sellers, new, back in stock, Black Friday deals), one style in full with every colour and size, reviews (10 per page, up to page 8, one English pool), the category tree, search suggestions and similar styles. 7 endpoints, 1 credit per call. In the 27 EEA countries there is no compare-at price, so no percent off. No stores, brand directory or price history (poll and store).",
       "tags": "fashion-nova, fashionnova, fashion-nova-api, fashion-nova-prices, fashion-nova-sale, fashion-nova-sale-prices, fashion-nova-black-friday, fashion-nova-deals, fashion-nova-compare-at, fashion-nova-percent-off, fashion-nova-final-sale, fashion-nova-stock, fashion-nova-sizes, fashion-nova-reviews, fashion-nova-search, fashion-nova-product-data, fashion-nova-collections, fashion-nova-curve, fast-fashion, fashion, clothing-prices, sale-prices, price-monitoring, price-tracker, multi-country, multi-currency, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-argos",
+      "description": "Argos stock checker API for Argos store stock - for 1 to 10 Argos products, which Argos stores near a UK postcode (up to 10 stores within 50 miles - standalone Argos stores, Argos inside Sainsbury's and collection points) can hand each one over (collect now, today, tomorrow, later, out of stock or not available, with the time) and whether it can be delivered to a postcode (same day, next day), next to the price, the was price, the saving computed from the two, Argos's offer text and badges (Black Friday, Price Guarantee). Availability states and collection times, not unit counts. Keyword search, category and deal lists (Black Friday, clearance, special offers, Top 100), 24 per page, filtered by brand, seller (Argos or Trusted Sellers), offers, price, rating and any facet; one product in full (Argos or Trusted Seller page); stores near a postcode with opening hours; reviews up to 100 per page with syndicated reviews flagged and Argos's own AI summary; customer Q&A; the department tree and search suggestions. argos.co.uk only (UK, GBP). 10 endpoints, 2 credits per call. No unit counts, price history (poll and store), Argos Ireland or checkout.",
+      "tags": "argos, argos-api, argos-uk, argos-stock, argos-stock-check, argos-stock-checker, argos-store-stock, argos-collection, argos-fast-track, argos-prices, argos-was-price, argos-black-friday, argos-price-guarantee, argos-clearance, argos-deals, argos-reviews, argos-questions, argos-stores, argos-trusted-sellers, argos-product-data, uk-retail, uk-postcode, store-stock, stock-checker, in-store-availability, price-monitoring, gbp, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-zillow",
