@@ -424,7 +424,6 @@ Captured `data` (2026-11-21, 2 credits; 1 of 20 reviews shown, `secondary_averag
   "summary_source": "Argos's own AI-generated summary of the reviews",
   "stats": {
     "product_name": "Ninja Foodi AF200UK 4-in-1 7.6L Air Fryer - Black",
-    "brand": "Ninja",
     "review_count": 1251,
     "average_rating": 4.85,
     "rating_distribution": { "1": 13, "2": 7, "3": 19, "4": 81, "5": 1131 },
