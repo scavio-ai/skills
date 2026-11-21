@@ -85,6 +85,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Lowe's | [lowes-product-data](references/lowes-product-data.md) | 4 | 2; reviews 1 |
 | Macy's | [macys-product-data](references/macys-product-data.md) | 9 | 1 |
 | Maisons du Monde | [maisons-du-monde-api](references/maisons-du-monde-api.md) | 9 | 1 |
+| Media Expert | [media-expert-api](references/media-expert-api.md) | 13 | 1; store-stock and categories 2, sorted or lazy lists 3 |
 | Menards | [menards-product-data](references/menards-product-data.md) | 3 | search 2; product 1, 2 with store_id; stores 1 |
 | Mercado Libre | [mercadolibre-product-data](references/mercadolibre-product-data.md) | 5 | 2; reviews 1 |
 | Mercari | [mercari-api](references/mercari-api.md) | 11 | 1 |

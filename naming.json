@@ -1333,6 +1333,18 @@
       "credits": "2"
     },
     {
+      "dir": "scavio-mediaexpert",
+      "slug": "media-expert-api",
+      "name": "media-expert-api",
+      "display": "Media Expert API - Black Week Prices, Omnibus Low, Store Stock",
+      "query": "media expert",
+      "reused": "no",
+      "platform": "Media Expert",
+      "group": "Commerce",
+      "endpoints": "13",
+      "credits": "1; store-stock and categories 2, sorted or lazy lists 3"
+    },
+    {
       "dir": "scavio-zillow",
       "slug": "zillow-property-data",
       "name": "zillow-property-data",
@@ -1912,6 +1924,11 @@
       "dir": "scavio-argos",
       "description": "Argos stock checker API for Argos store stock - for 1 to 10 Argos products, which Argos stores near a UK postcode (up to 10 stores within 50 miles - standalone Argos stores, Argos inside Sainsbury's and collection points) can hand each one over (collect now, today, tomorrow, later, out of stock or not available, with the time) and whether it can be delivered to a postcode (same day, next day), next to the price, the was price, the saving computed from the two, Argos's offer text and badges (Black Friday, Price Guarantee). Availability states and collection times, not unit counts. Keyword search, category and deal lists (Black Friday, clearance, special offers, Top 100), 24 per page, filtered by brand, seller (Argos or Trusted Sellers), offers, price, rating and any facet; one product in full (Argos or Trusted Seller page); stores near a postcode with opening hours; reviews up to 100 per page with syndicated reviews flagged and Argos's own AI summary; customer Q&A; the department tree and search suggestions. argos.co.uk only (UK, GBP). 10 endpoints, 2 credits per call. No unit counts, price history (poll and store), Argos Ireland or checkout.",
       "tags": "argos, argos-api, argos-uk, argos-stock, argos-stock-check, argos-stock-checker, argos-store-stock, argos-collection, argos-fast-track, argos-prices, argos-was-price, argos-black-friday, argos-price-guarantee, argos-clearance, argos-deals, argos-reviews, argos-questions, argos-stores, argos-trusted-sellers, argos-product-data, uk-retail, uk-postcode, store-stock, stock-checker, in-store-availability, price-monitoring, gbp, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-mediaexpert",
+      "description": "Media Expert API for Media Expert Black Week prices and store stock in Poland (mediaexpert.pl, PLN) - for any product, the price, the old (struck-through) price, the lowest price of the last 30 days that Media Expert shows next to a promotion (EU Omnibus Directive) and the code price with the discount code and its validity dates, plus Media Expert's stock indicator (a bucket such as 0, 2, 9 or 20, not a unit count) and the pickup-in-1-hour flag at the 40 Media Expert stores and pickup points nearest a Polish city, town or postcode. Keyword search, category, brand, outlet, promotion (Black Weeks) and marketplace-seller lists, 30 per page (up to 50), up to 100 pages, filtered by any facet; one product in full with specifications, variants, delivery labels and the seller (Media Expert or a marketplace seller with its rating); Media Expert's own reviews, up to 100 per page, with verified-purchase and promotional-campaign flags; every store with hours; the category tree, the brand directory and search suggestions. Data in Polish. 13 endpoints, 1 to 3 credits per call (actual cost). No Q&A, leaflets, price history, unit counts or checkout prices.",
+      "tags": "media-expert, mediaexpert, mediaexpert-pl, media-expert-api, media-expert-prices, media-expert-black-week, media-expert-black-friday, media-expert-omnibus, omnibus-price, 30-day-lowest-price, media-expert-code-price, media-expert-promotions, media-expert-store-stock, media-expert-click-and-collect, media-expert-stores, media-expert-reviews, media-expert-outlet, media-expert-marketplace, poland-electronics, polish-retail, poland-ecommerce, pln, consumer-electronics, home-appliances, store-stock, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-zillow",
