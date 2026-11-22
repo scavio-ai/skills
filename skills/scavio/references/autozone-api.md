@@ -4,7 +4,7 @@ Read AutoZone (autozone.com, the US auto parts retailer): the parts of a part ty
 
 This is the retail site autozone.com. It is not AutoZonePro (autozonepro.com, AutoZone's commercial login site for repair shops and fleets): commercial pricing is not read.
 
-**The job this skill is for: AutoZone parts prices by vehicle.** What fits a year / make / model, at what price at an AutoZone store, with the core charge, the warranty and pickup. Batteries first, then brake pads: on 2026-11-22 AutoZone listed 307 batteries unfiltered and 47 for a 2015 Honda Civic; the first, a Duralast Gold 51R (`51R-DLG`), read $219.99 plus a $22 core charge with "3 Year Warranty" and 6 for pickup, priced for AutoZone store 6229 in Phoenix, AZ.
+**The job this skill is for: AutoZone parts prices by vehicle.** What fits a year / make / model, at what price at an AutoZone store, with the core charge, the warranty and pickup. Batteries first, then brake pads: on 2026-11-22 AutoZone listed 307 batteries unfiltered and 47 for a 2015 Honda Civic (10 vehicle-specific; the other 37 are universal batteries AutoZone lists for every vehicle and marks MAY_NOT_FIT) - filter `universal_or_specific_fit_s: VEHICLE_SPECIFIC` for only the vehicle-specific ones; the first, a Duralast Gold 51R (`51R-DLG`), read $219.99 plus a $22 core charge with "3 Year Warranty" and 6 for pickup, priced for AutoZone store 6229 in Phoenix, AZ.
 
 Nine limits shape every answer, so say them plainly:
 - **1 credit per call; 2 on Brazil search, product and store stock.** A not-found (an unknown item id, an unknown vehicle, an unknown brand, state, city or store) is a `404` and is charged. A refused input (`400`) and an upstream failure (`502`, `503`) are not charged.
