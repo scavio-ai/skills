@@ -1369,6 +1369,18 @@
       "credits": "1"
     },
     {
+      "dir": "scavio-autozone",
+      "slug": "autozone-api",
+      "name": "autozone-api",
+      "display": "AutoZone API - Parts by Vehicle, Prices, Core Charges, Reviews",
+      "query": "autozone api",
+      "reused": "no",
+      "platform": "AutoZone",
+      "group": "Commerce",
+      "endpoints": "12",
+      "credits": "1; br search, product and store-stock 2"
+    },
+    {
       "dir": "scavio-zillow",
       "slug": "zillow-property-data",
       "name": "zillow-property-data",
@@ -1963,6 +1975,11 @@
       "dir": "scavio-hema",
       "description": "HEMA store stock API for HEMA (hema.com, the Dutch variety store) - for up to 12 HEMA article numbers per call, the sellable units HEMA's store service reports at each store near a city, postcode or point (or across a country) with HEMA's stock level (full, regular or limited), shelf locations, address, opening hours, special hours and distance, in the Netherlands, Belgium, France, Germany, Luxembourg and Austria; one product in full with EAN, colour and size variants, online stock, order limit and HEMA's dated price schedule including upcoming promotions, with the mechanics as HEMA writes them (2+1 gratis, 2+2 gratis, 3+1 offert); the same article number priced on each webshop (nl, be in Dutch or French, fr, de; all EUR, prices set per market); keyword search, category, new-arrival and sale lists, 24 per page with total and pages, sorted by price, newest or best selling and filtered by any facet; HEMA's weekly offers page (nl, be) with its validity date and offer week; the Christmas and Sinterklaas campaign pages; HEMA's own product reviews (one Dutch pool for nl, fr and de, a Belgian pool for be; no reviewer names); every HEMA store of a country with hours and services; the category menu and search suggestions. Data in each market's language. 13 endpoints, 1 credit per call. No price history, brands endpoint or checkout.",
       "tags": "hema, hema-com, hema-nl, hema-api, hema-store-stock, hema-voorraad, hema-stock-checker, hema-prices, hema-promotions, hema-aanbiedingen, hema-black-friday, hema-sinterklaas, hema-kerst, hema-christmas, hema-offers, hema-stores, hema-opening-hours, hema-store-locator, hema-reviews, hema-products, hema-new-arrivals, hema-sale, variety-store, dutch-retail, european-retail, netherlands, belgium, france, germany, luxembourg, austria, store-stock, in-store-availability, price-monitoring, eur, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-autozone",
+      "description": "AutoZone API for AutoZone (autozone.com, the US auto parts retailer) - auto parts prices by vehicle, the parts of a part type that fit a year, make and model (batteries for a 2015 Honda Civic, brake pads for a 2018 Ford F-150), each with AutoZone's price, was price, deal price, the refundable core charge, the warranty and store pickup, same-day, next-day and ship-to-home availability, all priced for the AutoZone store AutoZone assigns to the request (priced_for names it; prices differ by store); keyword and part-number search with cross-reference (another brand's or an OEM part number finds the parts AutoZone matches to it), brand and clearance lists, the first 24 results with AutoZone's total, sorted by price and narrowed by one facet or a price range; one product in full with specifications, features, safety data sheets, deal label and the rating distribution; customer reviews 10 a page at full depth with AutoZone's review summary and the reviewer's vehicle as written (no reviewer names); AutoZone's vehicle selector (years, makes, models, submodels, engines); mail-in rebates with end and postmark dates; the category menu; the store directory by state and city with hours and holiday hours (US, Brazil, Mexico); in Brazil (autozone.com.br, BRL, Portuguese) search, product and the in-store quantity at a Brazilian store you choose. 12 endpoints, 1 credit per call, 2 on Brazil search, product and store stock. No stores-near-a-ZIP search, US or Mexico store stock, VIN lookup, engine-level fitment, Mexico prices, price history or checkout.",
+      "tags": "autozone, autozone-com, autozone-api, autozone-parts, autozone-parts-api, autozone-prices, autozone-battery, autozone-battery-prices, autozone-brake-pads, autozone-core-charge, autozone-warranty, autozone-fitment, autozone-part-number, autozone-cross-reference, autozone-reviews, autozone-stores, autozone-store-locator, autozone-store-hours, autozone-clearance, autozone-rebates, autozone-brazil, autozone-mexico, duralast, auto-parts, auto-parts-api, car-parts-api, car-batteries, brake-pads, vehicle-fitment, part-number-cross-reference, us-retail, brazil, mexico, price-monitoring, usd, brl, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-zillow",
