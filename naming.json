@@ -1357,6 +1357,18 @@
       "credits": "1"
     },
     {
+      "dir": "scavio-hema",
+      "slug": "hema-store-stock-api",
+      "name": "hema-store-stock-api",
+      "display": "HEMA Store Stock API - Units per Store, Prices, Promotions, Reviews",
+      "query": "hema store stock",
+      "reused": "no",
+      "platform": "HEMA",
+      "group": "Commerce",
+      "endpoints": "13",
+      "credits": "1"
+    },
+    {
       "dir": "scavio-zillow",
       "slug": "zillow-property-data",
       "name": "zillow-property-data",
@@ -1946,6 +1958,11 @@
       "dir": "scavio-action",
       "description": "Action API for Action (action.com), the European non-food discount store - this week's Action deals on any of its 19 storefronts in 16 countries with Action's validity dates and week id (deals run Wednesday to Tuesday, e.g. Promo2026Week47, 2026-11-18 to 2026-11-24), the deal price next to the regular price, Belgium's Action Plus loyalty-card deals, and the same article number priced in each market in its own currency (EUR, CHF, PLN, CZK, RON; prices differ per market, even inside the euro zone), up to 60 article numbers per call; keyword search, category, brand, new-arrival and seasonal collection lists (Black Friday, Christmas), 24 per page with total and pages, sorted by price or newest and filtered by department, price band, brand or new; one product in full with specifications and the store aisle; the 20 Action stores nearest a city, postcode or point (they may cross a border) and one store with 7 dated days of opening hours; reviews on the Dutch, German, French and Polish storefronts (local or international, no reviewer names); the category tree, Action's own brands and search suggestions; the Action webshop (shop.action.com, Netherlands and Belgium) with EAN, online stock level, order limit and shipping cost. Data in each storefront's language. 16 endpoints, 1 credit per call. Action does not publish store stock; no price history, leaflets or checkout.",
       "tags": "action, action-com, action-store, action-api, action-com-api, action-weekly-deals, action-weekactie, action-prices, action-prices-by-country, action-black-friday, action-deals, action-plus, action-stores, action-opening-hours, action-store-locator, action-new-arrivals, action-reviews, action-webshop, action-products, discount-store, european-retail, netherlands, belgium, germany, france, poland, price-comparison, price-monitoring, eur, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-hema",
+      "description": "HEMA store stock API for HEMA (hema.com, the Dutch variety store) - for up to 12 HEMA article numbers per call, the sellable units HEMA's store service reports at each store near a city, postcode or point (or across a country) with HEMA's stock level (full, regular or limited), shelf locations, address, opening hours, special hours and distance, in the Netherlands, Belgium, France, Germany, Luxembourg and Austria; one product in full with EAN, colour and size variants, online stock, order limit and HEMA's dated price schedule including upcoming promotions, with the mechanics as HEMA writes them (2+1 gratis, 2+2 gratis, 3+1 offert); the same article number priced on each webshop (nl, be in Dutch or French, fr, de; all EUR, prices set per market); keyword search, category, new-arrival and sale lists, 24 per page with total and pages, sorted by price, newest or best selling and filtered by any facet; HEMA's weekly offers page (nl, be) with its validity date and offer week; the Christmas and Sinterklaas campaign pages; HEMA's own product reviews (one Dutch pool for nl, fr and de, a Belgian pool for be; no reviewer names); every HEMA store of a country with hours and services; the category menu and search suggestions. Data in each market's language. 13 endpoints, 1 credit per call. No price history, brands endpoint or checkout.",
+      "tags": "hema, hema-com, hema-nl, hema-api, hema-store-stock, hema-voorraad, hema-stock-checker, hema-prices, hema-promotions, hema-aanbiedingen, hema-black-friday, hema-sinterklaas, hema-kerst, hema-christmas, hema-offers, hema-stores, hema-opening-hours, hema-store-locator, hema-reviews, hema-products, hema-new-arrivals, hema-sale, variety-store, dutch-retail, european-retail, netherlands, belgium, france, germany, luxembourg, austria, store-stock, in-store-availability, price-monitoring, eur, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-zillow",

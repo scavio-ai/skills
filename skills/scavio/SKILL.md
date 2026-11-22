@@ -77,6 +77,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | H&M | [hm-api](references/hm-api.md) | 9 | 1; product 2 |
 | Harbor Freight | [harbor-freight-api](references/harbor-freight-api.md) | 7 | 1 |
 | HEB | [heb-grocery-data](references/heb-grocery-data.md) | 3 | 2 |
+| HEMA | [hema-store-stock-api](references/hema-store-stock-api.md) | 13 | 1 |
 | Home Depot | [home-depot-product-data](references/home-depot-product-data.md) | 3 | 2 |
 | iHerb | [iherb-product-data](references/iherb-product-data.md) | 4 | 2 |
 | IKEA | [ikea-api](references/ikea-api.md) | 12 | 1; compare 1 per market |
