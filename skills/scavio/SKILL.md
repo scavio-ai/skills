@@ -49,6 +49,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 
 | Platform | Reference | Endpoints | Credits per call |
 |---|---|---|---|
+| Action | [action-com-api](references/action-com-api.md) | 16 | 1 |
 | ALDI | [aldi-grocery-data](references/aldi-grocery-data.md) | 3 | 1 |
 | AliExpress | [aliexpress-product-data](references/aliexpress-product-data.md) | 6 | 1 |
 | Allegro | [allegro-api](references/allegro-api.md) | 7 | 2 |

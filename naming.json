@@ -1345,6 +1345,18 @@
       "credits": "1; store-stock and categories 2, sorted or lazy lists 3"
     },
     {
+      "dir": "scavio-action",
+      "slug": "action-com-api",
+      "name": "action-com-api",
+      "display": "Action.com Store API - Weekly Deals, Prices by Country, Stores",
+      "query": "action.com",
+      "reused": "no",
+      "platform": "Action",
+      "group": "Commerce",
+      "endpoints": "16",
+      "credits": "1"
+    },
+    {
       "dir": "scavio-zillow",
       "slug": "zillow-property-data",
       "name": "zillow-property-data",
@@ -1929,6 +1941,11 @@
       "dir": "scavio-mediaexpert",
       "description": "Media Expert API for Media Expert Black Week prices and store stock in Poland (mediaexpert.pl, PLN) - for any product, the price, the old (struck-through) price, the lowest price of the last 30 days that Media Expert shows next to a promotion (EU Omnibus Directive) and the code price with the discount code and its validity dates, plus Media Expert's stock indicator (a bucket such as 0, 2, 9 or 20, not a unit count) and the pickup-in-1-hour flag at the 40 Media Expert stores and pickup points nearest a Polish city, town or postcode. Keyword search, category, brand, outlet, promotion (Black Weeks) and marketplace-seller lists, 30 per page (up to 50), up to 100 pages, filtered by any facet; one product in full with specifications, variants, delivery labels and the seller (Media Expert or a marketplace seller with its rating); Media Expert's own reviews, up to 100 per page, with verified-purchase and promotional-campaign flags; every store with hours; the category tree, the brand directory and search suggestions. Data in Polish. 13 endpoints, 1 to 3 credits per call (actual cost). No Q&A, leaflets, price history, unit counts or checkout prices.",
       "tags": "media-expert, mediaexpert, mediaexpert-pl, media-expert-api, media-expert-prices, media-expert-black-week, media-expert-black-friday, media-expert-omnibus, omnibus-price, 30-day-lowest-price, media-expert-code-price, media-expert-promotions, media-expert-store-stock, media-expert-click-and-collect, media-expert-stores, media-expert-reviews, media-expert-outlet, media-expert-marketplace, poland-electronics, polish-retail, poland-ecommerce, pln, consumer-electronics, home-appliances, store-stock, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-action",
+      "description": "Action API for Action (action.com), the European non-food discount store - this week's Action deals on any of its 19 storefronts in 16 countries with Action's validity dates and week id (deals run Wednesday to Tuesday, e.g. Promo2026Week47, 2026-11-18 to 2026-11-24), the deal price next to the regular price, Belgium's Action Plus loyalty-card deals, and the same article number priced in each market in its own currency (EUR, CHF, PLN, CZK, RON; prices differ per market, even inside the euro zone), up to 60 article numbers per call; keyword search, category, brand, new-arrival and seasonal collection lists (Black Friday, Christmas), 24 per page with total and pages, sorted by price or newest and filtered by department, price band, brand or new; one product in full with specifications and the store aisle; the 20 Action stores nearest a city, postcode or point (they may cross a border) and one store with 7 dated days of opening hours; reviews on the Dutch, German, French and Polish storefronts (local or international, no reviewer names); the category tree, Action's own brands and search suggestions; the Action webshop (shop.action.com, Netherlands and Belgium) with EAN, online stock level, order limit and shipping cost. Data in each storefront's language. 16 endpoints, 1 credit per call. Action does not publish store stock; no price history, leaflets or checkout.",
+      "tags": "action, action-com, action-store, action-api, action-com-api, action-weekly-deals, action-weekactie, action-prices, action-prices-by-country, action-black-friday, action-deals, action-plus, action-stores, action-opening-hours, action-store-locator, action-new-arrivals, action-reviews, action-webshop, action-products, discount-store, european-retail, netherlands, belgium, germany, france, poland, price-comparison, price-monitoring, eur, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-zillow",
