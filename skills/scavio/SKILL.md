@@ -82,6 +82,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Home Depot | [home-depot-product-data](references/home-depot-product-data.md) | 3 | 2 |
 | iHerb | [iherb-product-data](references/iherb-product-data.md) | 4 | 2 |
 | IKEA | [ikea-api](references/ikea-api.md) | 12 | 1; compare 1 per market |
+| Instacart | [instacart-api](references/instacart-api.md) | 11 | 1; search 3, cross-search 3-4 |
 | JCPenney | [jcpenney-product-data](references/jcpenney-product-data.md) | 11 | 1 |
 | Kohl's | [kohls-product-data](references/kohls-product-data.md) | 9 | 2; stores 1 |
 | Kroger | [kroger-grocery-data](references/kroger-grocery-data.md) | 8 | 1; search and product 2, store prices 3 |

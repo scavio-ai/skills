@@ -1381,6 +1381,18 @@
       "credits": "1; br search, product and store-stock 2"
     },
     {
+      "dir": "scavio-instacart",
+      "slug": "instacart-api",
+      "name": "instacart-api",
+      "display": "Instacart API - Grocery Prices by Store and ZIP, Price Compare",
+      "query": "instacart api",
+      "reused": "no",
+      "platform": "Instacart",
+      "group": "Commerce",
+      "endpoints": "11",
+      "credits": "1; search 3, cross-search 3-4"
+    },
+    {
       "dir": "scavio-zillow",
       "slug": "zillow-property-data",
       "name": "zillow-property-data",
@@ -1980,6 +1992,11 @@
       "dir": "scavio-autozone",
       "description": "AutoZone API for AutoZone (autozone.com, the US auto parts retailer) - auto parts prices by vehicle, the parts of a part type that fit a year, make and model (batteries for a 2015 Honda Civic, brake pads for a 2018 Ford F-150), each with AutoZone's price, was price, deal price, the refundable core charge, the warranty and store pickup, same-day, next-day and ship-to-home availability, all priced for the AutoZone store AutoZone assigns to the request (priced_for names it; prices differ by store); keyword and part-number search with cross-reference (another brand's or an OEM part number finds the parts AutoZone matches to it), brand and clearance lists, the first 24 results with AutoZone's total, sorted by price and narrowed by one facet or a price range; one product in full with specifications, features, safety data sheets, deal label and the rating distribution; customer reviews 10 a page at full depth with AutoZone's review summary and the reviewer's vehicle as written (no reviewer names); AutoZone's vehicle selector (years, makes, models, submodels, engines); mail-in rebates with end and postmark dates; the category menu; the store directory by state and city with hours and holiday hours (US, Brazil, Mexico); in Brazil (autozone.com.br, BRL, Portuguese) search, product and the in-store quantity at a Brazilian store you choose. 12 endpoints, 1 credit per call, 2 on Brazil search, product and store stock. No stores-near-a-ZIP search, US or Mexico store stock, VIN lookup, engine-level fitment, Mexico prices, price history or checkout.",
       "tags": "autozone, autozone-com, autozone-api, autozone-parts, autozone-parts-api, autozone-prices, autozone-battery, autozone-battery-prices, autozone-brake-pads, autozone-core-charge, autozone-warranty, autozone-fitment, autozone-part-number, autozone-cross-reference, autozone-reviews, autozone-stores, autozone-store-locator, autozone-store-hours, autozone-clearance, autozone-rebates, autozone-brazil, autozone-mexico, duralast, auto-parts, auto-parts-api, car-parts-api, car-batteries, brake-pads, vehicle-fitment, part-number-cross-reference, us-retail, brazil, mexico, price-monitoring, usd, brl, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-instacart",
+      "description": "Instacart API for Instacart (instacart.com, the US and Canada grocery delivery and pickup marketplace) - Instacart prices by store at a ZIP, one product priced at every store delivering to a US ZIP or Canadian postal code (the same product id at 153 stores at ZIP 10001, low to high, with the sale price, the regular price and Instacart's No markups flag), every store serving a ZIP with its delivery and pickup ETA, No markups and EBT labels; search one store with prices, sale price and regular price, unit price, loyalty price, multi-buy offers, stock label and dietary labels, sorted by price, filtered to sale items or a brand and paged through every match, priced for delivery, pickup or Instacart's in-store prices, so a delivery price can sit next to the same store's in-store price; every price carries priced_for with the retailer's pricing label as Instacart shows it; one query priced across up to 10 stores at a US ZIP; one product at one store with ingredients, allergen warnings, key nutrients and the rating summary; the department and aisle tree, an aisle or collection, the store's Sales collection, pickup locations with 7 days of hours, search suggestions and US customer reviews (15 a page, source and incentivized flag, no reviewer names). Canada (instacart.ca, CAD) in English or French. 11 endpoints, 1 credit per call, search 3, cross-search 3-4. No delivery or service fee amounts, order minimums, coupons, Instacart+ prices, price history or checkout.",
+      "tags": "instacart, instacart-com, instacart-ca, instacart-api, instacart-prices, instacart-price-api, instacart-price-comparison, instacart-prices-by-zip, instacart-vs-in-store, instacart-in-store-prices, instacart-markup, instacart-no-markups, instacart-pricing-policy, instacart-retailers, instacart-stores, instacart-deals, instacart-sales, instacart-search, instacart-product, instacart-reviews, instacart-canada, instacart-costco, instacart-wegmans, grocery, grocery-prices, grocery-price-api, grocery-price-comparison, grocery-prices-by-zip, grocery-delivery, store-prices, unit-price, ebt, us-retail, canada, price-monitoring, usd, cad, agents, ai-agents, structured-data, json, mcp"
     },
     {
       "dir": "scavio-zillow",
