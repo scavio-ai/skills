@@ -2,7 +2,7 @@
 
 Read Ace Hardware (acehardware.com, the US hardware cooperative): one product priced for the Ace store you pick, exact units on hand at a store and its 25 nearest, a store's weekly ad, keyword and item-number search, category, brand and deals lists, one store's details, the stores nearest a store, the category tree, the brand index and Ace's paint colours. All 11 endpoints return structured JSON at 1 credit per call (2 for search and product, and store stock by the number of stores, listed below).
 
-**The job this skill is for: Ace Hardware prices by store.** Ace stores are locally owned and set their own prices, and Ace's own terms say product availability and pricing "vary and are determined by your location". `/product` with a `store` returns the price as Ace shows it for that store. On 2026-11-23 the Ace pet friendly ice melt 40 lb (item `72779`) read $35.99 at store 10665 (New York), $21.99 at store 18250 (Chicago) and $18.99 at store 03085 (Kalona, IA); item `7109754` read $46.99 at 10665 and $25.99 at 03085. Then `/store-stock` gives the units on hand at that store and its 25 nearest, and `/weekly-ad` that store's circular. Pair it with `home-depot-product-data` and `lowes-product-data` for a local hardware price comparison on the same item (same brand and model).
+**The job this skill is for: Ace Hardware prices by store.** Ace stores are independently owned and operated, and the same item can be priced differently at different stores, and Ace's own terms say product availability and pricing "vary and are determined by your location". `/product` with a `store` returns the price as Ace shows it for that store. On 2026-11-23 the Ace pet friendly ice melt 40 lb (item `72779`) read $35.99 at store 10665 (New York), $21.99 at store 18250 (Chicago) and $18.99 at store 03085 (Kalona, IA); item `7109754` read $46.99 at 10665 and $25.99 at 03085. Then `/store-stock` gives the units on hand at that store and its 25 nearest, and `/weekly-ad` that store's circular. Pair it with `home-depot-product-data` and `lowes-product-data` for a local hardware price comparison on the same item (same brand and model).
 
 Nine limits shape every answer, so say them plainly:
 - **1 credit per call; search and product 2; store stock by stores.** Search is 2 (3 when Ace sends the keywords to a category page and the list options are applied to it again). Product is 2, with or without `store`. Store stock is 1 per 5 stores (1 store 1, 5 stores 1, 25 stores 5, `nearby` = the store and its 25 nearest = 6). Stores is 1, with `details` 1 per 5 lookups (the store plus one per store listed: 25 stores 6). Everything else is 1. An occasional call is billed 2 instead of 1 when Ace is slow to answer: `credits_used` in the response is the truth. A not-found (`404`) is charged; a refused input (`400`) and an upstream failure (`502`, `503`) are not.
@@ -229,7 +229,7 @@ Captured `data` (2026-11-23, 2 credits; `description`, `features`, `image` and `
   "fulfillment": { "ship_to_home": true, "store_pickup": true, "delivery": true },
   "in_stock_online": null,
   "purchasable": true,
-  "notes": ["Ace stores are locally owned and set their own prices: prices are as Ace shows them for the store in priced_for."]
+  "notes": ["Ace stores are independently owned and operated, and the same item can be priced differently at different stores: prices are as Ace shows them for the store in priced_for."]
 }
 ```
 
