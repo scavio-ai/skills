@@ -1393,6 +1393,18 @@
       "credits": "1; search 3, cross-search 3-4"
     },
     {
+      "dir": "scavio-oreilly",
+      "slug": "oreilly-auto-parts-api",
+      "name": "oreilly-auto-parts-api",
+      "display": "O'Reilly Auto Parts API - Cross-Reference, Prices, Store Stock",
+      "query": "oreilly auto parts api",
+      "reused": "no",
+      "platform": "O'Reilly Auto Parts",
+      "group": "Commerce",
+      "endpoints": "14",
+      "credits": "2; product by part number, ZIP lookups, brand index and deals 4, cross-reference 2-6"
+    },
+    {
       "dir": "scavio-zillow",
       "slug": "zillow-property-data",
       "name": "zillow-property-data",
@@ -1997,6 +2009,11 @@
       "dir": "scavio-instacart",
       "description": "Instacart API for Instacart (instacart.com, the US and Canada grocery delivery and pickup marketplace) - Instacart prices by store at a ZIP, one product priced at every store delivering to a US ZIP or Canadian postal code (the same product id at 153 stores at ZIP 10001, low to high, with the sale price, the regular price and Instacart's No markups flag), every store serving a ZIP with its delivery and pickup ETA, No markups and EBT labels; search one store with prices, sale price and regular price, unit price, loyalty price, multi-buy offers, stock label and dietary labels, sorted by price, filtered to sale items or a brand and paged through every match, priced for delivery, pickup or Instacart's in-store prices, so a delivery price can sit next to the same store's in-store price; every price carries priced_for with the retailer's pricing label as Instacart shows it; one query priced across up to 10 stores at a US ZIP; one product at one store with ingredients, allergen warnings, key nutrients and the rating summary; the department and aisle tree, an aisle or collection, the store's Sales collection, pickup locations with 7 days of hours, search suggestions and US customer reviews (15 a page, source and incentivized flag, no reviewer names). Canada (instacart.ca, CAD) in English or French. 11 endpoints, 1 credit per call, search 3, cross-search 3-4. No delivery or service fee amounts, order minimums, coupons, Instacart+ prices, price history or checkout.",
       "tags": "instacart, instacart-com, instacart-ca, instacart-api, instacart-prices, instacart-price-api, instacart-price-comparison, instacart-prices-by-zip, instacart-vs-in-store, instacart-in-store-prices, instacart-markup, instacart-no-markups, instacart-pricing-policy, instacart-retailers, instacart-stores, instacart-deals, instacart-sales, instacart-search, instacart-product, instacart-reviews, instacart-canada, instacart-costco, instacart-wegmans, grocery, grocery-prices, grocery-price-api, grocery-price-comparison, grocery-prices-by-zip, grocery-delivery, store-prices, unit-price, ebt, us-retail, canada, price-monitoring, usd, cad, agents, ai-agents, structured-data, json, mcp"
+    },
+    {
+      "dir": "scavio-oreilly",
+      "description": "O'Reilly Auto Parts API for O'Reilly Auto Parts (oreillyauto.com, the US auto parts retailer) - part-number cross-reference with prices, another brand's, an AutoZone or an OE part number in (FRAM PH3614, Motorcraft FL820S), the O'Reilly parts O'Reilly lists as its replacements out, each with O'Reilly's price, sale price, the refundable core charge, the warranty, deals and store pickup, all priced for the O'Reilly store O'Reilly assigns to the request (priced_for names it; prices differ by store); keyword and part-number search, category and brand lists, 24 per page up to O'Reilly's 20 pages, sorted by price, best selling or brand and filtered by brand, store pickup or ship to home and attribute facets, optionally only the parts for one vehicle (brake pads 7,578 unfiltered, 42 for a 2015 Ford F-150) with O'Reilly's fit notes; one product in full with UPC, specifications, documents, deals with end dates, rebates, the rating and the 10 most recent reviews (no reviewer names); the vehicle selector down to engine and a 17-character VIN decode; the makes, models, engines and years one part fits; which O'Reilly stores within 50 miles of a ZIP or a point can hand over one part (in store now, pickup time, as availability states, not unit counts); stores near a ZIP with hours, holiday hours and services, the store directory by state and city (US, and the Mexican directory in Spanish); search suggestions, the category tree, mail-in rebates with valid and postmark dates and the coupons and promotions page. 14 endpoints, 2 credits per call, 4 for a product by line code and part number, a ZIP lookup, the brand index and deals, cross-reference 2-6. No unit counts, store choice for prices, reviews past the 10 most recent, Mexico prices, O'Reilly Pro pricing, price history or checkout.",
+      "tags": "oreilly, oreilly-auto-parts, oreillyauto, oreillyauto-com, oreilly-api, oreilly-auto-parts-api, oreilly-cross-reference, oreilly-part-number, oreilly-part-number-lookup, oreilly-interchange, oreilly-prices, oreilly-core-charge, oreilly-rebates, oreilly-deals, oreilly-store-pickup, oreilly-store-stock, oreilly-stores, oreilly-store-hours, oreilly-battery, oreilly-brake-pads, oreilly-vin-lookup, oreilly-fitment, brakebest, super-start, microgard, auto-parts, auto-parts-api, car-parts-api, auto-parts-cross-reference, part-number-cross-reference, oil-filter-cross-reference, vehicle-fitment, vin-decoder, core-charge, us-retail, price-monitoring, usd, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-zillow",
