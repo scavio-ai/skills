@@ -1,8 +1,8 @@
 # Instacart API - Grocery Prices by Store and ZIP, Price Compare
 
-Read Instacart (instacart.com, the US and Canada grocery delivery and pickup marketplace; instacart.ca for Canada): every store serving a ZIP, search inside one store, one query across up to 10 stores, one product at one store, the same product priced at every store delivering to a ZIP, a store's departments and aisles, an aisle or collection, the store's sale items, its pickup locations, search suggestions and customer reviews. All 11 endpoints return structured JSON at 1 credit per call (search 3, cross-search 3-4).
+Read Instacart (instacart.com, the US and Canada grocery delivery and pickup marketplace; instacart.ca for Canada): every store serving a ZIP, search inside one store, one query across up to 10 stores, one product at one store, the same product priced across the stores delivering to a ZIP, a store's departments and aisles, an aisle or collection, the store's sale items, its pickup locations, search suggestions and customer reviews. All 11 endpoints return structured JSON at 1 credit per call (search 3, cross-search 3-4).
 
-**The job this skill is for: Instacart prices by store at a ZIP.** One product or a basket priced at every store delivering to a ZIP, each with that store's pricing label, and Instacart's delivery price next to the same store's in-store price where Instacart shows both. On 2026-11-23 at ZIP 10001 (New York), Instacart priced fairlife 2% Reduced-Fat Ultra-Filtered Milk (52 fl oz, product id `16408559`) at 153 of the 306 stores delivering there, from $5.49 (Key Food on sale from $7.99, Walgreens) to $12.59 (Grace's Marketplace); Wegmans read $6.39 with Wegmans' own label as Instacart showed it: "Our online prices remain about 15% above in-store prices."
+**The job this skill is for: Instacart prices by store at a ZIP.** One product or a basket priced across the stores delivering to a ZIP, each with that store's pricing label, and Instacart's delivery price next to the same store's in-store price where Instacart shows both. On 2026-11-23 at ZIP 10001 (New York), Instacart priced fairlife 2% Reduced-Fat Ultra-Filtered Milk (52 fl oz, product id `16408559`) at 153 of the 306 stores delivering there, from $5.49 (Key Food on sale from $7.99, Walgreens) to $12.59 (Grace's Marketplace); Wegmans read $6.39 with Wegmans' own label as Instacart showed it: "Our online prices remain about 15% above in-store prices."
 
 Nine limits shape every answer, so say them plainly:
 - **1 credit per call; search 3, cross-search 3-4.** search reserves 3 and charges 2 when the page sits inside the first answer Instacart gives (English); cross-search charges 3 for up to 5 stores and 4 for 6 to 10. `credits_used` reports the actual charge. A not-found (an unknown product id, a retailer not serving the ZIP, an unknown category slug, a ZIP Instacart does not recognise) is a `404` and is charged. A refused input (`400`) and an upstream failure (`502`, `503`) are not charged.
@@ -10,7 +10,7 @@ Nine limits shape every answer, so say them plainly:
 - **Every price is for one store, one ZIP and one service type.** `priced_for` {`retailer_id`, `retailer_slug`, `retailer_name`, `service_type`, `shop_id`, `retailer_location_id`, `zip`, `pricing_label`} names it. Retailers set their own prices on Instacart, and the Instacart Help Center says some set prices that are different from their in-store prices. Report "$6.39 at Wegmans for delivery to 10001 on 2026-11-23", never a national price and never the store's shelf price.
 - **`retailer` comes from `/retailers`.** A slug (`retailers[].slug`: `wegmans`, `jewel-osco`, `costco`) or id (`retailer_id`: `231`) of a store that serves that ZIP; anything else is a charged `404`.
 - **`service_type` is `delivery` (default), `pickup` or `instore`.** `instore` returns Instacart's in-store prices for that store where Instacart shows them; a store without them is a charged `404`, and so is `pickup` at a store with no pickup at the ZIP. `/retailers` lists each store's `services`, `pickup_available` and `instore_available`: pick from those.
-- **price-compare is the same product at every store, delivery prices.** One `product_id` (shared by every store on Instacart) priced at each store delivering to the ZIP, sorted low to high. It has no unit price and no stock: `/product` gives them per store.
+- **price-compare is the same product across stores, delivery prices.** One `product_id` (usually shared across stores on Instacart) priced at the stores delivering to the ZIP that Instacart prices it for, sorted low to high. It has no unit price and no stock: `/product` gives them per store. A store that sells the product can be missing from this list (Jewel-Osco at 60540 on 2026-11-23); product returns its price there. A few stores list the same item under another product id.
 - **cross-search is US only and prices at most 10 stores.** One query, `max_retailers` 1-10 stores in Instacart's order, `items_per_retailer` 1-20 products each, for delivery.
 - **Two markets.** `country` `us` (instacart.com, USD, default) and `ca` (instacart.ca, CAD). `language` `fr` (Canada only) returns French names, aisles and price text as Instacart shows them in Quebec. Canada serves every endpoint except cross-search and reviews; suggestions are English only.
 - **Not in any answer:** delivery and service fee amounts and order minimums as numbers (Instacart shows them at checkout), coupons, Instacart+ member prices, account, cart or order data, and price history (poll and store it). Reviews are US only and carry no reviewer names.
@@ -24,7 +24,7 @@ See also: for shelf prices straight from a store, set beside an Instacart price,
 ## When to trigger
 
 Use this skill when the user asks to:
-- Price one grocery product at every store delivering to a US ZIP or Canadian postal code on Instacart, cheapest first
+- Price one grocery product across the stores delivering to a US ZIP or Canadian postal code on Instacart, lowest price first
 - Compare an Instacart delivery price with the same store's in-store price on Instacart, or measure a store's Instacart markup on given products
 - List the stores on Instacart at a ZIP, with delivery and pickup ETA, Instacart's No markups label, EBT and services
 - Search one store on Instacart by keyword, sorted by price, filtered to sale items or a brand, with unit prices and stock labels
@@ -74,7 +74,7 @@ Base URL: `https://api.scavio.dev`. In the captures, categories took 1-2 seconds
 | `POST /api/v1/instacart/search` | One store at the ZIP: matching products with prices, `priced_for`, total and pages, brand filters; sort, on sale, brand, page, service type | us, ca | 3 (2 when the page sits in the first answer) |
 | `POST /api/v1/instacart/cross-search` | One query across up to 10 stores delivering to a US ZIP, each with its first matching products priced | us only | 3 (1-5 stores), 4 (6-10) |
 | `POST /api/v1/instacart/product` | One product at one store: ingredients, directions, warnings, key nutrients, images, the store's price block, rating summary | us, ca | 1 |
-| `POST /api/v1/instacart/price-compare` | The same product priced at every store delivering to the ZIP, low to high, with sale and regular price and `no_markups` | us, ca | 1 |
+| `POST /api/v1/instacart/price-compare` | The same product priced across the stores delivering to the ZIP, low to high, with sale and regular price and `no_markups` | us, ca | 1 |
 | `POST /api/v1/instacart/categories` | One store's department and aisle tree (and collections such as Thanksgiving) with the slugs category takes | us, ca | 1 |
 | `POST /api/v1/instacart/category` | The products of one department, aisle or collection of a store, paged, with `priced_for` | us, ca | 1 |
 | `POST /api/v1/instacart/deals` | The store's Sales collection: sale price with the regular price, multi-buy offers; paged | us, ca | 1 |
@@ -91,7 +91,7 @@ Base URL: `https://api.scavio.dev`. In the captures, categories took 1-2 seconds
 
 - Every answer echoes `country`, `language`, `currency`, `zip` and `place` (Instacart's name for the ZIP, e.g. "New York, NY, USA"). A `country` outside us and ca, a market an endpoint does not serve, or `language` `fr` with `us` (or on suggestions) is a `400`, not charged.
 - With `language` `fr`, names, aisles, deal badges, unit prices, `price_text` and the pricing label come back in French as Instacart shows them (`"price_text": "4,99 $"`, `"deal": "12 % de réduction"`); `price` stays a number (`4.99`). Translate for the user, never alter the values.
-- In Canada, price-compare prices one product at every store serving a postal code and search searches one store; there is no cross-store search.
+- In Canada, price-compare prices one product across the stores serving a postal code and search searches one store; there is no cross-store search.
 
 ## Prices, pricing labels and service types
 
@@ -119,8 +119,8 @@ Every priced item (search, cross-search, product `item`, category, deals) carrie
 ## Workflow
 
 1. **Stores at the ZIP:** `/retailers` with `zip`. Keep `slug` (or `retailer_id`) for the stores you want; check `delivery_available`, `pickup_available`, `instore_available`.
-2. **Find the product:** `/search` with `query`, `retailer` and `zip`. Keep `items[].product_id`: it is the same at every store on Instacart.
-3. **Every store's price:** `/price-compare` with `product_id` and `zip` (1 credit for every store delivering there). Compare `size` first: two stores can list different sizes under similar names, but a `product_id` is one product.
+2. **Find the product:** `/search` with `query`, `retailer` and `zip`. Keep `items[].product_id`: it is usually the same at every store on Instacart (a few stores use another id).
+3. **Each store's price:** `/price-compare` with `product_id` and `zip` (1 credit for all the stores it returns). Compare `size` first: two stores can list different sizes under similar names, but a `product_id` is one product.
 4. **Detail and unit price at one store:** `/product` with `product_id`, `retailer`, `zip`.
 5. **Delivery vs in-store:** `/product` (or `/search`) twice for the same store, `service_type` `delivery` then `instore`; quote both `pricing_label`s.
 6. **A basket at several stores (US):** `/cross-search` per basket item with `max_retailers` up to 10, or `/price-compare` per product id once you have the ids.
@@ -194,7 +194,7 @@ Every priced item (search, cross-search, product `item`, category, deals) carrie
 
 ## Examples
 
-### Every store's price for one product
+### Each store's price for one product
 
 ```bash
 curl -X POST https://api.scavio.dev/api/v1/instacart/price-compare \
@@ -282,7 +282,7 @@ Captured `data` (2026-11-23, 1 credit; 3 of 153 rows shown, then the last):
       "url": "https://www.instacart.com/store/graces-marketplace-nyc/products/16408559"
     }
   ],
-  "note": "The same Instacart product priced at each store delivering to this ZIP, as Instacart shows it for delivery, sorted by price (low to high). Retailers set their Instacart prices, which can differ from their in-store prices; no_markups marks the stores Instacart labels 'No markups'. was_price is the regular price Instacart shows next to a sale price; discount_percent is computed by Scavio from it. Fees and coupons are not included."
+  "note": "The same Instacart product priced at the stores delivering to this ZIP that Instacart prices it for, as Instacart shows it for delivery, sorted by price (low to high). A store that sells it can be missing here (product gives its price there), and some stores list the same item under another product id. Retailers set their Instacart prices, which can differ from their in-store prices; no_markups marks the stores Instacart labels 'No markups'. was_price is the regular price Instacart shows next to a sale price; discount_percent is computed by Scavio from it. Fees and coupons are not included."
 }
 ```
 
@@ -481,7 +481,7 @@ Captured `data` (2026-11-23, 1 credit; `description`, `sections`, `images`, `not
     "pricing_label": "We keep our prices consistently low, every day, so you can save on the items your family uses most. Our online prices remain about 15% above in-store prices. This includes our costs of shopping your order. There is also a $10 order minimum. ..."
   },
   "available_at_store": true,
-  "name": "Milk fairlife 2% Reduced-Fat Ultra-Filtered Milk Bottle",
+  "name": "fairlife 2% Reduced-Fat Ultra-Filtered Milk Bottle",
   "size": "52 fl oz",
   "ingredients": "REDUCED FAT ULTRA-FILTERED MILK, LACTASE ENZYME, VITAMIN A PALMITATE, VITAMIN D3.",
   "directions": "Keep refrigerated. Consume within 14 days of opening.",
@@ -599,7 +599,7 @@ def instacart(endpoint, body):
     r.raise_for_status()
     return r.json()
 
-# 1. One product at every store delivering to a ZIP, cheapest first (1 credit)
+# 1. One product across the stores delivering to a ZIP, lowest price first (1 credit)
 res = instacart("price-compare", {"product_id": "16408559", "zip": "10001"})
 d = res["data"]
 print(res["fetched_at"], d["place"], "-", d["count"], "of", d["stores_checked"], "stores price it")
@@ -628,7 +628,7 @@ for mode in ("delivery", "instore"):
 
 Every response uses the envelope `{ data, response_time, fetched_at, credits_used, credits_remaining }`. Everything is fetched when the request asks for it; nothing is cached. Every `data` carries `country`, `language`, `currency`, `zip` and `place` (reviews: `country` only).
 
-- **item** (search, cross-search, category, deals, product `item`) - `product_id` (the input of product, price-compare and reviews; the same at every store), `item_id` (`items_<retailer_location_id>-<product_id>`), `name`, `brand`, `brand_id`, `size`, `price`, `price_text`, `currency`, `was_price`, `discount_percent`, `deal`, `promotions`, `unit_price`, `loyalty_price`, `loyalty_label`, `in_stock`, `stock_level`, `stock_label`, `dietary`, `image`, `url`, `max_quantity`.
+- **item** (search, cross-search, category, deals, product `item`) - `product_id` (the input of product, price-compare and reviews; usually the same at every store), `item_id` (`items_<retailer_location_id>-<product_id>`), `name`, `brand`, `brand_id`, `size`, `price`, `price_text`, `currency`, `was_price`, `discount_percent`, `deal`, `promotions`, `unit_price`, `loyalty_price`, `loyalty_label`, `in_stock`, `stock_level`, `stock_label`, `dietary`, `image`, `url`, `max_quantity`.
 - **priced_for** (search, product, category, deals) - `retailer_id`, `retailer_slug`, `retailer_name`, `service_type`, `shop_id`, `retailer_location_id`, `zip`, `pricing_label` (`null` when it cannot be read).
 - **retailers** - `count`, `no_markups_count`, `retailers[]` {`retailer_id`, `slug`, `name`, `retailer_type`, `categories`, `logo`, `services`, `delivery_available`, `pickup_available`, `instore_available`, `delivery_eta`, `pickup_eta`, `no_markups`, `accepts_ebt`, `store_labels`, `alcohol_allowed`, `delivery_shop_id`, `pickup_shop_id`, `retailer_location_id`, `url`}, `note`.
 - **search** - `query`, `sort`, `on_sale`, `brand_id`, `page`, `limit`, `priced_for`, `total`, `total_pages`, `has_more`, `count`, `items[]`, `brand_filters[]` {`brand_id`, `name`}, `note`.
