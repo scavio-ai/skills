@@ -49,6 +49,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 
 | Platform | Reference | Endpoints | Credits per call |
 |---|---|---|---|
+| Ace Hardware | [ace-hardware-prices-api](references/ace-hardware-prices-api.md) | 11 | 1; search and product 2, store-stock 1 per 5 stores (nearby 6) |
 | Action | [action-com-api](references/action-com-api.md) | 16 | 1 |
 | ALDI | [aldi-grocery-data](references/aldi-grocery-data.md) | 3 | 1 |
 | AliExpress | [aliexpress-product-data](references/aliexpress-product-data.md) | 6 | 1 |

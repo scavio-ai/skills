@@ -1405,6 +1405,18 @@
       "credits": "2; product by part number, ZIP lookups, brand index and deals 4, cross-reference 2-6"
     },
     {
+      "dir": "scavio-acehardware",
+      "slug": "ace-hardware-prices-api",
+      "name": "ace-hardware-prices-api",
+      "display": "Ace Hardware Prices API - Price by Store, Inventory, Weekly Ad",
+      "query": "ace hardware prices",
+      "reused": "no",
+      "platform": "Ace Hardware",
+      "group": "Commerce",
+      "endpoints": "11",
+      "credits": "1; search and product 2, store-stock 1 per 5 stores (nearby 6)"
+    },
+    {
       "dir": "scavio-zillow",
       "slug": "zillow-property-data",
       "name": "zillow-property-data",
@@ -2014,6 +2026,11 @@
       "dir": "scavio-oreilly",
       "description": "O'Reilly Auto Parts API for O'Reilly Auto Parts (oreillyauto.com, the US auto parts retailer) - part-number cross-reference with prices, another brand's, an AutoZone or an OE part number in (FRAM PH3614, Motorcraft FL820S), the O'Reilly parts O'Reilly lists as its replacements out, each with O'Reilly's price, sale price, the refundable core charge, the warranty, deals and store pickup, all priced for the O'Reilly store O'Reilly assigns to the request (priced_for names it; prices differ by store); keyword and part-number search, category and brand lists, 24 per page up to O'Reilly's 20 pages, sorted by price, best selling or brand and filtered by brand, store pickup or ship to home and attribute facets, optionally only the parts for one vehicle (brake pads 7,578 unfiltered, 42 for a 2015 Ford F-150) with O'Reilly's fit notes; one product in full with UPC, specifications, documents, deals with end dates, rebates, the rating and the 10 most recent reviews (no reviewer names); the vehicle selector down to engine and a 17-character VIN decode; the makes, models, engines and years one part fits; which O'Reilly stores within 50 miles of a ZIP or a point can hand over one part (in store now, pickup time, as availability states, not unit counts); stores near a ZIP with hours, holiday hours and services, the store directory by state and city (US, and the Mexican directory in Spanish); search suggestions, the category tree, mail-in rebates with valid and postmark dates and the coupons and promotions page. 14 endpoints, 2 credits per call, 4 for a product by line code and part number, a ZIP lookup, the brand index and deals, cross-reference 2-6. No unit counts, store choice for prices, reviews past the 10 most recent, Mexico prices, O'Reilly Pro pricing, price history or checkout.",
       "tags": "oreilly, oreilly-auto-parts, oreillyauto, oreillyauto-com, oreilly-api, oreilly-auto-parts-api, oreilly-cross-reference, oreilly-part-number, oreilly-part-number-lookup, oreilly-interchange, oreilly-prices, oreilly-core-charge, oreilly-rebates, oreilly-deals, oreilly-store-pickup, oreilly-store-stock, oreilly-stores, oreilly-store-hours, oreilly-battery, oreilly-brake-pads, oreilly-vin-lookup, oreilly-fitment, brakebest, super-start, microgard, auto-parts, auto-parts-api, car-parts-api, auto-parts-cross-reference, part-number-cross-reference, oil-filter-cross-reference, vehicle-fitment, vin-decoder, core-charge, us-retail, price-monitoring, usd, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-acehardware",
+      "description": "Ace Hardware API for Ace Hardware (acehardware.com, the US hardware cooperative) - Ace Hardware prices by store, one item priced for the Ace store you pick by its 5-digit store number (Ace stores are locally owned and set their own prices; priced_for names the store and the price list Ace used, the same 40 lb Ace ice melt read $35.99, $21.99 and $18.99 at three stores on one day), the exact units on hand at up to 25 Ace stores or at one store and the 25 stores Ace lists as nearest to it, with the store's shelf location code and the regional distribution centre's units, and a store's weekly ad with its valid dates, items and prices in the ad's words; keyword, item-number and UPC search, category, brand and deals lists, 15 to 200 per page, sorted by price, name or newest and filtered by brand, Ace's Special Offers (sale, Ace Rewards, Buy & Get, Buy More & Save) or any facet, priced as Ace lists them (not a store's price); one product in full with UPC, manufacturer part number, rating and review count, specifications, measurements and assembly options; one store with hours, services, departments, brands, programs, pickup, curbside, delivery and propane flags, price zones and its nearest and same-owner stores; the 25 stores nearest a store with addresses, hours and distance; Ace's departments and categories, the brand index (about 5,700 brands), site-wide promotions with codes and dates, and about 5,300 paint colours (Benjamin Moore, Clark+Kensington, Magnolia Home) with hex and RGB. 11 endpoints, 1 credit per call, search and product 2, store-stock 1 per 5 stores (nearby 6). US only. No ZIP store search, review text, price history, Ace Rewards member prices or checkout.",
+      "tags": "ace-hardware, acehardware, acehardware-com, ace-hardware-api, ace-hardware-prices, ace-hardware-prices-by-store, ace-hardware-price-by-store, ace-hardware-local-price, ace-hardware-inventory, ace-hardware-inventory-checker, ace-hardware-stock-checker, ace-hardware-store-inventory, ace-hardware-weekly-ad, ace-hardware-local-ad, ace-hardware-black-friday, ace-hardware-deals, ace-hardware-stores, ace-hardware-paint-colors, ace-vs-home-depot, hardware-store, hardware-store-prices, hardware-price-api, home-improvement, store-prices, store-inventory, store-stock, weekly-ad, paint-colors, benjamin-moore, us-retail, price-monitoring, usd, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-zillow",
