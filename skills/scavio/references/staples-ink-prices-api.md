@@ -213,7 +213,7 @@ Captured `data` (2026-11-24; `images`, `description`, `bullets`, `review_summary
   "offer_expires": "2026-11-28",
   "coupon_codes": [{ "code": "89875", "limit": 5 }],
   "page_yield": null,
-  "sheets_per_ream": 5000,
+  "sheets_per_ream": 500,
   "number_of_reams": "10-Ream",
   "total_sheets": 5000,
   "specifications": [
@@ -250,7 +250,7 @@ Captured `data` (2026-11-24; `images`, `description`, `bullets`, `review_summary
     "out_of_stock": false,
     "options": [
       { "mode": "pickup", "method": "pickup", "units": 42, "earliest_date": "2026-11-24", "latest_date": "2026-11-24", "date_text": "Tue, Nov 24", "order_within": null, "back_order": false },
-      { "mode": "standard", "method": "delivery", "units": 1677, "earliest_date": "2026-11-30", "latest_date": "2026-11-30", "date_text": "Mon, Nov 30", "order_within": null, "back_order": false }
+      { "mode": "standard", "method": "delivery", "units": 1656, "earliest_date": "2026-11-30", "latest_date": "2026-11-30", "date_text": "Mon, Nov 30", "order_within": null, "back_order": false }
     ],
     "pickup": { "store_number": "1633", "units": 42, "in_stock": true }
   },
@@ -426,7 +426,7 @@ Page with `total` and `total_pages` (6,829 reviews here; `review_count` 18,098 i
 - `/deals` `{"q": "laptop"}` (On Promotion): `total` 178, such as an HP 17.3" laptop (`24631637`) $399.99 / Regular price $899.99 with "Instant Savings" $500.00. `deals` needs `q` or `category`.
 - `/questions` `{"item_id": "990119"}` (Hyken chair): `total` 201, 10 per page, each question with its first answer and `answer_count`; Staples staff answers carry `staff: true` and `badge` "Staff". No asker or answerer names.
 - `/coupons`: 15 coupons in 6 categories (Pack & Ship, Printers, PC's, Tech Other, Ink & Toner, Office Supplies), such as code `12943` "Get $15 off the HP Envy Photo 7975 Printer" "when you buy an HP 64 Black/Tri-Color Standard Yield Ink Cartridge.", `ends` 2026-12-31, `channel` Online. Scavio does not check whether a code applies to an order.
-- `/stores` `{"city": "Chicago, IL"}`: 10 stores within 25 miles, store 1611 The Garland Building, 111 North Wabash Ave., at 0.42 miles first, each with phone, fax, `utc_offset`, 7 `hours` entries and `services` (Print and Marketing Services, Shredding Services, Recycling Services, Amazon Lockers, UPS Shipping & Drop-off, Passport Services, Online Notary, ...).
+- `/stores` `{"city": "Chicago, IL"}`: 10 stores within 25 miles, store 1611 Staples Chicago, IL (in The Garland Building), 111 North Wabash Ave., at 0.42 miles first, each with phone, fax, `utc_offset`, 7 `hours` entries and `services` (Print and Marketing Services, Shredding Services, Recycling Services, Amazon Lockers, UPS Shipping & Drop-off, Passport Services, Online Notary, ...).
 - `/store` `{"store": "1574"}`: 500 Eighth Avenue Front 3, New York, NY 10018, phone 2122442681, the same `services`. An unknown store number is a charged `404`.
 - `/categories` `{"category": "SC1676"}`: Paper, 19 sub-departments and classes, each {`id`, `type` (`SC`, `CG`, `DP`, `CL`), `name`, `url`}, such as `CL140691` Copy & Printer Paper. A `CL` id is the input of category and deals; any other id goes back to categories.
 - `/trending`: 10 terms in Staples' order (needoh, office chairs, office chair, printer, ipad, paper, laptop, copy paper, smart watches, pens).
