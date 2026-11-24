@@ -111,6 +111,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | TCGplayer | [tcgplayer-api](references/tcgplayer-api.md) | 13 | 1 |
 | thredUP | [thredup-api](references/thredup-api.md) | 12 | 1 |
 | TikTok Shop | [tiktok-shop-api](references/tiktok-shop-api.md) | 8 | 1 |
+| Tractor Supply | [tractor-supply-prices-api](references/tractor-supply-prices-api.md) | 12 | 1; product 2 on a store's first lookup, store-prices 1 per 5 lookups (25 new stores 11) |
 | Trendyol | [trendyol-api](references/trendyol-api.md) | 12 | 1 |
 | Ulta Beauty | [ulta-beauty-api](references/ulta-beauty-api.md) | 4 | 1 |
 | Uniqlo | [uniqlo-api](references/uniqlo-api.md) | 12 | 1; store stock by product 2; prices 1 per market |

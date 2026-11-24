@@ -1417,6 +1417,18 @@
       "credits": "1; search and product 2, store-stock 1 per 5 stores (nearby 6)"
     },
     {
+      "dir": "scavio-tractorsupply",
+      "slug": "tractor-supply-prices-api",
+      "name": "tractor-supply-prices-api",
+      "display": "Tractor Supply API - Store Prices, Feed Prices, Inventory",
+      "query": "tractor supply prices",
+      "reused": "no",
+      "platform": "Tractor Supply",
+      "group": "Commerce",
+      "endpoints": "12",
+      "credits": "1; product 2 on a store's first lookup, store-prices 1 per 5 lookups (25 new stores 11)"
+    },
+    {
       "dir": "scavio-zillow",
       "slug": "zillow-property-data",
       "name": "zillow-property-data",
@@ -2031,6 +2043,11 @@
       "dir": "scavio-acehardware",
       "description": "Ace Hardware API for Ace Hardware (acehardware.com, the US hardware cooperative) - Ace Hardware prices by store, one item priced for the Ace store you pick by its 5-digit store number (Ace stores are independently owned and operated, and the same item can be priced differently at different stores; priced_for names the store and the price list Ace used, the same 40 lb Ace ice melt read $35.99, $21.99 and $18.99 at three stores on one day), the exact units on hand at up to 25 Ace stores or at one store and the 25 stores Ace lists as nearest to it, with the store's shelf location code and the regional distribution centre's units, and a store's weekly ad with its valid dates, items and prices in the ad's words; keyword, item-number and UPC search, category, brand and deals lists, 15 to 200 per page, sorted by price, name or newest and filtered by brand, Ace's Special Offers (sale, Ace Rewards, Buy & Get, Buy More & Save) or any facet, priced as Ace lists them (not a store's price); one product in full with UPC, manufacturer part number, rating and review count, specifications, measurements and assembly options; one store with hours, services, departments, brands, programs, pickup, curbside, delivery and propane flags, price zones and its nearest and same-owner stores; the 25 stores nearest a store with addresses, hours and distance; Ace's departments and categories, the brand index (about 5,700 brands), site-wide promotions with codes and dates, and about 5,300 paint colours (Benjamin Moore, Clark+Kensington, Magnolia Home) with hex and RGB. 11 endpoints, 1 credit per call, search and product 2, store-stock 1 per 5 stores (nearby 6). US only. No ZIP store search, review text, price history, Ace Rewards member prices or checkout.",
       "tags": "ace-hardware, acehardware, acehardware-com, ace-hardware-api, ace-hardware-prices, ace-hardware-prices-by-store, ace-hardware-price-by-store, ace-hardware-local-price, ace-hardware-inventory, ace-hardware-inventory-checker, ace-hardware-stock-checker, ace-hardware-store-inventory, ace-hardware-weekly-ad, ace-hardware-local-ad, ace-hardware-black-friday, ace-hardware-deals, ace-hardware-stores, ace-hardware-paint-colors, ace-vs-home-depot, hardware-store, hardware-store-prices, hardware-price-api, home-improvement, store-prices, store-inventory, store-stock, weekly-ad, paint-colors, benjamin-moore, us-retail, price-monitoring, usd, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-tractorsupply",
+      "description": "Tractor Supply API for Tractor Supply (tractorsupply.com, the US rural lifestyle retailer) - Tractor Supply prices by store, one item priced for the store you pick by store number or for the nearest store Tractor Supply lists for a US ZIP (priced_for names the store and its price zone; Tractor Supply's terms note that prices may vary in different geographic markets, and the same 50 lb bag of Producer's Pride 16% Layer Pellets read $14.49 at Glendive, MT and $20.19 at Port Orchard, WA on one day), one item's price at up to 25 stores or at the stores nearest a ZIP in one call with the low and the high, the exact units on hand per store with stock in transit and its pickup date, and pickup and delivery options with dates for one store and ZIP; keyword, item-number and UPC search, category, brand and deals (on sale or new) lists, 24 to 200 per page, sorted by price, rating, name or newest and filtered by brand, on sale, pickup, rating or any facet, each item with Tractor Supply's own unit price (per lb on feed); one product in full with UPC, was price, pickup price, the manufacturer's minimum advertised price where Tractor Supply flags it, rating and review count, sizes, fulfillment flags and dated promotions; the stores nearest a ZIP and one store with address, phone, hours, services (propane refill, trailer rental and more), price zone and dated store events; Tractor Supply's departments and categories. 12 endpoints, 1 credit per call, product 2 on a store's first lookup, store-prices 1 per 5 lookups. US only. No review text, weekly ad, search suggestions, price history, Neighbor's Club prices or checkout.",
+      "tags": "tractor-supply, tractorsupply, tractorsupply-com, tractor-supply-api, tractor-supply-prices, tractor-supply-prices-by-store, tractor-supply-feed-prices, tractor-supply-chicken-feed, tractor-supply-dog-food, tractor-supply-inventory, tractor-supply-inventory-checker, tractor-supply-stock-checker, tractor-supply-store-inventory, tractor-supply-stores, tractor-supply-store-hours, tractor-supply-propane, tractor-supply-deals, tractor-supply-black-friday, tractor-supply-promotions, producers-pride, dumor, purina, nutrena, chicken-feed, layer-feed, feed-prices, price-per-pound, farm-supply, farm-supply-prices, farm-and-ranch, store-prices, store-inventory, store-stock, us-retail, price-monitoring, usd, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-zillow",
