@@ -109,6 +109,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Sam's Club | [sams-club-product-data](references/sams-club-product-data.md) | 6 | 2; clubs 1 |
 | Sephora | [sephora-product-data](references/sephora-product-data.md) | 3 | 1; product 2 |
 | Spec's | [specs-liquor-prices](references/specs-liquor-prices.md) | 3 | 5 |
+| Staples | [staples-ink-prices-api](references/staples-ink-prices-api.md) | 12 | 1 |
 | Target | [target-product-data](references/target-product-data.md) | 5 | 1 |
 | TCGplayer | [tcgplayer-api](references/tcgplayer-api.md) | 13 | 1 |
 | thredUP | [thredup-api](references/thredup-api.md) | 12 | 1 |

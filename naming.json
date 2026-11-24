@@ -1453,6 +1453,18 @@
       "credits": "1"
     },
     {
+      "dir": "scavio-staples",
+      "slug": "staples-ink-prices-api",
+      "name": "staples-ink-prices-api",
+      "display": "Staples API - Ink Prices, Office Supplies, Store Stock",
+      "query": "staples ink prices",
+      "reused": "no",
+      "platform": "Staples",
+      "group": "Commerce",
+      "endpoints": "12",
+      "credits": "1"
+    },
+    {
       "dir": "scavio-zillow",
       "slug": "zillow-property-data",
       "name": "zillow-property-data",
@@ -2082,6 +2094,11 @@
       "dir": "scavio-nike",
       "description": "Nike API for Nike (nike.com, including Jordan Brand) - Nike sale prices and sizes as read-only data, the price Nike shows next to its own full price and the discount percent Nike gives, per storefront in its own currency (prices differ between markets, also inside the euro zone; the Dunk Low DD1503-103 read $78.97 against a $120 full price in the US, 54.99 GBP against 109.99 in the UK, 59.99 EUR against 119.99 in France and 17,050 JPY with no markdown in Japan on one day), every size of a product with its GTIN and Nike's status, every colorway with its own price, and Nike's launch calendar (upcoming, feed, in stock) with release start, the launch method as Nike labels it (LINE or DRAW) and a per-size level HIGH, MEDIUM, LOW or OOS for launch items, past launches too; keyword and style-color search, category listings, Jordan, ACG and Nike SB brand listings and Nike's Sale listing, the first page of 24 product groups each, sorted by featured, newest or price and filtered by any facet token Nike gives (size, gender, colour, price band, discount band); Nike's review summary (total, average, size and comfort ratings and Nike's own summary where shown) with the 3 newest reviews. 62 storefronts in 42 countries (61 www.nike.com storefronts plus www.nike.com.cn). 8 endpoints, 1 credit per call. No stock levels for regular products, store stock, store locator, member or code prices, review paging, price history or ordering.",
       "tags": "nike, nike-com, nike-api, nike-product-api, nike-product-data, nike-prices, nike-sale, nike-sale-prices, nike-shoes-sale, nike-black-friday, nike-sizes, nike-size-availability, nike-release-calendar, nike-launch-calendar, nike-release-dates, nike-style-code, nike-price-by-country, nike-reviews, jordan, jordan-brand, air-jordan, nike-dunk, air-force-1, nike-sb, nike-acg, sneakers, sneaker-prices, sneaker-release-calendar, gtin, multi-currency, price-comparison, global-retail, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-staples",
+      "description": "Staples API for Staples (staples.com, the US office supply retailer; Staples Canada at staples.ca) - Staples ink prices, paper prices and store stock, a cartridge's price with the page yield Staples states and Staples' own cost per page where it shows one (the HP 64XL Black High Yield cartridge read $62.89, 600 pages, $0.10 Cost Per Page as Staples gives it), copy paper per ream as Staples prices it (a 10-ream Hammermill Copy Plus carton read $49.99 against a $83.19 Regular price, $5.00/Ream, with Staples' own offer expiry and coupon code), and the units of one item at the nearest Staples stores that have it for pickup near a US ZIP, as Staples reports them (12 HP 64XL cartridges at Naperville, IL, Ready in 30 mins); prices are national (the same price measured at 7 ZIP codes and 3 stores; the ZIP changes delivery dates and the store changes pickup units, never the price); keyword, model-number and item-number search, class listings and On Promotion or Clearance deals, 40 per page to page 250, sorted by best match, price, rating or newest and filtered by brand, price and any facet such as number of reams, sheet size or brightness; one product in full with specifications, promotions, coupon codes, every pack size, delivery dates for a ZIP and one store's pickup units; reviews up to 100 per page with Staples' verified and incentivized flags and no reviewer names; customer questions with answers; Staples' public coupons with end dates; the stores near a ZIP or a city with hours and services, one store, the department tree and trending searches. Staples Canada (CAD, English or French) for product and top search matches. 12 endpoints, 1 credit per call. No UPC on staples.com, weekly ad, search suggestions, Rewards or Business Advantage prices, print or tech service prices, price history or checkout.",
+      "tags": "staples, staples-com, staples-api, staples-ink, staples-ink-prices, staples-hp-ink, staples-printer-ink, staples-ink-cartridges, staples-copy-paper, staples-paper-prices, staples-prices, staples-store-stock, staples-in-stock, staples-inventory, staples-stores, staples-store-hours, staples-coupons, staples-deals, staples-clearance, staples-black-friday, staples-reviews, staples-canada, hp-ink, hp-64xl, hp-67, ink-cartridges, ink-prices, cost-per-page, page-yield, copy-paper, price-per-ream, office-supplies, office-supply-prices, office-chairs, store-stock, us-retail, canada-retail, usd, cad, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-zillow",
