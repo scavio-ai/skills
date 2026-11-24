@@ -1441,6 +1441,18 @@
       "credits": "2; category or deals with a /shop/ link or path 4"
     },
     {
+      "dir": "scavio-nike",
+      "slug": "nike-api",
+      "name": "nike-api",
+      "display": "Nike API - Sale Prices, Sizes, Release Calendar",
+      "query": "nike api",
+      "reused": "no",
+      "platform": "Nike",
+      "group": "Commerce",
+      "endpoints": "8",
+      "credits": "1"
+    },
+    {
       "dir": "scavio-zillow",
       "slug": "zillow-property-data",
       "name": "zillow-property-data",
@@ -2065,6 +2077,11 @@
       "dir": "scavio-michaels",
       "description": "Michaels API for Michaels (michaels.com, the US and Canada arts and crafts retailer) - Michaels prices and store stock, one SKU's exact units at the Michaels stores near a US ZIP or a Canadian postal code as Michaels reports them (one colour of Soft Classic yarn by Loops & Threads read 6 skeins at Naperville, IL and 1 at Downers Grove, IL on one day; virtual pop-up stores are flagged and show 0 units), up to 30 SKUs at one store in one call, and prices that are national per country (the store does not change the price; Canada has its own CAD prices, and the same Cricut Explore 5 bundle read $199.00 against Reg. $249.00 in the US and $269.99 against Reg. $349.99 in Canada); keyword, item-number and UPC search, category, brand and deals lists (sale, new, clearance, Great Buy), up to 100 per page, sorted by best match, best sellers, new arrivals, price or rating and filtered by brand, price, rating, store pickup, same-day delivery, seller (Michaels, Marketplace, Michaels Pro) and any facet such as colour, yarn weight or material, Michaels items and Marketplace items together with the seller type; one product in full with every colour or size and its price, Reg. price, UPC and online stock, the Pro bulk-pack unit price, specifications such as skein weight and yardage, rating and review count, and Michaels' own promotion text with its start and end; the stores near a ZIP with hours and services and one store's details; Michaels' departments and search suggestions. Canada in English or French. 11 endpoints, 2 credits per call (a category given as a link or path 4). No review text, weekly ad, coupons, classes, aisle location, Marketplace seller names, price history or checkout.",
       "tags": "michaels, michaels-com, michaels-api, michaels-craft-store, michaels-prices, michaels-yarn, michaels-yarn-prices, michaels-inventory, michaels-inventory-checker, michaels-stock-checker, michaels-store-inventory, michaels-in-stock, michaels-stores, michaels-store-hours, michaels-deals, michaels-clearance, michaels-black-friday, michaels-canada, michaels-cricut, loops-and-threads, bernat, lion-brand, caron, cricut, yarn, yarn-prices, price-per-ounce, craft-supplies, craft-store-prices, arts-and-crafts, store-inventory, store-stock, us-retail, canada-retail, usd, cad, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-nike",
+      "description": "Nike API for Nike (nike.com, including Jordan Brand) - Nike sale prices and sizes as read-only data, the price Nike shows next to its own full price and the discount percent Nike gives, per storefront in its own currency (prices differ between markets, also inside the euro zone; the Dunk Low DD1503-103 read $78.97 against a $120 full price in the US, 54.99 GBP against 109.99 in the UK, 59.99 EUR against 119.99 in France and 17,050 JPY with no markdown in Japan on one day), every size of a product with its GTIN and Nike's status, every colorway with its own price, and Nike's launch calendar (upcoming, feed, in stock) with release start, the launch method as Nike labels it (LINE or DRAW) and a per-size level HIGH, MEDIUM, LOW or OOS for launch items, past launches too; keyword and style-color search, category listings, Jordan, ACG and Nike SB brand listings and Nike's Sale listing, the first page of 24 product groups each, sorted by featured, newest or price and filtered by any facet token Nike gives (size, gender, colour, price band, discount band); Nike's review summary (total, average, size and comfort ratings and Nike's own summary where shown) with the 3 newest reviews. 62 storefronts in 42 countries (61 www.nike.com storefronts plus www.nike.com.cn). 8 endpoints, 1 credit per call. No stock levels for regular products, store stock, store locator, member or code prices, review paging, price history or ordering.",
+      "tags": "nike, nike-com, nike-api, nike-product-api, nike-product-data, nike-prices, nike-sale, nike-sale-prices, nike-shoes-sale, nike-black-friday, nike-sizes, nike-size-availability, nike-release-calendar, nike-launch-calendar, nike-release-dates, nike-style-code, nike-price-by-country, nike-reviews, jordan, jordan-brand, air-jordan, nike-dunk, air-force-1, nike-sb, nike-acg, sneakers, sneaker-prices, sneaker-release-calendar, gtin, multi-currency, price-comparison, global-retail, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-zillow",
