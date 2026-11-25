@@ -844,13 +844,13 @@
       "dir": "scavio-home-depot",
       "slug": "home-depot-product-data",
       "name": "home-depot-product-data",
-      "display": "Home Depot Product Data API - Search, Item Detail, Reviews",
+      "display": "Home Depot Product Data API - US and Canada Store Prices, Stock, Reviews",
       "query": "home depot product data",
       "reused": "yes",
       "platform": "Home Depot",
       "group": "Commerce",
-      "endpoints": "3",
-      "credits": "2"
+      "endpoints": "11",
+      "credits": "US 2 (shipping 4); Canada 1"
     },
     {
       "dir": "scavio-ikea",
@@ -1938,8 +1938,8 @@
     },
     {
       "dir": "scavio-home-depot",
-      "description": "Home Depot product data: keyword search returning price, promotions, brand, model, ratings and per-store pickup and delivery; full item detail with spec table, dimensions, documents and return policy; and paginated review bodies with rating distribution. 3 endpoints, 2 credits each, structured JSON.",
-      "tags": "home-depot, home-depot-api, home-depot-product-data, product-data, product-search, retail, home-improvement, hardware, pricing, product-reviews, price-monitoring, catalog-enrichment, web-scraping, langchain, crewai, ai-agents, structured-data, json"
+      "description": "Home Depot product data for homedepot.com and Home Depot Canada (homedepot.ca, The Home Depot's Canadian store: 182 stores in 10 provinces): keyword search with price, promotions, brand, model, ratings and per-store pickup and delivery; full item detail with spec table, dimensions, documents and return policy; paginated review bodies with rating distribution; stores near a ZIP or postal code; and one item's price and stock at a store. Home Depot Canada adds per-store prices in CAD with exact units and aisle / bay at each store, the store price next to the online price, exact units at every store near a postal code or city, category and collection pages (Black Friday, Christmas Trees) priced at a chosen store, the department tree, store hours and search suggestions, in English or French. 11 endpoints: US 2 credits per call (delivery quote 4), Canada 1 credit per call, structured JSON. Canada has no UPC, structured sale end dates, delivery quotes or reviews past the first 8 per language.",
+      "tags": "home-depot, home-depot-api, home-depot-product-data, home-depot-canada, homedepot-ca, home-depot-canada-prices, home-depot-store-prices, home-depot-store-stock, product-data, product-search, retail, home-improvement, hardware, lumber-prices, canada, cad, store-prices, store-stock, pricing, product-reviews, price-monitoring, catalog-enrichment, web-scraping, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-ikea",

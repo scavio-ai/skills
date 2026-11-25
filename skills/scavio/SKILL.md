@@ -83,7 +83,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Harbor Freight | [harbor-freight-api](references/harbor-freight-api.md) | 7 | 1 |
 | HEB | [heb-grocery-data](references/heb-grocery-data.md) | 3 | 2 |
 | HEMA | [hema-store-stock-api](references/hema-store-stock-api.md) | 13 | 1 |
-| Home Depot | [home-depot-product-data](references/home-depot-product-data.md) | 3 | 2 |
+| Home Depot | [home-depot-product-data](references/home-depot-product-data.md) | 11 | US 2 (shipping 4); Canada 1 |
 | iHerb | [iherb-product-data](references/iherb-product-data.md) | 4 | 2 |
 | IKEA | [ikea-api](references/ikea-api.md) | 12 | 1; compare 1 per market |
 | Instacart | [instacart-api](references/instacart-api.md) | 11 | 1; search 3, cross-search 3-4 |
