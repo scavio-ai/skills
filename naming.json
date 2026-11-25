@@ -433,6 +433,30 @@
       "credits": "1"
     },
     {
+      "dir": "scavio-sportchek",
+      "slug": "sportchek-api",
+      "name": "sportchek-api",
+      "display": "SportChek API - Sport Chek Prices, Sale Dates, Stock, Reviews",
+      "query": "sportchek api",
+      "reused": "no",
+      "platform": "SportChek",
+      "group": "Commerce",
+      "endpoints": "8",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-marks",
+      "slug": "marks-api",
+      "name": "marks-api",
+      "display": "Mark's API (Mark's Work Wearhouse) - Workwear Prices, Sale Dates, Stock",
+      "query": "marks work wearhouse",
+      "reused": "no",
+      "platform": "Mark's",
+      "group": "Commerce",
+      "endpoints": "8",
+      "credits": "1"
+    },
+    {
       "dir": "scavio-dollargeneral",
       "slug": "dollar-general-api",
       "name": "dollar-general-api",
@@ -1741,6 +1765,16 @@
       "dir": "scavio-canadiantire",
       "description": "Canadian Tire API: search canadiantire.ca at the store you choose with that store's CAD price, regular price and stock, read full product detail, check price and stock for up to 50 SKUs in one call, find stores near a postal code with their stock and aisle for an item, and list each store's clearance and deals. 6 endpoints, 1 credit each.",
       "tags": "canadian-tire, canadiantire, canadian-tire-api, canada, canadian-retail, cad-prices, store-prices, store-inventory, in-store-stock, aisle-location, clearance, deals, rebates, product-search, product-data, store-locator, retail, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-sportchek",
+      "description": "SportChek API for SportChek (sportchek.ca, Canada's sporting goods retailer, a Canadian Tire Corporation banner) - Sport Chek prices in Canadian dollars with the was price and sale label SportChek shows, the sale's posted end date (sale_ends) and SportChek's own was-price footnote (\"Was price reflects the last national regular price this product was sold for.\"), to set the same model next to Amazon.ca and Walmart.ca; keyword search and any category or deals page (clearance, sale, Black Friday) by path, 24 per page with total and pages, sorted by relevance, price or rating and filtered by brand, sale or clearance and any of SportChek's own filters (gender, size, colour, rating, price band) with their counts; per-colour prices and online units; one product by code or link with every colour and size (own price, was price, sale end date, units online and units at the store SportChek assigns to the request's region, which a caller cannot choose), specifications, features and breadcrumbs; customer reviews with the rating summary (the first 8, then 30 a page, up to 98 per sort and star filter; syndicated and incentivized reviews flagged, no reviewer names); search suggestions; one store with hours and up to 49 nearby stores; the brand list and the category tree. 8 endpoints, 1 credit per call; calls take about 10-90 seconds. English only. Not available - choosing a store, stores near a postal code, customer questions, the flyer, Triangle Rewards or CT Money prices, UPC, price history, cart or checkout.",
+      "tags": "sportchek, sport-chek, sportchek-ca, sportchek-api, sport-chek-api, sportchek-prices, sport-chek-prices, sportchek-sale, sport-chek-sale, sportchek-was-price, sportchek-sale-end-date, sportchek-clearance, sportchek-black-friday, sport-chek-black-friday, sportchek-deals, sportchek-stock, sportchek-reviews, sportchek-product-data, sportchek-brands, sportchek-categories, sportchek-stores, canadian-tire-corporation, canada, canadian-retail, cad, cad-prices, sporting-goods, sporting-goods-prices, winter-jackets, outerwear, hockey, hockey-equipment, footwear, price-comparison, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-marks",
+      "description": "Mark's API for Mark's (marks.com, the Canadian workwear, casual clothing and footwear retailer, a Canadian Tire Corporation banner; L'Equipeur in French) - Mark's Work Wearhouse prices in Canadian dollars with the was price and sale label Mark's shows, the sale's posted end date (sale_ends) and Mark's own was-price footnote (\"Was price reflects the last national regular price this product was sold for.\"), to set the same work boot, jacket or pant next to Amazon.ca and Walmart.ca; keyword search and any category or deals page by path, 24 per page (12 on category pages) with total and pages, sorted by relevance, price or rating and filtered by brand, sale or clearance and any of Mark's own filters (gender, shoe size, width, CSA features, colour, rating, price band) with their counts; per-colour prices and online units; one product by code or link with every colour, size and width (own price, was price, sale end date, units online and units at the store Mark's assigns to the request's region, which a caller cannot choose), specifications, features and breadcrumbs; the newest 10 customer questions with answers (brand answers flagged, no asker names); search suggestions; one store with hours and up to 49 nearby stores; the brand list and the category tree. language fr reads L'Equipeur (lequipeur.com, the same product codes and CAD prices, French titles) on search, list, product, brands and categories. 8 endpoints, 1 credit per call; calls take about 10-90 seconds. Not available - customer reviews (rating and review count only), choosing a store, stores near a postal code, the flyer, Triangle Rewards or CT Money prices, UPC, price history, cart or checkout.",
+      "tags": "marks, marks-com, marks-api, marks-work-wearhouse, marks-work-warehouse, mark-s, lequipeur, l-equipeur, marks-prices, marks-sale, marks-was-price, marks-sale-end-date, marks-black-friday, marks-clearance, marks-work-boots, marks-workwear, marks-stock, marks-questions, marks-product-data, marks-brands, marks-categories, marks-stores, dakota-workpro, helly-hansen-workwear, carhartt, work-boots, workwear, workwear-prices, canadian-tire-corporation, canada, canadian-retail, cad, cad-prices, french, quebec, price-comparison, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-dollargeneral",
