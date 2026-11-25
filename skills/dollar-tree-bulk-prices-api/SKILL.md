@@ -9,7 +9,7 @@ metadata:
       env:
         - SCAVIO_API_KEY
     primaryEnv: SCAVIO_API_KEY
-    timeout: 240
+    timeout: 300
     throttle: 1
     homepage: https://scavio.dev/dollartree-api?utm_source=agent-skills&utm_medium=skill&utm_campaign=dollar-tree-bulk-prices-api
 ---
@@ -26,7 +26,7 @@ Ten limits shape every answer, so say them plainly:
 - **Case price against unit price.** Online orders go by the case or in split-case multiples. `case_price` is Dollar Tree's price for `case_pack` units (unit price x case pack: $1.50 x 30 = $45.00); `minimum_quantity` is Dollar Tree's order minimum; `split_case` {`available`, `multiple`, `fee`} is Dollar Tree's split-case data as given (`fee` only on the product, `null` in lists). Report them as Dollar Tree gives them and show the arithmetic; stores sell single units.
 - **Case pack 0 means no case price.** Where Dollar Tree gives a case pack or case price of 0 (Red Bull Zero, item `403802`, measured 2026-11-24), `case_pack` and `case_price` are `null`. Never compute one.
 - **The prices Dollar Tree shows, as given.** Items come at many price points: the Christmas Decor Price facet listed $1.00, $1.25, $1.50, $1.75, $3.00, $5.00, $7.00 and $10.00; `paper plates` listed $1.25, $1.50, $4.00 and $5.00. MORE CHOICES (`deals` `type` `more_choices`) is Dollar Tree's multi-price department. Never write that everything costs $1.25.
-- **Store stock needs a store number and is slow.** `/store-stock` takes `item_id` and `store` (a number from `/stores`); a ZIP alone does not pick a store. It returns the store's exact `units`, up to about 63 `nearby_stores` by store number with their units, `ship_to_home` and `ship_to_store`. It is the slowest endpoint: 27 seconds in the capture, 17 to 72 seconds measured. Allow a client timeout of 240 seconds.
+- **Store stock needs a store number and is slow.** `/store-stock` takes `item_id` and `store` (a number from `/stores`); a ZIP alone does not pick a store. It returns the store's exact `units`, up to about 63 `nearby_stores` by store number with their units, `ship_to_home` and `ship_to_store`. It is the slowest endpoint: 27 seconds in the capture, 17 to 72 seconds measured. Allow a client timeout of 300 seconds.
 - **No UPC search.** Dollar Tree's search does not match UPCs: a UPC finds nothing. Look items up by the Dollar Tree item number (`items[].item_id`, the number at the end of a dollartree.com product link, such as `221159` or `FD1402202`). `upcs` are listed as Dollar Tree gives them, zero-padded to 18 digits, and an assorted item can list several (221159 lists 10).
 - **Reviews: the newest only.** `/reviews` returns up to about 98 of the newest English reviews, newest first. No other sort, no star filter, no questions and answers, no reviewer names. Many reviews are syndicated from brand sites: `syndicated` and `syndication_source` say so (95 of 97 on Crest Tartar Protection came from crest.com).
 - **Canada: store pages only.** Dollar Tree Canada has no shopping site. `country` `ca` is served by `/store` only (locations.dollartreecanada.com pages, English, no prices, `currency` `null`); every other endpoint is US only.
@@ -81,7 +81,7 @@ Authorization: Bearer $SCAVIO_API_KEY
 
 ## Endpoints
 
-Base URL: `https://api.scavio.dev`. In the captures, deals took about 1 second, search, product, category, categories, brand and store 2-4, stores 14, store-stock 27 and reviews 31. Store stock was measured at 17 to 72 seconds. Allow a client timeout of at least 240 seconds: a busy moment can queue a request.
+Base URL: `https://api.scavio.dev`. In the captures, deals took about 1 second, search, product, category, categories, brand and store 2-4, stores 14, store-stock 27 and reviews 31. Store stock was measured at 17 to 72 seconds. Allow a client timeout of at least 300 seconds: a busy moment can queue a request.
 
 | Endpoint | What it returns | Markets | Credits |
 |---|---|---|---|
@@ -426,7 +426,7 @@ API_KEY = "sk_your_key_here"
 HEADERS = {"Authorization": f"Bearer {API_KEY}"}
 
 def dollartree(endpoint, body):
-    r = requests.post(f"{BASE}/api/v1/dollartree/{endpoint}", headers=HEADERS, json=body, timeout=240)
+    r = requests.post(f"{BASE}/api/v1/dollartree/{endpoint}", headers=HEADERS, json=body, timeout=300)
     r.raise_for_status()
     return r.json()
 
