@@ -59,7 +59,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Ashley Furniture | [ashley-furniture-api](references/ashley-furniture-api.md) | 6 | 2; search and product 1 on ca, ph, sa and tr |
 | ASOS | [asos-api](references/asos-api.md) | 11 | 1 |
 | AutoZone | [autozone-api](references/autozone-api.md) | 12 | 1; br search, product and store-stock 2 |
-| Best Buy | [best-buy-product-data](references/best-buy-product-data.md) | 9 | 2; stores and suggestions 1, deals and pcmcat category pages 3 |
+| Best Buy | [best-buy-product-data](references/best-buy-product-data.md) | 10 | US 2 (stores and suggestions 1, deals and pcmcat pages 3); Canada 1 |
 | bol.com | [bol-com-api](references/bol-com-api.md) | 9 | 2; product by EAN 4 |
 | Canadian Tire | [canadian-tire-api](references/canadian-tire-api.md) | 6 | 1 |
 | Carrefour | [carrefour-api](references/carrefour-api.md) | 9 | 1; Belgium search and product 2 |

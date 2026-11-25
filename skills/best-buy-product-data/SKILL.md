@@ -1,8 +1,8 @@
 ---
 name: best-buy-product-data
-description: "Best Buy product data API: search bestbuy.com or browse any category or deals page, 18 products per page, with price, regular price, savings, deal badge, condition, rating and seller type, filtered by brand, on sale, clearance, open box or a price range, read one product by SKU with UPC, model, every open-box offer by condition (fair, good, excellent) with its price and savings against new and regular, the full spec table and the AI review summary, check store pickup status (in stock, limited, ship to store, out of stock) of a SKU at up to 8 stores near a ZIP, find stores with 35 days of dated hours, get today's Deal of the Day, batch prices for up to 15 SKUs, page first-party reviews with the star histogram and pros and cons, and pull search autocomplete. 9 endpoints, 2 credits each; stores and suggestions 1, deals and pcmcat category pages 3."
-version: 1.0.0
-tags: best-buy, bestbuy, best-buy-api, best-buy-product-data, best-buy-scraper, best-buy-open-box, open-box-prices, best-buy-price-tracker, price-drop-alerts, best-buy-stock-checker, in-stock-tracker, store-pickup, in-store-availability, deal-of-the-day, best-buy-deals, clearance, electronics, consumer-electronics, tvs, laptops, gaming, upc, sku-data, product-specs, product-search, product-data, product-reviews, review-analysis, category-browse, store-locator, store-hours, batch-prices, autocomplete, retail, price-monitoring, price-comparison, langchain, crewai, ai-agents, structured-data, json
+description: "Best Buy product data for bestbuy.com and Best Buy Canada (bestbuy.ca, Best Buy's Canadian store: 142 stores across Canada per Best Buy's FY2026 10-K, plus a marketplace of third-party sellers): search and category or deals-page listings with price, regular price, savings, deal badge, condition, rating and seller type, filtered by brand, on sale, clearance, open box or a price range; product detail with UPC, model, open-box offers with their prices and the full spec table; store stock near a US ZIP or a Canadian postal code; a store locator with dated hours; batch prices; first-party reviews with the star histogram; and search autocomplete. bestbuy.com adds every open-box offer by condition (fair, good, excellent) with its savings, store pickup status at up to 8 stores, today's Deal of the Day and the AI review summary. Best Buy Canada adds exact units per store at up to 50 stores, sale start and end dates, the environmental handling fee by province (the price is national), open-box and refurbished SKUs with their own prices, the Black Friday, top deals, clearance, open box and refurbished collections, product questions with the top answer, and English or French. 10 endpoints: US 2 credits per call (stores and suggestions 1, deals and pcmcat category pages 3), Canada 1 credit per call, structured JSON. Best Buy Canada has no per-store prices, Deal of the Day or results past 2,000."
+version: 1.1.0
+tags: best-buy, bestbuy, best-buy-api, best-buy-product-data, best-buy-canada, bestbuy-ca, best-buy-canada-prices, best-buy-canada-stock, canada, cad, ehf, store-stock, best-buy-scraper, best-buy-open-box, open-box-prices, best-buy-price-tracker, price-drop-alerts, best-buy-stock-checker, in-stock-tracker, store-pickup, in-store-availability, deal-of-the-day, best-buy-deals, clearance, electronics, consumer-electronics, tvs, laptops, gaming, upc, sku-data, product-specs, product-search, product-data, product-reviews, review-analysis, category-browse, store-locator, store-hours, batch-prices, autocomplete, retail, price-monitoring, price-comparison, langchain, crewai, ai-agents, structured-data, json
 metadata:
   openclaw:
     requires:
@@ -14,11 +14,18 @@ metadata:
     homepage: https://scavio.dev/docs/bestbuy-product?utm_source=agent-skills&utm_medium=skill&utm_campaign=best-buy-product-data
 ---
 
-# Best Buy Product Data API - Open-Box Prices, Store Stock, Deals, Reviews
+# Best Buy Product Data API - US and Canada Prices, Open-Box, Store Stock, Deals
 
-Search Best Buy (bestbuy.com, US) by keyword, or browse a category or deals page by category id or URL (catalogue categories such as `abcat0101001` All Flat-Screen TVs, and merchandised pages such as `pcmcat1674241939957` All Electronics on Sale), 18 organic products per page, sorted by best match, best selling, best discount, price, rating or newest, filtered by brand, on sale, clearance, open box or a price range: SKU, BSIN, name, brand, model number, URL, image, current price, regular price, savings in dollars and percent, on-sale flag, the deal badge (`Holiday Deal`, `BlackFriday`, `Doorbuster`...) and deal end time, condition, rating, review count, seller type (`best_buy` or `marketplace`), product type, badges and release date, plus the total result count, the filter sidebar with product counts, the sort options and related searches. Read one product by SKU or URL with its UPC, model, status, category path, price block, financing offer, every open-box offer by condition (fair, good, excellent) with its price and its savings against new and against the regular price, other conditions and sellers of the same product, the AI review summary and what customers love, description, features, what is included, the full specification table by group, dimensions, images and manuals. Check one SKU's store pickup status at up to 8 Best Buy stores (the stores nearest a ZIP, or store ids you pass): in stock, limited (with the real count when Best Buy shows "only N left"), ship to store, out of stock, not available for pickup, or unknown with a reason, plus the pickup date. Find the stores near a ZIP with 35 days of dated opening hours, get today's Deal of the Day and the more-deals row with live prices, price up to 15 SKUs in one call, page Best Buy's own customer reviews 20 at a time with the star histogram, recommended percent and the most mentioned pros and cons, and pull the search box's autocomplete. All endpoints return structured JSON.
+Two markets on the same endpoints, chosen with `country`:
 
-See also: for PC parts with per-store stock counts and open-box units at Micro Center use the `micro-center-api` skill; for the cross-retailer price view use `google-shopping-api`.
+- `country: "us"` (the default) - bestbuy.com, in USD. Unchanged by Canada: a body without `country` works exactly as before.
+- `country: "ca"` - Best Buy Canada (bestbuy.ca, Best Buy's Canadian store: 142 stores across Canada per Best Buy's FY2026 10-K, plus a marketplace of third-party sellers), in CAD, in English or French, 1 credit per call. All nine endpoints take it, and Canada adds one endpoint of its own: product questions. See [Best Buy Canada](#best-buy-canada-country-ca) below.
+
+Best Buy's developer API (developer.bestbuy.com) covers bestbuy.com only; nothing there covers bestbuy.ca. Scavio fetches the public bestbuy.ca page data on request.
+
+The rest of this section and the US sections below describe bestbuy.com. Search Best Buy (bestbuy.com, US) by keyword, or browse a category or deals page by category id or URL (catalogue categories such as `abcat0101001` All Flat-Screen TVs, and merchandised pages such as `pcmcat1674241939957` All Electronics on Sale), 18 organic products per page, sorted by best match, best selling, best discount, price, rating or newest, filtered by brand, on sale, clearance, open box or a price range: SKU, BSIN, name, brand, model number, URL, image, current price, regular price, savings in dollars and percent, on-sale flag, the deal badge (`Holiday Deal`, `BlackFriday`, `Doorbuster`...) and deal end time, condition, rating, review count, seller type (`best_buy` or `marketplace`), product type, badges and release date, plus the total result count, the filter sidebar with product counts, the sort options and related searches. Read one product by SKU or URL with its UPC, model, status, category path, price block, financing offer, every open-box offer by condition (fair, good, excellent) with its price and its savings against new and against the regular price, other conditions and sellers of the same product, the AI review summary and what customers love, description, features, what is included, the full specification table by group, dimensions, images and manuals. Check one SKU's store pickup status at up to 8 Best Buy stores (the stores nearest a ZIP, or store ids you pass): in stock, limited (with the real count when Best Buy shows "only N left"), ship to store, out of stock, not available for pickup, or unknown with a reason, plus the pickup date. Find the stores near a ZIP with 35 days of dated opening hours, get today's Deal of the Day and the more-deals row with live prices, price up to 15 SKUs in one call, page Best Buy's own customer reviews 20 at a time with the star histogram, recommended percent and the most mentioned pros and cons, and pull the search box's autocomplete. All endpoints return structured JSON.
+
+See also: for PC parts with per-store stock counts and open-box units at Micro Center use the `micro-center-api` skill; for the cross-retailer price view use `google-shopping-api`. For Canadian electronics prices at other retailers, see [Pairs well with](#pairs-well-with).
 
 ## When to trigger
 
@@ -33,6 +40,11 @@ Use this skill when the user asks to:
 - Find Best Buy stores near a ZIP code with their hours, including holiday hours and closed days
 - Read what Best Buy reviewers say, pull only the 1-star reviews, the newest reviews, or the most mentioned pros and cons
 - Get Best Buy search autocomplete suggestions for keyword research
+- Get Best Buy Canada (bestbuy.ca) prices in CAD for TVs, laptops, consoles or Apple products, with the sale start and end dates and the environmental handling fee by province
+- Check how many units of an item each Best Buy Canada store near a postal code has, or compare the units at stores in different provinces
+- List Best Buy Canada's Black Friday, top deals, clearance, open box or refurbished collection
+- Read Best Buy Canada open-box and refurbished SKUs with their own prices, or the questions shoppers asked about a product with the top answer
+- Compare one product's Best Buy Canada price with Amazon.ca, Walmart.ca, Costco Canada or Canadian Tire
 
 ## Setup
 
@@ -49,10 +61,13 @@ call below. The whole path from nothing to a working key is self-serve:
 
 1. Sign up at [dashboard.scavio.dev](https://dashboard.scavio.dev/sign-up?utm_source=agent-skills&utm_medium=skill&utm_campaign=best-buy-product-data) - email or Google, no card required.
 2. A key is created for the account automatically at signup. It is on the dashboard under API Keys, ready to copy.
-3. A new account starts with 50 credits. Most endpoints in this skill cost 2 credits (stores and suggestions 1, deals and pcmcat category pages 3), so the free credits cover about 25 calls.
+3. A new account starts with 50 credits. Most US calls cost 2 credits (stores and suggestions 1, deals and pcmcat category pages 3), so the free credits cover about 25 US calls; every Best Buy Canada call costs 1 credit, so they cover 50 Canada calls.
 
 When the balance runs out the API answers `402` with a JSON body carrying
 `billing_url`. Topping up needs no code change - the same key keeps working.
+The smallest purchase is 2,500 credits for $25, and monthly plans work out
+cheaper per credit if the usage is steady rather than one-off (Hobby is $15 a
+month for 3,000 credits; Growth works out to $1 per 1,000 credits).
 
 Every request is a `POST` with a JSON body and:
 
@@ -62,21 +77,22 @@ Authorization: Bearer $SCAVIO_API_KEY
 
 ## Endpoints
 
-Base URL: `https://api.scavio.dev`. Most calls take 2-6 seconds; `/availability` takes 5-20 seconds (it checks each store in turn), so allow a client timeout of at least 60 seconds.
+Base URL: `https://api.scavio.dev`. The cost depends on `country`: the **US** costs below are unchanged, and every **Best Buy Canada** call (`country: "ca"`, and `/questions`) costs **1 credit**. US calls take 2-6 seconds; US `/availability` takes 5-20 seconds (it checks each store in turn); Canada calls take 1-20 seconds (a collection page can take about 12). Allow a client timeout of at least 60 seconds.
 
-| Endpoint | Credits | What it returns |
-|---|---|---|
-| `POST /api/v1/bestbuy/search` | 2 | 18 organic products per page: position, SKU, BSIN, name, brand, model, URL, image, price, regular price, savings and savings percent, on-sale flag, deal badge, deal end time, condition, rating, review count, seller type, product type, badges, release date. Plus total results and pages, the applied sort and filters, the category, the filter sidebar (`facets[]` with values and counts), sort options, related searches and any spelling correction |
-| `POST /api/v1/bestbuy/category` | 2 for an `abcat` id, 3 for a `pcmcat` page | One category or deals page by `category_id` or URL, 18 products per page in the same shape as search, with the same filters and sorts (no `best_match`) |
-| `POST /api/v1/bestbuy/product` | 2 | One product by SKU or URL: SKU, BSIN, name, brand, model, UPC, URL, status, condition, product type, category path, price block, financing, `open_box[]` per condition (fair, good, excellent) with price, savings vs new, savings vs regular, savings percent and URL, seller type, other offers, rating, review count, AI review summary, what customers love, description, features, included items, specifications, dimensions, images, manuals, badges, release date |
-| `POST /api/v1/bestbuy/reviews` | 2 | One product's Best Buy reviews, 20 per page, sorted or filtered to one star rating: average rating, review count, recommended percent, star distribution, pros and cons with mention counts, total results for the filter, page count and `has_more`. Each review: id, title, text, rating, author, date, recommended, verified-purchase and incentivized flags, days of ownership, helpful and not-helpful votes, badges, photos, syndication source, the SKU reviewed when it is a sibling SKU, and the brand's response |
-| `POST /api/v1/bestbuy/availability` | 2 | Store pickup status of one SKU at up to 8 stores (nearest a ZIP, default 5, or the `store_ids` you pass): status, quantity (only for `limited`), pickup date, minimum hours until pickup, the nearby store Best Buy suggests when this one cannot fill it, and a reason when the status is `unknown`. Plus store and in-stock counts and a count per status |
-| `POST /api/v1/bestbuy/stores` | 1 | Best Buy stores near a US ZIP, nearest first, up to 15: store id, name, address, city, state, ZIP, country, phone, open status, store type, distance in miles, and dated hours for the next 35 days (holiday hours and closed days included) |
-| `POST /api/v1/bestbuy/deals` | 3 | Today's Deal of the Day and the more-deals row under it, up to 15 products with live prices: SKU, name, URL, image, rating, review count, price, regular price, savings, savings percent, on-sale flag, badge, deal end time, plus the page's countdown end. No parameters |
-| `POST /api/v1/bestbuy/prices` | 2 per call | Current prices for 1-15 SKUs in one call: price, regular price, savings, savings percent, on-sale flag and deal badge per SKU (`deal_ends_at` is usually null here; read the end time from `/product`), `found: false` for a SKU Best Buy does not know |
-| `POST /api/v1/bestbuy/suggestions` | 1 | The search box's autocomplete for a partial term: each suggested term with the categories (id and name) and SKUs Best Buy shows for it, plus any spelling correction |
+| Endpoint | US credits | Canada credits | What it returns |
+|---|---|---|---|
+| `POST /api/v1/bestbuy/search` | 2 | 1 | US: 18 organic products per page: position, SKU, BSIN, name, brand, model, URL, image, price, regular price, savings and savings percent, on-sale flag, deal badge, deal end time, condition, rating, review count, seller type, product type, badges, release date. Plus total results and pages, the applied sort and filters, the category, the filter sidebar (`facets[]` with values and counts), sort options, related searches and any spelling correction. Canada: 1-100 per page (default 24) with sale end date, EHF and the marketplace seller |
+| `POST /api/v1/bestbuy/category` | 2 for an `abcat` id, 3 for a `pcmcat` page | 1 | One category or deals page by `category_id` or URL, in the same shape as search, with the same filters and sorts (no `best_match` in the US). Canada adds the category's parents and subcategories with product counts |
+| `POST /api/v1/bestbuy/product` | 2 | 1 | One product by SKU or URL: SKU, BSIN, name, brand, model, UPC, URL, status, condition, product type, category path, price block, financing, `open_box[]` per condition (fair, good, excellent) with price, savings vs new, savings vs regular, savings percent and URL, seller type, other offers, rating, review count, AI review summary, what customers love, description, features, included items, specifications, dimensions, images, manuals, badges, release date. Canada: UPC, sale start and end (UTC), EHF by province, online units, open-box and refurbished SKUs with their own prices, warranty; `rating` is null |
+| `POST /api/v1/bestbuy/reviews` | 2 | 1 | One product's Best Buy reviews, 20 per page, sorted or filtered to one star rating: average rating, review count, recommended percent, star distribution, pros and cons with mention counts, total results for the filter, page count and `has_more`. Each review: id, title, text, rating, author, date, recommended, verified-purchase and incentivized flags, days of ownership, helpful and not-helpful votes, badges, photos, syndication source, the SKU reviewed when it is a sibling SKU, and the brand's response. Canada: 1-100 per page, a summary with Best Buy Canada's AI summary, verified-only and with-photos filters, no reviewer names |
+| `POST /api/v1/bestbuy/availability` | 2 | 1 | US: store pickup status of one SKU at up to 8 stores (nearest a ZIP, default 5, or the `store_ids` you pass): status, quantity (only for `limited`), pickup date, minimum hours until pickup, the nearby store Best Buy suggests when this one cannot fill it, and a reason when the status is `unknown`. Plus store and in-stock counts and a count per status. Canada: **exact units** of 1-20 SKUs at up to 50 stores near a postal code (default 10) or at `store_ids`, with online units and order limit; no prices |
+| `POST /api/v1/bestbuy/stores` | 1 | 1 | US: Best Buy stores near a US ZIP, nearest first, up to 15: store id, name, address, city, state, ZIP, country, phone, open status, store type, distance in miles, and dated hours for the next 35 days (holiday hours and closed days included). Canada: stores near a postal code, in a city or near latitude / longitude (1-100, default 20) with address, phone, distance in km, 7 dated days of hours, services and pickup options |
+| `POST /api/v1/bestbuy/deals` | 3 | 1 | US: today's Deal of the Day and the more-deals row under it, up to 15 products with live prices: SKU, name, URL, image, rating, review count, price, regular price, savings, savings percent, on-sale flag, badge, deal end time, plus the page's countdown end. No parameters. Canada: one deal collection (`black_friday`, `top_deals`, `clearance`, `open_box`, `refurbished`) as a listing, with the collection's own dates text; bestbuy.ca has no Deal of the Day |
+| `POST /api/v1/bestbuy/prices` | 2 per call | 1 per call | US: current prices for 1-15 SKUs in one call: price, regular price, savings, savings percent, on-sale flag and deal badge per SKU (`deal_ends_at` is usually null here; read the end time from `/product`), `found: false` for a SKU Best Buy does not know. Canada: 1-20 SKUs with sale end date, EHF by province, rating and seller type |
+| `POST /api/v1/bestbuy/suggestions` | 1 | 1 | US: the search box's autocomplete for a partial term: each suggested term with the categories (id and name) and SKUs Best Buy shows for it, plus any spelling correction. Canada: terms only, each flagged when it is a brand |
+| `POST /api/v1/bestbuy/questions` | -- | 1 | Canada only: customer questions about one product, 1-50 per page (default 10), most answered or newest, each with its answer count and the top answer |
 
-## Workflow
+## Workflow (US)
 
 1. **Find products:** call `/bestbuy/search` with `query`, or `/bestbuy/category` with a `category_id` (or a category page `url`). Each row has a `sku` and a `url`. To drill down, take a `category_id` from the `category_facet` values in `facets[]`, or a category id from a product's `category_path[]`.
 2. **Narrow the listing:** pass `filters` (`brand`, `on_sale`, `clearance`, `open_box`, and `min_price` with `max_price`) and a `sort` such as `best_discount` or `price_low`. `applied_filters[]` echoes what Best Buy applied. The `brand` value must be spelled as in the Brand filter (a `brand_facet` value).
@@ -88,7 +104,9 @@ Base URL: `https://api.scavio.dev`. Most calls take 2-6 seconds; `/availability`
 8. **Reviews:** call `/bestbuy/reviews` with the `sku`; page with `page`, sort with `sort` (`newest`, `lowest_rated`...) or keep one star rating with `rating`. Check `has_more` and `total_results`.
 9. **Keyword research:** `/bestbuy/suggestions` with a partial term returns the suggested terms with category ids and SKUs; feed a term back into `/bestbuy/search` or a SKU into `/bestbuy/product`.
 
-## Parameters
+## Parameters (US)
+
+Every US endpoint also takes `country` (`us`, the default, or `ca`: see [Best Buy Canada](#best-buy-canada-country-ca) for the Canada parameters).
 
 ### Search (`/search`)
 
@@ -162,7 +180,389 @@ No parameters: send `{}`.
 |---|---|---|---|
 | `query` | string | required | What the shopper has typed so far (1-100 chars) |
 
-## Examples
+## Best Buy Canada (`country: "ca"`)
+
+Send `country: "ca"` on any of the nine endpoints, or call `/questions` (Canada only, `country` defaults to `ca` there). Best Buy Canada is bestbuy.ca, Best Buy's Canadian store: 142 stores across Canada per Best Buy's FY2026 10-K, plus a marketplace of third-party sellers. Every Canada call costs **1 credit**. Prices are in Canadian dollars (CAD), as Best Buy Canada gives them. `language` is `en` (default) or `fr`: SKUs and prices are the same, names, specifications, facet values and links come back in French. SKUs are Best Buy Canada's own numbers (usually 8 digits, e.g. `19791103`), not bestbuy.com's; a `bestbuy.ca/en-ca/product/<name>/<sku>` or `/fr-ca/produit/<name>/<sku>` link works too. Store numbers come from `/stores` with `country: "ca"` (e.g. `651`).
+
+### Price is national, the EHF is not
+
+- **The price is the same in every province and store.** Only the environmental handling fee (`ehf`) changes by province. Pass `province` (default `ON`) to get `ehf` for that province; `ehf_by_province[]` lists the fee per province where Best Buy Canada gives one. The captured TCL 55" TV had `ehf` 0 for Ontario and 16.75 in Quebec. There are no per-store prices to ask for.
+- **Units are exact counts per store.** `/availability` returns `units` on hand at each store: the MacBook Air (SKU `19791103`) had 35 units at the Centreville store in Montreal (captured below) and 20 at a Vancouver store on Nov 25, 2026.
+- **Sales carry dates.** `/product` returns `sale_starts_at` and `sale_ends_at` in UTC (ISO 8601); listings and `/prices` return `sale_ends_at`.
+- **Open-box and refurbished are their own SKUs.** `/product` lists them in `open_box[]` (Geek Squad Open Box, Open Box, Refurbished) with their own SKU, price, regular price and seller; pass that SKU to `/prices` or `/availability`.
+
+### Canada parameters
+
+| Endpoint | Parameters |
+|---|---|
+| `/search` | `query` (required, 1-200 chars), `page` (1-based), `page_size` (1-100, default 24), `sort` (`best_match`, `price_low`, `price_high`, `rating`), `filters`, `include_sponsored`, `province`, `language` |
+| `/category` | `category_id` (numeric, e.g. `21344` Televisions, a slug id such as `homegardentools`, or `departments` for the top level) or a bestbuy.ca category `url`, plus every listing parameter of search |
+| `/deals` | `collection` (`black_friday`, `top_deals` (default), `clearance`, `open_box`, `refurbished`), plus every listing parameter of search |
+| `/product` | `sku` or `url`, `province`, `language` |
+| `/reviews` | `sku` or `url`, `page`, `page_size` (1-100, default 20), `sort` (`most_relevant`, `most_helpful`, `newest`, `oldest`, `highest_rated`, `lowest_rated`), `rating` (1-5), `verified_only`, `with_photos`, `language` (`fr`: French-language reviews only) |
+| `/availability` | `sku` or `url`, or `skus` (1-20); and exactly one of `postal_code` (with `max_stores` 1-50, default 10) or `store_ids` (up to 50); `language` |
+| `/stores` | `postal_code` (e.g. `M5V 3L9`, with `radius_km` 1-100, default 25), or `city` (e.g. `Winnipeg`), or `latitude` + `longitude`; `limit` (1-100, default 20); `language` |
+| `/prices` | `skus` (1-20, an array or a comma-separated string), `province`, `language` |
+| `/suggestions` | `query` (required, 1-100 chars), `language` |
+| `/questions` | `sku` or `url`, `page`, `page_size` (1-50, default 10), `sort` (`most_answered` (default), `newest`), `language` |
+
+`filters` on search, category and deals: `brand`, `on_sale`, `clearance`, `open_box`, `min_price` and `max_price` (CAD), `rating` (3, 4 or 5: that many stars and up), `sold_by` (`best_buy` or `marketplace`), `seller`, `in_stock_online`, and `facets` (up to 10 `{facet, value}` pairs taken from a response's `facets[]`). `on_sale` and `clearance` together match either one (the site's Current Offers filter). `province` is one of `AB`, `BC`, `MB`, `NB`, `NL`, `NS`, `NT`, `NU`, `ON`, `PE`, `QC`, `SK`, `YT`.
+
+### Canada workflow
+
+1. **Find products:** `/search` with `country: "ca"` and `query`, `/category` with a `category_id` (walk the tree from `departments` through `category.subcategories[]`), or `/deals` with a `collection`. Read `products[].sku`, `price`, `sale_ends_at`, `seller_type`.
+2. **One product in full:** `/product` with the `sku` for UPC, model, sale start and end, `ehf_by_province`, online units and the open-box / refurbished SKUs.
+3. **Store stock:** `/stores` with a postal code or city for store numbers, then `/availability` with the SKU (or up to 20 `skus`) and `postal_code` or `store_ids` for the exact units at each store.
+4. **Price tracking:** `/prices` with up to 20 SKUs per call; compare `price` across runs and read `sale_ends_at` for when the current sale price ends.
+5. **Rating and shopper questions:** `/reviews` for the rating summary and review text, `/questions` for what shoppers asked and the top answer.
+
+### Canada traps
+
+- **`unknown` is never out of stock.** On `/availability`, a store Best Buy Canada returned no stock record for comes back `status: "unknown"` with `units: null`. Say "could not confirm" for it. `out_of_stock` means the store reported 0 units.
+- **No per-store prices.** The price is national; `/availability` returns units only. Read the price from `/product` or `/prices` and do not present a store as cheaper than another.
+- **`rating` and `review_count` are null on `/product`.** Read them from `/reviews` (`summary`) or from `/prices` and the listing rows, where they are null when Best Buy Canada has no rating for the item (the captured TCL TV).
+- **Results stop at 2,000.** Best Buy Canada serves at most the first 2,000 results of a query (`results_cap: 2000`, `results_capped: true` when the total is larger). A `page` that starts past it is a `400`, not charged. Narrow with filters or a category instead.
+- **Sorts.** Canada offers `best_match`, `price_low`, `price_high` and `rating` only; `best_selling`, `best_discount` and `newest` are a `400` for Canada.
+- **Deals are collections.** `/deals` with `country: "ca"` reads one named collection, not a Deal of the Day (bestbuy.ca has none). `dates_text` is the collection's own text when its page states dates, and it comes in English only (`collection_text_language: "en"`); the products follow `language`.
+- **EHF on listings.** Search, category and deals rows carry `ehf` for `province` but `ehf_by_province: null`; read the fee per province from `/product` or `/prices`.
+- **Brand on listings.** Canada listing rows carry no brand field: `brand` is null unless a brand filter is applied. `model` is read from the name when it carries one in parentheses.
+- **Marketplace sellers.** `seller_type: "marketplace"` rows are sold by a third-party seller; name the seller exactly as `seller.name` gives it (e.g. `TVOUTLET`), never as Best Buy.
+- **Reviews.** No reviewer names, nicknames or locations are returned. `syndicated_from` names the site a review was first posted on (often `bestbuy.com`). Review photos hosted off Best Buy are counted in `photo_count` but not linked.
+- **Not-found is charged for Canada.** An unknown SKU or category is a charged `404` (in the US it is not charged). A refused input (`400`) and an upstream failure (`502`) are not charged.
+- Not available for Canada: per-store prices (the price is national), a Deal of the Day, results past 2,000, review photos hosted off Best Buy, cart / checkout, price history (poll `/prices` and store it yourself).
+
+### Pairs well with
+
+For Canadian electronics prices across retailers: `amazon-product-data` with `country: "ca"` (Amazon.ca), `walmart-product-data` with `domain: "ca"` (Walmart.ca), `costco-product-data` with `country: "ca"` (Costco Canada) and `canadian-tire-api` (Canadian Tire). Match products by UPC or model number. Each reads the retailer's own site.
+
+### Canada examples
+
+#### Exact units per store
+
+```bash
+curl -X POST https://api.scavio.dev/api/v1/bestbuy/availability \
+  -H "Authorization: Bearer $SCAVIO_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"country": "ca", "sku": "19791103", "postal_code": "H3B 4W8", "max_stores": 5}'
+```
+
+Captured `data`:
+
+```json
+{
+  "postal_code": "H3B4W8",
+  "language": "en",
+  "store_count": 5,
+  "product_count": 1,
+  "requested": 1,
+  "products": [
+    {
+      "sku": "19791103",
+      "found": true,
+      "name": "Apple MacBook Air 13.6\" w/ Touch ID (2026) - Midnight (Apple M5 / 16GB RAM / 512GB SSD) - English",
+      "url": "https://www.bestbuy.ca/en-CA/product/apple-macbook-air-13-6-w-touch-id-2026-midnight-apple-m5-16gb-ram-512gb-ssd-english/19791103",
+      "seller_type": "best_buy",
+      "online": {
+        "status": "InStock",
+        "units": 395,
+        "purchasable": true,
+        "order_limit": 1
+      },
+      "pickup_status": "InStock",
+      "sale_channel": "InStoreAndOnline",
+      "in_stock_store_count": 1,
+      "stores": [
+        { "store_id": "286", "name": "Best Buy Express Plc Montreal Trust", "city": "Montreal", "province": "QC", "type": "SmallFormat", "units": 0, "status": "out_of_stock", "reservable": false },
+        { "store_id": "252", "name": "Best Buy Mobile Montreal Eaton Centre", "city": "Montreal", "province": "QC", "type": "Mobile", "units": 0, "status": "out_of_stock", "reservable": false },
+        { "store_id": "288", "name": "Best Buy Express Montreal Eaton Centre", "city": "Montreal", "province": "QC", "type": "SmallFormat", "units": 0, "status": "out_of_stock", "reservable": false },
+        { "store_id": "651", "name": "Centreville", "city": "Montreal", "province": "QC", "type": "BigBox", "units": 35, "status": "in_stock", "reservable": true },
+        { "store_id": "270", "name": "Best Buy Express Alexis Nihon Plaza", "city": "Montreal", "province": "QC", "type": "SmallFormat", "units": 0, "status": "out_of_stock", "reservable": false }
+      ]
+    }
+  ],
+  "note": "units are the exact on-hand counts Best Buy Canada publishes per store. status unknown (units null) means Best Buy Canada returned no stock record for that store, not that it is out of stock. Prices are national: read them from product or prices."
+}
+```
+
+`units` is the exact count each store reported; `in_stock_store_count` counts the stores with `status: "in_stock"`. `online.units` is the online stock.
+
+#### Product with sale dates, EHF and open box
+
+```bash
+curl -X POST https://api.scavio.dev/api/v1/bestbuy/product \
+  -H "Authorization: Bearer $SCAVIO_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"country": "ca", "sku": "19791103"}'
+```
+
+Captured `data` (warranty, description, long description, what's in the box, 25 specifications, 15 images and the URL map trimmed; the rest kept):
+
+```json
+{
+  "sku": "19791103",
+  "name": "Apple MacBook Air 13.6\" w/ Touch ID (2026) - Midnight (Apple M5 / 16GB RAM / 512GB SSD) - English",
+  "brand": "APPLE",
+  "model": "MDHE4LL/A",
+  "upc": "195950690200",
+  "url": "https://www.bestbuy.ca/en-ca/product/apple-macbook-air-13-6-w-touch-id-2026-midnight-apple-m5-16gb-ram-512gb-ssd-english/19791103",
+  "language": "en",
+  "condition": "Brand New",
+  "product_type": "Hardgood",
+  "category": {
+    "id": "12746017",
+    "name": "Apple MacBook Air"
+  },
+  "price": 1589.99,
+  "regular_price": 1789.99,
+  "savings": 200,
+  "savings_percent": 11.2,
+  "on_sale": true,
+  "savings_hidden": false,
+  "clearance": false,
+  "sale_starts_at": "2026-11-19T04:30:00Z",
+  "sale_ends_at": "2026-12-03T07:00:00Z",
+  "province": "ON",
+  "ehf": 0,
+  "ehf_by_province": [
+    { "province": "NL", "amount": 0.6 },
+    { "province": "PE", "amount": 0.4 },
+    { "province": "BC", "amount": 0.5 },
+    { "province": "SK", "amount": 0.45 },
+    { "province": "MB", "amount": 0.45 },
+    { "province": "QC", "amount": 0.6 },
+    { "province": "NB", "amount": 0.65 },
+    { "province": "YT", "amount": 2 },
+    { "province": "NS", "amount": 0.4 },
+    { "province": "AB", "amount": 0.3 },
+    { "province": "NT", "amount": 3 }
+  ],
+  "seller_type": "best_buy",
+  "seller": {
+    "id": "bbyca",
+    "name": "Best Buy Canada"
+  },
+  "online": {
+    "status": "InStock",
+    "units": 408,
+    "available": true,
+    "button": "AddToCart"
+  },
+  "in_store_status": "Available",
+  "purchasable": true,
+  "preorder": {
+    "preorderable": false,
+    "release_date": "2026-03-11 03:30:00 AM"
+  },
+  "open_box": [
+    {
+      "sku": "19833113",
+      "condition": "Geek Squad Open Box",
+      "name": "Open Box - Apple MacBook Air 13.6\" w/ Touch ID (2026) - Midnight (Apple M5 / 16GB RAM / 512GB SSD) - English",
+      "price": 1429.99,
+      "regular_price": 1474.99,
+      "savings": 45,
+      "savings_percent": 3.1,
+      "on_sale": true,
+      "savings_hidden": false,
+      "seller_type": "best_buy",
+      "seller": {
+        "id": "bbyca",
+        "name": "Best Buy Canada"
+      },
+      "url": "https://www.bestbuy.ca/en-CA/product/open-box-apple-macbook-air-13-6-w-touch-id-2026-midnight-apple-m5-16gb-ram-512gb-ssd-english/19833113"
+    }
+  ],
+  "rating": null,
+  "review_count": null,
+  "machine_translated": false,
+  "has_french_content": true,
+  "notes": ["rating and review_count are not part of Best Buy Canada's product data: read them from reviews (summary) or prices."],
+  "market": {
+    "country": "ca",
+    "currency": "CAD",
+    "language": "en"
+  }
+}
+```
+
+Read it as: CAD 1,589.99 on sale (regular 1,789.99) from 2026-11-19T04:30:00Z to 2026-12-03T07:00:00Z, the same price in every province; the EHF for Ontario (`province: "ON"`) is 0 and Quebec's is 0.60. The Geek Squad Open Box unit is its own SKU, `19833113`, at 1,429.99.
+
+#### Black Friday collection
+
+```bash
+curl -X POST https://api.scavio.dev/api/v1/bestbuy/deals \
+  -H "Authorization: Bearer $SCAVIO_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"country": "ca", "collection": "black_friday"}'
+```
+
+Captured `data` (23 of 24 products and the 22 facets trimmed):
+
+```json
+{
+  "collection": "black_friday",
+  "collection_id": "413517",
+  "name": "Black Friday Deals",
+  "header_title": "Black Friday Deals 2026",
+  "dates_text": "Black Friday is Friday, November 27 in 2026, but you can get a head start at Best Buy Canada. Black Friday VIP starts November 18, with the Black Friday Sale kicking off November 19 and running until December 3.",
+  "collection_text_language": "en",
+  "language": "en",
+  "province": "ON",
+  "page": 1,
+  "page_size": 24,
+  "total_results": 6754,
+  "results_cap": 2000,
+  "results_capped": true,
+  "total_pages": 84,
+  "has_more": true,
+  "sort": "best_match",
+  "filters_applied": [],
+  "redirect_url": null,
+  "related_queries": [],
+  "count": 24,
+  "products": [
+    {
+      "position": 1,
+      "sku": "20122735",
+      "name": "Nintendo Switch 2 Console Bundle with Mario Kart World Digital Download & 3-Month Nintendo Switch Online Individual Membership",
+      "brand": null,
+      "model": null,
+      "url": "https://www.bestbuy.ca/en-ca/product/nintendo-switch-2-console-bundle-with-mario-kart-world-digital-download-3-month-nintendo-switch-online-individual-membership/20122735",
+      "image": "https://multimedia.bbycastatic.ca/multimedia/products/1500x1500/201/20122/20122735.jpg",
+      "price": 679.99,
+      "regular_price": 749.99,
+      "savings": 70,
+      "savings_percent": 9.3,
+      "on_sale": true,
+      "savings_hidden": false,
+      "sale_ends_at": "2026-12-03T07:00:00Z",
+      "clearance": false,
+      "ehf": 0,
+      "ehf_by_province": null,
+      "rating": 4,
+      "rating_count": 5,
+      "review_count": 5,
+      "seller_type": "best_buy",
+      "seller": null,
+      "online_only": false,
+      "in_store_only": false,
+      "preorderable": false,
+      "category": {
+        "id": "25813239",
+        "name": "Nintendo Switch 2 Consoles"
+      }
+    }
+  ],
+  "market": {
+    "country": "ca",
+    "currency": "CAD",
+    "language": "en"
+  }
+}
+```
+
+Quote `dates_text` as given; it is Best Buy Canada's own text.
+
+#### Prices with EHF by province
+
+```bash
+curl -X POST https://api.scavio.dev/api/v1/bestbuy/prices \
+  -H "Authorization: Bearer $SCAVIO_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"country": "ca", "skus": ["19791103", "19296507", "19997813"]}'
+```
+
+Captured `data` (the first 2 of 3 rows trimmed; the row kept is the TV, whose EHF varies most):
+
+```json
+{
+  "province": "ON",
+  "language": "en",
+  "requested": 3,
+  "count": 3,
+  "prices": [
+    {
+      "found": true,
+      "sku": "19997813",
+      "name": "TCL 55\" S4CF 4K UHD HDR Dolby Atmos LED Fire TV Smart TV (55S4CF) - 2026 - Great for Movies & Gaming",
+      "url": "https://www.bestbuy.ca/en-CA/product/tcl-55-s4cf-4k-uhd-hdr-dolby-atmos-led-fire-tv-smart-tv-55s4cf-2026-great-for-movies-gaming/19997813",
+      "image": "https://multimedia.bbycastatic.ca/multimedia/products/1500x1500/199/19997/19997813.jpg",
+      "price": 349.99,
+      "regular_price": 499.99,
+      "savings": 150,
+      "savings_percent": 30,
+      "on_sale": true,
+      "savings_hidden": false,
+      "sale_ends_at": "2026-11-27T07:00:00Z",
+      "clearance": false,
+      "ehf": 0,
+      "ehf_by_province": [
+        { "province": "NL", "amount": 17.1 },
+        { "province": "PE", "amount": 10.5 },
+        { "province": "BC", "amount": 11 },
+        { "province": "SK", "amount": 7 },
+        { "province": "MB", "amount": 7 },
+        { "province": "QC", "amount": 16.75 },
+        { "province": "NB", "amount": 14.25 },
+        { "province": "YT", "amount": 56 },
+        { "province": "NS", "amount": 10.5 },
+        { "province": "AB", "amount": 2.75 },
+        { "province": "NT", "amount": 40 }
+      ],
+      "rating": null,
+      "rating_count": null,
+      "review_count": null,
+      "seller_type": "best_buy",
+      "seller": null,
+      "online_only": false,
+      "in_store_only": false,
+      "preorderable": false,
+      "category": {
+        "id": "329719",
+        "name": "55 - 59 Inch TVs"
+      }
+    }
+  ],
+  "market": {
+    "country": "ca",
+    "currency": "CAD",
+    "language": "en"
+  }
+}
+```
+
+#### Questions (Canada only)
+
+```bash
+curl -X POST https://api.scavio.dev/api/v1/bestbuy/questions \
+  -H "Authorization: Bearer $SCAVIO_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"sku": "19296507"}'
+```
+
+Captured `data` (9 of 10 questions trimmed):
+
+```json
+{
+  "sku": "19296507",
+  "language": "en",
+  "page": 1,
+  "page_size": 10,
+  "sort": "most_answered",
+  "total_questions": 96,
+  "total_pages": 10,
+  "has_more": true,
+  "count": 10,
+  "questions": [
+    { "id": "10868533", "question": "How many scalpers do I have to fight to get one?", "submitted_at": "2025-04-02T19:01:28Z", "answer_count": 18, "syndicated": true, "syndicated_from": "bestbuy.com", "top_answer": { "id": "12070667", "text": "None anymore Scalpers are dumb to buy it now", "submitted_at": "2025-07-24T00:09:09Z", "verified_purchase": false, "helpful_count": 0, "not_helpful_count": 0 } }
+  ],
+  "note": "Best Buy Canada shows the top answer of each question; answer_count is the total."
+}
+```
+
+`answer_count` is every answer; Best Buy Canada shows the top answer of each question, so `top_answer` is the only one returned. No asker or answerer names.
+
+## Examples (US)
 
 ### Product with open-box prices
 
@@ -655,9 +1055,22 @@ Every response uses the envelope `{ data, response_time, fetched_at, credits_use
 - **prices** - `count` (SKUs found), `requested`, `prices[]` {`sku`, `found`, `price`, `regular_price`, `savings`, `savings_percent`, `on_sale`, `badge`, `deal_ends_at`}.
 - **suggestions** - `query`, `corrected_query`, `count`, `suggestions[]` {`term`, `categories[]` {`id`, `name`}, `skus[]`}.
 
+Best Buy Canada (`country: "ca"`) answers in its own shapes; every Canada `data` carries `market` {`country`, `currency`, `language`}:
+
+- **search / category / deals (ca)** - `language`, `province`, `page`, `page_size`, `total_results`, `results_cap` (2000), `results_capped`, `total_pages`, `has_more`, `sort`, `filters_applied`, `redirect_url`, `related_queries`, `count`, `products[]` (`position`, `sku`, `name`, `brand`, `model`, `url`, `image`, `price`, `regular_price`, `savings`, `savings_percent`, `on_sale`, `savings_hidden`, `sale_ends_at`, `clearance`, `ehf`, `ehf_by_province`, `rating`, `rating_count`, `review_count`, `seller_type`, `seller` {`id`, `name`}, `online_only`, `in_store_only`, `preorderable`, `category` {`id`, `name`}), `facets[]` {`facet`, `name`, `values[]` {`value`, `count`, `selected`}}. Search adds `query`; category adds `category_id` and `category` {`id`, `name`, `product_count`, `url`, `parents[]`, `subcategories[]` {`id`, `name`, `product_count`, `has_subcategories`}}; deals adds `collection`, `collection_id`, `name`, `header_title`, `dates_text`, `collection_text_language`.
+- **product (ca)** - `sku`, `name`, `brand`, `model`, `upc`, `url`, `urls` {`en`, `fr`}, `language`, `condition`, `product_type`, `category`, `price`, `regular_price`, `savings`, `savings_percent`, `on_sale`, `savings_hidden`, `clearance`, `sale_starts_at`, `sale_ends_at`, `province`, `ehf`, `ehf_by_province[]` {`province`, `amount`}, `seller_type`, `seller`, `online` {`status`, `units`, `available`, `button`}, `in_store_status`, `purchasable`, `preorder` {`preorderable`, `release_date`}, `open_box[]` {`sku`, `condition`, `name`, `price`, `regular_price`, `savings`, `savings_percent`, `on_sale`, `savings_hidden`, `seller_type`, `seller`, `url`}, `warranty`, `rating` (null), `review_count` (null), `description`, `long_description`, `whats_in_the_box[]`, `specifications[]` {`group`, `name`, `value`}, `images[]`, `machine_translated`, `has_french_content`, `notes[]`.
+- **reviews (ca)** - `sku`, `language`, `page`, `page_size`, `sort`, `rating_filter`, `verified_only`, `with_photos`, `summary` {`average_rating`, `rating_count`, `review_count`, `star_distribution[]` {`stars`, `count`}, `recommended` {`yes`, `no`, `percent`}, `key_considerations`, `english_review_count`, `french_review_count`, `ai_summary`}, `total_results`, `total_pages`, `has_more`, `count`, `reviews[]` {`id`, `title`, `text`, `rating`, `submitted_at`, `recommended`, `verified_purchase`, `incentivized`, `helpful_count`, `not_helpful_count`, `key_considerations`, `photo_count`, `photos[]`, `syndicated`, `syndicated_from`}.
+- **availability (ca)** - `postal_code`, `language`, `store_count`, `product_count`, `requested`, `products[]` {`sku`, `found`, `name`, `url`, `seller_type`, `online` {`status`, `units`, `purchasable`, `order_limit`}, `pickup_status`, `sale_channel`, `in_stock_store_count`, `stores[]` {`store_id`, `name`, `city`, `province`, `type`, `units`, `status` (`in_stock`, `out_of_stock`, `unknown`), `reservable`}}, `note`.
+- **stores (ca)** - `postal_code`, `city`, `latitude`, `longitude`, `located`, `radius_km`, `language`, `total_results`, `count`, `stores[]` {`store_id`, `name`, `type` (`BigBox`, `SmallFormat`, `Mobile`, `ExpressKiosk`), `format`, `address`, `address2`, `landmark`, `city`, `province`, `postal_code`, `phone`, `latitude`, `longitude`, `distance_km`, `utc_offset`, `hours[]` (7 dated strings as the site shows them, e.g. `"Friday   Nov 27 8 AM - 10 PM"`), `services[]`, `pickup_options[]`, `hold_days`}.
+- **prices (ca)** - `province`, `language`, `requested`, `count`, `prices[]` {`found`, `sku`, `name`, `url`, `image`, `price`, `regular_price`, `savings`, `savings_percent`, `on_sale`, `savings_hidden`, `sale_ends_at`, `clearance`, `ehf`, `ehf_by_province`, `rating`, `rating_count`, `review_count`, `seller_type`, `seller`, `online_only`, `in_store_only`, `preorderable`, `category`}.
+- **suggestions (ca)** - `query`, `sent_query` (accents removed before asking), `language`, `count`, `suggestions[]` {`term`, `is_brand`}.
+- **questions (ca only)** - `sku`, `language`, `page`, `page_size`, `sort`, `total_questions`, `total_pages`, `has_more`, `count`, `questions[]` {`id`, `question`, `submitted_at`, `answer_count`, `syndicated`, `syndicated_from`, `top_answer` {`id`, `text`, `submitted_at`, `verified_purchase`, `helpful_count`, `not_helpful_count`}}, `note`.
+
 ## Guardrails
 
-- Prices are in US dollars: `189.99` is $189.99. This is bestbuy.com (US) only; Best Buy Canada (bestbuy.ca) is not covered.
+- These guardrails are for bestbuy.com unless they say Canada; the Canada-specific ones are in [Canada traps](#canada-traps). Never mix the two markets: a bestbuy.com SKU is not a bestbuy.ca SKU.
+- US prices are in US dollars: `189.99` is $189.99. With `country: "ca"` prices are in Canadian dollars as Best Buy Canada gives them; say CAD.
+- Report prices, savings and labels as Best Buy gives them. Do not call a price the lowest or a deal good or bad; `regular_price` is Best Buy's own regular price, so describe it as that.
 - `savings` and `savings_percent` are measured against `regular_price`. On an open-box offer, `savings_vs_new` is against the current new price (the sale price when the item is on sale) and `savings_vs_regular` against the regular price; `savings_percent` on an open-box offer is against the regular price.
 - `open_box[]` lists only the conditions Best Buy offers right now, cheapest first, and is empty when there is none. Never quote an open-box price for a condition that is not in the list, and never claim a number of open-box units: the response has none.
 - `deal_ends_at` is the deal's end time as Best Buy gives it (`"2026-11-08T23:59:59 CST"`), and is null on many items, including all of the captured `/prices` and `/deals` rows. When it is null, do not state when the price ends. `countdown_ends` on `/deals` carries no time zone.
@@ -678,24 +1091,43 @@ Every response uses the envelope `{ data, response_time, fetched_at, credits_use
 - Reviews are Best Buy's own first-party reviews. `has_more: true` means more pages exist; do not claim to have read every review unless `has_more` is false. `total_results` counts the reviews matching the request (with `rating` set, only that star rating); `review_count` is the product's total.
 - `reviewed_sku` is set when a review was written for a sibling SKU of the same product (another color or size); `syndicated_from` names the site a review was first posted on. `brand_response` is the manufacturer's reply when there is one.
 - `/suggestions` returns suggested terms with category ids and SKUs only, no prices or search volumes.
-- There is no price history, no price-match data and no Q&A endpoint: track prices by calling `/prices` on a schedule and storing the results yourself.
+- There is no price history and no price-match data, and the questions endpoint is Best Buy Canada only (`/questions` with a US SKU is not a bestbuy.com Q&A): track prices by calling `/prices` on a schedule and storing the results yourself.
 - This API reads public product data for research, price monitoring and stock alerts. It does not add to cart, check out or reserve stock; do not present it as a purchasing bot.
-- Never fabricate prices, open-box offers, stock, pickup dates, deal end times or reviews. Only return what the API returned, with the product `url` or `sku`.
+- Never fabricate prices, open-box offers, stock, units, pickup dates, deal end times, EHF amounts or reviews. Only return what the API returned, with the product `url` or `sku`.
 
 ## Failure handling
 
 - `400` means a missing or invalid parameter (no `query`, a `page` outside 1-100 (reviews 1-500), an unknown `sort` or `best_match` on `/category`, `min_price` without `max_price` or `min_price` not below `max_price`, a `sku` that is not 6-9 digits, a `url` that is not bestbuy.com or names no SKU, a `category_id` that is not `abcat`/`pcmcat`/`cat` plus digits, neither `sku` nor `url`, both or neither of `zip` and `store_ids`, `max_stores` outside 1-8, more than 8 `store_ids`, a ZIP that is not 5 digits, `rating` outside 1-5, or more than 15 `skus`).
+- For Canada, `400` also covers a `best_selling`, `best_discount` or `newest` sort, a `page` that starts past the first 2,000 results, a `province` that is not a Canadian province or territory code, a `sku` that is not a Best Buy Canada SKU, a `url` that is not a bestbuy.ca link, a `postal_code` that is not a Canadian postal code, both or neither of `postal_code` and `store_ids`, more than 20 `skus` or 50 `store_ids`, an unknown `collection`, and `/questions` with a `country` other than `ca`. Not charged.
 - `401` means the API key is invalid or missing. Check `SCAVIO_API_KEY`.
 - `402` means the balance is out of credits. The body carries `billing_url`.
-- `404` means no such product (unknown SKU), no such category or a page without a product grid, or a `/prices` call where every SKU is unknown. Not charged. Re-run the search for a fresh `sku`.
+- `404` means no such product (unknown SKU), no such category or a page without a product grid, or a `/prices` call where every SKU is unknown. Not charged in the US; **charged (1 credit) for Canada**. Re-run the search for a fresh `sku` rather than retrying the same one.
 - `429` means rate or usage limit exceeded. Wait before retrying. See [rate limits](https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=best-buy-product-data).
 - `502` or `503` means Best Buy is temporarily unavailable or returned an unusable page (on `/availability`, when no store could be checked at all). Upstream checks sometimes fail; retried automatically. It is not charged, so retry after a few seconds. A single store that could not be checked comes back as `status: "unknown"` with `reason: "store_check_failed"` instead of failing the call.
 
 ## SDKs
 
 ```bash
-pip install scavio==0.39.0
-npm install scavio@0.40.0
+pip install scavio==0.92.0
+```
+
+```python
+from scavio import ScavioClient
+
+client = ScavioClient()  # reads SCAVIO_API_KEY
+
+found = client.best_buy.search("tv", sort="best_discount", filters={"open_box": True})
+item = client.best_buy.product(sku=found["data"]["products"][0]["sku"])
+
+# Best Buy Canada: the same methods with country="ca" (1 credit per call)
+ca = client.best_buy.search("4k tv", country="ca", sort="price_low")
+units = client.best_buy.availability(sku="19791103", postal_code="H3B 4W8", country="ca")
+prices = client.best_buy.prices(["19791103", "19296507"], country="ca", province="QC")
+questions = client.best_buy.questions(sku="19296507")  # Canada only
+```
+
+```bash
+npm install scavio@0.93.0
 ```
 
 ```js
@@ -711,18 +1143,23 @@ const { data: today } = await scavio.bestBuy.deals();
 const { data: cat } = await scavio.bestBuy.category({ category_id: "abcat0101001" });
 const { data: rev } = await scavio.bestBuy.reviews({ sku: item.sku, rating: 1, sort: "newest" });
 const { data: ideas } = await scavio.bestBuy.suggestions({ query: "ps5 con" });
+
+// Best Buy Canada
+const { data: caUnits } = await scavio.bestBuy.availability({ country: "ca", sku: "19791103", postal_code: "H3B 4W8" });
+const { data: blackFriday } = await scavio.bestBuy.deals({ country: "ca", collection: "black_friday" });
+const { data: qa } = await scavio.bestBuy.questions({ sku: "19296507" });
 ```
 
 ## MCP
 
-The Scavio MCP server exposes all nine endpoints as tools: `search_bestbuy`, `get_bestbuy_product`, `get_bestbuy_reviews`, `get_bestbuy_category`, `get_bestbuy_deals`, `get_bestbuy_stores`, `get_bestbuy_availability`, `get_bestbuy_suggestions` and `get_bestbuy_prices`. Best Buy is opt-in: add `bestbuy` to `SCAVIO_PLATFORMS`.
+The Scavio MCP server exposes all ten endpoints as tools: `search_bestbuy`, `get_bestbuy_product`, `get_bestbuy_reviews`, `get_bestbuy_category`, `get_bestbuy_deals`, `get_bestbuy_stores`, `get_bestbuy_availability`, `get_bestbuy_suggestions`, `get_bestbuy_prices` and `get_bestbuy_questions` (Best Buy Canada only). Pass `country: "ca"` to the first nine for Best Buy Canada. Best Buy is opt-in: add `bestbuy` to `SCAVIO_PLATFORMS`.
 
 ```json
 {
   "mcpServers": {
     "scavio": {
       "command": "npx",
-      "args": ["-y", "@scavio/mcp-server@0.37.0"],
+      "args": ["-y", "@scavio/mcp-server@0.92.0"],
       "env": {
         "SCAVIO_API_KEY": "sk_live_your_key",
         "SCAVIO_PLATFORMS": "default,bestbuy"
@@ -734,4 +1171,4 @@ The Scavio MCP server exposes all nine endpoints as tools: `search_bestbuy`, `ge
 
 ## Docs
 
-Full reference per endpoint: [search](https://scavio.dev/docs/bestbuy-search?utm_source=agent-skills&utm_medium=skill&utm_campaign=best-buy-product-data), [product](https://scavio.dev/docs/bestbuy-product?utm_source=agent-skills&utm_medium=skill&utm_campaign=best-buy-product-data), [reviews](https://scavio.dev/docs/bestbuy-reviews?utm_source=agent-skills&utm_medium=skill&utm_campaign=best-buy-product-data), [category](https://scavio.dev/docs/bestbuy-category?utm_source=agent-skills&utm_medium=skill&utm_campaign=best-buy-product-data), [deals](https://scavio.dev/docs/bestbuy-deals?utm_source=agent-skills&utm_medium=skill&utm_campaign=best-buy-product-data), [stores](https://scavio.dev/docs/bestbuy-stores?utm_source=agent-skills&utm_medium=skill&utm_campaign=best-buy-product-data), [availability](https://scavio.dev/docs/bestbuy-availability?utm_source=agent-skills&utm_medium=skill&utm_campaign=best-buy-product-data), [suggestions](https://scavio.dev/docs/bestbuy-suggestions?utm_source=agent-skills&utm_medium=skill&utm_campaign=best-buy-product-data), [prices](https://scavio.dev/docs/bestbuy-prices?utm_source=agent-skills&utm_medium=skill&utm_campaign=best-buy-product-data). Overview: [Best Buy API](https://scavio.dev/bestbuy-api?utm_source=agent-skills&utm_medium=skill&utm_campaign=best-buy-product-data).
+Full reference per endpoint: [search](https://scavio.dev/docs/bestbuy-search?utm_source=agent-skills&utm_medium=skill&utm_campaign=best-buy-product-data), [product](https://scavio.dev/docs/bestbuy-product?utm_source=agent-skills&utm_medium=skill&utm_campaign=best-buy-product-data), [reviews](https://scavio.dev/docs/bestbuy-reviews?utm_source=agent-skills&utm_medium=skill&utm_campaign=best-buy-product-data), [category](https://scavio.dev/docs/bestbuy-category?utm_source=agent-skills&utm_medium=skill&utm_campaign=best-buy-product-data), [deals](https://scavio.dev/docs/bestbuy-deals?utm_source=agent-skills&utm_medium=skill&utm_campaign=best-buy-product-data), [stores](https://scavio.dev/docs/bestbuy-stores?utm_source=agent-skills&utm_medium=skill&utm_campaign=best-buy-product-data), [availability](https://scavio.dev/docs/bestbuy-availability?utm_source=agent-skills&utm_medium=skill&utm_campaign=best-buy-product-data), [suggestions](https://scavio.dev/docs/bestbuy-suggestions?utm_source=agent-skills&utm_medium=skill&utm_campaign=best-buy-product-data), [prices](https://scavio.dev/docs/bestbuy-prices?utm_source=agent-skills&utm_medium=skill&utm_campaign=best-buy-product-data), [questions](https://scavio.dev/docs/bestbuy-questions?utm_source=agent-skills&utm_medium=skill&utm_campaign=best-buy-product-data) (Best Buy Canada only). Each page covers both `country: "us"` and `country: "ca"`. Overview: [Best Buy API](https://scavio.dev/bestbuy-api?utm_source=agent-skills&utm_medium=skill&utm_campaign=best-buy-product-data).
