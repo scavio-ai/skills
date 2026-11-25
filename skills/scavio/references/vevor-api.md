@@ -68,7 +68,7 @@ Authorization: Bearer $SCAVIO_API_KEY
 
 ## Endpoints
 
-Base URL: `https://api.scavio.dev`. In the captures, suggestions, questions, reviews, shipping, deals and prices took 1 to 3 seconds, search and lists 2 to 22, and product 4 to 25 (one product on the Canadian French store took 110). Allow a client timeout of at least 180 seconds: a busy moment can queue a request.
+Base URL: `https://api.scavio.dev`. In the captures, suggestions, questions, reviews, shipping, deals and prices took 1 to 3 seconds, search and lists 2 to 22, and product 4 to 25 (one product on the Canadian French store took 110). Allow a client timeout of at least 240 seconds: a busy moment can queue a request.
 
 | Endpoint | What it returns | Credits |
 |---|---|---|
@@ -322,7 +322,7 @@ API_KEY = "sk_your_key_here"
 HEADERS = {"Authorization": f"Bearer {API_KEY}"}
 
 def vevor(endpoint, body):
-    r = requests.post(f"{BASE}/api/v1/vevor/{endpoint}", headers=HEADERS, json=body, timeout=180)
+    r = requests.post(f"{BASE}/api/v1/vevor/{endpoint}", headers=HEADERS, json=body, timeout=240)
     r.raise_for_status()
     return r.json()
 
