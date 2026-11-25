@@ -469,6 +469,18 @@
       "credits": "1"
     },
     {
+      "dir": "scavio-dermstore",
+      "slug": "dermstore-skincare-prices-api",
+      "name": "dermstore-skincare-prices-api",
+      "display": "Dermstore API - Skincare Prices, Offers, Product Data",
+      "query": "dermstore",
+      "reused": "no",
+      "platform": "Dermstore",
+      "group": "Commerce",
+      "endpoints": "7",
+      "credits": "1"
+    },
+    {
       "dir": "scavio-aldi",
       "slug": "aldi-grocery-data",
       "name": "aldi-grocery-data",
@@ -1732,6 +1744,11 @@
       "dir": "scavio-ulta",
       "description": "Ulta Beauty API: search ulta.com or list a category with list and sale price, discount, promo text, rating and review count, read one product with every shade or size, GTIN, ingredients and the five latest reviews, and check whether one shade is in stock for pickup at the 10 Ulta stores nearest a ZIP. 4 endpoints, 1 credit each.",
       "tags": "ulta, ulta-beauty, ulta-api, ulta-beauty-api, beauty, cosmetics, makeup, skincare, hair-care, shades, beauty-prices, store-inventory, in-store-stock, store-pickup, product-search, product-data, category-listing, retail, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-dermstore",
+      "description": "Dermstore API for Dermstore (dermstore.com, the US skincare and beauty retailer, shipping to the US and Canada) - skincare prices and offers by brand, a product's price next to Dermstore's RRP as Dermstore gives it, discount_percent computed by Scavio from the two, and the offer text Dermstore attaches to the product (in the Holiday Beauty Event captured 2026-11-25 EltaMD read \"20% Off With Code JOY + $22 Gift\", Medik8 \"30% Off With Code JOY + Gift\", while SkinCeuticals read \"Earn 10% Back + $25 Gift\", double points instead of a code, as Dermstore states it); US prices in USD or Dermstore's own Canadian dollar prices with country us or ca (EltaMD UV Clear SPF 46 1.7 fl. oz. read 46 USD and 65.78 CAD); Dermstore's current offers with the code, gift, spend threshold and END time it states (no start date exists); search by keyword or Dermstore SKU, up to 200 per page, 7 sorts and filters by brand, skin type, concern, SPF band, key ingredient, preference, gender, price, rating and discount, with Dermstore's facet counts on request, mapped keywords (sunscreen, a brand, an ingredient) resolved to the page Dermstore sends them to in resolved_from; any Dermstore list page by path (category, brand, sale, an offer page, gift sets, ingredient); one product with UPC, every shade, size or strength with its own price, stock and UPC, ingredients, directions, auto-replenish discounts, loyalty points, rating, review count and the 10 latest reviews (no names); search suggestions, the 235-brand directory and the category tree. 7 endpoints, 1 credit per call. No full review feed, Q&A, member (VIP) prices, cart or code-applied prices, price history or coupon start dates.",
+      "tags": "dermstore, dermstore-com, dermstore-api, dermstore-prices, dermstore-price-api, dermstore-product-data, dermstore-skincare, dermstore-skincare-prices, dermstore-offers, dermstore-coupon-codes, dermstore-black-friday, dermstore-holiday-beauty-event, dermstore-sale, dermstore-brands, dermstore-skinceuticals, dermstore-eltamd, dermstore-canada, dermstore-cad, dermstore-reviews, dermstore-ingredients, dermstore-upc, dermstore-auto-replenish, skincare, skincare-prices, skincare-price-api, skincare-price-comparison, professional-skincare, beauty, beauty-prices, sunscreen, retinol, shades, upc, variant-data, product-search, product-data, price-monitoring, price-comparison, us-retail, usd, cad, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-aldi",

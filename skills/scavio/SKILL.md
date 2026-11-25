@@ -68,6 +68,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | CVS | [cvs-product-data](references/cvs-product-data.md) | 3 | 1 |
 | Decathlon | [decathlon-product-data](references/decathlon-product-data.md) | 2 | 2 |
 | Depop | [depop-api](references/depop-api.md) | 14 | 1; product 2 outside the US; nz 5, product 6 |
+| Dermstore | [dermstore-skincare-prices-api](references/dermstore-skincare-prices-api.md) | 7 | 1 |
 | Dick's Sporting Goods | [dicks-sporting-goods-api](references/dicks-sporting-goods-api.md) | 9 | 1; product, reviews 2 |
 | Discount Tire | [discount-tire-prices-api](references/discount-tire-prices-api.md) | 15 | 1 |
 | Dollar General | [dollar-general-api](references/dollar-general-api.md) | 5 | 1 |
