@@ -1321,6 +1321,18 @@
       "credits": "1"
     },
     {
+      "dir": "scavio-offerup",
+      "slug": "offerup-api",
+      "name": "offerup-api",
+      "display": "OfferUp API - Used Prices by City, Listings, Cars",
+      "query": "offerup",
+      "reused": "no",
+      "platform": "OfferUp",
+      "group": "Commerce",
+      "endpoints": "5",
+      "credits": "1; listing 2 when it needs a second fetch"
+    },
+    {
       "dir": "scavio-fashionnova",
       "slug": "fashion-nova-api",
       "name": "fashion-nova-api",
@@ -2099,6 +2111,11 @@
       "dir": "scavio-thredup",
       "description": "thredUP API for thredUP prices: each item's price on thredUP's US store (thredup.com, USD; thredUP ships to the US and Canada from it), the estimated original retail (thredUP's estimate on items thredUP prices, entered by the seller on Direct Listings) and the percent off computed from the two, the condition (new with tags, excellent, very good, good, flawed) and the flaws thredUP noted, measurements, materials, fit and who priced the item (thredUP, a Direct Listing peer seller or a dropship partner). Keyword search (semantic: use the brand filter for one brand), 119 items per page up to page 21 (about 2,500 items per query and filter combination; the total reads 10,000+ at most), filtered by department, brand, category, size, condition, colour, material, pattern, price range (approximate), clearance and seller type and sorted by relevance, recommended, newest, price or recently discounted. Sold listings by brand or category (no keyword) with the price the item last listed at; thredUP shows no sold date. Category and brand grids, the deal collections (clearance, under $10, new arrivals, price drops), one item in full by item number or link with condition notes, measurements, characteristics, pictures and Direct Listing shipping and buyer protection, Rescue boxes with their bundle prices, one department's categories and filter values (sizing ids, conditions, colours, materials, patterns, price ranges), the brand directory by term or letter, search suggestions, trending searches and the first 120 similar items. 12 endpoints, 1 credit per call. Departments: women, girls, boys, handbags, shoes, designer, plus, juniors, maternity, accessories (no men's department). Not available: product reviews, seller shops, sold dates, men's clothing, payout data, price history (poll and store). thredUP has no public developer API.",
       "tags": "thredup, thredup-api, thredup-prices, thredup-price, thredup-price-check, thredup-estimated-retail, thredup-percent-off, thredup-sold, thredup-sold-listings, thredup-search, thredup-listings, thredup-sale, thredup-clearance, thredup-deals, thredup-price-drops, thredup-rescue-box, thredup-direct-listing, thredup-brands, thredup-categories, thredup-condition, thredup-measurements, thredup-vs-poshmark, resale, reseller, resale-prices, secondhand-fashion, second-hand, thrift, marketplace, fashion, clothing, price-research, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-offerup",
+      "description": "OfferUp API for OfferUp (offerup.com, the US local marketplace for buying and selling used items, cars and trucks) - used asking prices by city - search OfferUp by keyword around any US ZIP code (required) with a radius, and location.resolved says which area OfferUp used (98101 read Seattle, 60601 Chicago, 75201 Dallas), so the same item's asking prices can be read metro by metro; sorted by best match, newest, distance or price, and for vehicles by newest model year or lowest mileage, filtered by asking price, condition and category, and in Cars & Trucks by dealer or private seller, make, model year and maximum mileage; filters_not_applied lists any filter OfferUp did not apply to the feed; 44-50 listings a page up to page 50, no total count, promoted listings marked sponsored; any OfferUp category by slug or id around a ZIP; one listing with asking price, original price, firm price, condition, posted date, description (phone numbers, emails and VIN-like codes removed), photos, category attributes, vehicle details (make, model, year, mileage, trim, drivetrain; no VIN), city and state and the seller's public numbers (seller type, rating, items sold, joined, response time; a name only for dealer and business accounts); a seller's public profile with rating tags, followers and the first 20 listings, plus website and opening hours for dealers and businesses; the category tree (14 top-level, 151 in all). 5 endpoints, 1 credit per call (a listing that needs a second fetch is 2). Asking prices, not sold prices; OfferUp publishes no sold listings; no shipping (OfferUp listings are local pickup since 2025), no search suggestions, no total count, no seller names for individuals, no VINs, no price history.",
+      "tags": "offerup, offerup-com, offerup-api, offerup-prices, offerup-price-check, offerup-used-prices, offerup-listings, offerup-search, offerup-cars, offerup-used-cars, offerup-trucks, offerup-dealers, offerup-seller, offerup-categories, offerup-local, offerup-seattle, offerup-los-angeles, offerup-chicago, offerup-dallas, used-prices, used-prices-by-city, asking-prices, local-marketplace, local-classifieds, used-cars, used-iphone-prices, resale, reseller, flipping, secondhand, price-research, price-comparison, marketplace, us-marketplace, usd, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-fashionnova",
