@@ -419,7 +419,7 @@ Discount Tire lists 93 front / rear pairs for it at store 1009. The first pair i
 - `/browse` `{"category": "all-season-tires", "store": "1009"}`: 617 tire models with `price_range` at the store (Sentury Touring $49 to $76 first). An unknown category or brand is a charged `404`.
 - `/categories` `{}`: 14 tire categories (`all-season-tires`, `winter-tires`, `trailer-tires`, ...); `slug` is browse input, `name` the category filter of search and vehicle-tires.
 - `/suggestions` `{"q": "michelin"}`: 3 models (`model_id` for `/model`) and 9 categories with counts. No prices.
-- `/appointments` `{"store_code": "1009"}`: November at store 1009, 7 days: "Walkins Welcome" days with no slots, Thanksgiving Day, 8 open slots on 2026-11-27, 24 on 2026-11-28, "Store Closed" on Sunday 2026-11-29, 27 on 2026-11-30. `slots` {`start`, `end`} are as Discount Tire gives them with a `Z` suffix; in the capture they fall inside the store's local opening hours (09:15 to 17:00 on a day Discount Tire lists 8:00 AM to 6:00 PM at an Arizona store), so compare them with `opens` / `closes` before converting time zones. Read only: Scavio never books.
+- `/appointments` `{"store_code": "1009"}`: November at store 1009, 7 days: "Walkins Welcome" days with no slots, Thanksgiving Day, 8 open slots on 2026-11-27, 24 on 2026-11-28, "Store Closed" on Sunday 2026-11-29, 27 on 2026-11-30. `slots` {`start`, `end`} are the store's local time as `YYYY-MM-DDTHH:MM` with no time zone (e.g. `2026-11-27T14:00`); they fall inside the store's `opens` / `closes` hours. Read only: Scavio never books.
 
 ### Python
 
