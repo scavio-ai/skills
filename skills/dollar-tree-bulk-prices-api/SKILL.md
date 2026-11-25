@@ -1,7 +1,7 @@
 ---
 name: dollar-tree-bulk-prices-api
-description: Dollar Tree API for Dollar Tree (dollartree.com, the US and Canada discount variety store chain) - Dollar Tree bulk prices and store stock, the case price split into the unit price as Dollar Tree lists them online (9-in. White Paper Plates, 40-ct. read $1.50 a pack and $45.00 for a case of 30, order minimum 5), the order minimum and split-case multiple, the price points Dollar Tree shows ($1.00, $1.25, $1.50, $1.75, $3.00, $5.00, $7.00, $10.00 in Christmas Decor) and MORE CHOICES, its multi-price department; one national online price (the same item read $1.50 and the same $45.00 case at 6 stores in 6 states); the exact units of one item at a Dollar Tree store by store number plus up to about 63 nearby stores (116 packs at store 5126 in East Harlem, New York, 59 of 63 nearby in stock), ship-to-home units with an estimated delivery date and ship-to-store; keyword and item-number search, category, brand, sale, clearance, New Arrivals and MORE CHOICES lists, 48 per page by default (up to 250) to page 200, sorted by relevance, price, newest or rating and filtered by price point, brand, rating, in-store only, price range or any facet; one product in full with UPCs as Dollar Tree gives them, specifications, online stock units, SNAP flag and its categories; the stores near a US ZIP or city with hours, holiday hours, EBT, frozen foods and MORE CHOICES flags; one store page (Dollar Tree Canada store pages too, no prices); the category tree; the newest English reviews (up to about 98 per call) with syndicated reviews flagged and no reviewer names. 10 endpoints, 1 credit per call, stores 5. No UPC search, search suggestions, weekly ad, deal dates, Quick Order, gift cards, Canadian products or prices, price history or checkout.
-version: 1.0.0
+description: Dollar Tree API for Dollar Tree (dollartree.com, the US and Canada discount variety store chain) - Dollar Tree bulk prices and store stock, the case price split into the unit price as Dollar Tree lists them online (9-in. White Paper Plates, 40-ct. read $1.50 a pack and $45.00 for a case of 30, order minimum 5), the order minimum and split-case multiple, the price points Dollar Tree shows ($1.00, $1.25, $1.50, $1.75, $3.00, $5.00, $7.00, $10.00 in Christmas Decor) and MORE CHOICES, its multi-price department; one national online price (the same item read $1.50 and the same $45.00 case at 6 stores in 6 states); the exact units of one item at a Dollar Tree store by store number plus up to about 63 nearby stores (116 packs at store 5126 in East Harlem, New York, 59 of 63 nearby in stock), ship-to-home cases and the most units orderable for delivery with an estimated delivery date, and ship-to-store; keyword and item-number search, category, brand, sale, clearance, New Arrivals and MORE CHOICES lists, 48 per page by default (up to 250) to page 200, sorted by relevance, price, newest or rating and filtered by price point, brand, rating, in-store only, price range or any facet; one product in full with UPCs as Dollar Tree gives them, specifications, online stock units, SNAP flag and its categories; the stores near a US ZIP or city with hours, holiday hours, EBT, frozen foods and MORE CHOICES flags; one store page (Dollar Tree Canada store pages too, no prices); the category tree; the newest English reviews (up to about 98 per call) with syndicated reviews flagged and no reviewer names. 10 endpoints, 1 credit per call, stores 5. No UPC search, search suggestions, weekly ad, deal dates, Quick Order, gift cards, Canadian products or prices, price history or checkout.
+version: 1.0.1
 tags: dollar-tree, dollartree, dollartree-com, dollar-tree-api, dollar-tree-prices, dollar-tree-bulk, dollar-tree-bulk-prices, dollar-tree-bulk-order, dollar-tree-case-price, dollar-tree-case-pack, dollar-tree-unit-price, dollar-tree-price-per-unit, dollar-tree-online, dollar-tree-in-stock, dollar-tree-store-stock, dollar-tree-inventory, dollar-tree-stores, dollar-tree-store-hours, dollar-tree-more-choices, dollar-tree-christmas, dollar-tree-party-supplies, dollar-tree-clearance, dollar-tree-new-arrivals, dollar-tree-reviews, dollar-tree-canada, dollar-store, dollar-store-prices, discount-retail, case-price, unit-price, bulk-prices, party-supplies, store-stock, store-locator, ebt, snap, us-retail, usd, langchain, crewai, ai-agents, structured-data, json
 metadata:
   openclaw:
@@ -16,17 +16,17 @@ metadata:
 
 # Dollar Tree API - Bulk Prices, Case Packs, Store Stock
 
-Read Dollar Tree (dollartree.com, the US and Canada discount variety store chain): keyword and item-number search, category, brand and deal lists (sale, clearance, New Arrivals, MORE CHOICES), one product in full with its unit price, case price, case pack, order minimum and split-case rules, the units of one item at a Dollar Tree store and the stores near it, the stores near a US ZIP or city, one store page, the category tree and the newest reviews. www.dollartree.com (USD, English) for all 10 endpoints; Dollar Tree Canada store pages (English, no prices) for `store` only. Every endpoint returns structured JSON at 1 credit per call, except `stores` at 5.
+Read Dollar Tree (dollartree.com, the US and Canada discount variety store chain): keyword and item-number search, category, brand and deal lists (sale, clearance, New Arrivals, MORE CHOICES), one product in full with its unit price, case price, case pack, order minimum and split-case multiple, the units of one item at a Dollar Tree store and the stores near it, the stores near a US ZIP or city, one store page, the category tree and the newest reviews. www.dollartree.com (USD, English) for all 10 endpoints; Dollar Tree Canada store pages (English, no prices) for `store` only. Every endpoint returns structured JSON at 1 credit per call, except `stores` at 5.
 
-**The job this skill is for: Dollar Tree bulk prices.** What a Dollar Tree item costs on dollartree.com today by the unit and by the case, the order minimum and split-case multiple, the price point Dollar Tree shows, and how many units a store has. On 2026-11-25 (UTC) the 9-in. White Paper Plates, 40-ct. Packs (item `221159`, brand The Home Store) read `price` 1.5 with `case_price` 45 for a `case_pack` of 30 ($1.50 x 30 = $45.00), `minimum_quantity` 5 and `split_case.multiple` 5. `/store-stock` at store 5126 (2182 3rd Avenue, East Harlem, New York, NY) read 116 units on hand (`unit_size` 1: stores sell single packs) and listed 63 nearby stores by number, 59 of them in stock; ship to home read 75,570 units with an estimated delivery of 2026-12-02. A search for `paper plates` read 61 items: Heavy-Duty 10-in Ultra Paper Plates, 10-pc (`380886`) $1.50 a pack, $36.00 for 24; Round Paper Plates - Black, 9 in., 24 ct. (`356742`) $1.25, $22.50 for 18; Serv Heavy Duty 10-in Ultra Paper Plates, 50-pc (`376763`) $5.00, $50.00 for 10. Pair it with `dollar-general-api`, `walmart-product-data`, `target-product-data` and `instacart-api` for the same item (same UPC).
+**The job this skill is for: Dollar Tree bulk prices.** What a Dollar Tree item costs on dollartree.com today by the unit and by the case, the order minimum and split-case multiple, the price point Dollar Tree shows, and how many units a store has. On 2026-11-25 (UTC) the 9-in. White Paper Plates, 40-ct. Packs (item `221159`, brand The Home Store) read `price` 1.5 with `case_price` 45 for a `case_pack` of 30 ($1.50 x 30 = $45.00), `minimum_quantity` 5 and `split_case` {`available` true, `multiple` 5}. `/store-stock` at store 5126 (2182 3rd Avenue, East Harlem, New York, NY) read 116 units on hand (`unit_size` 1: stores sell single packs) and listed 63 nearby stores by number, 59 of them in stock; ship to home came from distribution centre 99006 with 2,374 cases of 30, `max_order_units` 75,570 (the most units orderable for delivery) and an estimated delivery of 2026-12-02. A search for `paper plates` read 61 items: Heavy-Duty 10-in Ultra Paper Plates, 10-pc (`380886`) $1.50 a pack, $36.00 for 24; Round Paper Plates - Black, 9 in., 24 ct. (`356742`) $1.25, $22.50 for 18; Serv Heavy Duty 10-in Ultra Paper Plates, 50-pc (`376763`) $5.00, $50.00 for 10. Pair it with `dollar-general-api`, `walmart-product-data`, `target-product-data` and `instacart-api` for the same item (same UPC).
 
 Ten limits shape every answer, so say them plainly:
 - **1 credit per call, `stores` 5.** `credits_used` in the response is the truth. A not-found (`404`) is charged; a refused input (`400`) and an upstream failure (`502`, `503`) are not.
 - **One national online price.** `price` is Dollar Tree's online unit price from one national online price list: item `221159` read $1.50 and the same $45.00 case at 6 stores in 6 states (5126 NY, 5262 NJ, 2461 IL, 8170 MT, 7796 TX, 5441 CA) on 2026-11-24, and no endpoint takes a ZIP or store for prices. Dollar Tree's own footer says prices and availability may vary between stores and online, and store shelf prices are not published online. Write "the online price at dollartree.com", never a store's shelf price.
-- **Case price against unit price.** Online orders go by the case or in split-case multiples. `case_price` is Dollar Tree's price for `case_pack` units (unit price x case pack: $1.50 x 30 = $45.00); `minimum_quantity` is Dollar Tree's order minimum; `split_case` {`available`, `multiple`, `fee`} is Dollar Tree's split-case data as given (`fee` only on the product, `null` in lists). Report them as Dollar Tree gives them and show the arithmetic; stores sell single units.
+- **Case price against unit price.** Online orders go by the case or in split-case multiples. `case_price` is Dollar Tree's price for `case_pack` units (unit price x case pack: $1.50 x 30 = $45.00); `minimum_quantity` is Dollar Tree's order minimum; `split_case` {`available`, `multiple`}: `available` is computed by Scavio as `minimum_quantity` < `case_pack` (Dollar Tree's own split-case flag reads N on every item), `multiple` is Dollar Tree's split-case multiple as given. On the product only, `split_case_fee` is Dollar Tree's raw field as given: Dollar Tree does not publish what it means or its unit, so never call it a fee. Report them and show the arithmetic; stores sell single units.
 - **Case pack 0 means no case price.** Where Dollar Tree gives a case pack or case price of 0 (Red Bull Zero, item `403802`, measured 2026-11-24), `case_pack` and `case_price` are `null`. Never compute one.
 - **The prices Dollar Tree shows, as given.** Items come at many price points: the Christmas Decor Price facet listed $1.00, $1.25, $1.50, $1.75, $3.00, $5.00, $7.00 and $10.00; `paper plates` listed $1.25, $1.50, $4.00 and $5.00. MORE CHOICES (`deals` `type` `more_choices`) is Dollar Tree's multi-price department. Never write that everything costs $1.25.
-- **Store stock needs a store number and is slow.** `/store-stock` takes `item_id` and `store` (a number from `/stores`); a ZIP alone does not pick a store. It returns the store's exact `units`, up to about 63 `nearby_stores` by store number with their units, `ship_to_home` and `ship_to_store`. It is the slowest endpoint: 27 seconds in the capture, 17 to 72 seconds measured. Allow a client timeout of 300 seconds.
+- **Store stock needs a store number and is slow.** `/store-stock` takes `item_id` and `store` (a number from `/stores`); a ZIP alone does not pick a store. It returns the store's exact `units` (`store.status` can be `null`), up to about 63 `nearby_stores` by store number with their units (none at some rural stores), `ship_to_home` and `ship_to_store`. It is the slowest endpoint: 16 seconds in the capture, 16 to 72 seconds measured. Allow a client timeout of 300 seconds.
 - **No UPC search.** Dollar Tree's search does not match UPCs: a UPC finds nothing. Look items up by the Dollar Tree item number (`items[].item_id`, the number at the end of a dollartree.com product link, such as `221159` or `FD1402202`). `upcs` are listed as Dollar Tree gives them, zero-padded to 18 digits, and an assorted item can list several (221159 lists 10).
 - **Reviews: the newest only.** `/reviews` returns up to about 98 of the newest English reviews, newest first. No other sort, no star filter, no questions and answers, no reviewer names. Many reviews are syndicated from brand sites: `syndicated` and `syndication_source` say so (95 of 97 on Crest Tartar Protection came from crest.com).
 - **Canada: store pages only.** Dollar Tree Canada has no shopping site. `country` `ca` is served by `/store` only (locations.dollartreecanada.com pages, English, no prices, `currency` `null`); every other endpoint is US only.
@@ -43,7 +43,7 @@ See also: for the same item (same UPC) at Dollar General use `dollar-general-api
 Use this skill when the user asks to:
 - Price a Dollar Tree item by the unit and by the case, with the case pack, the order minimum and the split-case multiple, as dollartree.com lists them
 - List Dollar Tree items at one price point ($1.25, $1.50, $5.00, ...) or in MORE CHOICES, Dollar Tree's multi-price department
-- Check how many units of one item a Dollar Tree store has, with the nearby stores' units and the ship-to-home units and delivery estimate
+- Check how many units of one item a Dollar Tree store has, with the nearby stores' units and the ship-to-home order maximum and delivery estimate
 - Find the Dollar Tree stores near a US ZIP or city with hours, holiday hours and EBT, frozen foods or MORE CHOICES flags, or read one store page (US or Dollar Tree Canada)
 - Search dollartree.com by keyword or item number, sorted by price, newest or rating, or filtered by brand, rating, in-store only, price range or any facet
 - List a Dollar Tree category (party supplies, Christmas decor, cleaning), one brand's items, or the sale, clearance and New Arrivals items
@@ -86,12 +86,12 @@ Base URL: `https://api.scavio.dev`. In the captures, deals took about 1 second, 
 | Endpoint | What it returns | Markets | Credits |
 |---|---|---|---|
 | `POST /api/v1/dollartree/search` | Keywords or an item number: 48 per page by default (up to 250) with total, facets, unit price, case price, case pack, order minimum and split case | us | 1 |
-| `POST /api/v1/dollartree/product` | One item by item number or link: unit price, list price, sale price, case price, case pack, order minimum, split case with fee, UPCs, specifications, online stock units, SNAP flag, categories | us | 1 |
+| `POST /api/v1/dollartree/product` | One item by item number or link: unit price, list price, sale price, case price, case pack, order minimum, split case, banner code, UPCs, specifications, online stock units, SNAP flag, categories | us | 1 |
 | `POST /api/v1/dollartree/category` | One category listing (`dimension_id` or a dollartree.com category link), sorted, filtered and paged like search | us | 1 |
 | `POST /api/v1/dollartree/categories` | Dollar Tree's departments with every sub-category, or one category's sub-categories | us | 1 |
 | `POST /api/v1/dollartree/brand` | One brand's items as Dollar Tree writes the brand, with its other spellings | us | 1 |
 | `POST /api/v1/dollartree/deals` | Sale, clearance, New Arrivals or MORE CHOICES items, sorted, filtered and paged like search | us | 1 |
-| `POST /api/v1/dollartree/store-stock` | Units of one item at a store (by store number) and up to about 63 nearby stores, ship-to-home units with an estimated delivery date, ship-to-store | us | 1 |
+| `POST /api/v1/dollartree/store-stock` | Units of one item at a store (by store number) and up to about 63 nearby stores, ship-to-home cases and order maximum with an estimated delivery date, ship-to-store | us | 1 |
 | `POST /api/v1/dollartree/stores` | The Dollar Tree stores near a US ZIP or city (20 per answer): address, phone, distance, hours, holiday hours, EBT, frozen foods, MORE CHOICES, pickup and delivery | us | 5 |
 | `POST /api/v1/dollartree/store` | One store page by link or slug: hours, holiday hours, amenities and the stores nearby | us, ca | 1 |
 | `POST /api/v1/dollartree/reviews` | The newest English reviews of one item (up to about 98), with rating breakdown and syndication flags | us | 1 |
@@ -112,13 +112,15 @@ Every priced item carries:
 | `case_price` | Dollar Tree's price for `case_pack` units; `null` where Dollar Tree gives 0 |
 | `case_pack` | Units in a case; `null` where Dollar Tree gives 0 |
 | `minimum_quantity` | Dollar Tree's order minimum (units) |
-| `split_case` | {`available`, `multiple`, `fee`} as Dollar Tree gives them; `fee` on the product only (`null` in lists) |
+| `split_case` | {`available`, `multiple`}: `available` computed by Scavio as `minimum_quantity` < `case_pack`; `multiple` as Dollar Tree gives it |
+| `split_case_fee` | Product only: Dollar Tree's raw field as given; its meaning and unit are not published, so it is not a fee |
+| `banner_code` | Product only: Dollar Tree's banner code as given (`DT` or `FD`), not a store-brand flag |
 | `not_for_individual_sale`, `varying_case_packs`, `assortment`, `assortment_details` | Dollar Tree's flags and assortment text (the last three on the product) |
 | `upcs` | The UPCs Dollar Tree lists for the item, zero-padded to 18 digits as given |
 | `snap_eligible`, `in_store_only`, `clearance`, `new` | Dollar Tree's flags |
 
 - **Per unit:** quote `price` with the date: "$1.50 a pack at dollartree.com on 2026-11-25". Per case: quote `case_price` with `case_pack` and show the division ($45.00 / 30 = $1.50).
-- **Order rules:** quote `minimum_quantity` and `split_case` as given. Item `221159` read `minimum_quantity` 5, `split_case` {`available`: false, `multiple`: 5, `fee`: 0}; most listing items read `minimum_quantity` equal to `case_pack` (`380886`: 24 and 24).
+- **Order rules:** quote `minimum_quantity` and `split_case` as given. Item `221159` read `minimum_quantity` 5, `split_case` {`available`: true, `multiple`: 5}, `split_case_fee` 0; most listing items read `minimum_quantity` equal to `case_pack` (`380886`: 24 and 24).
 - **Price points:** the Price facet (`facets[]` with `key` `price_point`) lists the price points in a listing with counts; send one as `price_point` (`1.25`) or its `id` in `filters`.
 - **Matching another retailer:** match on the UPC. The last 12 digits of an 18-digit `upcs` value are the UPC-A, the last 13 an EAN-13. An assortment can carry several UPCs: compare only the one that names the same product.
 - Report the labels and the arithmetic. Never call a price a store's shelf price, never describe a price as a rise, a cut or a bargain, and never compute a price Dollar Tree does not show.
@@ -126,10 +128,10 @@ Every priced item carries:
 ## Workflow
 
 1. **Find the item.** `/search` with `q` (keywords such as `paper plates`, or a Dollar Tree item number), or `/category` (a `dimension_id` from `/categories` or from a product's `categories[]`), `/brand` or `/deals`. Each item's `item_id` is the input of product, store-stock and reviews. Never search a UPC: it finds nothing.
-2. **Read it in full.** `/product` with `item_id` (or the item's `url`): unit price, case price, case pack, order minimum, split case with fee, UPCs, online stock units.
-3. **Per unit and per case.** Quote `price`, then `case_price` for `case_pack` units with the division; quote `minimum_quantity` and `split_case` as given.
+2. **Read it in full.** `/product` with `item_id` (or the item's `url`): unit price, case price, case pack, order minimum, split case, UPCs, online stock units.
+3. **Per unit and per case.** Quote `price`, then `case_price` for `case_pack` units with the division; quote `minimum_quantity` and `split_case`.
 4. **Pick a store.** `/stores` with `zip` (a US ZIP) or `city` (`"Naperville, IL"`), 5 credits: 20 stores in Dollar Tree's order with `store_number`, `slug`, address, hours and flags.
-5. **Units at the store.** `/store-stock` with `item_id` and `store` (a `store_number`), optionally `zip` and `state` of the store. Read `store.units`, `nearby_stores[]` (store numbers with units) and `nearby_in_stock`. Nearby stores carry no address: `/stores` near the same ZIP and `/store` (its `nearby_stores`) give store numbers with addresses. Expect tens of seconds.
+5. **Units at the store.** `/store-stock` with `item_id` and `store` (a `store_number`), optionally `zip` and `state` of the store. Read `store.units`, `nearby_stores[]` (store numbers with units; empty at some rural stores), `nearby_in_stock` and `ship_to_home.max_order_units`. Nearby stores carry no address: `/stores` near the same ZIP and `/store` (its `nearby_stores`) give store numbers with addresses. Expect tens of seconds.
 6. **Narrow a list.** `sort`, `price_point`, `brand`, `rating` (1-5, and up), `in_store_only`, `min_price` / `max_price` and facet `filters` (up to 10 `facets[].values[].id` strings, sent exactly as given); `page` (1-200) and `page_size` (1-250, default 48).
 7. **Reviews.** `/reviews` with `item_id`: the newest English reviews, with `syndicated` and `syndication_source` on each.
 8. **Canada.** `/store` with `country` `ca` and a locations.dollartreecanada.com `url` or its `slug`. Nothing else is served for Canada.
@@ -195,7 +197,7 @@ Captured `data` (2026-11-25 UTC; `images`, `long_description` and `notes` droppe
   "item_id": "221159",
   "name": "9-in. White Paper Plates, 40-ct. Packs",
   "brand": "The Home Store",
-  "store_brand": "DT",
+  "banner_code": "DT",
   "url": "https://www.dollartree.com/the-home-store-9-in-uncoated-white-paper-plates-40-pc-pack/221159",
   "image": "https://www.dollartree.com/ccstore/v1/images/?source=/file/v5770587485520967755/products/221159.jpg",
   "description": "PAPER PLATES 9IN",
@@ -207,7 +209,8 @@ Captured `data` (2026-11-25 UTC; `images`, `long_description` and `notes` droppe
   "case_price": 45,
   "case_pack": 30,
   "minimum_quantity": 5,
-  "split_case": { "available": false, "multiple": 5, "fee": 0 },
+  "split_case": { "available": true, "multiple": 5 },
+  "split_case_fee": 0,
   "not_for_individual_sale": false,
   "varying_case_packs": false,
   "assortment": true,
@@ -245,7 +248,7 @@ Captured `data` (2026-11-25 UTC; `images`, `long_description` and `notes` droppe
 }
 ```
 
-$45.00 / 30 = $1.50 a pack, the same as `price`; the order minimum is 5 packs as Dollar Tree gives it. `online_stock` is the units Dollar Tree can ship from its online inventory, not a store's units. An unknown item is a charged `404`.
+$45.00 / 30 = $1.50 a pack, the same as `price`; the order minimum is 5 packs as Dollar Tree gives it, below the case of 30, so `split_case.available` is true. `banner_code` DT is Dollar Tree's banner code, not a store brand. `online_stock` is Dollar Tree's online stock answer as given, not a store's units and not store-stock's `ship_to_home` numbers. An unknown item is a charged `404`.
 
 ### Units at a store and the stores nearby
 
@@ -256,7 +259,7 @@ curl -X POST https://api.scavio.dev/api/v1/dollartree/store-stock \
   -d '{"item_id": "221159", "store": "5126"}'
 ```
 
-Captured `data` (2026-11-25 UTC, 27 seconds; 3 of 63 nearby stores shown, `notes` dropped):
+Captured `data` (2026-11-25 UTC, 16 seconds; 3 of 63 nearby stores shown, `notes` dropped):
 
 ```json
 {
@@ -270,17 +273,17 @@ Captured `data` (2026-11-25 UTC, 27 seconds; 3 of 63 nearby stores shown, `notes
   "store": { "store_number": "5126", "units": 116, "status": "AVAILABLE", "in_stock": true, "unit_size": 1 },
   "nearby_stores": [
     { "store_number": "5849", "units": 66, "status": "AVAILABLE", "in_stock": true },
-    { "store_number": "3789", "units": 170, "status": "AVAILABLE", "in_stock": true },
+    { "store_number": "3789", "units": 168, "status": "AVAILABLE", "in_stock": true },
     { "store_number": "4514", "units": 104, "status": "AVAILABLE", "in_stock": true }
   ],
   "nearby_in_stock": 59,
-  "ship_to_home": { "available": true, "units": 75570, "cases": 2374, "case_size": 30, "eta": "2026-12-02", "express_eta": "2026-11-30", "back_order": false },
-  "ship_to_store": { "available": false, "units": 0, "cases": 0, "case_size": 30, "eta": "2026-12-05" },
+  "ship_to_home": { "available": true, "dc_number": "99006", "cases": 2374, "case_size": 30, "max_order_units": 75570, "eta": "2026-12-02", "express_eta": "2026-11-30", "back_order": false },
+  "ship_to_store": { "available": false, "dc_number": "99010", "units": 0, "cases": 0, "case_size": 30, "eta": "2026-12-05" },
   "split_case_ship_to_home": false
 }
 ```
 
-Store 5126 is 2182 3rd Avenue, New York, NY (East Harlem). 59 of the 63 nearby stores were in stock; 4 read `OUT_OF_STOCK` with 0 units. `unit_size` 1 means the store sells single packs; `ship_to_home` counts whole cases of 30 for delivery. Units are as Dollar Tree reports them at the moment of the call. An unknown item or store number is a charged `404`.
+Store 5126 is 2182 3rd Avenue, New York, NY (East Harlem). 59 of the 63 nearby stores were in stock; 4 read `OUT_OF_STOCK` with 0 units. `unit_size` 1 means the store sells single packs. `ship_to_home` is delivery from the distribution centre Dollar Tree names (`dc_number`), counted in whole cases of 30; `max_order_units` (75,570) is the most units Dollar Tree lets you order for delivery, the same at every store, and is not `cases` x `case_size`. `ship_to_store` names its own `dc_number`. `store.status` can be `null` (Dollar Tree gave no on-hand status), and some rural stores list no nearby stores. Units are as Dollar Tree reports them at the moment of the call. An unknown item or store number is a charged `404`.
 
 ### Stores near a ZIP (5 credits)
 
@@ -448,6 +451,7 @@ print(first["store_number"], first["address"]["city"], first["distance_miles"])
 stock = dollartree("store-stock", {"item_id": "221159", "store": first["store_number"]})["data"]
 print("store", stock["store"]["store_number"], stock["store"]["units"], stock["store"]["status"])
 print("nearby in stock", stock["nearby_in_stock"], "of", len(stock["nearby_stores"]))
+print("ship to home: up to", stock["ship_to_home"]["max_order_units"], "units, eta", stock["ship_to_home"]["eta"])
 
 # Prices and units can change between calls. Store each answer with fetched_at
 # and run this on a schedule: that stored series is your history (Dollar Tree
@@ -458,10 +462,10 @@ print("nearby in stock", stock["nearby_in_stock"], "of", len(stock["nearby_store
 
 Every response uses the envelope `{ data, response_time, fetched_at, credits_used, credits_remaining }`. Everything is fetched when the request asks for it; nothing is cached. Every `data` carries `market` {`country`, `language`, `currency`, `locale`} (`USD`, or `null` for a Canadian store page) and `notes`.
 
-- **item** (search, category, brand, deals) - `position`, `item_id`, `name`, `brand`, `url`, `image`, `price`, `list_price`, `on_sale`, `unit_price_text`, `case_price`, `case_pack`, `minimum_quantity`, `split_case` {`available`, `multiple`, `fee`}, `not_for_individual_sale`, `rating`, `review_count`, `online_availability`, `in_stock_online`, `in_store_only`, `clearance`, `new`, `snap_eligible`, `upcs`, `store_brand`, `categories` (names).
+- **item** (search, category, brand, deals) - `position`, `item_id`, `name`, `brand`, `url`, `image`, `price`, `list_price`, `on_sale`, `unit_price_text`, `case_price`, `case_pack`, `minimum_quantity`, `split_case` {`available`, `multiple`}, `not_for_individual_sale`, `rating`, `review_count`, `online_availability`, `in_stock_online`, `in_store_only`, `clearance`, `new`, `snap_eligible`, `upcs`, `categories` (names).
 - **lists** - `page`, `page_size`, `total`, `total_pages`, `count`, `sort`, `filters_applied[]` {`facet`, `label`, `count`}, `resolved_filters[]` {`facet`, `requested`, `id`, `label`, `other_spellings`}, `price_range`, `items[]`, `facets[]` {`key`, `name`, `multi_select`, `values[]` {`id`, `label`, `count`}} (send `id` back in `filters`). Search adds `query`, `corrected_query`, `category`; category `category_id`, `query`, `category` (name); brand `brand`, `brand_id`, `other_spellings[]` {`id`, `label`, `count`}, `category`; deals `type`, `query`, `category`.
-- **product** - `requested_item_id`, `item_id`, `name`, `brand`, `store_brand`, `url`, `image`, `images`, `description`, `long_description`, `price`, `list_price`, `sale_price`, `on_sale`, `unit_price_text`, `case_price`, `case_pack`, `minimum_quantity`, `split_case` {`available`, `multiple`, `fee`}, `not_for_individual_sale`, `varying_case_packs`, `assortment`, `assortment_details`, `upcs`, `rating`, `review_count`, `in_store_only`, `store_pickup_eligible`, `shippable`, `online_only`, `delivery_options`, `order_limit`, `clearance`, `new`, `deals`, `snap_eligible`, `gift_card`, `available_since`, `online_stock` {`status`, `in_stock`, `units`, `orderable_units`}, `specifications[]` {`name`, `value`}, `categories[]` {`id`, `name`, `dimension_id`, `url`}, `child_skus[]` {`sku_id`, `color`, `size`, `list_price`, `sale_price`, `sale_starts`, `sale_ends`, `active`}, `currency`.
-- **store-stock** - `item_id`, `item` {`name`, `url`, `price`}, `store` {`store_number`, `units`, `status`, `in_stock`, `unit_size`}, `nearby_stores[]` {`store_number`, `units`, `status`, `in_stock`}, `nearby_in_stock`, `ship_to_home` {`available`, `units`, `cases`, `case_size`, `eta`, `express_eta`, `back_order`}, `ship_to_store` {`available`, `units`, `cases`, `case_size`, `eta`}, `split_case_ship_to_home`.
+- **product** - `requested_item_id`, `item_id`, `name`, `brand`, `banner_code`, `url`, `image`, `images`, `description`, `long_description`, `price`, `list_price`, `sale_price`, `on_sale`, `unit_price_text`, `case_price`, `case_pack`, `minimum_quantity`, `split_case` {`available`, `multiple`}, `split_case_fee`, `not_for_individual_sale`, `varying_case_packs`, `assortment`, `assortment_details`, `upcs`, `rating`, `review_count`, `in_store_only`, `store_pickup_eligible`, `shippable`, `online_only`, `delivery_options`, `order_limit`, `clearance`, `new`, `deals`, `snap_eligible`, `gift_card`, `available_since`, `online_stock` {`status`, `in_stock`, `units`, `orderable_units`}, `specifications[]` {`name`, `value`}, `categories[]` {`id`, `name`, `dimension_id`, `url`}, `child_skus[]` {`sku_id`, `color`, `size`, `list_price`, `sale_price`, `sale_starts`, `sale_ends`, `active`}, `currency`.
+- **store-stock** - `item_id`, `item` {`name`, `url`, `price`}, `store` {`store_number`, `units`, `status`, `in_stock`, `unit_size`}, `nearby_stores[]` {`store_number`, `units`, `status`, `in_stock`}, `nearby_in_stock`, `ship_to_home` {`available`, `dc_number`, `cases`, `case_size`, `max_order_units`, `eta`, `express_eta`, `back_order`}, `ship_to_store` {`available`, `dc_number`, `units`, `cases`, `case_size`, `eta`}, `split_case_ship_to_home`.
 - **stores** - `location`, `total`, `count`, `stores[]` {`position`, `store_number`, `name`, `location_note`, `address` {`line1`, `line2`, `city`, `state`, `zip`, `country`}, `phone`, `latitude`, `longitude`, `distance_miles`, `closed`, `timezone`, `hours[]` {`day`, `open`, `close`, `closed`}, `holiday_hours[]` {`date`, `open`, `close`, `closed`}, `reopen_date`, `amenities`, `accepts_ebt`, `frozen_foods`, `more_choices`, `store_pickup`, `pickup_and_delivery`, `payment_options`, `slug`, `url`}.
 - **store** - the store fields above without `position` and `distance_miles`, plus `nearby_stores[]` {`store_number`, `address` {`line1`, `city`, `state`, `zip`}, `closed`, `slug`, `url`}.
 - **categories** - `category`, `parents`, `count`, `total_categories`, `categories[]` {`id`, `name`, `dimension_id`, `url`, `route`, `children[]`}.
@@ -472,7 +476,7 @@ Every response uses the envelope `{ data, response_time, fetched_at, credits_use
 - Name it "Dollar Tree (dollartree.com, the US and Canada discount variety store chain)" on first mention. Family Dollar is a separate company and is not read.
 - Prices: quote `price` as the online unit price at dollartree.com with the `fetched_at` date, and `case_price` with `case_pack`. Prices are one national online price: never call a price a store's or a ZIP's price, and never present it as the store shelf price (Dollar Tree says prices may vary between stores and online).
 - Report Dollar Tree's own price, list price, case price, units and flags plus the arithmetic. Never write that everything at Dollar Tree costs $1.25, never describe a price as an increase, a cut or shrinking packs, and never judge an item's quality or value.
-- Case and unit: show the case price, the units in the case and the division; quote `minimum_quantity` and `split_case` as given. Never compute a case price where `case_pack` or `case_price` is `null`.
+- Case and unit: show the case price, the units in the case and the division; quote `minimum_quantity` and `split_case`; never call `split_case_fee` a fee. Never compute a case price where `case_pack` or `case_price` is `null`.
 - Comparing Dollar Tree with Dollar General, Walmart, Target or Instacart: compare only the same item (same UPC), each with its date and its source, unit price against unit price. Instacart's prices are Instacart's, never Dollar Tree's shelf price. Never call one retailer cheaper beyond the numbers shown.
 - Stock: `units` as Dollar Tree reported them at the moment of the call; Scavio makes no promise of their accuracy. Never promise pickup, shipping or a delivery date.
 - Reviews: no reviewer names are returned. Say which reviews are syndicated and from where (`syndication_source`).
@@ -494,8 +498,8 @@ Every response uses the envelope `{ data, response_time, fetched_at, credits_use
 ## SDKs
 
 ```bash
-pip install scavio==0.84.0
-npm install scavio@0.85.0
+pip install scavio==0.84.1
+npm install scavio@0.85.1
 ```
 
 ```js
@@ -526,7 +530,7 @@ The Scavio MCP server exposes all 10 endpoints as tools: `search_dollartree`, `g
   "mcpServers": {
     "scavio": {
       "command": "npx",
-      "args": ["-y", "@scavio/mcp-server@0.84.0"],
+      "args": ["-y", "@scavio/mcp-server@0.84.1"],
       "env": {
         "SCAVIO_API_KEY": "sk_live_your_key",
         "SCAVIO_PLATFORMS": "default,dollartree"
