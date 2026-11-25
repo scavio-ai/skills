@@ -70,6 +70,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Depop | [depop-api](references/depop-api.md) | 14 | 1; product 2 outside the US; nz 5, product 6 |
 | Dick's Sporting Goods | [dicks-sporting-goods-api](references/dicks-sporting-goods-api.md) | 9 | 1; product, reviews 2 |
 | Dollar General | [dollar-general-api](references/dollar-general-api.md) | 5 | 1 |
+| Dollar Tree | [dollar-tree-bulk-prices-api](references/dollar-tree-bulk-prices-api.md) | 10 | 1; stores 5 |
 | eBay | [ebay-product-data](references/ebay-product-data.md) | 3 | 1 |
 | Etsy | [etsy-product-data](references/etsy-product-data.md) | 5 | 2 |
 | Fanatics | [fanatics-merchandise-api](references/fanatics-merchandise-api.md) | 5 | 1 |
