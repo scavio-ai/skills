@@ -1501,6 +1501,18 @@
       "credits": "1; prices 3"
     },
     {
+      "dir": "scavio-nellis",
+      "slug": "nellis-auction-api",
+      "name": "nellis-auction-api",
+      "display": "Nellis Auction API - Lot Prices, Bids, Closing Prices",
+      "query": "nellis auction",
+      "reused": "no",
+      "platform": "Nellis Auction",
+      "group": "Commerce",
+      "endpoints": "4",
+      "credits": "1"
+    },
+    {
       "dir": "scavio-zillow",
       "slug": "zillow-property-data",
       "name": "zillow-property-data",
@@ -2150,6 +2162,11 @@
       "dir": "scavio-vevor",
       "description": "Vevor API for VEVOR (vevor.com, the tools and equipment seller with storefronts in 13 countries) - Vevor prices per storefront in its own currency and the same SKU on all 13 storefronts in one call (a VEVOR 24-inch pressure washer surface cleaner read 195.01 USD in the US, 233.90 CAD in Canada, 175.90 GBP in the UK, 170.90 EUR in Germany, 261.99 EUR in Norway and 721.90 PLN in Poland on one day, and is not sold in Mexico); the was price only while a VEVOR deal is active, with VEVOR's deal start and end, or where VEVOR's page shows its own strikethrough price, never computed; VEVOR's unit stock per storefront (most European storefronts share one pool); every variant with its own price, was price and stock; VEVOR's shipping fee and delivery date for a US state or Canadian province (price and stock do not change by ZIP or state; an Alaska address read a $130 fee on a MIG welder); keyword or SKU search, category lists, Best Sellers, New Arrivals, promotion pages, Daily Deals, Clearance and Deals, 60 per page, sorted by popularity, price, hot or new and filtered by in stock, on sale, Black Friday, bulk savings, price and rating, with search terms in the storefront language (totals above 100 read \"100+\"); one product in full with specifications, protection plans, return policy and VEVOR's own AI review summary; reviews up to 100 per page, sorted and star-filtered, from one review pool shared across storefronts and variants (many languages, no reviewer names); customer questions with VEVOR's answers; search suggestions and the category tree. 11 endpoints, 1 credit per call, prices 3. No coupon codes, pickup store, Pro or bulk prices, financing, ships-from warehouse, Vevor's listings on other marketplaces, price history or checkout.",
       "tags": "vevor, vevor-com, vevor-api, vevor-prices, vevor-price-api, vevor-product-data, vevor-tools, vevor-deals, vevor-daily-deals, vevor-black-friday, vevor-clearance, vevor-best-sellers, vevor-new-arrivals, vevor-stock, vevor-shipping, vevor-shipping-cost, vevor-variants, vevor-reviews, vevor-questions, vevor-price-by-country, vevor-canada, vevor-uk, vevor-australia, vevor-europe, vevor-germany, tool-prices, equipment-prices, welder, ice-maker, pressure-washer, multi-currency, price-comparison, global-retail, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-nellis",
+      "description": "Nellis Auction API for Nellis Auction (nellisauction.com, the liquidation auction marketplace with pickup warehouses in Las Vegas, Phoenix, Houston, Philadelphia, Denver and Dallas) - a lot's current bid and bid count next to Nellis's own Estimated Retail Price as Nellis labels it (an LG 65-inch OLED TV read a 101 USD current bid after 8 bids against an Estimated Retail Price of 1,595.75 USD), the buyer's premium percent (typically 15% but may vary by auction event, as Nellis states it), open and close times with extensions, Nellis's condition grade (1-5 stars) and inspection note, the pickup warehouse and the operator; a sold lot's final price by id (the winning bid before the premium and tax) with the bid history (amounts, times, Winning or Outbid, no bidder names); search of open lots in one of 6 shopping locations, 48, 120 or 240 per page, 9 sorts (featured, current bid, ending soon or last, estimated retail, bids) and filters by category, subcategory, brand, pickup warehouse, condition stars, estimated retail range, auction event, color and size with Nellis's counts; the 13 pickup warehouses with address, operator and hours per day; live open-lot counts per category, brand and auction event. 4 endpoints, 1 credit per call. No closed lots in search, search suggestions, shipping (pickup only), UPC or model numbers, buy-now, reserve prices, live bid updates, bidding, watchlists or checkout.",
+      "tags": "nellis, nellis-auction, nellisauction, nellisauction-com, nellis-auction-api, nellis-auction-prices, nellis-auction-closing-prices, nellis-auction-sold-prices, nellis-auction-final-price, nellis-auction-bids, nellis-auction-bid-history, nellis-auction-retail-price, nellis-auction-search, nellis-auction-las-vegas, nellis-auction-phoenix, nellis-auction-mesa, nellis-auction-houston, nellis-auction-katy, nellis-auction-dallas, nellis-auction-denver, nellis-auction-philadelphia, nellis-auction-locations, nellis-auction-categories, liquidation-auction, liquidation-auction-api, online-auction, auction-prices, closing-prices, buyers-premium, retail-returns, overstock, resale, reseller, price-comparison, us-retail, usd, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-zillow",

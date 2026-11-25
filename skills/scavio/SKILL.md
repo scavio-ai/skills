@@ -98,6 +98,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Mercari | [mercari-api](references/mercari-api.md) | 11 | 1 |
 | Michaels | [michaels-craft-prices-api](references/michaels-craft-prices-api.md) | 11 | 2; category or deals with a /shop/ link or path 4 |
 | Micro Center | [micro-center-api](references/micro-center-api.md) | 3 | 2; stores 1 |
+| Nellis Auction | [nellis-auction-api](references/nellis-auction-api.md) | 4 | 1 |
 | Nike | [nike-api](references/nike-api.md) | 8 | 1 |
 | Nordstrom | [nordstrom-product-data](references/nordstrom-product-data.md) | 8 | 5; availability and reviews 10 |
 | Nordstrom Rack | [nordstrom-rack-product-data](references/nordstrom-rack-product-data.md) | 8 | 5; availability and reviews 10 |
