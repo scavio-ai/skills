@@ -24,9 +24,10 @@ Read RentCafe (rentcafe.com, Yardi's US and Canada rental listing site): rental 
 
 | City and bed type | RentCafe average (`by_bed_type`, last updated October 30, 2026) | Listed base rents, same bed type (`/search`) |
 |---|---|---|
-| Austin, TX, 2 beds | 1,818 for 1,065 sq ft (all rentals 1,643, -1.26% YoY) | `beds: 2`, `price_max: 2000`: 4,228 rentals; Sonterra Apartment Homes 1,404+, Ventana Oaks Apartments 1,345+ |
-| Austin, TX, studio | 1,291 for 471 sq ft | Unfiltered, `sort: "newest"`: Lakeline East Apartments, studio 999+ |
 | Chicago, IL, 1 bed | 2,464 for 708 sq ft (all rentals 2,531, +3.91% YoY) | Unfiltered, the 1 bd `rent_by_bed` rows: Shoreham And Tides 2,381+, North Harbor Tower 2,660+, The Montrose 2,402+ |
+| Chicago, IL, 2 beds | 3,341 for 1,062 sq ft | not captured |
+| Chicago, IL, studio | 1,798 for 466 sq ft | not captured |
+| Austin, TX, 2 beds | not captured | `beds: 2`, `price_max: 2000`: 4,228 rentals; Sonterra Apartment Homes 1,404+, Ventana Oaks Apartments 1,345+ |
 
 The averages are RentCafe's monthly figures for the city, attributed as RentCafe states them ("RentCafe Market Analysis, Yardi Matrix, U.S. Census Bureau"); the listing rents are base rents RentCafe shows ("+" means from). Put them side by side with the date, bed type and size, and leave any gap uninterpreted. For another site's view of the same city use `rent-com-api` (Rent.com's current averages per bed count and its listings), `zillow-property-data`, `redfin-property-data` or `realtor-com-property-data`, matched on city, bed count and date.
 
@@ -171,41 +172,41 @@ Base URL: `https://api.scavio.dev`. In the captures, search answered in 4-11 sec
 curl -X POST https://api.scavio.dev/api/v1/rentcafe/rent-trends \
   -H "Authorization: Bearer $SCAVIO_API_KEY" \
   -H "Content-Type: application/json" \
-  -d '{"city": "Austin", "state": "TX"}'
+  -d '{"city": "Chicago", "state": "IL"}'
 ```
 
-Captured `data` (2026-11-26; `highlights` cut to 1 of 5, the neighborhood lists to 2 of 3, `rent_by_neighborhood` to 2 of 90, `compared_cities` to 3 of 21, `notes` dropped):
+Captured `data` (Chicago, IL, 2026-11-26; `highlights` cut to 1 of 5, the neighborhood lists to 2 of 3, `rent_by_neighborhood` to 2 of 60, `compared_cities` to 3 of 16, `notes` dropped):
 
 ```json
 {
-  "city": "Austin",
-  "state": "TX",
+  "city": "Chicago",
+  "state": "IL",
   "currency": "USD",
-  "url": "https://www.rentcafe.com/average-rent-market-trends/us/tx/austin/",
-  "title": "Austin, TX Rental Market Trends",
+  "url": "https://www.rentcafe.com/average-rent-market-trends/us/il/chicago/",
+  "title": "Chicago, IL Rental Market Trends",
   "last_updated": "October 30, 2026",
   "source": "RentCafe Market Analysis, Yardi Matrix, U.S. Census Bureau",
-  "average_rent": 1643,
-  "average_rent_previous_year": 1664,
-  "yoy_change_pct": -1.26,
-  "highlights": ["The average rent for an apartment in Austin is $1,643, a 1.26% decrease compared to the previous year, when the average rent was $1,664."],
+  "average_rent": 2531,
+  "average_rent_previous_year": 2436,
+  "yoy_change_pct": 3.91,
+  "highlights": ["The average rent for an apartment in Chicago is $2,531, a 3.91% increase compared to the previous year, when the average rent was $2,436."],
   "by_bed_type": [
-    {"type": "All Rentals", "average_rent": 1643, "average_sqft": 868},
-    {"type": "Studio", "average_rent": 1291, "average_sqft": 471},
-    {"type": "1 Bed", "average_rent": 1425, "average_sqft": 717},
-    {"type": "2 Beds", "average_rent": 1818, "average_sqft": 1065},
-    {"type": "3 Beds", "average_rent": 2423, "average_sqft": 1367}
+    {"type": "All Rentals", "average_rent": 2531, "average_sqft": 745},
+    {"type": "Studio", "average_rent": 1798, "average_sqft": 466},
+    {"type": "1 Bed", "average_rent": 2464, "average_sqft": 708},
+    {"type": "2 Beds", "average_rent": 3341, "average_sqft": 1062},
+    {"type": "3 Beds", "average_rent": 3726, "average_sqft": 1355}
   ],
-  "budget_share": [{"range": "≤ $1000", "share_pct": 12}, {"range": "$1,001-$1,500", "share_pct": 41}, {"range": "$1,501-$2,000", "share_pct": 27}, {"range": "$2,001-$2,500", "share_pct": 10}, {"range": "$2,501-$3,000", "share_pct": 4}, {"range": "> $3,000", "share_pct": 5}],
-  "households": {"renter_occupied": 257933, "renter_pct": 57, "owner_occupied": 198180, "owner_pct": 43},
-  "most_affordable_neighborhoods": [{"name": "Mesa Park", "average_rent": 875, "location": "mesa-park-austin-tx"}, {"name": "Georgian Acres", "average_rent": 939, "location": "georgian-acres-austin-tx"}],
-  "most_expensive_neighborhoods": [{"name": "Downtown Austin", "average_rent": 3334, "location": "downtown-austin-austin-tx"}, {"name": "West University", "average_rent": 3500, "location": "west-university-austin-tx"}],
-  "rent_by_neighborhood": [{"name": "West University", "average_rent": 3500}, {"name": "Downtown Austin", "average_rent": 3334}],
-  "compared_cities": [{"name": "Austin", "average_rent": 1643}, {"name": "San Antonio", "average_rent": 1254}, {"name": "Houston", "average_rent": 1343}]
+  "budget_share": [{"range": "≤ $1000", "share_pct": 2}, {"range": "$1,001-$1,500", "share_pct": 14}, {"range": "$1,501-$2,000", "share_pct": 18}, {"range": "$2,001-$2,500", "share_pct": 21}, {"range": "$2,501-$3,000", "share_pct": 19}, {"range": "> $3,000", "share_pct": 26}],
+  "households": {"renter_occupied": 626193, "renter_pct": 54, "owner_occupied": 534012, "owner_pct": 46},
+  "most_affordable_neighborhoods": [{"name": "Austin", "average_rent": 1180, "location": "austin-chicago-il"}, {"name": "Washington Park", "average_rent": 1253, "location": "washington-park-chicago-il"}],
+  "most_expensive_neighborhoods": [{"name": "River North", "average_rent": 3419, "location": "river-north-chicago-il"}, {"name": "Wrightwood", "average_rent": 3783, "location": "wrightwood-chicago-cook-county-il"}],
+  "rent_by_neighborhood": [{"name": "Sheffield", "average_rent": 4051}, {"name": "Wrightwood", "average_rent": 3783}],
+  "compared_cities": [{"name": "Chicago", "average_rent": 2531}, {"name": "Oak Park", "average_rent": 2318}, {"name": "Evanston", "average_rent": 2593}]
 }
 ```
 
-Chicago read 2,531 (+3.91%, 2,436 a year earlier) with one-bedroom 2,464 for 708 sq ft; Houston 1,343 (-1.26%) with one-bedroom 1,192. A neighborhood's `location` is the `location` input of `/search`. `{"city": "Toronto", "state": "ON"}` is refused: "rent-trends covers US cities only: RentCafe publishes no Canada rent trends pages."
+Houston read 1,343 (-1.26%) with one-bedroom 1,192. (Chicago's "Austin" is its West Side neighborhood, `austin-chicago-il`, not Austin, TX.) A neighborhood's `location` is the `location` input of `/search`. `{"city": "Toronto", "state": "ON"}` is refused: "rent-trends covers US cities only: RentCafe publishes no Canada rent trends pages."
 
 ### Search a city by bed count and rent cap
 

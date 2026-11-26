@@ -24,16 +24,16 @@ Read Rent.com (rent.com, the US rental listing site run by Redfin) and its siste
 
 | City | `current` 1 bed (YoY) | `current` 2 beds (YoY) | Last `series` month (May 2025): 1 bed / 2 beds | `/search` |
 |---|---|---|---|---|
-| Austin, TX | 1,099 (-25%) | 1,364 (-25%) | 1,353 / 1,696 | 4,748 rentals, 23,832 available units; `beds: 2` 1,819 rentals |
+| Austin, TX | 1,099 (-25%), as `/search` `average_rent` | 1,364 (-25%), as `/search` `average_rent` | not captured | `beds: 2`: 1,819 rentals, 20,380 available units |
 | New York, NY | 5,242 (+4%) | 7,849 (+13%) | 5,242 / 7,849 | 4,168 rentals, 6,861 available units |
 | Chicago, IL | 1,275 (-33%) | 1,547 (-38%) | 2,120 / 2,733 | Lincoln Park, `beds: 1`: 646 rentals |
-| Los Angeles, CA | 4,950 (+85%) | 6,450 (+71%) | 2,717 / 3,565 | `beds: 2`: 3,219 rentals |
+| Los Angeles, CA | 4,950 (+85%) | 6,450 (+71%) | 2,717 / 3,565 | `beds: 2`: 3,219 rentals; Apartment Guide `beds: 1`: 3,955 rentals, 13,546 available units |
 
 The averages are Rent.com's, as it publishes them; the series stops at May 2025 and can sit far from `current` (Chicago one-bedroom: 2,120 in the series, 1,275 now). Quote `current` with its YoY text and the date, the series with its `series_range`, and listing rents as asks; leave any gap between them uninterpreted. For another site's view of the same city use `rentcafe-api` (RentCafe's city averages per bed type and its listings), `zillow-property-data`, `redfin-property-data` or `realtor-com-property-data`, matched on city, bed count and date.
 
 Nine limits shape every answer, so say them plainly:
 - **1 credit per call, every endpoint.** `credits_used` in every answer says what was spent. A not-found (`404`) is charged, and so is a search page past the last page (an empty page with a note); a refused input (`400`) and an upstream failure (`502`, `503`) are not.
-- **Two sites, one inventory.** `site: "apartmentguide"` lists the same rentals as Rent.com (Austin: 4,748 rentals and 23,832 units on both), 50 a page instead of 30, and its ids drop Rent.com's `lc` prefix (`5898701` = `lc5898701`; either id works on either site). Apartment Guide takes only city and state (with one `beds` value) or a ZIP, and `page`; send `site: "rent"` for every other filter. `/building`, `/rent-trends` and `/cities` read Rent.com only.
+- **Two sites, one inventory.** `site: "apartmentguide"` lists the same rentals as Rent.com (Los Angeles, CA, `beds: 1`, captured Nov 26, 2026: 3,955 rentals and 13,546 units), 50 a page instead of 30, and its ids drop Rent.com's `lc` prefix (`5898701` = `lc5898701`; either id works on either site). Apartment Guide takes only city and state (with one `beds` value) or a ZIP, and `page`; send `site: "rent"` for every other filter. `/building`, `/rent-trends` and `/cities` read Rent.com only.
 - **Averages are Rent.com's.** `current` (rent trends) and `average_rent` (search, studio to two bedrooms) are Rent.com's published averages with its YoY change. A ZIP or neighborhood search carries the city's averages (ZIP 78704 showed Austin's, Lincoln Park showed Chicago's), and Apartment Guide searches carry none (`null`). A bed count with too few listings has a `null` average.
 - **The monthly series is old.** `series` ran 2024-04 to 2025-05 (13 points) in every capture; Rent.com does not update it monthly, so it can end well before today. Report `series_range` with it and never present it as this month's rent.
 - **Rent is the lowest listed rent.** `price` is the lowest rent the listing shows; `rent_by_beds` and the floor plans give the rest. Student housing that rents by the bed shows up at low rents (three of the first five Austin two-bedroom cards with `sort: "price_low"` were student housing named "Rent by the Bed", at 587 to 714), and `sort: "price_high"` can put listings priced far above a monthly rent at the top.
@@ -169,36 +169,36 @@ US only, USD a month. There is no `country` or `currency` input. `site` picks th
 curl -X POST https://api.scavio.dev/api/v1/rentcom/rent-trends \
   -H "Authorization: Bearer $SCAVIO_API_KEY" \
   -H "Content-Type: application/json" \
-  -d '{"city": "Austin", "state": "TX"}'
+  -d '{"city": "Los Angeles", "state": "CA"}'
 ```
 
-Captured `data` (2026-11-26; `series` cut to two of its four bed counts and their end months, `nearby_cities` to 1 of 25 with two bed counts and no `url`, `nearby_neighborhoods` (50) and `notes` dropped):
+Captured `data` (Los Angeles, CA, 2026-11-26; `series` cut to two of its four bed counts and their end months, `nearby_cities` to 1 of 25 with two bed counts and no `url`, `nearby_neighborhoods` (50) and `notes` dropped):
 
 ```json
 {
   "site": "rent",
-  "location": {"name": "Austin, TX", "city": "Austin", "state": "Texas", "state_code": "TX", "latitude": 30.2669, "longitude": -97.7428},
+  "location": {"name": "Los Angeles, CA", "city": "Los Angeles", "state": "California", "state_code": "CA", "latitude": 34.0522, "longitude": -118.2428},
   "current": {
-    "studio": {"average_rent": 1499, "yoy_change_pct": 13, "yoy_change_text": "+13%"},
-    "one_bedroom": {"average_rent": 1099, "yoy_change_pct": -25, "yoy_change_text": "-25%"},
-    "two_bedroom": {"average_rent": 1364, "yoy_change_pct": -25, "yoy_change_text": "-25%"},
-    "three_bedroom": {"average_rent": 1588, "yoy_change_pct": -25, "yoy_change_text": "-25%"}
+    "studio": {"average_rent": 1375, "yoy_change_pct": -37, "yoy_change_text": "-37%"},
+    "one_bedroom": {"average_rent": 4950, "yoy_change_pct": 85, "yoy_change_text": "+85%"},
+    "two_bedroom": {"average_rent": 6450, "yoy_change_pct": 71, "yoy_change_text": "+71%"},
+    "three_bedroom": {"average_rent": 4145, "yoy_change_pct": -16, "yoy_change_text": "-16%"}
   },
-  "listing_count": 3272,
+  "listing_count": 3275,
   "series": {
-    "one_bedroom": [{"month": "2024-04", "label": "Apr 2024", "average_rent": 1485}, {"month": "2025-05", "label": "May 2025", "average_rent": 1353}],
-    "two_bedroom": [{"month": "2025-05", "label": "May 2025", "average_rent": 1696}]
+    "one_bedroom": [{"month": "2024-04", "label": "Apr 2024", "average_rent": 2695}, {"month": "2025-05", "label": "May 2025", "average_rent": 2717}],
+    "two_bedroom": [{"month": "2025-05", "label": "May 2025", "average_rent": 3565}]
   },
   "series_range": {"from": "2024-04", "to": "2025-05", "points": 13},
   "rent_distribution": [
-    {"min": 501, "max": 701, "count": 39, "percent": 1},
-    {"min": 701, "max": 1001, "count": 1301, "percent": 20},
-    {"min": 1001, "max": 1501, "count": 1728, "percent": 27},
-    {"min": 1501, "max": 2101, "count": 1397, "percent": 22},
-    {"min": 2101, "max": null, "count": 2019, "percent": 31}
+    {"min": 501, "max": 701, "count": 9, "percent": 0},
+    {"min": 701, "max": 1001, "count": 74, "percent": 1},
+    {"min": 1001, "max": 1501, "count": 669, "percent": 6},
+    {"min": 1501, "max": 2101, "count": 2530, "percent": 22},
+    {"min": 2101, "max": null, "count": 8173, "percent": 71}
   ],
-  "nearby_cities": [{"name": "Round Rock, TX", "listing_count": 886, "averages": {"one_bedroom": {"average_rent": 1630, "yoy_change_pct": 6, "yoy_change_text": "+6%"}, "two_bedroom": {"average_rent": 1499, "yoy_change_pct": -24, "yoy_change_text": "-24%"}}}],
-  "url": "https://www.rent.com/texas/austin-apartments"
+  "nearby_cities": [{"name": "Pasadena, CA", "listing_count": 899, "averages": {"one_bedroom": {"average_rent": 1700, "yoy_change_pct": -12, "yoy_change_text": "-12%"}, "two_bedroom": {"average_rent": 2000, "yoy_change_pct": -30, "yoy_change_text": "-30%"}}}],
+  "url": "https://www.rent.com/california/los-angeles-apartments"
 }
 ```
 
