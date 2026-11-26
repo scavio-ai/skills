@@ -517,6 +517,90 @@
       "credits": "1"
     },
     {
+      "dir": "scavio-spacenk",
+      "slug": "space-nk-api",
+      "name": "space-nk-api",
+      "display": "Space NK API - SpaceNK Prices by Market, Offers, Shades, Reviews",
+      "query": "space nk",
+      "reused": "no",
+      "platform": "Space NK",
+      "group": "Commerce",
+      "endpoints": "9",
+      "credits": "1; search, category, brand with full=true up to 5"
+    },
+    {
+      "dir": "scavio-lookfantastic",
+      "slug": "lookfantastic-api",
+      "name": "lookfantastic-api",
+      "display": "Lookfantastic API - Look Fantastic Prices by Country, Offers, Shades",
+      "query": "lookfantastic",
+      "reused": "no",
+      "platform": "Lookfantastic",
+      "group": "Commerce",
+      "endpoints": "7",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-cultbeauty",
+      "slug": "cult-beauty-api",
+      "name": "cult-beauty-api",
+      "display": "Cult Beauty API - CultBeauty Prices, Discounts, Shades, Offers",
+      "query": "cult beauty",
+      "reused": "no",
+      "platform": "Cult Beauty",
+      "group": "Commerce",
+      "endpoints": "7",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-yesstyle",
+      "slug": "yesstyle-api",
+      "name": "yesstyle-api",
+      "display": "YesStyle API - K-Beauty Prices by Country, Reviews, Deals",
+      "query": "yesstyle",
+      "reused": "no",
+      "platform": "YesStyle",
+      "group": "Commerce",
+      "endpoints": "9",
+      "credits": "search, category, brand, deals, product 2; product with variants 3; reviews, suggestions, brands, markets 1"
+    },
+    {
+      "dir": "scavio-notino",
+      "slug": "notino-api",
+      "name": "notino-api",
+      "display": "Notino API - Perfume Prices, 30-Day Low, 27 Storefronts",
+      "query": "notino",
+      "reused": "no",
+      "platform": "Notino",
+      "group": "Commerce",
+      "endpoints": "10",
+      "credits": "1 (gb 2); paged, sorted or filtered category, brand, promo 3 (gb 4)"
+    },
+    {
+      "dir": "scavio-douglas",
+      "slug": "douglas-beauty-api",
+      "name": "douglas-beauty-api",
+      "display": "Douglas API - Perfume and Beauty Prices, RRP, 30-Day Low, 15 Storefronts",
+      "query": "douglas",
+      "reused": "no",
+      "platform": "Douglas",
+      "group": "Commerce",
+      "endpoints": "10",
+      "credits": "1 (Italy 2); variant EANs +1 each"
+    },
+    {
+      "dir": "scavio-boots",
+      "slug": "boots-uk-api",
+      "name": "boots-uk-api",
+      "display": "Boots UK API - Boots.com Prices, Offers, Store Stock, Stores",
+      "query": "boots uk",
+      "reused": "no",
+      "platform": "Boots",
+      "group": "Commerce",
+      "endpoints": "4",
+      "credits": "1 (2 when answered on the second attempt)"
+    },
+    {
       "dir": "scavio-aldi",
       "slug": "aldi-grocery-data",
       "name": "aldi-grocery-data",
@@ -1369,6 +1453,66 @@
       "credits": "1; listing 2 when it needs a second fetch"
     },
     {
+      "dir": "scavio-carscom",
+      "slug": "cars-com-api",
+      "name": "cars-com-api",
+      "display": "Cars.com API - Used Car Listings, Deal Ratings, Dealers, Reviews",
+      "query": "cars.com",
+      "reused": "no",
+      "platform": "Cars.com",
+      "group": "Commerce",
+      "endpoints": "8",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-autotrader",
+      "slug": "autotrader-api",
+      "name": "autotrader-api",
+      "display": "Autotrader API - Used Car Listings, KBB Price Range, Dealers",
+      "query": "autotrader",
+      "reused": "no",
+      "platform": "Autotrader",
+      "group": "Commerce",
+      "endpoints": "5",
+      "credits": "2"
+    },
+    {
+      "dir": "scavio-cargurus",
+      "slug": "cargurus-api",
+      "name": "cargurus-api",
+      "display": "CarGurus API - Deal Ratings, Expected Price, Listings, Price Trends",
+      "query": "cargurus",
+      "reused": "no",
+      "platform": "CarGurus",
+      "group": "Commerce",
+      "endpoints": "8",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-carmax",
+      "slug": "carmax-api",
+      "name": "carmax-api",
+      "display": "CarMax API - Used Car Prices, Car Value Offers, Store Inventory",
+      "query": "carmax",
+      "reused": "no",
+      "platform": "CarMax",
+      "group": "Commerce",
+      "endpoints": "12",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-carvana",
+      "slug": "carvana-api",
+      "name": "carvana-api",
+      "display": "Carvana API - Used Car Prices, KBB Value, Vehicle Details",
+      "query": "carvana",
+      "reused": "no",
+      "platform": "Carvana",
+      "group": "Commerce",
+      "endpoints": "6",
+      "credits": "1"
+    },
+    {
       "dir": "scavio-fashionnova",
       "slug": "fashion-nova-api",
       "name": "fashion-nova-api",
@@ -1561,6 +1705,18 @@
       "credits": "1"
     },
     {
+      "dir": "scavio-rockauto",
+      "slug": "rockauto-parts-api",
+      "name": "rockauto-parts-api",
+      "display": "RockAuto API - Auto Parts Prices by Vehicle, Part Number Search, Brands",
+      "query": "rockauto",
+      "reused": "no",
+      "platform": "RockAuto",
+      "group": "Commerce",
+      "endpoints": "11",
+      "credits": "1"
+    },
+    {
       "dir": "scavio-vevor",
       "slug": "vevor-api",
       "name": "vevor-api",
@@ -1582,6 +1738,18 @@
       "platform": "Nellis Auction",
       "group": "Commerce",
       "endpoints": "4",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-bringatrailer",
+      "slug": "bring-a-trailer-api",
+      "name": "bring-a-trailer-api",
+      "display": "Bring a Trailer API - BaT Auction Results, Sold Prices, Live Bids",
+      "query": "bring a trailer",
+      "reused": "no",
+      "platform": "Bring a Trailer",
+      "group": "Commerce",
+      "endpoints": "8",
       "credits": "1"
     },
     {
@@ -1824,6 +1992,41 @@
       "dir": "scavio-dermstore",
       "description": "Dermstore API for Dermstore (dermstore.com, the US skincare and beauty retailer, shipping to the US and Canada) - skincare prices and offers by brand, a product's price next to Dermstore's RRP as Dermstore gives it, discount_percent computed by Scavio from the two, and the offer text Dermstore attaches to the product (in the Holiday Beauty Event captured 2026-11-25 EltaMD read \"20% Off With Code JOY + $22 Gift\", Medik8 \"30% Off With Code JOY + Gift\", while SkinCeuticals read \"Earn 10% Back + $25 Gift\", double points instead of a code, as Dermstore states it); US prices in USD or Dermstore's own Canadian dollar prices with country us or ca (EltaMD UV Clear SPF 46 1.7 fl. oz. read 46 USD and 65.78 CAD); Dermstore's current offers with the code, gift, spend threshold and END time it states (no start date exists); search by keyword or Dermstore SKU, up to 200 per page, 7 sorts and filters by brand, skin type, concern, SPF band, key ingredient, preference, gender, price, rating and discount, with Dermstore's facet counts on request, mapped keywords (sunscreen, a brand, an ingredient) resolved to the page Dermstore sends them to in resolved_from; any Dermstore list page by path (category, brand, sale, an offer page, gift sets, ingredient); one product with UPC, every shade, size or strength with its own price, stock and UPC, ingredients, directions, auto-replenish discounts, loyalty points, rating, review count and the 10 latest reviews (no names); search suggestions, the 235-brand directory and the category tree. 7 endpoints, 1 credit per call. No full review feed, Q&A, member (VIP) prices, cart or code-applied prices, price history or coupon start dates.",
       "tags": "dermstore, dermstore-com, dermstore-api, dermstore-prices, dermstore-price-api, dermstore-product-data, dermstore-skincare, dermstore-skincare-prices, dermstore-offers, dermstore-coupon-codes, dermstore-black-friday, dermstore-holiday-beauty-event, dermstore-sale, dermstore-brands, dermstore-skinceuticals, dermstore-eltamd, dermstore-canada, dermstore-cad, dermstore-reviews, dermstore-ingredients, dermstore-upc, dermstore-auto-replenish, skincare, skincare-prices, skincare-price-api, skincare-price-comparison, professional-skincare, beauty, beauty-prices, sunscreen, retinol, shades, upc, variant-data, product-search, product-data, price-monitoring, price-comparison, us-retail, usd, cad, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-spacenk",
+      "description": "Space NK API for Space NK (spacenk.com, the London-based luxury beauty retailer, owned by Ulta Beauty) - the same product priced on Space NK's four sites in their own currencies, uk (GBP), ie (EUR), nl (EUR, Dutch copy) and au (AUD), with the struck-through list price next to a reduced price as Space NK shows it (Charlotte Tilbury Airbrush Flawless Foundation read 30 GBP (list 40) on uk, 34.50 EUR (list 46) on ie and nl and 59 AUD (list 78) on au on Nov 26, 2026); keyword search, any category (black-friday is the Black Friday list) and any brand, 36 products a page with total and pages, Space NK's ten sorts and a brand filter, with discount badge, gift badges, rating, review count and the online stock count of the shade or size shown; one product with EAN, every shade or size and its availability, ingredients, how to use, key benefits, size and Space NK's promotions on it; customer reviews up to 100 a page with four sorts, a star filter, text search, the rating distribution and syndicated reviews flagged (no names); the gifts with purchase on the uk and ie offers pages with brand, gift, condition, spend threshold and the page's end line; Space NK's UK stores nearest a postcode or point for one product with hours, Click and Collect answer and the in-store flag; the A-Z brand directory and search suggestions. 9 endpoints, 1 credit per call (a listing with full=true up to 5). Not available - the US market, a price filter, store stock counts, price history, cart or checkout.",
+      "tags": "spacenk, space-nk, space-nk-api, spacenk-api, spacenk-com, space-nk-prices, space-nk-uk, space-nk-ireland, space-nk-netherlands, space-nk-australia, space-nk-black-friday, space-nk-offers, space-nk-gift-with-purchase, space-nk-reviews, space-nk-stores, space-nk-click-and-collect, space-nk-brands, space-nk-product-data, ulta-beauty, luxury-beauty, beauty-prices, skincare-prices, makeup-prices, foundation-shades, charlotte-tilbury, augustinus-bader, medik8, shades, ean, gbp, eur, aud, uk-retail, price-comparison, price-monitoring, product-search, product-data, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-lookfantastic",
+      "description": "Lookfantastic API for Lookfantastic (lookfantastic.com, the beauty retailer with 10 country sites, part of THG Beauty with Cult Beauty and Dermstore) - the same beauty product priced on each of its 10 sites and in each currency, as each site shows it (PIXI Glow Tonic 250ml, SKU 11200055, captured 2026-11-26 - 12.60 GBP on lookfantastic.com against an RRP of 18, 14.49 EUR on the German, French, Dutch, Austrian and Irish sites, 16.56 EUR on the Spanish and Italian sites, 20.95 EUR with no discount on eu.lookfantastic.com and 66.15 PLN on lookfantastic.pl), price next to Lookfantastic's RRP as given, discount_percent computed by Scavio from the two, and the offer text Lookfantastic attaches to the product (a 30% sale plus an extra 5% with code EXTRA on the UK site during Black Friday, as the site words it); lookfantastic.com in any of its 22 currencies (GBP, USD, EUR, AUD, CAD, CHF, SEK, DKK, NOK, JPY, KRW, HKD, SGD, AED, SAR, ILS, NZD, CNY, MYR, TWD, THB, IDR) and the de, fr, es, it, nl, pl, at, ie and eu sites in their own language; search by keyword (q) or SKU, up to 40 per page, 7 sorts and filters by brand, skin type, concern, SPF band, key ingredient, formulation, price, rating, discount and any of the site's facets, with facet counts on request, mapped keywords resolved to the page the site sends them to in resolved_from; any list page by path (brand, category, Black Friday, an offer page), up to 200 per page; one product with its barcode (EAN-13 or UPC, as given), every shade or size with its own price, stock and barcode, ingredients, directions, loyalty points, rating, review count and the 10 latest reviews (no names); search suggestions, the current offers with gift, spend threshold and end time, the A-Z brand directory (415 brands on lookfantastic.com) and the category tree. 7 endpoints, 1 credit per call. No full review feed, Q&A, store pages or store stock, member prices, code-applied prices, price history or offer start dates.",
+      "tags": "lookfantastic, look-fantastic, lookfantastic-com, lookfantastic-api, lookfantastic-prices, lookfantastic-price-api, lookfantastic-product-data, lookfantastic-offers, lookfantastic-black-friday, lookfantastic-discount-codes, lookfantastic-brands, lookfantastic-reviews, lookfantastic-uk, lookfantastic-de, lookfantastic-fr, lookfantastic-es, lookfantastic-it, lookfantastic-nl, lookfantastic-pl, lookfantastic-ie, lookfantastic-barcode, lookfantastic-ean, beauty, beauty-prices, beauty-price-api, skincare, skincare-prices, makeup-prices, haircare, fragrance-prices, shades, ean, barcode, variant-data, multi-currency, gbp, eur, pln, usd, uk-retail, eu-retail, product-search, product-data, price-monitoring, price-comparison, cross-border-prices, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-cultbeauty",
+      "description": "Cult Beauty API for Cult Beauty (cultbeauty.co.uk, the UK beauty retailer, with its international site cultbeauty.com; part of THG Beauty with Lookfantastic and Dermstore) - beauty product prices in 12 currencies on two sites, price next to Cult Beauty's RRP as given, discount_percent computed by Scavio from the two, and the offer text Cult Beauty attaches to the product (PIXI Glow Tonic 250ml, SKU 11200055, captured 2026-11-26 - 12.60 GBP against an RRP of 18 with \"30% OFF\" on cultbeauty.co.uk and 14.21 EUR against 20.30 on cultbeauty.com; a capture about an hour earlier the same day read 13.50 GBP with \"25% OFF\", so store every answer with its time); market gb (cultbeauty.co.uk, GBP default) or intl (cultbeauty.com, EUR default), each in GBP, EUR, USD, AUD, CHF, AED, SAR, ILS, HKD, SGD, JPY or CNY; Cult Beauty's current offers on the UK site with their end times (Black Friday early-access tiers ending 2026-11-26 captured; the international site has no offers page); search by keyword (q) or SKU, up to 40 per page, 7 sorts and filters by brand, skin type, concern, SPF content, key ingredient, formulation, a brand's product range, price, rating, discount and any of the site's facets, with facet counts on request, mapped keywords resolved to the page Cult Beauty sends them to in resolved_from; any list page by path (brand, category, Black Friday, an offer tier), up to 200 per page; one product with its barcode (EAN-13 or UPC, as given), every shade or size with its own price, discount, stock and barcode (NARS Afterglow Lip Balm - 9 shades at 19.18 or 20.65 GBP), ingredients, directions, loyalty points, rating, review count and the 10 latest reviews (no names); search suggestions, the A-Z brand directory (289 brands on cultbeauty.co.uk, 265 on cultbeauty.com) and the category tree. 7 endpoints, 1 credit per call. No full review feed, Q&A, store pages, member or early-access prices, code-applied prices, price history or offer start dates.",
+      "tags": "cult-beauty, cultbeauty, cultbeauty-co-uk, cultbeauty-com, cult-beauty-api, cult-beauty-prices, cult-beauty-price-api, cult-beauty-product-data, cult-beauty-offers, cult-beauty-black-friday, cult-beauty-discount, cult-beauty-brands, cult-beauty-reviews, cult-beauty-shades, cult-beauty-uk, cult-beauty-international, cult-beauty-barcode, beauty, beauty-prices, beauty-price-api, skincare, skincare-prices, makeup-prices, korean-beauty, haircare, fragrance-prices, shades, ean, barcode, variant-data, multi-currency, gbp, eur, usd, uk-retail, product-search, product-data, price-monitoring, price-comparison, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-yesstyle",
+      "description": "YesStyle API for YesStyle (yesstyle.com, the Hong Kong-based online store for Asian beauty and fashion, shipping to 150+ countries, owned by YesAsia Holdings) - K-beauty and J-beauty prices by shipping country, YesStyle's own regional price list per country in that country's currency (not a conversion - COSRX Advanced Snail 96 Mucin Power Essence 100ml read 16.09 USD in the US, 14.86 USD in South Africa, 16.31 EUR in France, Spain, Italy and the Netherlands, 2,497 JPY in Japan, 20,740 KRW in South Korea and 17.16 CAD in Canada on Nov 26, 2026), each answer checked for the country it was priced for; keyword search, any category, any brand and the deal lists (Black Friday, flash sales, clearance, rock-bottom prices, price drops, value and gift sets, twin packs), 100 per page with total and pages, seven sorts and YesStyle's filters (in stock, Korean or Japanese brands, cruelty-free, vegan, YesStyle Awards, price band, skin type, skin concern, brand region, ingredients); one product with price, list price, YesStyle's discount, sale end date, deal claimed share, availability for the country, ingredients, bestseller ranks, packs, shipping time and the site coupon tiers, plus every shade and size with its own price and availability on request; customer reviews 15 reviewers a page with four sorts and star, photo or video filters (no reviewer names); search suggestions, the brand list (about 4,300) and the 153 shipping countries. Page endpoints serve 39 countries (Brazil not offered); reviews and suggestions any of 153. 9 endpoints - search, category, brand, deals and product 2 credits, product with shades and sizes 3, reviews, suggestions, brands and markets 1. No stores, currency choice, EAN or UPC, price history, cart or checkout.",
+      "tags": "yesstyle, yesstyle-com, yesstyle-api, yesstyle-prices, yesstyle-price-api, yesstyle-product-data, yesstyle-reviews, yesstyle-deals, yesstyle-black-friday, yesstyle-flash-sale, yesstyle-clearance, yesstyle-coupon, yesstyle-brands, yesstyle-cosrx, yesstyle-anua, yesstyle-shades, yesasia, k-beauty, k-beauty-prices, korean-skincare, korean-beauty, j-beauty, asian-beauty, beauty, beauty-prices, skincare, skincare-prices, cosmetics, regional-pricing, price-by-country, multi-currency, international-prices, shades, variant-data, product-search, product-data, customer-reviews, price-monitoring, price-comparison, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-notino",
+      "description": "Notino API for Notino (notino.com, the Brno-based online perfume and cosmetics store with 27 country shops across Europe) - perfume and cosmetics prices per storefront in each storefront's own currency and language, with Notino's lowest price of the last 30 days next to every size or shade (DIOR Sauvage Eau de Parfum 200 ml, EAN 3348901428545, read 180 EUR on notino.de with a 30-day low of 170, 226 EUR on notino.nl, 179 EUR on notino.bg, 217.6 GBP on notino.co.uk, 5,100 CZK, 805 PLN and 92,500 HUF on Nov 26, 2026), the recommended retail price where a storefront shows one (Estée Lauder Advanced Night Repair 75 ml read 134 EUR against an RRP of 179 on notino.es), EAN, order code, stock level word and how many Notino stores hold a variant; keyword search (brand names and some category words go to that page, redirected_to says so), any category, any brand and promo lists such as Black Friday with the banner's terms, 24 per page with total and pages, Notino's six sorts and its facet filters, each item with its voucher code deal (code, discount and the discounted price Notino shows) and sponsored placements flagged; one product with every variant, fragrance notes, ingredients, gift campaigns, delivery dates and the same product on the other storefronts; customer reviews 8 a page with five sorts and a star filter, per-storefront counts and translations (no reviewer identity); search suggestions and the brand directory (about 1,800 brands); Notino's stores and pickup points with opening hours in the 8 markets that have them (cz sk pl at hu ro bg hr). 10 endpoints, 1 credit per call (2 on notino.co.uk); a paged, sorted or filtered category, brand or promo list 3 (4 on gb). No per-store stock, postcode store search, member or cart prices, price history, cart or checkout.",
+      "tags": "notino, notino-com, notino-api, notino-prices, notino-price-api, notino-product-data, notino-perfume, notino-perfume-prices, notino-cosmetics, notino-reviews, notino-black-friday, notino-voucher-codes, notino-deals, notino-brands, notino-stores, notino-de, notino-cz, notino-pl, notino-co-uk, notino-ean, perfume, perfume-prices, perfume-price-comparison, fragrance, fragrance-prices, cosmetics, cosmetics-prices, beauty, beauty-prices, skincare, lowest-price-30-days, omnibus, rrp, ean, price-by-country, multi-currency, european-retail, eur, czk, pln, huf, ron, gbp, product-search, product-data, customer-reviews, price-monitoring, price-comparison, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-douglas",
+      "description": "Douglas API for Douglas (douglas.de, the Dusseldorf-based beauty retailer with about 1,960 stores in Europe) on 15 storefronts in 13 countries - de, at, ch-de, ch-fr, nl, be-nl, be-fr, es, it, pl, cz, sk, hu, ro and lt, each in its own language and currency (EUR, CHF, PLN, CZK, HUF, RON) - perfume, make-up, skincare and hair prices with the four numbers Douglas shows side by side, the price, the struck-through was price, the lowest price of the last 30 days Douglas shows beside a reduction and the RRP (UVP), plus discount_percent as Douglas shows it (YSL Libre Eau de Parfum 30 ml on douglas.de read 52.99 EUR, was 59.99, 30-day low 52.99, RRP 87 on Nov 26, 2026); the same product code priced per storefront (Miss Dior Eau de Parfum 30 ml read 68.62 EUR in the Netherlands and 64.05 EUR in Belgium); keyword search, any category or brand, 48 per page with total and pages, sorted by relevance, price, newest, top rated or discount and filtered by brand, Douglas' sale badge or any of its facets (product type, gender, skin type, finish), with keywords Douglas sends to a brand or category page answered from that page (redirected_to); the sale department, the Beauty / Black Friday list and any category's sale-badged products, with the storefront's offers page (validity dates and codes as Douglas words them); one product with EAN, ingredients, scent notes, rating and review count, every size or shade with its own four prices and stock status, and each variant's EAN on request; Douglas' own AI-generated summary of a product's reviews; stores near a city or postcode with weekly and dated holiday hours, one store with its top brands; search suggestions and the brand index (about 1,890 brands on douglas.de). 10 endpoints, 1 credit per call (Italy 2; each variant EAN 1 more, 2 on Italy). Listing pages are slow, 5 to 210 seconds. Not available - review texts or review paging, per-store stock, store reservation, price history, cart or checkout, and the Portugal, Croatia, Slovenia, Latvia, Estonia, Bulgaria and France (Nocibe) shops.",
+      "tags": "douglas, douglas-de, douglas-api, douglas-beauty, douglas-parfumerie, douglas-perfume-prices, douglas-prices, douglas-product-data, douglas-sale, douglas-black-friday, douglas-beauty-friday, douglas-deals, douglas-stores, douglas-brands, douglas-austria, douglas-switzerland, douglas-netherlands, douglas-belgium, douglas-spain, douglas-italy, douglas-poland, douglas-czech, douglas-hungary, douglas-romania, douglas-slovakia, douglas-lithuania, perfume, perfume-prices, fragrance, make-up, skincare, beauty, beauty-prices, european-beauty, eu-prices, rrp, uvp, omnibus, 30-day-lowest-price, was-price, ean, scent-notes, price-comparison, price-monitoring, eur, chf, pln, czk, huf, ron, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-boots",
+      "description": "Boots API for Boots (boots.com, the UK health and beauty retailer with over 1,800 stores, and boots.ie in Ireland) - start from a Boots product link or the 8-digit id it ends with - one product with the price, Boots' was price and Save amount, size and unit price as Boots shows them (\"52 ML | £223.46 per 1L\"), the offers Boots names on the page with any promo code it quotes (SAVE20), the Advantage Card offers, item number, online stock, every shade or size with its own item code and online stock, the description, how-to-use and ingredients; the same product on boots.ie at Boots' own euro prices (CeraVe AM Facial Moisturising Lotion SPF30 52ml read 11.62 GBP, was 15.50, on boots.com and 13.50 EUR, was 18, on boots.ie on Nov 26, 2026); which Boots stores near a UK postcode or a point have one product, shade or size (in stock or out of stock per store, nearest first, with address, phone, distance, weekly and holiday hours; Maybelline Fit Me in Ivory near NG2 3AA was in stock at 43 of the 45 stores Boots checked); Boots stores near a UK postcode or a town in the UK or Ireland, with their services; one store page with weekly hours and phone. 4 endpoints, 1 credit per call (2 when Boots answered on the second attempt). Boots search is not available yet - start from a product link. Not available - category, brand and deal lists, reviews and ratings, stock counts, EAN, a price per shade, price history, cart or checkout.",
+      "tags": "boots, boots-uk, boots-com, boots-ie, boots-ireland, boots-api, boots-uk-api, boots-prices, boots-product-data, boots-offers, boots-advantage-card, boots-store-stock, boots-stock-checker, boots-stores, boots-store-locator, boots-store-hours, boots-no7, boots-beauty, uk-beauty, uk-retail, ireland-retail, beauty, beauty-prices, skincare, make-up, toiletries, shades, unit-price, promo-codes, store-stock, in-store-stock, store-locator, price-comparison, price-monitoring, gbp, eur, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-aldi",
@@ -2181,6 +2384,31 @@
       "tags": "offerup, offerup-com, offerup-api, offerup-prices, offerup-price-check, offerup-used-prices, offerup-listings, offerup-search, offerup-cars, offerup-used-cars, offerup-trucks, offerup-dealers, offerup-seller, offerup-categories, offerup-local, offerup-seattle, offerup-los-angeles, offerup-chicago, offerup-dallas, used-prices, used-prices-by-city, asking-prices, local-marketplace, local-classifieds, used-cars, used-iphone-prices, resale, reseller, flipping, secondhand, price-research, price-comparison, marketplace, us-marketplace, usd, langchain, crewai, ai-agents, structured-data, json"
     },
     {
+      "dir": "scavio-carscom",
+      "description": "Cars.com API for Cars.com (cars.com, the US car marketplace run by Cars Commerce) - new, used and certified car listings around a US ZIP code with a radius, by make, model and trim, 24 a page with Cars.com's total, Cars.com's 11 sorts and filters by year, price, mileage, drivetrain, color, body style, Cars.com deal rating, seller type (dealer or private) and keyword, with facet counts on request; each listing's asking price, MSRP on new cars, mileage, price drop, Cars.com's deal and demand badges with Cars.com's own explanation (a used 2018 Toyota RAV4 XLE near New York read 21,170 USD with \"Great Deal ... $863 below the average market price of similar vehicles in the same geographic area at $22,033\" on Nov 26, 2026), sponsored placements flagged; one listing with the price breakdown (vehicle price, listed fees, all-in price), Cars.com's deal rating and good-deal range, the seller's price history, features, the vehicle history summary, the certified program terms and the dealer; a dealer's public profile, its inventory and its customer reviews; owner reviews of one model year with category ratings and recommend percent; dealers near a ZIP by make, rating and name; research pages for a make, model, model year (average listing price or starting price, MPG, NHTSA score, the good and the bad) and trims. Reviews without names, no VINs. US only, USD. 8 endpoints, 1 credit per call. No search suggestions, sold prices, VIN lookup or price history across listings.",
+      "tags": "cars-com, carscom, cars-com-api, cars-com-listings, cars-com-prices, cars-com-used-cars, cars-com-new-cars, cars-com-dealers, cars-com-dealer-reviews, cars-com-reviews, cars-com-research, cars-commerce, used-car-prices, used-car-listings, new-car-prices, car-listings-api, car-dealers, dealer-inventory, dealer-reviews, car-reviews, owner-reviews, deal-rating, good-deal-range, price-history, price-drop, certified-pre-owned, cpo, msrp, car-research, trims, automotive, us-cars, usd, price-monitoring, market-research, ai-agents, structured-data, json, mcp"
+    },
+    {
+      "dir": "scavio-autotrader",
+      "description": "Autotrader API for Autotrader (autotrader.com, the US car marketplace run by Cox Automotive) - used and new car asking prices next to the Kelley Blue Book Fair Purchase Price range Autotrader shows on each listing, as Autotrader gives it (amount, low, high and Autotrader's own delta), with Autotrader's deal label (Great, Good) as given; a used 2018 Honda Civic LX near Los Angeles asked 18,881 USD against a KBB Fair Purchase Price of 19,440 (range 18,690-20,140) and was labelled Great on Nov 26, 2026; search the cars for sale around any US ZIP code with a radius (or nationwide), by make, model and trim, 25 or 100 a page up to page 100, sorted by relevance, price, mileage, newest model year or distance, filtered by model year, price, mileage, body style, drivetrain, colours, dealer or private seller, new, used or certified, fuel, transmission, vehicle history, Good or Great deal, one feature, doors and seats, with the result set's min, average and max price, mileage and year; one listing in full with features, specifications, warranties, dealer fees, price history, history flags as Autotrader gives them and the dealer's address, phone and hours; the 50 nearest dealers to a ZIP (optionally of one make) and one dealer with hours, home services, inventory count by make and the first page of its listings; one make's models with model years and price range by year. US only, USD. 5 endpoints, 2 credits per call. Private sellers are city and state only; no VINs, stock numbers, dealer review text, sold prices, autotrader.co.uk or autotrader.ca.",
+      "tags": "autotrader, autotrader-com, autotrader-api, autotrader-listings, autotrader-search, autotrader-used-cars, autotrader-new-cars, autotrader-dealers, autotrader-prices, autotrader-kbb, kbb-fair-purchase-price, kelley-blue-book, kbb-price-range, deal-rating, used-car-prices, used-car-listings, car-listings, car-prices, car-dealers, dealer-inventory, private-sellers, certified-pre-owned, car-search, vehicle-data, car-market, auto-market, price-research, price-comparison, us-cars, usd, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-cargurus",
+      "description": "CarGurus API for CarGurus (cargurus.com, the car marketplace run by CarGurus, Inc., in the US, Canada and the UK) - used car asking prices next to CarGurus' own expected price and deal rating, as CarGurus labels them (Great Deal, Good Deal, Fair Deal, High Price, Overpriced, No Price Analysis); a 2019 Toyota RAV4 LE AWD near New York asked 19,445 USD against a CarGurus expected price of 21,255 and was rated Great Deal on Nov 26, 2026; search listings around a US ZIP code, a Canadian postal code or a UK postcode with a radius (or nationwide) on five market-languages (us, us-es, ca, ca-fr, uk) with prices in USD, CAD or GBP, by make, model and trim, 24 tiles a page, 11 sorts (best deal first, price, mileage, distance, model year, newest listed), filtered by year, price, mileage, drivetrain, colour, body type, condition, seller type, deal rating, fuel, transmission, single owner, no accidents and recent price drops, with CarGurus' facet counts on request; each listing carries price, original price, price with fees, expected price and the difference, deal rating and score, the last price drop, days on market, mileage, options, highlights and the dealer's public details; one dealer with address, phones, hours, rating, every review CarGurus shows on the page (no names) and its listings; up to 150 dealers near a US ZIP code; CarGurus price trends (the CarGurus Index, a make, a model and each model year, 30, 90 and 365 days back, daily series); model-year research pages with trims, MSRP, price figures and owner reviews; expert reviews; makes and models with listing counts. 8 endpoints, 1 credit per call. No listing detail page, VINs, private-seller details or sold prices.",
+      "tags": "cargurus, cargurus-com, cargurus-api, cargurus-listings, cargurus-search, cargurus-deal-rating, cargurus-expected-price, cargurus-imv, cargurus-price-trends, cargurus-index, cargurus-dealers, cargurus-dealer-reviews, cargurus-research, cargurus-expert-reviews, cargurus-canada, cargurus-uk, used-car-prices, used-car-listings, car-listings, deal-rating, expected-price, price-drops, days-on-market, car-dealers, dealer-reviews, used-car-price-trends, car-prices-canada, car-prices-uk, cad, gbp, usd, spanish, french, car-market, price-research, price-comparison, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-carmax",
+      "description": "CarMax API for CarMax (carmax.com, the US used-car retailer with no-haggle prices, 263 stores in 42 states as CarMax states it) - recent CarMax instant offers for one model-year next to CarMax's own listed prices for that model-year, as CarMax shows them (the 2019 Ford F-150 value page listed 10 recent offers from 11,000 to 20,000 USD between Oct 11 and Nov 25, 2026, while its headline read $16,400-$25,400, and a 2019 F-150 XL with 14,014 miles was listed at 27,998 near Dallas) with each offer's mileage, trim and date, the range per trim and the median offer by year; used-car search by make and model (F-150 and F150 both work), body type or keyword around a US ZIP (required) within 5 to 500 miles or nationwide, 8 sorts, up to 100 cars a page, CarMax's facet filters (drivetrain, colour, engine type, features, packages, cab and bed) with counts, year, price and mileage ranges and the max shipping fee, each car with its no-haggle price, original price and price-drop flag, mileage, specs, the CarMax store holding it, the distance and the shipping fee and dates to the ZIP; one car in full by stock number with the price-drop date and CarMax's own wording, accident and owner counts and the callouts as CarMax shows them, warranties, features, specifications and reconditioning; every photo of a car; stores near a ZIP or in a state or city with hours, service and holiday hours and phone; one store with its state's price and fee terms; one store's lot with the same filters; owner reviews of a model-year, 10 a page, 5 sorts and a star filter (no names) and the review summary; make and model suggestions and lists. 12 endpoints, 1 credit per call. US only, USD. No VIN, no appraisal of one car, no monthly payments, taxes or price history.",
+      "tags": "carmax, carmax-com, carmax-api, carmax-prices, carmax-used-cars, carmax-inventory, carmax-search, carmax-listing, carmax-car-value, carmax-instant-offer, carmax-offers, carmax-price-drop, carmax-stores, carmax-store-inventory, carmax-reviews, carmax-owner-reviews, carmax-photos, carmax-makes, carmax-models, used-cars, used-car-prices, used-car-listings, used-car-inventory, car-prices, car-value, trade-in-values, model-year, no-haggle-prices, shipping-fee, car-dealers, automotive, us-retail, usd, price-monitoring, price-comparison, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-carvana",
+      "description": "Carvana API for Carvana (carvana.com, the US online used-car retailer) - Carvana's listed price next to the Kelley Blue Book value Carvana shows for the same vehicle, the MSRP and market_adjustment (Carvana's price minus that MSRP), the previous price and when it changed, and Carvana's own labels such as Great Deal (Carvana's text - priced at least $1,500 below its Kelley Blue Book Suggested Retail Value) and New Price (a 2019 Ford F-150 XLT with 93,232 miles read 21,990 USD, previously 22,590, next to a KBB value of 23,600 on Nov 26, 2026); used-car search by make and model as Carvana writes them, 24 a page, six sorts, filters for model year, price, maximum mileage, trims, drive types, colours, body styles, fuel types, Carvana's tags and free shipping, with facet counts on request, inventory national and the location set by Carvana's own city pages (new-york-ny, los-angeles-ca) or by the visit - shipping cost and delivery flags change with it; one vehicle in full by id with powertrain, dimensions, factory warranty left, prior use, recalls, highlights with the history-report basis text Carvana gives, Carvana's inspection report, imperfections, features, packages and the hub holding it; Carvana's model-year guide (what changed, specs by trim, trims in stock, owner rating and star counts, owner reviews without names, FAQ), trim guide and make lineup, and every make with its in-stock count. 6 endpoints, 1 credit per call. US only, USD. No ZIP targeting, no keyword search, no VIN, no monthly payments, taxes, fees, delivery quotes or price history.",
+      "tags": "carvana, carvana-api, carvana-prices, carvana-used-cars, carvana-inventory, carvana-search, carvana-vehicle, carvana-kbb, carvana-great-deal, carvana-price-drop, carvana-inspection, carvana-model-guide, carvana-trims, carvana-makes, used-cars, used-car-prices, used-car-listings, used-car-inventory, online-car-retailer, kelley-blue-book, kbb-value, msrp, car-prices, model-year, trim-guide, owner-ratings, shipping-cost, automotive, us-retail, usd, price-monitoring, price-comparison, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
       "dir": "scavio-fashionnova",
       "description": "Fashion Nova API for Fashion Nova sale prices - each style's price, the compare-at (struck-through) price and the percent off computed from the two, the final-sale flag and per-size stock, in any of Fashion Nova's 104 countries in the local currency (37 currencies; English everywhere, Spanish in 67 countries). Keyword search (60 per page, up to page 18), any collection to full depth (sale, best sellers, new, back in stock, Black Friday deals), one style in full with every colour and size, reviews (10 per page, up to page 8, one English pool), the category tree, search suggestions and similar styles. 7 endpoints, 1 credit per call. In the 27 EEA countries there is no compare-at price, so no percent off. No stores, brand directory or price history (poll and store).",
       "tags": "fashion-nova, fashionnova, fashion-nova-api, fashion-nova-prices, fashion-nova-sale, fashion-nova-sale-prices, fashion-nova-black-friday, fashion-nova-deals, fashion-nova-compare-at, fashion-nova-percent-off, fashion-nova-final-sale, fashion-nova-stock, fashion-nova-sizes, fashion-nova-reviews, fashion-nova-search, fashion-nova-product-data, fashion-nova-collections, fashion-nova-curve, fast-fashion, fashion, clothing-prices, sale-prices, price-monitoring, price-tracker, multi-country, multi-currency, langchain, crewai, ai-agents, structured-data, json"
@@ -2261,6 +2489,11 @@
       "tags": "discount-tire, discounttire, discounttire-com, discount-tire-api, discount-tire-prices, discount-tire-tire-prices, tire-prices, tire-price-api, americas-tire, americastire, discount-tire-stores, discount-tire-store-stock, discount-tire-in-stock, tire-stock, tire-fitment, tires-by-vehicle, tires-by-size, tire-size, staggered-tires, oe-tires, treadwell, discount-tire-reviews, tire-reviews, discount-tire-wheels, wheels-by-vehicle, discount-tire-appointments, discount-tire-promotions, discount-tire-rebates, set-of-4-tires, michelin, store-stock, store-locator, us-retail, automotive, usd, langchain, crewai, ai-agents, structured-data, json"
     },
     {
+      "dir": "scavio-rockauto",
+      "description": "RockAuto API for RockAuto (rockauto.com, the online auto parts catalog based in Madison, Wisconsin) - auto parts prices by vehicle across every brand RockAuto lists for a part type, each listing with brand, part number, RockAuto's tier label (Economy, Daily Driver, Premium, High Performance, Heavy Duty), RockAuto's fitment notes (front or rear, trim, material), price, core charge, pack options, closeout, out-of-stock, remaining and non-stock labels, RockAuto's popular mark and the OE / interchange numbers it replaces (brake pads for a 2010 Honda Accord 2.4L L4 read 114 listings from 10.23 to 59.79 USD on Nov 26, 2026); part number and interchange search across brands (an OE, FRAM or Bosch number finds the listings RockAuto maps to it); one brand's parts of one part type (RockAuto lists up to 50); one part's detail with specifications, OE numbers, warranty and the manufacturer's text; the vehicle chain (makes, years, models, engines with RockAuto's carcode) and a vehicle's categories and part types; search box suggestions and free text read as a vehicle; the tools and universal parts catalog; the promotions and manufacturer rebates page with printed expiry dates; the 568-brand list and 5,463 part types. One US catalog shown in 15 display currencies (BOSCH BP1084 read 29.79 USD, 22.74 GBP and 583.71 MXN) and in English, Spanish, French or German (part detail in English). 11 endpoints, 1 credit per call. No reviews, stores, shipping cost, price history, sort or paging.",
+      "tags": "rockauto, rockauto-com, rockauto-api, rockauto-parts, rockauto-parts-api, rockauto-prices, rockauto-catalog, rockauto-part-number, rockauto-interchange, rockauto-closeout, rockauto-rebates, rockauto-promotions, rockauto-carcode, rockauto-brands, auto-parts, auto-parts-api, car-parts-api, auto-parts-prices, parts-by-vehicle, vehicle-fitment, part-number-search, oe-numbers, interchange, cross-reference, aftermarket-parts, brake-pads, spark-plugs, oil-filters, tools, price-comparison, price-monitoring, usd, cad, eur, gbp, mxn, multi-currency, spanish, french, german, ai-agents, structured-data, json, mcp"
+    },
+    {
       "dir": "scavio-vevor",
       "description": "Vevor API for VEVOR (vevor.com, the tools and equipment seller with storefronts in 13 countries) - Vevor prices per storefront in its own currency and the same SKU on all 13 storefronts in one call (a VEVOR 24-inch pressure washer surface cleaner read 195.01 USD in the US, 233.90 CAD in Canada, 175.90 GBP in the UK, 170.90 EUR in Germany, 261.99 EUR in Norway and 721.90 PLN in Poland on one day, and is not sold in Mexico); the was price only while a VEVOR deal is active, with VEVOR's deal start and end, or where VEVOR's page shows its own strikethrough price, never computed; VEVOR's unit stock per storefront (most European storefronts share one pool); every variant with its own price, was price and stock; VEVOR's shipping fee and delivery date for a US state or Canadian province (price and stock do not change by ZIP or state; an Alaska address read a $130 fee on a MIG welder); keyword or SKU search, category lists, Best Sellers, New Arrivals, promotion pages, Daily Deals, Clearance and Deals, 60 per page, sorted by popularity, price, hot or new and filtered by in stock, on sale, Black Friday, bulk savings, price and rating, with search terms in the storefront language (totals above 100 read \"100+\"); one product in full with specifications, protection plans, return policy and VEVOR's own AI review summary; reviews up to 100 per page, sorted and star-filtered, from one review pool shared across storefronts and variants (many languages, no reviewer names); customer questions with VEVOR's answers; search suggestions and the category tree. 11 endpoints, 1 credit per call, prices 3. No coupon codes, pickup store, Pro or bulk prices, financing, ships-from warehouse, Vevor's listings on other marketplaces, price history or checkout.",
       "tags": "vevor, vevor-com, vevor-api, vevor-prices, vevor-price-api, vevor-product-data, vevor-tools, vevor-deals, vevor-daily-deals, vevor-black-friday, vevor-clearance, vevor-best-sellers, vevor-new-arrivals, vevor-stock, vevor-shipping, vevor-shipping-cost, vevor-variants, vevor-reviews, vevor-questions, vevor-price-by-country, vevor-canada, vevor-uk, vevor-australia, vevor-europe, vevor-germany, tool-prices, equipment-prices, welder, ice-maker, pressure-washer, multi-currency, price-comparison, global-retail, langchain, crewai, ai-agents, structured-data, json"
@@ -2269,6 +2502,11 @@
       "dir": "scavio-nellis",
       "description": "Nellis Auction API for Nellis Auction (nellisauction.com, the liquidation auction marketplace with pickup warehouses in Las Vegas, Phoenix, Houston, Philadelphia, Denver and Dallas) - a lot's current bid and bid count next to Nellis's own Estimated Retail Price as Nellis labels it (an LG 65-inch OLED TV read a 101 USD current bid after 8 bids against an Estimated Retail Price of 1,595.75 USD), the buyer's premium percent (typically 15% but may vary by auction event, as Nellis states it), open and close times with extensions, Nellis's condition grade (1-5 stars) and inspection note, the pickup warehouse and the operator; a sold lot's final price by id (the winning bid before the premium and tax) with the bid history (amounts, times, Winning or Outbid, no bidder names); search of open lots in one of 6 shopping locations, 48, 120 or 240 per page, 9 sorts (featured, current bid, ending soon or last, estimated retail, bids) and filters by category, subcategory, brand, pickup warehouse, condition stars, estimated retail range, auction event, color and size with Nellis's counts; the 13 pickup warehouses with address, operator and hours per day; live open-lot counts per category, brand and auction event. 4 endpoints, 1 credit per call. No closed lots in search, search suggestions, shipping (pickup only), UPC or model numbers, buy-now, reserve prices, live bid updates, bidding, watchlists or checkout.",
       "tags": "nellis, nellis-auction, nellisauction, nellisauction-com, nellis-auction-api, nellis-auction-prices, nellis-auction-closing-prices, nellis-auction-sold-prices, nellis-auction-final-price, nellis-auction-bids, nellis-auction-bid-history, nellis-auction-retail-price, nellis-auction-search, nellis-auction-las-vegas, nellis-auction-phoenix, nellis-auction-mesa, nellis-auction-houston, nellis-auction-katy, nellis-auction-dallas, nellis-auction-denver, nellis-auction-philadelphia, nellis-auction-locations, nellis-auction-categories, liquidation-auction, liquidation-auction-api, online-auction, auction-prices, closing-prices, buyers-premium, retail-returns, overstock, resale, reseller, price-comparison, us-retail, usd, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-bringatrailer",
+      "description": "Bring a Trailer API for Bring a Trailer (bringatrailer.com, the online collector-car auction site owned by Hearst) - BaT auction results and sold prices for one model, a model family or a make in one call, with sold count, reserve-not-met count, sell-through rate and min, max, median and average per currency (the BMW E30 M3 page read 490 completed results since 2014, 385 sold, sell-through 0.786, USD median sale 56,000, captured Nov 26, 2026); completed auctions searched by keyword or none with the site's four sorts and filters (sold or reserve not met, last 7 days to 5 years, model years, max bid, category, origin, era, no reserve, Premium, one make, model or location), up to 60 a page through the first 10,000 results of a query; one listing live or ended with the sale price from the \"Sold for\" result or the high bid of a lot under its reserve, bid count, views, watchers, location (no ZIP), seller type (dealer or private party), the listing details, photos, the same vehicle's earlier BaT results, the full bid history (amount, currency, time) and the comments (text, likes, seller flag), with no usernames and no VINs; every live auction (about 1,000) filtered by keyword, make, country, ending within N hours, no reserve and Premium; make, model and country pages with their live lots and latest results; search suggestions with the page ids the filters take. Amounts in each lot's own currency (USD, EUR, GBP), before the buyer's fee. 8 endpoints, 1 credit per call. No bidding, watchlists, member data, buyer's fee totals or price history beyond what the site shows.",
+      "tags": "bring-a-trailer, bringatrailer, bringatrailer-com, bat, bat-auctions, bring-a-trailer-api, bring-a-trailer-results, bring-a-trailer-sold-prices, bring-a-trailer-price-history, bring-a-trailer-auctions, bring-a-trailer-live-auctions, bring-a-trailer-listing, bring-a-trailer-bids, bring-a-trailer-comments, bring-a-trailer-models, bring-a-trailer-makes, bat-sold-prices, bat-results, collector-cars, classic-cars, car-auctions, online-car-auctions, auction-results, sold-prices, hammer-prices, sell-through-rate, reserve-not-met, no-reserve, car-values, classic-car-values, enthusiast-cars, porsche-911, bmw-m3, land-cruiser, motorcycles, used-cars, price-monitoring, market-data, usd, eur, gbp, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-zillow",

@@ -58,13 +58,21 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Argos | [argos-stock-checker-api](references/argos-stock-checker-api.md) | 10 | 2 |
 | Ashley Furniture | [ashley-furniture-api](references/ashley-furniture-api.md) | 6 | 2; search and product 1 on ca, ph, sa and tr |
 | ASOS | [asos-api](references/asos-api.md) | 11 | 1 |
+| Autotrader | [autotrader-api](references/autotrader-api.md) | 5 | 2 |
 | AutoZone | [autozone-api](references/autozone-api.md) | 12 | 1; br search, product and store-stock 2 |
 | Best Buy | [best-buy-product-data](references/best-buy-product-data.md) | 10 | US 2 (stores and suggestions 1, deals and pcmcat pages 3); Canada 1 |
 | bol.com | [bol-com-api](references/bol-com-api.md) | 9 | 2; product by EAN 4 |
+| Boots | [boots-uk-api](references/boots-uk-api.md) | 4 | 1 (2 when answered on the second attempt) |
+| Bring a Trailer | [bring-a-trailer-api](references/bring-a-trailer-api.md) | 8 | 1 |
 | Canadian Tire | [canadian-tire-api](references/canadian-tire-api.md) | 6 | 1 |
+| CarGurus | [cargurus-api](references/cargurus-api.md) | 8 | 1 |
+| CarMax | [carmax-api](references/carmax-api.md) | 12 | 1 |
 | Carrefour | [carrefour-api](references/carrefour-api.md) | 9 | 1; Belgium search and product 2 |
+| Cars.com | [cars-com-api](references/cars-com-api.md) | 8 | 1 |
+| Carvana | [carvana-api](references/carvana-api.md) | 6 | 1 |
 | Chewy | [chewy-product-data](references/chewy-product-data.md) | 2 | 10 |
 | Costco | [costco-product-data](references/costco-product-data.md) | 13 | 1; US search, category, deals and clearance 2; multi-warehouse prices, stock and gas scale with warehouse count |
+| Cult Beauty | [cult-beauty-api](references/cult-beauty-api.md) | 7 | 1 |
 | CVS | [cvs-product-data](references/cvs-product-data.md) | 3 | 1; product 2 |
 | Decathlon | [decathlon-product-data](references/decathlon-product-data.md) | 2 | 2 |
 | Depop | [depop-api](references/depop-api.md) | 14 | 1; product 2 outside the US; nz 5, product 6 |
@@ -73,6 +81,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Discount Tire | [discount-tire-prices-api](references/discount-tire-prices-api.md) | 15 | 1 |
 | Dollar General | [dollar-general-api](references/dollar-general-api.md) | 5 | 1 |
 | Dollar Tree | [dollar-tree-bulk-prices-api](references/dollar-tree-bulk-prices-api.md) | 10 | 1; stores 5 |
+| Douglas | [douglas-beauty-api](references/douglas-beauty-api.md) | 10 | 1 (Italy 2); variant EANs +1 each |
 | eBay | [ebay-product-data](references/ebay-product-data.md) | 3 | 1 |
 | Etsy | [etsy-product-data](references/etsy-product-data.md) | 5 | 2 |
 | Fanatics | [fanatics-merchandise-api](references/fanatics-merchandise-api.md) | 5 | 1 |
@@ -90,6 +99,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | JCPenney | [jcpenney-product-data](references/jcpenney-product-data.md) | 11 | 1 |
 | Kohl's | [kohls-product-data](references/kohls-product-data.md) | 9 | 2; stores 1 |
 | Kroger | [kroger-grocery-data](references/kroger-grocery-data.md) | 8 | 1; search and product 2, store prices 3 |
+| Lookfantastic | [lookfantastic-api](references/lookfantastic-api.md) | 7 | 1 |
 | Lowe's | [lowes-product-data](references/lowes-product-data.md) | 4 | 2; reviews 1 |
 | Macy's | [macys-product-data](references/macys-product-data.md) | 9 | 1 |
 | Maisons du Monde | [maisons-du-monde-api](references/maisons-du-monde-api.md) | 9 | 1 |
@@ -104,6 +114,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Nike | [nike-api](references/nike-api.md) | 8 | 1 |
 | Nordstrom | [nordstrom-product-data](references/nordstrom-product-data.md) | 8 | 5; availability and reviews 10 |
 | Nordstrom Rack | [nordstrom-rack-product-data](references/nordstrom-rack-product-data.md) | 8 | 5; availability and reviews 10 |
+| Notino | [notino-api](references/notino-api.md) | 10 | 1 (gb 2); paged, sorted or filtered category, brand, promo 3 (gb 4) |
 | O'Reilly Auto Parts | [oreilly-auto-parts-api](references/oreilly-auto-parts-api.md) | 14 | 2; product by part number, ZIP lookups, brand index and deals 4, cross-reference 2-6 |
 | OfferUp | [offerup-api](references/offerup-api.md) | 5 | 1; listing 2 when it needs a second fetch |
 | OLX | [olx-api](references/olx-api.md) | 9 | 1 |
@@ -112,10 +123,12 @@ Each row is one reference file. Open it before the first call to that platform. 
 | PetSmart | [petsmart-product-data](references/petsmart-product-data.md) | 6 | 1 |
 | Poshmark | [poshmark-api](references/poshmark-api.md) | 15 | 1 |
 | Publix | [publix-api](references/publix-api.md) | 11 | 1 |
+| RockAuto | [rockauto-parts-api](references/rockauto-parts-api.md) | 11 | 1 |
 | RONA | [rona-api](references/rona-api.md) | 9 | prices, categories, stores, store 1; search, deals 2-3; category 1-3; product, stock 3 |
 | Saks Fifth Avenue | [saks-fifth-avenue-api](references/saks-fifth-avenue-api.md) | 9 | 2 |
 | Sam's Club | [sams-club-product-data](references/sams-club-product-data.md) | 6 | 2; clubs 1 |
 | Sephora | [sephora-product-data](references/sephora-product-data.md) | 9 | US 1 (product 2); Canada 1 (product and offers 2) |
+| Space NK | [space-nk-api](references/space-nk-api.md) | 9 | 1; search, category, brand with full=true up to 5 |
 | Spec's | [specs-liquor-prices](references/specs-liquor-prices.md) | 3 | 5 |
 | SportChek | [sportchek-api](references/sportchek-api.md) | 8 | 1 |
 | Staples | [staples-ink-prices-api](references/staples-ink-prices-api.md) | 12 | 1 |
@@ -133,6 +146,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Walmart | [walmart-product-data](references/walmart-product-data.md) | 8 | 1; 2 for walmart.com.mx search/category or store-targeted search/product |
 | Wayfair | [wayfair-api](references/wayfair-api.md) | 4 | 1 |
 | Whole Foods Market | [whole-foods-grocery-data](references/whole-foods-grocery-data.md) | 7 | 1 |
+| YesStyle | [yesstyle-api](references/yesstyle-api.md) | 9 | search, category, brand, deals, product 2; product with variants 3; reviews, suggestions, brands, markets 1 |
 | Zara | [zara-api](references/zara-api.md) | 12 | 2; some 4 or 6; cn 1 |
 
 **Social and video**
