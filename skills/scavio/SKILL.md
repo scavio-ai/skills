@@ -84,6 +84,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Douglas | [douglas-beauty-api](references/douglas-beauty-api.md) | 10 | 1 (Italy 2); variant EANs +1 each |
 | eBay | [ebay-product-data](references/ebay-product-data.md) | 3 | 1 |
 | Edmunds | [edmunds-api](references/edmunds-api.md) | 8 | 2 |
+| EstateSales.net | [estate-sales-net-api](references/estate-sales-net-api.md) | 6 | 1 |
 | Etsy | [etsy-product-data](references/etsy-product-data.md) | 5 | 2 |
 | Fanatics | [fanatics-merchandise-api](references/fanatics-merchandise-api.md) | 5 | 1 |
 | Fashion Nova | [fashion-nova-api](references/fashion-nova-api.md) | 7 | 1 |
@@ -176,6 +177,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 |---|---|---|---|
 | Airbnb | [airbnb-scraper-api](references/airbnb-scraper-api.md) | 3 | 1 |
 | Booking.com | [booking-com-hotel-data](references/booking-com-hotel-data.md) | 3 | 1 |
+| Expedia | [expedia-api](references/expedia-api.md) | 4 | 2 (actual cost; 1 on some NZ, KR, ID pages) |
 | Google Flights | [google-flights-api](references/google-flights-api.md) | 1 | 1 |
 | Google Hotels | [google-hotels-api](references/google-hotels-api.md) | 2 | 1 |
 | Tripadvisor | [tripadvisor-reviews-api](references/tripadvisor-reviews-api.md) | 4 | 2 |
@@ -188,6 +190,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Capterra | [capterra-reviews-api](references/capterra-reviews-api.md) | 3 | 2 |
 | G2 | [g2-software-reviews-api](references/g2-software-reviews-api.md) | 3 | 5 |
 | Glassdoor | [glassdoor-salary-data](references/glassdoor-salary-data.md) | 4 | 2 |
+| Goodreads | [goodreads-api](references/goodreads-api.md) | 14 | 1 |
 | Indeed | [indeed-jobs-api](references/indeed-jobs-api.md) | 4 | 2 |
 | Trustpilot | [trustpilot-reviews-api](references/trustpilot-reviews-api.md) | 6 | 2 |
 | Yelp | [yelp-business-data](references/yelp-business-data.md) | 3 | 2 |
@@ -196,6 +199,14 @@ Each row is one reference file. Open it before the first call to that platform. 
 
 | Platform | Reference | Endpoints | Credits per call |
 |---|---|---|---|
+| AffordableHousing.com | [affordable-housing-api](references/affordable-housing-api.md) | 6 | 1; search and suggestions 2 |
+| Apartment List | [apartment-list-api](references/apartment-list-api.md) | 6 | 1 |
+| Compass | [compass-real-estate-api](references/compass-real-estate-api.md) | 3 | 2 |
+| Extra Space Storage | [extra-space-storage-api](references/extra-space-storage-api.md) | 5 | 1 |
+| HotPads | [hotpads-api](references/hotpads-api.md) | 5 | 1 |
+| Lennar | [lennar-homes-api](references/lennar-homes-api.md) | 11 | 1 |
+| Movoto | [movoto-api](references/movoto-api.md) | 5 | 1 |
+| Public Storage | [public-storage-api](references/public-storage-api.md) | 3 | 1 |
 | Realtor.com | [realtor-com-property-data](references/realtor-com-property-data.md) | 6 | 1 |
 | Redfin | [redfin-property-data](references/redfin-property-data.md) | 3 | 1 |
 | Rent.com | [rent-com-api](references/rent-com-api.md) | 6 | 1 |

@@ -1871,6 +1871,138 @@
       "group": "Companies and code",
       "endpoints": "1",
       "credits": "10"
+    },
+    {
+      "dir": "scavio-movoto",
+      "slug": "movoto-api",
+      "name": "movoto-api",
+      "display": "Movoto API - Home Listings, Property Details, Market Trends",
+      "query": "movoto",
+      "reused": "no",
+      "platform": "Movoto",
+      "group": "Real estate",
+      "endpoints": "5",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-hotpads",
+      "slug": "hotpads-api",
+      "name": "hotpads-api",
+      "display": "HotPads API - Rental Listings, Fees, Rent Price History",
+      "query": "hotpads",
+      "reused": "no",
+      "platform": "HotPads",
+      "group": "Real estate",
+      "endpoints": "5",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-apartmentlist",
+      "slug": "apartment-list-api",
+      "name": "apartment-list-api",
+      "display": "Apartment List API - Rental Listings, Rent Report, Market Rent Data",
+      "query": "apartment list",
+      "reused": "no",
+      "platform": "Apartment List",
+      "group": "Real estate",
+      "endpoints": "6",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-compass",
+      "slug": "compass-real-estate-api",
+      "name": "compass-real-estate-api",
+      "display": "Compass Real Estate API - Homes For Sale, Rentals, Sold Listings",
+      "query": "compass real estate",
+      "reused": "no",
+      "platform": "Compass",
+      "group": "Real estate",
+      "endpoints": "3",
+      "credits": "2"
+    },
+    {
+      "dir": "scavio-affordablehousing",
+      "slug": "affordable-housing-api",
+      "name": "affordable-housing-api",
+      "display": "AffordableHousing.com API - Section 8 Rentals, Waiting Lists, Housing Authorities",
+      "query": "affordable housing",
+      "reused": "no",
+      "platform": "AffordableHousing.com",
+      "group": "Real estate",
+      "endpoints": "6",
+      "credits": "1; search and suggestions 2"
+    },
+    {
+      "dir": "scavio-lennar",
+      "slug": "lennar-homes-api",
+      "name": "lennar-homes-api",
+      "display": "Lennar Homes API - New Home Prices, Communities, Incentives",
+      "query": "lennar homes",
+      "reused": "no",
+      "platform": "Lennar",
+      "group": "Real estate",
+      "endpoints": "11",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-extraspace",
+      "slug": "extra-space-storage-api",
+      "name": "extra-space-storage-api",
+      "display": "Extra Space Storage API - Storage Unit Prices, Facilities, Reviews",
+      "query": "extra space storage",
+      "reused": "no",
+      "platform": "Extra Space Storage",
+      "group": "Real estate",
+      "endpoints": "5",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-publicstorage",
+      "slug": "public-storage-api",
+      "name": "public-storage-api",
+      "display": "Public Storage API - Storage Unit Prices, Facilities, Reviews",
+      "query": "public storage",
+      "reused": "no",
+      "platform": "Public Storage",
+      "group": "Real estate",
+      "endpoints": "3",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-estatesales",
+      "slug": "estate-sales-net-api",
+      "name": "estate-sales-net-api",
+      "display": "EstateSales.net API - Estate Sales Near You, Sale Items, Companies",
+      "query": "estate sales",
+      "reused": "no",
+      "platform": "EstateSales.net",
+      "group": "Commerce",
+      "endpoints": "6",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-goodreads",
+      "slug": "goodreads-api",
+      "name": "goodreads-api",
+      "display": "Goodreads API - Book Ratings, Reviews, Authors, Lists",
+      "query": "goodreads",
+      "reused": "no",
+      "platform": "Goodreads",
+      "group": "Jobs and reviews",
+      "endpoints": "14",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-expedia",
+      "slug": "expedia-api",
+      "name": "expedia-api",
+      "display": "Expedia API - Hotel Prices, Property Details, Price Calendar",
+      "query": "expedia",
+      "reused": "no",
+      "platform": "Expedia",
+      "group": "Travel",
+      "endpoints": "4",
+      "credits": "2 (actual cost; 1 on some NZ, KR, ID pages)"
     }
   ],
   "frontmatter": [
@@ -2653,6 +2785,61 @@
       "dir": "scavio-company-enrich",
       "description": "Company enrichment API - turn a business website or a Google Maps place_id into contact data as structured JSON - the company's published emails, phone numbers, social profiles (Facebook, Instagram, LinkedIn, X, TikTok, YouTube, Pinterest) and contact page, plus the owner or founder's name and title with the page that names them. Built for the step after a Google Maps search - enrich every local result into a lead. 1 endpoint, 10 credits from a website, 20 from a place_id; an unreachable site is free.",
       "tags": "company-enrichment, company-enrichment-api, lead-enrichment, lead-generation, business-contacts, contact-finder, company-emails, business-phone-numbers, social-profiles, owner-name, founder-lookup, google-maps-leads, local-business-leads, place-id, b2b-data, sales-prospecting, crm-enrichment, agents, ai-agents, structured-data, json, mcp"
+    },
+    {
+      "dir": "scavio-movoto",
+      "description": "Movoto API for Movoto (movoto.com, the US home search site owned by Lower) - what a US city's or ZIP code's housing market is doing today, a month ago and a year ago, as Movoto publishes it (Los Angeles read a $1,049,000 median list price on Nov 26, 2026, down from $1,100,000 a year earlier, $652 per square foot, 72 median days on market and 5,037 active listings; ZIP 78704 in Austin read $750,000, down from $820,000), split into all homes, single-family and condos, with Movoto's own summary, stat cards, the nearby cities or ZIP codes compared side by side and, for a ZIP, Movoto's daily statistics; home search for sale, sold or for rent by city, ZIP, county, neighborhood or school zone, 50 homes a page to page 99, 8 sorts and filters for property type, beds, baths, price, size, lot, year built, HOA, days on market, garage, pool, sold window, open houses, price reduced, new listings, new construction and foreclosures, with the area's market summary, facet counts, top ZIP codes and neighborhoods; one home in full with price history, tax history, features, Movoto's area-based estimate, schools with GreatSchools ratings, local scores and nearby sold, for-sale and rental homes; one school with GreatSchools rating, state rating, test scores and the homes zoned for it; place suggestions for cities, ZIP codes, neighborhoods, counties and schools. 5 endpoints, 1 credit per call. US only, USD. No agent names or contacts, no monthly trend series, no sale prices in non-disclosure states such as Texas, no parent reviews.",
+      "tags": "movoto, movoto-com, movoto-api, movoto-search, movoto-homes, movoto-listings, movoto-sold, movoto-rentals, movoto-property, movoto-market-trends, movoto-schools, movoto-suggestions, housing-market-trends, median-list-price, price-per-sqft, days-on-market, inventory, market-snapshot, homes-for-sale, sold-homes, homes-for-rent, price-history, tax-history, school-zone, greatschools, home-search, real-estate, real-estate-data, property-data, us-real-estate, usd, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-hotpads",
+      "description": "HotPads API for HotPads (hotpads.com, Zillow Group's US rental search site) - what a US rental really costs and how its rent has moved, as HotPads shows it (Lincoln at Bankside in the Bronx listed base rent of $2,680 to $5,160 across 143 units, a monthly total of $2,686.25 to $5,166.25 with the required fees, $33.90 due at move-in, plus electricity and thermal billed as \"Varies\"; a 6-bed house in Dallas, ZIP 75228, was listed at $2,999 on Nov 14, 2026 and cut 18.3% to $2,450 on Nov 25, with 22 rent events back to 2012) with every move-in, monthly and usage fee the property manager lists, required or optional; rental search for apartments, houses, condos, townhomes, rooms, sublets or for-rent-by-owner listings in a US city, neighborhood, borough or ZIP code, 40 buildings a page, 4 sorts and filters for beds, baths, rent, size, dogs or cats, in-unit laundry, parking or furnished and keywords, with the filters HotPads applied; one listing or building in full with floor plans and units, amenities, pet policies, lease terms, special offers, total-monthly-price notes, HotPads' comparison with the ZIP, city and county average rent, views and inquiries, schools and similar listings; the rent history of a listing (listed, price changed, removed, with percent change and source); location suggestions with the area ids search takes. 5 endpoints, 1 credit per call. US only, USD. No landlord or agent names or contacts, no reviews, no Canada.",
+      "tags": "hotpads, hotpads-com, hotpads-api, hotpads-search, hotpads-rentals, hotpads-apartments, hotpads-listing, hotpads-fees, hotpads-price-history, hotpads-rent-history, hotpads-rooms, hotpads-sublets, hotpads-for-rent-by-owner, hotpads-suggestions, zillow-group, rental-listings, apartments-for-rent, houses-for-rent, rooms-for-rent, for-rent-by-owner, rent-prices, rental-fees, move-in-costs, total-monthly-price, rent-history, floor-plans, pet-policy, area-average-rent, rental-market, rental-data, real-estate, real-estate-data, us-real-estate, usd, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-apartmentlist",
+      "description": "Apartment List API for Apartment List (apartmentlist.com, the US rental search site) - what renting costs in a US city and how rents are moving, as Apartment List's monthly rent report publishes it (the November 2026 report put Austin's median rent at $1,323, $1,172 for a 1-bedroom and $1,426 for a 2-bedroom, down 1.3% over the year; Chicago at $1,858, up 3.4%; New York City at $2,593, up 4.3%) with the month and year growth, the 12-month trend for the city, its state and the nation, year-to-date growth back to 2019, the metro table of nearby cities and the national lists of fastest rent growth and highest rents; average rent by bed count and a listings summary (average and median rent, size, unit and property counts, amenity shares, price histogram) for a city, neighborhood or ZIP code; rental search for a city, neighborhood or ZIP code, 20 listings a page, with bed, bath, rent, move-in date, amenity and occupancy-type filters and 4 sorts, each listing with rent by bed count, floor plans and units (base price, total price, required fees, availability, lease length), specials and ratings; one listing in full with fees, pet policies, parking, income requirement, amenities, office hours and resident reviews (no names); resident-review summaries for every reviewed listing in a city; place suggestions with the slugs search takes. 6 endpoints, 1 credit per call. US only, USD. No landlord contacts, no reviewer names.",
+      "tags": "apartment-list, apartmentlist, apartmentlist-com, apartment-list-api, apartment-list-rent-report, apartment-list-search, apartment-list-listings, apartment-list-reviews, apartment-list-market-data, rent-report, median-rent, rent-growth, rent-trends, average-rent, market-rent, rental-market, rental-market-data, rental-listings, apartments-for-rent, floor-plans, unit-prices, rent-specials, move-in-specials, resident-reviews, review-summaries, income-requirement, pet-policy, rental-data, real-estate, real-estate-data, us-real-estate, usd, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-compass",
+      "description": "Compass Real Estate API for Compass (compass.com, the US real estate brokerage whose site also lists Coldwell Banker, Corcoran and Sotheby's International Realty homes) - what a US home is listed at, and what it sold for, as Compass shows it (24 Cousteau Lane in Westlake, Austin was listed at $12,995,000 on Sep 14, 2026, went pending Nov 5 and sold Nov 23 for $12,000,000 after 52 days on market, source MLS ACTRIS) with the listing history (Listed, Price Change, Pending, Contract Signed, Sold, Sold (Public Record)), listed, last asking and sold price, price per square foot, monthly charges, tax and assessed values, key details, amenities, schools with ratings, the building, lease terms on rentals, the listing brand and the source MLS with its disclaimer; home search for sale, for rent or sold in the last 90 days by city, ZIP, neighborhood, county or school area, 41 listings a page through the first 369 results, with highest price, fewest beds, baths and square feet, property type, open house this weekend and coming soon filters and price sorts, each card with price, beds, baths, size, status, sold date, brand, badges and open house times; place, ZIP, school and address suggestions with the area slugs search takes. 3 endpoints, 2 credits per call. US only, USD. No agent names, emails, phones or license numbers, no reviews, no market reports.",
+      "tags": "compass, compass-com, compass-real-estate, compass-real-estate-api, compass-api, compass-homes, compass-listings, compass-for-sale, compass-rentals, compass-sold, compass-sold-homes, compass-coming-soon, compass-open-house, compass-listing-history, compass-sold-price, coldwell-banker, corcoran, sothebys-international-realty, homes-for-sale, homes-for-rent, recently-sold, sold-prices, listing-history, price-history, coming-soon-listings, open-houses, mls-data, real-estate, real-estate-data, property-data, us-real-estate, usd, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-affordablehousing",
+      "description": "AffordableHousing.com API for AffordableHousing.com (affordablehousing.com, the US affordable and Section 8 rental site run by Affordable Housing Network, formerly GoSection8) - which Section 8 and public housing waiting lists are open now, and which housing authority runs each one (the national page listed 753 open waiting lists, 625 of them Section 8 Housing Choice Voucher lists and 88 Project-Based Voucher lists, 137 taking online applications) with the program, the opened-on date and the agency; one housing authority with its public office address, phone, fax and website, waitlist status, voucher count, programs, the counties it serves and its waiting lists with how applicants are selected (Somerville Housing Authority, MA, open, 1,193 vouchers, 12 waiting lists); a state's housing authorities; affordable and Section 8 rental search by state, city, county or ZIP code with beds, baths, property type, rent range, pet friendly, Section 8, utilities included, senior (age restricted) and accessibility filters, 9 sorts, 42 a page, each listing with rent range, beds, baths, size, year built, the Section 8 badge, income-restricted, trusted-owner and tier flags; one listing in full with floor plans and their rents, units, move-in and monthly fees, the tenant and owner utilities split, amenities, accessibility features, pet policy and age restriction; place suggestions. 6 endpoints, search and suggestions 2 credits per call, listing, waiting lists and housing authority pages 1 credit. US only, USD. Private landlords are never named; no payment standard or fair market rent numbers, no applications.",
+      "tags": "affordablehousing, affordablehousing-com, affordable-housing, affordable-housing-api, affordable-housing-search, affordable-housing-listings, section-8, section-8-housing, section-8-rentals, section-8-waiting-list, section-8-waiting-lists, housing-choice-voucher, hcv, project-based-voucher, public-housing, public-housing-waiting-list, housing-authority, housing-authorities, public-housing-agency, pha, low-income-housing, income-restricted-housing, senior-housing, accessible-housing, gosection8, rental-listings, rent-prices, floor-plans, rental-fees, utilities, real-estate, real-estate-data, us-real-estate, usd, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-lennar",
+      "description": "Lennar API for Lennar (lennar.com, the US homebuilder; 32 states, 104 metro markets) - what a new Lennar home costs today next to the price Lennar showed before, as Lennar's own pages show it (a move-in ready Melrose II in Kresston, Montgomery, Texas read 384,990 USD, was 424,990 USD, against the plan's 424,990 USD starting price; a Providence in Knightsbridge, Kissimmee, Florida read 436,320 USD, was 471,320 USD, with an estimated move-in of Dec 14, 2026) with homesite search by market, state, city, map point or map box, filtered by beds, baths, price, square feet, home type, active adult or lifestyle community, quick move-in or under construction, feature codes and school filters, 7 sorts, up to 200 a page with Lennar's counts of communities, plans and homesites; communities with every plan and homesite, the HOA fee, tax rate, deposit and sales center hours; floor plans with included features; one homesite with its incentive, offer end date and estimated payment; master-planned communities; every market and one market's cities, feature codes and school districts; each market's current promotion with its offers and legal copy exactly as Lennar shows them; Lennar's own monthly payment estimate for a homesite at a down payment and interest rate; place suggestions and link lookups. 11 endpoints, 1 credit per call. US only, USD. No price history, resale homes, reviews or sales consultant names.",
+      "tags": "lennar, lennar-com, lennar-homes, lennar-api, lennar-new-homes, lennar-prices, lennar-communities, lennar-floor-plans, lennar-quick-move-in, lennar-move-in-ready, lennar-incentives, lennar-promotions, lennar-deals, lennar-hoa, lennar-markets, lennar-payment-estimate, lennar-master-planned, new-homes, new-home-prices, new-construction, new-construction-homes, homebuilder, home-builder, builder-incentives, quick-move-in-homes, floor-plans, master-planned-communities, active-adult-communities, hoa-fees, property-tax-rate, price-tracking, price-monitoring, incentive-monitoring, market-comparison, housing-market, real-estate, real-estate-data, us-real-estate, usd, structured-data, json"
+    },
+    {
+      "dir": "scavio-extraspace",
+      "description": "Extra Space Storage API for Extra Space Storage (extraspace.com, the US self-storage REIT) - what a storage unit costs at an Extra Space facility, as its page shows it, with the IN STORE price next to the WEB RATE (the Knoxville - Middlebrook Pike facility listed a 10' x 10' climate-controlled unit at $160 in store and $92 web rate, 10 available, First Month Free) for every unit class available now (or every class), with size, square feet, features, available count and promotions, the facility's Starting at prices by size class and its price figures by size (lowest, average, highest and historical), hours by type, 24-hour access, rating and review count; a city's storage prices as Extra Space's city page states them (105 facilities near Dallas, TX had 5' x 5' units starting at $7 and averaging $24 a month, 141 had 10' x 10' units starting at $30 and averaging $78) with the figures for each size and for climate-controlled, RV, boat and vehicle storage; facility search near a ZIP code, \"City, ST\", place or point, up to 120 nearest first, filtered by climate control, drive-up, indoor, RV parking, enclosed vehicle storage, 24-hour access and unit size, sorted by distance or Starting at price, each with its highlighted unit prices; the Google reviews shown on a facility page with the star histogram, sorted, star-filtered and paged, with Extra Space's replies (no reviewer names); the 1,700 US cities Extra Space lists. 5 endpoints, 1 credit per call. US only, USD. No reservations, no move-in quotes, no price history beyond the figures the page gives.",
+      "tags": "extra-space-storage, extraspace, extraspace-com, extra-space-storage-api, extra-space-storage-prices, extra-space-storage-units, extra-space-storage-reviews, extra-space-storage-locations, extra-space-web-rate, self-storage, self-storage-prices, self-storage-api, storage-unit-prices, storage-units, storage-unit-sizes, climate-controlled-storage, drive-up-storage, rv-storage, boat-storage, vehicle-storage, 10x10-storage-unit, storage-price-comparison, storage-market-data, city-storage-prices, storage-facility-reviews, google-reviews, price-monitoring, rate-tracking, self-storage-reit, real-estate, real-estate-data, us-real-estate, usd, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-publicstorage",
+      "description": "Public Storage API for Public Storage (publicstorage.com, the US self-storage operator, also in Canada) - what a storage unit costs at a Public Storage facility, as its page shows it (the Dallas facility at store id 2044 listed 20 units, a 5'x5' at 66 USD In-Store Rent and 39.60 USD online with 40% off for 4 months, a 10'x10' at 135 USD and 67.50 USD with 50% off the first 4 months, and a one-time 29 USD admin fee) with each unit's size, features, first and second month after the promotion, move-in cost, admin fee and lock charge; facility search near a ZIP or postal code, a city or an address in the US or Canada, sorted recommended, by distance or by price, filtered by climate control, drive-up, 24/7 access, business, vehicle, RV or boat storage or a unit size, each facility with its starting price, today's hours, features and the units its card shows; one facility in full with office, access and rental support hours, amenities, payment methods and the rating and review count; every customer review Public Storage shows for a US facility, newest first, optionally one star rating (no reviewer names). 3 endpoints, 1 credit per call. US (USD, English) and Canada (CAD, English and French). No occupancy figures, price history, reservations or rentals.",
+      "tags": "public-storage, publicstorage, publicstorage-com, public-storage-api, public-storage-prices, public-storage-unit-prices, public-storage-search, public-storage-facility, public-storage-reviews, public-storage-promotions, public-storage-canada, self-storage, self-storage-prices, storage-unit-prices, storage-units, storage-facilities, storage-rent, climate-controlled-storage, vehicle-storage, rv-storage, boat-storage, business-storage, move-in-cost, storage-promotions, storage-reviews, price-monitoring, price-comparison, market-research, real-estate, real-estate-data, usd, cad, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-estatesales",
+      "description": "EstateSales.net API for EstateSales.net (estatesales.net, the US estate sale directory) - which estate sales, auctions and moving sales are running near a US ZIP code and when, as EstateSales.net lists them (around Dallas ZIP 75201 the site counted 164 sales with 87 in its default list, the 20 nearest from 2.1 miles; around New York ZIP 10001, 17 of the 20 nearest ran tomorrow) with each sale's type, the company running it and its public business contact, the city, state and ZIP, the street address once the site releases it (company-run sales only), every sale day with local and UTC times, the picture count and featured flags, filtered by today, tomorrow or the next 15 days and by 14 sale types, sorted by distance, start, end, newest or most pictures; one sale in full with its terms, description, schedule and pictures; every estate sale company in a metro area (226 in Dallas / Fort Worth / Arlington) with phones, website, address and package; one company's page with its memberships, testimonials (no author names) and current sales; keyword search over sales and marketplace items, 24 a page; one marketplace item with its current bid, starting and minimum bid, buy-now price, reserve flag, shipping and pickup terms (a pair of life-size figures read 635 USD after 4 bids). 6 endpoints, 1 credit per call. US only, USD. Private sellers are never identified (city, state and ZIP only). No sold prices, bidder identities, bidding or checkout.",
+      "tags": "estatesales, estatesales-net, estate-sales, estate-sales-api, estate-sales-near-me, estate-sale-listings, estate-sale-companies, estate-sale-search, estate-sale-items, estatesales-net-api, estatesales-marketplace, estate-auctions, online-estate-auctions, moving-sales, business-closings, estate-liquidation, estate-sale-calendar, weekend-sales, garage-sales, antiques, vintage, collectibles, furniture, resale, reseller, sourcing, flipping, auction-prices, marketplace-items, local-sales, us-retail, usd, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-goodreads",
+      "description": "Goodreads API for Goodreads (goodreads.com, Amazon's book community, one global English site) - how readers rate a book, as Goodreads shows it (Dune read 4.29 from 1,732,454 ratings, 907,135 of them 5 stars and 26,357 1 star, with 90,953 reviews in 54 languages and a $9.99 Kindle price as Goodreads gave it) with the full star distribution, review counts per language, genres, series, awards, places, characters, ISBN-10, ISBN-13 and ASIN; one book by id, link or ISBN; reader reviews 30 per page in Goodreads' own sorts (popular, newest, oldest) with star, language and this-edition filters, up to 4 pages (120 reviews) per call, without reviewer names; book, Listopia list and quote search, 20 per page; type-ahead book suggestions; an author's page with bio, followers and top books, and every book of an author 30 per page in 5 sorts; a series in reading order; every edition of a work 10 per page in 6 sorts; a Listopia list 100 books per page in vote order with score and votes, the lists that contain a book, and list search; quotes by words, tag or book with like counts; a genre's 50 most shelved books or this week's most read; new releases by genre or month. 14 endpoints, 1 credit per call. English site, USD Kindle prices. No reviewer names or profiles, no user shelves, no reviews past 4 pages from one view, no Choice Awards.",
+      "tags": "goodreads, goodreads-com, goodreads-api, goodreads-books, goodreads-ratings, goodreads-reviews, goodreads-book-reviews, goodreads-search, goodreads-isbn, goodreads-author, goodreads-series, goodreads-editions, goodreads-lists, goodreads-listopia, goodreads-quotes, goodreads-genres, goodreads-new-releases, goodreads-most-read, book-data, book-ratings, book-reviews, book-metadata, isbn-lookup, isbn-13, asin, book-search, author-data, book-series, book-editions, reading-lists, book-quotes, new-book-releases, publishing, book-market-research, reader-sentiment, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-expedia",
+      "description": "Expedia API for Expedia (expedia.com, Expedia Group's travel booking site, 51 market-languages) - what a hotel stay costs on Expedia for your dates, as Expedia shows it (Las Vegas for Jan 25-28, 2027 with 2 adults matched 487 properties, and the top card read $558 total, $119 nightly, struck through from $796, Total with taxes and fees) with the nightly price, the stay total, the struck-through price, Expedia's fee line, deal badge (Black Friday $754 off), Member Price and VIP Access flags and Ad placements; hotel search by place name or region id, check-in and check-out (up to 28 nights), adults, 4 sorts and Expedia's star, amenity and guest-rating filters, the top results Expedia shows on the first page of its results (3 on most requests, partial flag, up to 10 on some); one property by id or path, without dates, with stars, address, coordinates, guest rating summary, every amenity group, every fee, deposit and resort fee line, policies, important information, nearby places, FAQs and photos; Expedia's price calendar for one property, the price it shows for each day about 10 months ahead, labelled by Expedia lowest prices in the past 24 hours; destination suggestions with the region ids search takes. 4 endpoints, billed on actual cost, 2 credits per call (1 on some New Zealand, Korea and Indonesia pages). 51 market-languages, each in its own language and currency; hotel pages are held in en-gb, pt-br, zh-hk, en-hk, zh-hans-hk, en-my and en-ph. No review texts, no rooms and rates on a property, no results past Expedia's first page, no flights, cars or packages.",
+      "tags": "expedia, expedia-com, expedia-api, expedia-hotels, expedia-hotel-prices, expedia-search, expedia-property, expedia-price-calendar, expedia-deals, expedia-member-price, expedia-vip-access, expedia-resort-fees, expedia-suggestions, expedia-region-id, expedia-group, hotel-prices, hotel-search, hotel-rates, nightly-rates, stay-total, resort-fees, hotel-fees, hotel-amenities, hotel-policies, price-calendar, travel, travel-data, lodging, accommodation, rate-shopping, multi-currency, price-monitoring, price-comparison, langchain, crewai, ai-agents, structured-data, json"
     }
   ],
   "groups": [
