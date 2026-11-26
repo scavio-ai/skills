@@ -49,6 +49,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 
 | Platform | Reference | Endpoints | Credits per call |
 |---|---|---|---|
+| Academy Sports + Outdoors | [academy-sports-api](references/academy-sports-api.md) | 9 | 1 |
 | Ace Hardware | [ace-hardware-prices-api](references/ace-hardware-prices-api.md) | 11 | 1; search and product 2, store-stock 1 per 5 stores (nearby 6) |
 | Action | [action-com-api](references/action-com-api.md) | 16 | 1 |
 | ALDI | [aldi-grocery-data](references/aldi-grocery-data.md) | 3 | 1 |
@@ -60,7 +61,9 @@ Each row is one reference file. Open it before the first call to that platform. 
 | ASOS | [asos-api](references/asos-api.md) | 11 | 1 |
 | Autotrader | [autotrader-api](references/autotrader-api.md) | 5 | 2 |
 | AutoZone | [autozone-api](references/autozone-api.md) | 12 | 1; br search, product and store-stock 2 |
+| Bath & Body Works | [bath-and-body-works-api](references/bath-and-body-works-api.md) | 10 | 1 |
 | Best Buy | [best-buy-product-data](references/best-buy-product-data.md) | 10 | US 2 (stores and suggestions 1, deals and pcmcat pages 3); Canada 1 |
+| BJ's Wholesale Club | [bjs-wholesale-club-api](references/bjs-wholesale-club-api.md) | 7 | 1 |
 | bol.com | [bol-com-api](references/bol-com-api.md) | 9 | 2; product by EAN 4 |
 | Boots | [boots-uk-api](references/boots-uk-api.md) | 4 | 1 (2 when answered on the second attempt) |
 | Bring a Trailer | [bring-a-trailer-api](references/bring-a-trailer-api.md) | 8 | 1 |
@@ -89,6 +92,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Fanatics | [fanatics-merchandise-api](references/fanatics-merchandise-api.md) | 5 | 1 |
 | Fashion Nova | [fashion-nova-api](references/fashion-nova-api.md) | 7 | 1 |
 | Foot Locker | [foot-locker-api](references/foot-locker-api.md) | 10 | 1 |
+| Gap Inc. | [gap-old-navy-api](references/gap-old-navy-api.md) | 11 | 1 |
 | Google Shopping | [google-shopping-api](references/google-shopping-api.md) | 3 | 1 |
 | H&M | [hm-api](references/hm-api.md) | 9 | 1; product 2 |
 | Harbor Freight | [harbor-freight-api](references/harbor-freight-api.md) | 7 | 1 |
@@ -114,6 +118,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Michaels | [michaels-craft-prices-api](references/michaels-craft-prices-api.md) | 11 | 2; category or deals with a /shop/ link or path 4 |
 | Micro Center | [micro-center-api](references/micro-center-api.md) | 3 | 2; stores 1 |
 | Nellis Auction | [nellis-auction-api](references/nellis-auction-api.md) | 4 | 1 |
+| Newegg | [newegg-api](references/newegg-api.md) | 10 | 2 |
 | Nike | [nike-api](references/nike-api.md) | 8 | 1 |
 | Nordstrom | [nordstrom-product-data](references/nordstrom-product-data.md) | 8 | 5; availability and reviews 10 |
 | Nordstrom Rack | [nordstrom-rack-product-data](references/nordstrom-rack-product-data.md) | 8 | 5; availability and reviews 10 |
@@ -126,6 +131,8 @@ Each row is one reference file. Open it before the first call to that platform. 
 | PetSmart | [petsmart-product-data](references/petsmart-product-data.md) | 6 | 1 |
 | Poshmark | [poshmark-api](references/poshmark-api.md) | 15 | 1 |
 | Publix | [publix-api](references/publix-api.md) | 11 | 1 |
+| Rakuten | [rakuten-cashback-api](references/rakuten-cashback-api.md) | 9 | 1 |
+| REI | [rei-api](references/rei-api.md) | 9 | 2 |
 | RockAuto | [rockauto-parts-api](references/rockauto-parts-api.md) | 11 | 1 |
 | RONA | [rona-api](references/rona-api.md) | 9 | prices, categories, stores, store 1; search, deals 2-3; category 1-3; product, stock 3 |
 | Saks Fifth Avenue | [saks-fifth-avenue-api](references/saks-fifth-avenue-api.md) | 9 | 2 |
@@ -151,6 +158,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Wayfair | [wayfair-api](references/wayfair-api.md) | 4 | 1 |
 | Whole Foods Market | [whole-foods-grocery-data](references/whole-foods-grocery-data.md) | 7 | 1 |
 | YesStyle | [yesstyle-api](references/yesstyle-api.md) | 9 | search, category, brand, deals, product 2; product with variants 3; reviews, suggestions, brands, markets 1 |
+| Zappos | [zappos-api](references/zappos-api.md) | 7 | 1 |
 | Zara | [zara-api](references/zara-api.md) | 12 | 2; some 4 or 6; cn 1 |
 
 **Social and video**

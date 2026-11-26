@@ -2003,6 +2003,102 @@
       "group": "Travel",
       "endpoints": "4",
       "credits": "2 (actual cost; 1 on some NZ, KR, ID pages)"
+    },
+    {
+      "dir": "scavio-academy",
+      "slug": "academy-sports-api",
+      "name": "academy-sports-api",
+      "display": "Academy Sports + Outdoors API - Prices, Store Stock, Deals",
+      "query": "academy sports",
+      "reused": "no",
+      "platform": "Academy Sports + Outdoors",
+      "group": "Commerce",
+      "endpoints": "9",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-bathandbodyworks",
+      "slug": "bath-and-body-works-api",
+      "name": "bath-and-body-works-api",
+      "display": "Bath & Body Works API - Prices, Promotions, Store Pickup",
+      "query": "bath and body works",
+      "reused": "no",
+      "platform": "Bath & Body Works",
+      "group": "Commerce",
+      "endpoints": "10",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-gap",
+      "slug": "gap-old-navy-api",
+      "name": "gap-old-navy-api",
+      "display": "Gap and Old Navy API - Prices, Sizes, Store Stock, Banana Republic, Athleta",
+      "query": "old navy",
+      "reused": "no",
+      "platform": "Gap Inc.",
+      "group": "Commerce",
+      "endpoints": "11",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-rakuten",
+      "slug": "rakuten-cashback-api",
+      "name": "rakuten-cashback-api",
+      "display": "Rakuten Cashback API - Cash Back Rates, Store Coupons, Deals",
+      "query": "rakuten cashback",
+      "reused": "no",
+      "platform": "Rakuten",
+      "group": "Commerce",
+      "endpoints": "9",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-bjs",
+      "slug": "bjs-wholesale-club-api",
+      "name": "bjs-wholesale-club-api",
+      "display": "BJ's Wholesale Club API - Club Prices, Instant Savings, Coupons, Reviews",
+      "query": "bjs wholesale",
+      "reused": "no",
+      "platform": "BJ's Wholesale Club",
+      "group": "Commerce",
+      "endpoints": "7",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-zappos",
+      "slug": "zappos-api",
+      "name": "zappos-api",
+      "display": "Zappos API - Shoe Prices, Size Stock, Reviews, 6pm Outlet",
+      "query": "zappos",
+      "reused": "no",
+      "platform": "Zappos",
+      "group": "Commerce",
+      "endpoints": "7",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-newegg",
+      "slug": "newegg-api",
+      "name": "newegg-api",
+      "display": "Newegg API - PC Part Prices, Seller Offers, Reviews, Deals",
+      "query": "newegg",
+      "reused": "no",
+      "platform": "Newegg",
+      "group": "Commerce",
+      "endpoints": "10",
+      "credits": "2"
+    },
+    {
+      "dir": "scavio-rei",
+      "slug": "rei-api",
+      "name": "rei-api",
+      "display": "REI API - Outdoor Gear Prices, Store Pickup Stock, Reviews",
+      "query": "rei",
+      "reused": "no",
+      "platform": "REI",
+      "group": "Commerce",
+      "endpoints": "9",
+      "credits": "2"
     }
   ],
   "frontmatter": [
@@ -2840,6 +2936,46 @@
       "dir": "scavio-expedia",
       "description": "Expedia API for Expedia (expedia.com, Expedia Group's travel booking site, 51 market-languages) - what a hotel stay costs on Expedia for your dates, as Expedia shows it (Las Vegas for Jan 25-28, 2027 with 2 adults matched 487 properties, and the top card read $558 total, $119 nightly, struck through from $796, Total with taxes and fees) with the nightly price, the stay total, the struck-through price, Expedia's fee line, deal badge (Black Friday $754 off), Member Price and VIP Access flags and Ad placements; hotel search by place name or region id, check-in and check-out (up to 28 nights), adults, 4 sorts and Expedia's star, amenity and guest-rating filters, the top results Expedia shows on the first page of its results (3 on most requests, partial flag, up to 10 on some); one property by id or path, without dates, with stars, address, coordinates, guest rating summary, every amenity group, every fee, deposit and resort fee line, policies, important information, nearby places, FAQs and photos; Expedia's price calendar for one property, the price it shows for each day about 10 months ahead, labelled by Expedia lowest prices in the past 24 hours; destination suggestions with the region ids search takes. 4 endpoints, billed on actual cost, 2 credits per call (1 on some New Zealand, Korea and Indonesia pages). 51 market-languages, each in its own language and currency; hotel pages are held in en-gb, pt-br, zh-hk, en-hk, zh-hans-hk, en-my and en-ph. No review texts, no rooms and rates on a property, no results past Expedia's first page, no flights, cars or packages.",
       "tags": "expedia, expedia-com, expedia-api, expedia-hotels, expedia-hotel-prices, expedia-search, expedia-property, expedia-price-calendar, expedia-deals, expedia-member-price, expedia-vip-access, expedia-resort-fees, expedia-suggestions, expedia-region-id, expedia-group, hotel-prices, hotel-search, hotel-rates, nightly-rates, stay-total, resort-fees, hotel-fees, hotel-amenities, hotel-policies, price-calendar, travel, travel-data, lodging, accommodation, rate-shopping, multi-currency, price-monitoring, price-comparison, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-academy",
+      "description": "Academy Sports + Outdoors API for Academy (academy.com, the US sporting goods retailer; 21 states, USD) - Academy prices and store stock, every variant of a product with its own price, Academy's struck-through price, saving, percent off, UPC and online units (the YETI DuraCoat Rambler 20 oz Tumbler read 24 variants from $19.97 to $40, one color $24.50 against $35, 30% off, with 1,482 units to ship), the exact units of every variant at one Academy store for pickup (store 19 in Houston, TX held 51 units across 14 of the 24 variants), and the ship-to-store units and the nearest other store with stock; prices are national (the same at every store); keyword search, category listings and the Hot Deals, Clearance, Black Friday (with its sub-shops) and Flash Sale listings, 29 organic results per page with total and pages, sponsored placements kept apart, sorted by relevance, best selling, newest, top rated or price and filtered by any facet (brand, product type, color, deals, size) and a price range; Academy's minimum-advertised-price flag where the lowest price shows only in the cart; firearms and ammunition with Academy's own notices and flags, as Academy presents them; stores near a ZIP or a point with hours, services and pickup flags, up to 20 stores by id; the category navigation and search suggestions. 9 endpoints, 1 credit per call. No review text (rating and count only), weekly ad, price history or checkout.",
+      "tags": "academy, academy-sports, academy-sports-outdoors, academy-com, academy-api, academy-sports-api, academy-prices, academy-store-stock, academy-in-stock, academy-store-availability, academy-inventory, academy-deals, academy-hot-deals, academy-clearance, academy-black-friday, academy-flash-sale, academy-stores, academy-store-hours, academy-categories, academy-search, academy-suggestions, sporting-goods, outdoor-gear, hunting, fishing, camping, coolers, drinkware, athletic-shoes, fitness, per-variant-prices, store-stock, inventory, upc, variant-data, clearance-tracker, price-monitoring, product-search, product-data, category-browse, us-retail, usd, agents, ai-agents, structured-data, json, mcp"
+    },
+    {
+      "dir": "scavio-bathandbodyworks",
+      "description": "Bath & Body Works API for Bath & Body Works (bathandbodyworks.com, the US body care and home fragrance retailer, and bathandbodyworks.ca in English, CAD) - Bath & Body Works prices and promotions, the price and list price of every product with the offers attached to it and their exact start and end times and terms as the site gives them (the Into the Night Gift Set read $92.95 with \"$40 with any $40 purchase | $130.90 value\", running 2026-11-26 11:00 to 2026-11-27 11:00 UTC), the home page's offer cards and the Top Offers tiles (15 offer cards and 2 tiles on Black Friday, \"Buy 3 get 4 FREE\" on the entire store), and whether one store takes a pickup order for a product with the store's pickup purchase limit (store BBW00010 in San Antonio, TX took pickup orders with a limit of 24); prices are national; keyword search and category pages, including deal pages such as Top Offers and Black Friday, the 48 results the site shows with its own total, sorted by relevance, price, top rated or new arrivals and filtered by fragrance name, fragrance family and product type; one product in full with fragrance notes, ingredients, UPC and online purchase limit (every size is its own product id); the Canadian product and its matching US id (Champagne Toast 3-Wick Candle $24.95 USD and $26.95 CAD); every store id in the directory (114 in Canada) and one store's address, phone, hours and services; a product's rating, review count and 4 newest reviews without reviewer names; the category tree. 10 endpoints, 1 credit per call. No stock counts, store search by ZIP, page 2, search suggestions, full review paging or price history.",
+      "tags": "bath-and-body-works, bathandbodyworks, bath-and-body-works-api, bbw, bbw-api, bath-and-body-works-prices, bath-and-body-works-promotions, bath-and-body-works-offers, bath-and-body-works-deals, bath-and-body-works-black-friday, bath-and-body-works-buy-3-get-4, bath-and-body-works-candles, bath-and-body-works-3-wick-candle, bath-and-body-works-store-pickup, bath-and-body-works-stores, bath-and-body-works-store-hours, bath-and-body-works-reviews, bath-and-body-works-fragrances, bath-and-body-works-canada, white-barn, candles, 3-wick-candles, body-care, body-lotion, home-fragrance, wallflowers, fragrance-notes, promotions, promo-dates, store-pickup, upc, product-search, product-data, category-browse, price-monitoring, us-retail, canada-retail, usd, cad, agents, ai-agents, structured-data, json, mcp"
+    },
+    {
+      "dir": "scavio-gap",
+      "description": "Gap and Old Navy API for Gap Inc. (gap.com, the US apparel company; one API for Gap, Old Navy, Banana Republic, Athleta, Gap Factory and Banana Republic Factory, picked with `brand`) - what a style costs today as each banner shows it, the list price next to the price shown with Gap's own price type (regular, promotion or markdown) and percent off (Gap's Mid Rise UltraSoft Baggy Jeans read $35 against $89.95, promotion, 61% off; an Old Navy tunic sweater $19.99 against $39.99 with \"50% Off Black Friday Deal!\"), every size of every color with its own price, online stock status (in stock, low stock, out of stock, on order) and UPC, the pickup stock bucket (in stock, low stock or out of stock, never a count) of up to 20 SKUs at up to 10 stores, and current prices for up to 100 colors across banners in one call; keyword search up to 200 per page sorted by featured, price, rating or best sellers and filtered by department, sale or clearance, color, price, rating, a pickup store or any facet; category listings with each color's online unit count (Old Navy's Shop All Clearance read 2,481 colors, a girls' sweatshirt $7.47 against $29.99, markdown 75%, 5,787 online units); the banner's menu tree, its promo drawer offers as worded (Gap's \"Black Friday 50% off sitewide\", \"Applied at checkout\") and its sale and clearance links; stores near a ZIP or postal code with hours, dated holiday hours and pickup; one store; search suggestions and trending searches. US (USD) and Canada (CAD, English or French). 11 endpoints, 1 credit per call. A checkout code is never applied to a price; no review texts, no store unit counts, no per-store price, no price history, no promo end dates.",
+      "tags": "gap, gap-inc, gap-com, gap-api, old-navy, old-navy-api, old-navy-prices, banana-republic, banana-republic-api, athleta, athleta-api, gap-factory, banana-republic-factory, gap-prices, gap-sale, gap-clearance, gap-black-friday, gap-store-stock, gap-in-stock, gap-stores, gap-canada, old-navy-canada, gapcanada, gap-deals, gap-promo, gap-jeans, apparel, clothing, fashion-retail, apparel-prices, size-availability, store-stock, pickup-availability, upc, variant-data, price-monitoring, markdown-tracking, clearance-tracker, product-search, category-browse, autocomplete, trending-searches, us-retail, canada-retail, usd, cad, agents, ai-agents, structured-data, json, mcp"
+    },
+    {
+      "dir": "scavio-rakuten",
+      "description": "Rakuten Cashback API for Rakuten (rakuten.com, the cashback site, formerly Ebates; Rakuten UK at rakuten.co.uk in GBP and Rakuten Canada at rakuten.ca in CAD, English or French) - the cash back rate every store pays right now as Rakuten writes it, with the was rate that marks a raised rate (Macy's read 12% Cash Back, was 2%, plus $10 In-Store; Expedia Up to 12%, was 3%; Kohl's 2%), the in-store card-linked rate, the per-category rates and Rakuten's own terms and exclusions (Macy's terms put Furniture & Mattresses at 1.5%), when cash back posts, and the store's coupons and deals with codes; the full store directory, 36 a page (3,208 stores on rakuten.com on 2026-11-26), sorted by highest cash back, Rakuten's order or A to Z and filtered by category (us) or by department and raised, top, new, Canadian or buy-now-pay-later flags (ca); current rates for up to 100 store ids in one call; search for a store, brand or product (top store, stores that carry it, coupons and product deals with sale and was price); search box suggestions; a category's stores and featured sections; the Black Friday, Cyber Monday and coupons event pages and a store's own Black Friday page; the card-linked in-store offers, 21 a page, with Rakuten's terms. 9 endpoints, 1 credit per call. Rakuten gives no end date for a cash back rate and no coupon end dates on US and UK; shopping-trip links are never returned; no rate history, no member account, no Rakuten Japan.",
+      "tags": "rakuten, rakuten-cashback, rakuten-api, rakuten-rewards, ebates, rakuten-cash-back-rates, rakuten-stores, rakuten-coupons, rakuten-promo-codes, rakuten-deals, rakuten-black-friday, rakuten-cyber-monday, rakuten-in-store, rakuten-uk, rakuten-canada, rakuten-ca, rakuten-co-uk, rakuten-double-cash-back, rakuten-store-rates, cashback, cash-back, cashback-rates, cashback-tracker, cashback-comparison, rewards, coupons, promo-codes, coupon-codes, deals, black-friday-deals, card-linked-offers, affiliate-research, retail-promotions, price-monitoring, us-retail, uk-retail, canada-retail, usd, gbp, cad, agents, ai-agents, structured-data, json, mcp"
+    },
+    {
+      "dir": "scavio-bjs",
+      "description": "BJ's Wholesale Club API for BJ's (bjs.com, the US warehouse club; USD) - BJ's online prices, instant savings and coupons as BJ's shows them to a visitor (Scotch-Brite lint rollers, 4 pk. read $9.99 against a $12.99 regular price, $3 savings, offer from 2026-11-12 to 2026-12-25; Folgers Classic Roast 43.5 oz. $24.79 with a \"$4.00 off\" coupon and 15,079 bought last month), with the club price and club sale of the club BJ's assigned to the visit where it gives one (priced_for Jersey City, NJ, club 0044, on a TV category, a Samsung 75\" TV $599.99 with a $397.99 sale to 2026-11-30); member-only items are flagged (member_only_price true) and carry the list price only, never a hidden member price; club-only items carry price null; keyword search and category listings, the first 40 results with BJ's total (125 for coffee) and facets, departments and related searches; one product by id or link with UPC, model, regular price, savings, offer dates, unit price, every variant and the clubs eligible for same-day delivery, pickup, ship from club and EBT; the full category tree (982 categories, 13,503 products); reviews 10 per page with the rating histogram, recommend ratio and BJ's own AI review summary, plus page 1 of Q&A, no reviewer names; BJ's guest coupon book (268 of 567 offers loaded, value, limit, expiry, qualifying UPCs); the club directory (283 clubs in 22 states, openings included). 7 endpoints, 1 credit per call. US only. No price or stock at a club you choose, no ZIP club finder, no member prices, no results past the first 40, no gas prices, no price history.",
+      "tags": "bjs, bjs-wholesale, bjs-wholesale-club, bjs-wholesale-club-api, bjs-api, bjs-com, bjs-prices, bjs-club-prices, bjs-instant-savings, bjs-coupons, bjs-coupon-book, bjs-deals, bjs-black-friday, bjs-reviews, bjs-categories, bjs-clubs, bjs-club-directory, bjs-search, bjs-product-data, bjs-same-day-delivery, bjs-ebt, wellsley-farms, warehouse-club, warehouse-club-prices, bulk-prices, wholesale-prices, grocery-prices, instant-savings, manufacturer-coupons, product-search, product-data, product-reviews, category-browse, upc, us-retail, usd, price-monitoring, agents, ai-agents, structured-data, json, mcp"
+    },
+    {
+      "dir": "scavio-zappos",
+      "description": "Zappos API for Zappos (zappos.com, the US shoe and clothing store, an Amazon company) and 6pm (6pm.com, the Zappos outlet site; USD) - the price of every color and the exact warehouse units of every size, width and color as Zappos reports them (Brooks Adrenaline GTS 25, product 10002909, read 22 colors and 512 sizes, 114 in stock with 5,995 units; Grey/Blackened Pearl/Coral at $109.95 against an original $155, 29% off, 1,547 units, size 8 B - Medium 143), with UPC and ASIN per size, out-of-stock colors and sizes priced null as Zappos shows them, and reviewers' fit answers (78% felt true to size, 84% true to width); keyword or whole-catalog search with one value per facet (brand, gender, category, size, width, color, price band, on sale, any attribute) sorted by relevance, price, percent off, rating, newest or best sellers, up to 100 per page to page 2,000 (running shoes read 7,142 results), plus a sale mode by percent off; one product by product id, style id, stock id or ASIN; customer reviews 25 per page with comfort, look, size, width and arch ratings and no reviewer names (Hoka Bondi 9 read 2,558 reviews); every customer question with answers and Zappos staff answers flagged; the lowest price Zappos gives for each color (never a dated low); the department, category and subcategory tree with counts; search suggestions. 6pm for search, product, categories and suggestions (prices and stock differ from zappos.com). 7 endpoints, 1 credit per call. No stores or store stock, no reviews or questions on 6pm, no price history, no checkout.",
+      "tags": "zappos, zappos-com, zappos-api, zappos-prices, zappos-shoes, zappos-sale, zappos-stock, zappos-inventory, zappos-sizes, zappos-reviews, zappos-questions, zappos-lowest-price, zappos-search, zappos-categories, zappos-suggestions, zappos-black-friday, 6pm, 6pm-com, 6pm-outlet, 6pm-prices, shoe-prices, running-shoes, sneakers, boots, shoe-sizes, shoe-widths, size-availability, size-stock, fit-reviews, true-to-size, upc, asin, footwear, apparel, product-search, product-data, product-reviews, category-browse, autocomplete, us-retail, usd, price-monitoring, agents, ai-agents, structured-data, json, mcp"
+    },
+    {
+      "dir": "scavio-newegg",
+      "description": "Newegg API for Newegg (newegg.com, the US computer and electronics store; newegg.ca and 9 Newegg Global storefronts) - what a CPU, GPU, SSD or laptop costs on Newegg today and who else sells it, as Newegg shows it (on 2026-11-26 the AMD Ryzen 7 9800X3D, item 19-113-877, read $439.99 after a $67 instant rebate off a $506.99 struck-through price, Newegg's own 30-day low $369.99, a separate \"$70 off w/ promo code BFF36\" that applies at checkout and is never taken off the price, and 28 seller offers from $418.99, a marketplace seller's; the same item read $549.99 CAD on newegg.ca) with list price, instant rebate, Newegg's lowest price in 30 days, promo code and expiry, Black Friday and Shell Shocker badges, stock and quantity limit, shipping, UPC and MPN; keyword search, category listings and seller storefronts, 36 to 60 per page to page 100, in Newegg's 6 sorts and filtered by sold by Newegg, in stock, condition, open box, lowest price in 30 days, 40 percent off or any brand, spec and price facet; one item in full with specs, variants, warranty, the reviews and questions on the page; every seller's offer on one item, new or used, with seller ratings and delivery days; reviews 25 per page with stars, pros and cons, verified-owner marks and no reviewer names; Shell Shocker daily deals with the countdown end and the Black Friday store; a marketplace seller's store rating and return policy; the department tree and search-box suggestions. When Newegg's own unit is unavailable the page serves a marketplace offer, and the answer shows the requested and the served item. Storefronts us (USD), ca (CAD) and uk, au, nz, jp, ph, sg, kr, th, mx (local currency, part of the catalog). 10 endpoints, 2 credits per call. No price history, no live price check at checkout, no Newegg Business prices, no cart or checkout.",
+      "tags": "newegg, newegg-com, newegg-ca, newegg-api, newegg-prices, newegg-price-tracker, newegg-search, newegg-product, newegg-offers, newegg-sellers, newegg-marketplace, newegg-reviews, newegg-deals, newegg-shell-shocker, newegg-black-friday, newegg-open-box, newegg-global, newegg-canada, gpu-prices, cpu-prices, graphics-cards, rtx-5070, ryzen, pc-parts, pc-components, ssd-prices, gaming-laptops, computer-hardware, electronics, marketplace-sellers, buy-box, instant-rebate, promo-codes, lowest-price-30-days, upc, mpn, price-monitoring, price-comparison, competitor-research, multi-currency, usd, cad, agents, ai-agents, structured-data, json, mcp"
+    },
+    {
+      "dir": "scavio-rei",
+      "description": "REI API for REI (rei.com, the US outdoor co-op) - what outdoor gear costs at REI today and whether the REI stores near you have it for pickup, as REI shows it to a visitor who is not signed in (on 2026-11-26 the REI Co-op Half Dome 2 Tent with Footprint read $329 in 3 colors, each SKU with its own price, UPC and online status, REI's own estimate of a $32.90 (10%) co-op member reward, 365-day returns and 62 reviews at 4.23 stars; SKU 2437020001 was in stock for pickup at 8 of the 9 REI stores nearest Seattle ZIP 98101, Seattle Flagship 0.71 miles away first, and free shipping to Lynnwood) with the current price, compare-at price, percent off, REI's own savings text, sale, clearance and REI Outlet flags, Just for Members items flagged, dated promo flair (Sale Ends Dec 1), badges (Top Rated, Staff Pick, New arrival), colors and sizes with SKU ids; keyword search, category listings and the deals or REI Outlet listings (7,974 deals and 3,654 outlet items captured), 30 or 90 per page to page 400, in REI's 9 sorts and filtered by any facet (brand, price, rating, best use, features, size, color) and by one store; one product in full with features, specs, every SKU, the rating histogram, fit ratings and questions with answers; reviews 10 per page in 5 sorts with a star filter, verified, incentivized and syndicated flags and brand responses, without reviewer names; the store pickup status of one SKU (in stock, ship to store or unavailable, with REI's estimated arrival) at the 4-10 stores nearest a ZIP, a city and state or a point; the stores near a ZIP or point with upcoming special hours (Thanksgiving and",
+      "tags": "rei, rei-com, rei-co-op, rei-api, rei-prices, rei-price-tracker, rei-sale, rei-deals, rei-outlet, rei-clearance, rei-store-stock, rei-in-stock, rei-store-pickup, rei-stores, rei-store-hours, rei-reviews, rei-search, rei-product, rei-members, rei-member-reward, rei-optoutside, outdoor-gear, camping-gear, hiking-gear, backpacking, tents, rain-jackets, hiking-boots, ski-gear, climbing-gear, cycling, outdoor-retail, store-availability, store-pickup, sku-data, upc, product-reviews, product-search, category-browse, autocomplete, us-retail, usd, price-monitoring, competitor-research, agents, ai-agents, structured-data, json, mcp"
     }
   ],
   "groups": [
