@@ -457,6 +457,18 @@
       "credits": "1"
     },
     {
+      "dir": "scavio-rona",
+      "slug": "rona-api",
+      "name": "rona-api",
+      "display": "RONA API - Store Prices, Lumber, Stock, Deals",
+      "query": "rona api",
+      "reused": "no",
+      "platform": "RONA",
+      "group": "Commerce",
+      "endpoints": "9",
+      "credits": "prices, categories, stores, store 1; search, deals 2-3; category 1-3; product, stock 3"
+    },
+    {
       "dir": "scavio-dollargeneral",
       "slug": "dollar-general-api",
       "name": "dollar-general-api",
@@ -1775,6 +1787,11 @@
       "dir": "scavio-marks",
       "description": "Mark's API for Mark's (marks.com, the Canadian workwear, casual clothing and footwear retailer, a Canadian Tire Corporation banner; L'Equipeur in French) - Mark's Work Wearhouse prices in Canadian dollars with the was price and sale label Mark's shows, the sale's posted end date (sale_ends) and Mark's own was-price footnote (\"Was price reflects the last national regular price this product was sold for.\"), to set the same work boot, jacket or pant next to Amazon.ca and Walmart.ca; keyword search and any category or deals page by path, 24 per page (12 on category pages) with total and pages, sorted by relevance, price or rating and filtered by brand, sale or clearance and any of Mark's own filters (gender, shoe size, width, CSA features, colour, rating, price band) with their counts; per-colour prices and online units; one product by code or link with every colour, size and width (own price, was price, sale end date, units online and units at the store Mark's assigns to the request's region, which a caller cannot choose), specifications, features and breadcrumbs; the newest 10 customer questions with answers (brand answers flagged, no asker names); search suggestions; one store with hours and up to 49 nearby stores; the brand list and the category tree. language fr reads L'Equipeur (lequipeur.com, the same product codes and CAD prices, French titles) on search, list, product, brands and categories. 8 endpoints, 1 credit per call; calls take about 10-90 seconds. Not available - customer reviews (rating and review count only), choosing a store, stores near a postal code, the flyer, Triangle Rewards or CT Money prices, UPC, price history, cart or checkout.",
       "tags": "marks, marks-com, marks-api, marks-work-wearhouse, marks-work-warehouse, mark-s, lequipeur, l-equipeur, marks-prices, marks-sale, marks-was-price, marks-sale-end-date, marks-black-friday, marks-clearance, marks-work-boots, marks-workwear, marks-stock, marks-questions, marks-product-data, marks-brands, marks-categories, marks-stores, dakota-workpro, helly-hansen-workwear, carhartt, work-boots, workwear, workwear-prices, canadian-tire-corporation, canada, canadian-retail, cad, cad-prices, french, quebec, price-comparison, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-rona",
+      "description": "RONA API for RONA (rona.ca, the Canadian home improvement retailer - RONA+ and RONA stores, about 425 corporate and affiliated dealer stores per RONA inc.) - RONA store prices in Canadian dollars to set next to Home Depot Canada for the same item (the same grade and length, or the same model) in the same city, at named stores on one date, with units; up to 60 article numbers priced at one RONA store in one call with price, regular price, rebate, on-sale flag, exact store units (null means RONA shows no count, not zero), distribution-centre and parcel units, aisle, UPC and model (lumber and panels can be priced differently by store - a 2-in x 4-in x 8-ft SPF Select board read 4.35 CAD at a Quebec store, 4.22 in Ontario and 4.19 in Alberta on Nov 26, 2026); keyword search, any category and RONA's weekly deals or clearance, 24, 48 or 96 a page with total and pages, six sorts on search and category, RONA's filters (brand, price band, rating, on sale, clearance, Buy in Bulk, in-store or online-only products) with counts, priced at the store_id you send or at the store RONA's site picks for the visit; one product with specifications, UPC, the sale end as RONA shows it (\"until Dec 10th, 2026\") plus an ISO date when unambiguous, the store's units and aisle, rating and review count; the 403 stores on RONA's store locator filtered by province, city and banner (RONA+ or RONA) or nearest a latitude and longitude; one store with hours, special hours and departments; the units at the RONA stores near a store or point for one article; the department tree. English or French. 9 endpoints, 1-3 credits per call (prices, categories, stores and store 1; search and deals 2, 3 with store_id, search 2 more when RONA redirects the term; category 2-3, or 1 by family_id at a store; product and stock 3). Not available - review text, search suggestions, postal-code store lookup, the flyer, price history, cart or checkout.",
+      "tags": "rona, rona-ca, rona-api, rona-plus, rona-prices, rona-store-prices, rona-lumber-prices, rona-stock, rona-deals, rona-clearance, rona-stores, rona-product-data, rona-categories, home-depot-canada, canadian-tire, canada, canadian-retail, quebec, french, cad, cad-prices, home-improvement, hardware, lumber-prices, building-materials, store-prices, store-inventory, in-store-stock, aisle-location, price-comparison, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-dollargeneral",
