@@ -28,7 +28,7 @@ call below. The whole path from nothing to a working key is self-serve:
 
 1. Sign up at [dashboard.scavio.dev](https://dashboard.scavio.dev/sign-up?utm_source=agent-skills&utm_medium=skill&utm_campaign=cvs-product-data) - email or Google, no card required.
 2. A key is created for the account automatically at signup. It is on the dashboard under API Keys, ready to copy.
-3. A new account starts with 50 credits. Every endpoint in this skill costs 1 credit.
+3. A new account starts with 50 credits. Search and stock cost 1 credit per call, product 2.
 
 When the balance runs out the API answers `402` with a JSON body carrying
 `billing_url`. Topping up needs no code change - the same key keeps working.
@@ -41,12 +41,12 @@ Authorization: Bearer $SCAVIO_API_KEY
 
 ## Endpoints
 
-Base URL: `https://api.scavio.dev`. All CVS endpoints cost **1 credit**.
+Base URL: `https://api.scavio.dev`. Search and stock cost **1 credit**, product **2 credits**.
 
 | Endpoint | Credits | What it returns |
 |---|---|---|
 | `POST /api/v1/cvs/search` | 1 | Up to 48 products per page: product id and SKU id, name, brand, URL, regular and sale price, unit price, promotion text, rating, review count, size, image, coupons (ExtraBucks rewards and manufacturer coupons), and stock at one store (in store, pickup) plus online ship stock. Brand, price-range and rating facets |
-| `POST /api/v1/cvs/product` | 1 | One product by URL or id: regular and sale price, unit price, promotion and its end date, rating, review count, UPC, size, description, highlights, ingredients, directions, warnings, attributes, breadcrumbs, images and every variant (SKU id, UPC, size, price, rating) |
+| `POST /api/v1/cvs/product` | 2 | One product by URL or id: regular and sale price, unit price, promotion and its end date, rating, review count, UPC, size, description, highlights, ingredients, directions, warnings, attributes, breadcrumbs, images and every variant (SKU id, UPC, size, price, rating) |
 | `POST /api/v1/cvs/stock` | 1 | Units at one store for up to 20 SKUs: in store, pickup and online ship stock |
 
 ## Workflow

@@ -65,7 +65,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Carrefour | [carrefour-api](references/carrefour-api.md) | 9 | 1; Belgium search and product 2 |
 | Chewy | [chewy-product-data](references/chewy-product-data.md) | 2 | 10 |
 | Costco | [costco-product-data](references/costco-product-data.md) | 13 | 1; US search, category, deals and clearance 2; multi-warehouse prices, stock and gas scale with warehouse count |
-| CVS | [cvs-product-data](references/cvs-product-data.md) | 3 | 1 |
+| CVS | [cvs-product-data](references/cvs-product-data.md) | 3 | 1; product 2 |
 | Decathlon | [decathlon-product-data](references/decathlon-product-data.md) | 2 | 2 |
 | Depop | [depop-api](references/depop-api.md) | 14 | 1; product 2 outside the US; nz 5, product 6 |
 | Dermstore | [dermstore-skincare-prices-api](references/dermstore-skincare-prices-api.md) | 7 | 1 |
