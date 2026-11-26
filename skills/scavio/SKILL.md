@@ -107,6 +107,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | O'Reilly Auto Parts | [oreilly-auto-parts-api](references/oreilly-auto-parts-api.md) | 14 | 2; product by part number, ZIP lookups, brand index and deals 4, cross-reference 2-6 |
 | OfferUp | [offerup-api](references/offerup-api.md) | 5 | 1; listing 2 when it needs a second fetch |
 | OLX | [olx-api](references/olx-api.md) | 9 | 1 |
+| PC Express (Superstore, No Frills, Loblaws, Maxi) | [loblaws-grocery-prices-api](references/loblaws-grocery-prices-api.md) | 7 | 1; product 5 (1 from the search listing), store 5 |
 | Petco | [petco-product-data](references/petco-product-data.md) | 5 | 1 |
 | PetSmart | [petsmart-product-data](references/petsmart-product-data.md) | 6 | 1 |
 | Poshmark | [poshmark-api](references/poshmark-api.md) | 15 | 1 |

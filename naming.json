@@ -1453,6 +1453,18 @@
       "credits": "1; search 3, cross-search 3-4"
     },
     {
+      "dir": "scavio-pcexpress",
+      "slug": "loblaws-grocery-prices-api",
+      "name": "loblaws-grocery-prices-api",
+      "display": "Loblaws Grocery Prices API - Superstore, No Frills, Maxi, Deals, PC Express",
+      "query": "loblaws grocery prices",
+      "reused": "no",
+      "platform": "PC Express (Superstore, No Frills, Loblaws, Maxi)",
+      "group": "Commerce",
+      "endpoints": "7",
+      "credits": "1; product 5 (1 from the search listing), store 5"
+    },
+    {
       "dir": "scavio-oreilly",
       "slug": "oreilly-auto-parts-api",
       "name": "oreilly-auto-parts-api",
@@ -2202,6 +2214,11 @@
       "dir": "scavio-instacart",
       "description": "Instacart API for Instacart (instacart.com, the US and Canada grocery delivery and pickup marketplace) - Instacart prices by store at a ZIP, one product priced at every store delivering to a US ZIP or Canadian postal code (the same product id at 153 stores at ZIP 10001, low to high, with the sale price, the regular price and Instacart's No markups flag), every store serving a ZIP with its delivery and pickup ETA, No markups and EBT labels; search one store with prices, sale price and regular price, unit price, loyalty price, multi-buy offers, stock label and dietary labels, sorted by price, filtered to sale items or a brand and paged through every match, priced for delivery, pickup or Instacart's in-store prices, so a delivery price can sit next to the same store's in-store price; every price carries priced_for with the retailer's pricing label as Instacart shows it; one query priced across up to 10 stores at a US ZIP; one product at one store with ingredients, allergen warnings, key nutrients and the rating summary; the department and aisle tree, an aisle or collection, the store's Sales collection, pickup locations with 7 days of hours, search suggestions and US customer reviews (15 a page, source and incentivized flag, no reviewer names). Canada (instacart.ca, CAD) in English or French. 11 endpoints, 1 credit per call, search 3, cross-search 3-4. No delivery or service fee amounts, order minimums, coupons, Instacart+ prices, price history or checkout.",
       "tags": "instacart, instacart-com, instacart-ca, instacart-api, instacart-prices, instacart-price-api, instacart-price-comparison, instacart-prices-by-zip, instacart-vs-in-store, instacart-in-store-prices, instacart-markup, instacart-no-markups, instacart-pricing-policy, instacart-retailers, instacart-stores, instacart-deals, instacart-sales, instacart-search, instacart-product, instacart-reviews, instacart-canada, instacart-costco, instacart-wegmans, grocery, grocery-prices, grocery-price-api, grocery-price-comparison, grocery-prices-by-zip, grocery-delivery, store-prices, unit-price, ebt, us-retail, canada, price-monitoring, usd, cad, agents, ai-agents, structured-data, json, mcp"
+    },
+    {
+      "dir": "scavio-pcexpress",
+      "description": "Loblaws grocery prices API for PC Express (Loblaw's online grocery for Real Canadian Superstore, No Frills, Loblaws, Zehrs, Fortinos, Valu-mart, Your Independent Grocer, Wholesale Club, Provigo and Maxi; Loblaw operates 2,504 stores per its 2025 annual report) - what each Loblaw banner charges for the same product code at its default online store on one date, in Canadian dollars, with the deal, its end date and the PC Optimum points offer as PC Express shows them (No Name Large Size Eggs 12 Pack, code 20812144001_EA, read 3.93 at Real Canadian Superstore store 1033 and No Frills store 3787 and 4.17 at Maxi store 8976 on Nov 26, 2026); keyword search, any category and any collection (deals-centre, black-friday, no-name ...), 48 a page with total and pages, five sorts and the site's filters (brand incl. No Name and President's Choice, price reduction, PC Optimum points, multi-buy, member-only price, $1-$5, price band, Prepared in Canada, dietary) with counts; each item with price, was price, unit price, deal type, text, deal price and expiry date, PC Optimum points, the member-only price PC Express shows publicly, stock status, rating, review count and the sponsored flag; one product with GTIN, ingredients, nutrition, comparison prices and stock status; each banner's pickup stores by city, postal code start, province or nearest a point; one store with 7 dated days of store, pharmacy and optical hours plus clinic hours; search suggestions. Every price is the banner's default online store, named in every answer (choosing a store is not offered). English, or French on Provigo and Maxi. 7 endpoints - search, category, collection, stores and suggestions 1 credit; product 5 (1 when answered from the search listing); store 5. Not available - choosing a store, review text, the flyer, Shoppers Drug Mart, Atlantic Superstore, City Market, T&T, PC Optimum login prices, deal start dates, price history, cart or checkout.",
+      "tags": "loblaws, loblaws-api, loblaws-grocery-prices, loblaw, loblaw-banners, pc-express, pc-express-api, pcexpress, real-canadian-superstore, superstore, superstore-api, superstore-prices, no-frills, no-frills-api, no-frills-prices, zehrs, fortinos, valu-mart, your-independent-grocer, wholesale-club, provigo, maxi, pc-optimum, pc-optimum-points, no-name, presidents-choice, grocery, grocery-prices, grocery-price-api, canadian-grocery-prices, canada, cad, french, quebec, unit-price, grocery-deals, store-locator, nutrition, gtin, price-comparison, price-monitoring, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-oreilly",
