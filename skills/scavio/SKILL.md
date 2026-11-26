@@ -113,7 +113,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Publix | [publix-api](references/publix-api.md) | 11 | 1 |
 | Saks Fifth Avenue | [saks-fifth-avenue-api](references/saks-fifth-avenue-api.md) | 9 | 2 |
 | Sam's Club | [sams-club-product-data](references/sams-club-product-data.md) | 6 | 2; clubs 1 |
-| Sephora | [sephora-product-data](references/sephora-product-data.md) | 3 | 1; product 2 |
+| Sephora | [sephora-product-data](references/sephora-product-data.md) | 9 | US 1 (product 2); Canada 1 (product and offers 2) |
 | Spec's | [specs-liquor-prices](references/specs-liquor-prices.md) | 3 | 5 |
 | SportChek | [sportchek-api](references/sportchek-api.md) | 8 | 1 |
 | Staples | [staples-ink-prices-api](references/staples-ink-prices-api.md) | 12 | 1 |
