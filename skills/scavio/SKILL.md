@@ -83,6 +83,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Dollar Tree | [dollar-tree-bulk-prices-api](references/dollar-tree-bulk-prices-api.md) | 10 | 1; stores 5 |
 | Douglas | [douglas-beauty-api](references/douglas-beauty-api.md) | 10 | 1 (Italy 2); variant EANs +1 each |
 | eBay | [ebay-product-data](references/ebay-product-data.md) | 3 | 1 |
+| Edmunds | [edmunds-api](references/edmunds-api.md) | 8 | 2 |
 | Etsy | [etsy-product-data](references/etsy-product-data.md) | 5 | 2 |
 | Fanatics | [fanatics-merchandise-api](references/fanatics-merchandise-api.md) | 5 | 1 |
 | Fashion Nova | [fashion-nova-api](references/fashion-nova-api.md) | 7 | 1 |
@@ -97,6 +98,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | IKEA | [ikea-api](references/ikea-api.md) | 12 | 1; compare 1 per market |
 | Instacart | [instacart-api](references/instacart-api.md) | 11 | 1; search 3, cross-search 3-4 |
 | JCPenney | [jcpenney-product-data](references/jcpenney-product-data.md) | 11 | 1 |
+| Kelley Blue Book | [kelley-blue-book-api](references/kelley-blue-book-api.md) | 8 | 1 (car value at a chosen ZIP 2 or 6; deep reviews 1 or 5) |
 | Kohl's | [kohls-product-data](references/kohls-product-data.md) | 9 | 2; stores 1 |
 | Kroger | [kroger-grocery-data](references/kroger-grocery-data.md) | 8 | 1; search and product 2, store prices 3 |
 | Lookfantastic | [lookfantastic-api](references/lookfantastic-api.md) | 7 | 1 |
@@ -138,6 +140,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | TikTok Shop | [tiktok-shop-api](references/tiktok-shop-api.md) | 8 | 1 |
 | Tractor Supply | [tractor-supply-prices-api](references/tractor-supply-prices-api.md) | 12 | 1; product 2 on a store's first lookup, store-prices 1 per 5 lookups (25 new stores 11) |
 | Trendyol | [trendyol-api](references/trendyol-api.md) | 12 | 1 |
+| TrueCar | [truecar-api](references/truecar-api.md) | 9 | 1 |
 | Ulta Beauty | [ulta-beauty-api](references/ulta-beauty-api.md) | 4 | 1 |
 | Uniqlo | [uniqlo-api](references/uniqlo-api.md) | 12 | 1; store stock by product 2; prices 1 per market |
 | Vevor | [vevor-api](references/vevor-api.md) | 11 | 1; prices 3 |
@@ -176,6 +179,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Google Flights | [google-flights-api](references/google-flights-api.md) | 1 | 1 |
 | Google Hotels | [google-hotels-api](references/google-hotels-api.md) | 2 | 1 |
 | Tripadvisor | [tripadvisor-reviews-api](references/tripadvisor-reviews-api.md) | 4 | 2 |
+| Vrbo | [vrbo-api](references/vrbo-api.md) | 3 | 2 per attempt (search 2-8, property and suggestions 2) |
 
 **Jobs and reviews**
 
@@ -194,7 +198,11 @@ Each row is one reference file. Open it before the first call to that platform. 
 |---|---|---|---|
 | Realtor.com | [realtor-com-property-data](references/realtor-com-property-data.md) | 6 | 1 |
 | Redfin | [redfin-property-data](references/redfin-property-data.md) | 3 | 1 |
+| Rent.com | [rent-com-api](references/rent-com-api.md) | 6 | 1 |
+| RentCafe | [rentcafe-api](references/rentcafe-api.md) | 6 | 1 |
 | Rightmove | [rightmove-property-data](references/rightmove-property-data.md) | 7 | 1 |
+| StreetEasy | [streeteasy-api](references/streeteasy-api.md) | 5 | 1 |
+| Trulia | [trulia-api](references/trulia-api.md) | 5 | 1 |
 | Zillow | [zillow-property-data](references/zillow-property-data.md) | 3 | 1 |
 
 **App stores**

@@ -85,6 +85,18 @@
       "credits": "1"
     },
     {
+      "dir": "scavio-vrbo",
+      "slug": "vrbo-api",
+      "name": "vrbo-api",
+      "display": "Vrbo API - Vacation Rental Prices, Property Details, Destination Search",
+      "query": "vrbo",
+      "reused": "no",
+      "platform": "Vrbo",
+      "group": "Travel",
+      "endpoints": "3",
+      "credits": "2 per attempt (search 2-8, property and suggestions 2)"
+    },
+    {
       "dir": "scavio-capterra",
       "slug": "capterra-reviews-api",
       "name": "capterra-reviews-api",
@@ -1165,6 +1177,54 @@
       "credits": "1"
     },
     {
+      "dir": "scavio-rentcom",
+      "slug": "rent-com-api",
+      "name": "rent-com-api",
+      "display": "Rent.com API - Rental Listings, Average Rent, Floor Plan Prices",
+      "query": "rent.com",
+      "reused": "no",
+      "platform": "Rent.com",
+      "group": "Real estate",
+      "endpoints": "6",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-trulia",
+      "slug": "trulia-api",
+      "name": "trulia-api",
+      "display": "Trulia API - Neighborhood Reviews, Home Listings, Market Data",
+      "query": "trulia",
+      "reused": "no",
+      "platform": "Trulia",
+      "group": "Real estate",
+      "endpoints": "5",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-streeteasy",
+      "slug": "streeteasy-api",
+      "name": "streeteasy-api",
+      "display": "StreetEasy API - NYC Rentals, Sales, Buildings, Market Data",
+      "query": "streeteasy",
+      "reused": "no",
+      "platform": "StreetEasy",
+      "group": "Real estate",
+      "endpoints": "5",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-rentcafe",
+      "slug": "rentcafe-api",
+      "name": "rentcafe-api",
+      "display": "RentCafe API - Rental Listings, Floor Plan Units, Rent Trends",
+      "query": "rentcafe",
+      "reused": "no",
+      "platform": "RentCafe",
+      "group": "Real estate",
+      "endpoints": "6",
+      "credits": "1"
+    },
+    {
       "dir": "scavio-screenshot",
       "slug": "website-screenshot-api",
       "name": "website-screenshot-api",
@@ -1753,6 +1813,42 @@
       "credits": "1"
     },
     {
+      "dir": "scavio-truecar",
+      "slug": "truecar-api",
+      "name": "truecar-api",
+      "display": "TrueCar API - Car Prices, Market Average vs MSRP, Dealer Inventory",
+      "query": "truecar",
+      "reused": "no",
+      "platform": "TrueCar",
+      "group": "Commerce",
+      "endpoints": "9",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-edmunds",
+      "slug": "edmunds-api",
+      "name": "edmunds-api",
+      "display": "Edmunds API - Car Listings, Suggested Price, Appraisal Values, Reviews",
+      "query": "edmunds",
+      "reused": "no",
+      "platform": "Edmunds",
+      "group": "Commerce",
+      "endpoints": "8",
+      "credits": "2"
+    },
+    {
+      "dir": "scavio-kbb",
+      "slug": "kelley-blue-book-api",
+      "name": "kelley-blue-book-api",
+      "display": "Kelley Blue Book API - KBB Car Values, Trade-In Values, Cars for Sale",
+      "query": "kelley blue book",
+      "reused": "no",
+      "platform": "Kelley Blue Book",
+      "group": "Commerce",
+      "endpoints": "8",
+      "credits": "1 (car value at a chosen ZIP 2 or 6; deep reviews 1 or 5)"
+    },
+    {
       "dir": "scavio-zillow",
       "slug": "zillow-property-data",
       "name": "zillow-property-data",
@@ -1812,6 +1908,11 @@
       "dir": "scavio-booking",
       "description": "Booking.com hotel data API: search a destination and stay for live nightly prices, review scores and star ratings, pull one property in full with rooms, rate plans, facilities and policies, and read guest reviews with per-category subscores. 3 endpoints, 1 credit each, structured JSON.",
       "tags": "booking-com, booking-com-hotel-data, hotel-prices, hotels, nightly-rates, accommodation, travel, rate-shopping, guest-reviews, ota-data, agents, langchain, crewai, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-vrbo",
+      "description": "Vrbo API for Vrbo (vrbo.com, Expedia Group's vacation rental site, 20 vrbo.com market-languages) - what a stay costs on Vrbo for your dates and guests, as Vrbo shows it (Destin, Florida for Jan 15-18, 2027 with 2 adults matched 395 rentals, and the first 50 ran from $81 to $457 a night and $243 to $1,371 for the 3 nights, all fees included) with the nightly price, the stay total, the strike-through price, Vrbo's fee line and deal text; vacation-rental search by place name or region id, check-in and check-out (up to 90 nights), adults and children's ages, 5 sorts and Vrbo's filters (property type, amenity, house rule incl. pets, location type, Premier Host, minimum bedrooms), the first 50 results of a search, each with its rating and review count, badges, sponsored flag, coordinates and images; one property in full by id or link, without dates, with its location, rating, highlights, bedrooms, bathrooms and sleeps, every amenity group, house rules, important information, description, the Premier Host badge and the host's languages (no host name), photos, nearby places and the site's default-stay price; destination suggestions with the region ids search takes. 3 endpoints, 2 credits per attempt Vrbo needs (search 2 to 8, property and suggestions 2). 20 market-languages, each in its own language and currency. No reviews, availability calendar, dated price on a property or results past the first 50.",
+      "tags": "vrbo, vrbo-com, vrbo-api, vrbo-prices, vrbo-search, vrbo-property, vrbo-listings, vrbo-rentals, vrbo-vacation-rentals, vrbo-nightly-rates, vrbo-amenities, vrbo-house-rules, vrbo-premier-host, vrbo-deals, vrbo-suggestions, expedia-group, vacation-rentals, vacation-rental-prices, holiday-rentals, short-term-rentals, cabin-rentals, beach-rentals, pet-friendly-rentals, nightly-rates, stay-total, travel, travel-data, lodging, accommodation, rate-shopping, multi-currency, price-monitoring, price-comparison, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-capterra",
@@ -2264,6 +2365,26 @@
       "tags": "rightmove, rightmove-api, uk-property, uk-real-estate, property-data, house-prices, sold-prices, sold-house-prices, property-for-sale, property-to-rent, lettings, estate-agents, tenure, epc, langchain, crewai, structured-data, json, ai-agents"
     },
     {
+      "dir": "scavio-rentcom",
+      "description": "Rent.com API for Rent.com (rent.com, the US rental listing site run by Redfin, and its sister site Apartment Guide, apartmentguide.com, which lists the same rentals) - Rent.com's current average rent per bed count for a US city with its year-on-year change, next to the rents the listings in that city ask, as Rent.com shows them (Austin, TX on Nov 26, 2026 - one-bedroom 1,099 USD a month, -25% year on year, two-bedroom 1,364, -25%, across 4,748 rentals with 23,832 available units), plus the monthly series Rent.com publishes on the page (it ended May 2025 in every capture), the rent distribution and nearby cities and neighborhoods with their averages; rental search by city and state, ZIP or neighborhood for apartments, houses, condos, townhouses or rooms, filtered by beds, baths, rent range, minimum square feet, pets, cheap or luxury, rent specials and up to 8 amenities, 6 sorts, 30 a page (50 on Apartment Guide), each listing with its lowest rent, rent per bed count, bed, bath and square-foot ranges, units available, rent specials, price-drop amounts, pet friendliness, highlighted amenities and the management company for paid listings; one listing in full with every floor plan and unit rent, deposit and availability date, fees, pet policies, parking, amenities, office hours, lease terms, income limits, schools, nearby places, walk, bike and transit scores and similar listings; one building's unit listings; search-box suggestions for places and properties; the cities Rent.com lists for a state. 6 endpoints, 1 credit per call. US only, USD. No phone numbers, emails or agent and landlord names, no reviews, no rent history beyond the series Rent.com publishes.",
+      "tags": "rent-com, rentcom, rent-com-api, apartment-guide, apartmentguide, rent-com-rentals, rent-com-listings, rent-com-search, rent-com-rent-trends, rent-com-average-rent, apartment-guide-listings, apartments-for-rent, rental-listings, rental-search, rent-prices, average-rent, rent-trends, rental-market, floor-plans, unit-availability, rent-specials, move-in-specials, price-drops, pet-policy, pet-friendly-apartments, apartment-amenities, houses-for-rent, condos-for-rent, rooms-for-rent, property-management-companies, us-rentals, real-estate, usd, rent-monitoring, market-research, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-trulia",
+      "description": "Trulia API for Trulia (trulia.com, Zillow Group's US home and neighborhood site) - what locals say about a US neighborhood, as Trulia's own resident survey and reviews show it, next to Trulia's market snapshot for it (the Upper East Side, New York page listed 16 What Locals Say statements with a minimum response count of 1,480, 84% saying people would walk alone at night, 277 resident reviews, and an October 2026 average sale price of $1.47M at a 98.2% sale-to-list ratio in a neutral market) with the safety statements, up to 40 resident reviews with category counts (no names), amenities, schools with GreatSchools ratings, commute time, home counts and price ranges, the boundary, nearby neighborhoods and the monthly median sale price since 2018; home search for sale, for rent or recently sold by ZIP, city or neighborhood, 40 homes a page, 7 sorts, beds, baths, price, size, year-built, HOA, property-type, keyword and pet filters, with the filters Trulia applied; one home by zpid with price and tax history, the Zestimate and rent estimate as Trulia shows them, features, payment estimate, price vs the area median and the neighborhood market, or one rental building with floor plans, available units, every listed fee and the pet policy; one school with GreatSchools sub-ratings, parent reviews (no names) and its assigned homes; place and school suggestions. 5 endpoints, 1 credit per call. US only, USD; Spanish on rental searches, buildings and neighborhoods. No crime data, no agent names or contacts, no neighborhood reviews past the 40 Trulia's page shows.",
+      "tags": "trulia, trulia-com, trulia-api, trulia-neighborhood, trulia-neighborhoods, trulia-reviews, trulia-what-locals-say, trulia-search, trulia-homes, trulia-rentals, trulia-sold, trulia-property, trulia-schools, trulia-market-trends, neighborhood-data, neighborhood-reviews, neighborhood-survey, local-reviews, resident-reviews, safety-survey, market-snapshot, median-sale-price, homes-for-sale, homes-for-rent, recently-sold, rental-buildings, floor-plans, rental-fees, school-ratings, greatschools, zestimate, zpid, real-estate, real-estate-data, property-data, us-real-estate, usd, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-streeteasy",
+      "description": "StreetEasy API for StreetEasy (streeteasy.com, Zillow Group's New York City real estate site covering NYC's five boroughs and North New Jersey) - what NYC rentals ask and what they net after free months, next to the monthly market data StreetEasy publishes for the same neighborhood (a one-bedroom at 482 Kent Avenue in Williamsburg asked 5,295 a month, 4,766 net effective with 1.5 months free on a 15-month lease, while StreetEasy's published median asking rent for Williamsburg one-bedrooms was 4,695 in October 2026); search for sale, for rent or sold in a borough, neighborhood, New Jersey city or all of NYC by price, bedrooms, bathrooms, size, home type, sale type, year built, 24 amenity filters, pets, ZIP, by owner and in contract, 7 sorts, each card with its asking price, net effective rent, months free and lease term, size, building type, status, brokerage and its placement (organic, featured or sponsored); one listing in full by link or by id with listing_type, with price changes, monthly maintenance, taxes and common charges, move-in fees, the unit's past listings and their events, and StreetEasy's recent-listing prices for that bedroom count in the area; one building with its year, floors, units, amenities, policies, developer and architect, NYC building class and evacuation zone, available and past listing counts and price ranges per bedroom count, its units on the market, transit and similar buildings; the building directory of an area; StreetEasy's monthly market data for NYC neighborhoods, boroughs and the city from 2010 (median sale price, median asking price and rent, inventory, sale-to-list ratio, recorded sales, days on market, share of price and rent cuts, price and rental indexes). 5 endpoints, 1 credit per call. NYC and North NJ, USD; market data for New York City only. No agent or landlord names or contacts, no no-fee filter, no reviews.",
+      "tags": "streeteasy, streeteasy-com, streeteasy-api, streeteasy-rentals, streeteasy-sales, streeteasy-sold, streeteasy-search, streeteasy-listing, streeteasy-building, streeteasy-buildings, streeteasy-market-data, nyc-real-estate, nyc-rentals, nyc-apartments, nyc-condos, nyc-co-ops, manhattan-rentals, brooklyn-rentals, queens-real-estate, jersey-city-rentals, hoboken, net-effective-rent, months-free, rent-concessions, median-asking-rent, median-sale-price, sale-to-list-ratio, rental-inventory, price-cuts, building-data, new-development, real-estate, real-estate-data, rental-market, usd, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-rentcafe",
+      "description": "RentCafe API for RentCafe (rentcafe.com, Yardi's US and Canada rental listing site) - RentCafe's average rent per bed type for a US city as RentCafe publishes it, next to the base rents the listings there ask (Austin, TX, last updated October 30, 2026 - 1,643 USD a month on average, -1.26% year on year, two-bedroom 1,818 for 1,065 sq ft, while a two-bedroom search capped at 2,000 counted 4,228 rentals and opened on two-bedroom rents of 1,404 and 1,345), with RentCafe's source line, rent and average size by bed type, budget share, renter and owner households, rent by neighborhood with the most affordable and most expensive, and compared cities; rental search in a US or Canadian city, ZIP, neighborhood or state for apartments, houses, condos or townhomes with one of beds, rent specials, short-term, furnished, utilities included or an amenity, plus a rent range and pet-friendly, 5 sorts, 25 a page, in English or French, each listing with its rent range and rent per bed type, rating and review count, pets, rent specials, units available, badges and the management company; one listing in full with every floor plan and up to 2 units each, deposit, application and pet fees, apartment and community amenities, building details, category ratings, RentCafe's own renters summary, office hours and the leasing office phone; every unit of one floor plan with its rent and move-in date; resident reviews, 10 a page (no names); location and property suggestions. 6 endpoints, 1 credit per call. US (USD) and Canada (CAD, English and French). No reviewer names, no rent history, no applications or tours, no Canada rent trends.",
+      "tags": "rentcafe, rentcafe-com, rentcafe-api, rentcafe-listings, rentcafe-search, rentcafe-rent-trends, rentcafe-average-rent, rentcafe-floor-plans, rentcafe-units, rentcafe-reviews, rentcafe-canada, apartments-for-rent, rental-listings, rental-search, rent-prices, average-rent, rent-trends, rental-market, floor-plans, unit-availability, move-in-dates, rent-specials, pet-fees, apartment-amenities, resident-reviews, apartment-reviews, houses-for-rent, condos-for-rent, townhomes-for-rent, property-management-companies, canada-rentals, us-rentals, french, real-estate, usd, cad, rent-monitoring, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
       "dir": "scavio-screenshot",
       "description": "Capture a full-page PNG screenshot of any public URL, returned inline as a base64 data:image/png URI ready to drop into an <img> tag. One endpoint, three capture tiers - normal and advanced at 1 credit, ultra for the hardest sites at 5. Only a successful capture is billed. Returns url, image, image_format, mode and image_bytes.",
       "tags": "website-screenshot, screenshot-api, url-to-screenshot, web-page-screenshot, full-page-screenshot, png, webpage-capture, visual-testing, website-preview, thumbnail, ocr-input, agent-tools, langchain, crewai, autogen, structured-data, json, ai-agents"
@@ -2507,6 +2628,21 @@
       "dir": "scavio-bringatrailer",
       "description": "Bring a Trailer API for Bring a Trailer (bringatrailer.com, the online collector-car auction site owned by Hearst) - BaT auction results and sold prices for one model, a model family or a make in one call, with sold count, reserve-not-met count, sell-through rate and min, max, median and average per currency (the BMW E30 M3 page read 490 completed results since 2014, 385 sold, sell-through 0.786, USD median sale 56,000, captured Nov 26, 2026); completed auctions searched by keyword or none with the site's four sorts and filters (sold or reserve not met, last 7 days to 5 years, model years, max bid, category, origin, era, no reserve, Premium, one make, model or location), up to 60 a page through the first 10,000 results of a query; one listing live or ended with the sale price from the \"Sold for\" result or the high bid of a lot under its reserve, bid count, views, watchers, location (no ZIP), seller type (dealer or private party), the listing details, photos, the same vehicle's earlier BaT results, the full bid history (amount, currency, time) and the comments (text, likes, seller flag), with no usernames and no VINs; every live auction (about 1,000) filtered by keyword, make, country, ending within N hours, no reserve and Premium; make, model and country pages with their live lots and latest results; search suggestions with the page ids the filters take. Amounts in each lot's own currency (USD, EUR, GBP), before the buyer's fee. 8 endpoints, 1 credit per call. No bidding, watchlists, member data, buyer's fee totals or price history beyond what the site shows.",
       "tags": "bring-a-trailer, bringatrailer, bringatrailer-com, bat, bat-auctions, bring-a-trailer-api, bring-a-trailer-results, bring-a-trailer-sold-prices, bring-a-trailer-price-history, bring-a-trailer-auctions, bring-a-trailer-live-auctions, bring-a-trailer-listing, bring-a-trailer-bids, bring-a-trailer-comments, bring-a-trailer-models, bring-a-trailer-makes, bat-sold-prices, bat-results, collector-cars, classic-cars, car-auctions, online-car-auctions, auction-results, sold-prices, hammer-prices, sell-through-rate, reserve-not-met, no-reserve, car-values, classic-car-values, enthusiast-cars, porsche-911, bmw-m3, land-cruiser, motorcycles, used-cars, price-monitoring, market-data, usd, eur, gbp, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-truecar",
+      "description": "TrueCar API for TrueCar (truecar.com, the US car-buying marketplace) - dealer advertised prices for new and used cars around a US ZIP next to TrueCar's own Starting MSRP and Starting Market Average per trim and its national average listed price per trim, as TrueCar labels them (the 2026 Ford F-150 XLT read a Starting MSRP of 48,490 USD and a Starting Market Average of 46,102.13, TrueCar's national average listed price for new F-150 XLTs was 60,668 across 8,315 listings, and a 2026 F-150 XLT SuperCrew 4WD near Dallas was advertised at 52,880 against an MSRP of 59,770 on Nov 26, 2026); new or used dealer inventory search around a US ZIP (required) with a radius, by make, model and trim or body style, 30 vehicles a page, TrueCar's 10 sorts and filters for model year, price, maximum mileage, drivetrain, colour, fuel type, accident-free and certified pre-owned, each vehicle with its advertised price, MSRP, TrueCar's price label and price rating as given, mileage, specs, accident and owner counts, days on market, the distance and the dealer; one listing by a VIN you supply with TrueCar's price breakdown (advertised price, the dealer's listed fees, dealer asking price), the AutoCheck flags TrueCar shows, warranties, specs and features and the dealer's hours; a model overview with trims, owner rating, specs and TrueCar's national new and used figures; owner reviews by generation with a star filter and text search (no names); a dealer's profile with hours, links and services and its new or used inventory; TrueCar's search suggestions; makes and models with slugs. 9 endpoints, 1 credit per call. US only, USD. No VIN returned, no price history, dealer reviews, dealer search near a ZIP, payment estimates or what others paid.",
+      "tags": "truecar, truecar-com, truecar-api, truecar-prices, truecar-market-average, truecar-price-rating, truecar-msrp, truecar-search, truecar-used-cars, truecar-new-cars, truecar-listings, truecar-inventory, truecar-dealers, truecar-dealer-inventory, truecar-reviews, truecar-owner-reviews, truecar-model-overview, truecar-suggestions, truecar-makes, truecar-models, new-car-prices, used-car-prices, car-prices, msrp, market-average, dealer-fees, advertised-price, car-listings, car-dealers, dealer-inventory, owner-reviews, automotive, us-retail, usd, price-monitoring, price-comparison, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-edmunds",
+      "description": "Edmunds API for Edmunds (edmunds.com, the US car research and shopping site owned by CarMax) - MSRP, invoice and Edmunds Suggested Price per trim of a model year, with the place Edmunds computed the suggested price for, as Edmunds gives them (the 2026 Ford F-150 XLT read MSRP 50,850 USD, invoice 47,726 and Edmunds Suggested 48,579 near Norwalk, CT 06850, based on sales through November 16th, on Nov 26, 2026), and Edmunds' used-car values per style and condition (dealer retail, private party, trade-in, auction) for the mileage and place Edmunds states; car listings around a US city and state (a ZIP is not accepted) within 10 to 500 miles, used and certified or new, by make and model or every make, 21 a page, 5 sorts and filters for year, price, mileage, trim, drivetrain, colour, body type, Edmunds deal rating and no accidents, each listing with price, last price change, MSRP, Edmunds' local and national deal rating with its price limits and savings, days on Edmunds, estimated days to sell, history summary and the seller; one listing by a VIN you supply with dealer fees, destination fee, price history, history flags and the dealer's hours; owner reviews of a model year, 5 a page, 4 sorts and a star filter (no names); a dealer's page with sales and service ratings, inventory counts and reviews (no names); a model year's research page with every style's base MSRP and invoice, the expert review and the owner rating; every make and one make's models. 8 endpoints, 2 credits per call. US only, USD. No VIN returned, no ZIP search, no dealers near a ZIP, no private-seller search, no autocomplete or market trends.",
+      "tags": "edmunds, edmunds-com, edmunds-api, edmunds-suggested-price, edmunds-msrp, edmunds-invoice-price, edmunds-appraisal, edmunds-car-value, edmunds-trade-in-value, edmunds-private-party-value, edmunds-listings, edmunds-search, edmunds-used-cars, edmunds-new-cars, edmunds-deal-rating, edmunds-reviews, edmunds-consumer-reviews, edmunds-dealers, edmunds-dealer-reviews, edmunds-model, edmunds-expert-review, edmunds-makes, msrp, invoice-price, car-values, trade-in-values, used-car-prices, new-car-prices, car-listings, deal-rating, price-history, car-dealers, owner-reviews, automotive, us-retail, usd, price-monitoring, price-comparison, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-kbb",
+      "description": "Kelley Blue Book API for Kelley Blue Book (kbb.com, Cox Automotive's car value and research site) - every KBB price type for one trim, mileage and condition, exactly as KBB gives them (a 2021 Toyota RAV4 LE with 40,000 miles in good condition read Fair Purchase Price 25,950, private party value 24,350, trade-in value 19,880 and typical listing price 26,550 for ZIP 92620, and 25,410, 23,820, 19,450 and 26,000 for ZIP 10001) with the base value, the region, mileage and option adjustments and KBB's ranges, for buying used (17 price types), buying new (MSRP, invoice, Fair Purchase Price) or trade-in and sell, at KBB's default location or a US ZIP you choose; one model year with every trim's KBB prices and specs, depreciation history and forecast, rankings and new-car pricing; cars for sale around a US ZIP (required), used, new or all, by make and model, 4 sorts, year, price, mileage, drivetrain, colour and dealer or private seller filters, 25 or 100 a page, each car with its price, dealer fees, KBB deal rating next to the KBB Fair Purchase Price range, price history, history flags and the dealer (a private seller by city and state only); one listing in full with features, warranties and the open recall count; owner reviews of a model year, 8 a page, 3 sorts and a star filter, with KBB's average ratings (no names); dealers near a ZIP and one dealer with hours and its first page of cars; the make and model directory with KBB's slugs. 8 endpoints, 1 credit per call (a car value at a chosen ZIP 2, or 6 when KBB needs a heavier second attempt; review pages beyond 1, other sorts or a star filter 1, or 5). US only, USD. No VIN, no dealer reviews, no free-text search, no new-car value at a chosen ZIP.",
+      "tags": "kelley-blue-book, kbb, kbb-com, kbb-api, kelley-blue-book-api, kbb-car-value, kbb-values, kbb-trade-in-value, kbb-private-party-value, kbb-fair-purchase-price, kbb-typical-listing-price, kbb-auction-value, kbb-msrp, kbb-invoice, kbb-depreciation, kbb-cars-for-sale, kbb-deal-rating, kbb-listings, kbb-reviews, kbb-consumer-reviews, kbb-dealers, kbb-makes-models, car-value, car-values, trade-in-values, used-car-values, used-car-prices, new-car-prices, cars-for-sale, car-dealers, depreciation, automotive, us-retail, usd, price-monitoring, price-comparison, langchain, crewai, ai-agents, structured-data, json"
     },
     {
       "dir": "scavio-zillow",
