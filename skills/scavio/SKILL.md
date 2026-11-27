@@ -49,6 +49,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 
 | Platform | Reference | Endpoints | Credits per call |
 |---|---|---|---|
+| Abercrombie & Fitch | [abercrombie-hollister-api](references/abercrombie-hollister-api.md) | 10 | 1; reviews without url 2 |
 | Academy Sports + Outdoors | [academy-sports-api](references/academy-sports-api.md) | 9 | 1 |
 | Ace Hardware | [ace-hardware-prices-api](references/ace-hardware-prices-api.md) | 11 | 1; search and product 2, store-stock 1 per 5 stores (nearby 6) |
 | Action | [action-com-api](references/action-com-api.md) | 16 | 1 |
@@ -63,6 +64,8 @@ Each row is one reference file. Open it before the first call to that platform. 
 | AutoZone | [autozone-api](references/autozone-api.md) | 12 | 1; br search, product and store-stock 2 |
 | Barnes & Noble | [barnes-and-noble-api](references/barnes-and-noble-api.md) | 10 | 1 |
 | Bath & Body Works | [bath-and-body-works-api](references/bath-and-body-works-api.md) | 10 | 1 |
+| Bed Bath & Beyond | [bed-bath-and-beyond-api](references/bed-bath-and-beyond-api.md) | 9 | 1; search, category and deal lists 2 |
+| Belk | [belk-api](references/belk-api.md) | 10 | 2; product and variant 2 or 4, store availability 1 plus 2 per variant looked up |
 | Best Buy | [best-buy-product-data](references/best-buy-product-data.md) | 10 | US 2 (stores and suggestions 1, deals and pcmcat pages 3); Canada 1 |
 | BJ's Wholesale Club | [bjs-wholesale-club-api](references/bjs-wholesale-club-api.md) | 7 | 1 |
 | bol.com | [bol-com-api](references/bol-com-api.md) | 9 | 2; product by EAN 4 |
@@ -107,6 +110,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Kelley Blue Book | [kelley-blue-book-api](references/kelley-blue-book-api.md) | 8 | 1 (car value at a chosen ZIP 2 or 6; deep reviews 1 or 5) |
 | Kohl's | [kohls-product-data](references/kohls-product-data.md) | 9 | 2; stores 1 |
 | Kroger | [kroger-grocery-data](references/kroger-grocery-data.md) | 8 | 1; search and product 2, store prices 3 |
+| L.L.Bean | [llbean-api](references/llbean-api.md) | 11 | 1 |
 | Lookfantastic | [lookfantastic-api](references/lookfantastic-api.md) | 7 | 1 |
 | Lowe's | [lowes-product-data](references/lowes-product-data.md) | 4 | 2; reviews 1 |
 | Macy's | [macys-product-data](references/macys-product-data.md) | 9 | 1 |
@@ -144,6 +148,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Spec's | [specs-liquor-prices](references/specs-liquor-prices.md) | 3 | 5 |
 | SportChek | [sportchek-api](references/sportchek-api.md) | 8 | 1 |
 | Staples | [staples-ink-prices-api](references/staples-ink-prices-api.md) | 12 | 1 |
+| Sweetwater | [sweetwater-api](references/sweetwater-api.md) | 6 | 1 |
 | Target | [target-product-data](references/target-product-data.md) | 5 | 1 |
 | TCGplayer | [tcgplayer-api](references/tcgplayer-api.md) | 13 | 1 |
 | thredUP | [thredup-api](references/thredup-api.md) | 12 | 1 |
