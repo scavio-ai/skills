@@ -71,12 +71,14 @@ Each row is one reference file. Open it before the first call to that platform. 
 | bol.com | [bol-com-api](references/bol-com-api.md) | 9 | 2; product by EAN 4 |
 | Boots | [boots-uk-api](references/boots-uk-api.md) | 4 | 1 (2 when answered on the second attempt) |
 | Bring a Trailer | [bring-a-trailer-api](references/bring-a-trailer-api.md) | 8 | 1 |
+| Buscape + Zoom | [buscape-zoom-api](references/buscape-zoom-api.md) | 12 | 1 |
 | Canadian Tire | [canadian-tire-api](references/canadian-tire-api.md) | 6 | 1 |
 | CarGurus | [cargurus-api](references/cargurus-api.md) | 8 | 1 |
 | CarMax | [carmax-api](references/carmax-api.md) | 12 | 1 |
 | Carrefour | [carrefour-api](references/carrefour-api.md) | 9 | 1; Belgium search and product 2 |
 | Cars.com | [cars-com-api](references/cars-com-api.md) | 8 | 1 |
 | Carvana | [carvana-api](references/carvana-api.md) | 6 | 1 |
+| Casas Bahia | [casas-bahia-api](references/casas-bahia-api.md) | 4 | 2 |
 | Chewy | [chewy-product-data](references/chewy-product-data.md) | 2 | 10 |
 | Costco | [costco-product-data](references/costco-product-data.md) | 13 | 1; US search, category, deals and clearance 2; multi-warehouse prices, stock and gas scale with warehouse count |
 | Cult Beauty | [cult-beauty-api](references/cult-beauty-api.md) | 7 | 1 |
@@ -89,6 +91,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Dollar General | [dollar-general-api](references/dollar-general-api.md) | 5 | 1 |
 | Dollar Tree | [dollar-tree-bulk-prices-api](references/dollar-tree-bulk-prices-api.md) | 10 | 1; stores 5 |
 | Douglas | [douglas-beauty-api](references/douglas-beauty-api.md) | 10 | 1 (Italy 2); variant EANs +1 each |
+| Drogasil + Droga Raia | [drogasil-droga-raia-api](references/drogasil-droga-raia-api.md) | 11 | 1 |
 | eBay | [ebay-product-data](references/ebay-product-data.md) | 3 | 1 |
 | Edmunds | [edmunds-api](references/edmunds-api.md) | 8 | 2 |
 | EstateSales.net | [estate-sales-net-api](references/estate-sales-net-api.md) | 6 | 1 |
@@ -107,13 +110,16 @@ Each row is one reference file. Open it before the first call to that platform. 
 | IKEA | [ikea-api](references/ikea-api.md) | 12 | 1; compare 1 per market |
 | Instacart | [instacart-api](references/instacart-api.md) | 11 | 1; search 3, cross-search 3-4 |
 | JCPenney | [jcpenney-product-data](references/jcpenney-product-data.md) | 11 | 1 |
+| KaBuM! | [kabum-api](references/kabum-api.md) | 7 | 1 |
 | Kelley Blue Book | [kelley-blue-book-api](references/kelley-blue-book-api.md) | 8 | 1 (car value at a chosen ZIP 2 or 6; deep reviews 1 or 5) |
 | Kohl's | [kohls-product-data](references/kohls-product-data.md) | 9 | 2; stores 1 |
 | Kroger | [kroger-grocery-data](references/kroger-grocery-data.md) | 8 | 1; search and product 2, store prices 3 |
 | L.L.Bean | [llbean-api](references/llbean-api.md) | 11 | 1 |
+| Leroy Merlin | [leroy-merlin-api](references/leroy-merlin-api.md) | 13 | 1 in br; it 1-2, ro 1, es/pt/pl 2, fr 5 |
 | Lookfantastic | [lookfantastic-api](references/lookfantastic-api.md) | 7 | 1 |
 | Lowe's | [lowes-product-data](references/lowes-product-data.md) | 4 | 2; reviews 1 |
 | Macy's | [macys-product-data](references/macys-product-data.md) | 9 | 1 |
+| Magalu (Magazine Luiza) | [magalu-magazine-luiza-api](references/magalu-magazine-luiza-api.md) | 8 | 2 |
 | Maisons du Monde | [maisons-du-monde-api](references/maisons-du-monde-api.md) | 9 | 1 |
 | Mark's | [marks-api](references/marks-api.md) | 8 | 1 |
 | Media Expert | [media-expert-api](references/media-expert-api.md) | 13 | 1; store-stock and categories 2, sorted or lazy lists 3 |
@@ -209,6 +215,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Glassdoor | [glassdoor-salary-data](references/glassdoor-salary-data.md) | 4 | 2 |
 | Goodreads | [goodreads-api](references/goodreads-api.md) | 14 | 1 |
 | Indeed | [indeed-jobs-api](references/indeed-jobs-api.md) | 4 | 2 |
+| Reclame Aqui | [reclame-aqui-api](references/reclame-aqui-api.md) | 8 | 1; complaints by shortname 2 |
 | Trustpilot | [trustpilot-reviews-api](references/trustpilot-reviews-api.md) | 6 | 2 |
 | Yelp | [yelp-business-data](references/yelp-business-data.md) | 3 | 2 |
 

@@ -2219,6 +2219,90 @@
       "group": "Commerce",
       "endpoints": "9",
       "credits": "1; search, category and deal lists 2"
+    },
+    {
+      "dir": "scavio-kabum",
+      "slug": "kabum-api",
+      "name": "kabum-api",
+      "display": "KaBuM! API - Prices, Pix Price, Offers, Marketplace Sellers, Shipping",
+      "query": "kabum",
+      "reused": "no",
+      "platform": "KaBuM!",
+      "group": "Commerce",
+      "endpoints": "7",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-magalu",
+      "slug": "magalu-magazine-luiza-api",
+      "name": "magalu-magazine-luiza-api",
+      "display": "Magalu (Magazine Luiza) API - Prices, Pix Price, Coupons, Deals, Stores",
+      "query": "magalu",
+      "reused": "no",
+      "platform": "Magalu (Magazine Luiza)",
+      "group": "Commerce",
+      "endpoints": "8",
+      "credits": "2"
+    },
+    {
+      "dir": "scavio-casasbahia",
+      "slug": "casas-bahia-api",
+      "name": "casas-bahia-api",
+      "display": "Casas Bahia API - Extra + Ponto, Sellers, Pix Price, Installments",
+      "query": "casas bahia",
+      "reused": "no",
+      "platform": "Casas Bahia",
+      "group": "Commerce",
+      "endpoints": "4",
+      "credits": "2"
+    },
+    {
+      "dir": "scavio-buscape",
+      "slug": "buscape-zoom-api",
+      "name": "buscape-zoom-api",
+      "display": "Buscape + Zoom API - Price Comparison, Store Offers, Price History, Coupons",
+      "query": "buscape",
+      "reused": "no",
+      "platform": "Buscape + Zoom",
+      "group": "Commerce",
+      "endpoints": "12",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-rdsaude",
+      "slug": "drogasil-droga-raia-api",
+      "name": "drogasil-droga-raia-api",
+      "display": "Drogasil + Droga Raia API - Prices, Deals, Store Pickup, Stores, Reviews",
+      "query": "drogasil",
+      "reused": "no",
+      "platform": "Drogasil + Droga Raia",
+      "group": "Commerce",
+      "endpoints": "11",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-reclameaqui",
+      "slug": "reclame-aqui-api",
+      "name": "reclame-aqui-api",
+      "display": "Reclame Aqui API - Company Reputation, Complaints, Rankings, Segments",
+      "query": "reclame aqui",
+      "reused": "no",
+      "platform": "Reclame Aqui",
+      "group": "Jobs and reviews",
+      "endpoints": "8",
+      "credits": "1; complaints by shortname 2"
+    },
+    {
+      "dir": "scavio-leroymerlin",
+      "slug": "leroy-merlin-api",
+      "name": "leroy-merlin-api",
+      "display": "Leroy Merlin API - Prices by Country, Store Stock, Stores, Shipping, Reviews",
+      "query": "leroy merlin",
+      "reused": "no",
+      "platform": "Leroy Merlin",
+      "group": "Commerce",
+      "endpoints": "13",
+      "credits": "1 in br; it 1-2, ro 1, es/pt/pl 2, fr 5"
     }
   ],
   "frontmatter": [
@@ -3146,6 +3230,41 @@
       "dir": "scavio-bedbathbeyond",
       "description": "Bed Bath & Beyond API for Bed Bath & Beyond (bedbathandbeyond.com, the US online home goods store; US, USD) - what a product and each of its options costs at bedbathandbeyond.com today and how many units are in online stock, as the site shows it (on 2026-11-27 the Superior Egyptian Cotton 6 Piece Towel Set read \"Sale Starts at\" $63.98 against an MSRP of $157.50, 59% off, with 26 of 49 options in stock; its Ash Grey 6-Piece Set read $74.25 against a was price of $93.99, sale 2026-11-25 to 2026-12-07, 97 units on hand, and Black 1,423) with the lead price and its label, compare price and its type (MSRP, was, compare at), savings and percent, sale start and end, exact online quantity, purchase limit and backorder flag per option; keyword search (7,835 results for bath towels) and category listings, about 48-81 per page to page 84, in the site's sorts (best match, on sale, best selling, price, rating, newest) with attribute, price range, rating, brand, promotion, fast delivery and expedited shipping filters, each item with price, base price, compare price, discount, the sale end as given, the promo badge (a code such as 30% Off Code CYBER30, never applied), label, Club O Rewards and sponsored tiles kept apart; the department menu (13 departments, 541 links); the delivery date and shipping charge of one option for a quantity to a US ZIP; customer reviews in 4 sorts with a star filter and text search (5,165 for that towel set) and customer questions with answers, without names; the 333 stores of the Bed Bath & Beyond family (Bed Bath & Beyond / The Container Store co-branded stores, Kirkland's, The Container Store) near a ZIP, a point or in a state, with hours and services; the deals page with its Black Friday countdown and Doorbusters grid, and the Black Friday, On Sale, Doorbusters and Holiday Brand Deals lists. 9 endpoints, 1 credit per call; search, category and deal lists 2. Online stock only (no store stock or store prices); no UPCs, no price history.",
       "tags": "bed-bath-and-beyond, bedbathandbeyond, bedbathandbeyond-com, bed-bath-and-beyond-api, bbb-api, bed-bath-beyond-prices, bed-bath-and-beyond-deals, bed-bath-and-beyond-doorbusters, bed-bath-and-beyond-black-friday, bed-bath-and-beyond-search, bed-bath-and-beyond-reviews, bed-bath-and-beyond-questions, bed-bath-and-beyond-stores, bed-bath-and-beyond-delivery, the-container-store, kirklands, home-goods, home-goods-prices, bedding-prices, bath-towels, furniture-prices, rug-prices, kitchen-prices, home-decor, online-stock, inventory, quantity-on-hand, delivery-estimate, shipping-cost, promo-codes, club-o-rewards, msrp, sale-prices, store-locator, product-search, category-browse, product-reviews, customer-questions, price-monitoring, competitor-research, us-retail, usd, langchain, crewai, ai-agents, structured-data, json, mcp"
+    },
+    {
+      "dir": "scavio-kabum",
+      "description": "KaBuM! API for KaBuM! (kabum.com.br, the Brazilian computer and electronics retailer, part of Magalu; Brazil only, BRL, Portuguese text) - what a PC part, monitor, chair or gadget costs at KaBuM! today, by card and by Pix, as kabum.com.br shows it to a visitor who is not signed in (on 2026-11-27 the Cadeira Gamer Husky Storm 100 read R$ 433.32 by card in 10x de R$ 43,33 and R$ 389.99 by Pix or boleto against a R$ 588.78 regular price, inside the OFERTAS KABUM offer at 26 percent off until 2026-11-30 with 35 offer units left, 1,981 units in stock and a buy limit of 5; the Black Friday campaign \"BLACK DAS BLACKS KABUM!\" listed 620 offers from 2026-11-25 to 2026-11-30, a Husky Snow gaming desk at R$ 349.99 by Pix with 72 offer units sold and 28 left; a CEP in Sao Paulo got four delivery options from R$ 34.59) with card price, Pix / boleto price, list price, cash discount percent, installment text, the running offer with its start, end and units left, stock units, buy limit, and the seller (KaBuM! or a marketplace seller with business name, CNPJ and state); keyword search and category listings up to 100 per page in 5 sorts with facet filters (brand, color, KaBuM! stamps such as BLACK FRIDAY, offers, sold by KaBuM!, open box) and a price range; the department list and each department's category tree; one product with every payment plan (boleto, Pix, card 1-12x with and without interest, NuPay), specs, warranty, weight and the marketplace seller's score; delivery options to a Brazilian CEP with price, max days and arrival date; customer reviews newest or oldest first with a star filter (no names); the offers of a KaBuM! campaign (Black Friday, OFERTAS KABUM) with each offer's units left and sold. 7 endpoints, 1 credit each. Never Prime-member prices; no suggestions, stores, Q&A or price history.",
+      "tags": "kabum, kabum-com-br, kabum-api, kabum-prices, kabum-pix, kabum-pix-price, kabum-ofertas, kabum-offers, kabum-black-friday, black-das-blacks, ofertas-kabum, kabum-marketplace, kabum-sellers, kabum-cnpj, kabum-shipping, kabum-frete, kabum-cep, kabum-reviews, kabum-avaliacoes, kabum-categories, kabum-search, kabum-product, kabum-stock, kabum-installments, magalu, brazil, brazil-ecommerce, brazilian-retail, brl, pix, boleto, parcelamento, cep, electronics-prices, pc-parts-prices, hardware-prices, gaming-chair-prices, price-monitoring, price-tracking, product-data, marketplace-sellers, agents, langchain, crewai, autogen, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-magalu",
+      "description": "Magalu API for Magazine Luiza (magazineluiza.com.br, Magalu, the Brazilian retailer; Brazil only, BRL, Portuguese text) - what an item costs at Magalu today, by card, in installments and by Pix (Brazil's instant payment), and who sells it, as magazineluiza.com.br shows it to a visitor who is not signed in (on 2026-11-27 the LG Frost Free Smart Inverse 462L refrigerator read R$ 3,893.68 in 10 interest-free installments of R$ 389.37 or R$ 3,699 by Pix, 5 percent off, sold by Magalu with a 4.8 rating over 1,240 reviews; a Brastemp 415-litre refrigerator from the Brastemp marketplace store read R$ 2,699 against a R$ 3,288 list price, R$ 2,564.05 by Pix, with a R$ 150 coupon; a Lorenzetti shower in the daily deals carried a deal timer from 2026-11-27T00:00:00-03:00 to 2026-11-30T09:59:59-03:00) with price, list price, discount percent, Pix price and Pix discount, the best installment plan and every payment method's installment plans with interest as stated, coupons (code, message, absolute or percent value, dates), deal timers, badges, the seller (Magalu or a marketplace seller with business name, legal name, CNPJ, score, total sales, city and state) and rating; keyword search, category listings and deal selections (Ofertas do Dia, Black Friday 2026 selections), 40 per page to page 25, in the site's 8 sorts and filtered by brand, seller, price range, minimum rating, the Black Friday promotion and attribute facets (voltage, colour, capacity), with total and facets; one product with variants (colour, voltage), spec sheet and the questions the page shows; reviews in 4 sorts up to 50 per page with star distribution, aspect ratings and Magalu's own review summary; search suggestions; Magalu's physical stores by state and city (513 in Sao Paulo state) and one store with address, CEP and phone. 8 endpoints, 2 credits each. Availability flag only (no stock units), no shipping by CEP, store pickup, store stock, Full delivery filter, GTIN or price history.",
+      "tags": "magalu, magazine-luiza, magazineluiza, magazineluiza-com-br, magalu-api, magazine-luiza-api, magalu-prices, magalu-pix-price, magalu-parcelas, magalu-installments, magalu-coupons, magalu-cupom, magalu-ofertas-do-dia, magalu-black-friday, magalu-deals, magalu-marketplace, magalu-sellers, magalu-seller-cnpj, magalu-reviews, magalu-avaliacoes, magalu-search, magalu-category, magalu-product, magalu-stores, magalu-lojas, magalu-suggestions, brazil-ecommerce, brazil-retail, brazilian-prices, brl-prices, pix-price, installment-prices, marketplace-sellers, price-monitoring, competitor-pricing, ecommerce-brazil, product-data, agents, langchain, crewai, autogen, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-casasbahia",
+      "description": "Casas Bahia API for Casas Bahia (casasbahia.com.br, the Brazilian retailer of Grupo Casas Bahia, with its Extra and Ponto stores; Brazil only, BRL) - what a product costs at Casas Bahia, Extra or Ponto today and who sells it, as the storefront shows it (on 2026-11-27 an Electrolux RE31 240L 220V refrigerator on extra.com.br read R$ 1.832,21 from Extra itself against a \"De\" price of R$ 2.015,43, R$ 1.648,99 by Pix with a 10 percent Pix discount, 18x R$ 101,79 interest-free, and 5 offers from R$ 1.648,99 to R$ 2.029,90 with marketplace sellers such as Belmicro at R$ 1.661,96; the same model in 110V on casasbahia.com.br was sold by Gazin at R$ 1.999,90 with a \"De\" price of R$ 3.498,90) with the regular price (card, one payment), the \"De\" list price, the Pix price and Pix discount, the discount percent, every installment plan by card type with interest, the store card plan, every seller with its business name, price, list price, buy-box flag and pickup flag, availability flags, EAN, specs, dimensions, variants (each its own SKU), the review summary with the star split and the storefront's own review summary, the 3 reviews and 3 questions on the page (no names); keyword search and category, deal collection or seller listings, 20 per page to page 500 with total and facets, in the storefront's 5 sorts and filtered by brand, rating, discount band, seller, features, own store and price range, sponsored placements kept apart (list items carry no prices); and the storefront's category menu. One catalog on three storefronts (site casasbahia, extra or pontofrio): own-store price and review counts can differ per site. 4 endpoints, 2 credits each. No freight by CEP, stores, suggestions or price history.",
+      "tags": "casas-bahia, casasbahia, casas-bahia-api, casasbahia-com-br, extra, extra-com-br, ponto, pontofrio, ponto-frio, grupo-casas-bahia, casas-bahia-prices, casas-bahia-pix, pix-price, pix-discount, parcelamento, installments, sem-juros, store-card, cartao-casas-bahia, casas-bahia-sellers, casas-bahia-marketplace, marketplace-sellers, buy-box, casas-bahia-search, casas-bahia-categories, casas-bahia-product, casas-bahia-reviews, ean, brazil, brazil-ecommerce, brazil-retail, brazilian-retailer, brl, price-monitoring, price-comparison, electronics-prices, appliance-prices, eletrodomesticos, geladeira, smart-tv, black-friday-brasil, agents, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-buscape",
+      "description": "Buscape + Zoom API for Buscape and Zoom (buscape.com.br, zoom.com.br, Brazil's price comparison sites; one catalog, Brazil, BRL) - what a product costs across Brazilian stores today and how its lowest price moved, as the sites show it (on 2026-11-27 the iPhone 16 128GB was listed by 6 stores in 22 offers, its lowest cash price R$ 4.537,84 at Amazon against a priciest offer of R$ 7.903,26, the site's price tip read regular_price against a 40-day median of R$ 4.549, and its daily lowest price fell from R$ 4.958,99 on 2026-10-19 to R$ 4.299 on 2026-11-22; a Brastemp BRM46MB 385L refrigerator had 54 offers from 5 stores starting at R$ 2.308 at Magazine Luiza, with freight to a Sao Paulo CEP of R$ 409,90 in 6 days from Webcontinental) with every store offer (cash price the site labels \"a vista\", installment plan and total, interest flag, stock, condition, marketplace and cross-border flags, variants such as voltage), sorted by cash price, installment total, discount or cashback price; the day's lowest price and its store for 40 days or 3-12 months; the current lowest price; the site's price tip label and the editors' pros and cons as given; keyword search, category and deals listings up to 100 per page with facets, price range and store filters; campaign landings (Black Friday); a store's coupons with code, value and validity; search suggestions; freight estimates per store offer to a CEP. 12 endpoints, 1 credit each. No store links, store ratings or reviewer names.",
+      "tags": "buscape, buscape-api, buscape-com-br, zoom, zoom-com-br, zoom-price-comparison, buscape-zoom, price-comparison, comparador-de-precos, brazil-price-comparison, store-offers, lowest-price, menor-preco, price-history, historico-de-precos, price-tip, black-friday-brasil, ofertas, cupom-de-desconto, store-coupons, coupon-codes, cashback, frete, freight-estimate, cep, installments, parcelamento, a-vista, brazil, brazil-ecommerce, brl, price-monitoring, electronics-prices, smartphone-prices, appliance-prices, agents, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-rdsaude",
+      "description": "Drogasil + Droga Raia API for Drogasil and Droga Raia (drogasil.com.br, drogaraia.com.br, the pharmacy chains of RD Saude; Brazil only, BRL) - what a pharmacy-aisle product costs at Drogasil or Droga Raia online today and which store can hand it over, as the sites show it (on 2026-11-27 a Nivea Sun Protect & Hidrata body sunscreen kit FPS 50 read R$ 43,99 on Drogasil against a list price of R$ 72,99, an Eucerin Oil Control serum sunscreen FPS 75 30ml R$ 84,99 against R$ 119,90, a Principia FPS 70 facial sunscreen R$ 49 or R$ 36,75 each when buying 2 or more, a marketplace partner's Australian Gold body sunscreen R$ 49,98 with 5 percent off by Pix, and the Droga Raia coupon NIVEABRAND covered 370 products such as a Nivea bar soap at R$ 3,09 against R$ 3,83) with the price, list price, discount, price type, quantity discount (leve mais pague menos), the site's own price steps, payment discounts, coupons and highlight labels, seller (Drogasil, Droga Raia or a marketplace partner by business name), stock flag, variants and kits, EAN and regulatory fields exactly as the site gives them; keyword, product code or EAN search and category listings, 24, 36 or 48 per page, sorted by relevance or price and filtered by brand, own or partner store, highlight, category, store pickup, price range and any facet; prices of up to 48 products in one call; store pickup yes or no for up to 5 product x store checks; the 6 nearest stores to a CEP and the store locator by state, city or neighborhood with hours, 24-hour, parking and Farmacia Popular flags; reviews up to 50 per page with the star split and the site's own summary (no names); Oferta do Dia, % Especial, Black Friday and coupon deals; search suggestions. 11 endpoints, 1 credit each. No store unit counts, per-store prices, card or loyalty prices, product descriptions or price history.",
+      "tags": "drogasil, droga-raia, drogaraia, drogasil-api, droga-raia-api, rd-saude, raia-drogasil, drogasil-com-br, drogaraia-com-br, brazil-pharmacy, farmacia, drogaria, pharmacy-prices, drugstore-prices, sunscreen-prices, protetor-solar, dermocosmeticos, beauty-prices, personal-care, vitamins, shampoo, diapers, leve-mais-pague-menos, quantity-discount, oferta-do-dia, black-friday-brasil, cupom, coupon-codes, pix-discount, store-pickup, retire-na-loja, store-locator, pharmacy-stores, farmacia-popular, open-24h, cep, reviews, ean, marketplace, brazil, brazil-retail, brl, price-monitoring, agents, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-reclameaqui",
+      "description": "Reclame Aqui API for Reclame Aqui (reclameaqui.com.br, Brazil's company complaint and reputation site; Brazil, Portuguese text) - how a company's reputation reads on Reclame Aqui today and what its complaints are about, as the site publishes them (on 2026-11-27 Nubank held the RA1000 seal for the 6 months to 2026-10-31 with 56,825 complaints, 100 percent answered, 93.2 percent solved, 81.5 percent would do business again, a consumer score of 7.81 and a final score of 8.8, credit cards behind 34.95 percent of its complaints, and first place in the site's best card issuers ranking; Mercado Livre was the most complained-about company of the last 30 days with 43,433 complaints, and InfinitePay led the Bancos Digitais segment at 9.7) with the reputation per period (6 and 12 months, last year, the year before, 3 years) with complaints, answered, unanswered, ratings, answered and solved percent, would-do-business-again percent, consumer and final score, average answer time and the seal (RA1000, GREAT, GOOD, REGULAR, BAD, NOT_RECOMMENDED); the company's CNPJ, plan, verified flag, published phones and social links, segments, main problems, 6 months of seal history and the notice it posted; a company's complaints newest first by the site's tabs (unanswered, answered, evaluated, resolved, not resolved), category, product and problem filters, Black Friday purchases and keywords, with the exact total; one complaint with its whole thread and the consumer's score and evaluation; complaint search across every company; the 11 site-wide rankings of 20; 165 segments and each segment's best and worst companies. Consumer names and contact details are never returned. 8 endpoints, 1 credit each (complaints by shortname 2).",
+      "tags": "reclame-aqui, reclameaqui, reclame-aqui-api, reclameaqui-com-br, ra1000, company-reputation, reputation-score, reputacao, consumer-complaints, reclamacoes, complaint-data, complaint-search, customer-complaints, brazil-consumer-complaints, brazil-company-reputation, solved-percent, would-do-business-again, consumer-score, company-rankings, segment-ranking, melhores-empresas, mais-reclamadas, black-friday-brasil, cnpj, brand-monitoring, reputation-monitoring, competitor-benchmarking, customer-service-benchmarking, vendor-due-diligence, brazil, pt-br, reviews, agents, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-leroymerlin",
+      "description": "Leroy Merlin API for Leroy Merlin (the home improvement retailer of the ADEO group; Brazil, Italy, Spain, Portugal, Poland, Romania and France, each in its own language and currency) - what a home improvement product costs at Leroy Merlin in a market or Brazilian price region today and which store has it, as the site shows it (on 2026-11-27 a Wap WF 12K3.2 12V cordless drill read R$ 129,90 in the Grande Sao Paulo price region against R$ 149,90, 6x R$ 21,65, tagged Black Friday, with 225 units in the Ferramentas aisle at the Raposo Tavares store and 12 of 16 region stores in stock, standard delivery to a Sao Paulo CEP R$ 9,90 next day and free store pickup in 2 hours; a Makita DHP490 18V drill R$ 599,90 against R$ 744,57 on an offer ending 2026-11-28; on leroymerlin.it a DEWALT DCF887N impact driver read 98,90 EUR (81,07 EUR excluding VAT) with 18 offers, and the Italian offers page held 923 products with prices valid 11 to 29 November) with the price, original price, discount, unit (each, m2, roll) and box price, installments, promotion dates, Black Friday tag, seller (Leroy Merlin or a marketplace seller), marketplace offers, EAN or GTIN, specifications, Europe's price excluding VAT, unit price and delivery options; keyword search and category listings (Brazil priced per region; Europe sorted and filtered, the first products of each page in full and the rest as ids); exact store units with the aisle and pickup per store for a Brazilian price region; Brazilian delivery quotes and CEP lookup; the 28 Brazilian price regions and department tree; stores and one store with hours; reviews with the star split (no names); Italy's offers page; search suggestions. 13 endpoints; credits per market: Brazil 1, Italy 1 (product and category 2), Romania 1, Spain, Portugal and Poland 2, France 5. Store stock Brazil only; no search for France; no price history.",
+      "tags": "leroy-merlin, leroymerlin, leroy-merlin-api, leroy-merlin-brasil, leroymerlin-com-br, leroymerlin-it, leroymerlin-es, leroymerlin-pt, leroymerlin-pl, leroymerlin-ro, leroymerlin-fr, adeo, home-improvement, home-improvement-prices, diy, bricolage, construction-materials, materiais-de-construcao, ferramentas, tools-prices, power-tools, store-stock, estoque-loja, store-inventory, aisle, store-pickup, price-region, regional-prices, cep, frete, delivery-quote, black-friday-brasil, offerte, promotions, marketplace-offers, ean, gtin, price-excluding-vat, unit-price, reviews, store-locator, brazil, italy, spain, portugal, poland, romania, france, brl, eur, pln, ron, price-monitoring, agents, structured-data, json, ai-agents"
     }
   ],
   "groups": [
