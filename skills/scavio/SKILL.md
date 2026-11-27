@@ -79,6 +79,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Cars.com | [cars-com-api](references/cars-com-api.md) | 8 | 1 |
 | Carvana | [carvana-api](references/carvana-api.md) | 6 | 1 |
 | Casas Bahia | [casas-bahia-api](references/casas-bahia-api.md) | 4 | 2 |
+| Centauro | [centauro-api](references/centauro-api.md) | 7 | 1 |
 | Chewy | [chewy-product-data](references/chewy-product-data.md) | 2 | 10 |
 | Costco | [costco-product-data](references/costco-product-data.md) | 13 | 1; US search, category, deals and clearance 2; multi-warehouse prices, stock and gas scale with warehouse count |
 | Cult Beauty | [cult-beauty-api](references/cult-beauty-api.md) | 7 | 1 |
@@ -128,12 +129,14 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Mercari | [mercari-api](references/mercari-api.md) | 11 | 1 |
 | Michaels | [michaels-craft-prices-api](references/michaels-craft-prices-api.md) | 11 | 2; category or deals with a /shop/ link or path 4 |
 | Micro Center | [micro-center-api](references/micro-center-api.md) | 3 | 2; stores 1 |
+| Natura | [natura-api](references/natura-api.md) | 7 | 1 |
 | Nellis Auction | [nellis-auction-api](references/nellis-auction-api.md) | 4 | 1 |
 | Newegg | [newegg-api](references/newegg-api.md) | 10 | 2 |
 | Nike | [nike-api](references/nike-api.md) | 8 | 1 |
 | Nordstrom | [nordstrom-product-data](references/nordstrom-product-data.md) | 8 | 5; availability and reviews 10 |
 | Nordstrom Rack | [nordstrom-rack-product-data](references/nordstrom-rack-product-data.md) | 8 | 5; availability and reviews 10 |
 | Notino | [notino-api](references/notino-api.md) | 10 | 1 (gb 2); paged, sorted or filtered category, brand, promo 3 (gb 4) |
+| O Boticario + Eudora | [boticario-eudora-api](references/boticario-eudora-api.md) | 11 | 1; page endpoints 1-2, prices 1 per 5 SKUs |
 | O'Reilly Auto Parts | [oreilly-auto-parts-api](references/oreilly-auto-parts-api.md) | 14 | 2; product by part number, ZIP lookups, brand index and deals 4, cross-reference 2-6 |
 | OfferUp | [offerup-api](references/offerup-api.md) | 5 | 1; listing 2 when it needs a second fetch |
 | OLX | [olx-api](references/olx-api.md) | 9 | 1 |

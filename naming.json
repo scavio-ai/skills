@@ -2303,6 +2303,42 @@
       "group": "Commerce",
       "endpoints": "13",
       "credits": "1 in br; it 1-2, ro 1, es/pt/pl 2, fr 5"
+    },
+    {
+      "dir": "scavio-natura",
+      "slug": "natura-api",
+      "name": "natura-api",
+      "display": "Natura API - Prices, Black Friday Deals, Shades, Stores, 6 Markets",
+      "query": "natura",
+      "reused": "no",
+      "platform": "Natura",
+      "group": "Commerce",
+      "endpoints": "7",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-boticario",
+      "slug": "boticario-eudora-api",
+      "name": "boticario-eudora-api",
+      "display": "O Boticario + Eudora API - Prices, Pix Price, Online Stock, Coupons, Delivery",
+      "query": "boticario",
+      "reused": "no",
+      "platform": "O Boticario + Eudora",
+      "group": "Commerce",
+      "endpoints": "11",
+      "credits": "1; page endpoints 1-2, prices 1 per 5 SKUs"
+    },
+    {
+      "dir": "scavio-centauro",
+      "slug": "centauro-api",
+      "name": "centauro-api",
+      "display": "Centauro API - Prices per Size, Pix Price, Sellers, Deals, Store Pickup by CEP",
+      "query": "centauro",
+      "reused": "no",
+      "platform": "Centauro",
+      "group": "Commerce",
+      "endpoints": "7",
+      "credits": "1"
     }
   ],
   "frontmatter": [
@@ -3265,6 +3301,21 @@
       "dir": "scavio-leroymerlin",
       "description": "Leroy Merlin API for Leroy Merlin (the home improvement retailer of the ADEO group; Brazil, Italy, Spain, Portugal, Poland, Romania and France, each in its own language and currency) - what a home improvement product costs at Leroy Merlin in a market or Brazilian price region today and which store has it, as the site shows it (on 2026-11-27 a Wap WF 12K3.2 12V cordless drill read R$ 129,90 in the Grande Sao Paulo price region against R$ 149,90, 6x R$ 21,65, tagged Black Friday, with 225 units in the Ferramentas aisle at the Raposo Tavares store and 12 of 16 region stores in stock, standard delivery to a Sao Paulo CEP R$ 9,90 next day and free store pickup in 2 hours; a Makita DHP490 18V drill R$ 599,90 against R$ 744,57 on an offer ending 2026-11-28; on leroymerlin.it a DEWALT DCF887N impact driver read 98,90 EUR (81,07 EUR excluding VAT) with 18 offers, and the Italian offers page held 923 products with prices valid 11 to 29 November) with the price, original price, discount, unit (each, m2, roll) and box price, installments, promotion dates, Black Friday tag, seller (Leroy Merlin or a marketplace seller), marketplace offers, EAN or GTIN, specifications, Europe's price excluding VAT, unit price and delivery options; keyword search and category listings (Brazil priced per region; Europe sorted and filtered, the first products of each page in full and the rest as ids); exact store units with the aisle and pickup per store for a Brazilian price region; Brazilian delivery quotes and CEP lookup; the 28 Brazilian price regions and department tree; stores and one store with hours; reviews with the star split (no names); Italy's offers page; search suggestions. 13 endpoints; credits per market: Brazil 1, Italy 1 (product and category 2), Romania 1, Spain, Portugal and Poland 2, France 5. Store stock Brazil only; no search for France; no price history.",
       "tags": "leroy-merlin, leroymerlin, leroy-merlin-api, leroy-merlin-brasil, leroymerlin-com-br, leroymerlin-it, leroymerlin-es, leroymerlin-pt, leroymerlin-pl, leroymerlin-ro, leroymerlin-fr, adeo, home-improvement, home-improvement-prices, diy, bricolage, construction-materials, materiais-de-construcao, ferramentas, tools-prices, power-tools, store-stock, estoque-loja, store-inventory, aisle, store-pickup, price-region, regional-prices, cep, frete, delivery-quote, black-friday-brasil, offerte, promotions, marketplace-offers, ean, gtin, price-excluding-vat, unit-price, reviews, store-locator, brazil, italy, spain, portugal, poland, romania, france, brl, eur, pln, ron, price-monitoring, agents, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-natura",
+      "description": "Natura API for Natura (the Brazilian beauty brand of Natura &Co) on its own storefronts in Brazil, Argentina, Chile, Colombia, Mexico and Peru (country br default, ar, cl, co, mx, pe; each in its own language and currency, never converted) - what a Natura perfume, moisturizer, lipstick or refill costs today and what it is discounted from, as the storefront shows it to a visitor who is not signed in (on 2026-11-27 the Deo Parfum Ilia Secreto 25 ml read R$ 66,48 against R$ 110,80, 40 percent off, tagged natura friday, with the \"ultimas unidades\" low-stock badge and 2 installments of R$ 33,24; the Black Friday listing natura-friday held 4,248 products, a body moisturizer refill first at R$ 29,90 against R$ 99,90, and its page gave the campaign dates as 16 to 27 November, discounts extended to 30/11; a perfume search on natura.com.br read 522 products; 1,093 Natura stores were listed in Brazil, 102 of them in the city of Sao Paulo) with sale price, list price, discount percent, the shade price range of a multi-shade product, rating and the price display string in the market's format; keyword search and category listings up to 100 per page in the market's own sorts (best sellers, relevance, name, price, discount, brand, most popular where offered) with the site's refinements (brand, product type, gender, fragrance family, skin type, hair type, occasion) and a price range; the category menu with ids and menu counts; one product with installments, stock flag, max quantity, low-stock badge, tags such as oferta relampago, every shade with its own price and stock flag, kit contents, the ingredients list, rating, review count and the 3 latest reviews (no names); search suggestions; the Black Friday campaign listing sorted by discount with the dates as the page writes them; the Brazilian store list by state, city, CEP prefix and type (own, franchise, athena, kiosk) with address, phone and the store's @natura.net mailbox. 7 endpoints, 1 credit each. No consultant prices, regional prices by CEP, store stock, full review paging or US store.",
+      "tags": "natura, natura-api, natura-brasil, natura-com-br, natura-cosmeticos, natura-and-co, natura-prices, natura-precos, natura-friday, natura-black-friday, natura-ofertas, natura-promocoes, natura-perfume, natura-perfumaria, natura-maquiagem, natura-refil, natura-refills, natura-shades, natura-kits, natura-stores, natura-lojas, natura-search, natura-product, natura-categories, natura-argentina, natura-chile, natura-colombia, natura-mexico, natura-peru, ekos, kaiak, essencial, tododia, una, ilia, brazil, latin-america, brl, ars, clp, cop, mxn, pen, beauty-prices, cosmetics-prices, perfume-prices, makeup-prices, price-monitoring, price-tracking, promotion-tracking, product-data, store-locator, agents, langchain, crewai, autogen, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-boticario",
+      "description": "O Boticario + Eudora API for O Boticario and Eudora (boticario.com.br, eudora.com.br, the beauty brands of Grupo Boticario; one brand param, Brazil only, BRL, Portuguese text) - what a perfume, foundation, body splash or kit costs on either storefront today, by card and by Pix, how many units the site holds online, which coupon or Beauty Week countdown applies, and what delivery to a CEP takes, as the site shows it to a visitor who is not signed in (on 2026-11-27 Lily Le Parfum 30 ml read R$ 339.90 by card in 10x of R$ 33.99 and R$ 305.91 by Pix; the Make B. Mate Salicylic foundation in Cor 330 read R$ 59.90 against R$ 99.90 (40 percent off) with 440 units online, 9 shades (3 out of stock) and 4.88 stars from 3,860 reviews with 97 percent recommending it; Beauty Week listed 1,216 products, an Intense lipstick at R$ 7.50 against R$ 37.90 with its deal ending 2026-11-28 10:00 Brasilia time; the conditions page listed 19 campaigns with their dates and coupon codes; a Lily combo to CEP 01310-100 arrived in 1 business day with free shipping and store pickup offered) with card price, Pix price, was price, discount percent, installments, deal badges and countdown end; keyword search, category, department and product-brand listings 36 per page in 7 sorts with the site's facets (product brand, line, category, olfactory family, volume, concentration, rating) and a price range; the category menu; one product by SKU, slug or link with online stock units, availability, GTIN, every shade or size with its own price and stock, kit contents, the datasheet, the star histogram, recommend percent and the site's own review summary; current prices of up to 10 SKUs per call; reviews by SKU or for every shade together, up to 50 per page, 3 sorts and a star filter (no names); Beauty Week and the promotions hub with each item's countdown end; the promotions conditions page with each campaign's validity dates and coupon codes; the pickup stores near a CEP with distance, pickup time, hours and address; delivery options and shipping cost to a CEP and whether store pickup is offered; search suggestions with 5 products. 11 endpoints, 1 credit each, 2 when a page needs a second route; prices 1 credit per 5 SKUs. No per-store stock or prices, loyalty prices, reseller data or price history.",
+      "tags": "boticario, o-boticario, boticario-com-br, boticario-api, eudora, eudora-com-br, eudora-api, grupo-boticario, boticario-prices, boticario-pix, boticario-pix-price, boticario-stock, boticario-estoque, boticario-beauty-week, beauty-week, boticario-black-friday, boticario-promocao, boticario-cupom, boticario-coupons, cupom-de-desconto, boticario-reviews, boticario-avaliacoes, boticario-stores, boticario-lojas, boticario-frete, boticario-cep, boticario-retire-na-loja, boticario-perfumaria, boticario-maquiagem, eudora-prices, eudora-promocao, brazil, brazil-ecommerce, brazilian-retail, brazil-beauty, brl, pix, parcelamento, cep, beauty-prices, perfume-prices, makeup-prices, cosmetics-data, price-monitoring, price-tracking, stock-monitoring, product-data, agents, langchain, crewai, autogen, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-centauro",
+      "description": "Centauro API for Centauro (centauro.com.br, the sporting-goods retailer of Grupo SBF; Brazil only, BRL, Portuguese text) - what each size of a sneaker, shirt or piece of sports gear costs at Centauro today, who sells it and which store near a CEP can hand it over, as centauro.com.br shows it to a visitor who is not signed in (on 2026-11-27 the adidas Super U in white and black read R$ 389.99 against R$ 599.99 for the 5 sizes Centauro sold and R$ 599.99, R$ 569.99 by Pix, for the 7 sizes adidas sold as a brand seller; size 37 to a CEP on Avenida Paulista got free same-day store pickup, free normal delivery in 9 to 10 business days and 18 stores holding the size, Plaza Sul Shopping at 6.89 km within 3 hours; the Black Friday list held 9,257 products, an Oxer bermuda at R$ 31.57 against R$ 69.99) with price, list price, discount percent, Pix price, the best installment plan, seller (Centauro or a marketplace seller), badges (Mega Oferta, Preco Online), rating and review count; keyword search, category listings and deal lists (the Black Friday hotsite, the outlet, Mega Oferta or another hotsite), 36 per page in the site's 4 sorts with every facet and its count (brand, size, gender, product type, price band, sport, colour, discount band, promotion, store, sold-by); one product in one colour with every size's sku, EAN, stock flag, price, Pix price, installments and seller, plus colours, specs and up to 3 reviews (no names); delivery options and store pickup for one size to a Brazilian CEP with cost, dates, hours, address, distance and an in-store stock flag; the stores near a CEP; search suggestions and the site's most searched terms. 7 endpoints, 1 credit each. Stock is a flag, not a unit count; no deal dates, full review list, in-store price or price history.",
+      "tags": "centauro, centauro-com-br, centauro-api, centauro-prices, centauro-pix, centauro-pix-price, centauro-black-friday, centauro-outlet, centauro-mega-oferta, centauro-deals, centauro-ofertas, centauro-product, centauro-sizes, centauro-stock, centauro-store-pickup, centauro-retira-na-loja, centauro-frete, centauro-freight, centauro-cep, centauro-stores, centauro-lojas, centauro-marketplace, centauro-sellers, centauro-search, centauro-categories, centauro-suggestions, grupo-sbf, brazil, brazil-ecommerce, brazilian-retail, brl, pix, parcelamento, cep, sporting-goods-prices, sneaker-prices, running-shoes-prices, sportswear-prices, store-pickup, price-monitoring, price-tracking, product-data, marketplace-sellers, agents, langchain, crewai, autogen, structured-data, json, ai-agents"
     }
   ],
   "groups": [
