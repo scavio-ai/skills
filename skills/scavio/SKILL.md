@@ -60,6 +60,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Argos | [argos-stock-checker-api](references/argos-stock-checker-api.md) | 10 | 2 |
 | Ashley Furniture | [ashley-furniture-api](references/ashley-furniture-api.md) | 6 | 2; search and product 1 on ca, ph, sa and tr |
 | ASOS | [asos-api](references/asos-api.md) | 11 | 1 |
+| Atacadao | [atacadao-api](references/atacadao-api.md) | 10 | 1 |
 | Autotrader | [autotrader-api](references/autotrader-api.md) | 5 | 2 |
 | AutoZone | [autozone-api](references/autozone-api.md) | 12 | 1; br search, product and store-stock 2 |
 | Barnes & Noble | [barnes-and-noble-api](references/barnes-and-noble-api.md) | 10 | 1 |
@@ -76,6 +77,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | CarGurus | [cargurus-api](references/cargurus-api.md) | 8 | 1 |
 | CarMax | [carmax-api](references/carmax-api.md) | 12 | 1 |
 | Carrefour | [carrefour-api](references/carrefour-api.md) | 9 | 1; Belgium search and product 2 |
+| Carrefour Brasil | [carrefour-brasil-api](references/carrefour-brasil-api.md) | 9 | 1 |
 | Cars.com | [cars-com-api](references/cars-com-api.md) | 8 | 1 |
 | Carvana | [carvana-api](references/carvana-api.md) | 6 | 1 |
 | Casas Bahia | [casas-bahia-api](references/casas-bahia-api.md) | 4 | 2 |
@@ -95,6 +97,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Drogasil + Droga Raia | [drogasil-droga-raia-api](references/drogasil-droga-raia-api.md) | 11 | 1 |
 | eBay | [ebay-product-data](references/ebay-product-data.md) | 3 | 1 |
 | Edmunds | [edmunds-api](references/edmunds-api.md) | 8 | 2 |
+| Enjoei | [enjoei-api](references/enjoei-api.md) | 9 | 1 |
 | EstateSales.net | [estate-sales-net-api](references/estate-sales-net-api.md) | 6 | 1 |
 | Etsy | [etsy-product-data](references/etsy-product-data.md) | 5 | 2 |
 | Fanatics | [fanatics-merchandise-api](references/fanatics-merchandise-api.md) | 5 | 1 |

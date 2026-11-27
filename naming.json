@@ -2339,6 +2339,42 @@
       "group": "Commerce",
       "endpoints": "7",
       "credits": "1"
+    },
+    {
+      "dir": "scavio-enjoei",
+      "slug": "enjoei-api",
+      "name": "enjoei-api",
+      "display": "Enjoei API - Second-Hand Fashion Prices, Offers, Shop Sold Listings, Seller Reviews",
+      "query": "enjoei",
+      "reused": "no",
+      "platform": "Enjoei",
+      "group": "Commerce",
+      "endpoints": "9",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-atacadao",
+      "slug": "atacadao-api",
+      "name": "atacadao-api",
+      "display": "Atacadao API - Store Prices, Bulk Quantity Tiers, Stores, Flyers",
+      "query": "atacadao",
+      "reused": "no",
+      "platform": "Atacadao",
+      "group": "Commerce",
+      "endpoints": "10",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-carrefourbr",
+      "slug": "carrefour-brasil-api",
+      "name": "carrefour-brasil-api",
+      "display": "Carrefour Brasil API - Regional Grocery Prices by CEP, Marketplace, Coupons, Delivery",
+      "query": "carrefour brasil",
+      "reused": "no",
+      "platform": "Carrefour Brasil",
+      "group": "Commerce",
+      "endpoints": "9",
+      "credits": "1"
     }
   ],
   "frontmatter": [
@@ -3316,6 +3352,21 @@
       "dir": "scavio-centauro",
       "description": "Centauro API for Centauro (centauro.com.br, the sporting-goods retailer of Grupo SBF; Brazil only, BRL, Portuguese text) - what each size of a sneaker, shirt or piece of sports gear costs at Centauro today, who sells it and which store near a CEP can hand it over, as centauro.com.br shows it to a visitor who is not signed in (on 2026-11-27 the adidas Super U in white and black read R$ 389.99 against R$ 599.99 for the 5 sizes Centauro sold and R$ 599.99, R$ 569.99 by Pix, for the 7 sizes adidas sold as a brand seller; size 37 to a CEP on Avenida Paulista got free same-day store pickup, free normal delivery in 9 to 10 business days and 18 stores holding the size, Plaza Sul Shopping at 6.89 km within 3 hours; the Black Friday list held 9,257 products, an Oxer bermuda at R$ 31.57 against R$ 69.99) with price, list price, discount percent, Pix price, the best installment plan, seller (Centauro or a marketplace seller), badges (Mega Oferta, Preco Online), rating and review count; keyword search, category listings and deal lists (the Black Friday hotsite, the outlet, Mega Oferta or another hotsite), 36 per page in the site's 4 sorts with every facet and its count (brand, size, gender, product type, price band, sport, colour, discount band, promotion, store, sold-by); one product in one colour with every size's sku, EAN, stock flag, price, Pix price, installments and seller, plus colours, specs and up to 3 reviews (no names); delivery options and store pickup for one size to a Brazilian CEP with cost, dates, hours, address, distance and an in-store stock flag; the stores near a CEP; search suggestions and the site's most searched terms. 7 endpoints, 1 credit each. Stock is a flag, not a unit count; no deal dates, full review list, in-store price or price history.",
       "tags": "centauro, centauro-com-br, centauro-api, centauro-prices, centauro-pix, centauro-pix-price, centauro-black-friday, centauro-outlet, centauro-mega-oferta, centauro-deals, centauro-ofertas, centauro-product, centauro-sizes, centauro-stock, centauro-store-pickup, centauro-retira-na-loja, centauro-frete, centauro-freight, centauro-cep, centauro-stores, centauro-lojas, centauro-marketplace, centauro-sellers, centauro-search, centauro-categories, centauro-suggestions, grupo-sbf, brazil, brazil-ecommerce, brazilian-retail, brl, pix, parcelamento, cep, sporting-goods-prices, sneaker-prices, running-shoes-prices, sportswear-prices, store-pickup, price-monitoring, price-tracking, product-data, marketplace-sellers, agents, langchain, crewai, autogen, structured-data, json, ai-agents"
+    },
+    {
+      "dir": "scavio-enjoei",
+      "description": "Enjoei API for Enjoei (enjoei.com.br, Brazil's second-hand fashion marketplace; Brazil only, BRL, Portuguese text) - what a used or new piece of clothing, a pair of shoes or a bag is listed for on Enjoei today, what the seller has cut it from, what offer the seller accepts, and what a shop has sold and how buyers rate it, as enjoei.com.br shows it to a visitor who is not signed in (on 2026-11-27 a FARM midi dress read R$ 75 against R$ 90, 2x R$ 37,50 without interest, with offers accepted from R$ 45 to R$ 74; the shop @utstore held 706 listings and 2,008 sales, a 4.7 rating over 809 buyer reviews and 5 on-time deliveries in a row, its sold list running 50 pages of 40) with price, original price, discount, condition, size, shipping type and the shop's @handle; keyword search and department, category or subcategory listings, 30 per page by cursor, sorted by relevance, price or discount and filtered by brand, clothing, waist or shoe size, price range, new or used, listing age, Enjoei Pro or celebrity closets and discount band, with brand counts and size facets; one listing with description, installments, the make-an-offer range, sizes, verified brand, weight and photos; a shop's counters, rating, on-time history and shipping time; a shop's listings on sale, its sold listings with the listed price (no sold date) and its buyer reviews with score, date, text and feedback tags; the category tree and search suggestions. 9 endpoints, 1 credit each. Seller names, avatars and cities are never returned; no shipping quote, colour filter, sold date or price history.",
+      "tags": "enjoei, enjoei-com-br, enjoei-api, enjoei-prices, enjoei-precos, enjoei-search, enjoei-listings, enjoei-product, enjoei-shop, enjoei-loja, enjoei-sold, enjoei-vendidos, enjoei-sold-prices, enjoei-reviews, enjoei-avaliacoes, enjoei-offers, enjoei-make-an-offer, enjoei-categories, enjoei-suggestions, enjoei-pro, enjoei-famosas, brecho, brecho-online, second-hand-fashion, secondhand, resale, resale-prices, used-clothing-prices, thrift, thrift-prices, preloved, roupas-usadas, moda-circular, fashion-resale, sold-comps, reseller, brazil, brazil-ecommerce, brazilian-marketplace, brl, structured-data, json"
+    },
+    {
+      "dir": "scavio-atacadao",
+      "description": "Atacadao API for Atacadao (atacadao.com.br, the Brazilian cash-and-carry wholesale chain of Grupo Carrefour Brasil; Brazil only, BRL, Portuguese text) - what a pack of rice, beans, coffee, cleaning products or any grocery line costs at one Atacadao store today, unit by unit and by the case, and where the store is, as atacadao.com.br shows it online (on 2026-11-27 at the Tatuape store in Sao Paulo, Arroz Branco Namorado Tipo 1 5kg read R$ 21.89 a unit and R$ 21.39 from 6 units, a case of 6; Arroz Carreteiro Seara 300g R$ 19.50 and R$ 17.98 from 3; the store opened 24 hours, took Pix and 30 meal-voucher cards and carried 6 Black Friday flyers) with the unit price, every quantity tier, the bulk unit price, case size, EAN and collections (Black November, Black Week); keyword search and category listings at the store you choose (or the site's default store, Vila Maria, Sao Paulo), up to 100 a page in the site's 8 sorts and filtered by category, brand, price range, collection and any facet; the facets with the store's own counts; one product by sku, EAN, product id, slug or link; the pickup stores near a CEP or a point with distance and hours; the store directory by state and city with address, phone, hours, holiday hours and online services; one store with services, payment methods, meal vouchers and flyers; flyer links with validity dates; search suggestions with counts and the top searches; the category tree. 10 endpoints, 1 credit each. No stock units, was-price, reviews, business (CNPJ) channel or price history; flyers are returned as links.",
+      "tags": "atacadao, atacadao-com-br, atacadao-api, atacadao-prices, atacadao-precos, atacadao-store-prices, atacadao-preco-por-loja, atacadao-atacado, atacarejo, cash-and-carry, wholesale-prices, bulk-prices, preco-de-atacado, quantity-tiers, price-tiers, case-price, atacadao-black-friday, black-november, atacadao-ofertas, atacadao-folhetos, atacadao-flyers, folheto, atacadao-stores, atacadao-lojas, atacadao-store-hours, atacadao-ean, atacadao-search, atacadao-categories, atacadao-suggestions, grupo-carrefour-brasil, carrefour-brasil, grocery-prices, supermarket-prices, brazil-grocery, mercado, cesta-basica, cep, pix, brazil, brazil-ecommerce, brazilian-retail, brl, structured-data, json"
+    },
+    {
+      "dir": "scavio-carrefourbr",
+      "description": "Carrefour Brasil API for Carrefour Brasil (carrefour.com.br: the Mercado grocery site mercado.carrefour.com.br and the www site for non-food and the marketplace, through a site param; Brazil only, BRL, Portuguese text) - what a grocery item costs at Carrefour Brasil today in a region or at a pickup store, what a non-food item costs and who sells it, what a payment offer takes off, and what delivery or pickup to a CEP costs and when, as the site shows it to a visitor who is not signed in (on 2026-11-27 Arroz Branco Longo-fino Tipo 1 Tio Joao 1 Kg read R$ 6.59 at the site's default prices, R$ 4.61 with a 30 percent payment offer, delivery to a CEP on Avenida Paulista R$ 10.90 and free Click & Retire pickup at a hypermarket 1.15 km away; the arroz search priced for that CEP opened with a Seara 300g dish at R$ 12.49 against R$ 24.99; the coupon page held 4 codes, among them R$ 20 off above R$ 199) with price, list price, single-payment price, discount, availability flag, seller, stamps and sponsored placements kept apart; keyword or EAN search, category listings and collections (themed and deal lists), 15 a page to page 50, in the site's 8 sorts and filtered by any facet and a price range, priced for a CEP or a pickup store on Mercado; one product with every seller, payment offers, promotions, price per kg for items sold by weight, specs and variants; delivery and pickup options to a CEP; the pickup stores by state and city; search suggestions with the top searches; the coupon page; the department menu. 9 endpoints, 1 credit each. No stock units, reviews or price history.",
+      "tags": "carrefour-brasil, carrefour-brazil, carrefour-com-br, carrefour-brasil-api, carrefour-mercado, mercado-carrefour, carrefour-supermercado, carrefour-hipermercado, carrefour-precos, carrefour-prices, carrefour-regional-prices, carrefour-cep, carrefour-marketplace, carrefour-sellers, carrefour-coupons, carrefour-cupom, carrefour-ofertas, carrefour-black-friday, carrefour-delivery, carrefour-frete, carrefour-retire-na-loja, click-e-retire, carrefour-stores, carrefour-lojas, carrefour-collections, carrefour-search, carrefour-ean, carrefour-categories, carrefour-suggestions, grupo-carrefour-brasil, grocery-prices, supermarket-prices, brazil-grocery, mercado-online, preco-por-kg, cep, pix, brazil, brazil-ecommerce, brazilian-retail, brl, structured-data, json"
     }
   ],
   "groups": [
