@@ -61,6 +61,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | ASOS | [asos-api](references/asos-api.md) | 11 | 1 |
 | Autotrader | [autotrader-api](references/autotrader-api.md) | 5 | 2 |
 | AutoZone | [autozone-api](references/autozone-api.md) | 12 | 1; br search, product and store-stock 2 |
+| Barnes & Noble | [barnes-and-noble-api](references/barnes-and-noble-api.md) | 10 | 1 |
 | Bath & Body Works | [bath-and-body-works-api](references/bath-and-body-works-api.md) | 10 | 1 |
 | Best Buy | [best-buy-product-data](references/best-buy-product-data.md) | 10 | US 2 (stores and suggestions 1, deals and pcmcat pages 3); Canada 1 |
 | BJ's Wholesale Club | [bjs-wholesale-club-api](references/bjs-wholesale-club-api.md) | 7 | 1 |
@@ -131,6 +132,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | PetSmart | [petsmart-product-data](references/petsmart-product-data.md) | 6 | 1 |
 | Poshmark | [poshmark-api](references/poshmark-api.md) | 15 | 1 |
 | Publix | [publix-api](references/publix-api.md) | 11 | 1 |
+| QVC + HSN | [qvc-hsn-api](references/qvc-hsn-api.md) | 10 | 1 |
 | Rakuten | [rakuten-cashback-api](references/rakuten-cashback-api.md) | 9 | 1 |
 | REI | [rei-api](references/rei-api.md) | 9 | 2 |
 | RockAuto | [rockauto-parts-api](references/rockauto-parts-api.md) | 11 | 1 |
@@ -145,6 +147,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Target | [target-product-data](references/target-product-data.md) | 5 | 1 |
 | TCGplayer | [tcgplayer-api](references/tcgplayer-api.md) | 13 | 1 |
 | thredUP | [thredup-api](references/thredup-api.md) | 12 | 1 |
+| ThriftBooks | [thriftbooks-api](references/thriftbooks-api.md) | 8 | 1 |
 | TikTok Shop | [tiktok-shop-api](references/tiktok-shop-api.md) | 8 | 1 |
 | Tractor Supply | [tractor-supply-prices-api](references/tractor-supply-prices-api.md) | 12 | 1; product 2 on a store's first lookup, store-prices 1 per 5 lookups (25 new stores 11) |
 | Trendyol | [trendyol-api](references/trendyol-api.md) | 12 | 1 |
@@ -157,6 +160,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Walmart | [walmart-product-data](references/walmart-product-data.md) | 8 | 1; 2 for walmart.com.mx search/category or store-targeted search/product |
 | Wayfair | [wayfair-api](references/wayfair-api.md) | 4 | 1 |
 | Whole Foods Market | [whole-foods-grocery-data](references/whole-foods-grocery-data.md) | 7 | 1 |
+| Williams-Sonoma | [williams-sonoma-api](references/williams-sonoma-api.md) | 12 | 1; search and category 5 |
 | YesStyle | [yesstyle-api](references/yesstyle-api.md) | 9 | search, category, brand, deals, product 2; product with variants 3; reviews, suggestions, brands, markets 1 |
 | Zappos | [zappos-api](references/zappos-api.md) | 7 | 1 |
 | Zara | [zara-api](references/zara-api.md) | 12 | 2; some 4 or 6; cn 1 |
@@ -222,6 +226,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Rightmove | [rightmove-property-data](references/rightmove-property-data.md) | 7 | 1 |
 | StreetEasy | [streeteasy-api](references/streeteasy-api.md) | 5 | 1 |
 | Trulia | [trulia-api](references/trulia-api.md) | 5 | 1 |
+| U-Haul | [uhaul-api](references/uhaul-api.md) | 8 | 1 |
 | Zillow | [zillow-property-data](references/zillow-property-data.md) | 3 | 1 |
 
 **App stores**

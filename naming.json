@@ -2099,6 +2099,66 @@
       "group": "Commerce",
       "endpoints": "9",
       "credits": "2"
+    },
+    {
+      "dir": "scavio-qvc",
+      "slug": "qvc-hsn-api",
+      "name": "qvc-hsn-api",
+      "display": "QVC + HSN API - Today's Special Value, On-Air Items, Program Guide, Reviews",
+      "query": "qvc",
+      "reused": "no",
+      "platform": "QVC + HSN",
+      "group": "Commerce",
+      "endpoints": "10",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-barnesandnoble",
+      "slug": "barnes-and-noble-api",
+      "name": "barnes-and-noble-api",
+      "display": "Barnes & Noble API - Book Prices, Store Availability, Bestsellers, Deals",
+      "query": "barnes and noble",
+      "reused": "no",
+      "platform": "Barnes & Noble",
+      "group": "Commerce",
+      "endpoints": "10",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-thriftbooks",
+      "slug": "thriftbooks-api",
+      "name": "thriftbooks-api",
+      "display": "ThriftBooks API - Used Book Prices by Condition, ISBN Lookup, Editions",
+      "query": "thriftbooks",
+      "reused": "no",
+      "platform": "ThriftBooks",
+      "group": "Commerce",
+      "endpoints": "8",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-uhaul",
+      "slug": "uhaul-api",
+      "name": "uhaul-api",
+      "display": "U-Haul API - Truck Rental Quotes, Locations, Self-Storage Prices, Reviews",
+      "query": "uhaul",
+      "reused": "no",
+      "platform": "U-Haul",
+      "group": "Real estate",
+      "endpoints": "8",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-williamssonoma",
+      "slug": "williams-sonoma-api",
+      "name": "williams-sonoma-api",
+      "display": "Williams-Sonoma API - Pottery Barn, West Elm Prices, Delivery Dates, Store Pickup",
+      "query": "williams sonoma",
+      "reused": "no",
+      "platform": "Williams-Sonoma",
+      "group": "Commerce",
+      "endpoints": "12",
+      "credits": "1; search and category 5"
     }
   ],
   "frontmatter": [
@@ -2976,6 +3036,31 @@
       "dir": "scavio-rei",
       "description": "REI API for REI (rei.com, the US outdoor co-op) - what outdoor gear costs at REI today and whether the REI stores near you have it for pickup, as REI shows it to a visitor who is not signed in (on 2026-11-26 the REI Co-op Half Dome 2 Tent with Footprint read $329 in 3 colors, each SKU with its own price, UPC and online status, REI's own estimate of a $32.90 (10%) co-op member reward, 365-day returns and 62 reviews at 4.23 stars; SKU 2437020001 was in stock for pickup at 8 of the 9 REI stores nearest Seattle ZIP 98101, Seattle Flagship 0.71 miles away first, and free shipping to Lynnwood) with the current price, compare-at price, percent off, REI's own savings text, sale, clearance and REI Outlet flags, Just for Members items flagged, dated promo flair (Sale Ends Dec 1), badges (Top Rated, Staff Pick, New arrival), colors and sizes with SKU ids; keyword search, category listings and the deals or REI Outlet listings (7,974 deals and 3,654 outlet items captured), 30 or 90 per page to page 400, in REI's 9 sorts and filtered by any facet (brand, price, rating, best use, features, size, color) and by one store; one product in full with features, specs, every SKU, the rating histogram, fit ratings and questions with answers; reviews 10 per page in 5 sorts with a star filter, verified, incentivized and syndicated flags and brand responses, without reviewer names; the store pickup status of one SKU (in stock, ship to store or unavailable, with REI's estimated arrival) at the 4-10 stores nearest a ZIP, a city and state or a point; the stores near a ZIP or point with upcoming special hours (Thanksgiving and",
       "tags": "rei, rei-com, rei-co-op, rei-api, rei-prices, rei-price-tracker, rei-sale, rei-deals, rei-outlet, rei-clearance, rei-store-stock, rei-in-stock, rei-store-pickup, rei-stores, rei-store-hours, rei-reviews, rei-search, rei-product, rei-members, rei-member-reward, rei-optoutside, outdoor-gear, camping-gear, hiking-gear, backpacking, tents, rain-jackets, hiking-boots, ski-gear, climbing-gear, cycling, outdoor-retail, store-availability, store-pickup, sku-data, upc, product-reviews, product-search, category-browse, autocomplete, us-retail, usd, price-monitoring, competitor-research, agents, ai-agents, structured-data, json, mcp"
+    },
+    {
+      "dir": "scavio-qvc",
+      "description": "QVC + HSN API for QVC (qvc.com) and HSN (hsn.com), the video shopping networks of QVC Group - today's TV deal and what is on air, with the price as each site shows it (on 2026-11-27 QVC's Today's Special Value was the Diamonique Set of 5 Boxed Jewelry Gifts at $49.98 against a QVC price of $67.00 and a $124.24 retail value \"If Purchased Separately\", 5 Easy Payments of $10.00, the TSV window 2026-11-25T20:50Z to 2026-12-05T06:10Z; HSN's Today's Special was a ROTOflash set of 2 rechargeable flashlights at $39.99, was $59.99, with HSN's countdown 01:43:54) with the current price, QVC's everyday price, QVC's price code (TSV, SPB Black Friday Sale, SPR Sale, CPQ Final Sale) and its window, Easy Pay or FlexPay instalments, shipping charge, stock flag, added-to-cart-last-week and sold-last-30-days counts as given; keyword search on QVC US, UK, DE, IT and JP in each storefront's language and currency (1-96 per page, 7 sorts, facet filters on us, uk and de) and on HSN (60 per page, 6 sorts, department filter), with total and pages; one product in full with every color and size variant and its stock flag (HSN low-inventory units left when HSN shows them); up to 20 QVC item numbers in one call (us, it); the item on air now on QVC, QVC2, QVC3 and QVC Home; the TV program guide for one day (QVC 14 days back to 17 ahead in 4 US time zones, HSN and HSN2 hourly) and the items HSN presented in one show hour; a qvc.com category or collection grid (Clearance, 8,551 items), 96 per page; QVC search suggestions (us, uk, de); the first page of reviews (QVC 8 newest, HSN 12 highest rated) with the star distribution, recommend counts and questions, without reviewer names. 10 endpoints, 1 credit per call. No review paging, no HSN categories or suggestions, no unit counts on QVC, no on-air host or guest names, no price history or checkout.",
+      "tags": "qvc, hsn, qvc-com, hsn-com, qvc-api, hsn-api, qvc-hsn-api, qvc-group, qvc-todays-special-value, qvc-tsv, hsn-todays-special, qvc-on-air, qvc-program-guide, hsn-program-guide, hsn-items-recently-aired, qvc-search, hsn-search, qvc-product, hsn-product, qvc-reviews, hsn-reviews, qvc-easy-pay, hsn-flexpay, qvc-clearance, qvc-black-friday, qvc-uk, qvc-de, qvc-italia, qvc-japan, video-shopping, tv-shopping, home-shopping, live-shopping, deal-tracking, price-monitoring, installment-plans, product-search, product-data, product-reviews, category-browse, autocomplete, usd, gbp, eur, jpy, langchain, crewai, ai-agents, structured-data, json, mcp"
+    },
+    {
+      "dir": "scavio-barnesandnoble",
+      "description": "Barnes & Noble API for Barnes & Noble (barnesandnoble.com, the US bookseller) - what a book costs at Barnes & Noble today and whether the Barnes & Noble stores near you have it for pickup, as barnesandnoble.com shows it to a visitor (on 2026-11-27 Project Hail Mary by Andy Weir, EAN 9780593135204, read $32 in hardcover with a 4.6 rating from 287 ratings, and the page linked 6 formats with their own EAN and price - paperback $22, Large Print $31, eBook $14.99, the Deluxe Edition $37 against $40 and the Audio CD at $49.99 not available for sale; The Hunger Games paperback, EAN 9780439023528, showed available for pickup at all 28 stores near Chicago ZIP 60611, State Street 0.73 miles away first) with the price, the struck-through original price, on-sale flag, the site's badges ($3 OFF, 50% Off, Best Seller), the member offer text as the page writes it (never a member price), publisher, imprint, publication date, pages, dimensions, series, audience age, run time, online stock flags and a short overview excerpt; keyword, title, author, series or ISBN search, the 24 results the site shows with its total (3,101 for project hail mary), in its 7 sorts and filtered by format, availability, price band, subject, age and language; one title by EAN, ISBN-13 or ISBN-10; store pickup flags for one EAN at the stores near a ZIP, a city or a store number; stores near a ZIP, a city or a point with hours, dated holiday hours (Thanksgiving closed, Black Friday 9 AM to 10 PM at Fifth Avenue) and cafe, toys and games, vinyl and used-book flags; one store in full; the Bestsellers page, Bestselling Books, The New York Times Best Sellers (11 lists such as Hardcover Fiction and Paperback Nonfiction) and B&N Stores Bestsellers; one collection (Mystery & Thriller, New Releases, Kids ages 3-5) sorted and filtered like search; the header navigation (9 departments, 238 links); the deals pages (Black Friday and Cyber Monday with 21 deal shelves and 165 titles, Coupons & Deals, kids, eBook and audiobook deals); search-box title and subject suggestions. US only, USD. 10 endpoints, 1 credit per call. No member prices, no review text, no results past the first 24, no unit counts at stores, no deal end dates, no price history, cart or checkout.",
+      "tags": "barnes-and-noble, barnesandnoble, barnesandnoble-com, barnes-and-noble-api, barnes-noble-api, bn-api, barnes-and-noble-prices, barnes-and-noble-book-prices, barnes-and-noble-search, barnes-and-noble-isbn, barnes-and-noble-isbn-lookup, barnes-and-noble-store-availability, barnes-and-noble-store-pickup, barnes-and-noble-stores, barnes-and-noble-store-hours, barnes-and-noble-bestsellers, barnes-and-noble-deals, barnes-and-noble-black-friday, barnes-and-noble-coupons, bn-exclusive, nyt-best-sellers, new-york-times-best-sellers, book-prices, book-data, book-metadata, isbn-lookup, isbn-13, ean, book-search, bestseller-lists, new-releases, ebook-prices, audiobook-prices, book-deals, bookstore, bookstore-locator, store-availability, store-pickup, publishing, book-market-research, price-monitoring, us-retail, usd, agents, ai-agents, structured-data, json, mcp"
+    },
+    {
+      "dir": "scavio-thriftbooks",
+      "description": "ThriftBooks API for ThriftBooks (thriftbooks.com, the US online used-book seller; USD) - what a used or new book costs at ThriftBooks today in each condition, as its pages show it to a visitor who is not signed in (on 2026-11-27 The Hunger Games, work 246187, read 4 formats from $7.19 to $34.59 - Paperback New $12.74 (list $14.99, 499 copies), Very Good $34.59, Good $16.79, Acceptable $7.19, Hardcover New $17.90 (500 or more copies), Good $9.29 with no dust jacket, Acceptable $15.09 ex-library, Audio CD New $31.82, Library Binding New $24.95), one row per format and condition (New, Like New, Very Good, Good, Acceptable) with price, list price, quantity, edition and copy ids, ISBN and EAN, ex-library, no-dust-jacket and no-CD flags, ThriftBooks Deals, promotion text, ReadingRewards bonus points and days to ship; an ISBN-10 or ISBN-13 lookup that returns the matched work and edition with that table (9780593135204, Project Hail Mary hardcover, New $23.92, list $32); keyword or whole-catalog search with the bestsellers, ThriftBooks Deals and New Releases presets, filtered by format, condition, language, genre, price, collectible, signed, first edition and large print, in the site's 7 sorts, up to 50 works per page and 10,000 results deep, each work with its price range, the copy the result puts up for sale, list price, copies available, edition count, series and rating; one edition with publisher, release date, pages, age and grade range, lowest new and used price, a short overview excerpt and its copies; every copy of an edition for sale; every edition of a work, 25 per page, in 5 sorts with format and condition filters; customer reviews 10 per page with rating, headline, text, date and verified purchase (no reviewer names); search-box title and author suggestions. 8 endpoints, 1 credit per call. US storefront only, USD. A New quantity of 500 means 500 or more. No member or cart prices, no price history, no sold prices, no checkout.",
+      "tags": "thriftbooks, thriftbooks-com, thriftbooks-api, thriftbooks-prices, thriftbooks-used-books, thriftbooks-isbn, thriftbooks-isbn-lookup, thriftbooks-search, thriftbooks-editions, thriftbooks-copies, thriftbooks-conditions, thriftbooks-deals, thriftbooks-bestsellers, thriftbooks-new-releases, thriftbooks-reviews, thriftbooks-readingrewards, used-books, used-book-prices, book-prices, book-condition, like-new, very-good, ex-library, isbn-lookup, isbn-13, isbn-10, ean, book-editions, book-search, book-data, book-metadata, bestsellers, book-reviews, textbooks, collectible-books, signed-books, first-editions, book-resale, bookselling, price-monitoring, price-comparison, us-retail, usd, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-uhaul",
+      "description": "U-Haul API for U-Haul (uhaul.com, the US and Canada truck rental and self-storage company) - U-Haul's own truck rental rates for a move, as its public quote form shows them for a pickup place, an optional drop-off and a date (on 2026-11-27 a one-way Dallas, TX to Austin, TX move on 2026-12-11 read $212 for the 10' Truck, $223 for the 15', $280 for the 20' and $335 for the 26', each including up to 2 days and 229 miles, with the 8' Pickup Truck and 9' Cargo Van \"Not available for your move.\"; an in-town Chicago, IL quote read $19.95 to $49.95 plus $1.59/mile; Toronto, ON to Ottawa, ON read CAD 646 for the 10' Truck, 651 with fees, including 531 kilometers) with every truck's availability, U-Haul's Limited Availability note, inside dimensions and specs, the truck + moving labor estimate and the U-Box starting price; U-Haul locations near a city, ZIP or postal code for truck rentals, trailer rentals, moving supplies or self-storage, 6 per page, with U-Haul's location type (company center or dealer), address, public business phone, rating, review count, distance, hours, holiday hours, services and flags; one location with hours, payment methods and, for Canadian locations, the full CAD rate card (weekday and weekend day and per-km rates, daily, weekly and monthly plans with kilometers included); self-storage facilities near a place, up to 18, sorted by distance, starting rate or rating and filtered by climate control, indoor, drive-up, portable, Rent Now and RV, boat or vehicle storage; one storage facility with every unit's size, floor and climate attributes, monthly rate, Rent Now or reserve-only flag, vacant unit count and reserve window, its promotions and office and access hours (U-Haul Moving & Storage at Greenville Ave, Dallas listed 43 units, 139 vacant, a 5' x 5' indoor unit at $64.95 a month); U-Haul's own customer reviews of a location, filtered by service (trucks, storage, U-Box) and stars, sorted and paged, without reviewer names; place suggestions for pickup, drop-off and search; moving supplies prices in USD or CAD by category or product, with U-Haul's bundle prices. US and Canada, English, Spanish (es.uhaul.com) and French (fr.uhaul.com). 8 endpoints, 1 credit per call. Quotes are U-Haul's rates page only - no pickup location, nothing reserved; no trailer, towing or U-Box quotes, no price history.",
+      "tags": "u-haul, uhaul, uhaul-com, u-haul-api, uhaul-api, u-haul-quote, uhaul-quote, u-haul-truck-rental, uhaul-truck-rental, u-haul-rates, uhaul-rates, u-haul-prices, uhaul-prices, u-haul-one-way, uhaul-one-way, u-haul-locations, uhaul-locations, u-haul-dealers, u-haul-storage, uhaul-storage, u-haul-self-storage, u-haul-storage-prices, u-haul-reviews, uhaul-reviews, u-haul-moving-supplies, uhaul-moving-boxes, u-haul-canada, truck-rental, truck-rental-quote, moving-truck-rental, one-way-truck-rental, in-town-truck-rental, moving-costs, moving-truck-prices, cargo-van-rental, pickup-truck-rental, trailer-rental, self-storage, self-storage-prices, storage-unit-prices, storage-units, climate-controlled-storage, rv-storage, moving-supplies, moving-boxes, location-search, customer-reviews, price-monitoring, market-research, real-estate, usd, cad, langchain, crewai, ai-agents, structured-data, json"
+    },
+    {
+      "dir": "scavio-williamssonoma",
+      "description": "Williams-Sonoma API for the Williams-Sonoma, Inc. brands (Williams Sonoma, Pottery Barn, Pottery Barn Kids, Pottery Barn Teen, West Elm, Rejuvenation and Mark and Graham; US in USD, and the Canadian Williams Sonoma, Pottery Barn and West Elm sites in CAD for product) - what a piece costs on the brand's site today, per SKU, with the regular price, the sale or special price and the brand's own discount type (on 2026-11-27 the Pottery Barn Gabrielle Bergere Sofa (63\") read $2,319 against a $2,899 regular price, and CAD 3,710 against CAD 4,638 on potterybarn.ca; the WUSTHOF Classic Chef's Knife at Williams Sonoma read $99 to $200 across its sizes and colors, 564 ratings at 4.81 stars), whether each SKU is on hand, back-ordered (with the date) or not available, its delivery services (standard, rush, white glove) and dimensions; the fabric configurator of a made-to-order Pottery Barn piece (the Gabrielle Sofa base SKU 4889446 lists 50 fabrics with fiber content, rub count and price tier, $1,999 to $2,899 across fabrics, a 27-51 production lead time as given); standard-delivery dates to a US ZIP per SKU with the holiday order cutoff (Christmas cutoffs 2026-12-17 and 2026-12-19 for two knife SKUs to 60611); the online stock ranges per SKU (401+, 1-10, 71-80 within 2 weeks), national; store pickup yes or no per SKU at up to 10 stores with the ship-to-store window; the stores of every brand near a ZIP or point with this week's hours; the stores showing one furniture piece on their floor; the category tree with the Sale and Black Friday listings; Pottery Barn category listings and Williams Sonoma or Pottery Barn keyword search, page 1 (20 products) with total, price range, regular price, sale price, limited-time-offer flag and max percent off; the day's most searched terms with counts; Williams Sonoma customer reviews newest first with the rating distribution, without reviewer names. 12 endpoints, 1 credit per call, 5 for search and category. Prices national (the same at every ZIP and store). No UPCs, unit counts per store, West Elm search, reviews on the other brands, page 2 of a listing, price history or checkout.",
+      "tags": "williams-sonoma, williams-sonoma-com, williams-sonoma-api, williams-sonoma-prices, williams-sonoma-sale, williams-sonoma-reviews, williams-sonoma-stores, williams-sonoma-inc, pottery-barn, potterybarn, pottery-barn-api, pottery-barn-prices, pottery-barn-sale, pottery-barn-kids, pottery-barn-teen, pbteen, west-elm, westelm, west-elm-api, west-elm-prices, rejuvenation, mark-and-graham, furniture-prices, home-furnishings, cookware-prices, kitchenware, sofa-prices, fabric-configurator, made-to-order-furniture, delivery-estimate, holiday-delivery-cutoff, online-stock, store-pickup, floor-samples, store-locator, popular-searches, black-friday-furniture, category-browse, product-search, product-reviews, sku-data, us-retail, canada, usd, cad, price-monitoring, competitor-research, structured-data, json"
     }
   ],
   "groups": [
