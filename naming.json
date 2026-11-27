@@ -2423,6 +2423,54 @@
       "group": "Commerce",
       "endpoints": "12",
       "credits": "1; copies with sellers ceil((1 + copies) / 5)"
+    },
+    {
+      "dir": "scavio-cea",
+      "slug": "cea-brasil-api",
+      "name": "cea-brasil-api",
+      "display": "C&A Brasil API - Fashion Prices per Size, Pix Price, Online Stock, Delivery and Store Pickup by CEP",
+      "query": "c&a brasil",
+      "reused": "no",
+      "platform": "C&A Brasil",
+      "group": "Commerce",
+      "endpoints": "10",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-renner",
+      "slug": "lojas-renner-api",
+      "name": "lojas-renner-api",
+      "display": "Lojas Renner API - Fashion Prices, Stock Levels, Cartao Renner Installments, Stores by CEP",
+      "query": "lojas renner",
+      "reused": "no",
+      "platform": "Lojas Renner",
+      "group": "Commerce",
+      "endpoints": "6",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-pichau",
+      "slug": "pichau-api",
+      "name": "pichau-api",
+      "display": "Pichau API - PC Parts Pix and Card Prices, Black Friday Deals, Coupons, PC Benchmarks",
+      "query": "pichau",
+      "reused": "no",
+      "platform": "Pichau",
+      "group": "Commerce",
+      "endpoints": "11",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-dafiti",
+      "slug": "dafiti-api",
+      "name": "dafiti-api",
+      "display": "Dafiti API - Fashion Prices, Units per Size, Marketplace Stores, Outlet Deals",
+      "query": "dafiti",
+      "reused": "no",
+      "platform": "Dafiti",
+      "group": "Commerce",
+      "endpoints": "6",
+      "credits": "1"
     }
   ],
   "frontmatter": [
@@ -3435,6 +3483,26 @@
       "dir": "scavio-estantevirtual",
       "description": "Estante Virtual API for Estante Virtual (estantevirtual.com.br, Brazil's used and new book marketplace, part of Magalu; Brazil only, BRL, Portuguese text) - what a used or new book costs on Estante Virtual today, copy by copy and sebo by sebo, what shipping one copy to a CEP costs, and how buyers rate a sebo, as estantevirtual.com.br shows it to a visitor who is not signed in (on 2026-11-27 the ISBN 9788535914849, 1984 by George Orwell from Companhia das Letras, had 198 used and 62 new copies on sale, the lowest used at R$ 18 from Sebo do Menino and the lowest new at R$ 21.90; that new copy shipped to a CEP on Avenida Paulista for R$ 19.34 in 9 days by Correios printed-matter rate, with free shipping from R$ 200 at that seller; the Sao Paulo sebo directory listed 1,258 sebos and booksellers) with lowest price, used and new copy counts, condition, the seller's condition notes, invoice flag, installments and badges; keyword or ISBN search, category and list pages (Black Friday, livros baratos, lancamentos), 44 per page in the site's 6 sorts and filtered by used or new, author, publisher, year, seller city, seller, category, language, rating and a BRL price range; one book with the lowest-priced used and new copy and its reviews; every copy of a book, up to 50 a page, by price, optionally with each copy's seller; one copy with seller, weight and dimensions; shipping by CEP; a sebo's page (shop name, city and state, private or business, rating, newest reviews), its catalogue and its buyer reviews; the sebo directory by state and city. 12 endpoints, 1 credit each; copies with sellers ceil((1 + copies) / 5). Seller city and state only; reviewer names never; no suggestions, questions, stores, was price, Pix price or price history.",
       "tags": "estante-virtual, estantevirtual, estantevirtual-com-br, estante-virtual-api, estante-virtual-prices, estante-virtual-precos, estante-virtual-search, estante-virtual-isbn, estante-virtual-book, estante-virtual-livro, estante-virtual-copies, estante-virtual-exemplares, estante-virtual-shipping, estante-virtual-frete, estante-virtual-sebos, estante-virtual-sellers, estante-virtual-reviews, estante-virtual-avaliacoes, estante-virtual-black-friday, estante-virtual-categories, sebo, sebos, sebo-online, livros-usados, livros-novos, used-books, used-book-prices, book-prices, isbn-lookup, isbn-prices, book-marketplace, booksellers, livraria, second-hand-books, book-resale, magalu, cep, brazil, brazil-ecommerce, brazilian-marketplace, brl, structured-data, json"
+    },
+    {
+      "dir": "scavio-cea",
+      "description": "C&A Brasil API for C&A Brasil (cea.com.br, the Brazilian arm of the C&A fashion chain; Brazil only, BRL, Portuguese text) - what each size of a dress, shirt, pair of jeans or any C&A piece costs today, whether it is in stock online, what delivery to a CEP costs and which stores near that CEP can hand the size over, as cea.com.br shows it to a visitor who is not signed in (on 2026-11-27 a Clock House oversized Peruvian-cotton T-shirt read R$ 99.99, R$ 99.99 by Pix, 3x R$ 33.33 interest-free on C&A Pay, in 5 sizes with size G sold out; size M shipped free to a CEP on Avenida Paulista in 6 business days, normally R$ 24.40, or free pickup the next business day at the C&A Avenida Paulista store 0.72 km away; one promotion collection held 1,302 products sorted by discount, led by a linen skirt at R$ 39.99 against R$ 139.99) with price, list price, discount, Pix price, the best installment plan and every size with its own price and capped online quantity; keyword search, category, brand and promotion-collection listings, 24 per page to page 50, in the site's 8 sorts; the filter values with counts; search suggestions and the top searches; the department tree; one product with every size, seller, every payment method's installment plan and specifications; the delivery quote and pickup stores for one size and a CEP; the pickup points near a CEP, C&A stores and third-party pickup lockers, with hours. 10 endpoints, 1 credit each. Collections come as ids only; no reviews, EAN, store units or price history.",
+      "tags": "cea, c-and-a, c-a-brasil, cea-brasil, cea-com-br, cea-api, cea-brasil-api, c-and-a-brazil, cea-prices, cea-precos, cea-pix, cea-search, cea-product, cea-sizes, cea-tamanhos, cea-stock, cea-estoque, cea-deals, cea-ofertas, cea-promocoes, cea-black-friday, cea-collections, cea-brands, cea-marcas, clock-house, palomino, yessica, cea-categories, cea-facets, cea-suggestions, cea-top-searches, cea-shipping, cea-frete, cea-cep, cea-retire-na-loja, cea-pickup, cea-stores, cea-lojas, clique-retire, cea-pay, parcelamento, fashion-prices, clothing-prices, moda-feminina, moda-masculina, brazil, brazil-ecommerce, brazilian-retail, brl, pix, cep, price-monitoring, product-data, structured-data, json"
+    },
+    {
+      "dir": "scavio-renner",
+      "description": "Lojas Renner API for Lojas Renner (lojasrenner.com.br, the Brazilian fashion retailer; Brazil only, BRL, Portuguese text) - what a Renner piece costs today, what it costs on the Cartao Renner store card against other cards, how many units the site lists, which sizes are available and which Renner stores serve a CEP, as lojasrenner.com.br shows it to a visitor who is not signed in (on 2026-11-27 a Cortelle barrel trouser read R$ 199.90 against R$ 219.90, 6x R$ 33.32 interest-free on the Cartao Renner or 4x R$ 49.98 on other cards, rated 4.4 over 21 reviews, in 6 sizes all available; the camiseta search held 9,468 products, the first at R$ 69.90 against R$ 79.90 with 17 units listed and 163 sold in the last 15 days; the list of every discounted product held 106,896; a CEP on Avenida Paulista had 5 Sao Paulo stores) with price, list price, discount, installment plan, stock level, stock status, units sold in 15 days and seller (Lojas Renner or a partner store); keyword search, category listings and lists (every discounted product by default), 48 per page to page 200, in the site's 8 sorts and filtered by category, sold by, brand, size, colour, gender and the states with stock, with the site's counts; one product with both installment plans, the rating aggregate, composition, every colour with its sizes and per-size availability flags; price and stock flags for one size; the stores for a CEP's city with address, hours and store number. 6 endpoints, 1 credit each. Availability per size is a flag, not a count; no review texts, shipping quote, search suggestions or price history.",
+      "tags": "renner, lojas-renner, lojasrenner, lojasrenner-com-br, renner-api, lojas-renner-api, renner-prices, renner-precos, renner-search, renner-product, renner-sizes, renner-tamanhos, renner-stock, renner-estoque, renner-stock-level, renner-deals, renner-ofertas, renner-promocoes, renner-black-friday, renner-lists, renner-categories, renner-refinements, renner-brands, renner-marketplace, renner-sellers, cartao-renner, renner-installments, renner-parcelamento, renner-rating, renner-stores, renner-lojas, renner-cep, fashion-prices, clothing-prices, moda-feminina, moda-masculina, brazil, brazil-ecommerce, brazilian-retail, brl, cep, price-monitoring, product-data, structured-data, json"
+    },
+    {
+      "dir": "scavio-pichau",
+      "description": "Pichau API for Pichau (pichau.com.br, Brazil's PC-parts store; Brazil only, BRL, Portuguese text) - what a graphics card, processor, prebuilt PC or any PC part costs at Pichau today by Pix and by card, every card plan with the discount on short plans, how long a Black Friday deal runs and how many units it has left, which coupons are live, and how a prebuilt PC benchmarks, as pichau.com.br shows it to a visitor who is not signed in (on 2026-11-27 the INNO3D GeForce RTX 5060 Twin X2 8GB read R$ 3,159.99 by Pix and R$ 3,717.64 on card in 12 interest-free payments of R$ 309.80, against a list price of R$ 3,835.28, sold out with 2 Black Friday units left after 117 sold; paid in 1x on card it came to R$ 3,345.88, 10 percent off; the AMD Ryzen 7 9800X3D read R$ 2,149.99 by Pix with 85 deal units left after 1,330 sold; the Black Friday campaign ran 2026-11-01 to 2026-11-30 with 1,467 products; a prebuilt PC Gamer Pichau with a Ryzen 5 5500 and an RTX 5060 showed 120 FPS in Cyberpunk 2077 at Full HD) with Pix price, card price, list price, discount, installments, availability, only-N-left, open-box grade, free-shipping labels, EAN and warranty; keyword search (a keyword the site sends to a category is followed), category, brand and deal listings (Black Friday, open box, other campaigns), 36 per page, in the site's order, by price or by name, filtered by the listing's facets with counts; one product with MPN, NCM, specs and the running deal; the live product page with benchmarks and a prebuilt PC's component list; reviews with stars and photos (no names); every card plan; the coupons page; the category menu; search-box suggestions. 11 endpoints, 1 credit each. No shipping quote by CEP, stores, stock unit counts, PC builder or price history.",
+      "tags": "pichau, pichau-com-br, pichau-api, pichau-prices, pichau-precos, pichau-pix, pichau-pix-price, pichau-black-friday, pichau-ofertas, pichau-deals, pichau-promocao, pichau-open-box, pichau-openbox, pichau-coupons, pichau-cupons, pichau-installments, pichau-parcelamento, pichau-search, pichau-product, pichau-categories, pichau-brands, pichau-reviews, pichau-avaliacoes, pichau-suggestions, pichau-benchmarks, pichau-fps, pc-gamer-pichau, pichau-pc-gamer, prebuilt-pc-prices, pc-parts-prices, pc-hardware-prices, gpu-prices, graphics-card-prices, placa-de-video, processador, cpu-prices, monitor-prices, ssd-prices, pc-gamer, hardware-brasil, price-monitoring, price-tracking, product-data, pix, parcelamento, brazil, brazil-ecommerce, brazilian-retail, brl, structured-data, json"
+    },
+    {
+      "dir": "scavio-dafiti",
+      "description": "Dafiti API for Dafiti (dafiti.com.br, the Brazilian fashion marketplace; Brazil only, BRL, Portuguese text) - what a pair of sneakers, a dress or any fashion item costs at Dafiti today by Pix and on card, how many units each size has left, who sells and ships it, and what the outlet discounts, as dafiti.com.br shows it to a visitor who is not signed in (on 2026-11-27 the Asics Gel 1130 unisex sneaker in beige read R$ 389.99, R$ 410.52 on card in up to 8 installments, against R$ 699.99, with 4 of its 11 sizes in stock - size 41 with 5 units left, size 44 with 1 - all from Dafiti's own stock; the Asics brand listing held 1,575 products; the outlet held 199 products sorted by discount, a children's sneaker at R$ 30.99 against R$ 99.90) with price, list price, discount, Pix price, card price, installments, sponsored slots and the marketplace flag; keyword search, category, brand and outlet listings, 48 per page plus the site's sponsored slots, in the site's 5 sorts; one product with the seller store, every size with its exact units from 0 to 10 (more than 10 above that), delivery type (Dafiti's own stock, fulfillment or drop shipping), specs, details and other colours; every size of one sku with its stock, faster. 6 endpoints, 1 credit each. Search matches loosely; marketplace sellers are named by store name only; no reviews text, shipping quote, suggestions or price history.",
+      "tags": "dafiti, dafiti-com-br, dafiti-api, dafiti-brasil, dafiti-prices, dafiti-precos, dafiti-pix, dafiti-search, dafiti-product, dafiti-sizes, dafiti-tamanhos, dafiti-stock, dafiti-estoque, dafiti-units, dafiti-outlet, dafiti-deals, dafiti-ofertas, dafiti-promocoes, dafiti-black-friday, dafiti-brands, dafiti-marcas, dafiti-categories, dafiti-marketplace, dafiti-sellers, dafiti-lojista, dafiti-drop-shipping, dafiti-fulfillment, dafiti-sponsored, dafiti-installments, dafiti-parcelamento, sneaker-prices, tenis, fashion-prices, clothing-prices, shoe-prices, moda-feminina, moda-masculina, brazil, brazil-ecommerce, brazilian-marketplace, brl, pix, price-monitoring, product-data, structured-data, json"
     }
   ],
   "groups": [

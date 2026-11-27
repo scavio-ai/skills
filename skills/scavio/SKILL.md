@@ -73,6 +73,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Boots | [boots-uk-api](references/boots-uk-api.md) | 4 | 1 (2 when answered on the second attempt) |
 | Bring a Trailer | [bring-a-trailer-api](references/bring-a-trailer-api.md) | 8 | 1 |
 | Buscape + Zoom | [buscape-zoom-api](references/buscape-zoom-api.md) | 12 | 1 |
+| C&A Brasil | [cea-brasil-api](references/cea-brasil-api.md) | 10 | 1 |
 | Canadian Tire | [canadian-tire-api](references/canadian-tire-api.md) | 6 | 1 |
 | CarGurus | [cargurus-api](references/cargurus-api.md) | 8 | 1 |
 | CarMax | [carmax-api](references/carmax-api.md) | 12 | 1 |
@@ -87,6 +88,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Costco | [costco-product-data](references/costco-product-data.md) | 13 | 1; US search, category, deals and clearance 2; multi-warehouse prices, stock and gas scale with warehouse count |
 | Cult Beauty | [cult-beauty-api](references/cult-beauty-api.md) | 7 | 1 |
 | CVS | [cvs-product-data](references/cvs-product-data.md) | 3 | 1; product 2 |
+| Dafiti | [dafiti-api](references/dafiti-api.md) | 6 | 1 |
 | Decathlon | [decathlon-product-data](references/decathlon-product-data.md) | 2 | 2 |
 | Depop | [depop-api](references/depop-api.md) | 14 | 1; product 2 outside the US; nz 5, product 6 |
 | Dermstore | [dermstore-skincare-prices-api](references/dermstore-skincare-prices-api.md) | 7 | 1 |
@@ -122,6 +124,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Kroger | [kroger-grocery-data](references/kroger-grocery-data.md) | 8 | 1; search and product 2, store prices 3 |
 | L.L.Bean | [llbean-api](references/llbean-api.md) | 11 | 1 |
 | Leroy Merlin | [leroy-merlin-api](references/leroy-merlin-api.md) | 13 | 1 in br; it 1-2, ro 1, es/pt/pl 2, fr 5 |
+| Lojas Renner | [lojas-renner-api](references/lojas-renner-api.md) | 6 | 1 |
 | Lookfantastic | [lookfantastic-api](references/lookfantastic-api.md) | 7 | 1 |
 | Lowe's | [lowes-product-data](references/lowes-product-data.md) | 4 | 2; reviews 1 |
 | Macy's | [macys-product-data](references/macys-product-data.md) | 9 | 1 |
@@ -149,6 +152,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | PC Express (Superstore, No Frills, Loblaws, Maxi) | [loblaws-grocery-prices-api](references/loblaws-grocery-prices-api.md) | 7 | 1; product 5 (1 from the search listing), store 5 |
 | Petco | [petco-product-data](references/petco-product-data.md) | 5 | 1 |
 | PetSmart | [petsmart-product-data](references/petsmart-product-data.md) | 6 | 1 |
+| Pichau | [pichau-api](references/pichau-api.md) | 11 | 1 |
 | Poshmark | [poshmark-api](references/poshmark-api.md) | 15 | 1 |
 | Publix | [publix-api](references/publix-api.md) | 11 | 1 |
 | QVC + HSN | [qvc-hsn-api](references/qvc-hsn-api.md) | 10 | 1 |
