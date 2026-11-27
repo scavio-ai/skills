@@ -152,12 +152,14 @@ Each row is one reference file. Open it before the first call to that platform. 
 | PC Express (Superstore, No Frills, Loblaws, Maxi) | [loblaws-grocery-prices-api](references/loblaws-grocery-prices-api.md) | 7 | 1; product 5 (1 from the search listing), store 5 |
 | Petco | [petco-product-data](references/petco-product-data.md) | 5 | 1 |
 | PetSmart | [petsmart-product-data](references/petsmart-product-data.md) | 6 | 1 |
+| Petz | [petz-api](references/petz-api.md) | 7 | 1 |
 | Pichau | [pichau-api](references/pichau-api.md) | 11 | 1 |
 | Poshmark | [poshmark-api](references/poshmark-api.md) | 15 | 1 |
 | Publix | [publix-api](references/publix-api.md) | 11 | 1 |
 | QVC + HSN | [qvc-hsn-api](references/qvc-hsn-api.md) | 10 | 1 |
 | Rakuten | [rakuten-cashback-api](references/rakuten-cashback-api.md) | 9 | 1 |
 | REI | [rei-api](references/rei-api.md) | 9 | 2 |
+| Riachuelo | [riachuelo-api](references/riachuelo-api.md) | 4 | 1 |
 | RockAuto | [rockauto-parts-api](references/rockauto-parts-api.md) | 11 | 1 |
 | RONA | [rona-api](references/rona-api.md) | 9 | prices, categories, stores, store 1; search, deals 2-3; category 1-3; product, stock 3 |
 | Saks Fifth Avenue | [saks-fifth-avenue-api](references/saks-fifth-avenue-api.md) | 9 | 2 |
