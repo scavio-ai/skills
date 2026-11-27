@@ -83,6 +83,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Casas Bahia | [casas-bahia-api](references/casas-bahia-api.md) | 4 | 2 |
 | Centauro | [centauro-api](references/centauro-api.md) | 7 | 1 |
 | Chewy | [chewy-product-data](references/chewy-product-data.md) | 2 | 10 |
+| Cobasi | [cobasi-api](references/cobasi-api.md) | 11 | 1 |
 | Costco | [costco-product-data](references/costco-product-data.md) | 13 | 1; US search, category, deals and clearance 2; multi-warehouse prices, stock and gas scale with warehouse count |
 | Cult Beauty | [cult-beauty-api](references/cult-beauty-api.md) | 7 | 1 |
 | CVS | [cvs-product-data](references/cvs-product-data.md) | 3 | 1; product 2 |
@@ -98,6 +99,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | eBay | [ebay-product-data](references/ebay-product-data.md) | 3 | 1 |
 | Edmunds | [edmunds-api](references/edmunds-api.md) | 8 | 2 |
 | Enjoei | [enjoei-api](references/enjoei-api.md) | 9 | 1 |
+| Estante Virtual | [estante-virtual-api](references/estante-virtual-api.md) | 12 | 1; copies with sellers ceil((1 + copies) / 5) |
 | EstateSales.net | [estate-sales-net-api](references/estate-sales-net-api.md) | 6 | 1 |
 | Etsy | [etsy-product-data](references/etsy-product-data.md) | 5 | 2 |
 | Fanatics | [fanatics-merchandise-api](references/fanatics-merchandise-api.md) | 5 | 1 |
@@ -134,6 +136,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Micro Center | [micro-center-api](references/micro-center-api.md) | 3 | 2; stores 1 |
 | Natura | [natura-api](references/natura-api.md) | 7 | 1 |
 | Nellis Auction | [nellis-auction-api](references/nellis-auction-api.md) | 4 | 1 |
+| Netshoes | [netshoes-api](references/netshoes-api.md) | 11 | 1 |
 | Newegg | [newegg-api](references/newegg-api.md) | 10 | 2 |
 | Nike | [nike-api](references/nike-api.md) | 8 | 1 |
 | Nordstrom | [nordstrom-product-data](references/nordstrom-product-data.md) | 8 | 5; availability and reviews 10 |
@@ -163,6 +166,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Sweetwater | [sweetwater-api](references/sweetwater-api.md) | 6 | 1 |
 | Target | [target-product-data](references/target-product-data.md) | 5 | 1 |
 | TCGplayer | [tcgplayer-api](references/tcgplayer-api.md) | 13 | 1 |
+| Terabyteshop | [terabyte-api](references/terabyte-api.md) | 9 | 1 |
 | thredUP | [thredup-api](references/thredup-api.md) | 12 | 1 |
 | ThriftBooks | [thriftbooks-api](references/thriftbooks-api.md) | 8 | 1 |
 | TikTok Shop | [tiktok-shop-api](references/tiktok-shop-api.md) | 8 | 1 |

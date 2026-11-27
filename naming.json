@@ -2375,6 +2375,54 @@
       "group": "Commerce",
       "endpoints": "9",
       "credits": "1"
+    },
+    {
+      "dir": "scavio-terabyte",
+      "slug": "terabyte-api",
+      "name": "terabyte-api",
+      "display": "Terabyteshop API - PC Parts Pix and Card Prices, Black Friday Deals, Coupons, PC Builder",
+      "query": "terabyte",
+      "reused": "no",
+      "platform": "Terabyteshop",
+      "group": "Commerce",
+      "endpoints": "9",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-cobasi",
+      "slug": "cobasi-api",
+      "name": "cobasi-api",
+      "display": "Cobasi API - Pet Supply Prices by Size, Compra Programada Subscription, Store Pickup by CEP, Reviews",
+      "query": "cobasi",
+      "reused": "no",
+      "platform": "Cobasi",
+      "group": "Commerce",
+      "endpoints": "11",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-netshoes",
+      "slug": "netshoes-api",
+      "name": "netshoes-api",
+      "display": "Netshoes API - Sporting Goods Prices per Size, Pix Prices, Online Stock, Shipping by CEP, Sellers",
+      "query": "netshoes",
+      "reused": "no",
+      "platform": "Netshoes",
+      "group": "Commerce",
+      "endpoints": "11",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-estantevirtual",
+      "slug": "estante-virtual-api",
+      "name": "estante-virtual-api",
+      "display": "Estante Virtual API - Used and New Book Prices by ISBN, Copies by Sebo, Shipping by CEP, Seller Reviews",
+      "query": "estante virtual",
+      "reused": "no",
+      "platform": "Estante Virtual",
+      "group": "Commerce",
+      "endpoints": "12",
+      "credits": "1; copies with sellers ceil((1 + copies) / 5)"
     }
   ],
   "frontmatter": [
@@ -3367,6 +3415,26 @@
       "dir": "scavio-carrefourbr",
       "description": "Carrefour Brasil API for Carrefour Brasil (carrefour.com.br: the Mercado grocery site mercado.carrefour.com.br and the www site for non-food and the marketplace, through a site param; Brazil only, BRL, Portuguese text) - what a grocery item costs at Carrefour Brasil today in a region or at a pickup store, what a non-food item costs and who sells it, what a payment offer takes off, and what delivery or pickup to a CEP costs and when, as the site shows it to a visitor who is not signed in (on 2026-11-27 Arroz Branco Longo-fino Tipo 1 Tio Joao 1 Kg read R$ 6.59 at the site's default prices, R$ 4.61 with a 30 percent payment offer, delivery to a CEP on Avenida Paulista R$ 10.90 and free Click & Retire pickup at a hypermarket 1.15 km away; the arroz search priced for that CEP opened with a Seara 300g dish at R$ 12.49 against R$ 24.99; the coupon page held 4 codes, among them R$ 20 off above R$ 199) with price, list price, single-payment price, discount, availability flag, seller, stamps and sponsored placements kept apart; keyword or EAN search, category listings and collections (themed and deal lists), 15 a page to page 50, in the site's 8 sorts and filtered by any facet and a price range, priced for a CEP or a pickup store on Mercado; one product with every seller, payment offers, promotions, price per kg for items sold by weight, specs and variants; delivery and pickup options to a CEP; the pickup stores by state and city; search suggestions with the top searches; the coupon page; the department menu. 9 endpoints, 1 credit each. No stock units, reviews or price history.",
       "tags": "carrefour-brasil, carrefour-brazil, carrefour-com-br, carrefour-brasil-api, carrefour-mercado, mercado-carrefour, carrefour-supermercado, carrefour-hipermercado, carrefour-precos, carrefour-prices, carrefour-regional-prices, carrefour-cep, carrefour-marketplace, carrefour-sellers, carrefour-coupons, carrefour-cupom, carrefour-ofertas, carrefour-black-friday, carrefour-delivery, carrefour-frete, carrefour-retire-na-loja, click-e-retire, carrefour-stores, carrefour-lojas, carrefour-collections, carrefour-search, carrefour-ean, carrefour-categories, carrefour-suggestions, grupo-carrefour-brasil, grocery-prices, supermarket-prices, brazil-grocery, mercado-online, preco-por-kg, cep, pix, brazil, brazil-ecommerce, brazilian-retail, brl, structured-data, json"
+    },
+    {
+      "dir": "scavio-terabyte",
+      "description": "Terabyteshop API for Terabyteshop (terabyteshop.com.br, Brazil's PC-parts store; Brazil only, BRL, Portuguese text) - what a graphics card, processor, monitor, SSD or any PC part costs at Terabyteshop today by Pix and by card, how long a Black Friday deal runs and how many units it has left, which coupons are live, what shoppers search for most and what the Full Custom PC builder offers for each part, as terabyteshop.com.br shows it to a visitor who is not signed in (on 2026-11-27 the Gigabyte GS24F14 monitor read R$ 549.99 by Pix, R$ 647.05 on card in 12 interest-free payments of R$ 53.92, against a list price of R$ 752.90, with the BLACK FRIDAY offer ending 2026-11-30 at 10:00 Brasilia time with 6 units left after 2,713 sold; the coupon BLACKDT3 took 5 percent off selected DT3 chairs above R$ 849 with 70 uses left; \"placa de video\" led the top searches with 60,900 searches) with Pix price, card price, list price, discount, installments, availability, open-box and free-shipping flags, units sold, best-seller rank, rating and the card's coupon; keyword search up to 100 a page, sorted by relevance, price, best sellers, rating or review count (Scavio sorts the returned page, since the site's search ignores sorting); category and brand listings and the deal lists (Black Friday, open box, free shipping), 30 a page in the site's order or by price, filtered by sub-category and spec attributes (model, maker, VRAM, connection) with facet counts; one product with EAN, MPN, every card plan, warranty, the running deal, free-shipping states, specs and the 5 newest reviews; every review, 5 a page (no names); the active coupons by category or code with the products a code covers; the top 48 search terms with search counts; the PC builder's platforms, component groups and options with availability per distribution center (builder prices can differ from the product page). 9 endpoints, 1 credit each. No shipping quote by CEP, stores or stock unit counts.",
+      "tags": "terabyte, terabyteshop, terabyteshop-com-br, terabyte-api, terabyteshop-api, terabyte-prices, terabyte-precos, terabyte-pix, terabyte-pix-price, terabyte-black-friday, terabyte-ofertas, terabyte-deals, terabyte-open-box, terabyte-frete-gratis, terabyte-coupons, terabyte-cupons, terabyte-trending-searches, terabyte-mais-buscados, terabyte-pc-builder, terabyte-monte-seu-pc, full-custom, terabyte-product, terabyte-reviews, terabyte-avaliacoes, terabyte-search, terabyte-categories, terabyte-brands, pc-parts-prices, pc-hardware-prices, gpu-prices, graphics-card-prices, placa-de-video, processador, monitor-prices, ssd-prices, pc-gamer, hardware-brasil, price-monitoring, price-tracking, product-data, pix, parcelamento, brazil, brazil-ecommerce, brazilian-retail, brl, structured-data, json"
+    },
+    {
+      "dir": "scavio-cobasi",
+      "description": "Cobasi API for Cobasi (cobasi.com.br, the Brazilian pet store of Grupo Petz Cobasi; Brazil only, BRL, Portuguese text) - what a bag of dog or cat food, a litter, a toy or any pet supply costs at Cobasi today in each size, what it costs on Compra Programada (Cobasi's repeat-delivery subscription), and which Cobasi store near a CEP can hand it over or what delivery costs, as cobasi.com.br shows it to a visitor who is not signed in (on 2026-11-27 Racao Formula Natural Fresh Meat for small adult dogs read R$ 59.99 against R$ 74.99 for 1 kg and R$ 374.99 for 10.1 kg, R$ 337.49 on Compra Programada, 3x R$ 124.99; to a CEP on Avenida Paulista 11 stores offered free pickup in 45 minutes, Economica delivery R$ 7.90 in 2 business days and Cobasi Ja R$ 9.90 in 2 hours; the deals page held 1,293 products, a Royal Canin cat food 4 kg at R$ 221.99 against R$ 364.99) with price, list price, discount percent, availability flag, rating and every size or variant (SKU) with its own price; keyword search sorted by relevance, price or discount and filtered by any facet (brand, department, size, age, flavour) with counts; category and brand listings by best sellers or price; the deals page (Promocoes); one product with EAN per SKU, installments, price per kg, the subscription price and frequencies when the product can be subscribed, specs, dimensions, the rating summary and 4 recent reviews; reviews and shopper questions with Cobasi's answers, 4 a page; pickup stores and delivery options with cost for one SKU at a CEP; search suggestions; the store directory (about 250 stores) and one store with hours, phone, WhatsApp link and services. 11 endpoints, 1 credit each. Availability is a pickup / delivery flag, not a unit count; no Pix price, per-store prices or marketplace sellers; no reviewer or asker names.",
+      "tags": "cobasi, cobasi-com-br, cobasi-api, cobasi-prices, cobasi-precos, cobasi-search, cobasi-product, cobasi-racao, cobasi-deals, cobasi-promocoes, cobasi-ofertas, cobasi-compra-programada, compra-programada, pet-subscription-prices, cobasi-reviews, cobasi-avaliacoes, cobasi-questions, cobasi-perguntas, cobasi-availability, cobasi-retire-na-loja, cobasi-pickup, cobasi-delivery, cobasi-frete, cobasi-cep, cobasi-stores, cobasi-lojas, cobasi-store-hours, cobasi-brands, cobasi-categories, cobasi-suggestions, grupo-petz-cobasi, pet-store, pet-shop, pet-food-prices, dog-food-prices, cat-food-prices, racao, pet-supplies, cep, brazil, brazil-ecommerce, brazilian-retail, brl, price-monitoring, structured-data, json"
+    },
+    {
+      "dir": "scavio-netshoes",
+      "description": "Netshoes API for Netshoes (netshoes.com.br, Brazil's sporting-goods store, part of Magalu; Brazil only, BRL, Portuguese text) - what each size of a sneaker, shirt, piece of sports gear or supplement costs at Netshoes today, who sells it, how many units are online and what delivery to a CEP costs, as netshoes.com.br shows it to a visitor who is not signed in (on 2026-11-27 the adidas Racer TR23 men's sneaker in black read R$ 249.99 against R$ 499.99, 3x R$ 83.33 without interest, in all 8 sizes sold by Netshoes, size 38 with 549 units online and free normal delivery in 3 days to a CEP on Avenida Paulista or Magalu pickup for R$ 4.90; a Soldiers Nutrition creatine 1 kg read R$ 81.05 by card and R$ 68.89 by Pix against R$ 279.90; the Black Friday sneaker list held 736 products from R$ 69.99) with price, list price, discount, installments, rating, badges, colours and sizes; keyword search, 100 per page, and list pages (Black Friday and other /lst/ lists), 45 per page, in the site's 7 sorts and filtered by any facet (brand, size, gender, product type, colour, department, promotion, sold-by) and a price range, with the site's counts; one product in one colour with every size's sku, EAN, price, Pix price, list price, installments and seller, plus colours, specs, rating and question count; every seller's offer for one size; the online stock count for one size and seller; delivery options to a Brazilian CEP; product reviews by stars or with photos (no names); shoppers' questions and answers (no asker names); the daily deal (Barato do Dia) with its start and end; a marketplace seller's company data, rating and newest reviews; the popular searches. 11 endpoints, 1 credit each. The daily deal carries no prices; no store stock, typed-term suggestions or price history.",
+      "tags": "netshoes, netshoes-com-br, netshoes-api, netshoes-prices, netshoes-precos, netshoes-pix, netshoes-pix-price, netshoes-black-friday, netshoes-barato-do-dia, netshoes-daily-deal, netshoes-ofertas, netshoes-deals, netshoes-search, netshoes-product, netshoes-sizes, netshoes-tamanhos, netshoes-stock, netshoes-estoque, netshoes-inventory, netshoes-frete, netshoes-shipping, netshoes-cep, netshoes-marketplace, netshoes-sellers, netshoes-lojista, netshoes-reviews, netshoes-avaliacoes, netshoes-questions, netshoes-perguntas, netshoes-popular-searches, magalu, brazil, brazil-ecommerce, brazilian-retail, brl, pix, parcelamento, cep, sporting-goods-prices, sneaker-prices, running-shoes-prices, sportswear-prices, supplement-prices, price-monitoring, price-tracking, product-data, marketplace-sellers, structured-data, json"
+    },
+    {
+      "dir": "scavio-estantevirtual",
+      "description": "Estante Virtual API for Estante Virtual (estantevirtual.com.br, Brazil's used and new book marketplace, part of Magalu; Brazil only, BRL, Portuguese text) - what a used or new book costs on Estante Virtual today, copy by copy and sebo by sebo, what shipping one copy to a CEP costs, and how buyers rate a sebo, as estantevirtual.com.br shows it to a visitor who is not signed in (on 2026-11-27 the ISBN 9788535914849, 1984 by George Orwell from Companhia das Letras, had 198 used and 62 new copies on sale, the lowest used at R$ 18 from Sebo do Menino and the lowest new at R$ 21.90; that new copy shipped to a CEP on Avenida Paulista for R$ 19.34 in 9 days by Correios printed-matter rate, with free shipping from R$ 200 at that seller; the Sao Paulo sebo directory listed 1,258 sebos and booksellers) with lowest price, used and new copy counts, condition, the seller's condition notes, invoice flag, installments and badges; keyword or ISBN search, category and list pages (Black Friday, livros baratos, lancamentos), 44 per page in the site's 6 sorts and filtered by used or new, author, publisher, year, seller city, seller, category, language, rating and a BRL price range; one book with the lowest-priced used and new copy and its reviews; every copy of a book, up to 50 a page, by price, optionally with each copy's seller; one copy with seller, weight and dimensions; shipping by CEP; a sebo's page (shop name, city and state, private or business, rating, newest reviews), its catalogue and its buyer reviews; the sebo directory by state and city. 12 endpoints, 1 credit each; copies with sellers ceil((1 + copies) / 5). Seller city and state only; reviewer names never; no suggestions, questions, stores, was price, Pix price or price history.",
+      "tags": "estante-virtual, estantevirtual, estantevirtual-com-br, estante-virtual-api, estante-virtual-prices, estante-virtual-precos, estante-virtual-search, estante-virtual-isbn, estante-virtual-book, estante-virtual-livro, estante-virtual-copies, estante-virtual-exemplares, estante-virtual-shipping, estante-virtual-frete, estante-virtual-sebos, estante-virtual-sellers, estante-virtual-reviews, estante-virtual-avaliacoes, estante-virtual-black-friday, estante-virtual-categories, sebo, sebos, sebo-online, livros-usados, livros-novos, used-books, used-book-prices, book-prices, isbn-lookup, isbn-prices, book-marketplace, booksellers, livraria, second-hand-books, book-resale, magalu, cep, brazil, brazil-ecommerce, brazilian-marketplace, brl, structured-data, json"
     }
   ],
   "groups": [
