@@ -90,7 +90,7 @@ Get the key at [scavio.dev](https://scavio.dev). The free tier is 50 credits on 
 | `home-depot-product-data` | homedepot.com and Home Depot Canada (homedepot.ca): search, item specs, reviews, stores, and per-store prices with exact units and store vs online price in Canada |
 | `costco-product-data` | Search with per-warehouse shelf prices, online vs in-warehouse prices, stock, gas, coupons, deals, and clearance |
 | `heb-grocery-data` | Search, product detail with ingredients and nutrition, and store locator, with per-store prices, stock and aisle via `store_id` |
-| `kroger-grocery-data` | Kroger, QFC and Fred Meyer search, category, product detail and weekly digital deals, price, stock and aisle for up to 25 UPCs at the store you choose, a store locator, and digital coupons |
+| `kroger-grocery-data` | Kroger, QFC, Fred Meyer and Jay C Food Stores search, category, product detail and weekly digital deals, price, stock and aisle for up to 25 UPCs at the store you choose, a store locator, and digital coupons |
 | `publix-api` | Publix weekly ad and BOGO list, Extra Savings, digital coupons and one keyword across all three at the store you choose, search and category listings with aisle and promo, product cards with nutrition, the deli and bakery order-ahead menu with each store's Pub Sub prices, and a store locator with each store's weekly-ad start day; prices only where Publix shows them (promotions and order-ahead items) |
 | `decathlon-product-data` | Decathlon sporting-goods search and product detail across country sites |
 | `specs-liquor-prices` | Spec's (Texas) search, every store's price and stock for a product in one call, and a store locator by region |
