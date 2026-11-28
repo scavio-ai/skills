@@ -1,8 +1,8 @@
 ---
 name: dafiti-api
-description: Dafiti API for Dafiti (dafiti.com.br, the Brazilian fashion marketplace; Brazil only, BRL, Portuguese text) - what a pair of sneakers, a dress or any fashion item costs at Dafiti today by Pix and on card, how many units each size has left, who sells and ships it, and what the outlet discounts, as dafiti.com.br shows it to a visitor who is not signed in (on 2026-11-27 the Asics Gel 1130 unisex sneaker in beige read R$ 389.99, R$ 410.52 on card in up to 8 installments, against R$ 699.99, with 4 of its 11 sizes in stock - size 41 with 5 units left, size 44 with 1 - all from Dafiti's own stock; the Asics brand listing held 1,575 products; the outlet held 199 products sorted by discount, a children's sneaker at R$ 30.99 against R$ 99.90) with price, list price, discount, Pix price, card price, installments, sponsored slots and the marketplace flag; keyword search, category, brand and outlet listings, 48 per page plus the site's sponsored slots, in the site's 5 sorts; one product with the seller store, every size with its exact units from 0 to 10 (more than 10 above that), delivery type (Dafiti's own stock, fulfillment or drop shipping), specs, details and other colours; every size of one sku with its stock, faster. 6 endpoints, 1 credit each. Search matches loosely; marketplace sellers are named by store name only; no reviews text, shipping quote, suggestions or price history.
+description: Dafiti API for Dafiti (dafiti.com.br, the Brazilian fashion marketplace; Brazil only, BRL, Portuguese text) - what a pair of sneakers, a dress or any fashion item costs at Dafiti today by Pix and on card, how many units each size has left, who sells and ships it, and what the outlet discounts, as dafiti.com.br shows it to a visitor who is not signed in (on 2026-11-27 the Asics Gel 1130 unisex sneaker in beige read R$ 389.99, R$ 410.52 on card in up to 8 installments, against R$ 699.99, with 4 of its 11 sizes in stock - size 41 with 5 units left, size 44 with 1 - all from Dafiti's own stock; the Asics brand listing held 1,575 products; the outlet held 199 products sorted by discount, a children's sneaker at R$ 30.99 against R$ 99.90) with price, list price, discount, Pix price, card price, installments, sponsored slots and the marketplace flag; keyword search, category, brand and outlet listings, 48 per page plus the site's sponsored slots, in the site's 5 sorts; one product with the seller store, every size with its exact units from 0 to 10 (more than 10 above that), delivery type (Dafiti's own stock, fulfillment or drop shipping), specs, details and other colours; every size of one sku with its stock, faster; a product's customer reviews as the product page shows them, by sku, up to 100 per page, newest or most helpful, positive, negative, with photos or one star rating, with the star histogram, rating, title, text, the review date, the date of the order the review is linked to, size and comfort answers, photos and the store's reply (on 2026-11-28 a Santa Lolla sneaker was rated 4.7 over 477 reviews, 397 of them five stars), no reviewer names. 7 endpoints, 1 credit each. Search matches loosely; marketplace sellers are named by store name only; no shipping quote, suggestions or price history.
 version: 1.0.0
-tags: dafiti, dafiti-com-br, dafiti-api, dafiti-brasil, dafiti-prices, dafiti-precos, dafiti-pix, dafiti-search, dafiti-product, dafiti-sizes, dafiti-tamanhos, dafiti-stock, dafiti-estoque, dafiti-units, dafiti-outlet, dafiti-deals, dafiti-ofertas, dafiti-promocoes, dafiti-black-friday, dafiti-brands, dafiti-marcas, dafiti-categories, dafiti-marketplace, dafiti-sellers, dafiti-lojista, dafiti-drop-shipping, dafiti-fulfillment, dafiti-sponsored, dafiti-installments, dafiti-parcelamento, sneaker-prices, tenis, fashion-prices, clothing-prices, shoe-prices, moda-feminina, moda-masculina, brazil, brazil-ecommerce, brazilian-marketplace, brl, pix, price-monitoring, product-data, structured-data, json
+tags: dafiti, dafiti-com-br, dafiti-api, dafiti-brasil, dafiti-prices, dafiti-precos, dafiti-pix, dafiti-search, dafiti-product, dafiti-reviews, dafiti-avaliacoes, dafiti-sizes, dafiti-tamanhos, dafiti-stock, dafiti-estoque, dafiti-units, dafiti-outlet, dafiti-deals, dafiti-ofertas, dafiti-promocoes, dafiti-black-friday, dafiti-brands, dafiti-marcas, dafiti-categories, dafiti-marketplace, dafiti-sellers, dafiti-lojista, dafiti-drop-shipping, dafiti-fulfillment, dafiti-sponsored, dafiti-installments, dafiti-parcelamento, sneaker-prices, tenis, fashion-prices, clothing-prices, shoe-prices, moda-feminina, moda-masculina, brazil, brazil-ecommerce, brazilian-marketplace, brl, pix, price-monitoring, product-data, structured-data, json
 metadata:
   openclaw:
     requires:
@@ -14,9 +14,9 @@ metadata:
     homepage: https://scavio.dev/dafiti-api?utm_source=agent-skills&utm_medium=skill&utm_campaign=dafiti-api
 ---
 
-# Dafiti API - Fashion Prices, Units per Size, Marketplace Stores, Outlet Deals
+# Dafiti API - Fashion Prices, Units per Size, Marketplace Stores, Outlet Deals, Reviews
 
-Read Dafiti (dafiti.com.br, the Brazilian fashion marketplace): keyword search, category, brand and outlet listings, one product with its seller store, every size's units left and delivery type, specs and other colours, and every size of one sku with its stock. www.dafiti.com.br only (Brazil, BRL, Portuguese text), as shown to a visitor who is not signed in.
+Read Dafiti (dafiti.com.br, the Brazilian fashion marketplace): keyword search, category, brand and outlet listings, one product with its seller store, every size's units left and delivery type, specs and other colours, every size of one sku with its stock, and a product's customer reviews as its page shows them. www.dafiti.com.br only (Brazil, BRL, Portuguese text), as shown to a visitor who is not signed in.
 
 **The job this skill is for: what an item costs at Dafiti today, how many units each size has left, and who sells and ships it.** Dafiti sells its own stock next to partner stores, and every size carries its own units and delivery type. On 2026-11-27 the Asics Gel 1130 unisex sneaker in beige (`15221282`, sku `AS296SCU17ARY`) read R$ 389.99, R$ 389.99 by Pix (Brazil's instant payment) and R$ 410.52 on card in up to 8 installments, against R$ 699.99 (44 percent off). 4 of its 11 sizes were in stock: 41 and 42 with 5 units each, 43 with 2 and 44 with 1, all from Dafiti's own stock, sold and delivered by Dafiti.
 
@@ -26,7 +26,7 @@ Six limits shape every answer, so say them plainly:
 - **Prices as given.** `price` is the selling price (the Pix price where `pix_price` is set), `card_price` the price on a card, `list_price` the price before the discount. `/sizes` quotes the plan from the size data, which can differ from the product page's card price.
 - **Sellers by store name.** On listings `marketplace` true only says a partner store sells the item; `/product` and `/sizes` name the store (`store_name`) and the delivery type.
 - **Search matches loosely, and listings are slow.** A search with no close match can still list related products. Listing pages usually take 15-160 seconds; allow a client timeout of at least 240 seconds.
-- **No history, reviews or shipping.** Everything is the page at the moment of the call; Scavio keeps nothing. There are no review texts, shipping quotes or search suggestions, and only dafiti.com.br (Brazil). Poll and store your own series.
+- **No history or shipping; reviews from `/reviews`.** Everything is the page at the moment of the call; Scavio keeps nothing. There are no shipping quotes or search suggestions, and only dafiti.com.br (Brazil). `/reviews` returns the reviews with the rating summary (they can lag the product page by up to 4 hours; reviewer names are never returned). Poll and store your own series.
 
 Dafiti publishes no developer API for its catalog, prices or stock. Prices, sizes and sellers are shown on dafiti.com.br for each item, and this skill reads those public pages with one Scavio key.
 
@@ -42,6 +42,7 @@ Use this skill when the user asks to:
 - Read one product: seller store, availability, every size with its units left and delivery type, specs, details, other colours and campaigns
 - Check every size of one sku for stock, quickly
 - See whether Dafiti or a partner store sells and ships an item (own stock, fulfillment by Dafiti, or drop shipping by the store)
+- Read a Dafiti product's customer reviews and star histogram: newest or most helpful, positive, negative, with photos or one star rating, with the size and comfort answers
 
 ## Setup
 
@@ -83,6 +84,7 @@ Base URL: `https://api.scavio.dev`.
 | `POST /api/v1/dafiti/deals` | The outlet, the site's own selection of discounted products, same items and sorts | 1 |
 | `POST /api/v1/dafiti/product` | One product by product id, sku or link: availability, prices, installment, rating, seller store, every size with units, delivery type and store, other colours, categories, campaigns, specs, details and images | 1 |
 | `POST /api/v1/dafiti/sizes` | Every size of one sku with its stock, units, delivery type and store, plus price, list price and installment; faster than product | 1 |
+| `POST /api/v1/dafiti/reviews` | One product's customer reviews by sku (or product id or link, slower), as the product page shows them: up to 100 per page, sorted newest or most helpful, filtered positive, negative, with photos or one star rating, with the star histogram and positive, negative and with-photo counts | 1 |
 
 Brazil only: there is no `country` parameter. Every answer carries `store` (dafiti), `country` (br), `currency` (BRL) and `language` (pt-BR), and most carry `notes`.
 
@@ -106,7 +108,8 @@ Brazil only: there is no `country` parameter. Every answer carries `store` (dafi
 2. **Sort and page.** `sort` (popularity, newest, price_asc, price_desc, discount) and `page` 2, 3, ... `has_more` false means the last page. `sponsored` items are the site's sponsored slots on top of the 48 results.
 3. **One product.** `/product` with `product_id` (`15221282`), `sku` (`AS296SCU17ARY`) or `url`: the seller store and every size.
 4. **Stock check.** `/sizes` with `sku` (or one size's sku, `AS296SCU17ARY-52`, which also returns `requested_size`): every size's units and delivery type, faster than `/product`.
-5. **Watching prices and stock:** there is no history. Poll the same listings and skus on a schedule and store each answer with its `fetched_at`; that stored series is the history.
+5. **Reviews.** `/reviews` with `sku` (fastest; `product_id` or `url` also work, slower, same credit); `page` 2, 3, ... while `has_more` is true.
+6. **Watching prices and stock:** there is no history. Poll the same listings and skus on a schedule and store each answer with its `fetched_at`; that stored series is the history.
 
 ## Parameters
 
@@ -125,6 +128,21 @@ Brazil only: there is no `country` parameter. Every answer carries `store` (dafi
 ### Product (`/product`) and sizes (`/sizes`)
 
 `/product` takes exactly one of `product_id` (the number at the end of a Dafiti product link, `items[].product_id`, e.g. `15221282`), `sku` (`items[].sku` or one size's `sizes[].sku`, e.g. `AS296SCU17ARY`) or `url` (a dafiti.com.br product link, `https://www.dafiti.com.br/<name>-<id>.html`). `/sizes` takes `sku`.
+
+### Reviews (`/reviews`)
+
+| Parameter | Description |
+|---|---|
+| `sku` | The Dafiti sku (`items[].sku`, `SA232SHF08PKSX`; a size sku works too): the fastest way in |
+| `product_id` | The number at the end of a Dafiti product link, instead of `sku`: the product page is read for the sku (slower, same credit) |
+| `url` | A dafiti.com.br product link, instead of `sku` (slower, same credit) |
+| `page` | Reviews page, 1-200 (default 1) |
+| `per_page` | Reviews per page, 1-100 (default 20) |
+| `sort` | `newest` (default) or `most_helpful` (the most helpful votes at the top) |
+| `filter` | `all` (default), `positive` (ratings 3-5), `negative` (ratings 1-2) or `with_photos` |
+| `rating` | Only the reviews with this star rating, 1-5. Send `rating` or `filter`, not both |
+
+Send one of `sku`, `product_id` or `url`.
 
 ## Examples
 
@@ -193,6 +211,48 @@ The product also carried sizes 34 to 44 (34 to 40 sold out, 42 with 5 units, 43 
 - `/category` `{"category": "calcados-femininos/tenis"}`: `title` Tênis Feminino, `total` 13098, breadcrumbs Feminino > Calçados Femininos > Tênis.
 - `/deals` `{"sort": "discount"}`: the outlet, `total` 199, first a Tricae children's high-top sneaker at R$ 30.99 against R$ 99.90 (69 percent off), no sponsored slots.
 
+### Reviews
+
+Request `{"sku": "SA232SHF08PKSX"}` (1 credit): `product_name` Tênis Santa Lolla Recortes Preto, `rating` {"average": 4.7, "count": 477, "histogram": {"1": 17, "2": 5, "3": 18, "4": 40, "5": 397}}, `review_counts` {"total": 477, "positive": 455, "negative": 22, "with_photos": 6}, `count` 20, `has_more` true, newest first. One review:
+
+```json
+{
+  "id": "35883827",
+  "rating": 5,
+  "title": null,
+  "text": "Muito versátil.",
+  "date": "2026-08-03",
+  "purchase_date": "2026-07-22",
+  "recommends": null,
+  "helpful_votes": 0,
+  "unhelpful_votes": 0,
+  "photos": [],
+  "attributes": [
+    {
+      "name": "Tamanho",
+      "answer": "Ideal"
+    },
+    {
+      "name": "Conforto",
+      "answer": "Confortável"
+    },
+    {
+      "name": "Custo Benefício",
+      "answer": "Ótimo"
+    },
+    {
+      "name": "Leveza",
+      "answer": "Leve"
+    }
+  ],
+  "store_reply": null,
+  "imported": false,
+  "influencer": false
+}
+```
+
+No reviewer name is returned. `attributes` are the store's follow-up questions with the customer's answer.
+
 ### Python
 
 ```python
@@ -229,8 +289,9 @@ for s in sizes["sizes"]:
 Every response uses the envelope `{ data, response_time, fetched_at, credits_used, credits_remaining }`. Each call fetches the page when the request asks for it. Every `data` carries `store`, `country`, `currency` and `language`.
 
 - **search / category / brand / deals** - `query` (search), `category`, `url` and `breadcrumbs[]` {`name`, `url`} (category), `brand`, `url` and `breadcrumbs` (brand), `deal` and `url` (deals), `title`, `page`, `page_size` (48), `total`, `total_pages`, `has_more`, `count`, `sponsored_count`, `sort`, `items[]` {`position`, `sku`, `product_id`, `name`, `brand`, `color`, `url`, `image`, `price`, `list_price`, `discount_percent`, `pix_price`, `card_price`, `max_installments`, `categories`, `sponsored`, `marketplace`}, `notes`.
-- **product** - `requested`, `sku`, `product_id`, `name`, `brand`, `color`, `url`, `availability` (in_stock, limited, out_of_stock), `price`, `list_price`, `discount_percent`, `pix_price`, `card_price`, `max_installments`, `installment` {`count`, `amount`}, `rating`, `review_count`, `seller` {`store_name`, `sold_by_dafiti`, `delivered_by_dafiti`}, `store_names`, `size_count`, `sizes_in_stock`, `sizes[]` {`size`, `sku`, `in_stock`, `units`, `more_than_10`, `stock_message`, `delivery_type` (proprio, fulfillment, drop_shipping), `sold_by_dafiti`, `delivered_by_dafiti`, `store_name`}, `colors[]` {`sku`, `product_id`, `name`, `color`, `url`, `image`, `price`, `list_price`}, `categories`, `campaigns`, `breadcrumbs`, `specs[]` {`name`, `value`}, `details[]` {`name`, `value`}, `images`, `notes`. No marketing description, review texts or shipping quote.
+- **product** - `requested`, `sku`, `product_id`, `name`, `brand`, `color`, `url`, `availability` (in_stock, limited, out_of_stock), `price`, `list_price`, `discount_percent`, `pix_price`, `card_price`, `max_installments`, `installment` {`count`, `amount`}, `rating`, `review_count`, `seller` {`store_name`, `sold_by_dafiti`, `delivered_by_dafiti`}, `store_names`, `size_count`, `sizes_in_stock`, `sizes[]` {`size`, `sku`, `in_stock`, `units`, `more_than_10`, `stock_message`, `delivery_type` (proprio, fulfillment, drop_shipping), `sold_by_dafiti`, `delivered_by_dafiti`, `store_name`}, `colors[]` {`sku`, `product_id`, `name`, `color`, `url`, `image`, `price`, `list_price`}, `categories`, `campaigns`, `breadcrumbs`, `specs[]` {`name`, `value`}, `details[]` {`name`, `value`}, `images`, `notes`. The reviews come from `/reviews`. No marketing description or shipping quote.
 - **sizes** - `requested`, `requested_size`, `sku`, `product_id`, `name`, `brand`, `color`, `url`, `price`, `list_price`, `discount_percent`, `installment`, `store_names`, `size_count`, `sizes_in_stock`, `sizes[]` (as above), `colors`, `categories`, `campaigns`, `notes`.
+- **reviews** - `requested`, `sku`, `page`, `per_page`, `sort`, `filter`, `rating_filter`, `total` (the reviews matching the request, from the rating summary), `has_more`, `count`, `product_name`, `rating` {`average`, `count`, `histogram` {`1`-`5`}}, `review_counts` {`total`, `positive` (ratings 3-5), `negative` (ratings 1-2), `with_photos`}, `reviews[]` {`id`, `rating`, `title`, `text` (null when the review has stars but no text), `date`, `purchase_date` (the date of the order the review is linked to), `recommends`, `helpful_votes`, `unhelpful_votes`, `photos[]` {`image`, `thumbnail`}, `attributes[]` {`name`, `answer`}, `store_reply`, `imported`, `influencer`}, `notes`. No reviewer names or questions and answers.
 
 ## Guardrails
 
@@ -242,26 +303,27 @@ Every response uses the envelope `{ data, response_time, fetched_at, credits_use
 - Search: the site matches loosely, so check that a result really is the item asked for before quoting it. `sponsored` items are paid slots; say so when ranking.
 - Use: Dafiti's terms of use bar data-mining software. Keep any use descriptive (prices, sizes and stock as facts with their date); do not republish Dafiti's product photos, page copy or links to its pages, and refer to products by `sku` and `product_id`.
 - Comparing Dafiti with C&A Brasil, Renner or another store: compare the same product, size, seller and date. Never call one store cheaper beyond the numbers shown.
-- Not available: review texts, shipping quotes by CEP, search suggestions, deal start and end dates, price history (poll and store), Dafiti's other countries, account data, cart or checkout. This API cannot buy or reserve anything.
+- Reviews: quote `rating`, `date` and the store's own summary figures as facts with the `fetched_at` date. `text` and `title` are the customer's own words: quote a short excerpt where it answers the question, never republish review bodies in bulk, and never invent or merge one. `purchase_date` is the date of the order the review is linked to; describe it in exactly those words, never as more. Reviewer names are never returned; never look for the person behind a review. `imported` marks a review the store brought in from another source, `influencer` one the store marks as from an influencer: say so when it matters. Reviews can lag the product page by up to 4 hours.
+- Not available: questions and answers, reviewer names, shipping quotes by CEP, search suggestions, deal start and end dates, price history (poll and store), Dafiti's other countries, account data, cart or checkout. This API cannot buy or reserve anything.
 - Terms: Scavio does not store Dafiti data: each call fetches the public page at the moment the request asks for it and returns what it shows as JSON, with no response cache. Dafiti's terms of use cover how its site and content may be used; read the current terms for your use case and get your own advice. This is not legal advice.
 - Never fabricate prices, units, sellers or delivery types. Only return what the API returned, with the `fetched_at` time.
 
 ## Failure handling
 
-- `400` means a missing or invalid parameter, and it is not charged: "product_id, sku or url is required"; "Pass one of product_id, sku or url (got ...)."; "category must be a department or category path of 1 to 3 levels as the site writes it (e.g. calcados-femininos or calcados-femininos/tenis)."; "brand must be a brand as the site writes it in its link (e.g. asics, nike, farm-rio)."; "url must be a dafiti.com.br product link (https://www.dafiti.com.br/<name>-<id>.html)."
+- `400` means a missing or invalid parameter, and it is not charged: "product_id, sku or url is required"; "Pass one of product_id, sku or url (got ...)."; "category must be a department or category path of 1 to 3 levels as the site writes it (e.g. calcados-femininos or calcados-femininos/tenis)."; "brand must be a brand as the site writes it in its link (e.g. asics, nike, farm-rio)."; "url must be a dafiti.com.br product link (https://www.dafiti.com.br/<name>-<id>.html)."; "sku, product_id or url is required"; "Pass rating or filter, not both."
 - `401` means the API key is invalid or missing. Check `SCAVIO_API_KEY`.
 - `402` means the balance is out of credits. The body carries `billing_url`.
-- `404` means not found, and it is charged 1 credit: "Dafiti has no product for this id.", "Dafiti has no product with sku <sku> (items[].sku).", "Dafiti has no size <size sku> for sku <sku> (sizes[].sku).", "Dafiti has no product listing at <category>.", "Dafiti has no brand page for <brand>.". A search with no products is an empty `200`, not a `404`.
+- `404` means not found, and it is charged 1 credit: "Dafiti has no product for this id.", "Dafiti has no product with sku <sku> (items[].sku).", "Dafiti has no size <size sku> for sku <sku> (sizes[].sku).", "Dafiti has no product listing at <category>.", "Dafiti has no brand page for <brand>.", "Dafiti has no reviews page for sku <sku> (an unknown sku: pass items[].sku)." Some unknown skus answer `200` with no reviews (`count` 0, charged). A search with no products is an empty `200`, not a `404`.
 - `429` means rate or usage limit exceeded. Wait before retrying. See [rate limits](https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=dafiti-api).
 - `502` and `503` mean Dafiti data was temporarily unavailable ("Dafiti is temporarily unavailable. Please try again.", with `Retry-After` on a `503`). They are not charged, so retry after a few seconds. When the size data alone is unavailable, `/product` still answers with `sizes` null and a note; call `/sizes` again.
-- Listing pages usually take 15-160 seconds (in the captures 4-16 seconds), the product 6-35 seconds, sizes 2-15 seconds. Allow a client timeout of at least 240 seconds.
+- Listing pages usually take 15-160 seconds (in the captures 4-16 seconds), the product 6-35 seconds, sizes 2-15 seconds, reviews 2-20 seconds by sku and 10-70 seconds by product id or link. Allow a client timeout of at least 240 seconds.
 - If `SCAVIO_API_KEY` is not set, prompt the user to export it before continuing.
 
 ## SDKs
 
 ```bash
-pip install scavio==0.105.0
-npm install scavio@0.106.0
+pip install scavio==0.106.0
+npm install scavio@0.107.0
 ```
 
 ```js
@@ -274,20 +336,21 @@ const { data: asics } = await scavio.dafiti.brand({ brand: "asics", sort: "disco
 const { data: outlet } = await scavio.dafiti.deals({ sort: "discount" });
 const { data: item } = await scavio.dafiti.product({ product_id: "15221282" });
 const { data: sizes } = await scavio.dafiti.sizes({ sku: "AS296SCU17ARY" });
+const { data: reviews } = await scavio.dafiti.reviews({ sku: "SA232SHF08PKSX", rating: 1 });
 ```
 
-In Python (`from scavio import ScavioClient`, `client = ScavioClient()`) the same methods are `client.dafiti.search(...)`, `category`, `brand`, `deals`, `product` and `sizes`, with the same parameter names as keyword arguments.
+In Python (`from scavio import ScavioClient`, `client = ScavioClient()`) the same methods are `client.dafiti.search(...)`, `category`, `brand`, `deals`, `product`, `sizes` and `reviews`, with the same parameter names as keyword arguments.
 
 ## MCP
 
-The Scavio MCP server exposes all 6 endpoints as tools: `search_dafiti`, `get_dafiti_category`, `get_dafiti_brand`, `get_dafiti_deals`, `get_dafiti_product` and `get_dafiti_sizes`. Dafiti is opt-in: add `dafiti` to `SCAVIO_PLATFORMS`.
+The Scavio MCP server exposes all 7 endpoints as tools: `search_dafiti`, `get_dafiti_category`, `get_dafiti_brand`, `get_dafiti_deals`, `get_dafiti_product`, `get_dafiti_sizes` and `get_dafiti_reviews`. Dafiti is opt-in: add `dafiti` to `SCAVIO_PLATFORMS`.
 
 ```json
 {
   "mcpServers": {
     "scavio": {
       "command": "npx",
-      "args": ["-y", "@scavio/mcp-server@0.105.0"],
+      "args": ["-y", "@scavio/mcp-server@0.106.0"],
       "env": {
         "SCAVIO_API_KEY": "sk_live_your_key",
         "SCAVIO_PLATFORMS": "default,dafiti"
@@ -299,4 +362,4 @@ The Scavio MCP server exposes all 6 endpoints as tools: `search_dafiti`, `get_da
 
 ## Docs
 
-Full reference per endpoint: [search](https://scavio.dev/docs/dafiti-search?utm_source=agent-skills&utm_medium=skill&utm_campaign=dafiti-api), [category](https://scavio.dev/docs/dafiti-category?utm_source=agent-skills&utm_medium=skill&utm_campaign=dafiti-api), [brand](https://scavio.dev/docs/dafiti-brand?utm_source=agent-skills&utm_medium=skill&utm_campaign=dafiti-api), [deals](https://scavio.dev/docs/dafiti-deals?utm_source=agent-skills&utm_medium=skill&utm_campaign=dafiti-api), [product](https://scavio.dev/docs/dafiti-product?utm_source=agent-skills&utm_medium=skill&utm_campaign=dafiti-api), [sizes](https://scavio.dev/docs/dafiti-sizes?utm_source=agent-skills&utm_medium=skill&utm_campaign=dafiti-api). Platform page: [scavio.dev/dafiti-api](https://scavio.dev/dafiti-api?utm_source=agent-skills&utm_medium=skill&utm_campaign=dafiti-api).
+Full reference per endpoint: [search](https://scavio.dev/docs/dafiti-search?utm_source=agent-skills&utm_medium=skill&utm_campaign=dafiti-api), [category](https://scavio.dev/docs/dafiti-category?utm_source=agent-skills&utm_medium=skill&utm_campaign=dafiti-api), [brand](https://scavio.dev/docs/dafiti-brand?utm_source=agent-skills&utm_medium=skill&utm_campaign=dafiti-api), [deals](https://scavio.dev/docs/dafiti-deals?utm_source=agent-skills&utm_medium=skill&utm_campaign=dafiti-api), [product](https://scavio.dev/docs/dafiti-product?utm_source=agent-skills&utm_medium=skill&utm_campaign=dafiti-api), [sizes](https://scavio.dev/docs/dafiti-sizes?utm_source=agent-skills&utm_medium=skill&utm_campaign=dafiti-api), [reviews](https://scavio.dev/docs/dafiti-reviews?utm_source=agent-skills&utm_medium=skill&utm_campaign=dafiti-api). Platform page: [scavio.dev/dafiti-api](https://scavio.dev/dafiti-api?utm_source=agent-skills&utm_medium=skill&utm_campaign=dafiti-api).

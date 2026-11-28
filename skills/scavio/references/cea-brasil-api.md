@@ -1,6 +1,6 @@
-# C&A Brasil API - Fashion Prices per Size, Pix Price, Online Stock, Delivery and Store Pickup by CEP
+# C&A Brasil API - Fashion Prices per Size, Pix Price, Online Stock, Delivery, Store Pickup by CEP, Reviews
 
-Read C&A Brasil (cea.com.br, the Brazilian arm of the C&A fashion chain): keyword search, category, brand and promotion-collection listings, the filter values with counts, search suggestions and the top searches, the department tree, one product with every size's price and online quantity, the delivery quote and pickup stores for one size and a CEP, and the pickup points near a CEP. www.cea.com.br only (Brazil, BRL, Portuguese text), as shown to a visitor who is not signed in.
+Read C&A Brasil (cea.com.br, the Brazilian arm of the C&A fashion chain): keyword search, category, brand and promotion-collection listings, the filter values with counts, search suggestions and the top searches, the department tree, one product with every size's price and online quantity, the delivery quote and pickup stores for one size and a CEP, the pickup points near a CEP, and a product's customer reviews as its page shows them. www.cea.com.br only (Brazil, BRL, Portuguese text), as shown to a visitor who is not signed in.
 
 **The job this skill is for: what each size of a C&A piece costs today, whether it is in stock online, and how it gets to a CEP.** Every size is its own sku with its own price, list price, Pix price and online quantity. On 2026-11-27 the oversized Peruvian-cotton T-shirt `4536055` (labels C&A and Clock House) read R$ 99.99, R$ 99.99 by Pix (Brazil's instant payment) and 3x R$ 33.33 interest-free on C&A Pay, in sizes PP to GG with size G sold out. Size M (`6493983`) shipped free to CEP 01310-100 in 6 business days (normally R$ 24.40), or free pickup the next business day at C&A Avenida Paulista, 0.72 km away.
 
@@ -10,7 +10,7 @@ Six limits shape every answer, so say them plainly:
 - **Online quantity is capped.** `available_quantity` is the figure the site gives: a round 100, 10000 or 99999 means plenty, 0 none. It is the online stock, not a store's units. Which stores can hand a size over comes from `/shipping`.
 - **Collections are ids only.** `collection_ids` lists the promotion collections a product is in, by id (the site's collection names are not returned). Pass one to `/deals`.
 - **Listings stop at page 50.** 24 products a page, pages 1-50; `total` counts every match. Narrow with a category, a brand or a sort to reach the rest.
-- **No history, reviews or EAN.** Everything is the page at the moment of the call; Scavio keeps nothing. The site shows no review text or rating here, leaves EAN empty and publishes no store units. Poll and store your own series.
+- **No history or EAN; reviews from `/reviews`.** Everything is the page at the moment of the call; Scavio keeps nothing. The site leaves EAN empty and publishes no store units; `/product` carries no rating, and `/reviews` returns the reviews with the rating summary (reviews can lag the product page by up to 4 hours; reviewer names are never returned). Poll and store your own series.
 
 C&A Brasil publishes no developer API for its catalog, prices or stock. Prices, sizes, delivery quotes and pickup points are shown on cea.com.br for each item, and this skill reads those public pages with one Scavio key.
 
@@ -28,6 +28,7 @@ Use this skill when the user asks to:
 - Read one product: every size with sku, price, Pix price, online quantity and seller; every payment method's installment plan; specifications (material, fit, sleeve, made in)
 - Quote delivery of one size to a Brazilian CEP, and list the stores near that CEP that can hand the size over
 - List the pickup points near a CEP: C&A stores and third-party pickup lockers, with distance and hours
+- Read a C&A product's customer reviews and star histogram: newest or most helpful, positive, negative, with photos or one star rating, with the size and colour bought and the fit answers
 
 ## Setup
 
@@ -73,6 +74,7 @@ Base URL: `https://api.scavio.dev`.
 | `POST /api/v1/cea/product` | One product by id, size sku, slug or link: every size with sku, availability, online quantity, price, list price, Pix price and seller; every payment method's longest installment plan; colours, categories, specifications, collection ids, release date | 1 |
 | `POST /api/v1/cea/shipping` | The delivery quote for one size and a CEP: delivery options with price and business days, the stores near the CEP that can hand the size over, and the site's messages | 1 |
 | `POST /api/v1/cea/stores` | The pickup points near a CEP, nearest first: C&A stores and third-party pickup lockers and counters, with address, coordinates, distance and hours | 1 |
+| `POST /api/v1/cea/reviews` | One product's customer reviews by product id, as the product page shows them: up to 100 per page, sorted newest or most helpful, filtered positive, negative, with photos or one star rating, with the star histogram, positive, negative and with-photo counts and the size and colour bought | 1 |
 
 Brazil only: there is no `country` parameter. Every answer carries `store` (cea), `country` (br), `currency` (BRL) and `language` (pt-BR), and most carry `notes`.
 
@@ -98,7 +100,8 @@ Brazil only: there is no `country` parameter. Every answer carries `store` (cea)
 3. **Next pages.** Send `page` 2, 3, ... (up to 50) with the same input and `sort`. `has_more` false means the last page.
 4. **One product.** `/product` with `product_id` (`items[].product_id`, `4536055`), or a size `sku`, a `slug` or a `url`: every size's `sku`, prices, online quantity and seller.
 5. **Delivery and pickup.** `/shipping` with a size `sku` (`sizes[].sku`, `6493983`) and a `cep` for the delivery options and the stores near the CEP that can hand that size over. `/stores` with a `cep` lists every pickup point near it, without the size check.
-6. **Watching prices:** there is no history. Poll the same searches and products on a schedule and store each answer with its `fetched_at`; that stored series is the history.
+6. **Reviews.** `/reviews` with `product_id` (`items[].product_id`, not a size sku); `page` 2, 3, ... while `has_more` is true.
+7. **Watching prices:** there is no history. Poll the same searches and products on a schedule and store each answer with its `fetched_at`; that stored series is the history.
 
 ## Parameters
 
@@ -136,6 +139,17 @@ Send exactly one of `product_id` (`items[].product_id`, e.g. `4536055`), `sku` (
 | `cep` (required) | A Brazilian CEP (postal code) of 8 digits, with or without the dash (`01310-100`) |
 
 `/shipping` is read-only: nothing is added to a cart or ordered. The quote is for 1 unit of the size.
+
+### Reviews (`/reviews`)
+
+| Parameter | Description |
+|---|---|
+| `product_id` (required) | The product id (`items[].product_id` or `product_id` of `/product`, `3700395`), not a size sku or the reference |
+| `page` | Reviews page, 1-200 (default 1) |
+| `per_page` | Reviews per page, 1-100 (default 20) |
+| `sort` | `newest` (default) or `most_helpful` (the most helpful votes at the top) |
+| `filter` | `all` (default), `positive` (ratings 3-5), `negative` (ratings 1-2) or `with_photos` |
+| `rating` | Only the reviews with this star rating, 1-5. Send `rating` or `filter`, not both |
 
 ## Examples
 
@@ -230,6 +244,53 @@ The pickup store also carried its `address` (Av. Paulista 1374, Bela Vista, São
 - `/suggestions` `{"query": "cal"}`: 5 completions, `calca jeans feminina` with 39814 searches; `top_searches` led by `vestido` (190040) and `blusa feminina` (62607).
 - `/categories` `{}`: 8 departments (Moda Feminina, Moda Masculina, Serviços, Beleza, Casa, Eletrônicos, Infantil, Esporte), 363 nodes.
 
+### Reviews
+
+Request `{"product_id": "3700395"}` (1 credit): `product_name` tênis casual cano baixo branco, `rating` {"average": 4.5, "count": 1189, "histogram": {"1": 62, "2": 31, "3": 32, "4": 210, "5": 854}}, `review_counts` {"total": 1189, "positive": 1096, "negative": 93, "with_photos": 27}, `count` 20, `has_more` true, newest first. One review:
+
+```json
+{
+  "id": "34911848",
+  "rating": 5,
+  "title": null,
+  "text": "Muito confortável.",
+  "date": "2026-04-20",
+  "purchase_date": "2026-04-09",
+  "recommends": true,
+  "helpful_votes": 1,
+  "unhelpful_votes": 0,
+  "photos": [],
+  "attributes": [
+    {
+      "name": "Tamanho",
+      "answer": "Ideal"
+    },
+    {
+      "name": "Custo-benefício",
+      "answer": "Ótimo"
+    },
+    {
+      "name": "Material",
+      "answer": "Ótimo"
+    },
+    {
+      "name": "Conforto",
+      "answer": "Muito Confortável"
+    }
+  ],
+  "store_reply": null,
+  "imported": false,
+  "influencer": false,
+  "purchased": {
+    "sku": "4399816",
+    "size": "36",
+    "color": "Branco"
+  }
+}
+```
+
+No reviewer name is returned. `attributes` are the store's follow-up questions with the customer's answer; `purchased` is the size sku bought.
+
 ### Python
 
 ```python
@@ -273,8 +334,9 @@ Every response uses the envelope `{ data, response_time, fetched_at, credits_use
 - **facets** - `query`, `category`, `brand`, `collection_id`, `count`, `facets[]` {`key`, `label`, `param`, `values[]` {`value`, `label`, `count`, `selected`} or `ranges[]` {`from`, `to`, `count`}}, `notes`.
 - **suggestions** - `query`, `count`, `suggestions[]` {`term`, `count`, `attributes[]` {`key`, `value`, `label`, `value_label`}}, `top_searches[]` {`term`, `count`}, `notes`.
 - **categories** - `count`, `node_count`, `categories[]` {`category_id`, `name`, `path`, `url`, `children[]`}, `notes`.
-- **product** - `requested`, `product_id`, `sku` (when asked by sku), `name`, `brand`, `labels`, `reference`, `model_id`, `url`, `images`, `available`, `price`, `list_price`, `discount_percent`, `pix_price`, `best_installment`, `installments[]` {`payment_system`, `count`, `value`, `total`, `interest_rate`}, `colors`, `sizes[]` (as above, plus `seller` {`id`, `name`}), `categories`, `specifications[]` {`name`, `value`}, `collection_ids`, `release_date`, `notes`. No marketing description, EAN, reviews, Q&A or store units.
+- **product** - `requested`, `product_id`, `sku` (when asked by sku), `name`, `brand`, `labels`, `reference`, `model_id`, `url`, `images`, `available`, `price`, `list_price`, `discount_percent`, `pix_price`, `best_installment`, `installments[]` {`payment_system`, `count`, `value`, `total`, `interest_rate`}, `colors`, `sizes[]` (as above, plus `seller` {`id`, `name`}), `categories`, `specifications[]` {`name`, `value`}, `collection_ids`, `release_date`, `notes`. The reviews come from `/reviews`. No marketing description, EAN, Q&A or store units.
 - **shipping** - `sku`, `cep`, `availability`, `price`, `list_price`, `can_deliver`, `can_pick_up`, `delivery_options[]` {`name`, `price` (0 = free), `list_price`, `estimate`, `business_days`, `estimated_date`}, `pickup_stores[]` {`pickup_point_id`, `store_code`, `name`, `distance_km`, `address`, `price`, `estimate`, `business_days`, `estimated_date`}, `messages[]` {`code`, `text`, `status`}, `notes`.
+- **reviews** - `product_id`, `page`, `per_page`, `sort`, `filter`, `rating_filter`, `total` (the reviews matching the request, from the rating summary), `has_more`, `count`, `product_name`, `rating` {`average`, `count`, `histogram` {`1`-`5`}}, `review_counts` {`total`, `positive` (ratings 3-5), `negative` (ratings 1-2), `with_photos`}, `reviews[]` {`id`, `rating`, `title`, `text` (null when the review has stars but no text), `date`, `purchase_date` (the date of the order the review is linked to), `recommends`, `helpful_votes`, `unhelpful_votes`, `photos[]` {`image`, `thumbnail`}, `attributes[]` {`name`, `answer`}, `store_reply`, `imported`, `influencer`, `purchased` {`sku`, `size`, `color`} (the size bought, where the review carries it)}, `notes`. No reviewer names or questions and answers.
 - **stores** - `cep`, `total`, `count`, `stores[]` {`store_code`, `pickup_point_ids`, `name`, `type` (cea_store, partner_point), `partner`, `active`, `distance_km`, `address` {`street`, `number`, `complement`, `neighborhood`, `city`, `state`, `cep`}, `latitude`, `longitude`, `phone`, `hours[]` {`day`, `opens`, `closes`}}, `notes`.
 
 ## Guardrails
@@ -287,26 +349,27 @@ Every response uses the envelope `{ data, response_time, fetched_at, credits_use
 - Collections: `collection_ids` are ids; the site's collection names are not returned. Never invent a name for a collection.
 - Comparing C&A Brasil with Renner, Dafiti or another store: compare the same product, size and date. Never call one store cheaper beyond the numbers shown.
 - Images and copy: refer to products by `product_id` and `url`; do not republish C&A's product photos or page copy, and keep any use descriptive.
-- Not available: reviews or ratings, EAN, store units, Q&A, collection names, price history (poll and store), account data, cart or checkout. This API cannot buy or reserve anything.
+- Reviews: quote `rating`, `date` and the store's own summary figures as facts with the `fetched_at` date. `text` and `title` are the customer's own words: quote a short excerpt where it answers the question, never republish review bodies in bulk, and never invent or merge one. `purchase_date` is the date of the order the review is linked to; describe it in exactly those words, never as more. Reviewer names are never returned; never look for the person behind a review. `imported` marks a review the store brought in from another source, `influencer` one the store marks as from an influencer: say so when it matters. Reviews can lag the product page by up to 4 hours.
+- Not available: EAN, store units, Q&A, reviewer names, collection names, price history (poll and store), account data, cart or checkout. This API cannot buy or reserve anything.
 - Terms: Scavio does not store C&A Brasil data: each call fetches the public page at the moment the request asks for it and returns what it shows as JSON, with no response cache. C&A Brasil's terms of use cover how its site and content may be used; read the current terms for your use case and get your own advice. This is not legal advice.
 - Never fabricate prices, quantities, delivery options or pickup points. Only return what the API returned, with the `fetched_at` time.
 
 ## Failure handling
 
-- `400` means a missing or invalid parameter, and it is not charged: "product_id, sku, slug or url is required"; "Pass one of product_id, sku, slug or url (got ...)."; "query, category, brand or collection_id is required"; "Pass one of category, brand or collection_id (got ...)."; "category must be a category path of 1 to 3 levels as the site writes it (e.g. moda-feminina/roupas/blusas; categories[].path)."; "brand must be a brand value as the site writes it (facets: key marcas, e.g. palomino, clock-house)."; "collection_id must be a collection id (digits, e.g. 19727; items[].collection_ids)."; "cep must be a Brazilian CEP: 8 digits (e.g. 01310-100)."; "url must be a cea.com.br product link (https://www.cea.com.br/<slug>/p).".
+- `400` means a missing or invalid parameter, and it is not charged: "product_id, sku, slug or url is required"; "Pass one of product_id, sku, slug or url (got ...)."; "query, category, brand or collection_id is required"; "Pass one of category, brand or collection_id (got ...)."; "category must be a category path of 1 to 3 levels as the site writes it (e.g. moda-feminina/roupas/blusas; categories[].path)."; "brand must be a brand value as the site writes it (facets: key marcas, e.g. palomino, clock-house)."; "collection_id must be a collection id (digits, e.g. 19727; items[].collection_ids)."; "cep must be a Brazilian CEP: 8 digits (e.g. 01310-100)."; "url must be a cea.com.br product link (https://www.cea.com.br/<slug>/p)."; "product_id is required (the product id, items[].product_id, e.g. 4536055)."; "Pass rating or filter, not both.".
 - `401` means the API key is invalid or missing. Check `SCAVIO_API_KEY`.
 - `402` means the balance is out of credits. The body carries `billing_url`.
-- `404` means not found, and it is charged 1 credit: "C&A Brasil has no product for this id.", "C&A Brasil has no item with sku <sku> (sizes[].sku).". A search with no products is an empty `200`, not a `404`.
+- `404` means not found, and it is charged 1 credit: "C&A Brasil has no product for this id.", "C&A Brasil has no item with sku <sku> (sizes[].sku).", "C&A Brasil has no reviews page for product <id> (an unknown product id: pass items[].product_id, not a sku or reference)." Some unknown ids answer `200` with no reviews and zero counts (charged). A search with no products is an empty `200`, not a `404`.
 - `429` means rate or usage limit exceeded. Wait before retrying. See [rate limits](https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=cea-brasil-api).
 - `502` and `503` mean C&A Brasil data was temporarily unavailable ("C&A Brasil is temporarily unavailable. Please try again.", with `Retry-After` on a `503`). They are not charged, so retry after a few seconds.
-- Listings (search, category, brand, deals) are large: usually 5-100 seconds (in the captures 11-15 seconds); allow a client timeout of at least 240 seconds. Everything else usually takes 2-15 seconds; allow at least 120 seconds.
+- Listings (search, category, brand, deals) are large: usually 5-100 seconds (in the captures 11-15 seconds); allow a client timeout of at least 240 seconds. Reviews usually take 2-20 seconds; allow at least 180 seconds. Everything else usually takes 2-15 seconds; allow at least 120 seconds.
 - If `SCAVIO_API_KEY` is not set, prompt the user to export it before continuing.
 
 ## SDKs
 
 ```bash
-pip install scavio==0.105.0
-npm install scavio@0.106.0
+pip install scavio==0.106.0
+npm install scavio@0.107.0
 ```
 
 ```js
@@ -323,20 +386,21 @@ const { data: tree } = await scavio.cea.categories({});
 const { data: item } = await scavio.cea.product({ product_id: "4536055" });
 const { data: ship } = await scavio.cea.shipping({ sku: "6493983", cep: "01310-100" });
 const { data: stores } = await scavio.cea.stores({ cep: "01310-100" });
+const { data: reviews } = await scavio.cea.reviews({ product_id: "3700395", filter: "negative" });
 ```
 
-In Python (`from scavio import ScavioClient`, `client = ScavioClient()`) the same methods are `client.cea.search(...)`, `category`, `brand`, `deals`, `facets`, `suggestions`, `categories`, `product`, `shipping` and `stores`, with the same parameter names as keyword arguments.
+In Python (`from scavio import ScavioClient`, `client = ScavioClient()`) the same methods are `client.cea.search(...)`, `category`, `brand`, `deals`, `facets`, `suggestions`, `categories`, `product`, `shipping`, `stores` and `reviews`, with the same parameter names as keyword arguments.
 
 ## MCP
 
-The Scavio MCP server exposes all 10 endpoints as tools: `search_cea`, `get_cea_category`, `get_cea_brand`, `get_cea_deals`, `get_cea_facets`, `get_cea_suggestions`, `get_cea_categories`, `get_cea_product`, `get_cea_shipping` and `get_cea_stores`. C&A Brasil is opt-in: add `cea` to `SCAVIO_PLATFORMS`.
+The Scavio MCP server exposes all 11 endpoints as tools: `search_cea`, `get_cea_category`, `get_cea_brand`, `get_cea_deals`, `get_cea_facets`, `get_cea_suggestions`, `get_cea_categories`, `get_cea_product`, `get_cea_shipping`, `get_cea_stores` and `get_cea_reviews`. C&A Brasil is opt-in: add `cea` to `SCAVIO_PLATFORMS`.
 
 ```json
 {
   "mcpServers": {
     "scavio": {
       "command": "npx",
-      "args": ["-y", "@scavio/mcp-server@0.105.0"],
+      "args": ["-y", "@scavio/mcp-server@0.106.0"],
       "env": {
         "SCAVIO_API_KEY": "sk_live_your_key",
         "SCAVIO_PLATFORMS": "default,cea"
@@ -348,4 +412,4 @@ The Scavio MCP server exposes all 10 endpoints as tools: `search_cea`, `get_cea_
 
 ## Docs
 
-Full reference per endpoint: [search](https://scavio.dev/docs/cea-search?utm_source=agent-skills&utm_medium=skill&utm_campaign=cea-brasil-api), [category](https://scavio.dev/docs/cea-category?utm_source=agent-skills&utm_medium=skill&utm_campaign=cea-brasil-api), [brand](https://scavio.dev/docs/cea-brand?utm_source=agent-skills&utm_medium=skill&utm_campaign=cea-brasil-api), [deals](https://scavio.dev/docs/cea-deals?utm_source=agent-skills&utm_medium=skill&utm_campaign=cea-brasil-api), [facets](https://scavio.dev/docs/cea-facets?utm_source=agent-skills&utm_medium=skill&utm_campaign=cea-brasil-api), [suggestions](https://scavio.dev/docs/cea-suggestions?utm_source=agent-skills&utm_medium=skill&utm_campaign=cea-brasil-api), [categories](https://scavio.dev/docs/cea-categories?utm_source=agent-skills&utm_medium=skill&utm_campaign=cea-brasil-api), [product](https://scavio.dev/docs/cea-product?utm_source=agent-skills&utm_medium=skill&utm_campaign=cea-brasil-api), [shipping](https://scavio.dev/docs/cea-shipping?utm_source=agent-skills&utm_medium=skill&utm_campaign=cea-brasil-api), [stores](https://scavio.dev/docs/cea-stores?utm_source=agent-skills&utm_medium=skill&utm_campaign=cea-brasil-api). Platform page: [scavio.dev/cea-api](https://scavio.dev/cea-api?utm_source=agent-skills&utm_medium=skill&utm_campaign=cea-brasil-api).
+Full reference per endpoint: [search](https://scavio.dev/docs/cea-search?utm_source=agent-skills&utm_medium=skill&utm_campaign=cea-brasil-api), [category](https://scavio.dev/docs/cea-category?utm_source=agent-skills&utm_medium=skill&utm_campaign=cea-brasil-api), [brand](https://scavio.dev/docs/cea-brand?utm_source=agent-skills&utm_medium=skill&utm_campaign=cea-brasil-api), [deals](https://scavio.dev/docs/cea-deals?utm_source=agent-skills&utm_medium=skill&utm_campaign=cea-brasil-api), [facets](https://scavio.dev/docs/cea-facets?utm_source=agent-skills&utm_medium=skill&utm_campaign=cea-brasil-api), [suggestions](https://scavio.dev/docs/cea-suggestions?utm_source=agent-skills&utm_medium=skill&utm_campaign=cea-brasil-api), [categories](https://scavio.dev/docs/cea-categories?utm_source=agent-skills&utm_medium=skill&utm_campaign=cea-brasil-api), [product](https://scavio.dev/docs/cea-product?utm_source=agent-skills&utm_medium=skill&utm_campaign=cea-brasil-api), [shipping](https://scavio.dev/docs/cea-shipping?utm_source=agent-skills&utm_medium=skill&utm_campaign=cea-brasil-api), [stores](https://scavio.dev/docs/cea-stores?utm_source=agent-skills&utm_medium=skill&utm_campaign=cea-brasil-api), [reviews](https://scavio.dev/docs/cea-reviews?utm_source=agent-skills&utm_medium=skill&utm_campaign=cea-brasil-api). Platform page: [scavio.dev/cea-api](https://scavio.dev/cea-api?utm_source=agent-skills&utm_medium=skill&utm_campaign=cea-brasil-api).
