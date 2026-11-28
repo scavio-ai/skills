@@ -107,6 +107,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Etsy | [etsy-product-data](references/etsy-product-data.md) | 5 | 2 |
 | Fanatics | [fanatics-merchandise-api](references/fanatics-merchandise-api.md) | 5 | 1 |
 | Fashion Nova | [fashion-nova-api](references/fashion-nova-api.md) | 7 | 1 |
+| Ferguson | [ferguson-api](references/ferguson-api.md) | 3 | search and category 2; product 4 (2 when no price shown) |
 | Foot Locker | [foot-locker-api](references/foot-locker-api.md) | 10 | 1 |
 | Gap Inc. | [gap-old-navy-api](references/gap-old-navy-api.md) | 11 | 1 |
 | Global Industrial | [global-industrial-api](references/global-industrial-api.md) | 5 | 1 |
@@ -175,6 +176,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Spec's | [specs-liquor-prices](references/specs-liquor-prices.md) | 3 | 5 |
 | SportChek | [sportchek-api](references/sportchek-api.md) | 8 | 1 |
 | Staples | [staples-ink-prices-api](references/staples-ink-prices-api.md) | 12 | 1 |
+| SupplyHouse.com | [supplyhouse-api](references/supplyhouse-api.md) | 7 | 1 |
 | Sweetwater | [sweetwater-api](references/sweetwater-api.md) | 6 | 1 |
 | Target | [target-product-data](references/target-product-data.md) | 5 | 1 |
 | TCGplayer | [tcgplayer-api](references/tcgplayer-api.md) | 13 | 1 |

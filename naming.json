@@ -2579,6 +2579,30 @@
       "group": "Commerce",
       "endpoints": "4",
       "credits": "1"
+    },
+    {
+      "dir": "scavio-ferguson",
+      "slug": "ferguson-api",
+      "name": "ferguson-api",
+      "display": "Ferguson API - Plumbing, HVAC and Waterworks Products, Part Numbers, Specs, Prices",
+      "query": "ferguson",
+      "reused": "no",
+      "platform": "Ferguson",
+      "group": "Commerce",
+      "endpoints": "3",
+      "credits": "search and category 2; product 4 (2 when no price shown)"
+    },
+    {
+      "dir": "scavio-supplyhouse",
+      "slug": "supplyhouse-api",
+      "name": "supplyhouse-api",
+      "display": "SupplyHouse.com API - Plumbing and HVAC Supply Prices, Lead Times, Reviews, Q&A",
+      "query": "supplyhouse",
+      "reused": "no",
+      "platform": "SupplyHouse.com",
+      "group": "Commerce",
+      "endpoints": "7",
+      "credits": "1"
     }
   ],
   "frontmatter": [
@@ -3656,6 +3680,16 @@
       "dir": "scavio-liquidation",
       "description": "Liquidation.com API for Liquidation.com (liquidation.com, the US online liquidation auction site of Liquidity Services, where retailers, brands and marketplace sellers sell customer returns, overstock and shelf pulls by the package, pallet or truckload) - which auctions are open, what the current bid and minimum next bid are, what the seller states a lot is worth at retail, what the lot holds item by item, and what a seller's past lots closed at, as liquidation.com shows it to a visitor who is not signed in (on 2026-11-28 the search \"laptop\" matched 73 open auctions, the first a gaming PC lot of 7 items with a stated retail of 6,600 USD at a 3,000 USD opening bid; auction 21648824, a gaming PC lot of 4 returns from a marketplace seller in Ontario, CA, stood at 1,100 USD after 1 bid, minimum next bid 1,150 USD, 11% buyer's premium, its manifest 4 rows under 7 seller columns; seller Titan Electronics had 2,373 closed lots, one of 43 home items on 3 pallets closing at 455 USD after 40 bids) with current bid, sealed-bid flag, bids, watchers, views, close time, condition, packages, items and stated retail; search by keyword, category, lot size, condition, US region, auction type and seller, 27 a page (up to 100), sorted by close time, current bid, items or title; one open auction with buyer's premium, quantity, shipping terms and weights and the seller's statistics; the item manifest as the seller lists it; a seller's closed auctions with final bids. 4 endpoints, 1 credit each. USD and CAD (Brampton, ON); no bidder names; closed lots carry no close date.",
       "tags": "liquidation-com, liquidation, liquidation-api, liquidation-com-api, liquidity-services, liquidation-auctions, liquidation-lots, liquidation-pallets, liquidation-manifest, liquidation-closed-auctions, liquidation-final-bids, customer-returns, returns-pallets, overstock, shelf-pulls, salvage, wholesale-lots, pallet-auctions, truckload-auctions, b2b-auctions, resale, reseller-sourcing, bin-store-sourcing, amazon-returns, retail-returns, manifest, retail-value, current-bid, final-bid, buyers-premium, auction-monitoring, lot-tracking, price-monitoring, usd, cad, structured-data, json"
+    },
+    {
+      "dir": "scavio-ferguson",
+      "description": "Ferguson API for Ferguson (ferguson.com, the US plumbing, HVAC and waterworks distributor; US only, USD) - what a Ferguson item is, its Ferguson and manufacturer part numbers, UPC, specifications, certifications and spec sheets, how it is packaged, and the price ferguson.com shows for it to a visitor who is not signed in (on 2026-11-28 item 4606091, an FNW 1/2 in. brass full port press ball valve, read $33.24 each, list price $33.24, in inner packs of 40, cases of 80 and pallets of 2,800, Lead Law Compliant; the search \"pex tubing\" matched 253 products in 8 categories, Pipe & Tubing holding 158; the Tankless Water Heaters category held 138 products, 5 of the first 24 priced for signed-in customers only) with item number, part number, manufacturer part number, brand, collection, rating, unit of measure, variants and Ferguson's shipping flags; keyword search and category listings, 24 a page, best match or best selling (no prices in listings); one product with price, list price, price per unit, package quantities, variants, specs and documents. 3 endpoints: search and category 2 credits, product 4 (2 when the page names no price). Items priced for signed-in customers only answer price null; no store stock, reviews or questions.",
+      "tags": "ferguson, ferguson-com, ferguson-api, ferguson-search, ferguson-product, ferguson-category, ferguson-item-number, ferguson-part-number, ferguson-plumbing, ferguson-hvac, ferguson-waterworks, plumbing-supply, plumbing-supplies, plumbing-parts, hvac-supply, hvac-parts, waterworks, pipe-fittings, valves, ball-valves, pex, water-heaters, tankless-water-heaters, faucets, b2b-supply, procurement, purchasing, part-number-lookup, manufacturer-part-number, upc-lookup, specifications, spec-sheets, certifications, package-quantities, product-data, product-lookup, usd, structured-data, json"
+    },
+    {
+      "dir": "scavio-supplyhouse",
+      "description": "SupplyHouse.com API for SupplyHouse.com (supplyhouse.com, the US online plumbing, HVAC and electrical supply store; United States, USD) - what a fitting, igniter, circulator, valve or any SupplyHouse part costs today per piece and per box, its quantity-break prices, how many SupplyHouse has available, how many ship by which date from which warehouse, its specs and spec sheets, and what buyers rate and ask about it, as supplyhouse.com shows it to a visitor who is not signed in (on 2026-11-28 the Bluefin PXLE038 3/8 in. poly PEX crimp elbow read $0.62 each or $27.50 a box of 50, 1,919 available, 828 promised by Wed, Dec 2 and 1,091 by Thu, Dec 3 from 4 warehouses, rated 4.47 over 17 ratings; the search \"hot surface igniter\" matched 551 products, the first a Supco universal silicon nitride igniter at $21.77 with 2,705 available; the PEX Pipe Fittings category listed 19 subcategories; the PVI brand page 20 products; the Taco 007-F5 circulator had 77 questions; the menu listed 8 departments) with unit price, box price, box quantity, sale prices, quantity-break prices, stock status, Total Available, rating and key specs; keyword, part number or SKU search (a keyword the site sends to a category or product is followed), category pages (subcategories, sub-type groups or products) and brand listings, 48 a page, with facets; one product with lead times per warehouse, alternatives, accessories, specifications, documents and shipping dimensions; reviews and questions, 10 a page, newest first, no names; the top-level departments. 7 endpoints, 1 credit each. Hidden prices answer null; slow pages (allow 250 s); no ZIP delivery dates or price history.",
+      "tags": "supplyhouse, supplyhouse-com, supply-house, supplyhouse-api, supplyhouse-prices, supplyhouse-search, supplyhouse-product, supplyhouse-category, supplyhouse-brand, supplyhouse-reviews, supplyhouse-questions, supplyhouse-sku, plumbing-supply, plumbing-supplies, plumbing-parts, hvac-supply, hvac-parts, hvac-supplies, electrical-supplies, pex, pex-fittings, fittings, valves, circulators, igniters, water-heater-parts, boiler-parts, furnace-parts, b2b-prices, procurement, purchasing, part-number-lookup, unit-price, box-price, quantity-breaks, lead-times, warehouse-stock, total-available, product-reviews, product-questions, spec-sheets, product-data, us-retail, usd, structured-data, json"
     }
   ],
   "groups": [
