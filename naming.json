@@ -2495,6 +2495,42 @@
       "group": "Commerce",
       "endpoints": "7",
       "credits": "1"
+    },
+    {
+      "dir": "scavio-globalindustrial",
+      "slug": "global-industrial-api",
+      "name": "global-industrial-api",
+      "display": "Global Industrial API - Industrial and MRO Prices, Quantity Breaks, Lead Times, Clearance",
+      "query": "global industrial",
+      "reused": "no",
+      "platform": "Global Industrial",
+      "group": "Commerce",
+      "endpoints": "5",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-msc",
+      "slug": "msc-industrial-api",
+      "name": "msc-industrial-api",
+      "display": "MSC Industrial Supply API - Metalworking and MRO Web Prices, Order Minimums, Clearance, Locations",
+      "query": "msc industrial",
+      "reused": "no",
+      "platform": "MSC Industrial Supply",
+      "group": "Commerce",
+      "endpoints": "5",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-zoro",
+      "slug": "zoro-api",
+      "name": "zoro-api",
+      "display": "Zoro API - Industrial Supply Prices, Order Multiples, Availability, Reviews",
+      "query": "zoro",
+      "reused": "no",
+      "platform": "Zoro",
+      "group": "Commerce",
+      "endpoints": "6",
+      "credits": "1"
     }
   ],
   "frontmatter": [
@@ -3537,6 +3573,21 @@
       "dir": "scavio-petz",
       "description": "Petz API for Petz (petz.com.br, the Brazilian pet store of Grupo Petz Cobasi; Brazil only, BRL, Portuguese text) - what a bag of dog or cat food, a litter or any pet supply costs at Petz today in each size, what it costs on Assinatura Petz (the repeat-delivery subscription) and for Clubz loyalty members, how much stock the site shows, and which Petz store is open when, as petz.com.br shows it to a visitor who is not signed in (on 2026-11-27 Racao Selections For Pet for small adult dogs read R$ 46.39 against R$ 57.99 for 3 kg, R$ 107.99 for 10.1 kg and R$ 144.49 for 15 kg, each size with 100 or more units, rated 4.9 from 32 ratings; the search \"racao golden\" counted 72 products, Golden Special for adult dogs 15 kg at R$ 159.99 and R$ 143.99 on subscription; the store directory listed 269 stores, 128 in Sao Paulo state) with price, list price, discount, subscription price and discount, Clubz member price, EAN, stock units (capped at 100) and every size or variant with its own prices; keyword search, category and brand listings and the deals page (Promocoes) or a themed collection, 20 per page to page 50, sorted by relevance, price or newest; one product with specs, the rating summary with the count per star and the 3 latest reviews (no names), every size or variant with its own prices and stock; the store directory narrowed by state and city with address, phone, hours and the store pickup flag; one store with its Google Maps place id. 7 endpoints, 1 credit each. Search totals stop at 1,000; no per-store stock or prices, review paging, suggestions, Pix price, installments or shipping.",
       "tags": "petz, petz-com-br, petz-api, petz-brasil, petz-prices, petz-precos, petz-search, petz-busca, petz-product, petz-racao, petz-category, petz-brands, petz-marcas, petz-deals, petz-promocoes, petz-ofertas, petz-black-friday, petz-colecao, assinatura-petz, petz-subscription, petz-assinatura, clubz, petz-clubz, petz-stock, petz-estoque, petz-reviews, petz-avaliacoes, petz-stores, petz-lojas, petz-store-hours, petz-retire-na-loja, petz-pickup, grupo-petz-cobasi, pet-store, pet-shop, pet-food-prices, dog-food-prices, cat-food-prices, racao, pet-supplies, ean, brazil, brazil-ecommerce, brazilian-retail, brl, price-monitoring, structured-data, json"
+    },
+    {
+      "dir": "scavio-globalindustrial",
+      "description": "Global Industrial API for Global Industrial (globalindustrial.com, the US industrial-equipment and MRO supplier; Global Industrial Canada at globalindustrial.ca in CAD) - what a hand truck, drum truck, pallet jack, case of gloves or any industrial, MRO or facility item costs at Global Industrial today, per selling unit and per piece, with the site's quantity breaks, the price before a promotion or clearance, the lead time and the freight flag, as globalindustrial.com shows it to a visitor who is not signed in (on 2026-11-28 the Wesco Dispenser Truck 240083 for poly and fiber drums read $399.95, shipping in 15 business days by truck freight; a case of Ammex GWRBN industrial nitrile gloves, 10 boxes of 100, read $339.50 a case or $33.95 a box; a Metro stainless wire shelf truck in clearance showed \"See price in cart\" under the manufacturer's minimum advertised price policy; the Carts & Trucks clearance held 65 products; Global Industrial Canada listed its 5,500 lb manual pallet jack at CAD 409.95 against CAD 515) with price, price type (regular, promotional, clearance), was price, savings, pack quantity, unit price, quantity breaks, minimum and maximum order, availability text, lead time, LTL freight, free shipping, hazardous and non-returnable flags, rating, review count, highlights and variants; keyword, item number or manufacturer part number search (a keyword the site sends to a category or a product is followed), category listings grouped by product group, brand listings and the clearance section, up to 42 products per listing with the full total; one product with UNSPSC, distributor part number, specs with units, manuals and spec sheets. 5 endpoints, 1 credit each. msrp is not shown on the page and can sit below the price; MAP items carry no price; no sort, reviews text, questions, stock counts or price history.",
+      "tags": "global-industrial, globalindustrial, globalindustrial-com, globalindustrial-ca, global-industrial-api, global-industrial-canada, global-industrial-prices, global-industrial-search, global-industrial-product, global-industrial-category, global-industrial-brand, global-industrial-clearance, global-industrial-quantity-breaks, global-industrial-lead-time, industrial-supply, industrial-supplies, industrial-equipment, mro, mro-supplies, mro-prices, mro-price-monitoring, facility-supplies, material-handling, hand-trucks, drum-trucks, pallet-jacks, carts-and-trucks, shelving, safety-supplies, nitrile-gloves, janitorial-supplies, b2b-ecommerce, b2b-prices, procurement, purchasing, part-number-lookup, manufacturer-part-number, catalog-matching, unspsc, quantity-breaks, volume-pricing, case-price, unit-price, ltl-freight, map-pricing, price-monitoring, price-tracking, product-data, us-retail, usd, cad, structured-data, json"
+    },
+    {
+      "dir": "scavio-msc",
+      "description": "MSC Industrial Supply API for MSC Industrial Supply (mscdirect.com, the US metalworking and MRO distributor; United States, USD) - what a drill bit, end mill, abrasive, fastener or any MSC item costs today at MSC's Web Price, what the price is for (each or per 100), the price of one unit, the minimum order and the multiple MSC sells it in, as mscdirect.com shows it to a visitor who is not signed in (on 2026-11-28 the Hertel jobber length drill bit 1/8 inch, 118 degree, HSS, MSC# 71205678, read $1.53 each with a minimum order of 12 in multiples of 12, $18.36 for the minimum, in stock, rated 4.9 over 7 reviews, with 3 alternate MSC numbers listed; the drill bit search held 132,055 products, the Jobber Length Drill Bits category 51,048; the Clearance Specials list held 60 items, a 4 oz air tool lubricant at $14.99; MSC listed 63 locations, among them 2 customer fulfillment centers and 8 regional inventory centers) with Web Price, price unit, quantity the price is for, unit price, order unit, minimum order quantity, order multiple, minimum order price, availability, rating aggregate and alternate MSC numbers; keyword, manufacturer part number or MSC# search and category listings by navid, 24 per page to page 400, in MSC's 6 sorts (best match, price low to high and high to low, MSC#, rating), with category, brand, attribute and rating facets with counts; one product with Big Book page, specifications, country of origin, manuals and data sheets and the Prop 65 flag; the Clearance Specials and Web Specials lists; MSC's distribution, inventory and support locations with business phone numbers. 5 endpoints, 1 credit each. Product pages are slow (allow 300 s); no review text, account pricing, delivery estimates, per-branch stock or pickup branches.",
+      "tags": "msc, msc-industrial, msc-industrial-supply, mscdirect, mscdirect-com, msc-direct, msc-api, msc-industrial-api, msc-prices, msc-web-price, msc-search, msc-product, msc-category, msc-clearance, msc-clearance-specials, msc-web-specials, msc-locations, msc-big-book, msc-part-number, msc-number, metalworking, metalworking-supplies, cutting-tools, drill-bits, end-mills, taps, abrasives, fasteners, hand-tools, power-tools, measuring-tools, safety-supplies, mro, mro-supplies, mro-prices, mro-price-monitoring, industrial-supply, industrial-supplies, b2b-ecommerce, b2b-prices, procurement, purchasing, part-number-lookup, manufacturer-part-number, catalog-matching, order-multiple, minimum-order-quantity, unit-price, price-per-100, price-monitoring, price-tracking, product-data, us-retail, usd, structured-data, json"
+    },
+    {
+      "dir": "scavio-zoro",
+      "description": "Zoro API for Zoro (zoro.com, the US online industrial and business supply store, part of Grainger; United States, USD) - what a box of respirators, a pair of work gloves, safety glasses or any Zoro item costs today per selling unit, how many units it is sold in and what that multiple costs, its lead time and shipping limits, whether it is in stock, and what buyers rate it, as zoro.com shows it to a visitor who is not signed in (on 2026-11-28 the MCR Safety BearKat BK1 clear safety glasses, Zoro G2426514, read $1.39 each, sold in multiples of 12 for $16.68, in stock, rated 4.86 over 50 ratings with 98 percent recommending; the 3M Aura N95 flat-fold respirator, pack of 20, read $34.39 a pack in multiples of 12 packs, $412.68; the 3M N95 respirator search held 145 products, the Safety Glasses category 3,325 and the MCR Safety brand 2,901) with unit price, price unit (each, pack, pair), pack quantity, order multiple and its price, was price, key specs, lead time, drop-ship, LTL freight, freight cost, states Zoro does not ship to, discontinued and out-of-stock flags; keyword, part number or Zoro number search (a keyword Zoro sends to a category or brand is followed), category and brand listings, 36 per page to page 100, in Zoro's order; one product with UPC, manufacturer part number, every specification with country of origin, technical guides and variants with their prices; the availability status and delivery estimate; the rating summary and the first 5 reviews the page shows (no names). 6 endpoints, 1 credit each. Availability and reviews take 60-230 s; no stock counts, filters, suggestions, deeper review pages or price history.",
+      "tags": "zoro, zoro-com, zoro-api, zoro-tools, zoro-prices, zoro-search, zoro-product, zoro-category, zoro-brand, zoro-availability, zoro-in-stock, zoro-reviews, zoro-number, zoro-part-number, zoro-lead-time, zoro-order-multiple, industrial-supply, industrial-supplies, business-supplies, mro, mro-supplies, mro-prices, mro-price-monitoring, safety-supplies, ppe, respirators, n95, safety-glasses, work-gloves, janitorial-supplies, hand-tools, power-tools, fasteners, electrical-supplies, plumbing-supplies, b2b-ecommerce, b2b-prices, procurement, purchasing, part-number-lookup, manufacturer-part-number, upc-lookup, catalog-matching, order-multiple, unit-price, pack-price, ltl-freight, price-monitoring, price-tracking, product-data, product-reviews, us-retail, usd, structured-data, json"
     }
   ],
   "groups": [

@@ -108,6 +108,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Fashion Nova | [fashion-nova-api](references/fashion-nova-api.md) | 7 | 1 |
 | Foot Locker | [foot-locker-api](references/foot-locker-api.md) | 10 | 1 |
 | Gap Inc. | [gap-old-navy-api](references/gap-old-navy-api.md) | 11 | 1 |
+| Global Industrial | [global-industrial-api](references/global-industrial-api.md) | 5 | 1 |
 | Google Shopping | [google-shopping-api](references/google-shopping-api.md) | 3 | 1 |
 | H&M | [hm-api](references/hm-api.md) | 9 | 1; product 2 |
 | Harbor Freight | [harbor-freight-api](references/harbor-freight-api.md) | 7 | 1 |
@@ -137,6 +138,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Mercari | [mercari-api](references/mercari-api.md) | 11 | 1 |
 | Michaels | [michaels-craft-prices-api](references/michaels-craft-prices-api.md) | 11 | 2; category or deals with a /shop/ link or path 4 |
 | Micro Center | [micro-center-api](references/micro-center-api.md) | 3 | 2; stores 1 |
+| MSC Industrial Supply | [msc-industrial-api](references/msc-industrial-api.md) | 5 | 1 |
 | Natura | [natura-api](references/natura-api.md) | 7 | 1 |
 | Nellis Auction | [nellis-auction-api](references/nellis-auction-api.md) | 4 | 1 |
 | Netshoes | [netshoes-api](references/netshoes-api.md) | 11 | 1 |
@@ -191,6 +193,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | YesStyle | [yesstyle-api](references/yesstyle-api.md) | 9 | search, category, brand, deals, product 2; product with variants 3; reviews, suggestions, brands, markets 1 |
 | Zappos | [zappos-api](references/zappos-api.md) | 7 | 1 |
 | Zara | [zara-api](references/zara-api.md) | 12 | 2; some 4 or 6; cn 1 |
+| Zoro | [zoro-api](references/zoro-api.md) | 6 | 1 |
 
 **Social and video**
 
