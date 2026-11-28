@@ -14,7 +14,7 @@ metadata:
     homepage: https://scavio.dev/docs/kroger-search?utm_source=agent-skills&utm_medium=skill&utm_campaign=kroger-grocery-data
 ---
 
-# Kroger Grocery Data API - Search, Store Prices, Coupons, QFC + Fred Meyer
+# Kroger Grocery Data API - Store Prices, Coupons, QFC, Fred Meyer, Jay C
 
 Read grocery and general-merchandise data from four Kroger banners: Kroger (kroger.com), QFC (qfc.com, Washington and Oregon), Fred Meyer (fredmeyer.com, the Pacific Northwest and Alaska, with grocery plus general merchandise, apparel and home) and Jay C Food Stores (jaycfoods.com, southern Indiana). Search by keyword or open a category listing, read one product with nutrition, ingredients and allergens, list this week's digital deals and a store's digital coupons, and find stores near a ZIP code or a city. For one specific store's price, promotion, stock and aisle, pass up to 25 UPCs and a `store_id` to the prices endpoint. Every price is an integer number of cents (`price: 579` is $5.79). All 8 endpoints return structured JSON and cost 1 to 3 credits each.
 

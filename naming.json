@@ -1012,7 +1012,7 @@
       "dir": "scavio-kroger",
       "slug": "kroger-grocery-data",
       "name": "kroger-grocery-data",
-      "display": "Kroger Grocery Data API - Search, Store Prices, Coupons, QFC + Fred Meyer",
+      "display": "Kroger Grocery Data API - Store Prices, Coupons, QFC, Fred Meyer, Jay C",
       "query": "kroger grocery data",
       "reused": "no",
       "platform": "Kroger",
