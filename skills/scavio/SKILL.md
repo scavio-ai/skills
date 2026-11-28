@@ -138,6 +138,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Mark's | [marks-api](references/marks-api.md) | 8 | 1 |
 | McMaster-Carr | [mcmaster-carr-api](references/mcmaster-carr-api.md) | 3 | 1 |
 | Media Expert | [media-expert-api](references/media-expert-api.md) | 13 | 1; store-stock and categories 2, sorted or lazy lists 3 |
+| Meijer | [meijer-api](references/meijer-api.md) | 10 | 1 |
 | Menards | [menards-product-data](references/menards-product-data.md) | 3 | search 2; product 1, 2 with store_id; stores 1 |
 | Mercado Libre | [mercadolibre-product-data](references/mercadolibre-product-data.md) | 5 | 2; reviews 1 |
 | Mercari | [mercari-api](references/mercari-api.md) | 11 | 1 |

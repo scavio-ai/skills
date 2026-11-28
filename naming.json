@@ -2639,6 +2639,18 @@
       "group": "Commerce",
       "endpoints": "4",
       "credits": "2"
+    },
+    {
+      "dir": "scavio-meijer",
+      "slug": "meijer-api",
+      "name": "meijer-api",
+      "display": "Meijer API - Store Prices, Weekly Ad, mPerks Coupons, Aisles",
+      "query": "meijer",
+      "reused": "no",
+      "platform": "Meijer",
+      "group": "Commerce",
+      "endpoints": "10",
+      "credits": "1"
     }
   ],
   "frontmatter": [
@@ -3741,6 +3753,11 @@
       "dir": "scavio-rscomponents",
       "description": "RS Components API for RS Components (rs-online.com, RS Group's electronic and industrial component distributor; uk GBP, de EUR, au AUD) - which products match a keyword, manufacturer part number or RS stock number, what a part costs per unit and per pack at each quantity break, the price with VAT, how many the market's own warehouse holds and when each batch ships, its RoHS status, country of origin, datasheets and specs, as the market's site shows it to a visitor who is not signed in (on 2026-11-28 on uk.rs-online.com the search \"BC547\" matched 10 products; stock number 221-5535, the Texas Instruments NE555P timer, read 0.304 GBP a unit (0.365 with VAT) and 15.20 GBP a pack of 50, 0.233 GBP a unit from 1,000, 2,600 shipping from 2026-11-30 and 27,700 available across 3 scheduled shipments; the voltage regulators category held 7,928 products; the Texas Instruments brand page 10,427) with search, category and brand listings, 20 a page, unit price and pack price labelled, stock status, lifecycle and key specs, and the site's filters listed with counts; one product with price breaks, VAT-inclusive prices, availability and its ship-date schedule. 4 endpoints, 2 credits each. Stock differs per market; RS Americas (us.rs-online.com) is not covered; no sort, no alternative products.",
       "tags": "rs-components, rs-online, rs-online-com, rs-group, rs-components-api, rs-search, rs-product, rs-stock-number, rs-category, rs-brand, rs-prices, rs-stock, electronic-components, industrial-components, electronic-component-prices, component-prices, component-availability, component-stock, price-breaks, quantity-breaks, pack-price, unit-price, vat, ship-date, stock-per-market, mpn-lookup, manufacturer-part-number, part-number-lookup, bom, bom-pricing, procurement, purchasing, hardware-engineering, maintenance-supplies, semiconductors, transistors, rohs, country-of-origin, datasheets, gbp, eur, aud, structured-data, json"
+    },
+    {
+      "dir": "scavio-meijer",
+      "description": "Meijer API for Meijer (meijer.com, the Midwest grocery and general-merchandise chain - Michigan, Ohio, Indiana, Illinois, Kentucky, Wisconsin; US only, USD) - what an item costs at the Meijer store you choose, whether that store has it and in which aisle, what is on sale, what the store's weekly ad and mPerks coupons offer, as meijer.com shows them to a visitor who is not signed in (on 2026-11-28 Meijer Whole Milk, Gallon read $2.88 at Franklin IN, $2.99 at Jeffersonville IN and Cincinnati OH, $3.32 at Evergreen Park IL and $3.48 at Grand Rapids MI; at Jeffersonville it sat in aisle B-16-52-4, in stock; the Cincinnati weekly ad ran 35 pages with 339 offers; the Franklin store listed 425 mPerks coupons) with search by keyword or Meijer id (52 items on page 1, the next 48 on page 2), item lookup by Meijer id or UPC / EAN, department listings and deals collections (first 52 items with the total), the departments and collections, stores within 50 miles of a ZIP, one store's department hours and services, the weekly ad page by page, mPerks coupons (listed, never clipped) and an item's first page of reviews with the rating summary. 10 endpoints, 1 credit each. Nutrition and allergens are not on the page; no search suggestions, gas or prescription prices.",
+      "tags": "meijer, meijer-com, meijer-api, meijer-prices, meijer-store-prices, meijer-weekly-ad, meijer-ad, meijer-coupons, mperks, mperks-coupons, meijer-deals, meijer-sale, meijer-stores, meijer-store-hours, meijer-aisle, meijer-upc, meijer-reviews, grocery, grocery-prices, grocery-api, store-prices, price-per-store, weekly-ad, digital-coupons, aisle-location, store-stock, upc-lookup, ean-lookup, snap-eligible, wic-eligible, midwest, michigan, ohio, indiana, illinois, kentucky, wisconsin, product-data, price-monitoring, promotion-tracking, us-retail, usd, structured-data, json"
     }
   ],
   "groups": [
