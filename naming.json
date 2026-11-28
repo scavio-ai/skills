@@ -2531,6 +2531,54 @@
       "group": "Commerce",
       "endpoints": "6",
       "credits": "1"
+    },
+    {
+      "dir": "scavio-bstock",
+      "slug": "b-stock-api",
+      "name": "b-stock-api",
+      "display": "B-Stock API - Liquidation Lots, Current Bids, Retail Value, Manifest Previews",
+      "query": "b-stock",
+      "reused": "no",
+      "platform": "B-Stock",
+      "group": "Commerce",
+      "endpoints": "4",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-mcmaster",
+      "slug": "mcmaster-carr-api",
+      "name": "mcmaster-carr-api",
+      "display": "McMaster-Carr API - Industrial Parts Prices, Pack and Per-Piece Price, Specs",
+      "query": "mcmaster-carr",
+      "reused": "no",
+      "platform": "McMaster-Carr",
+      "group": "Commerce",
+      "endpoints": "3",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-sallybeauty",
+      "slug": "sally-beauty-api",
+      "name": "sally-beauty-api",
+      "display": "Sally Beauty API - Beauty Supply Prices, Online and Store Stock, CosmoProf, Reviews",
+      "query": "sally beauty",
+      "reused": "no",
+      "platform": "Sally Beauty",
+      "group": "Commerce",
+      "endpoints": "9",
+      "credits": "1"
+    },
+    {
+      "dir": "scavio-liquidation",
+      "slug": "liquidation-com-api",
+      "name": "liquidation-com-api",
+      "display": "Liquidation.com API - Auction Lots, Bids, Manifests, Closed Results",
+      "query": "liquidation.com",
+      "reused": "no",
+      "platform": "Liquidation.com",
+      "group": "Commerce",
+      "endpoints": "4",
+      "credits": "1"
     }
   ],
   "frontmatter": [
@@ -3588,6 +3636,26 @@
       "dir": "scavio-zoro",
       "description": "Zoro API for Zoro (zoro.com, the US online industrial and business supply store, part of Grainger; United States, USD) - what a box of respirators, a pair of work gloves, safety glasses or any Zoro item costs today per selling unit, how many units it is sold in and what that multiple costs, its lead time and shipping limits, whether it is in stock, and what buyers rate it, as zoro.com shows it to a visitor who is not signed in (on 2026-11-28 the MCR Safety BearKat BK1 clear safety glasses, Zoro G2426514, read $1.39 each, sold in multiples of 12 for $16.68, in stock, rated 4.86 over 50 ratings with 98 percent recommending; the 3M Aura N95 flat-fold respirator, pack of 20, read $34.39 a pack in multiples of 12 packs, $412.68; the 3M N95 respirator search held 145 products, the Safety Glasses category 3,325 and the MCR Safety brand 2,901) with unit price, price unit (each, pack, pair), pack quantity, order multiple and its price, was price, key specs, lead time, drop-ship, LTL freight, freight cost, states Zoro does not ship to, discontinued and out-of-stock flags; keyword, part number or Zoro number search (a keyword Zoro sends to a category or brand is followed), category and brand listings, 36 per page to page 100, in Zoro's order; one product with UPC, manufacturer part number, every specification with country of origin, technical guides and variants with their prices; the availability status and delivery estimate; the rating summary and the first 5 reviews the page shows (no names). 6 endpoints, 1 credit each. Availability and reviews take 60-230 s; no stock counts, filters, suggestions, deeper review pages or price history.",
       "tags": "zoro, zoro-com, zoro-api, zoro-tools, zoro-prices, zoro-search, zoro-product, zoro-category, zoro-brand, zoro-availability, zoro-in-stock, zoro-reviews, zoro-number, zoro-part-number, zoro-lead-time, zoro-order-multiple, industrial-supply, industrial-supplies, business-supplies, mro, mro-supplies, mro-prices, mro-price-monitoring, safety-supplies, ppe, respirators, n95, safety-glasses, work-gloves, janitorial-supplies, hand-tools, power-tools, fasteners, electrical-supplies, plumbing-supplies, b2b-ecommerce, b2b-prices, procurement, purchasing, part-number-lookup, manufacturer-part-number, upc-lookup, catalog-matching, order-multiple, unit-price, pack-price, ltl-freight, price-monitoring, price-tracking, product-data, product-reviews, us-retail, usd, structured-data, json"
+    },
+    {
+      "dir": "scavio-bstock",
+      "description": "B-Stock API for B-Stock (bstock.com, the liquidation marketplace where retailers and brands sell customer returns and overstock by the pallet or truckload) - which liquidation lots are open right now, what the current bid and next minimum bid are, what the seller states the lot is worth at retail, how many units and pallets it holds and where it ships from, as bstock.com shows it to a visitor who is not signed in (on 2026-11-28 the 37 storefronts with open listings held 735 lots; the search \"laptop\" matched 20 open lots, the first 8 Apple 16-inch MacBook Pro laptops at a 1,680 USD opening bid; a lot of 2 pallets of insulated work boots, 218 units with a stated retail value of 61,522 USD, stood at 1,508 USD after 21 bids, next minimum bid 1,533 USD, with 11 manifest rows) with current bid, bids, retail value, buy-now window, end time, condition, inventory type, categories, units, pallets, shipment type and location; search by keyword, storefront, category, subcategory, condition, inventory type, buying format, region, shipment type and manufacturer, up to 200 a call, sorted recommended, ending soonest or relevance; one lot with its auction state, shipping and the public manifest preview (the first 10 rows and the total); the storefronts and the search filters with their counts. 4 endpoints, 1 credit each. Open listings only: no closed or sold lots, final prices, full manifests or bidder data.",
+      "tags": "b-stock, bstock, bstock-com, b-stock-api, bstock-api, b-stock-auctions, b-stock-lots, b-stock-search, b-stock-lot, b-stock-manifest, b-stock-storefronts, b-stock-filters, liquidation, liquidation-lots, liquidation-auctions, liquidation-pallets, liquidation-marketplace, customer-returns, returns-pallets, overstock, shelf-pulls, wholesale-lots, pallet-auctions, truckload-auctions, b2b-auctions, resale, reseller-sourcing, bin-store-sourcing, amazon-returns, retail-returns, manifest, retail-value, current-bid, auction-monitoring, lot-tracking, price-monitoring, structured-data, json"
+    },
+    {
+      "dir": "scavio-mcmaster",
+      "description": "McMaster-Carr API for McMaster-Carr (mcmaster.com, the US industrial-supply catalog; United States, USD) - what a McMaster-Carr part costs today for one order unit, what that is per piece when it is sold in a pack, its quantity breaks, the delivery promise the page shows, its specifications and compliance details, and which parts a catalogue page lists with their prices, as mcmaster.com shows it to a visitor who is not signed in (on 2026-11-28 part 91251A540, a black-oxide alloy steel socket head screw 1/4\"-20 x 3/4\" long, read $12.42 per pack of 50, $0.25 per piece, US origin, \"Delivers Monday 3-5 pm\"; the search \"hose clamps\" opened Hose and Tube Clamps, 6,125 products in 39 product families, the first row a pack of 10 worm-drive clamps at $21.61, $2.16 per piece; the Worm-Drive Clamps family held 327 products; the catalogue's top level listed 27 categories) with price, price basis (Pkg. or Each), package quantity, package price, unit price, quantity breaks, discontinued and replacement part, specifications by group and compliance (country of origin, DFARS, ECCN, Schedule B, RoHS, REACH, USMCA); one part by part number or link; a keyword or category page with the part-number rows, product families with their counts and slugs, related categories and facets; the top-level categories. 3 endpoints, 1 credit each. McMaster-Carr part numbers only: no manufacturer part numbers, UPCs, reviews, stores or deals; large families can take up to about 4 minutes.",
+      "tags": "mcmaster-carr, mcmaster, mcmaster-com, mcmaster-carr-api, mcmaster-api, mcmaster-carr-prices, mcmaster-carr-part-number, mcmaster-part-lookup, mcmaster-search, mcmaster-product, mcmaster-categories, mcmaster-catalog, industrial-supply, industrial-supplies, industrial-parts, mro, mro-supplies, mro-prices, fasteners, screws, bolts, hose-clamps, fittings, bearings, hardware, raw-materials, b2b-prices, procurement, purchasing, part-number-lookup, pack-price, per-piece-price, unit-price, quantity-breaks, specifications, country-of-origin, rohs, reach, dfars, eccn, price-monitoring, price-tracking, product-data, usd, structured-data, json"
+    },
+    {
+      "dir": "scavio-sallybeauty",
+      "description": "Sally Beauty API for Sally Beauty (sallybeauty.com, the US and Canadian beauty supply chain; sallybeauty.ca in CAD) and CosmoProf (its professional beauty distributor, cosmoprofbeauty.com and cosmoprofbeauty.ca) - what a shampoo, hair color, nail polish, clipper or any Sally Beauty item costs today, its regular price and promotion, how many units the site can sell online, how many units each Sally Beauty store near a ZIP or postal code holds, and what buyers rate it, as the site shows it to a visitor who is not signed in (on 2026-11-28 ion Color Defense Sulfate Free Shampoo 10.5 oz, SBS-302313, read $9.59 against $11.99 with 20% off select hair care, 77,098 units online, in stock at 29 of the 30 Sally Beauty stores within 15 miles of 90012 with 8 units at the nearest; the search \"purple shampoo\" matched 107 products; the Hair Color category held 2,126 and the nails clearance 219; the brand directory listed 371 brands; a hair clipper, SBS-345331, averaged 3.97 over 113 reviews) with price, list price, price range across sizes, sale and clearance flags, promotions, rating and review count; keyword search, category and clearance listings, 24 a page, sorted and filtered by facet or price; one product with sizes, specs, the exact online units and shipping flags; store locations with hours; search box suggestions; reviews (the first 8 with totals and questions, no names). CosmoProf: catalogue facts with prices and stock null (licensed professionals only). 9 endpoints, 1 credit each. No UK or Ireland store, no price history.",
+      "tags": "sally-beauty, sallybeauty, sallybeauty-com, sallybeauty-ca, sally-beauty-api, sally-beauty-canada, sally-beauty-prices, sally-beauty-search, sally-beauty-product, sally-beauty-category, sally-beauty-clearance, sally-beauty-stores, sally-beauty-store-stock, sally-beauty-in-stock, sally-beauty-reviews, sally-beauty-brands, cosmoprof, cosmoprof-beauty, cosmoprofbeauty-com, cosmoprof-api, beauty-supply, beauty-supply-store, hair-care, hair-color, shampoo, nail-polish, nails, clippers, salon-supplies, beauty-prices, beauty-price-monitoring, store-stock, store-inventory, in-store-availability, online-stock, product-reviews, brand-directory, price-monitoring, price-tracking, product-data, us-retail, canada-retail, usd, cad, structured-data, json"
+    },
+    {
+      "dir": "scavio-liquidation",
+      "description": "Liquidation.com API for Liquidation.com (liquidation.com, the US online liquidation auction site of Liquidity Services, where retailers, brands and marketplace sellers sell customer returns, overstock and shelf pulls by the package, pallet or truckload) - which auctions are open, what the current bid and minimum next bid are, what the seller states a lot is worth at retail, what the lot holds item by item, and what a seller's past lots closed at, as liquidation.com shows it to a visitor who is not signed in (on 2026-11-28 the search \"laptop\" matched 73 open auctions, the first a gaming PC lot of 7 items with a stated retail of 6,600 USD at a 3,000 USD opening bid; auction 21648824, a gaming PC lot of 4 returns from a marketplace seller in Ontario, CA, stood at 1,100 USD after 1 bid, minimum next bid 1,150 USD, 11% buyer's premium, its manifest 4 rows under 7 seller columns; seller Titan Electronics had 2,373 closed lots, one of 43 home items on 3 pallets closing at 455 USD after 40 bids) with current bid, sealed-bid flag, bids, watchers, views, close time, condition, packages, items and stated retail; search by keyword, category, lot size, condition, US region, auction type and seller, 27 a page (up to 100), sorted by close time, current bid, items or title; one open auction with buyer's premium, quantity, shipping terms and weights and the seller's statistics; the item manifest as the seller lists it; a seller's closed auctions with final bids. 4 endpoints, 1 credit each. USD and CAD (Brampton, ON); no bidder names; closed lots carry no close date.",
+      "tags": "liquidation-com, liquidation, liquidation-api, liquidation-com-api, liquidity-services, liquidation-auctions, liquidation-lots, liquidation-pallets, liquidation-manifest, liquidation-closed-auctions, liquidation-final-bids, customer-returns, returns-pallets, overstock, shelf-pulls, salvage, wholesale-lots, pallet-auctions, truckload-auctions, b2b-auctions, resale, reseller-sourcing, bin-store-sourcing, amazon-returns, retail-returns, manifest, retail-value, current-bid, final-bid, buyers-premium, auction-monitoring, lot-tracking, price-monitoring, usd, cad, structured-data, json"
     }
   ],
   "groups": [

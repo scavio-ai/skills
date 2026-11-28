@@ -63,6 +63,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Atacadao | [atacadao-api](references/atacadao-api.md) | 10 | 1 |
 | Autotrader | [autotrader-api](references/autotrader-api.md) | 5 | 2 |
 | AutoZone | [autozone-api](references/autozone-api.md) | 12 | 1; br search, product and store-stock 2 |
+| B-Stock | [b-stock-api](references/b-stock-api.md) | 4 | 1 |
 | Barnes & Noble | [barnes-and-noble-api](references/barnes-and-noble-api.md) | 10 | 1 |
 | Bath & Body Works | [bath-and-body-works-api](references/bath-and-body-works-api.md) | 10 | 1 |
 | Bed Bath & Beyond | [bed-bath-and-beyond-api](references/bed-bath-and-beyond-api.md) | 9 | 1; search, category and deal lists 2 |
@@ -125,6 +126,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Kroger | [kroger-grocery-data](references/kroger-grocery-data.md) | 8 | 1; search and product 2, store prices 3 |
 | L.L.Bean | [llbean-api](references/llbean-api.md) | 11 | 1 |
 | Leroy Merlin | [leroy-merlin-api](references/leroy-merlin-api.md) | 13 | 1 in br; it 1-2, ro 1, es/pt/pl 2, fr 5 |
+| Liquidation.com | [liquidation-com-api](references/liquidation-com-api.md) | 4 | 1 |
 | Lojas Renner | [lojas-renner-api](references/lojas-renner-api.md) | 7 | 1 |
 | Lookfantastic | [lookfantastic-api](references/lookfantastic-api.md) | 7 | 1 |
 | Lowe's | [lowes-product-data](references/lowes-product-data.md) | 4 | 2; reviews 1 |
@@ -132,6 +134,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Magalu (Magazine Luiza) | [magalu-magazine-luiza-api](references/magalu-magazine-luiza-api.md) | 8 | 2 |
 | Maisons du Monde | [maisons-du-monde-api](references/maisons-du-monde-api.md) | 9 | 1 |
 | Mark's | [marks-api](references/marks-api.md) | 8 | 1 |
+| McMaster-Carr | [mcmaster-carr-api](references/mcmaster-carr-api.md) | 3 | 1 |
 | Media Expert | [media-expert-api](references/media-expert-api.md) | 13 | 1; store-stock and categories 2, sorted or lazy lists 3 |
 | Menards | [menards-product-data](references/menards-product-data.md) | 3 | search 2; product 1, 2 with store_id; stores 1 |
 | Mercado Libre | [mercadolibre-product-data](references/mercadolibre-product-data.md) | 5 | 2; reviews 1 |
@@ -165,6 +168,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | RockAuto | [rockauto-parts-api](references/rockauto-parts-api.md) | 11 | 1 |
 | RONA | [rona-api](references/rona-api.md) | 9 | prices, categories, stores, store 1; search, deals 2-3; category 1-3; product, stock 3 |
 | Saks Fifth Avenue | [saks-fifth-avenue-api](references/saks-fifth-avenue-api.md) | 9 | 2 |
+| Sally Beauty | [sally-beauty-api](references/sally-beauty-api.md) | 9 | 1 |
 | Sam's Club | [sams-club-product-data](references/sams-club-product-data.md) | 6 | 2; clubs 1 |
 | Sephora | [sephora-product-data](references/sephora-product-data.md) | 9 | US 1 (product 2); Canada 1 (product and offers 2) |
 | Space NK | [space-nk-api](references/space-nk-api.md) | 9 | 1; search, category, brand with full=true up to 5 |
