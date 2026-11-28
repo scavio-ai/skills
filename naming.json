@@ -2603,6 +2603,42 @@
       "group": "Commerce",
       "endpoints": "7",
       "credits": "1"
+    },
+    {
+      "dir": "scavio-digikey",
+      "slug": "digikey-api",
+      "name": "digikey-api",
+      "display": "DigiKey API - Electronic Component Prices, Price Breaks, Stock, Lead Times",
+      "query": "digikey",
+      "reused": "no",
+      "platform": "DigiKey",
+      "group": "Commerce",
+      "endpoints": "3",
+      "credits": "2; product by DigiKey part number 4"
+    },
+    {
+      "dir": "scavio-mouser",
+      "slug": "mouser-api",
+      "name": "mouser-api",
+      "display": "Mouser API - Electronic Component Prices, Stock, On-Order Dates, Lead Times",
+      "query": "mouser",
+      "reused": "no",
+      "platform": "Mouser Electronics",
+      "group": "Commerce",
+      "endpoints": "4",
+      "credits": "2"
+    },
+    {
+      "dir": "scavio-rscomponents",
+      "slug": "rs-components-api",
+      "name": "rs-components-api",
+      "display": "RS Components API - Component Prices, Pack Prices, Stock per Market",
+      "query": "rs components",
+      "reused": "no",
+      "platform": "RS Components",
+      "group": "Commerce",
+      "endpoints": "4",
+      "credits": "2"
     }
   ],
   "frontmatter": [
@@ -3690,6 +3726,21 @@
       "dir": "scavio-supplyhouse",
       "description": "SupplyHouse.com API for SupplyHouse.com (supplyhouse.com, the US online plumbing, HVAC and electrical supply store; United States, USD) - what a fitting, igniter, circulator, valve or any SupplyHouse part costs today per piece and per box, its quantity-break prices, how many SupplyHouse has available, how many ship by which date from which warehouse, its specs and spec sheets, and what buyers rate and ask about it, as supplyhouse.com shows it to a visitor who is not signed in (on 2026-11-28 the Bluefin PXLE038 3/8 in. poly PEX crimp elbow read $0.62 each or $27.50 a box of 50, 1,919 available, 828 promised by Wed, Dec 2 and 1,091 by Thu, Dec 3 from 4 warehouses, rated 4.47 over 17 ratings; the search \"hot surface igniter\" matched 551 products, the first a Supco universal silicon nitride igniter at $21.77 with 2,705 available; the PEX Pipe Fittings category listed 19 subcategories; the PVI brand page 20 products; the Taco 007-F5 circulator had 77 questions; the menu listed 8 departments) with unit price, box price, box quantity, sale prices, quantity-break prices, stock status, Total Available, rating and key specs; keyword, part number or SKU search (a keyword the site sends to a category or product is followed), category pages (subcategories, sub-type groups or products) and brand listings, 48 a page, with facets; one product with lead times per warehouse, alternatives, accessories, specifications, documents and shipping dimensions; reviews and questions, 10 a page, newest first, no names; the top-level departments. 7 endpoints, 1 credit each. Hidden prices answer null; slow pages (allow 250 s); no ZIP delivery dates or price history.",
       "tags": "supplyhouse, supplyhouse-com, supply-house, supplyhouse-api, supplyhouse-prices, supplyhouse-search, supplyhouse-product, supplyhouse-category, supplyhouse-brand, supplyhouse-reviews, supplyhouse-questions, supplyhouse-sku, plumbing-supply, plumbing-supplies, plumbing-parts, hvac-supply, hvac-parts, hvac-supplies, electrical-supplies, pex, pex-fittings, fittings, valves, circulators, igniters, water-heater-parts, boiler-parts, furnace-parts, b2b-prices, procurement, purchasing, part-number-lookup, unit-price, box-price, quantity-breaks, lead-times, warehouse-stock, total-available, product-reviews, product-questions, spec-sheets, product-data, us-retail, usd, structured-data, json"
+    },
+    {
+      "dir": "scavio-digikey",
+      "description": "DigiKey API for DigiKey (digikey.com, the electronic component distributor; us USD, ca CAD, de EUR) - which parts match a manufacturer or DigiKey part number, what a part costs at each quantity break per packaging, how many DigiKey has in stock, the manufacturer's standard lead time, its Part Status and its RoHS, REACH, MSL, ECCN and HTSUS classifications, as DigiKey lists them to a visitor who is not signed in (on 2026-11-28 DigiKey part number 497-1575-5-ND, STMicroelectronics LM317T, read 1.19 USD at 1 piece and 0.59215 USD at 1,000 in a tube, 101,976 in stock, Active, 30-week standard lead time, 9 substitutes listed by DigiKey; LM317 in the linear voltage regulator category with Manufacturer Texas Instruments and In Stock matched 62 parts) with exact part matches and the categories holding them, a leaf category's first 25 rows narrowed by DigiKey's own filters, one product with price breaks, minimum order and multiple, documents, related parts and substitutes, and the category tree with product counts. 3 endpoints, 2 credits each; a product looked up by DigiKey part number is held at 4. Stock is one number for every market; search serves us and de; later pages of a category are not offered.",
+      "tags": "digikey, digi-key, digikey-com, digikey-api, digikey-search, digikey-product, digikey-categories, digikey-part-number, digikey-prices, digikey-stock, electronic-components, electronic-component-prices, component-prices, component-availability, component-stock, price-breaks, quantity-breaks, lead-times, standard-lead-time, part-status, lifecycle-status, obsolete-parts, substitutes, mpn-lookup, manufacturer-part-number, part-number-lookup, bom, bom-pricing, procurement, purchasing, hardware-engineering, semiconductors, integrated-circuits, voltage-regulators, rohs, reach, eccn, htsus, datasheets, usd, cad, eur, structured-data, json"
+    },
+    {
+      "dir": "scavio-mouser",
+      "description": "Mouser Electronics API for Mouser Electronics (mouser.com, the electronic component distributor; us USD, uk GBP) - which parts match a keyword, manufacturer part number or Mouser part number, what a part costs at each quantity break per packaging, how many Mouser has in stock, how many are on order and when they are expected, the factory lead time, the lifecycle flag, the trade codes and country of origin, as the storefront shows them to a visitor who is not signed in (on 2026-11-28 the search \"LM7805\" matched 33 parts on 2 pages, one Texas Instruments LM7805S/NOPB with 66 in stock and 1,350 on order expected 2026-12-18 at 2.37 USD at 1 piece; Mouser part number 595-NE555P, the Texas Instruments NE555P timer, read 0.59 USD at 1 piece and 0.27 USD at 1,000, 67,171 in stock, 26-week factory lead time, made in Mexico, ECCN EAR99; the category tree listed 17 top-level categories and 300 subcategories) with search across the catalog or within a category, 25 parts a page; one part with the full price table, specifications, documents and compliance codes; the category tree; manufacturer profiles. 4 endpoints, 2 credits each. No sort, no similar parts; a Mouser part number with a \"/\" opens by the search row's link.",
+      "tags": "mouser, mouser-electronics, mouser-com, mouser-api, mouser-search, mouser-product, mouser-part-number, mouser-prices, mouser-stock, mouser-lead-time, mouser-categories, mouser-manufacturer, electronic-components, electronic-component-prices, component-prices, component-availability, component-stock, price-breaks, quantity-breaks, price-table, on-order, factory-lead-time, lead-times, lifecycle, end-of-life, mpn-lookup, manufacturer-part-number, part-number-lookup, bom, bom-pricing, procurement, purchasing, hardware-engineering, semiconductors, integrated-circuits, eccn, hts-codes, country-of-origin, datasheets, usd, gbp, structured-data, json"
+    },
+    {
+      "dir": "scavio-rscomponents",
+      "description": "RS Components API for RS Components (rs-online.com, RS Group's electronic and industrial component distributor; uk GBP, de EUR, au AUD) - which products match a keyword, manufacturer part number or RS stock number, what a part costs per unit and per pack at each quantity break, the price with VAT, how many the market's own warehouse holds and when each batch ships, its RoHS status, country of origin, datasheets and specs, as the market's site shows it to a visitor who is not signed in (on 2026-11-28 on uk.rs-online.com the search \"BC547\" matched 10 products; stock number 221-5535, the Texas Instruments NE555P timer, read 0.304 GBP a unit (0.365 with VAT) and 15.20 GBP a pack of 50, 0.233 GBP a unit from 1,000, 2,600 shipping from 2026-11-30 and 27,700 available across 3 scheduled shipments; the voltage regulators category held 7,928 products; the Texas Instruments brand page 10,427) with search, category and brand listings, 20 a page, unit price and pack price labelled, stock status, lifecycle and key specs, and the site's filters listed with counts; one product with price breaks, VAT-inclusive prices, availability and its ship-date schedule. 4 endpoints, 2 credits each. Stock differs per market; RS Americas (us.rs-online.com) is not covered; no sort, no alternative products.",
+      "tags": "rs-components, rs-online, rs-online-com, rs-group, rs-components-api, rs-search, rs-product, rs-stock-number, rs-category, rs-brand, rs-prices, rs-stock, electronic-components, industrial-components, electronic-component-prices, component-prices, component-availability, component-stock, price-breaks, quantity-breaks, pack-price, unit-price, vat, ship-date, stock-per-market, mpn-lookup, manufacturer-part-number, part-number-lookup, bom, bom-pricing, procurement, purchasing, hardware-engineering, maintenance-supplies, semiconductors, transistors, rohs, country-of-origin, datasheets, gbp, eur, aud, structured-data, json"
     }
   ],
   "groups": [

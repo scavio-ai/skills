@@ -94,6 +94,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Depop | [depop-api](references/depop-api.md) | 14 | 1; product 2 outside the US; nz 5, product 6 |
 | Dermstore | [dermstore-skincare-prices-api](references/dermstore-skincare-prices-api.md) | 7 | 1 |
 | Dick's Sporting Goods | [dicks-sporting-goods-api](references/dicks-sporting-goods-api.md) | 9 | 1; product, reviews 2 |
+| DigiKey | [digikey-api](references/digikey-api.md) | 3 | 2; product by DigiKey part number 4 |
 | Discount Tire | [discount-tire-prices-api](references/discount-tire-prices-api.md) | 15 | 1 |
 | Dollar General | [dollar-general-api](references/dollar-general-api.md) | 5 | 1 |
 | Dollar Tree | [dollar-tree-bulk-prices-api](references/dollar-tree-bulk-prices-api.md) | 10 | 1; stores 5 |
@@ -142,6 +143,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Mercari | [mercari-api](references/mercari-api.md) | 11 | 1 |
 | Michaels | [michaels-craft-prices-api](references/michaels-craft-prices-api.md) | 11 | 2; category or deals with a /shop/ link or path 4 |
 | Micro Center | [micro-center-api](references/micro-center-api.md) | 3 | 2; stores 1 |
+| Mouser Electronics | [mouser-api](references/mouser-api.md) | 4 | 2 |
 | MSC Industrial Supply | [msc-industrial-api](references/msc-industrial-api.md) | 5 | 1 |
 | Natura | [natura-api](references/natura-api.md) | 7 | 1 |
 | Nellis Auction | [nellis-auction-api](references/nellis-auction-api.md) | 4 | 1 |
@@ -168,6 +170,7 @@ Each row is one reference file. Open it before the first call to that platform. 
 | Riachuelo | [riachuelo-api](references/riachuelo-api.md) | 4 | 1 |
 | RockAuto | [rockauto-parts-api](references/rockauto-parts-api.md) | 11 | 1 |
 | RONA | [rona-api](references/rona-api.md) | 9 | prices, categories, stores, store 1; search, deals 2-3; category 1-3; product, stock 3 |
+| RS Components | [rs-components-api](references/rs-components-api.md) | 4 | 2 |
 | Saks Fifth Avenue | [saks-fifth-avenue-api](references/saks-fifth-avenue-api.md) | 9 | 2 |
 | Sally Beauty | [sally-beauty-api](references/sally-beauty-api.md) | 9 | 1 |
 | Sam's Club | [sams-club-product-data](references/sams-club-product-data.md) | 6 | 2; clubs 1 |
