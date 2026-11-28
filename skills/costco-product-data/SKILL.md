@@ -1,6 +1,6 @@
 ---
 name: costco-product-data
-description: "Costco product data API: search and category listings with per-warehouse shelf price and stock, full item detail for up to 20 items, online vs in-warehouse prices at up to 10 warehouses with promotion dates, warehouse stock status, gas prices, the member coupon book, deal feeds, a clearance finder and reviews. 13 endpoints, mostly 1 credit each."
+description: "Costco product data API: search and category listings with per-warehouse shelf price and stock, full item detail for up to 20 items with live online (ship-to-home) stock, online vs in-warehouse prices at up to 10 warehouses with promotion dates, warehouse stock status, gas prices, the member coupon book, deal feeds, a clearance finder and reviews. 13 endpoints, mostly 1 credit each."
 version: 1.0.0
 tags: costco, costco-api, costco-product-data, product-data, product-search, retail, warehouse-club, warehouse-prices, gas-prices, coupons, clearance, pricing, product-reviews, price-monitoring, catalog-enrichment, langchain, crewai, ai-agents, structured-data, json
 metadata:
@@ -25,6 +25,7 @@ Use this skill when the user asks to:
 - Look up a Costco item by item number, product id or a pasted `costco.com` product URL
 - Compare the online price with the in-warehouse price at one or more Costco warehouses
 - Check whether a warehouse has an item in stock, or offers pickup or same-day delivery for it
+- Check whether costco.com or costco.ca has an item in stock online for delivery to a ZIP, including limited drops that search does not return, or watch item numbers for an online restock
 - Find Costco warehouses near a zip code or coordinates, with hours, departments and services
 - Get current regular, premium and diesel prices at Costco gas stations
 - Read the current Costco member coupon book, or the new, treasure hunt, while-supplies-last and on-sale deal feeds
@@ -69,7 +70,7 @@ Base URL: `https://api.scavio.dev`. Most Costco endpoints cost **1 credit**; US 
 | `POST /api/v1/costco/search` | 2 on `us` (1 on `ca` and the other countries) | Keyword or item-number results: online and original price, rating, member-only and stock flags, promotions, facets. With `warehouse_id`, each row adds that warehouse's shelf price, stock and price code |
 | `POST /api/v1/costco/category` | 2 on `us` (1 on `ca`) | Products in a category, same filters and row shape as search |
 | `POST /api/v1/costco/categories` | 1 | The department list, or the full subcategory tree under one department |
-| `POST /api/v1/costco/product` | 1 (1-20 ids) | Full detail for up to 20 items: description, features, specifications, variants, purchase limits, delivery fee, promotions with start and end dates |
+| `POST /api/v1/costco/product` | 1 (1-20 ids); with `include_online_stock` 1 per 5 lookups counting the product call (1-4 ids = 1, 20 = 5) | Full detail for up to 20 items: description, features, specifications, variants, purchase limits, delivery fee, promotions with start and end dates. With `include_online_stock`, each item's live ship-to-home stock and estimated delivery date |
 | `POST /api/v1/costco/prices` | 1 for 1-9 warehouses, 2 for 10 | Online price vs in-warehouse price per warehouse: discount, final price, promotion dates, per-order and per-member limits, price code |
 | `POST /api/v1/costco/availability` | 1 per 5 warehouses | In-warehouse stock status for one item at up to 10 warehouses, plus pickup and same-day delivery |
 | `POST /api/v1/costco/reviews` | 1 per page | Review bodies with the rating distribution and recommend count; sort, star filter, up to 100 per page |
@@ -86,7 +87,7 @@ Base URL: `https://api.scavio.dev`. Most Costco endpoints cost **1 credit**; US 
 
 1. **Find a warehouse:** call `/costco/warehouses` with `zip` (US) or `latitude` + `longitude`. Read `warehouses[].warehouse_id` (e.g. `1062`). `/costco/autocomplete` also resolves a town name to warehouses.
 2. **Find items:** call `/costco/search` with `query` (or `/costco/category` with a `slug` from `/costco/categories`). Pass `warehouse_id` to get that warehouse's shelf price and stock on every row at no extra cost (2 credits on `us`, 1 on `ca`).
-3. **Item detail:** call `/costco/product` with `item_id`, or up to 20 at once with `item_ids`.
+3. **Item detail:** call `/costco/product` with `item_id`, or up to 20 at once with `item_ids`. Add `include_online_stock: true` and the shopper's `zip` for live online stock; this is the only way to read online stock, and it works for item numbers search does not return.
 4. **Price across warehouses:** call `/costco/prices` with the item and `warehouse_ids` (up to 10). The online price is always included.
 5. **Stock:** call `/costco/availability` with `item_number` and `warehouse_ids`.
 6. **Reviews:** call `/costco/reviews` with `product_id` - the costco.com page id, not the item number.
@@ -137,6 +138,8 @@ On `uk`, `au`, `mx`, `jp`, `kr` and `tw`, sending `warehouse_id`, `brands`, a pr
 | `item_id` | string | one of | Item number, product id, or a costco.com product URL |
 | `item_ids` | string[] | one of | Up to 20 ids in one call, mixed forms allowed (us and ca only) |
 | `country` | string | `us` | `us`, `ca`, `uk`, `au`, `mx`, `jp`, `kr`, `tw`. Outside us/ca, one id per call |
+| `include_online_stock` | boolean | `false` | Adds `online_stock` to every product (us and ca only) |
+| `zip` | string | `98101` (us), `M5V 2T6` (ca) | Delivery destination for `include_online_stock`: 5-digit US ZIP, or a Canadian postal code with `country: "ca"`. Stock is answered per region, so pass the shopper's ZIP |
 
 ### Prices (`/prices`)
 
@@ -265,7 +268,7 @@ Every response uses the envelope `{ data, response_time, fetched_at, credits_use
 
 - **search / category / deals** - `country`, `query`, `category`, `redirected_to_category`, `corrected_query`, `warehouse_id`, `total_results`, `page`, `page_size`, `total_pages`, `count`, `results[]`, `facets[]` (deals also `type`).
   A row: `position`, `product_id`, `item_number`, `title`, `brand`, `categories`, `url`, `image`, `rating`, `reviews_count`, `price`, `original_price`, `on_sale`, `currency`, `delivery_availability`, `promotions`, `member_only`, `buyable`, `fsa_eligible`, `sold_in_warehouse`, `max_order_quantity`, `program_types`, `first_listed`, `variants_count`, and with `warehouse_id` a `warehouse` object (`warehouse_id`, `price`, `availability`, `price_code` {`ending`, `meaning`}).
-- **product** - `country`, `count`, `not_found[]`, `products[]` (`product_id`, `item_number`, `id`, `title`, `url`, `image`, `description`, `features[]`, `specifications[]` {`name`, `value`}, `rating`, `reviews_count`, `price`, `currency`, `delivery_fee`, `promotions[]`, `member_only`, `buyable`, `fsa_eligible`, `limit_one_per_order`, `min_order_quantity`, `max_order_quantity`, `reviews_eligible`, `department`, `program_types`, `first_listed`, `variants[]`).
+- **product** - `country`, `count`, `not_found[]`, `products[]` (`product_id`, `item_number`, `id`, `title`, `url`, `image`, `description`, `features[]`, `specifications[]` {`name`, `value`}, `rating`, `reviews_count`, `price`, `currency`, `delivery_fee`, `promotions[]`, `member_only`, `buyable`, `fsa_eligible`, `limit_one_per_order`, `min_order_quantity`, `max_order_quantity`, `reviews_eligible`, `department`, `program_types`, `first_listed`, `variants[]`). With `include_online_stock`: each product adds `online_stock` {`status`, `available_for_sale`, `estimated_delivery_date`, `ship_from`, `fulfillment_type`} (null if that lookup failed), and `data` adds `online_stock_destination` {`country`, `zip`, `state`} and, only when some lookups failed, `warnings[]`. `status` is `in_stock`, `low_stock`, `out_of_stock`, `back_order`, `presell`, `ship_restricted`, or `no_record` when Costco keeps no online record of the item number.
 - **prices** - `country`, `count`, `items[]` (`item_number`, `found`, `online` {`price`, `discount`, `final_price`, `currency`, `promotions[]`}, `warehouses[]` {`warehouse_id`, `available`, `price`, `discount`, `final_price`, `currency`, `promotions[]`, `price_code`}). A promotion: `promotion_id`, `type`, `amount_off`, `start_date`, `end_date`, `order_limit`, `member_limit`, `text`.
 - **availability** - `item_number`, `count`, `warehouses[]` (`warehouse_id`, `in_warehouse`, `channels` {`in_warehouse`, `warehouse_pickup`, `same_day_delivery`}, each with `status`). Status values: `in_stock`, `low_stock`, `out_of_stock`, `not_available`, and `no_record` when Costco keeps no stock record for the item at that warehouse (common for warehouse-only items; `channels` is then `{}`).
 - **reviews** - `product_id`, `product_title`, `rating` {`average`, `count`, `recommended_count`, `distribution`}, `total_results`, `page`, `limit`, `total_pages`, `count`, `reviews[]` (`review_id`, `rating`, `title`, `text`, `author`, `location`, `submitted_at`, `recommended`, `verified_purchaser`, `helpful_votes`, `not_helpful_votes`, `photos`, `language`, `syndicated`).
@@ -342,6 +345,24 @@ A search row with `warehouse_id` (captured, "olive oil" at warehouse 1062):
 }
 ```
 
+A product with online stock (captured 2026-11-28, item 2007497 for ZIP 47274; a limited drop that search does not return; fields trimmed):
+
+```json
+{
+  "item_number": "2007497",
+  "title": "Pokémon TCG: 30th Celebration Elite Trainer Box and Booster Bundle, 2-pack",
+  "price": 125.99,
+  "buyable": true,
+  "online_stock": {
+    "status": "in_stock",
+    "available_for_sale": true,
+    "estimated_delivery_date": "2026-12-02",
+    "ship_from": "758-WM",
+    "fulfillment_type": "depot"
+  }
+}
+```
+
 ### Price codes
 
 `price_code` reads the cents of the warehouse shelf price: `99` regular_price, `97` clearance, `00` and `88` manager_markdown, `49`/`79`/`89` special_buy, anything else `other`. It is the decode Costco members use for shelf tags; Costco does not publish it, so treat it as a strong hint, not a guarantee. It is computed from the warehouse price only, never the online price.
@@ -350,6 +371,8 @@ A search row with `warehouse_id` (captured, "olive oil" at warehouse 1062):
 
 - `price` on search rows and `online` on prices is the costco.com (or costco.ca) online price. The warehouse shelf price is `warehouse.price` / `warehouses[].price`, and it is often lower. Never present one as the other.
 - Availability is a status per warehouse (`in_stock`, `low_stock`, `out_of_stock`, `not_available`, `no_record`), never a quantity. Do not invent unit counts. `no_record` is not out of stock: say Costco has no stock data for it there, and use `/costco/prices` to check whether that warehouse prices the item.
+- For online (ship-to-home) stock, use `/costco/product` with `include_online_stock`. `buyable` on product is a catalog setting (the item is set up for online sale), not stock. On search, category and deals, `delivery_availability` and `buyable` follow the warehouse in the request (`warehouse_id`, else a default warehouse), not online stock, and some online-only items do not appear in search at all. Never report either as online stock.
+- `online_stock.status` `no_record` means Costco has no online record of that item number (warehouse-only, or an unknown id); it is not out of stock. Stock is per item number: for a product with several variants, pass the variant's `item_number`. An in-stock item can have a null `estimated_delivery_date` when it does not ship by standard parcel.
 - Clearance covers only items Costco lists online; warehouse-only items with no costco.com page cannot appear. A clearance item can already be `out_of_stock` at that warehouse - report `warehouse.availability` with it.
 - `special_buy` endings are common on regular grocery prices, so they are off by default in clearance. Add them only when the user asks.
 - Reviews take `product_id`, which is a different number from the item number. Get it from search or product first.
@@ -360,12 +383,12 @@ A search row with `warehouse_id` (captured, "olive oil" at warehouse 1062):
 
 ## Failure handling
 
-- `400` means an invalid or missing parameter (no `query`, `in_warehouse` without `warehouse_id`, more than 10 `warehouse_ids`, a us/ca-only filter on another country, an unknown US zip) - fix the body and retry.
+- `400` means an invalid or missing parameter (no `query`, `in_warehouse` without `warehouse_id`, more than 10 `warehouse_ids`, a us/ca-only filter on another country, an unknown US zip, `zip` on product without `include_online_stock`, or a PO-box-only ZIP such as 05501 for online stock) - fix the body and retry.
 - `401` means the API key is invalid or missing. Check `SCAVIO_API_KEY`.
 - `402` means the balance is out of credits. The body carries `billing_url`.
 - `404` on `/product` means none of the ids matched anything; that call is billed. When some ids match, the rest are listed in `not_found[]` and the call succeeds.
 - `429` means rate or usage limit exceeded. Wait before retrying. See [rate limits](https://scavio.dev/docs/rate-limits?utm_source=agent-skills&utm_medium=skill&utm_campaign=costco-product-data).
-- `502` / `503` mean Costco data is temporarily unavailable - wait a few seconds and retry, up to a few times.
+- `502` / `503` mean Costco data is temporarily unavailable - wait a few seconds and retry, up to a few times. With `include_online_stock`, a `502` means every online-stock lookup failed (not billed); when only some fail, the call succeeds, those products carry `online_stock: null` and `warnings[]` names them - retry just those.
 - If search returns nothing, drop the filters or try broader keywords.
 - If `SCAVIO_API_KEY` is not set, prompt the user to export it before continuing.
 

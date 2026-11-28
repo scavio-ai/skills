@@ -2694,7 +2694,7 @@
     },
     {
       "dir": "scavio-costco",
-      "description": "Costco product data API: search and category listings with per-warehouse shelf price and stock, full item detail for up to 20 items, online vs in-warehouse prices at up to 10 warehouses with promotion dates, warehouse stock status, gas prices, the member coupon book, deal feeds, a clearance finder and reviews. 13 endpoints, mostly 1 credit each.",
+      "description": "Costco product data API: search and category listings with per-warehouse shelf price and stock, full item detail for up to 20 items with live online (ship-to-home) stock, online vs in-warehouse prices at up to 10 warehouses with promotion dates, warehouse stock status, gas prices, the member coupon book, deal feeds, a clearance finder and reviews. 13 endpoints, mostly 1 credit each.",
       "tags": "costco, costco-api, costco-product-data, product-data, product-search, retail, warehouse-club, warehouse-prices, gas-prices, coupons, clearance, pricing, product-reviews, price-monitoring, catalog-enrichment, langchain, crewai, ai-agents, structured-data, json"
     },
     {
